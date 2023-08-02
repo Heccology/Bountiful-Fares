@@ -1,0 +1,6 @@
+{
+	"parent": "bountifulcuisine:block/template_fruit_wood",
+	"textures": {
+		"all": "bountifulcuisine:block/orange_log"
+	}
+}

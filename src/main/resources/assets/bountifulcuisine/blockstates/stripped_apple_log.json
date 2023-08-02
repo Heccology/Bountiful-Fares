@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "bountifulcuisine:block/stripped_apple_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "bountifulcuisine:block/stripped_apple_log"
+    },
+    "axis=z": {
+      "model": "bountifulcuisine:block/stripped_apple_log",
+      "x": 90
+    }
+  }
+}

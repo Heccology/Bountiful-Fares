@@ -1,0 +1,20 @@
+{
+  "itemgroup.bountiful_cuisine": "Bountiful Cuisine",
+
+
+  "block.bountifulcuisine.apple_log": "Apple Log",
+  "block.bountifulcuisine.stripped_apple_log": "Stripped Apple Log",
+  "block.bountifulcuisine.apple_wood": "Apple Wood",
+  "block.bountifulcuisine.stripped_apple_wood": "Stripped Apple Wood",
+  "block.bountifulcuisine.apple_leaves": "Apple Leaves",
+  "block.bountifulcuisine.blossoming_apple_leaves": "Blossoming Apple Leaves",
+  "block.bountifulcuisine.apple_sapling": "Apple Sapling",
+  "block.bountifulcuisine.orange_log": "Orange Log",
+  "block.bountifulcuisine.stripped_orange_log": "Stripped Orange Log",
+  "block.bountifulcuisine.orange_wood": "Orange Wood",
+  "block.bountifulcuisine.stripped_orange_wood": "Stripped Orange Wood",
+  "block.bountifulcuisine.orange_leaves": "Orange Leaves",
+  "block.bountifulcuisine.blossoming_orange_leaves": "Blossoming Orange Leaves",
+  "item.bountifulcuisine.orange": "Orange",
+  "block.bountifulcuisine.orange_sapling": "Orange Sapling"
+}

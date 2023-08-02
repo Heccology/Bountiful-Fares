@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "bountifulcuisine",
+	"version": "${version}",
+	"name": "Bountiful Cuisine",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Hecco"
+	],
+	"contact": {
+		"homepage": "https://twitter.com/hecco",
+		"sources": ""
+	},
+	"license": "MIT License",
+	"icon": "assets/bountifulcuisine/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.hecco.bountifulcuisine.BountifulCuisine"
+		],
+		"client": [
+			"net.hecco.bountifulcuisine.BountifulCuisineClient"
+		]
+	},
+	"mixins": [
+		"bountifulcuisine.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
