@@ -39,6 +39,14 @@ public class ModItemGroups {
                         entries.add(ModBlocks.BLOSSOMING_LEMON_LEAVES);
                         entries.add(ModItems.LEMON);
                         entries.add(ModBlocks.LEMON_SAPLING);
+                        entries.add(ModBlocks.PLUM_LOG);
+                        entries.add(ModBlocks.PLUM_WOOD);
+                        entries.add(ModBlocks.STRIPPED_PLUM_LOG);
+                        entries.add(ModBlocks.STRIPPED_PLUM_WOOD);
+                        entries.add(ModBlocks.PLUM_LEAVES);
+                        entries.add(ModBlocks.BLOSSOMING_PLUM_LEAVES);
+                        entries.add(ModItems.PLUM);
+                        entries.add(ModBlocks.PLUM_SAPLING);
                         entries.add(ModItems.CITRUS_JUICE_BOTTLE);
                         entries.add(ModItems.CITRIC_ACID);
                         entries.add(ModItems.CANDIED_ORANGE);

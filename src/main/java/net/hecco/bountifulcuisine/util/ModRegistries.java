@@ -10,5 +10,8 @@ public class ModRegistries {
 
     public static void registerStrippables() {
         StrippableBlockRegistry.register(ModBlocks.APPLE_LOG, ModBlocks.STRIPPED_APPLE_LOG);
+        StrippableBlockRegistry.register(ModBlocks.ORANGE_LOG, ModBlocks.STRIPPED_ORANGE_LOG);
+        StrippableBlockRegistry.register(ModBlocks.LEMON_LOG, ModBlocks.STRIPPED_LEMON_LOG);
+        StrippableBlockRegistry.register(ModBlocks.PLUM_LOG, ModBlocks.STRIPPED_PLUM_LOG);
     }
 }
