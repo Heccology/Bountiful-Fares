@@ -28,8 +28,8 @@ public class HangingLemonBlock extends HangingFruitBlock{
     private static final VoxelShape[] SHAPES = new VoxelShape[]{Block.createCuboidShape(7, 13, 7, 9, 16, 9),
             Block.createCuboidShape(6, 13, 6, 10, 16, 10),
             Block.createCuboidShape(6.5, 13, 6.5, 9.5, 16, 9.5),
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(5.5, 10, 5.5, 10.5, 15, 10.5), Block.createCuboidShape(7, 15, 7, 9, 16, 9), BooleanBiFunction.OR),
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(5, 8, 5, 11, 14, 11), Block.createCuboidShape(7, 14, 7, 9, 16, 9), BooleanBiFunction.OR)};
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(6, 10, 6, 10, 15, 10), Block.createCuboidShape(7, 9, 7, 9, 16, 9), BooleanBiFunction.OR),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(5.5, 8, 5.5, 10.5, 14, 10.5), Block.createCuboidShape(7, 7, 7, 9, 16, 9), BooleanBiFunction.OR)};
     public HangingLemonBlock(Settings settings) {
         super(settings);
     }

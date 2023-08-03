@@ -1,0 +1,6 @@
+{
+	"parent": "bountifulcuisine:block/template_fruit_log",
+	"textures": {
+		"all": "bountifulcuisine:block/stripped_lemon_log"
+	}
+}
