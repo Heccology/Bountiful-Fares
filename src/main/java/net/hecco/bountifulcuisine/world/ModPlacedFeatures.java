@@ -17,20 +17,25 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> APPLE_PLACED_KEY = registerKey("apple_placed");
     public static final RegistryKey<PlacedFeature> ORANGE_PLACED_KEY = registerKey("orange_placed");
     public static final RegistryKey<PlacedFeature> LEMON_PLACED_KEY = registerKey("lemon_placed");
+    public static final RegistryKey<PlacedFeature> LEMON_FLOWER_FOREST_PLACED_KEY = registerKey("lemon_flower_forest_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         register(context, APPLE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.APPLE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(1, 0, 0), ModBlocks.APPLE_SAPLING));
+                        PlacedFeatures.createCountExtraModifier(0, 0.5f, 1), ModBlocks.APPLE_SAPLING));
 
         register(context, ORANGE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ORANGE_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(1, 0, 0), ModBlocks.ORANGE_SAPLING));
+                        PlacedFeatures.createCountExtraModifier(0, 0.3f, 1), ModBlocks.ORANGE_SAPLING));
+
+        register(context, LEMON_FLOWER_FOREST_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.LEMON_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(0, 0.3f, 1), ModBlocks.LEMON_SAPLING));
 
         register(context, LEMON_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.LEMON_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(1, 0, 0), ModBlocks.LEMON_SAPLING));
+                        PlacedFeatures.createCountExtraModifier(1, 0.2f, 1), ModBlocks.LEMON_SAPLING));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
