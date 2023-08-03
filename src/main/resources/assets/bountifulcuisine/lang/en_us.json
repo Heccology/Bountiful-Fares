@@ -9,6 +9,7 @@
   "block.bountifulcuisine.apple_leaves": "Apple Leaves",
   "block.bountifulcuisine.blossoming_apple_leaves": "Blossoming Apple Leaves",
   "block.bountifulcuisine.apple_sapling": "Apple Sapling",
+
   "block.bountifulcuisine.orange_log": "Orange Log",
   "block.bountifulcuisine.stripped_orange_log": "Stripped Orange Log",
   "block.bountifulcuisine.orange_wood": "Orange Wood",
@@ -16,5 +17,14 @@
   "block.bountifulcuisine.orange_leaves": "Orange Leaves",
   "block.bountifulcuisine.blossoming_orange_leaves": "Blossoming Orange Leaves",
   "item.bountifulcuisine.orange": "Orange",
-  "block.bountifulcuisine.orange_sapling": "Orange Sapling"
+  "block.bountifulcuisine.orange_sapling": "Orange Sapling",
+
+  "block.bountifulcuisine.lemon_log": "Lemon Log",
+  "block.bountifulcuisine.stripped_lemon_log": "Stripped Lemon Log",
+  "block.bountifulcuisine.lemon_wood": "Lemon Wood",
+  "block.bountifulcuisine.stripped_lemon_wood": "Stripped Lemon Wood",
+  "block.bountifulcuisine.lemon_leaves": "Lemon Leaves",
+  "block.bountifulcuisine.blossoming_lemon_leaves": "Blossoming Lemon Leaves",
+  "item.bountifulcuisine.lemon": "Lemon",
+  "block.bountifulcuisine.lemon_sapling": "Lemon Sapling"
 }

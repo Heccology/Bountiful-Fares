@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "bountifulcuisine:apple_log",
+    "bountifulcuisine:stripped_apple_log",
+    "bountifulcuisine:apple_wood",
+    "bountifulcuisine:stripped_apple_wood",
+    "bountifulcuisine:orange_log",
+    "bountifulcuisine:stripped_orange_log",
+    "bountifulcuisine:orange_wood",
+    "bountifulcuisine:stripped_orange_wood",
+    "bountifulcuisine:lemon_log",
+    "bountifulcuisine:stripped_lemon_log",
+    "bountifulcuisine:lemon_wood",
+    "bountifulcuisine:stripped_lemon_wood"
+  ]
+}

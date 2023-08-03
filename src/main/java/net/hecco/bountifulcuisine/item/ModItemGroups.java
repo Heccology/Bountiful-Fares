@@ -31,6 +31,14 @@ public class ModItemGroups {
                         entries.add(ModBlocks.BLOSSOMING_ORANGE_LEAVES);
                         entries.add(ModItems.ORANGE);
                         entries.add(ModBlocks.ORANGE_SAPLING);
+                        entries.add(ModBlocks.LEMON_LOG);
+                        entries.add(ModBlocks.LEMON_WOOD);
+                        entries.add(ModBlocks.STRIPPED_LEMON_LOG);
+                        entries.add(ModBlocks.STRIPPED_LEMON_WOOD);
+                        entries.add(ModBlocks.LEMON_LEAVES);
+                        entries.add(ModBlocks.BLOSSOMING_LEMON_LEAVES);
+                        entries.add(ModItems.LEMON);
+                        entries.add(ModBlocks.LEMON_SAPLING);
                     }).build());
     public static void registerItemGroups() {
 

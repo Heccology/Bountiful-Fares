@@ -1,8 +1,10 @@
 {
 	"credit": "Made with Blockbench by Hecco",
+	"ambientocclusion": false,
 	"texture_size": [32, 32],
 	"textures": {
-		"1": "bountifulcuisine:block/hanging_orange"
+		"1": "bountifulcuisine:block/hanging_orange",
+		"particle": "bountifulcuisine:item/orange"
 	},
 	"elements": [
 		{
