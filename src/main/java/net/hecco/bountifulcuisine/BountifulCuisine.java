@@ -3,6 +3,7 @@ package net.hecco.bountifulcuisine;
 import net.fabricmc.api.ModInitializer;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.effect.ModEffects;
 import net.hecco.bountifulcuisine.item.ModItemGroups;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.util.ModRegistries;
@@ -23,5 +24,6 @@ public class BountifulCuisine implements ModInitializer {
 		ModRegistries.RegisterModStuffs();
 		ModWorldGeneration.generateModWorldGeneration();
 		ModFoliagePlacerTypes.register();
+		ModEffects.registerEffects();
 	}
 }
