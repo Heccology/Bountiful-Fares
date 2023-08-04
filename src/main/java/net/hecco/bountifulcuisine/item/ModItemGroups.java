@@ -52,6 +52,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CITRIC_ACID);
                         entries.add(ModItems.CANDIED_ORANGE);
                         entries.add(ModItems.CANDIED_LEMON);
+                        entries.add(ModBlocks.TRELLIS);
                     }).build());
     public static void registerItemGroups() {
 

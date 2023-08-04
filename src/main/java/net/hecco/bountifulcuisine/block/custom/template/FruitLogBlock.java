@@ -1,4 +1,4 @@
-package net.hecco.bountifulcuisine.block.custom;
+package net.hecco.bountifulcuisine.block.custom.template;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;

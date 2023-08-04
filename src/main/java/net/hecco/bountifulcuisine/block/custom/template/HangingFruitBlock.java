@@ -1,4 +1,4 @@
-package net.hecco.bountifulcuisine.block.custom;
+package net.hecco.bountifulcuisine.block.custom.template;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,14 +12,9 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
@@ -68,12 +63,12 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
     }
 
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
-        return !HangingFruitBlock.isFullyGrown(state);
+        return !isFullyGrown(state);
     }
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        if (!HangingFruitBlock.isFullyGrown(state)) {
+        if (!isFullyGrown(state)) {
             world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
         }
     }

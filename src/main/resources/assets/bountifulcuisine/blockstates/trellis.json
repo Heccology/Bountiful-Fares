@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bountifulcuisine:block/trellis",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bountifulcuisine:block/trellis"
+    },
+    "facing=south": {
+      "model": "bountifulcuisine:block/trellis",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bountifulcuisine:block/trellis",
+      "y": 270
+    }
+  }
+}

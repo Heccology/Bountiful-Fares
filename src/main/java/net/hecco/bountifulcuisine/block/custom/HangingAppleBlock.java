@@ -1,6 +1,7 @@
 package net.hecco.bountifulcuisine.block.custom;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.block.custom.template.HangingFruitBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -23,7 +24,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
 
-public class HangingAppleBlock extends HangingFruitBlock{
+public class HangingAppleBlock extends HangingFruitBlock {
     private static final VoxelShape[] SHAPES = new VoxelShape[]{Block.createCuboidShape(7, 13, 7, 9, 16, 9),
             Block.createCuboidShape(6, 13, 6, 10, 16, 10),
             Block.createCuboidShape(6.5, 13, 6.5, 9.5, 16, 9.5),
