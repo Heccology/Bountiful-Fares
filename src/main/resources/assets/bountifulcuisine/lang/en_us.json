@@ -28,6 +28,15 @@
   "item.bountifulcuisine.lemon": "Lemon",
   "block.bountifulcuisine.lemon_sapling": "Lemon Sapling",
 
+  "block.bountifulcuisine.plum_log": "Plum Log",
+  "block.bountifulcuisine.stripped_plum_log": "Stripped Plum Log",
+  "block.bountifulcuisine.plum_wood": "Plum Wood",
+  "block.bountifulcuisine.stripped_plum_wood": "Stripped Plum Wood",
+  "block.bountifulcuisine.plum_leaves": "Plum Leaves",
+  "block.bountifulcuisine.blossoming_plum_leaves": "Blossoming Plum Leaves",
+  "item.bountifulcuisine.plum": "Plum",
+  "block.bountifulcuisine.plum_sapling": "Plum Sapling",
+
   "item.bountifulcuisine.citrus_juice_bottle": "Citrus Juice Bottle",
   "item.bountifulcuisine.citric_acid": "Citric Acid",
   "effect.bountifulcuisine.acidic": "Acidic",

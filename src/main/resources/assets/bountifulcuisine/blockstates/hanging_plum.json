@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "bountifulcuisine:block/hanging_plum_0"
+    },
+    "age=1": {
+      "model": "bountifulcuisine:block/hanging_plum_1"
+    },
+    "age=2": {
+      "model": "bountifulcuisine:block/hanging_plum_2"
+    },
+    "age=3": {
+      "model": "bountifulcuisine:block/hanging_plum_3"
+    },
+    "age=4": {
+      "model": "bountifulcuisine:block/hanging_plum_4"
+    }
+  }
+}

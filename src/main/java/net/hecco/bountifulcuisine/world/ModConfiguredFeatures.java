@@ -21,6 +21,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> APPLE_KEY = registerKey("apple");
     public static final RegistryKey<ConfiguredFeature<?, ?>> ORANGE_KEY = registerKey("orange");
     public static final RegistryKey<ConfiguredFeature<?, ?>> LEMON_KEY = registerKey("lemon");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PLUM_KEY = registerKey("plum");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         register(context, APPLE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
@@ -43,6 +44,7 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.of(ModBlocks.LEMON_LEAVES),
                 new FruitTreeFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(5), 1),
                 new TwoLayersFeatureSize(0, 0, 0)).ignoreVines().build());
+
     }
 
 
