@@ -53,6 +53,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CANDIED_ORANGE);
                         entries.add(ModItems.CANDIED_LEMON);
                         entries.add(ModBlocks.TRELLIS);
+                        entries.add(ModItems.PASSION_FRUIT);
                     }).build());
     public static void registerItemGroups() {
 

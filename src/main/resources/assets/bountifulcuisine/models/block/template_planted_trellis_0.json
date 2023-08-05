@@ -1,5 +1,9 @@
 {
 	"credit": "Made with Blockbench by Hecco",
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "bountifulcuisine:block/trellis"
+	},
 	"elements": [
 		{
 			"from": [0, 0, 15],
@@ -18,11 +22,7 @@
 			"to": [16, 16, 15],
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#vines"},
-				"east": {"uv": [0, 0, 1, 16], "texture": "#vines"},
-				"south": {"uv": [16, 0, 0, 16], "texture": "#vines"},
-				"west": {"uv": [15, 0, 16, 16], "texture": "#vines"},
-				"up": {"uv": [0, 0, 16, 1], "texture": "#vines"},
-				"down": {"uv": [0, 15, 16, 16], "texture": "#vines"}
+				"south": {"uv": [16, 0, 0, 16], "texture": "#vines"}
 			}
 		}
 	],
