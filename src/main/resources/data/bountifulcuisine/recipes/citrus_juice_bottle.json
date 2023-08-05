@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "compote",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "tag": "bountifulcuisine:citrus_fruits"
+    },
+    {
+      "tag": "bountifulcuisine:citrus_fruits"
+    },
+    {
+      "tag": "bountifulcuisine:citrus_fruits"
+    },
+    {
+      "tag": "bountifulcuisine:citrus_fruits"
+    },
+    {
+      "tag": "bountifulcuisine:citrus_fruits"
+    },
+    {
+      "tag": "bountifulcuisine:citrus_fruits"
+    }
+  ],
+  "result": {
+    "item": "bountifulcuisine:citrus_juice_bottle"
+  }
+}

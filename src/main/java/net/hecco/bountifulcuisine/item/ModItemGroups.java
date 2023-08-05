@@ -54,8 +54,9 @@ public class ModItemGroups {
                         entries.add(ModItems.CANDIED_LEMON);
                         entries.add(ModBlocks.TRELLIS);
                         entries.add(ModItems.PASSION_FRUIT);
+                        entries.add(ModItems.ELDERBERRIES);
                     }).build());
     public static void registerItemGroups() {
-
+        BountifulCuisine.LOGGER.info("Registering Item Group Entries for " + BountifulCuisine.MOD_ID);
     }
 }
