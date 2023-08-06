@@ -27,6 +27,9 @@ public class PassionFruitTrellisBlock extends PlantedTrellisBlock {
         if (player.getStackInHand(hand).isOf(Items.SHEARS) && !state.get(SNIPPED)) {
             world.setBlockState(pos, state.with(SNIPPED, true));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            player.getStackInHand(hand).damage(1, player, (playerx) -> {
+                playerx.sendToolBreakStatus(hand);
+            });
             return ActionResult.SUCCESS;
         } else if(i != 3) {
             return ActionResult.PASS;
