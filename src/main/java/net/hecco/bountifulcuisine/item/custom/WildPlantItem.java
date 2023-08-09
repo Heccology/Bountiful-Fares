@@ -1,6 +1,7 @@
 package net.hecco.bountifulcuisine.item.custom;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.ItemStack;
@@ -16,6 +17,8 @@ public class WildPlantItem extends AliasedBlockItem {
     }
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip.bountifulcuisine." + this));
+        if(Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("tooltip.bountifulcuisine." + this));
+        }
     }
 }

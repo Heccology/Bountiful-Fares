@@ -57,8 +57,8 @@ public class ModBlocks {
     public static final Block PASSION_FRUIT_TRELLIS = registerBlockNoItem("passion_fruit_trellis", new PassionFruitTrellisBlock(ModItems.PASSION_FRUIT, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
     public static final Block ELDERBERRY_TRELLIS = registerBlockNoItem("elderberry_trellis", new ElderberryTrellisBlock(ModItems.ELDERBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
     public static final Block GLOW_BERRY_TRELLIS = registerBlockNoItem("glow_berry_trellis", new GlowBerryTrellisBlock(Items.GLOW_BERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
-    public static final Block WILD_CARROTS = registerBlockNoItem("wild_carrots", new WildCropBlock(ModItems.WILD_CARROT, FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block WILD_POTATOES = registerBlockNoItem("wild_potatoes", new WildCropBlock(ModItems.WILD_POTATO, FabricBlockSettings.create().mapColor(MapColor.DULL_PINK).noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WILD_CARROTS = registerBlockNoItem("wild_carrots", new WildCropBlock(ModItems.WILD_CARROT, FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WILD_POTATOES = registerBlockNoItem("wild_potatoes", new WildCropBlock(ModItems.WILD_POTATO, FabricBlockSettings.create().mapColor(MapColor.DULL_PINK).noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)));
 
 
 

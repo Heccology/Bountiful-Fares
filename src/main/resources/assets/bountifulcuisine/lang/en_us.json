@@ -1,6 +1,11 @@
 {
   "itemgroup.bountiful_cuisine": "Bountiful Cuisine",
 
+  "tooltip.minecraft.apple": "§7§oMalus domestica",
+  "tooltip.minecraft.glow_berries": "§7§oBaccate Candentis",
+  "tooltip.minecraft.carrot": "§7§oDaucus Carota Sativus",
+  "tooltip.minecraft.potato": "§7§oSolanum Tuberosum",
+  "tooltip.minecraft.wheat": "§7§oTriticum Aestivum",
 
   "block.bountifulcuisine.apple_log": "Apple Log",
   "block.bountifulcuisine.stripped_apple_log": "Stripped Apple Log",
