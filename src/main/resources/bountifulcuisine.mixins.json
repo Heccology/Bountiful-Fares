@@ -3,7 +3,8 @@
   "package": "net.hecco.bountifulcuisine.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "FoliagePlacerTypeInvoker"
+    "FoliagePlacerTypeInvoker",
+    "GlowBerriesTooltipMixin"
   ],
   "injectors": {
     "defaultRequire": 1

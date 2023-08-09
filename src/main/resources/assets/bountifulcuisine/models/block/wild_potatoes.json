@@ -1,0 +1,6 @@
+{
+	"parent": "bountifulcuisine:block/wild_crop",
+	"textures": {
+		"crop": "bountifulcuisine:block/wild_potatoes"
+	}
+}

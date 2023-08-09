@@ -17,6 +17,7 @@
   "block.bountifulcuisine.orange_leaves": "Orange Leaves",
   "block.bountifulcuisine.blossoming_orange_leaves": "Blossoming Orange Leaves",
   "item.bountifulcuisine.orange": "Orange",
+  "tooltip.bountifulcuisine.orange": "§7§oCitrus Sinensis",
   "block.bountifulcuisine.orange_sapling": "Orange Sapling",
 
   "block.bountifulcuisine.lemon_log": "Lemon Log",
@@ -26,6 +27,7 @@
   "block.bountifulcuisine.lemon_leaves": "Lemon Leaves",
   "block.bountifulcuisine.blossoming_lemon_leaves": "Blossoming Lemon Leaves",
   "item.bountifulcuisine.lemon": "Lemon",
+  "tooltip.bountifulcuisine.lemon": "§7§oCitrus Limon",
   "block.bountifulcuisine.lemon_sapling": "Lemon Sapling",
 
   "block.bountifulcuisine.plum_log": "Plum Log",
@@ -35,6 +37,7 @@
   "block.bountifulcuisine.plum_leaves": "Plum Leaves",
   "block.bountifulcuisine.blossoming_plum_leaves": "Blossoming Plum Leaves",
   "item.bountifulcuisine.plum": "Plum",
+  "tooltip.bountifulcuisine.plum": "§7§oPrunus Domestica",
   "block.bountifulcuisine.plum_sapling": "Plum Sapling",
 
   "item.bountifulcuisine.citrus_juice_bottle": "Citrus Juice Bottle",
@@ -46,5 +49,14 @@
   "block.bountifulcuisine.trellis": "Trellis",
 
   "item.bountifulcuisine.passion_fruit": "Passion Fruit",
-  "item.bountifulcuisine.elderberries": "Elderberries"
+  "tooltip.bountifulcuisine.passion_fruit": "§7§oPassiflora Edulis",
+  "item.bountifulcuisine.elderberries": "Elderberries",
+  "tooltip.bountifulcuisine.elderberries": "§7§oSambucus Nigra",
+
+  "block.bountifulcuisine.wild_carrots": "Wild Carrots",
+  "item.bountifulcuisine.wild_carrot": "Wild Carrot",
+  "tooltip.bountifulcuisine.wild_carrot": "§7§oDaucus Carota",
+  "block.bountifulcuisine.wild_potatoes": "Wild Potatoes",
+  "item.bountifulcuisine.wild_potato": "Wild Potato",
+  "tooltip.bountifulcuisine.wild_potato": "§7§oSolanum Maglia"
 }
