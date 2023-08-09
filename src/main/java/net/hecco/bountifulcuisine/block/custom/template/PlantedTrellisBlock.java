@@ -104,7 +104,7 @@ public class PlantedTrellisBlock extends Block implements Waterloggable, Fertili
 
     @Override
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
-        return state.get(AGE) < 3;
+        return false;
     }
 
     @Override

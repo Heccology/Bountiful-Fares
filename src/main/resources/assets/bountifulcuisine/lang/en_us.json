@@ -63,5 +63,9 @@
   "tooltip.bountifulcuisine.wild_carrot": "§7§oDaucus Carota",
   "block.bountifulcuisine.wild_potatoes": "Wild Potatoes",
   "item.bountifulcuisine.wild_potato": "Wild Potato",
-  "tooltip.bountifulcuisine.wild_potato": "§7§oSolanum Maglia"
+  "tooltip.bountifulcuisine.wild_potato": "§7§oSolanum Maglia",
+
+  "item.bountifulcuisine.feldspar": "Feldspar",
+  "item.bountifulcuisine.ceramic_clay": "Ceramic Clay",
+  "block.bountifulcuisine.fermentation_vessel": "Fermentation Vessel"
 }
