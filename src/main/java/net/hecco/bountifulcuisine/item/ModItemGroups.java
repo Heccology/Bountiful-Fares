@@ -57,9 +57,12 @@ public class ModItemGroups {
                         entries.add(ModItems.ELDERBERRIES);
                         entries.add(ModItems.WILD_CARROT);
                         entries.add(ModItems.WILD_POTATO);
+                        entries.add(ModItems.WILD_WHEAT_SEEDS);
+                        entries.add(ModItems.WILD_BEETROOT_SEEDS);
                         entries.add(ModItems.FELDSPAR);
                         entries.add(ModItems.CERAMIC_CLAY);
                         entries.add(ModBlocks.FERMENTATION_VESSEL);
+                        entries.add(ModItems.ELDERBERRY_WINE);
                     }).build());
     public static void registerItemGroups() {
         BountifulCuisine.LOGGER.info("Registering Item Group Entries for " + BountifulCuisine.MOD_ID);

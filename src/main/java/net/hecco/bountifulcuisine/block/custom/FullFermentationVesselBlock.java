@@ -3,10 +3,12 @@ package net.hecco.bountifulcuisine.block.custom;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.custom.template.HangingFruitBlock;
 import net.hecco.bountifulcuisine.block.enums.ItemFermenting;
+import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.Waterloggable;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -33,6 +35,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
 
@@ -73,9 +76,36 @@ public class FullFermentationVesselBlock extends Block implements Waterloggable 
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        var itemStack = player.getStackInHand(hand);
         if (state.get(ITEM_FERMENTING) == ItemFermenting.SPIDER_EYE && state.get(COMPLETE)) {
             FullFermentationVesselBlock.dropStack(world, pos, new ItemStack(Items.FERMENTED_SPIDER_EYE, 1));
-            world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState(), 2);
+            if(state.get(WATERLOGGED)) {
+                world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState().with(WATERLOGGED, true), 2);
+            } else if(!state.get(WATERLOGGED)) {
+                world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState(), 2);
+            }
+            world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F);
+            return ActionResult.SUCCESS;
+        }
+
+
+        if (state.get(ITEM_FERMENTING) == ItemFermenting.ELDERBERRIES && state.get(COMPLETE) && itemStack.isOf(Items.GLASS_BOTTLE)) {
+            if(itemStack.isOf(Items.GLASS_BOTTLE)) {
+                world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 0.8F);
+                if (!player.isCreative()) {
+                    itemStack.decrement(1);
+                }
+                if (itemStack.isEmpty() && !player.isCreative()) {
+                    player.setStackInHand(hand, new ItemStack(ModItems.ELDERBERRY_WINE));
+                } else if (!player.getInventory().insertStack(new ItemStack(ModItems.ELDERBERRY_WINE))) {
+                    player.dropItem(new ItemStack(ModItems.ELDERBERRY_WINE), false);
+                }
+            }
+            if(state.get(WATERLOGGED)) {
+                world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState().with(WATERLOGGED, true), 2);
+            } else if(!state.get(WATERLOGGED)) {
+                world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState(), 2);
+            }
             world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F);
             return ActionResult.SUCCESS;
         }

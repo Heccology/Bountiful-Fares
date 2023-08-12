@@ -2,6 +2,7 @@ package net.hecco.bountifulcuisine.block.custom;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.enums.ItemFermenting;
+import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -69,7 +70,22 @@ public class FermentationVesselBlock extends Block implements Waterloggable {
         } else if(itemStack.isOf(Items.POTION) && PotionUtil.getPotion(itemStack) == Potions.WATER && state.get(isFullWithWater)) {
             return ActionResult.PASS;
         } else if(state.get(isFullWithWater) && itemStack.isOf(Items.SPIDER_EYE)) {
-            world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.SPIDER_EYE), 2);
+            if(state.get(WATERLOGGED)) {
+                world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.SPIDER_EYE).with(WATERLOGGED, true), 2);
+            } else if(!state.get(WATERLOGGED)) {
+                world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.SPIDER_EYE), 2);
+            }
+            world.playSound(null, pos, SoundEvents.ENTITY_AXOLOTL_SPLASH, SoundCategory.BLOCKS, 1.0F, 0.8F);
+            if (!player.isCreative()) {
+                itemStack.decrement(1);
+            }
+            return ActionResult.SUCCESS;
+        } else if(state.get(isFullWithWater) && itemStack.isOf(ModItems.ELDERBERRIES)) {
+            if (state.get(WATERLOGGED)) {
+                world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.ELDERBERRIES).with(WATERLOGGED, true), 2);
+            } else if (!state.get(WATERLOGGED)) {
+                world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.ELDERBERRIES), 2);
+            }
             world.playSound(null, pos, SoundEvents.ENTITY_AXOLOTL_SPLASH, SoundCategory.BLOCKS, 1.0F, 0.8F);
             if (!player.isCreative()) {
                 itemStack.decrement(1);

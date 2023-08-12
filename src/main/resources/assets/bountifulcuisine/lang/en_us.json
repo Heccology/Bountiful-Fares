@@ -5,7 +5,7 @@
   "tooltip.minecraft.glow_berries": "§7§oBaccate Candentis",
   "tooltip.minecraft.carrot": "§7§oDaucus Carota Sativus",
   "tooltip.minecraft.potato": "§7§oSolanum Tuberosum",
-  "tooltip.minecraft.wheat": "§7§oTriticum Aestivum",
+  "tooltip.minecraft.wheat": "§7§oTBeta Vulgaris",
 
   "block.bountifulcuisine.apple_log": "Apple Log",
   "block.bountifulcuisine.stripped_apple_log": "Stripped Apple Log",
@@ -64,8 +64,16 @@
   "block.bountifulcuisine.wild_potatoes": "Wild Potatoes",
   "item.bountifulcuisine.wild_potato": "Wild Potato",
   "tooltip.bountifulcuisine.wild_potato": "§7§oSolanum Maglia",
+  "block.bountifulcuisine.wild_wheat": "Wild Wheat",
+  "item.bountifulcuisine.wild_wheat_seeds": "Wild Wheat Seeds",
+  "tooltip.bountifulcuisine.wild_wheat_seeds": "§7§oTriticum Monococcum",
+  "block.bountifulcuisine.wild_beetroots": "Wild Beetroots",
+  "item.bountifulcuisine.wild_beetroot_seeds": "Wild Beetroot Seeds",
+  "tooltip.bountifulcuisine.wild_beetroot_seeds": "§7§oBeta Vulgaris Maritima",
 
   "item.bountifulcuisine.feldspar": "Feldspar",
   "item.bountifulcuisine.ceramic_clay": "Ceramic Clay",
-  "block.bountifulcuisine.fermentation_vessel": "Fermentation Vessel"
+  "block.bountifulcuisine.fermentation_vessel": "Fermentation Vessel",
+
+  "item.bountifulcuisine.elderberry_wine": "Elderberry Wine"
 }
