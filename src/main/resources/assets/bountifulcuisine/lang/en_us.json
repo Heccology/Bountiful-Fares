@@ -5,7 +5,8 @@
   "tooltip.minecraft.glow_berries": "§7§oBaccate Candentis",
   "tooltip.minecraft.carrot": "§7§oDaucus Carota Sativus",
   "tooltip.minecraft.potato": "§7§oSolanum Tuberosum",
-  "tooltip.minecraft.wheat": "§7§oTBeta Vulgaris",
+  "tooltip.minecraft.wheat": "§7§oTriticum Aestivum",
+  "tooltip.minecraft.beetroot": "§7§oBeta Vulgaris",
 
   "block.bountifulcuisine.apple_log": "Apple Log",
   "block.bountifulcuisine.stripped_apple_log": "Stripped Apple Log",
@@ -45,6 +46,10 @@
   "tooltip.bountifulcuisine.plum": "§7§oPrunus Domestica",
   "block.bountifulcuisine.plum_sapling": "Plum Sapling",
 
+  "item.bountifulcuisine.hoary_seeds": "Hoary Seeds",
+  "tooltip.bountifulcuisine.hoary_seeds": "Hoary Seeds",
+  "block.bountifulcuisine.hoary_fig_sapling_crop": "Hoary Fig Sapling",
+
   "item.bountifulcuisine.citrus_juice_bottle": "Citrus Juice Bottle",
   "item.bountifulcuisine.citric_acid": "Citric Acid",
   "effect.bountifulcuisine.acidic": "Acidic",
@@ -57,6 +62,10 @@
   "tooltip.bountifulcuisine.passion_fruit": "§7§oPassiflora Edulis",
   "item.bountifulcuisine.elderberries": "Elderberries",
   "tooltip.bountifulcuisine.elderberries": "§7§oSambucus Nigra",
+  "item.bountifulcuisine.lapisberries": "Lapisberries",
+  "tooltip.bountifulcuisine.lapisberries": "§7§oBaccate Primordium",
+  "item.bountifulcuisine.lapisberry_seeds": "Lapisberry Seeds",
+  "tooltip.bountifulcuisine.lapisberry_seeds": "§7§oBaccate Primordium",
 
   "block.bountifulcuisine.wild_carrots": "Wild Carrots",
   "item.bountifulcuisine.wild_carrot": "Wild Carrot",

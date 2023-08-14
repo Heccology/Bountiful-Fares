@@ -48,6 +48,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.BLOSSOMING_PLUM_LEAVES);
                         entries.add(ModItems.PLUM);
                         entries.add(ModBlocks.PLUM_SAPLING);
+                        entries.add(ModItems.HOARY_SEEDS);
                         entries.add(ModItems.CITRUS_JUICE_BOTTLE);
                         entries.add(ModItems.CITRIC_ACID);
                         entries.add(ModItems.CANDIED_ORANGE);
@@ -55,6 +56,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TRELLIS);
                         entries.add(ModItems.PASSION_FRUIT);
                         entries.add(ModItems.ELDERBERRIES);
+                        entries.add(ModItems.LAPISBERRIES);
+                        entries.add(ModItems.LAPISBERRY_SEEDS);
                         entries.add(ModItems.WILD_CARROT);
                         entries.add(ModItems.WILD_POTATO);
                         entries.add(ModItems.WILD_WHEAT_SEEDS);

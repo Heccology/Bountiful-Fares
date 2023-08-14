@@ -78,6 +78,13 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
             return ActionResult.SUCCESS;
         }
+        if (player.getStackInHand(hand).isOf(ModItems.LAPISBERRY_SEEDS)) {
+            BlockState blockState = state;
+            world.setBlockState(pos, ModBlocks.LAPISBERRY_TRELLIS.getDefaultState().with(FACING, facing), 2);
+            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+            return ActionResult.SUCCESS;
+        }
 
         return super.onUse(state, world, pos, player, hand, hit);
     }

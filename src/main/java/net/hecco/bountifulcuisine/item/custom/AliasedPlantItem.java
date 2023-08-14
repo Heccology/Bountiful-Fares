@@ -11,8 +11,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class WildPlantItem extends AliasedBlockItem {
-    public WildPlantItem(Block block, Settings settings) {
+public class AliasedPlantItem extends AliasedBlockItem {
+    public AliasedPlantItem(Block block, Settings settings) {
         super(block, settings);
     }
     @Override
