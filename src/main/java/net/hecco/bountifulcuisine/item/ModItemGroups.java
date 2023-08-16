@@ -49,6 +49,7 @@ public class ModItemGroups {
                         entries.add(ModItems.PLUM);
                         entries.add(ModBlocks.PLUM_SAPLING);
                         entries.add(ModItems.HOARY_SEEDS);
+                        entries.add(ModBlocks.HOARY_FIG_SAPLING);
                         entries.add(ModItems.CITRUS_JUICE_BOTTLE);
                         entries.add(ModItems.CITRIC_ACID);
                         entries.add(ModItems.CANDIED_ORANGE);
@@ -63,7 +64,9 @@ public class ModItemGroups {
                         entries.add(ModItems.WILD_WHEAT_SEEDS);
                         entries.add(ModItems.WILD_BEETROOT_SEEDS);
                         entries.add(ModItems.FELDSPAR);
+                        entries.add(ModBlocks.FELDSPAR_BLOCK);
                         entries.add(ModItems.CERAMIC_CLAY);
+                        entries.add(ModBlocks.CERAMIC_CLAY_BLOCK);
                         entries.add(ModBlocks.FERMENTATION_VESSEL);
                         entries.add(ModItems.ELDERBERRY_WINE);
                     }).build());

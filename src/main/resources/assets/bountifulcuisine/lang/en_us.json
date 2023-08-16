@@ -49,6 +49,7 @@
   "item.bountifulcuisine.hoary_seeds": "Hoary Seeds",
   "tooltip.bountifulcuisine.hoary_seeds": "Hoary Seeds",
   "block.bountifulcuisine.hoary_fig_sapling_crop": "Hoary Fig Sapling",
+  "block.bountifulcuisine.hoary_fig_sapling": "Hoary Fig Sapling",
 
   "item.bountifulcuisine.citrus_juice_bottle": "Citrus Juice Bottle",
   "item.bountifulcuisine.citric_acid": "Citric Acid",
@@ -81,7 +82,9 @@
   "tooltip.bountifulcuisine.wild_beetroot_seeds": "§7§oBeta Vulgaris Maritima",
 
   "item.bountifulcuisine.feldspar": "Feldspar",
+  "block.bountifulcuisine.feldspar_block": "Block of Feldspar",
   "item.bountifulcuisine.ceramic_clay": "Ceramic Clay",
+  "block.bountifulcuisine.ceramic_clay_block": "Block of Ceramic Clay",
   "block.bountifulcuisine.fermentation_vessel": "Fermentation Vessel",
 
   "item.bountifulcuisine.elderberry_wine": "Elderberry Wine"

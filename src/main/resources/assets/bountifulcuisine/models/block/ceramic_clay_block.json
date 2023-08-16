@@ -1,0 +1,8 @@
+{
+	"parent": "block/cube_bottom_top",
+	"textures": {
+		"side": "bountifulcuisine:block/ceramic_clay_block_side",
+		"top": "bountifulcuisine:block/ceramic_clay_block_top",
+		"bottom": "bountifulcuisine:block/ceramic_clay_block_bottom"
+	}
+}
