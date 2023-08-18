@@ -6,6 +6,7 @@ import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.effect.ModEffects;
 import net.hecco.bountifulcuisine.item.ModItemGroups;
 import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.util.ModBlockSetTypes;
 import net.hecco.bountifulcuisine.util.ModRegistries;
 import net.hecco.bountifulcuisine.world.gen.ModWorldGeneration;
 import net.hecco.bountifulcuisine.world.tree.ModFoliagePlacerTypes;

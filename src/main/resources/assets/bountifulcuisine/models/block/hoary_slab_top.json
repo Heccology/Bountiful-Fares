@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "bountifulcuisine:block/hoary_planks",
+    "side": "bountifulcuisine:block/hoary_planks",
+    "top": "bountifulcuisine:block/hoary_planks"
+  }
+}
