@@ -2,6 +2,7 @@ package net.hecco.bountifulcuisine.world;
 
 import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -20,6 +21,8 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> LEMON_FLOWER_FOREST_PLACED_KEY = registerKey("lemon_flower_forest_placed");
     public static final RegistryKey<PlacedFeature> PLUM_PLACED_KEY = registerKey("plum_placed");
     public static final RegistryKey<PlacedFeature> PLUM_FLOWER_FOREST_PLACED_KEY = registerKey("plum_flower_forest_placed");
+    public static final RegistryKey<PlacedFeature> HOARY_PLACED_KEY = registerKey("hoary_placed");
+
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -46,6 +49,9 @@ public class ModPlacedFeatures {
         register(context, PLUM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PLUM_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
                         PlacedFeatures.createCountExtraModifier(0, 0.1f, 1), ModBlocks.PLUM_SAPLING));
+        register(context, HOARY_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.HOARY_KEY),
+                VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                        PlacedFeatures.createCountExtraModifier(0, 0.05f, 1), Blocks.OAK_SAPLING));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

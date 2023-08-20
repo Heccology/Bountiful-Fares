@@ -5,7 +5,8 @@
   "mixins": [
     "FoliagePlacerTypeInvoker",
     "GraniteDropsFeldsparMixin",
-    "PlantTooltipMixin"
+    "PlantTooltipMixin",
+    "TrunkPlacerTypeInvoker"
   ],
   "injectors": {
     "defaultRequire": 1

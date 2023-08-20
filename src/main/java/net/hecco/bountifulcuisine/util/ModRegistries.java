@@ -17,5 +17,7 @@ public class ModRegistries {
         StrippableBlockRegistry.register(ModBlocks.LEMON_WOOD, ModBlocks.STRIPPED_LEMON_WOOD);
         StrippableBlockRegistry.register(ModBlocks.PLUM_LOG, ModBlocks.STRIPPED_PLUM_LOG);
         StrippableBlockRegistry.register(ModBlocks.PLUM_WOOD, ModBlocks.STRIPPED_PLUM_WOOD);
+        StrippableBlockRegistry.register(ModBlocks.HOARY_LOG, ModBlocks.STRIPPED_HOARY_LOG);
+        StrippableBlockRegistry.register(ModBlocks.HOARY_WOOD, ModBlocks.STRIPPED_HOARY_WOOD);
     }
 }

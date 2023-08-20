@@ -1,15 +1,14 @@
 package net.hecco.bountifulcuisine;
 
 import net.fabricmc.api.ModInitializer;
-
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.effect.ModEffects;
 import net.hecco.bountifulcuisine.item.ModItemGroups;
 import net.hecco.bountifulcuisine.item.ModItems;
-import net.hecco.bountifulcuisine.util.ModBlockSetTypes;
 import net.hecco.bountifulcuisine.util.ModRegistries;
 import net.hecco.bountifulcuisine.world.gen.ModWorldGeneration;
 import net.hecco.bountifulcuisine.world.tree.ModFoliagePlacerTypes;
+import net.hecco.bountifulcuisine.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,6 +18,7 @@ public class BountifulCuisine implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModTrunkPlacerTypes.register();
 		ModBlocks.registerModBlocks();
 		ModItems.registerModItems();
 		ModItemGroups.registerItemGroups();
