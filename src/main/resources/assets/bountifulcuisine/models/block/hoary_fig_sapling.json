@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "bountifulcuisine:block/cross_crop",
   "textures": {
-    "cross": "bountifulcuisine:block/hoary_fig_sapling"
+    "crop": "bountifulcuisine:block/hoary_fig_sapling"
   }
 }

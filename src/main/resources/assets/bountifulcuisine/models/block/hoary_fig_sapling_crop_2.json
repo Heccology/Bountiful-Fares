@@ -1,6 +1,0 @@
-{
-	"parent": "bountifulcuisine:block/cross_crop",
-	"textures": {
-		"crop": "bountifulcuisine:block/hoary_fig_sapling_crop_2"
-	}
-}

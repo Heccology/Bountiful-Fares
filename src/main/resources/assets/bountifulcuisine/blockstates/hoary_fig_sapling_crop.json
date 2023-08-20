@@ -4,25 +4,7 @@
       "model": "bountifulcuisine:block/hoary_fig_sapling_crop_0"
     },
     "age=1": {
-      "model": "bountifulcuisine:block/hoary_fig_sapling_crop_0"
-    },
-    "age=2": {
       "model": "bountifulcuisine:block/hoary_fig_sapling_crop_1"
-    },
-    "age=3": {
-      "model": "bountifulcuisine:block/hoary_fig_sapling_crop_1"
-    },
-    "age=4": {
-      "model": "bountifulcuisine:block/hoary_fig_sapling_crop_2"
-    },
-    "age=5": {
-      "model": "bountifulcuisine:block/hoary_fig_sapling_crop_2"
-    },
-    "age=6": {
-      "model": "bountifulcuisine:block/hoary_fig_sapling_crop_2"
-    },
-    "age=7": {
-      "model": "bountifulcuisine:block/hoary_fig_sapling_crop_3"
     }
   }
 }

@@ -35,7 +35,7 @@ public class HoaryTrunkPlacer extends TrunkPlacer {
     public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, int height, BlockPos startPos, TreeFeatureConfig config) {
 
         setToDirt(world, replacer, random, startPos.down(), config);
-        int firstVerticalLength = random.nextBetween(2, 3);
+        int firstVerticalLength = random.nextBetween(1, 2);
         int eastHorizontalLength = random.nextBetween(2, 4);
         int westHorizontalLength = random.nextBetween(3, 6);
         int bendVerticalLength = 2;
@@ -77,7 +77,7 @@ public class HoaryTrunkPlacer extends TrunkPlacer {
                 new FoliagePlacer.TreeNode(startPos.up(firstVerticalLength + bendVerticalLength).east(eastHorizontalLength), 0, false),
                 new FoliagePlacer.TreeNode(startPos.up(firstVerticalLength + bendVerticalLength * 2).east(eastHorizontalLength - westHorizontalLength), 0, false),
 
-                new FoliagePlacer.TreeNode(startPos.up(firstVerticalLength * 2 + bendVerticalLength * 2).east(eastHorizontalLength - westHorizontalLength + eastHorizontalLength), 1, false)
+                new FoliagePlacer.TreeNode(startPos.up(firstVerticalLength + bendVerticalLength * 3).east(eastHorizontalLength - westHorizontalLength + eastHorizontalLength), 1, false)
         );
     }
 }
