@@ -4,10 +4,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.effect.ModEffects;
-import net.hecco.bountifulcuisine.item.custom.AliasedPlantItem;
-import net.hecco.bountifulcuisine.item.custom.CitrusJuiceBottleItem;
-import net.hecco.bountifulcuisine.item.custom.LiquidBottleItem;
-import net.hecco.bountifulcuisine.item.custom.PlantItem;
+import net.hecco.bountifulcuisine.item.custom.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -39,6 +36,7 @@ public class ModItems {
     public static final Item ELDERBERRY_WINE = registerItem("elderberry_wine", new LiquidBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1 ), 1).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 0), 0.3f).alwaysEdible().build()).maxCount(16)));
     public static final Item FELDSPAR = registerItem("feldspar", new Item(new FabricItemSettings()));
     public static final Item CERAMIC_CLAY = registerItem("ceramic_clay", new Item(new FabricItemSettings()));
+    public static final Item CERAMIC_TILE = registerItem("ceramic_tile", new Item(new FabricItemSettings()));
 
 
     private static Item registerItem(String name, Item item) {

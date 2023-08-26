@@ -81,6 +81,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.FELDSPAR_BLOCK);
                         entries.add(ModItems.CERAMIC_CLAY);
                         entries.add(ModBlocks.CERAMIC_CLAY_BLOCK);
+                        entries.add(ModItems.CERAMIC_TILE);
+                        entries.add(ModBlocks.CERAMIC_TILES);
+                        entries.add(ModBlocks.CHECKERED_CERAMIC_TILES);
                         entries.add(ModBlocks.FERMENTATION_VESSEL);
                         entries.add(ModItems.ELDERBERRY_WINE);
                     }).build());

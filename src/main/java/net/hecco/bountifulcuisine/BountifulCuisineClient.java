@@ -2,8 +2,18 @@ package net.hecco.bountifulcuisine;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.util.NbtType;
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
+import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 
 public class BountifulCuisineClient implements ClientModInitializer {
     @Override
@@ -39,5 +49,24 @@ public class BountifulCuisineClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WILD_BEETROOTS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FERMENTATION_VESSEL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FULL_FERMENTATION_VESSEL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHECKERED_CERAMIC_TILES, RenderLayer.getCutout());
+        registerBlockColor(ModBlocks.CERAMIC_TILES);
+        registerBlockColor(ModBlocks.CERAMIC_TILE_STAIRS);
+        registerBlockColor(ModBlocks.CERAMIC_TILE_SLAB);
+        registerBlockColor(ModBlocks.CHECKERED_CERAMIC_TILES);
+    }
+    private void registerBlockColor(Block ModCeramicBlocksItems) {
+        registerItemColor(ModCeramicBlocksItems);
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> CeramicTilesBlockEntity.getColor(world,pos),ModCeramicBlocksItems);
+    }
+
+    private void registerItemColor(Block ModCeramicBlocksItems) {
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
+            NbtCompound nbtCompound = stack.getSubNbt(DyeableCeramicBlockItem.DISPLAY_KEY);
+            if (nbtCompound != null && nbtCompound.contains(DyeableCeramicBlockItem.COLOR_KEY, NbtElement.NUMBER_TYPE)) {
+                return nbtCompound.getInt(DyeableCeramicBlockItem.COLOR_KEY);
+            }
+            return CeramicTilesBlockEntity.DEFAULT_COLOR;
+        },ModCeramicBlocksItems);
     }
 }

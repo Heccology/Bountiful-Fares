@@ -98,8 +98,11 @@
   "item.bountifulcuisine.feldspar": "Feldspar",
   "block.bountifulcuisine.feldspar_block": "Block of Feldspar",
   "item.bountifulcuisine.ceramic_clay": "Ceramic Clay",
+  "item.bountifulcuisine.ceramic_tile": "Ceramic Tile",
   "block.bountifulcuisine.ceramic_clay_block": "Block of Ceramic Clay",
   "block.bountifulcuisine.fermentation_vessel": "Fermentation Vessel",
+  "block.bountifulcuisine.ceramic_tiles": "Ceramic Tiles",
+  "block.bountifulcuisine.checkered_ceramic_tiles": "Checkered Ceramic Tiles",
 
   "item.bountifulcuisine.elderberry_wine": "Elderberry Wine"
 }

@@ -5,10 +5,12 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.custom.*;
 import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
 import net.hecco.bountifulcuisine.util.ModBlockSetTypes;
 import net.hecco.bountifulcuisine.util.ModWoodTypes;
 import net.hecco.bountifulcuisine.world.tree.*;
 import net.minecraft.block.*;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -67,19 +69,23 @@ public class ModBlocks {
     public static final Block HOARY_PRESSURE_PLATE = registerBlock("hoary_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.SPRUCE_TRAPDOOR), ModBlockSetTypes.HOARY));
     public static final Block HOARY_BUTTON = registerBlock("hoary_button", new ButtonBlock(AbstractBlock.Settings.copy(ModBlocks.HOARY_PLANKS).noCollision().strength(0.5f), ModBlockSetTypes.HOARY, 30, true));
     public static final Block HOARY_LEAVES = registerBlock("hoary_leaves", new LeavesBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).strength(0.2f).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)));
-    public static final Block TRELLIS = registerBlock("trellis", new TrellisBlock(FabricBlockSettings.create().strength(0.5F).sounds(BlockSoundGroup.WOOD).nonOpaque().requiresTool()));
-    public static final Block PASSION_FRUIT_TRELLIS = registerBlockNoItem("passion_fruit_trellis", new PassionFruitTrellisBlock(ModItems.PASSION_FRUIT, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().requiresTool()));
-    public static final Block ELDERBERRY_TRELLIS = registerBlockNoItem("elderberry_trellis", new ElderberryTrellisBlock(ModItems.ELDERBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().requiresTool()));
-    public static final Block GLOW_BERRY_TRELLIS = registerBlockNoItem("glow_berry_trellis", new GlowBerryTrellisBlock(Items.GLOW_BERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().requiresTool()));
-    public static final Block LAPISBERRY_TRELLIS = registerBlockNoItem("lapisberry_trellis", new LapisberryTrellisBlock(ModItems.LAPISBERRY_SEEDS, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().requiresTool()));
+    public static final Block TRELLIS = registerBlock("trellis", new TrellisBlock(FabricBlockSettings.create().strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).nonOpaque().requiresTool()));
+    public static final Block PASSION_FRUIT_TRELLIS = registerBlockNoItem("passion_fruit_trellis", new PassionFruitTrellisBlock(ModItems.PASSION_FRUIT, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).instrument(Instrument.BASS).ticksRandomly().requiresTool()));
+    public static final Block ELDERBERRY_TRELLIS = registerBlockNoItem("elderberry_trellis", new ElderberryTrellisBlock(ModItems.ELDERBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).instrument(Instrument.BASS).ticksRandomly().requiresTool()));
+    public static final Block GLOW_BERRY_TRELLIS = registerBlockNoItem("glow_berry_trellis", new GlowBerryTrellisBlock(Items.GLOW_BERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).instrument(Instrument.BASS).ticksRandomly().requiresTool()));
+    public static final Block LAPISBERRY_TRELLIS = registerBlockNoItem("lapisberry_trellis", new LapisberryTrellisBlock(ModItems.LAPISBERRY_SEEDS, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).instrument(Instrument.BASS).ticksRandomly().requiresTool()));
     public static final Block WILD_CARROTS = registerBlockNoItem("wild_carrots", new WildCropBlock(ModItems.WILD_CARROT, FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILD_POTATOES = registerBlockNoItem("wild_potatoes", new WildCropBlock(ModItems.WILD_POTATO, FabricBlockSettings.create().mapColor(MapColor.DULL_PINK).noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILD_WHEAT = registerBlockNoItem("wild_wheat", new WildCropBlock(ModItems.WILD_WHEAT_SEEDS, FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILD_BEETROOTS = registerBlockNoItem("wild_beetroots", new WildCropBlock(ModItems.WILD_BEETROOT_SEEDS, FabricBlockSettings.create().mapColor(MapColor.DULL_PINK).noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block FELDSPAR_BLOCK = registerBlock("feldspar_block", new Block(FabricBlockSettings.copyOf(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE).strength(1.5f).sounds(BlockSoundGroup.CALCITE)));
-    public static final Block CERAMIC_CLAY_BLOCK = registerBlock("ceramic_clay_block", new Block(FabricBlockSettings.copyOf(Blocks.CLAY).mapColor(MapColor.WHITE)));
-    public static final Block FERMENTATION_VESSEL = registerBlock("fermentation_vessel", new FermentationVesselBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).requiresTool().nonOpaque().sounds(BlockSoundGroup.DECORATED_POT)));
-    public static final Block FULL_FERMENTATION_VESSEL = registerBlockNoItem("full_fermentation_vessel", new FullFermentationVesselBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).requiresTool().nonOpaque().ticksRandomly().sounds(BlockSoundGroup.DECORATED_POT)));
+    public static final Block FELDSPAR_BLOCK = registerBlock("feldspar_block", new Block(FabricBlockSettings.copyOf(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE).instrument(Instrument.BASEDRUM).strength(1.5f).sounds(BlockSoundGroup.CALCITE)));
+    public static final Block CERAMIC_CLAY_BLOCK = registerBlock("ceramic_clay_block", new Block(FabricBlockSettings.copyOf(Blocks.CLAY).instrument(Instrument.FLUTE).mapColor(MapColor.WHITE)));
+    public static final Block CERAMIC_TILES = registerDyeableCeramicBlock("ceramic_tiles", new CeramicTilesBlock(FabricBlockSettings.copyOf(Blocks.BRICKS).sounds(BlockSoundGroup.NETHER_BRICKS).instrument(Instrument.BASEDRUM).mapColor(MapColor.OFF_WHITE)));
+    public static final Block CERAMIC_TILE_STAIRS = registerDyeableCeramicBlock("ceramic_tile_stairs", new CeramicTileStairsBlock(ModBlocks.CERAMIC_TILES.getDefaultState(), FabricBlockSettings.copyOf(ModBlocks.CERAMIC_TILES)));
+    public static final Block CERAMIC_TILE_SLAB = registerDyeableCeramicBlock("ceramic_tile_slab", new CeramicTileSlabBlock(FabricBlockSettings.copyOf(ModBlocks.CERAMIC_TILES)));
+    public static final Block CHECKERED_CERAMIC_TILES = registerDyeableCeramicBlock("checkered_ceramic_tiles", new CheckeredCeramicTilesBlock(FabricBlockSettings.copyOf(Blocks.BRICKS).sounds(BlockSoundGroup.NETHER_BRICKS).instrument(Instrument.BASEDRUM).mapColor(MapColor.OFF_WHITE)));
+    public static final Block FERMENTATION_VESSEL = registerBlock("fermentation_vessel", new FermentationVesselBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).instrument(Instrument.BASEDRUM).requiresTool().nonOpaque().sounds(BlockSoundGroup.DECORATED_POT)));
+    public static final Block FULL_FERMENTATION_VESSEL = registerBlockNoItem("full_fermentation_vessel", new FullFermentationVesselBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).instrument(Instrument.BASEDRUM).requiresTool().nonOpaque().ticksRandomly().sounds(BlockSoundGroup.DECORATED_POT)));
 
 
 
@@ -95,6 +101,14 @@ public class ModBlocks {
 
     private static Item registerBlockItem(String name, Block block) {
         return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
+    }
+
+    private static Block registerDyeableCeramicBlock(String name, Block block) {
+        registerDyeableCeramicBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(BountifulCuisine.MOD_ID, name), block);
+    }
+    private static Item registerDyeableCeramicBlockItem(String name, Block block) {
+        return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), new DyeableCeramicBlockItem(block, new FabricItemSettings()));
     }
 
     public static void registerModBlocks() {

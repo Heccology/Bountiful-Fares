@@ -25,6 +25,7 @@ public class GlowBerryTrellisBlock extends PlantedTrellisBlock {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         int i = state.get(AGE);
         if (player.getStackInHand(hand).isOf(Items.SHEARS) && !state.get(SNIPPED)) {
+            player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
             world.setBlockState(pos, state.with(SNIPPED, true));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
             return ActionResult.SUCCESS;
