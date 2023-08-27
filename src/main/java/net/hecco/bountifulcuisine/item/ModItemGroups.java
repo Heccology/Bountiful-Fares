@@ -22,7 +22,6 @@ public class ModItemGroups {
                         entries.add(ModBlocks.STRIPPED_APPLE_WOOD);
                         entries.add(ModBlocks.APPLE_LEAVES);
                         entries.add(ModBlocks.BLOSSOMING_APPLE_LEAVES);
-                        entries.add(Items.APPLE);
                         entries.add(ModBlocks.APPLE_SAPLING);
                         entries.add(ModBlocks.ORANGE_LOG);
                         entries.add(ModBlocks.ORANGE_WOOD);
@@ -63,6 +62,10 @@ public class ModItemGroups {
                         entries.add(ModBlocks.HOARY_TRAPDOOR);
                         entries.add(ModBlocks.HOARY_PRESSURE_PLATE);
                         entries.add(ModBlocks.HOARY_BUTTON);
+                        entries.add(ModItems.HOARY_SIGN);
+                        entries.add(ModItems.HOARY_HANGING_SIGN);
+                        entries.add(ModItems.HOARY_BOAT);
+                        entries.add(ModItems.HOARY_CHEST_BOAT);
                         entries.add(ModBlocks.HOARY_LEAVES);
                         entries.add(ModItems.CITRUS_JUICE_BOTTLE);
                         entries.add(ModItems.CITRIC_ACID);

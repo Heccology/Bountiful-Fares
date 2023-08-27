@@ -1,16 +1,18 @@
 package net.hecco.bountifulcuisine.item;
 
+import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
+import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
+import com.terraformersmc.terraform.boat.impl.item.TerraformBoatItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.effect.ModEffects;
+import net.hecco.bountifulcuisine.entity.ModBoats;
 import net.hecco.bountifulcuisine.item.custom.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -21,6 +23,10 @@ public class ModItems {
     public static final Item LEMON = registerItem("lemon", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0).build())));
     public static final Item PLUM = registerItem("plum", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0).build())));
     public static final Item HOARY_SEEDS = registerItem("hoary_seeds", new AliasedPlantItem(ModBlocks.HOARY_FIG_SAPLING_CROP, new FabricItemSettings()));
+    public static final Item HOARY_SIGN = registerItem("hoary_sign", new SignItem(new FabricItemSettings().maxCount(16), ModBlocks.HOARY_SIGN, ModBlocks.HOARY_WALL_SIGN));
+    public static final Item HOARY_HANGING_SIGN = registerItem("hoary_hanging_sign", new HangingSignItem(ModBlocks.HOARY_HANGING_SIGN, ModBlocks.HOARY_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
+    public static final Item HOARY_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.HOARY_BOAT_ID, ModBoats.HOARY_BOAT_KEY, false);
+    public static final Item HOARY_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.HOARY_CHEST_BOAT_ID, ModBoats.HOARY_BOAT_KEY, true);
     public static final Item PASSION_FRUIT = registerItem("passion_fruit", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0).snack().build())));
     public static final Item ELDERBERRIES = registerItem("elderberries", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0).snack().statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1), 0.3f).build())));
     public static final Item LAPISBERRIES = registerItem("lapisberries", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0).snack().build())));

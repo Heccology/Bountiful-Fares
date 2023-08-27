@@ -21,6 +21,19 @@ public class ModBlockEntities {
             new Identifier(BountifulCuisine.MOD_ID, "checkered_ceramic_tiles_block_entity"),
             FabricBlockEntityTypeBuilder.create(CheckeredCeramicTilesBlockEntity::new, CERAMIC_TILES).build()
     );
+
+    public static final BlockEntityType<ModSignBlockEntity> MOD_SIGN_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulCuisine.MOD_ID, "mod_sign_entity"),
+            FabricBlockEntityTypeBuilder.create(ModSignBlockEntity::new, HOARY_SIGN, HOARY_WALL_SIGN).build()
+    );
+
+    public static final BlockEntityType<ModHangingSignBlockEntity> MOD_HANGING_SIGN_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulCuisine.MOD_ID, "mod_hanging_sign_entity"),
+            FabricBlockEntityTypeBuilder.create(ModHangingSignBlockEntity::new, HOARY_HANGING_SIGN, HOARY_WALL_HANGING_SIGN).build()
+    );
+
     public static void registerBlockEntities() {
         BountifulCuisine.LOGGER.debug("Registering Block Entities for " + BountifulCuisine.MOD_ID);
     }

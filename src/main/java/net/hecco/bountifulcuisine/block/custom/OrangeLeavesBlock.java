@@ -28,4 +28,7 @@ public class OrangeLeavesBlock extends LeavesBlock implements Fertilizable {
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         world.setBlockState(pos.down(), ModBlocks.HANGING_ORANGE.getDefaultState(), 2);
     }
+
+    public static class ModWallSignBlock {
+    }
 }

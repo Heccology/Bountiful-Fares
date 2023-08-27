@@ -1,17 +1,21 @@
 package net.hecco.bountifulcuisine;
 
+import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.fabricmc.fabric.api.util.NbtType;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
-import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.block.custom.entity.ModBlockEntities;
+import net.hecco.bountifulcuisine.entity.ModBoats;
 import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
+import net.hecco.bountifulcuisine.util.ModWoodTypes;
 import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.client.render.TexturedRenderLayers;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
+import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 
@@ -54,6 +58,10 @@ public class BountifulCuisineClient implements ClientModInitializer {
         registerBlockColor(ModBlocks.CERAMIC_TILE_STAIRS);
         registerBlockColor(ModBlocks.CERAMIC_TILE_SLAB);
         registerBlockColor(ModBlocks.CHECKERED_CERAMIC_TILES);
+        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.HOARY, TexturedRenderLayers.getSignTextureId(ModWoodTypes.HOARY));
+        BlockEntityRendererFactories.register(ModBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignBlockEntityRenderer::new);
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.HOARY_BOAT_ID, false);
     }
     private void registerBlockColor(Block ModCeramicBlocksItems) {
         registerItemColor(ModCeramicBlocksItems);
