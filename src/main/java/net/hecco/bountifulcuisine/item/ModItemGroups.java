@@ -3,7 +3,6 @@ package net.hecco.bountifulcuisine.item;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -22,6 +21,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.STRIPPED_APPLE_WOOD);
                         entries.add(ModBlocks.APPLE_LEAVES);
                         entries.add(ModBlocks.BLOSSOMING_APPLE_LEAVES);
+                        entries.add(Items.APPLE);
                         entries.add(ModBlocks.GIANT_APPLE_BLOCK);
                         entries.add(ModBlocks.APPLE_SAPLING);
                         entries.add(ModBlocks.ORANGE_LOG);
@@ -78,6 +78,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TRELLIS);
                         entries.add(ModItems.PASSION_FRUIT);
                         entries.add(ModItems.ELDERBERRIES);
+                        entries.add(Items.GLOW_BERRIES);
                         entries.add(ModItems.LAPISBERRIES);
                         entries.add(ModItems.LAPISBERRY_SEEDS);
                         entries.add(ModItems.WILD_CARROT);
