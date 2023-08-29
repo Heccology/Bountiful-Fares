@@ -22,12 +22,6 @@ public class DyeableCeramicBlockItem extends BlockItem implements DyeableItem {
     }
 
     @Override
-    public void onCraft(ItemStack stack, World world, PlayerEntity player) {
-        setColor(stack, getColor(stack));
-        super.onCraft(stack, world, player);
-    }
-
-    @Override
     public int getColor(ItemStack stack) {
         NbtCompound nbtCompound = stack.getSubNbt(DISPLAY_KEY);
         if (nbtCompound != null && nbtCompound.contains(COLOR_KEY, NbtElement.NUMBER_TYPE)) {

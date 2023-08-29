@@ -43,6 +43,7 @@ public class ModItems {
     public static final Item FELDSPAR = registerItem("feldspar", new Item(new FabricItemSettings()));
     public static final Item CERAMIC_CLAY = registerItem("ceramic_clay", new Item(new FabricItemSettings()));
     public static final Item CERAMIC_TILE = registerItem("ceramic_tile", new Item(new FabricItemSettings()));
+    public static final Item FARMERS_HAT = registerItem("farmers_hat", new FarmersHatItem(new FabricItemSettings().maxCount(1)));
 
 
     private static Item registerItem(String name, Item item) {

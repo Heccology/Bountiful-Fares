@@ -1,0 +1,8 @@
+{
+  "parent": "bountifulcuisine:block/tintable_slab",
+  "textures": {
+    "bottom": "bountifulcuisine:block/ceramic_tiles",
+    "side": "bountifulcuisine:block/ceramic_tiles",
+    "top": "bountifulcuisine:block/ceramic_tiles"
+  }
+}

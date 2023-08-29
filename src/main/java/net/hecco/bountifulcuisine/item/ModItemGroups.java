@@ -15,13 +15,14 @@ import net.minecraft.util.Identifier;
 public class ModItemGroups {
     public static ItemGroup BOUNTIFUL_CUISINE = Registry.register(Registries.ITEM_GROUP, new Identifier(BountifulCuisine.MOD_ID, "bountiful_cuisine"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.bountiful_cuisine"))
-                    .icon(() -> new ItemStack(Item.fromBlock(ModBlocks.APPLE_SAPLING))).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModItems.PASSION_FRUIT)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.APPLE_LOG);
                         entries.add(ModBlocks.APPLE_WOOD);
                         entries.add(ModBlocks.STRIPPED_APPLE_LOG);
                         entries.add(ModBlocks.STRIPPED_APPLE_WOOD);
                         entries.add(ModBlocks.APPLE_LEAVES);
                         entries.add(ModBlocks.BLOSSOMING_APPLE_LEAVES);
+                        entries.add(ModBlocks.GIANT_APPLE_BLOCK);
                         entries.add(ModBlocks.APPLE_SAPLING);
                         entries.add(ModBlocks.ORANGE_LOG);
                         entries.add(ModBlocks.ORANGE_WOOD);
@@ -30,6 +31,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.ORANGE_LEAVES);
                         entries.add(ModBlocks.BLOSSOMING_ORANGE_LEAVES);
                         entries.add(ModItems.ORANGE);
+                        entries.add(ModBlocks.GIANT_ORANGE_BLOCK);
                         entries.add(ModBlocks.ORANGE_SAPLING);
                         entries.add(ModBlocks.LEMON_LOG);
                         entries.add(ModBlocks.LEMON_WOOD);
@@ -38,6 +40,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.LEMON_LEAVES);
                         entries.add(ModBlocks.BLOSSOMING_LEMON_LEAVES);
                         entries.add(ModItems.LEMON);
+                        entries.add(ModBlocks.GIANT_LEMON_BLOCK);
                         entries.add(ModBlocks.LEMON_SAPLING);
                         entries.add(ModBlocks.PLUM_LOG);
                         entries.add(ModBlocks.PLUM_WOOD);
@@ -46,6 +49,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PLUM_LEAVES);
                         entries.add(ModBlocks.BLOSSOMING_PLUM_LEAVES);
                         entries.add(ModItems.PLUM);
+                        entries.add(ModBlocks.GIANT_PLUM_BLOCK);
                         entries.add(ModBlocks.PLUM_SAPLING);
                         entries.add(ModItems.HOARY_SEEDS);
                         entries.add(ModBlocks.HOARY_FIG_SAPLING);
@@ -86,9 +90,12 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CERAMIC_CLAY_BLOCK);
                         entries.add(ModItems.CERAMIC_TILE);
                         entries.add(ModBlocks.CERAMIC_TILES);
+                        entries.add(ModBlocks.CERAMIC_TILE_STAIRS);
+                        entries.add(ModBlocks.CERAMIC_TILE_SLAB);
                         entries.add(ModBlocks.CHECKERED_CERAMIC_TILES);
                         entries.add(ModBlocks.FERMENTATION_VESSEL);
                         entries.add(ModItems.ELDERBERRY_WINE);
+                        entries.add(ModItems.FARMERS_HAT);
                     }).build());
     public static void registerItemGroups() {
         BountifulCuisine.LOGGER.info("Registering Item Group Entries for " + BountifulCuisine.MOD_ID);

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "bountifulcuisine:ceramic_clay"
+  },
+  "result": "bountifulcuisine:ceramic_tile",
+  "experience": 0.3,
+  "cookingtime": 200
+}
