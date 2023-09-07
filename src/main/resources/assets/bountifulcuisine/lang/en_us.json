@@ -15,7 +15,8 @@
   "block.bountifulcuisine.apple_leaves": "Apple Leaves",
   "block.bountifulcuisine.blossoming_apple_leaves": "Blossoming Apple Leaves",
   "block.bountifulcuisine.apple_sapling": "Apple Sapling",
-  "block.bountifulcuisine.giant_apple_block": "Giant Apple Block",
+  "block.bountifulcuisine.apple_block": "Apple Block",
+  "block.bountifulcuisine.eaten_apple_block": "Apple Block",
 
   "block.bountifulcuisine.orange_log": "Orange Log",
   "block.bountifulcuisine.stripped_orange_log": "Stripped Orange Log",
@@ -48,6 +49,8 @@
   "item.bountifulcuisine.plum": "Plum",
   "tooltip.bountifulcuisine.plum": "§7§oPrunus Domestica",
   "block.bountifulcuisine.plum_sapling": "Plum Sapling",
+  "block.bountifulcuisine.giant_plum_block": "Giant Plum Block",
+
 
   "item.bountifulcuisine.hoary_seeds": "Hoary Seeds",
   "tooltip.bountifulcuisine.hoary_seeds": "Hoary Seeds",
@@ -79,6 +82,10 @@
   "item.bountifulcuisine.candied_lemon": "Candied Lemon",
 
   "block.bountifulcuisine.trellis": "Trellis",
+  "block.bountifulcuisine.passion_fruit_trellis": "Passion Fruit Trellis",
+  "block.bountifulcuisine.elderberry_trellis": "Elderberry Trellis",
+  "block.bountifulcuisine.glow_berry_trellis": "Glow Berry Trellis",
+  "block.bountifulcuisine.flower_trellis": "Flower Trellis",
 
   "item.bountifulcuisine.passion_fruit": "Passion Fruit",
   "tooltip.bountifulcuisine.passion_fruit": "§7§oPassiflora Edulis",
@@ -111,9 +118,10 @@
   "block.bountifulcuisine.ceramic_tiles": "Ceramic Tiles",
   "block.bountifulcuisine.ceramic_tile_stairs": "Ceramic Tile Stairs",
   "block.bountifulcuisine.ceramic_tile_slab": "Ceramic Tile Slab",
-  "block.bountifulcuisine.checkered_ceramic_tiles": "Checkered Ceramic Tiles",
 
-  "item.bountifulcuisine.elderberry_wine": "Elderberry Wine",
+  "item.bountifulcuisine.elderberry_wine_bottle": "Elderberry Wine Bottle",
+
+  "block.bountifulcuisine.chamomile_flowers": "Chamomile Flowers",
 
   "item.bountifulcuisine.farmers_hat": "Farmer's Hat"
 }

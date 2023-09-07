@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/flowerbed_1",
+  "textures": {
+    "flowerbed": "bountifulcuisine:block/chamomile_flowers",
+    "stem": "bountifulcuisine:block/chamomile_flowers_stem"
+  }
+}

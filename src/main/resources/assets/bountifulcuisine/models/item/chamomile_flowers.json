@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bountifulcuisine:item/elderberry_wine"
+    "layer0": "bountifulcuisine:item/chamomile_flowers"
   }
 }

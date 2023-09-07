@@ -1,0 +1,8 @@
+{
+	"parent": "bountifulcuisine:block/template_planted_trellis",
+	"textures": {
+		"trellis": "bountifulcuisine:block/trellis",
+		"vines": "bountifulcuisine:block/lilac_trellis_vines",
+		"foliage": "bountifulcuisine:block/lilac_trellis_foliage"
+	}
+}

@@ -22,7 +22,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.APPLE_LEAVES);
                         entries.add(ModBlocks.BLOSSOMING_APPLE_LEAVES);
                         entries.add(Items.APPLE);
-                        entries.add(ModBlocks.GIANT_APPLE_BLOCK);
+                        entries.add(ModBlocks.APPLE_BLOCK);
                         entries.add(ModBlocks.APPLE_SAPLING);
                         entries.add(ModBlocks.ORANGE_LOG);
                         entries.add(ModBlocks.ORANGE_WOOD);
@@ -93,9 +93,11 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CERAMIC_TILES);
                         entries.add(ModBlocks.CERAMIC_TILE_STAIRS);
                         entries.add(ModBlocks.CERAMIC_TILE_SLAB);
-                        entries.add(ModBlocks.CHECKERED_CERAMIC_TILES);
                         entries.add(ModBlocks.FERMENTATION_VESSEL);
-                        entries.add(ModItems.ELDERBERRY_WINE);
+                        entries.add(ModItems.ELDERBERRY_WINE_BOTTLE);
+                        entries.add(ModItems.TEA_BERRIES);
+                        entries.add(ModItems.TEA_LEAVES);
+                        entries.add(ModBlocks.CHAMOMILE_FLOWERS);
                         entries.add(ModItems.FARMERS_HAT);
                     }).build());
     public static void registerItemGroups() {

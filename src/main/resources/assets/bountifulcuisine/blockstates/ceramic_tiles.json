@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "checkered=false": {
       "model":  "bountifulcuisine:block/ceramic_tiles"
+    },
+    "checkered=true": {
+      "model":  "bountifulcuisine:block/checkered_ceramic_tiles"
     }
   }
 }

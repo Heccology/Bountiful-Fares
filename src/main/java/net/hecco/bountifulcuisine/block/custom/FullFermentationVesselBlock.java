@@ -96,9 +96,9 @@ public class FullFermentationVesselBlock extends Block implements Waterloggable 
                     itemStack.decrement(1);
                 }
                 if (itemStack.isEmpty() && !player.isCreative()) {
-                    player.setStackInHand(hand, new ItemStack(ModItems.ELDERBERRY_WINE));
-                } else if (!player.getInventory().insertStack(new ItemStack(ModItems.ELDERBERRY_WINE))) {
-                    player.dropItem(new ItemStack(ModItems.ELDERBERRY_WINE), false);
+                    player.setStackInHand(hand, new ItemStack(ModItems.ELDERBERRY_WINE_BOTTLE));
+                } else if (!player.getInventory().insertStack(new ItemStack(ModItems.ELDERBERRY_WINE_BOTTLE))) {
+                    player.dropItem(new ItemStack(ModItems.ELDERBERRY_WINE_BOTTLE), false);
                 }
             }
             if(state.get(WATERLOGGED)) {

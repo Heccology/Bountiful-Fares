@@ -1,0 +1,7 @@
+{
+	"parent": "bountifulcuisine:block/tintable_outer_stairs_with_overlay",
+	"textures": {
+		"tint": "bountifulcuisine:block/checkered_ceramic_tiles",
+		"overlay": "bountifulcuisine:block/checkered_ceramic_tiles_overlay"
+	}
+}
