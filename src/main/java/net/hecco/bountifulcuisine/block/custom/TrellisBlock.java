@@ -60,61 +60,79 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         Direction facing = state.get(FACING);
-        if (player.getStackInHand(hand).isOf(ModItems.PASSION_FRUIT)) {
-            BlockState blockState = state;
+        ItemStack itemStack = player.getStackInHand(hand);
+        Boolean isSurvival = !player.isCreative();
+        if (itemStack.isOf(ModItems.PASSION_FRUIT)) {
+            if (isSurvival) {
+                itemStack.decrement(1);
+            }
             world.setBlockState(pos, ModBlocks.PASSION_FRUIT_TRELLIS.getDefaultState().with(FACING, facing), 2);
-            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
-        if (player.getStackInHand(hand).isOf(ModItems.ELDERBERRIES)) {
-            BlockState blockState = state;
+        if (itemStack.isOf(ModItems.ELDERBERRIES)) {
+            if (isSurvival) {
+                itemStack.decrement(1);
+            }
             world.setBlockState(pos, ModBlocks.ELDERBERRY_TRELLIS.getDefaultState().with(FACING, facing), 2);
-            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
-        if (player.getStackInHand(hand).isOf(Items.GLOW_BERRIES)) {
-            BlockState blockState = state;
+        if (itemStack.isOf(Items.GLOW_BERRIES)) {
+            if (isSurvival) {
+                itemStack.decrement(1);
+            }
             world.setBlockState(pos, ModBlocks.GLOW_BERRY_TRELLIS.getDefaultState().with(FACING, facing), 2);
-            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
-        if (player.getStackInHand(hand).isOf(ModItems.LAPISBERRY_SEEDS)) {
-            BlockState blockState = state;
+        if (itemStack.isOf(ModItems.LAPISBERRY_SEEDS)) {
+            if (isSurvival) {
+                itemStack.decrement(1);
+            }
             world.setBlockState(pos, ModBlocks.LAPISBERRY_TRELLIS.getDefaultState().with(FACING, facing), 2);
-            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
 
-        if (player.getStackInHand(hand).isOf(Items.ROSE_BUSH)) {
-            BlockState blockState = state;
+        if (itemStack.isOf(Items.ROSE_BUSH)) {
+            if (isSurvival) {
+                itemStack.decrement(1);
+            }
             world.setBlockState(pos, ModBlocks.FLOWER_TRELLIS.getDefaultState().with(FACING, facing).with(FLOWER, Flower.ROSE), 2);
-            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
-        if (player.getStackInHand(hand).isOf(Items.LILAC)) {
-            BlockState blockState = state;
+        if (itemStack.isOf(Items.LILAC)) {
+            if (isSurvival) {
+                itemStack.decrement(1);
+            }
             world.setBlockState(pos, ModBlocks.FLOWER_TRELLIS.getDefaultState().with(FACING, facing).with(FLOWER, Flower.LILAC), 2);
-            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
-        if (player.getStackInHand(hand).isOf(Items.PEONY)) {
-            BlockState blockState = state;
+        if (itemStack.isOf(Items.PEONY)) {
+            if (isSurvival) {
+                itemStack.decrement(1);
+            }
             world.setBlockState(pos, ModBlocks.FLOWER_TRELLIS.getDefaultState().with(FACING, facing).with(FLOWER, Flower.PEONY), 2);
-            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
-        if (player.getStackInHand(hand).isOf(Items.SUNFLOWER)) {
-            BlockState blockState = state;
+        if (itemStack.isOf(Items.SUNFLOWER)) {
+            if (isSurvival) {
+                itemStack.decrement(1);
+            }
             world.setBlockState(pos, ModBlocks.FLOWER_TRELLIS.getDefaultState().with(FACING, facing).with(FLOWER, Flower.SUNFLOWER), 2);
-            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
 

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "bountifulcuisine:apple_leaves",
+    "bountifulcuisine:blossoming_apple_leaves",
+    "bountifulcuisine:orange_leaves",
+    "bountifulcuisine:blossoming_orange_leaves",
+    "bountifulcuisine:lemon_leaves",
+    "bountifulcuisine:blossoming_lemon_leaves",
+    "bountifulcuisine:plum_leaves",
+    "bountifulcuisine:blossoming_plum_leaves",
+    "bountifulcuisine:hoary_leaves"
+  ]
+}

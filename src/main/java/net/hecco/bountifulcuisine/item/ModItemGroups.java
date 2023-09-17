@@ -52,7 +52,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GIANT_PLUM_BLOCK);
                         entries.add(ModBlocks.PLUM_SAPLING);
                         entries.add(ModItems.HOARY_SEEDS);
-                        entries.add(ModBlocks.HOARY_FIG_SAPLING);
+                        entries.add(ModBlocks.HOARY_APPLE_SAPLING);
                         entries.add(ModBlocks.HOARY_LOG);
                         entries.add(ModBlocks.HOARY_WOOD);
                         entries.add(ModBlocks.STRIPPED_HOARY_LOG);
@@ -71,6 +71,7 @@ public class ModItemGroups {
                         entries.add(ModItems.HOARY_BOAT);
                         entries.add(ModItems.HOARY_CHEST_BOAT);
                         entries.add(ModBlocks.HOARY_LEAVES);
+                        entries.add(ModItems.HOARY_APPLE);
                         entries.add(ModItems.CITRUS_JUICE_BOTTLE);
                         entries.add(ModItems.CITRIC_ACID);
                         entries.add(ModItems.CANDIED_ORANGE);
@@ -81,9 +82,13 @@ public class ModItemGroups {
                         entries.add(Items.GLOW_BERRIES);
                         entries.add(ModItems.LAPISBERRIES);
                         entries.add(ModItems.LAPISBERRY_SEEDS);
+                        entries.add(ModBlocks.WILD_CARROTS);
                         entries.add(ModItems.WILD_CARROT);
+                        entries.add(ModBlocks.WILD_POTATOES);
                         entries.add(ModItems.WILD_POTATO);
+                        entries.add(ModBlocks.WILD_WHEAT);
                         entries.add(ModItems.WILD_WHEAT_SEEDS);
+                        entries.add(ModBlocks.WILD_BEETROOTS);
                         entries.add(ModItems.WILD_BEETROOT_SEEDS);
                         entries.add(ModItems.FELDSPAR);
                         entries.add(ModBlocks.FELDSPAR_BLOCK);
@@ -97,8 +102,11 @@ public class ModItemGroups {
                         entries.add(ModItems.ELDERBERRY_WINE_BOTTLE);
                         entries.add(ModItems.TEA_BERRIES);
                         entries.add(ModItems.TEA_LEAVES);
+                        entries.add(ModItems.DRIED_TEA_LEAVES);
                         entries.add(ModBlocks.CHAMOMILE_FLOWERS);
-                        entries.add(ModItems.FARMERS_HAT);
+                        entries.add(ModBlocks.HONEYSUCKLE);
+                        entries.add(ModBlocks.VIOLET_BELLFLOWER);
+                        entries.add(ModItems.SUN_HAT);
                     }).build());
     public static void registerItemGroups() {
         BountifulCuisine.LOGGER.info("Registering Item Group Entries for " + BountifulCuisine.MOD_ID);

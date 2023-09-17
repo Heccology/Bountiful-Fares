@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     "bountifulcuisine:fermentation_vessel",
-    "bountifulcuisine:full_fermentation_vessel"
+    "bountifulcuisine:full_fermentation_vessel",
+    "bountifulcuisine:feldspar_block",
+    "bountifulcuisine:ceramic_tiles",
+    "bountifulcuisine:ceramic_tile_stairs",
+    "bountifulcuisine:ceramic_tile_slab"
   ]
 }

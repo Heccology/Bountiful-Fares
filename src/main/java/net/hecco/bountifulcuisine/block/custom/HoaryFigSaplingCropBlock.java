@@ -54,7 +54,7 @@ public class HoaryFigSaplingCropBlock extends CropBlock {
     @Override
     public BlockState withAge(int age) {
         if (age == 2) {
-            return ModBlocks.HOARY_FIG_SAPLING.getDefaultState();
+            return ModBlocks.HOARY_APPLE_SAPLING.getDefaultState();
         }
         return super.withAge(age);
     }

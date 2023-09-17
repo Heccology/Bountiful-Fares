@@ -15,9 +15,11 @@
   "block.bountifulcuisine.apple_leaves": "Apple Leaves",
   "block.bountifulcuisine.blossoming_apple_leaves": "Blossoming Apple Leaves",
   "block.bountifulcuisine.apple_sapling": "Apple Sapling",
+  "block.bountifulcuisine.hanging_apple": "Hanging Apple",
   "block.bountifulcuisine.apple_block": "Apple Block",
+  "tooltip.bountifulcuisine.apple_block": "§7§oMalus domestica",
   "block.bountifulcuisine.eaten_apple_block": "Apple Block",
-
+  
   "block.bountifulcuisine.orange_log": "Orange Log",
   "block.bountifulcuisine.stripped_orange_log": "Stripped Orange Log",
   "block.bountifulcuisine.orange_wood": "Orange Wood",
@@ -27,18 +29,24 @@
   "item.bountifulcuisine.orange": "Orange",
   "tooltip.bountifulcuisine.orange": "§7§oCitrus Sinensis",
   "block.bountifulcuisine.orange_sapling": "Orange Sapling",
-  "block.bountifulcuisine.giant_orange_block": "Giant Orange Block",
+  "block.bountifulcuisine.hanging_orange": "Hanging Orange",
+  "block.bountifulcuisine.orange_block": "Orange Block",
+  "tooltip.bountifulcuisine.orange_block": "§7§oCitrus Sinensis",
+  "block.bountifulcuisine.eaten_orange_block": "Orange Block",
 
   "block.bountifulcuisine.lemon_log": "Lemon Log",
   "block.bountifulcuisine.stripped_lemon_log": "Stripped Lemon Log",
   "block.bountifulcuisine.lemon_wood": "Lemon Wood",
   "block.bountifulcuisine.stripped_lemon_wood": "Stripped Lemon Wood",
   "block.bountifulcuisine.lemon_leaves": "Lemon Leaves",
+  "block.bountifulcuisine.hanging_lemon": "Hanging Lemon",
   "block.bountifulcuisine.blossoming_lemon_leaves": "Blossoming Lemon Leaves",
   "item.bountifulcuisine.lemon": "Lemon",
   "tooltip.bountifulcuisine.lemon": "§7§oCitrus Limon",
   "block.bountifulcuisine.lemon_sapling": "Lemon Sapling",
-  "block.bountifulcuisine.giant_lemon_block": "Giant Lemon Block",
+  "block.bountifulcuisine.lemon_block": "Lemon Block",
+  "tooltip.bountifulcuisine.lemon_block": "§7§oCitrus Limon",
+  "block.bountifulcuisine.eaten_lemon_block": "Lemon Block",
 
   "block.bountifulcuisine.plum_log": "Plum Log",
   "block.bountifulcuisine.stripped_plum_log": "Stripped Plum Log",
@@ -49,13 +57,16 @@
   "item.bountifulcuisine.plum": "Plum",
   "tooltip.bountifulcuisine.plum": "§7§oPrunus Domestica",
   "block.bountifulcuisine.plum_sapling": "Plum Sapling",
-  "block.bountifulcuisine.giant_plum_block": "Giant Plum Block",
+  "block.bountifulcuisine.hanging_plum": "Hanging Plum",
+  "block.bountifulcuisine.plum_block": "Plum Block",
+  "tooltip.bountifulcuisine.plum_block": "§7§oPrunus Domestica",
+  "block.bountifulcuisine.eaten_plum_block": "Plum Block",
 
 
   "item.bountifulcuisine.hoary_seeds": "Hoary Seeds",
-  "tooltip.bountifulcuisine.hoary_seeds": "Hoary Seeds",
-  "block.bountifulcuisine.hoary_fig_sapling_crop": "Hoary Fig Sapling",
-  "block.bountifulcuisine.hoary_fig_sapling": "Hoary Fig Sapling",
+  "tooltip.bountifulcuisine.hoary_seeds": "§7§oMalus Primordium",
+  "block.bountifulcuisine.hoary_apple_sapling_crop": "Hoary Apple Sapling",
+  "block.bountifulcuisine.hoary_apple_sapling": "Hoary Apple Sapling",
   "block.bountifulcuisine.hoary_log": "Hoary Log",
   "block.bountifulcuisine.stripped_hoary_log": "Stripped Hoary Log",
   "block.bountifulcuisine.hoary_wood": "Hoary Wood",
@@ -74,6 +85,8 @@
   "block.bountifulcuisine.hoary_hanging_sign": "Hoary Hanging Sign",
   "item.bountifulcuisine.hoary_boat": "Hoary Boat",
   "item.bountifulcuisine.hoary_chest_boat": "Hoary Boat with Chest",
+  "item.bountifulcuisine.hoary_apple": "Hoary Apple",
+  "tooltip.bountifulcuisine.hoary_apple": "§7§oMalus Primordium",
 
   "item.bountifulcuisine.citrus_juice_bottle": "Citrus Juice Bottle",
   "item.bountifulcuisine.citric_acid": "Citric Acid",
@@ -97,15 +110,19 @@
   "tooltip.bountifulcuisine.lapisberry_seeds": "§7§oBaccate Primordium",
 
   "block.bountifulcuisine.wild_carrots": "Wild Carrots",
+  "tooltip.bountifulcuisine.wild_carrots": "§7§oDaucus Carota",
   "item.bountifulcuisine.wild_carrot": "Wild Carrot",
   "tooltip.bountifulcuisine.wild_carrot": "§7§oDaucus Carota",
   "block.bountifulcuisine.wild_potatoes": "Wild Potatoes",
+  "tooltip.bountifulcuisine.wild_potatoes": "§7§oSolanum Maglia",
   "item.bountifulcuisine.wild_potato": "Wild Potato",
   "tooltip.bountifulcuisine.wild_potato": "§7§oSolanum Maglia",
   "block.bountifulcuisine.wild_wheat": "Wild Wheat",
+  "tooltip.bountifulcuisine.wild_wheat": "§7§oTriticum Monococcum",
   "item.bountifulcuisine.wild_wheat_seeds": "Wild Wheat Seeds",
   "tooltip.bountifulcuisine.wild_wheat_seeds": "§7§oTriticum Monococcum",
   "block.bountifulcuisine.wild_beetroots": "Wild Beetroots",
+  "tooltip.bountifulcuisine.wild_beetroots": "§7§oBeta Vulgaris Maritima",
   "item.bountifulcuisine.wild_beetroot_seeds": "Wild Beetroot Seeds",
   "tooltip.bountifulcuisine.wild_beetroot_seeds": "§7§oBeta Vulgaris Maritima",
 
@@ -121,7 +138,20 @@
 
   "item.bountifulcuisine.elderberry_wine_bottle": "Elderberry Wine Bottle",
 
-  "block.bountifulcuisine.chamomile_flowers": "Chamomile Flowers",
+  "item.bountifulcuisine.tea_berries": "Tea Berries",
+  "tooltip.bountifulcuisine.tea_berries": "§7§oCamellia Sinensis",
+  "item.bountifulcuisine.tea_leaves": "Tea Leaves",
+  "tooltip.bountifulcuisine.tea_leaves": "§7§oCamellia Sinensis",
+  "item.bountifulcuisine.dried_tea_leaves": "Dried Tea Leaves",
 
-  "item.bountifulcuisine.farmers_hat": "Farmer's Hat"
+  "block.bountifulcuisine.chamomile_flowers": "Chamomile Flowers",
+  "tooltip.bountifulcuisine.chamomile_flowers": "§7§oMatricaria Chamomilla",
+
+  "block.bountifulcuisine.honeysuckle": "Honeysuckle",
+  "tooltip.bountifulcuisine.honeysuckle": "§7§oLonicera Periclymenum",
+
+  "block.bountifulcuisine.violet_bellflower": "Violet Bellflower",
+  "tooltip.bountifulcuisine.violet_bellflower": "§7§oCampanula",
+
+  "item.bountifulcuisine.sun_hat": "Sun Hat"
 }

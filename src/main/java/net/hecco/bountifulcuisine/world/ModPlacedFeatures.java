@@ -9,7 +9,10 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
+import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
+import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 
 import java.util.List;
 
@@ -22,6 +25,7 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> PLUM_PLACED_KEY = registerKey("plum_placed");
     public static final RegistryKey<PlacedFeature> PLUM_FLOWER_FOREST_PLACED_KEY = registerKey("plum_flower_forest_placed");
     public static final RegistryKey<PlacedFeature> HOARY_PLACED_KEY = registerKey("hoary_placed");
+    public static final RegistryKey<PlacedFeature> WILD_WHEAT_PLACED_KEY = registerKey("wild_wheat_placed");
 
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
@@ -48,10 +52,13 @@ public class ModPlacedFeatures {
 
         register(context, PLUM_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PLUM_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(0, 0.1f, 1), ModBlocks.PLUM_SAPLING));
+                        PlacedFeatures.createCountExtraModifier(0, 0.2f, 1), ModBlocks.PLUM_SAPLING));
         register(context, HOARY_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.HOARY_KEY),
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
-                        PlacedFeatures.createCountExtraModifier(0, 0.05f, 1), Blocks.OAK_SAPLING));
+                        PlacedFeatures.createCountExtraModifier(0, 0.05f, 1), ModBlocks.HOARY_APPLE_SAPLING));
+
+        register(context, WILD_WHEAT_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.WILD_WHEAT_KEY), RarityFilterPlacementModifier.of(4),
+                SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

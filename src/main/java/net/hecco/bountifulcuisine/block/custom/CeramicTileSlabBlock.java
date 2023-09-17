@@ -34,9 +34,15 @@ public class CeramicTileSlabBlock extends SlabBlock implements DyeableCeramicBlo
     }
     @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        ItemStack stack = super.getPickStack(world, pos, state);
-        return pickBlock(world,pos,stack);
+        if (CeramicTilesBlockEntity.getColor(world, pos) != CeramicTilesBlockEntity.DEFAULT_COLOR) {
+            ItemStack stack = super.getPickStack(world, pos, state);
+            return pickBlock(world,pos,stack);
+        } else {
+            return new ItemStack(ModBlocks.CERAMIC_TILE_SLAB);
+        }
     }
+
+
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(TYPE, WATERLOGGED, CHECKERED, WAXED);

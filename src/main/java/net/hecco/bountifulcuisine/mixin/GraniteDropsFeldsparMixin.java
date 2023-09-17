@@ -26,6 +26,7 @@ public class GraniteDropsFeldsparMixin {
     public void feldsparCollection(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
         if (!world.isClient() && state.isOf(Blocks.GRANITE) && player.getStackInHand(hand).isIn(ItemTags.PICKAXES)) {
             ItemStack feldsparStack = new ItemStack(ModItems.FELDSPAR, new Random().nextInt(3) + 1);
+            player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
             Block.dropStack(world, pos, feldsparStack);
             world.breakBlock(pos, false, player);
             cir.setReturnValue(ActionResult.SUCCESS);

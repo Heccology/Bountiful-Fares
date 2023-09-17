@@ -9,10 +9,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
@@ -24,6 +21,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> LEMON_KEY = registerKey("lemon");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PLUM_KEY = registerKey("plum");
     public static final RegistryKey<ConfiguredFeature<?, ?>> HOARY_KEY = registerKey("hoary");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> WILD_WHEAT_KEY = registerKey("wild_wheat");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         register(context, APPLE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(BlockStateProvider.of(ModBlocks.APPLE_LOG),
@@ -60,6 +58,8 @@ public class ModConfiguredFeatures {
                 new BlobFoliagePlacer(ConstantIntProvider.create(1), ConstantIntProvider.create(2), 1),
                 new TwoLayersFeatureSize(2, 1, 1))
                 .ignoreVines().build());
+
+        register(context, WILD_WHEAT_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(32, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.WILD_WHEAT)))));
     }
 
 

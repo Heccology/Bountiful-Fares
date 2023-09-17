@@ -41,7 +41,7 @@ public class CeramicTileStairsBlock extends StairsBlock implements DyeableCerami
             ItemStack stack = super.getPickStack(world, pos, state);
             return pickBlock(world,pos,stack);
         } else {
-            return new ItemStack(ModBlocks.CERAMIC_TILES);
+            return new ItemStack(ModBlocks.CERAMIC_TILE_STAIRS);
         }
     }
 

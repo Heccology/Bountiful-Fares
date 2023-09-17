@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "boat",
+  "key": {
+    "#": {
+      "item": "bountifulcuisine:ceramic_clay"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "item": "bountifulcuisine:ceramic_clay_block"
+  },
+  "show_notification": true
+}

@@ -1,5 +1,4 @@
 package net.hecco.bountifulcuisine.item;
-
 import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.hecco.bountifulcuisine.BountifulCuisine;
@@ -15,13 +14,12 @@ import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-
 public class ModItems {
-
     public static final Item ORANGE = registerItem("orange", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0).build())));
     public static final Item LEMON = registerItem("lemon", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0).build())));
     public static final Item PLUM = registerItem("plum", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0).build())));
-    public static final Item HOARY_SEEDS = registerItem("hoary_seeds", new AliasedPlantItem(ModBlocks.HOARY_FIG_SAPLING_CROP, new FabricItemSettings()));
+    public static final Item HOARY_APPLE = registerItem("hoary_apple", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0).build())));
+    public static final Item HOARY_SEEDS = registerItem("hoary_seeds", new AliasedPlantItem(ModBlocks.HOARY_APPLE_SAPLING_CROP, new FabricItemSettings()));
     public static final Item HOARY_SIGN = registerItem("hoary_sign", new SignItem(new FabricItemSettings().maxCount(16), ModBlocks.HOARY_SIGN, ModBlocks.HOARY_WALL_SIGN));
     public static final Item HOARY_HANGING_SIGN = registerItem("hoary_hanging_sign", new HangingSignItem(ModBlocks.HOARY_HANGING_SIGN, ModBlocks.HOARY_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
     public static final Item HOARY_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.HOARY_BOAT_ID, ModBoats.HOARY_BOAT_KEY, false);
@@ -42,9 +40,10 @@ public class ModItems {
     public static final Item FELDSPAR = registerItem("feldspar", new Item(new FabricItemSettings()));
     public static final Item CERAMIC_CLAY = registerItem("ceramic_clay", new Item(new FabricItemSettings()));
     public static final Item CERAMIC_TILE = registerItem("ceramic_tile", new Item(new FabricItemSettings()));
-    public static final Item TEA_BERRIES = registerItem("tea_berries", new Item(new FabricItemSettings()));
-    public static final Item TEA_LEAVES = registerItem("tea_leaves", new Item(new FabricItemSettings()));
-    public static final Item FARMERS_HAT = registerItem("farmers_hat", new FarmersHatItem(new FabricItemSettings().maxCount(1)));
+    public static final Item TEA_BERRIES = registerItem("tea_berries", new TeaBerriesItem(ModBlocks.TEA_SHRUB, new FabricItemSettings()));
+    public static final Item TEA_LEAVES = registerItem("tea_leaves", new PlantItem(new FabricItemSettings()));
+    public static final Item DRIED_TEA_LEAVES = registerItem("dried_tea_leaves", new Item(new FabricItemSettings()));
+    public static final Item SUN_HAT = registerItem("sun_hat", new FarmersHatItem(new FabricItemSettings().maxCount(1)));
 
 
     private static Item registerItem(String name, Item item) {
