@@ -31,7 +31,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.ORANGE_LEAVES);
                         entries.add(ModBlocks.BLOSSOMING_ORANGE_LEAVES);
                         entries.add(ModItems.ORANGE);
-                        entries.add(ModBlocks.GIANT_ORANGE_BLOCK);
+                        entries.add(ModBlocks.ORANGE_BLOCK);
                         entries.add(ModBlocks.ORANGE_SAPLING);
                         entries.add(ModBlocks.LEMON_LOG);
                         entries.add(ModBlocks.LEMON_WOOD);
@@ -40,7 +40,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.LEMON_LEAVES);
                         entries.add(ModBlocks.BLOSSOMING_LEMON_LEAVES);
                         entries.add(ModItems.LEMON);
-                        entries.add(ModBlocks.GIANT_LEMON_BLOCK);
+                        entries.add(ModBlocks.LEMON_BLOCK);
                         entries.add(ModBlocks.LEMON_SAPLING);
                         entries.add(ModBlocks.PLUM_LOG);
                         entries.add(ModBlocks.PLUM_WOOD);
@@ -49,7 +49,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PLUM_LEAVES);
                         entries.add(ModBlocks.BLOSSOMING_PLUM_LEAVES);
                         entries.add(ModItems.PLUM);
-                        entries.add(ModBlocks.GIANT_PLUM_BLOCK);
+                        entries.add(ModBlocks.PLUM_BLOCK);
                         entries.add(ModBlocks.PLUM_SAPLING);
                         entries.add(ModItems.HOARY_SEEDS);
                         entries.add(ModBlocks.HOARY_APPLE_SAPLING);
@@ -72,6 +72,7 @@ public class ModItemGroups {
                         entries.add(ModItems.HOARY_CHEST_BOAT);
                         entries.add(ModBlocks.HOARY_LEAVES);
                         entries.add(ModItems.HOARY_APPLE);
+                        entries.add(ModBlocks.HOARY_APPLE_BLOCK);
                         entries.add(ModItems.CITRUS_JUICE_BOTTLE);
                         entries.add(ModItems.CITRIC_ACID);
                         entries.add(ModItems.CANDIED_ORANGE);

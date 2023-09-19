@@ -1,6 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
-import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
@@ -24,31 +24,53 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class EatenFruitBlock extends FallingBlock {
+import java.util.stream.Stream;
+
+public class EatenLemonBlock extends FallingBlock {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final IntProperty SLICES = IntProperty.of("slices", 0, 2);
 
     private static final VoxelShape[] NORTH_SHAPES = new VoxelShape[] {
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 0, 16, 16, 16), Block.createCuboidShape(0, 0, 8, 8, 16, 16), BooleanBiFunction.OR),
-            Block.createCuboidShape(0, 0, 8, 16, 16, 16),
-            Block.createCuboidShape(0, 0, 8, 8, 16, 16)
+            Stream.of(
+                    Block.createCuboidShape(8, 0, 0, 16, 16, 16),
+                    Block.createCuboidShape(0, 0, 8, 8, 16, 16),
+                    Block.createCuboidShape(8, -3, 4, 12, 19, 12),
+                    Block.createCuboidShape(4, -3, 8, 8, 19, 12)
+            ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get(),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 8, 16, 16, 16), Block.createCuboidShape(4, -3, 8, 12, 19, 12), BooleanBiFunction.OR),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 8, 8, 16, 16), Block.createCuboidShape(4, -3, 8, 8, 19, 12), BooleanBiFunction.OR)
     };
     private static final VoxelShape[] EAST_SHAPES = new VoxelShape[] {
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 8, 16, 16, 16), Block.createCuboidShape(0, 0, 0, 8, 16, 8), BooleanBiFunction.OR),
-            Block.createCuboidShape(0, 0, 0, 8, 16, 16),
-            Block.createCuboidShape(0, 0, 0, 8, 16, 8)
+            Stream.of(
+                    Block.createCuboidShape(0, 0, 8, 16, 16, 16),
+                    Block.createCuboidShape(0, 0, 0, 8, 16, 8),
+                    Block.createCuboidShape(4, -3, 8, 12, 19, 12),
+                    Block.createCuboidShape(4, -3, 4, 8, 19, 8)
+            ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get(),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 0, 8, 16, 16), Block.createCuboidShape(4, -3, 4, 8, 19, 12), BooleanBiFunction.OR),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 0, 8, 16, 8), Block.createCuboidShape(4, -3, 4, 8, 19, 8), BooleanBiFunction.OR)
     };
     private static final VoxelShape[] SOUTH_SHAPES = new VoxelShape[] {
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 0, 8, 16, 16), Block.createCuboidShape(8, 0, 0, 16, 16, 8), BooleanBiFunction.OR),
-            Block.createCuboidShape(0, 0, 0, 16, 16, 8),
-            Block.createCuboidShape(8, 0, 0, 16, 16, 8)
+            Stream.of(
+                    Block.createCuboidShape(0, 0, 0, 8, 16, 16),
+                    Block.createCuboidShape(8, 0, 0, 16, 16, 8),
+                    Block.createCuboidShape(4, -3, 4, 8, 19, 12),
+                    Block.createCuboidShape(8, -3, 4, 12, 19, 8)
+            ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get(),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 0, 16, 16, 8), Block.createCuboidShape(4, -3, 4, 12, 19, 8), BooleanBiFunction.OR),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 0, 16, 16, 8), Block.createCuboidShape(8, -3, 4, 12, 19, 8), BooleanBiFunction.OR)
     };
     private static final VoxelShape[] WEST_SHAPES = new VoxelShape[] {
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 0, 16, 16, 8), Block.createCuboidShape(8, 0, 8, 16, 16, 16), BooleanBiFunction.OR),
-            Block.createCuboidShape(8, 0, 0, 16, 16, 16),
-            Block.createCuboidShape(8, 0, 8, 16, 16, 16)
+            Stream.of(
+                    Block.createCuboidShape(0, 0, 0, 16, 16, 8),
+                    Block.createCuboidShape(8, 0, 8, 16, 16, 16),
+                    Block.createCuboidShape(4, -3, 4, 12, 19, 8),
+                    Block.createCuboidShape(8, -3, 8, 12, 19, 12)
+            ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get(),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 0, 16, 16, 16), Block.createCuboidShape(8, -3, 4, 12, 19, 12), BooleanBiFunction.OR),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 8, 16, 16, 16), Block.createCuboidShape(8, -3, 8, 12, 19, 12), BooleanBiFunction.OR)
     };
-    public EatenFruitBlock(Settings settings) {
+    public EatenLemonBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(SLICES, 0).with(FACING, Direction.NORTH));
     }
@@ -99,5 +121,10 @@ public class EatenFruitBlock extends FallingBlock {
             world.setBlockState(hit.getBlockPos(), Blocks.AIR.getDefaultState());
             world.playSound(null, hit.getBlockPos(), SoundEvents.BLOCK_BAMBOO_WOOD_FALL, SoundCategory.BLOCKS, 1.0F, 1.0F);
         }
+    }
+
+    @Override
+    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+        return new ItemStack(ModItems.LEMON);
     }
 }

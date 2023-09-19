@@ -31,7 +31,7 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
 
     private static final VoxelShape AGE0_SHAPE = Block.createCuboidShape(4, 0, 4, 12, 6, 12);
     private static final VoxelShape AGE1_SHAPE = Block.createCuboidShape(3, 0, 3, 13, 9, 13);
-    private static final VoxelShape AGE4_SHAPE = VoxelShapes.combineAndSimplify(Block.createCuboidShape(7, 0, 7, 9, 9, 9), Block.createCuboidShape(0, 7, 0, 16, 16, 16), BooleanBiFunction.OR);
+    private static final VoxelShape AGE4_SHAPE = VoxelShapes.combineAndSimplify(Block.createCuboidShape(7, 0, 7, 9, 9, 9), Block.createCuboidShape(0, 9, 0, 16, 16, 16), BooleanBiFunction.OR);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

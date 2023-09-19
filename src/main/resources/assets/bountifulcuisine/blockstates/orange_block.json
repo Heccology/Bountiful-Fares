@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bountifulcuisine:block/orange_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bountifulcuisine:block/orange_block"
+    },
+    "facing=south": {
+      "model": "bountifulcuisine:block/orange_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bountifulcuisine:block/orange_block",
+      "y": 270
+    }
+  }
+}

@@ -4,6 +4,10 @@ import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.custom.template.FruitLogBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
@@ -23,7 +27,6 @@ public class AppleLogBlock extends FruitLogBlock {
         } else if (axis == Direction.Axis.Z) {
             directions = new Direction[]{Direction.UP, Direction.DOWN, Direction.WEST, Direction.EAST};
         } else {
-            // No rotation needed for Y axis
             directions = new Direction[]{Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST};
         }
 
@@ -50,5 +53,4 @@ public class AppleLogBlock extends FruitLogBlock {
             }
         }
     }
-
 }
