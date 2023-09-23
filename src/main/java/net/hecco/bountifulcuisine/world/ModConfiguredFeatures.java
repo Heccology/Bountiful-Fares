@@ -21,7 +21,9 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> LEMON_KEY = registerKey("lemon");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PLUM_KEY = registerKey("plum");
     public static final RegistryKey<ConfiguredFeature<?, ?>> HOARY_KEY = registerKey("hoary");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> WILD_WHEAT_KEY = registerKey("wild_wheat");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> HONEYSUCKLE_KEY = registerKey("honeysuckle");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> VIOLET_BELLFLOWER_KEY = registerKey("violet_bellflower");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> CHAMOMILE_KEY = registerKey("chamomile");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         register(context, APPLE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(BlockStateProvider.of(ModBlocks.APPLE_LOG),
@@ -59,7 +61,12 @@ public class ModConfiguredFeatures {
                 new TwoLayersFeatureSize(2, 1, 1))
                 .ignoreVines().build());
 
-        register(context, WILD_WHEAT_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(32, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.WILD_WHEAT)))));
+        register(context, HONEYSUCKLE_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(32, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.HONEYSUCKLE)))));
+        register(context, VIOLET_BELLFLOWER_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(32, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.VIOLET_BELLFLOWER)))));
+        register(context, CHAMOMILE_KEY, Feature.FLOWER, new RandomPatchFeatureConfig(32, 6, 2, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.CHAMOMILE_FLOWERS)))));
     }
 
 

@@ -153,5 +153,22 @@
   "block.bountifulcuisine.violet_bellflower": "Violet Bellflower",
   "tooltip.bountifulcuisine.violet_bellflower": "§7§oCampanula",
 
-  "item.bountifulcuisine.sun_hat": "Sun Hat"
+  "item.bountifulcuisine.sun_hat": "Sun Hat",
+
+  "block.bountifulcuisine.red_jack_o_straw": "Red Jack O' Straw",
+  "block.bountifulcuisine.orange_jack_o_straw": "Orange Jack O' Straw",
+  "block.bountifulcuisine.yellow_jack_o_straw": "Yellow Jack O' Straw",
+  "block.bountifulcuisine.lime_jack_o_straw": "Lime Jack O' Straw",
+  "block.bountifulcuisine.green_jack_o_straw": "Green Jack O' Straw",
+  "block.bountifulcuisine.cyan_jack_o_straw": "Cyan Jack O' Straw",
+  "block.bountifulcuisine.light_blue_jack_o_straw": "Light Blue Jack O' Straw",
+  "block.bountifulcuisine.blue_jack_o_straw": "Blue Jack O' Straw",
+  "block.bountifulcuisine.purple_jack_o_straw": "Purple Jack O' Straw",
+  "block.bountifulcuisine.magenta_jack_o_straw": "Magenta Jack O' Straw",
+  "block.bountifulcuisine.pink_jack_o_straw": "Pink Jack O' Straw",
+  "block.bountifulcuisine.white_jack_o_straw": "White Jack O' Straw",
+  "block.bountifulcuisine.light_gray_jack_o_straw": "Light Gray Jack O' Straw",
+  "block.bountifulcuisine.gray_jack_o_straw": "Gray Jack O' Straw",
+  "block.bountifulcuisine.black_jack_o_straw": "Black Jack O' Straw",
+  "block.bountifulcuisine.brown_jack_o_straw": "Brown Jack O' Straw"
 }

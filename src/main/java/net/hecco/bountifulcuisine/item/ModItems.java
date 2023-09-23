@@ -8,6 +8,7 @@ import net.hecco.bountifulcuisine.entity.ModBoats;
 import net.hecco.bountifulcuisine.item.custom.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.TallFlowerBlock;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
@@ -44,13 +45,13 @@ public class ModItems {
     public static final Item TEA_LEAVES = registerItem("tea_leaves", new PlantItem(new FabricItemSettings()));
     public static final Item DRIED_TEA_LEAVES = registerItem("dried_tea_leaves", new Item(new FabricItemSettings()));
     public static final Item SUN_HAT = registerItem("sun_hat", new FarmersHatItem(new FabricItemSettings().maxCount(1)));
-
+//    public static final Item RED_JACK_O_STRAW = registerBlockItem("red_jack_o_straw", ModBlocks.RED_JACK_O_STRAW);
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), item);
     }
     private static Item registerBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), new AliasedPlantItem(block, new FabricItemSettings()));
+        return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), new TallBlockItem(block, new FabricItemSettings()));
     }
     public static void registerModItems() {
         BountifulCuisine.LOGGER.info("Registering Mod Items for ", BountifulCuisine.MOD_ID);
