@@ -1,0 +1,6 @@
+{
+	"parent": "bountifulcuisine:block/jack_o_straw_lower",
+	"textures": {
+		"texture": "bountifulcuisine:block/green_jack_o_straw"
+	}
+}
