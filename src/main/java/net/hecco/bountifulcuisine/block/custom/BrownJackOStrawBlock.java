@@ -1,6 +1,5 @@
 package net.hecco.bountifulcuisine.block.custom;
 
-import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
@@ -28,10 +27,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
-public class JackOStrawBlock extends Block {
+public class BrownJackOStrawBlock extends Block {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
-    public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
     private static final VoxelShape NORTH_SOUTH_UPPER = VoxelShapes.combineAndSimplify(Block.createCuboidShape(3, 9, 3, 13, 21, 13), Block.createCuboidShape(4, 0, 6, 12, 9, 10), BooleanBiFunction.OR);
     private static final VoxelShape NORTH_SOUTH_LOWER = VoxelShapes.combineAndSimplify(Block.createCuboidShape(7, -1, 7, 9, 12, 9), Block.createCuboidShape(4, 12, 6, 12, 16, 10), BooleanBiFunction.OR);
     private static final VoxelShape EAST_WEST_UPPER = VoxelShapes.combineAndSimplify(Block.createCuboidShape(3, 9, 3, 13, 21, 13), Block.createCuboidShape(6, 0, 4, 10, 9, 12), BooleanBiFunction.OR);
@@ -55,9 +53,9 @@ public class JackOStrawBlock extends Block {
         return NORTH_SOUTH_UPPER;
     }
 
-    public JackOStrawBlock(Settings settings) {
+    public BrownJackOStrawBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(HALF, DoubleBlockHalf.LOWER).with(LIT, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(HALF, DoubleBlockHalf.LOWER));
     }
 
     @Override
@@ -90,23 +88,12 @@ public class JackOStrawBlock extends Block {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (state.get(HALF) == DoubleBlockHalf.UPPER & !state.get(LIT) & player.getStackInHand(hand).isOf(Items.TORCH)) {
-            player.getStackInHand(hand).decrement(1);
-            world.setBlockState(pos, this.getStateWithProperties(state).with(LIT, true), 2);
-            world.playSound(null, pos, SoundEvents.BLOCK_CANDLE_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            return ActionResult.SUCCESS;
-        }
-        return ActionResult.PASS;
-    }
-
-    @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, HALF, LIT);
+        builder.add(FACING, HALF);
     }
 }
