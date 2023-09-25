@@ -1,27 +1,8 @@
 {
   "replace": false,
   "values": [
-    "bountifulcuisine:apple_log",
-    "bountifulcuisine:stripped_apple_log",
-    "bountifulcuisine:apple_wood",
-    "bountifulcuisine:stripped_apple_wood",
-    "bountifulcuisine:orange_log",
-    "bountifulcuisine:stripped_orange_log",
-    "bountifulcuisine:orange_wood",
-    "bountifulcuisine:stripped_orange_wood",
-    "bountifulcuisine:lemon_log",
-    "bountifulcuisine:stripped_lemon_log",
-    "bountifulcuisine:lemon_wood",
-    "bountifulcuisine:stripped_lemon_wood",
-    "bountifulcuisine:plum_log",
-    "bountifulcuisine:stripped_plum_log",
-    "bountifulcuisine:plum_wood",
-    "bountifulcuisine:stripped_plum_wood",
-    "bountifulcuisine:trellis",
-    "bountifulcuisine:passion_fruit_trellis",
-    "bountifulcuisine:elderberry_trellis",
-    "bountifulcuisine:glow_berry_trellis",
-    "bountifulcuisine:lapisberry_trellis",
-    "bountifulcuisine:flower_trellis"
+    "#bountifulcuisine:fruit_logs",
+    "#bountifulcuisine:trellises",
+    "#bountifulcuisine:jack_o_straws"
   ]
 }

@@ -8,6 +8,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -92,7 +95,9 @@ public class JackOStrawBlock extends Block {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (state.get(HALF) == DoubleBlockHalf.UPPER & !state.get(LIT) & player.getStackInHand(hand).isOf(Items.TORCH)) {
-            player.getStackInHand(hand).decrement(1);
+            if (!player.isCreative()) {
+                player.getStackInHand(hand).decrement(1);
+            }
             world.setBlockState(pos, this.getStateWithProperties(state).with(LIT, true), 2);
             world.playSound(null, pos, SoundEvents.BLOCK_CANDLE_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
             return ActionResult.SUCCESS;
