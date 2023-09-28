@@ -28,6 +28,12 @@ public class ModBlockEntities {
             FabricBlockEntityTypeBuilder.create(ModHangingSignBlockEntity::new, HOARY_HANGING_SIGN, HOARY_WALL_HANGING_SIGN).build()
     );
 
+    public static final BlockEntityType<QuernStoneBlockEntity> QUERN_STONE_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulCuisine.MOD_ID, "quern_stone_entity"),
+            FabricBlockEntityTypeBuilder.create(QuernStoneBlockEntity::new, QUERN_STONE).build(null)
+    );
+
     public static void registerBlockEntities() {
         BountifulCuisine.LOGGER.debug("Registering Block Entities for " + BountifulCuisine.MOD_ID);
     }

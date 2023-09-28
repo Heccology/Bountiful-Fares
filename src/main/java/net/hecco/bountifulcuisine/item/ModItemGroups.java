@@ -124,6 +124,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GRAY_JACK_O_STRAW);
                         entries.add(ModBlocks.BLACK_JACK_O_STRAW);
                         entries.add(ModBlocks.BROWN_JACK_O_STRAW);
+                        entries.add(ModBlocks.QUERN_STONE);
                     }).build());
     public static void registerItemGroups() {
         BountifulCuisine.LOGGER.info("Registering Item Group Entries for " + BountifulCuisine.MOD_ID);

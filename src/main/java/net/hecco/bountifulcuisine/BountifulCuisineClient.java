@@ -9,10 +9,13 @@ import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
 import net.hecco.bountifulcuisine.block.custom.entity.ModBlockEntities;
 import net.hecco.bountifulcuisine.entity.ModBoats;
 import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
+import net.hecco.bountifulcuisine.screen.ModScreenHandlers;
+import net.hecco.bountifulcuisine.screen.QuernStoneScreen;
 import net.hecco.bountifulcuisine.util.ModWoodTypes;
 import net.minecraft.block.Block;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.FoliageColors;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -101,6 +104,8 @@ public class BountifulCuisineClient implements ClientModInitializer {
         TerraformBoatClientHelper.registerModelLayers(ModBoats.HOARY_BOAT_ID, false);
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos)
                 : FoliageColors.getDefaultColor(), ModBlocks.CHAMOMILE_FLOWERS);
+
+        HandledScreens.register(ModScreenHandlers.QUERN_STONE_SCREEN_HANDLER, QuernStoneScreen::new);
     }
     private void registerBlockColor(Block ModCeramicBlocksItems) {
         registerItemColor(ModCeramicBlocksItems);

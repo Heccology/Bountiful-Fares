@@ -7,6 +7,7 @@ import net.hecco.bountifulcuisine.effect.ModEffects;
 import net.hecco.bountifulcuisine.entity.ModBoats;
 import net.hecco.bountifulcuisine.item.ModItemGroups;
 import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.screen.ModScreenHandlers;
 import net.hecco.bountifulcuisine.util.ModLootTableModifiers;
 import net.hecco.bountifulcuisine.util.ModRegistries;
 import net.hecco.bountifulcuisine.world.gen.ModWorldGeneration;
@@ -31,5 +32,6 @@ public class BountifulCuisine implements ModInitializer {
 		ModEffects.registerEffects();
 		ModBoats.registerBoats();
 		ModLootTableModifiers.modifyLootTables();
+		ModScreenHandlers.registerScreenHandlers();
 	}
 }

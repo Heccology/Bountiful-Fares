@@ -13,7 +13,6 @@ import net.hecco.bountifulcuisine.world.tree.*;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Items;
@@ -133,6 +132,7 @@ public class ModBlocks {
     public static final Block GRAY_JACK_O_STRAW = registerBlock("gray_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block BLACK_JACK_O_STRAW = registerBlock("black_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block BROWN_JACK_O_STRAW = registerBlock("brown_jack_o_straw", new BrownJackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block QUERN_STONE = registerBlock("quern_stone", new QuernStoneBlock(FabricBlockSettings.create()));
 
 
     public static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
