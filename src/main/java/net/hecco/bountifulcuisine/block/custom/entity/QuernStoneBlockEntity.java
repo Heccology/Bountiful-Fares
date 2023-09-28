@@ -2,12 +2,14 @@ package net.hecco.bountifulcuisine.block.custom.entity;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.recipe.QuernStoneRecipe;
 import net.hecco.bountifulcuisine.screen.QuernStoneScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -22,6 +24,8 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
 
@@ -113,9 +117,11 @@ public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreen
     }
 
     private void craftItem() {
+        Optional<QuernStoneRecipe> recipe = getCurrentRecipe();
+
         this.removeStack(INPUT_SLOT, 1);
-        this.setStack(OUTPUT_SLOT, new ItemStack(ModItems.FELDSPAR,
-                this.getStack(OUTPUT_SLOT).getCount() + 2));
+        this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutput(null).getItem(),
+                this.getStack(OUTPUT_SLOT).getCount() + recipe.get().getOutput(null).getCount()));
         world.playSound(null, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 0.8f, 0.5f + world.random.nextFloat() * 0.4f);
 
     }
@@ -129,7 +135,29 @@ public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreen
     }
 
     private boolean hasRecipe() {
-        return this.getStack(INPUT_SLOT).getItem() == Items.GRANITE;
+        Optional<QuernStoneRecipe> recipe = getCurrentRecipe();
+
+        if (recipe.isEmpty()) return false;
+        ItemStack output = recipe.get().getOutput(null);
+
+        return canInsertAmountIntoOutputSlot(output.getCount())
+                && canInsertItemIntoOutputSlot(output);
+    }
+
+    private boolean canInsertItemIntoOutputSlot(ItemStack output) {
+        return this.getStack(OUTPUT_SLOT).isEmpty() || this.getStack(OUTPUT_SLOT).getItem() == output.getItem();
+    }
+
+    private boolean canInsertAmountIntoOutputSlot(int count) {
+        return this.getStack(OUTPUT_SLOT).getMaxCount() >= this.getStack(OUTPUT_SLOT).getCount() + count;
+    }
+
+    private Optional<QuernStoneRecipe> getCurrentRecipe() {
+        SimpleInventory inventory = new SimpleInventory(this.size());
+        for (int i = 0; i < this.size(); i++) {
+            inventory.setStack(i, this.getStack(i));
+        }
+        return this.getWorld().getRecipeManager().getFirstMatch(QuernStoneRecipe.Type.INSTANCE, inventory, this.getWorld());
     }
 
     private boolean canInsertOutputSlot() {

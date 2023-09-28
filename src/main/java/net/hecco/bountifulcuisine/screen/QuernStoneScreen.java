@@ -10,7 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class QuernStoneScreen extends HandledScreen<QuernStoneScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(BountifulCuisine.MOD_ID, "textures/gui/mortar_and_pestle.png");
+    private static final Identifier TEXTURE = new Identifier(BountifulCuisine.MOD_ID, "textures/gui/quern_stone.png");
     public QuernStoneScreen(QuernStoneScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }

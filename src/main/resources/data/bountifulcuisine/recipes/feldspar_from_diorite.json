@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:quern_stone",
+  "ingredients": [
+    {
+      "item": "minecraft:diorite"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "bountifulcuisine:feldspar"
+  }
+}
