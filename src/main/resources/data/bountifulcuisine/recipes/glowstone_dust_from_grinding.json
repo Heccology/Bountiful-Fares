@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:quern_stone",
+  "ingredients": [
+    {
+      "item": "minecraft:glowstone"
+    }
+  ],
+  "output": {
+    "count": 4,
+    "item": "minecraft:glowstone_dust"
+  }
+}

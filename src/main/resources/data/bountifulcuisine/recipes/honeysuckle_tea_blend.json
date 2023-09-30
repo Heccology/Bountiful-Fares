@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:quern_stone",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:honeysuckle"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "bountifulcuisine:honeysuckle_tea_blend"
+  }
+}

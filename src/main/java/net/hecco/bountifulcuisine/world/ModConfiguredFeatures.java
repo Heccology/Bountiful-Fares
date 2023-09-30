@@ -24,6 +24,10 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> HONEYSUCKLE_KEY = registerKey("honeysuckle");
     public static final RegistryKey<ConfiguredFeature<?, ?>> VIOLET_BELLFLOWER_KEY = registerKey("violet_bellflower");
     public static final RegistryKey<ConfiguredFeature<?, ?>> CHAMOMILE_KEY = registerKey("chamomile");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> WILD_WHEAT_KEY = registerKey("wild_wheat");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> WILD_CARROTS_KEY = registerKey("wild_carrots");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> WILD_POTATOES_KEY = registerKey("wild_potatoes");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> WILD_BEETROOTS_KEY = registerKey("wild_beetroots");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         register(context, APPLE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(BlockStateProvider.of(ModBlocks.APPLE_LOG),

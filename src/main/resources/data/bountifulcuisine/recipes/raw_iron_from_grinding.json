@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:quern_stone",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ore"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "minecraft:raw_iron"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:quern_stone",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:chamomile_flowers"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "bountifulcuisine:chamomile_tea_blend"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:quern_stone",
+  "ingredients": [
+    {
+      "item": "minecraft:torchflower"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "bountifulcuisine:torchflower_tea_blend"
+  }
+}

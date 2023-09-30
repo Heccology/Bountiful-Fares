@@ -107,6 +107,13 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CHAMOMILE_FLOWERS);
                         entries.add(ModBlocks.HONEYSUCKLE);
                         entries.add(ModBlocks.VIOLET_BELLFLOWER);
+                        entries.add(ModItems.GREEN_TEA_BLEND);
+                        entries.add(ModItems.BLACK_TEA_BLEND);
+                        entries.add(ModItems.CHAMOMILE_TEA_BLEND);
+                        entries.add(ModItems.HONEYSUCKLE_TEA_BLEND);
+                        entries.add(ModItems.BELLFLOWER_TEA_BLEND);
+                        entries.add(ModItems.TORCHFLOWER_TEA_BLEND);
+                        entries.add(ModBlocks.QUERN_STONE);
                         entries.add(ModItems.SUN_HAT);
                         entries.add(ModBlocks.RED_JACK_O_STRAW);
                         entries.add(ModBlocks.ORANGE_JACK_O_STRAW);
@@ -124,7 +131,6 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GRAY_JACK_O_STRAW);
                         entries.add(ModBlocks.BLACK_JACK_O_STRAW);
                         entries.add(ModBlocks.BROWN_JACK_O_STRAW);
-                        entries.add(ModBlocks.QUERN_STONE);
                     }).build());
     public static void registerItemGroups() {
         BountifulCuisine.LOGGER.info("Registering Item Group Entries for " + BountifulCuisine.MOD_ID);

@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:quern_stone",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:dried_tea_leaves"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "bountifulcuisine:black_tea_blend"
+  }
+}

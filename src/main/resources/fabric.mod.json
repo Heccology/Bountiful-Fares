@@ -20,6 +20,9 @@
 		],
 		"client": [
 			"net.hecco.bountifulcuisine.BountifulCuisineClient"
+		],
+		"rei_client": [
+			"net.hecco.bountifulcuisine.compat.BountifulCuisineREIClientPlugin"
 		]
 	},
 	"mixins": [

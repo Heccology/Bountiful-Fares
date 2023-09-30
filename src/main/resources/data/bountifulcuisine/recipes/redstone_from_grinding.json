@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:quern_stone",
+  "ingredients": [
+    {
+      "item": "minecraft:redstone_ore"
+    }
+  ],
+  "output": {
+    "count": 8,
+    "item": "minecraft:redstone"
+  }
+}

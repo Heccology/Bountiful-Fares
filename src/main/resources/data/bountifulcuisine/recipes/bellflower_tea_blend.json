@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:quern_stone",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:violet_bellflower"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "bountifulcuisine:bellflower_tea_blend"
+  }
+}

@@ -44,8 +44,13 @@ public class ModItems {
     public static final Item TEA_BERRIES = registerItem("tea_berries", new TeaBerriesItem(ModBlocks.TEA_SHRUB, new FabricItemSettings()));
     public static final Item TEA_LEAVES = registerItem("tea_leaves", new PlantItem(new FabricItemSettings()));
     public static final Item DRIED_TEA_LEAVES = registerItem("dried_tea_leaves", new Item(new FabricItemSettings()));
+    public static final Item GREEN_TEA_BLEND = registerItem("green_tea_blend", new Item(new FabricItemSettings()));
+    public static final Item BLACK_TEA_BLEND = registerItem("black_tea_blend", new Item(new FabricItemSettings()));
+    public static final Item CHAMOMILE_TEA_BLEND = registerItem("chamomile_tea_blend", new Item(new FabricItemSettings()));
+    public static final Item HONEYSUCKLE_TEA_BLEND = registerItem("honeysuckle_tea_blend", new Item(new FabricItemSettings()));
+    public static final Item BELLFLOWER_TEA_BLEND = registerItem("bellflower_tea_blend", new Item(new FabricItemSettings()));
+    public static final Item TORCHFLOWER_TEA_BLEND = registerItem("torchflower_tea_blend", new Item(new FabricItemSettings()));
     public static final Item SUN_HAT = registerItem("sun_hat", new FarmersHatItem(new FabricItemSettings().maxCount(1)));
-//    public static final Item RED_JACK_O_STRAW = registerBlockItem("red_jack_o_straw", ModBlocks.RED_JACK_O_STRAW);
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), item);

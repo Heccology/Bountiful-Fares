@@ -28,6 +28,10 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> HONEYSUCKLE_PLACED_KEY = registerKey("honeysuckle_placed");
     public static final RegistryKey<PlacedFeature> VIOLET_BELLFLOWER_PLACED_KEY = registerKey("violet_bellflower_placed");
     public static final RegistryKey<PlacedFeature> CHAMOMILE_PLACED_KEY = registerKey("chamomile_placed");
+    public static final RegistryKey<PlacedFeature> WILD_WHEAT_PLACED_KEY = registerKey("wild_wheat_placed");
+    public static final RegistryKey<PlacedFeature> WILD_CARROTS_PLACED_KEY = registerKey("wild_carrots_placed");
+    public static final RegistryKey<PlacedFeature> WILD_POTATOES_PLACED_KEY = registerKey("wild_potatoes_placed");
+    public static final RegistryKey<PlacedFeature> WILD_BEETROOTS_PLACED_KEY = registerKey("wild_beetroots_placed");
 
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
