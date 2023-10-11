@@ -46,8 +46,8 @@ public class CeramicTilesBlockEntity extends BlockEntity {
             return CeramicTilesBlockEntity.DEFAULT_COLOR;
         }
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if(blockEntity instanceof CeramicTilesBlockEntity hexBlockEntity){
-            return hexBlockEntity.color;
+        if(blockEntity instanceof CeramicTilesBlockEntity ceramicTilesBlockEntity){
+            return ceramicTilesBlockEntity.color;
         } else {
             return CeramicTilesBlockEntity.DEFAULT_COLOR;
         }

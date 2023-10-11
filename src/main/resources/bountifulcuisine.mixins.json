@@ -3,8 +3,8 @@
   "package": "net.hecco.bountifulcuisine.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "FlintAndSteelLightsInfusedCandlesMixin",
     "FoliagePlacerTypeInvoker",
-    "GraniteDropsFeldsparMixin",
     "PlantTooltipMixin",
     "TrunkPlacerTypeInvoker"
   ],

@@ -34,6 +34,37 @@ public class ModBlockEntities {
             FabricBlockEntityTypeBuilder.create(QuernStoneBlockEntity::new, QUERN_STONE).build(null)
     );
 
+    public static final BlockEntityType<GreenTeaCandleBlockEntity> GREEN_TEA_CANDLE_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulCuisine.MOD_ID, "green_tea_candle_entity"),
+            FabricBlockEntityTypeBuilder.create(GreenTeaCandleBlockEntity::new, GREEN_TEA_CANDLE).build()
+    );
+    public static final BlockEntityType<BlackTeaCandleBlockEntity> BLACK_TEA_CANDLE_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulCuisine.MOD_ID, "black_tea_candle_entity"),
+            FabricBlockEntityTypeBuilder.create(BlackTeaCandleBlockEntity::new, BLACK_TEA_CANDLE).build()
+    );
+    public static final BlockEntityType<ChamomileCandleBlockEntity> CHAMOMILE_CANDLE_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulCuisine.MOD_ID, "chamomile_candle_entity"),
+            FabricBlockEntityTypeBuilder.create(ChamomileCandleBlockEntity::new, CHAMOMILE_CANDLE).build()
+    );
+    public static final BlockEntityType<HoneysuckleCandleBlockEntity> HONEYSUCKLE_CANDLE_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulCuisine.MOD_ID, "honeysuckle_candle_entity"),
+            FabricBlockEntityTypeBuilder.create(HoneysuckleCandleBlockEntity::new, HONEYSUCKLE_CANDLE).build()
+    );
+    public static final BlockEntityType<BellflowerCandleBlockEntity> BELLFLOWER_CANDLE_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulCuisine.MOD_ID, "bellflower_candle_entity"),
+            FabricBlockEntityTypeBuilder.create(BellflowerCandleBlockEntity::new, BELLFLOWER_CANDLE).build()
+    );
+    public static final BlockEntityType<TorchflowerCandleBlockEntity> TORCHFLOWER_CANDLE_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulCuisine.MOD_ID, "torchflower_candle_entity"),
+            FabricBlockEntityTypeBuilder.create(TorchflowerCandleBlockEntity::new, TORCHFLOWER_CANDLE).build()
+    );
+
     public static void registerBlockEntities() {
         BountifulCuisine.LOGGER.debug("Registering Block Entities for " + BountifulCuisine.MOD_ID);
     }

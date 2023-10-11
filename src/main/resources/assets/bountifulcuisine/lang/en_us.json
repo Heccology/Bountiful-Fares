@@ -144,6 +144,13 @@
   "tooltip.bountifulcuisine.tea_leaves": "§7§oCamellia Sinensis",
   "item.bountifulcuisine.dried_tea_leaves": "Dried Tea Leaves",
 
+  "item.bountifulcuisine.green_tea_blend": "Green Tea Blend",
+  "item.bountifulcuisine.black_tea_blend": "Black Tea Blend",
+  "item.bountifulcuisine.chamomile_tea_blend": "Chamomile Tea Blend",
+  "item.bountifulcuisine.honeysuckle_tea_blend": "Honeysuckle Tea Blend",
+  "item.bountifulcuisine.bellflower_tea_blend": "Bellflower Tea Blend",
+  "item.bountifulcuisine.torchflower_tea_blend": "Torchflower Tea Blend",
+
   "block.bountifulcuisine.chamomile_flowers": "Chamomile Flowers",
   "tooltip.bountifulcuisine.chamomile_flowers": "§7§oMatricaria Chamomilla",
 
@@ -152,6 +159,13 @@
 
   "block.bountifulcuisine.violet_bellflower": "Violet Bellflower",
   "tooltip.bountifulcuisine.violet_bellflower": "§7§oCampanula",
+
+  "block.bountifulcuisine.green_tea_candle": "Green Tea Candle",
+  "block.bountifulcuisine.black_tea_candle": "Black Tea Candle",
+  "block.bountifulcuisine.chamomile_candle": "Chamomile Candle",
+  "block.bountifulcuisine.honeysuckle_candle": "Honeysuckle Candle",
+  "block.bountifulcuisine.bellflower_candle": "Bellflower Candle",
+  "block.bountifulcuisine.torchflower_candle": "Torchflower Candle",
 
   "item.bountifulcuisine.sun_hat": "Sun Hat",
 

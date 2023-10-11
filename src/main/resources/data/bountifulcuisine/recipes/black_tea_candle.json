@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "H": {
+      "item": "minecraft:honeycomb"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "T": {
+      "item": "bountifulcuisine:black_tea_blend"
+    }
+  },
+  "pattern": [
+    "S",
+    "H",
+    "T"
+  ],
+  "result": {
+    "item": "bountifulcuisine:black_tea_candle"
+  },
+  "show_notification": true
+}

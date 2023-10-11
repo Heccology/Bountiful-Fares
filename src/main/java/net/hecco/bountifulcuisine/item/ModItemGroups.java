@@ -114,6 +114,12 @@ public class ModItemGroups {
                         entries.add(ModItems.BELLFLOWER_TEA_BLEND);
                         entries.add(ModItems.TORCHFLOWER_TEA_BLEND);
                         entries.add(ModBlocks.QUERN_STONE);
+                        entries.add(ModBlocks.GREEN_TEA_CANDLE);
+                        entries.add(ModBlocks.BLACK_TEA_CANDLE);
+                        entries.add(ModBlocks.CHAMOMILE_CANDLE);
+                        entries.add(ModBlocks.HONEYSUCKLE_CANDLE);
+                        entries.add(ModBlocks.BELLFLOWER_CANDLE);
+                        entries.add(ModBlocks.TORCHFLOWER_CANDLE);
                         entries.add(ModItems.SUN_HAT);
                         entries.add(ModBlocks.RED_JACK_O_STRAW);
                         entries.add(ModBlocks.ORANGE_JACK_O_STRAW);

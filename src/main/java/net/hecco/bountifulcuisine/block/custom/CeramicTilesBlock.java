@@ -25,7 +25,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class CeramicTilesBlock extends Block implements DyeableCeramicBlockInterface, BlockEntityProvider {
+public class CeramicTilesBlock extends Block implements DyeableCeramicBlockInterface {
     public static final BooleanProperty CHECKERED = BooleanProperty.of("checkered");
     public static final BooleanProperty WAXED = BooleanProperty.of("waxed");
     public CeramicTilesBlock(Settings settings) {

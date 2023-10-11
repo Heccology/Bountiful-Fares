@@ -32,8 +32,8 @@ dependencies {
 	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:7.0.1"
 
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:12.0.648"
-	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:12.0.648"
-	// Uncomment the following line to enable the deprecated Fabric API modules. 
+//	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:12.0.648"
+	// Uncomment the      following line to enable the deprecated Fabric API modules.
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
