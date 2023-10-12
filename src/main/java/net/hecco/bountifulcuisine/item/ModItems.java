@@ -50,6 +50,12 @@ public class ModItems {
     public static final Item HONEYSUCKLE_TEA_BLEND = registerItem("honeysuckle_tea_blend", new Item(new FabricItemSettings()));
     public static final Item BELLFLOWER_TEA_BLEND = registerItem("bellflower_tea_blend", new Item(new FabricItemSettings()));
     public static final Item TORCHFLOWER_TEA_BLEND = registerItem("torchflower_tea_blend", new Item(new FabricItemSettings()));
+    public static final Item GREEN_TEA_BOTTLE = registerItem("green_tea_bottle", new LiquidBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.5f).statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 200, 0), 1f).alwaysEdible().build())));
+    public static final Item BLACK_TEA_BOTTLE = registerItem("black_tea_bottle", new LiquidBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.5f).statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 200, 0), 1f).alwaysEdible().build())));
+    public static final Item CHAMOMILE_TEA_BOTTLE = registerItem("chamomile_tea_bottle", new LiquidBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.5f).statusEffect(new StatusEffectInstance(StatusEffects.LUCK, 200, 0), 1f).alwaysEdible().build())));
+    public static final Item HONEYSUCKLE_TEA_BOTTLE = registerItem("honeysuckle_tea_bottle", new LiquidBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.5f).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 200, 0), 1f).alwaysEdible().build())));
+    public static final Item BELLFLOWER_TEA_BOTTLE = registerItem("bellflower_tea_bottle", new LiquidBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.5f).statusEffect(new StatusEffectInstance(StatusEffects.SATURATION, 200, 0), 1f).alwaysEdible().build())));
+    public static final Item TORCHFLOWER_TEA_BOTTLE = registerItem("torchflower_tea_bottle", new LiquidBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.5f).statusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 200, 0), 1f).alwaysEdible().build())));
     public static final Item SUN_HAT = registerItem("sun_hat", new FarmersHatItem(new FabricItemSettings().maxCount(1)));
 
     private static Item registerItem(String name, Item item) {

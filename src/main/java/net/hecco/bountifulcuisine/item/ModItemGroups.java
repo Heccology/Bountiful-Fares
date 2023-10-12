@@ -101,6 +101,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CERAMIC_TILE_SLAB);
                         entries.add(ModBlocks.FERMENTATION_VESSEL);
                         entries.add(ModItems.ELDERBERRY_WINE_BOTTLE);
+                        entries.add(ModBlocks.QUERN_STONE);
                         entries.add(ModItems.TEA_BERRIES);
                         entries.add(ModItems.TEA_LEAVES);
                         entries.add(ModItems.DRIED_TEA_LEAVES);
@@ -113,7 +114,12 @@ public class ModItemGroups {
                         entries.add(ModItems.HONEYSUCKLE_TEA_BLEND);
                         entries.add(ModItems.BELLFLOWER_TEA_BLEND);
                         entries.add(ModItems.TORCHFLOWER_TEA_BLEND);
-                        entries.add(ModBlocks.QUERN_STONE);
+                        entries.add(ModItems.GREEN_TEA_BOTTLE);
+                        entries.add(ModItems.BLACK_TEA_BOTTLE);
+                        entries.add(ModItems.CHAMOMILE_TEA_BOTTLE);
+                        entries.add(ModItems.HONEYSUCKLE_TEA_BOTTLE);
+                        entries.add(ModItems.BELLFLOWER_TEA_BOTTLE);
+                        entries.add(ModItems.TORCHFLOWER_TEA_BOTTLE);
                         entries.add(ModBlocks.GREEN_TEA_CANDLE);
                         entries.add(ModBlocks.BLACK_TEA_CANDLE);
                         entries.add(ModBlocks.CHAMOMILE_CANDLE);

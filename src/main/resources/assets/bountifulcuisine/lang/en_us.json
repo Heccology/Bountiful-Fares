@@ -151,6 +151,13 @@
   "item.bountifulcuisine.bellflower_tea_blend": "Bellflower Tea Blend",
   "item.bountifulcuisine.torchflower_tea_blend": "Torchflower Tea Blend",
 
+  "item.bountifulcuisine.green_tea_bottle": "Green Tea Bottle",
+  "item.bountifulcuisine.black_tea_bottle": "Black Tea Bottle",
+  "item.bountifulcuisine.chamomile_tea_bottle": "Chamomile Tea Bottle",
+  "item.bountifulcuisine.honeysuckle_tea_bottle": "Honeysuckle Tea Bottle",
+  "item.bountifulcuisine.bellflower_tea_bottle": "Bellflower Tea Bottle",
+  "item.bountifulcuisine.torchflower_tea_bottle": "Torchflower Tea Bottle",
+
   "block.bountifulcuisine.chamomile_flowers": "Chamomile Flowers",
   "tooltip.bountifulcuisine.chamomile_flowers": "§7§oMatricaria Chamomilla",
 

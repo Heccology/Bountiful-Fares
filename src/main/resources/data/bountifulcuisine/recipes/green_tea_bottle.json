@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:potion"
+    },
+    {
+      "item": "bountifulcuisine:green_tea_blend"
+    }
+  ],
+  "result": {
+    "item": "bountifulcuisine:green_tea_bottle",
+    "count": 1
+  }
+}
