@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "lit=false": {
       "model":  "bountifulcuisine:block/green_tea_candle"
+    },
+    "lit=true": {
+      "model":  "bountifulcuisine:block/green_tea_candle_lit"
     }
   }
 }

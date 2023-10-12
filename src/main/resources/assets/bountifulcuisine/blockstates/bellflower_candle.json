@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "lit=false": {
       "model":  "bountifulcuisine:block/bellflower_candle"
+    },
+    "lit=true": {
+      "model":  "bountifulcuisine:block/bellflower_candle_lit"
     }
   }
 }

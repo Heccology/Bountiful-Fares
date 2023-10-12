@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "lit=false": {
       "model":  "bountifulcuisine:block/honeysuckle_candle"
+    },
+    "lit=true": {
+      "model":  "bountifulcuisine:block/honeysuckle_candle_lit"
     }
   }
 }
