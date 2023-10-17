@@ -91,6 +91,11 @@ public class ModItemGroups {
                         entries.add(ModItems.WILD_WHEAT_SEEDS);
                         entries.add(ModBlocks.WILD_BEETROOTS);
                         entries.add(ModItems.WILD_BEETROOT_SEEDS);
+                        entries.add(ModItems.MAIZE_SEEDS);
+                        entries.add(ModItems.MAIZE);
+                        entries.add(ModItems.ARUGULA_SEEDS);
+                        entries.add(ModItems.ARUGULA);
+                        entries.add(ModItems.FLOUR);
                         entries.add(ModItems.FELDSPAR);
                         entries.add(ModBlocks.FELDSPAR_BLOCK);
                         entries.add(ModItems.CERAMIC_CLAY);

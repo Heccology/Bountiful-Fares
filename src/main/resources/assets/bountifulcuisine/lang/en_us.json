@@ -126,6 +126,13 @@
   "item.bountifulcuisine.wild_beetroot_seeds": "Wild Beetroot Seeds",
   "tooltip.bountifulcuisine.wild_beetroot_seeds": "§7§oBeta Vulgaris Maritima",
 
+  "item.bountifulcuisine.maize": "Maize",
+  "item.bountifulcuisine.maize_seeds": "Maize Seeds",
+  "item.bountifulcuisine.arugula": "Arugula",
+  "item.bountifulcuisine.arugula_seeds": "Arugula Seeds",
+
+  "item.bountifulcuisine.flour": "Flour",
+
   "item.bountifulcuisine.feldspar": "Feldspar",
   "block.bountifulcuisine.feldspar_block": "Block of Feldspar",
   "item.bountifulcuisine.ceramic_clay": "Ceramic Clay",

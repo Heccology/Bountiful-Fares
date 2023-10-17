@@ -3,12 +3,17 @@ package net.hecco.bountifulcuisine;
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
 import net.hecco.bountifulcuisine.block.custom.entity.ModBlockEntities;
 import net.hecco.bountifulcuisine.entity.ModBoats;
+import net.hecco.bountifulcuisine.entity.ModEntities;
 import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
+import net.hecco.bountifulcuisine.particle.FlourCloudParticle;
+import net.hecco.bountifulcuisine.particle.ModParticles;
 import net.hecco.bountifulcuisine.screen.ModScreenHandlers;
 import net.hecco.bountifulcuisine.screen.QuernStoneScreen;
 import net.hecco.bountifulcuisine.util.ModWoodTypes;
@@ -16,11 +21,13 @@ import net.minecraft.block.Block;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.particle.ParticleFactory;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 
@@ -112,7 +119,11 @@ public class BountifulCuisineClient implements ClientModInitializer {
                 : FoliageColors.getDefaultColor(), ModBlocks.CHAMOMILE_FLOWERS);
 
         HandledScreens.register(ModScreenHandlers.QUERN_STONE_SCREEN_HANDLER, QuernStoneScreen::new);
+        EntityRendererRegistry.register(ModEntities.THROWN_FLOUR_PROJECTILE, FlyingItemEntityRenderer::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.FLOUR_CLOUD_PARTICLE, FlourCloudParticle.Factory::new);
     }
+
+
     private void registerBlockColor(Block ModCeramicBlocksItems) {
         registerItemColor(ModCeramicBlocksItems);
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> CeramicTilesBlockEntity.getColor(world,pos),ModCeramicBlocksItems);
