@@ -72,7 +72,7 @@ public class QuernStoneScreenHandler extends ScreenHandler {
                 slot.markDirty();
             }
         }
-
+1``
         return newStack;
     }
     @Override
@@ -93,4 +93,9 @@ public class QuernStoneScreenHandler extends ScreenHandler {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
     }
+
+//    @Override
+//    public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
+//        return slot.getIndex() == 0;
+//    }
 }

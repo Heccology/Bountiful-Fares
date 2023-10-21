@@ -9,6 +9,7 @@ import net.hecco.bountifulcuisine.entity.ModBoats;
 import net.hecco.bountifulcuisine.item.ModItemGroups;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.particle.ModParticles;
+import net.hecco.bountifulcuisine.potion.ModPotions;
 import net.hecco.bountifulcuisine.recipe.ModRecipes;
 import net.hecco.bountifulcuisine.screen.ModScreenHandlers;
 import net.hecco.bountifulcuisine.util.ModLootTableModifiers;
@@ -38,5 +39,6 @@ public class BountifulCuisine implements ModInitializer {
 		ModScreenHandlers.registerScreenHandlers();
 		ModRecipes.registerRecipes();
 		ModParticles.registerParticles();
+		ModPotions.registerPotions();
 	}
 }

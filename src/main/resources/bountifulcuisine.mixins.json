@@ -3,6 +3,7 @@
   "package": "net.hecco.bountifulcuisine.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "BrewingRecipeRegistryMixin",
     "FlintAndSteelLightsInfusedCandlesMixin",
     "FoliagePlacerTypeInvoker",
     "PlantTooltipMixin",

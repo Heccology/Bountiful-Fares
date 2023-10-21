@@ -22,15 +22,19 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
+    private static final int[] TOP_SLOTS = new int[]{0};
+    private static final int[] BOTTOM_SLOTS = new int[]{1};
     private static final int INPUT_SLOT = 0;
     private static final int OUTPUT_SLOT = 1;
     protected final PropertyDelegate propertyDelegate;
@@ -89,13 +93,13 @@ public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreen
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         Inventories.writeNbt(nbt, inventory);
-        nbt.putInt("mortar_and_pestle.progress", progress);
+        nbt.putInt("quern_stone.progress", progress);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         Inventories.readNbt(nbt, inventory);
-        nbt.getInt("mortar_and_pestle.progress");
+        nbt.getInt("quern_stone.progress");
         super.readNbt(nbt);
     }
 
@@ -108,7 +112,7 @@ public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreen
                 resetProgress();
             }
         } else {
-            resetProgress();
+            decreaseCraftingProgress();
         }
     }
 
@@ -133,7 +137,11 @@ public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreen
     private void increaseCraftingProgress() {
         this.progress++;
     }
-
+    private void decreaseCraftingProgress() {
+        if (this.progress > 0) {
+            this.progress -= 2;
+        }
+    }
     private boolean hasRecipe() {
         Optional<QuernStoneRecipe> recipe = getCurrentRecipe();
 
@@ -150,6 +158,17 @@ public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreen
 
     private boolean canInsertAmountIntoOutputSlot(int count) {
         return this.getStack(OUTPUT_SLOT).getMaxCount() >= this.getStack(OUTPUT_SLOT).getCount() + count;
+    }
+
+    @Override
+    public int[] getAvailableSlots(Direction side) {
+        if (side == Direction.DOWN) {
+            return BOTTOM_SLOTS;
+        }
+        if (side == Direction.UP) {
+            return TOP_SLOTS;
+        }
+        return TOP_SLOTS;
     }
 
     private Optional<QuernStoneRecipe> getCurrentRecipe() {
