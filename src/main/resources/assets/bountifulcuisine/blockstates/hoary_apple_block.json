@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bountifulcuisine:block/hoary_apple_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bountifulcuisine:block/hoary_apple_block"
+    },
+    "facing=south": {
+      "model": "bountifulcuisine:block/hoary_apple_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bountifulcuisine:block/hoary_apple_block",
+      "y": 270
+    }
+  }
+}

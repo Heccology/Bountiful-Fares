@@ -72,7 +72,6 @@ public class QuernStoneScreenHandler extends ScreenHandler {
                 slot.markDirty();
             }
         }
-1``
         return newStack;
     }
     @Override
