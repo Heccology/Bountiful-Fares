@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
 import net.hecco.bountifulcuisine.block.custom.entity.ModBlockEntities;
@@ -34,6 +35,24 @@ import net.minecraft.nbt.NbtElement;
 public class BountifulCuisineClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        if (FabricLoader.getInstance().isModLoaded(BountifulCuisine.ELS_AND_LS_DYES_MOD_ID)) {
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ACORN_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ARTICHOKE_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BANANA_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CERULEAN_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FUCHSIA_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GRAPE_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INDIGO_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MAROON_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MAUVE_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MINT_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NAVY_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PEACH_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PERIWINKLE_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SAP_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SHAMROCK_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.VERMILION_JACK_O_STRAW, RenderLayer.getCutout());
+        }
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_LOG, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_WOOD, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HANGING_APPLE, RenderLayer.getCutout());
@@ -76,6 +95,7 @@ public class BountifulCuisineClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CERAMIC_TILE_SLAB, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CERAMIC_TILE_STAIRS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GOLDEN_APPLE_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ORANGE_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LEMON_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PLUM_BLOCK, RenderLayer.getCutout());
@@ -109,6 +129,11 @@ public class BountifulCuisineClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HONEYSUCKLE_CANDLE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BELLFLOWER_CANDLE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TORCHFLOWER_CANDLE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TOMATOES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SPONGEKIN_STEM, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SPONGEKIN, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SPONGEKIN_SPROUT, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PRISMARINE_BLOSSOM, RenderLayer.getCutout());
         registerBlockColor(ModBlocks.CERAMIC_TILES);
         registerBlockColor(ModBlocks.CERAMIC_TILE_STAIRS);
         registerBlockColor(ModBlocks.CERAMIC_TILE_SLAB);

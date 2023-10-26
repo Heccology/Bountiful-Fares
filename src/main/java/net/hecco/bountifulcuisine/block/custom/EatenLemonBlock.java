@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -125,6 +126,6 @@ public class EatenLemonBlock extends FallingBlock {
 
     @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(ModItems.LEMON);
+        return new ItemStack(ModBlocks.LEMON_BLOCK);
     }
 }

@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
@@ -12,6 +13,6 @@ public class EatenPlumBlock extends EatenFruitBlock {
     }
     @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(ModItems.PLUM);
+        return new ItemStack(ModBlocks.PLUM_BLOCK);
     }
 }

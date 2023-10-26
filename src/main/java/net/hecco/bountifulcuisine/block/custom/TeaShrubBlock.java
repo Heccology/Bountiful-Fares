@@ -47,12 +47,12 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
 
     public TeaShrubBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(this.AGE, 0).with(BERRIES, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0).with(BERRIES, false));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(this.AGE, this.BERRIES);
+        builder.add(AGE, BERRIES);
     }
 
     @Override

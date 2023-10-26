@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model":  "bountifulcuisine:block/prismarine_blossom"
+    },
+    "waterlogged=true": {
+      "model":  "bountifulcuisine:block/prismarine_blossom_lit"
+    }
+  }
+}

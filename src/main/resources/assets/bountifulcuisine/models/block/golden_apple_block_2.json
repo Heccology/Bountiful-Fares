@@ -1,0 +1,9 @@
+{
+	"parent": "bountifulcuisine:block/fruit_block_2",
+	"textures": {
+		"side": "bountifulcuisine:block/golden_apple_block_side",
+		"top": "bountifulcuisine:block/golden_apple_block_top",
+		"bottom": "bountifulcuisine:block/golden_apple_block_bottom",
+		"inside": "bountifulcuisine:block/golden_apple_block_inside"
+	}
+}

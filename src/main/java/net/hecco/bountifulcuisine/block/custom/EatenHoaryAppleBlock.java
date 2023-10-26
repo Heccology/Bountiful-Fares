@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -74,6 +75,6 @@ public class EatenHoaryAppleBlock extends EatenFruitBlock {
     }
     @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(ModItems.HOARY_APPLE);
+        return new ItemStack(ModBlocks.HOARY_APPLE_BLOCK);
     }
 }

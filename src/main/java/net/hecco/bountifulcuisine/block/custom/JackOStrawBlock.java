@@ -34,7 +34,7 @@ import org.jetbrains.annotations.Nullable;
 public class JackOStrawBlock extends Block {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
-    public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
+    public static final BooleanProperty LIT = Properties.LIT;
     private static final VoxelShape NORTH_SOUTH_UPPER = VoxelShapes.combineAndSimplify(Block.createCuboidShape(3, 9, 3, 13, 21, 13), Block.createCuboidShape(4, 0, 6, 12, 9, 10), BooleanBiFunction.OR);
     private static final VoxelShape NORTH_SOUTH_LOWER = VoxelShapes.combineAndSimplify(Block.createCuboidShape(7, -1, 7, 9, 12, 9), Block.createCuboidShape(4, 12, 6, 12, 16, 10), BooleanBiFunction.OR);
     private static final VoxelShape EAST_WEST_UPPER = VoxelShapes.combineAndSimplify(Block.createCuboidShape(3, 9, 3, 13, 21, 13), Block.createCuboidShape(6, 0, 4, 10, 9, 12), BooleanBiFunction.OR);

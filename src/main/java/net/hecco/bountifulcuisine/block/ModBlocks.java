@@ -2,9 +2,9 @@ package net.hecco.bountifulcuisine.block;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.custom.*;
-import net.hecco.bountifulcuisine.block.custom.template.InfusedCandleBlock;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
 import net.hecco.bountifulcuisine.item.custom.PlantBlockItem;
@@ -103,6 +103,8 @@ public class ModBlocks {
     public static final Block FULL_FERMENTATION_VESSEL = registerBlockNoItem("full_fermentation_vessel", new FullFermentationVesselBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).instrument(Instrument.BASEDRUM).requiresTool().nonOpaque().ticksRandomly().sounds(BlockSoundGroup.DECORATED_POT)));
     public static final Block APPLE_BLOCK = registerPlantBlock("apple_block", new AppleBlock(FabricBlockSettings.create().mapColor(MapColor.RED).strength(1f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block EATEN_APPLE_BLOCK = registerBlockNoItem("eaten_apple_block", new EatenAppleBlock(FabricBlockSettings.copyOf(ModBlocks.APPLE_BLOCK)));
+    public static final Block GOLDEN_APPLE_BLOCK = registerBlock("golden_apple_block", new GoldenAppleBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(1f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block EATEN_GOLDEN_APPLE_BLOCK = registerBlockNoItem("eaten_golden_apple_block", new EatenGoldenAppleBlock(FabricBlockSettings.copyOf(ModBlocks.GOLDEN_APPLE_BLOCK)));
     public static final Block ORANGE_BLOCK = registerPlantBlock("orange_block", new OrangeBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).strength(0.5f).instrument(Instrument.DIDGERIDOO).requiresTool().sounds(BlockSoundGroup.WOOD)));
     public static final Block EATEN_ORANGE_BLOCK = registerBlockNoItem("eaten_orange_block", new EatenOrangeBlock(FabricBlockSettings.copyOf(ModBlocks.ORANGE_BLOCK)));
     public static final Block LEMON_BLOCK = registerPlantBlock("lemon_block", new LemonBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.5f).instrument(Instrument.DIDGERIDOO).requiresTool().sounds(BlockSoundGroup.WOOD)));
@@ -111,6 +113,11 @@ public class ModBlocks {
     public static final Block EATEN_PLUM_BLOCK = registerBlockNoItem("eaten_plum_block", new EatenPlumBlock(FabricBlockSettings.copyOf(ModBlocks.PLUM_BLOCK)));
     public static final Block HOARY_APPLE_BLOCK = registerPlantBlock("hoary_apple_block", new HoaryAppleBlock(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_GRAY).strength(0.5f).instrument(Instrument.DIDGERIDOO).requiresTool().sounds(BlockSoundGroup.WOOD)));
     public static final Block EATEN_HOARY_APPLE_BLOCK = registerBlockNoItem("eaten_hoary_apple_block", new EatenHoaryAppleBlock(FabricBlockSettings.copyOf(ModBlocks.HOARY_APPLE_BLOCK)));
+    public static final Block TOMATOES = registerBlockNoItem("tomatoes", new TomatoCropBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block SPONGEKIN_SPROUT = registerPlantBlock("spongekin_sprout", new SpongekinSproutBlock(FabricBlockSettings.create().mapColor(MapColor.WATER_BLUE).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block SPONGEKIN_STEM = registerBlockNoItem("spongekin_stem", new SpongekinStemBlock(FabricBlockSettings.create().mapColor(MapColor.WATER_BLUE).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block SPONGEKIN = registerPlantBlock("spongekin", new SpongekinBlock(FabricBlockSettings.create().mapColor(MapColor.BRIGHT_TEAL).instrument(Instrument.DIDGERIDOO).strength(1.0f).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block PRISMARINE_BLOSSOM = registerPlantBlock("prismarine_blossom", new PrismarineBlossomBlock(FabricBlockSettings.create().mapColor(MapColor.CYAN).strength(0.4f).nonOpaque().noCollision().sounds(BlockSoundGroup.CALCITE).luminance(createLightLevelFromWaterloggedBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block TEA_SHRUB = registerBlockNoItem("tea_shrub", new TeaShrubBlock(FabricBlockSettings.create().nonOpaque().strength(0.5f).ticksRandomly().noCollision().mapColor(MapColor.GREEN).sounds(BlockSoundGroup.AZALEA).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block CHAMOMILE_FLOWERS = registerPlantBlock("chamomile_flowers", new ChamomileFlowersBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).noCollision().sounds(BlockSoundGroup.PINK_PETALS).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block HONEYSUCKLE = registerPlantBlock("honeysuckle", new TeaFlowerBlock(StatusEffects.REGENERATION, 5, FabricBlockSettings.copyOf(Blocks.POPPY)));
@@ -141,8 +148,49 @@ public class ModBlocks {
     public static final Block BELLFLOWER_CANDLE = registerBlock("bellflower_candle", new BellflowerCandleBlock(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block TORCHFLOWER_CANDLE = registerBlock("torchflower_candle", new TorchflowerCandleBlock(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
 
+    public static Block ACORN_JACK_O_STRAW;
+    public static Block ARTICHOKE_JACK_O_STRAW;
+    public static Block BANANA_JACK_O_STRAW;
+    public static Block CERULEAN_JACK_O_STRAW;
+    public static Block FUCHSIA_JACK_O_STRAW;
+    public static Block GRAPE_JACK_O_STRAW;
+    public static Block INDIGO_JACK_O_STRAW;
+    public static Block MAROON_JACK_O_STRAW;
+    public static Block MAUVE_JACK_O_STRAW;
+    public static Block MINT_JACK_O_STRAW;
+    public static Block NAVY_JACK_O_STRAW;
+    public static Block PEACH_JACK_O_STRAW;
+    public static Block PERIWINKLE_JACK_O_STRAW;
+    public static Block SAP_JACK_O_STRAW;
+    public static Block SHAMROCK_JACK_O_STRAW;
+    public static Block VERMILION_JACK_O_STRAW;
+    public static void registerElsAndLsDyesCompatibilityBlocks() {
+        if (FabricLoader.getInstance().isModLoaded(BountifulCuisine.ELS_AND_LS_DYES_MOD_ID)) {
+            ACORN_JACK_O_STRAW = registerBlockUnstackableItem("acorn_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            ARTICHOKE_JACK_O_STRAW = registerBlockUnstackableItem("artichoke_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            BANANA_JACK_O_STRAW = registerBlockUnstackableItem("banana_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            CERULEAN_JACK_O_STRAW = registerBlockUnstackableItem("cerulean_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            FUCHSIA_JACK_O_STRAW = registerBlockUnstackableItem("fuchsia_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            GRAPE_JACK_O_STRAW = registerBlockUnstackableItem("grape_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            INDIGO_JACK_O_STRAW = registerBlockUnstackableItem("indigo_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            MAROON_JACK_O_STRAW = registerBlockUnstackableItem("maroon_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            MAUVE_JACK_O_STRAW = registerBlockUnstackableItem("mauve_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            MINT_JACK_O_STRAW = registerBlockUnstackableItem("mint_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            NAVY_JACK_O_STRAW = registerBlockUnstackableItem("navy_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            PEACH_JACK_O_STRAW = registerBlockUnstackableItem("peach_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            PERIWINKLE_JACK_O_STRAW = registerBlockUnstackableItem("periwinkle_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            SAP_JACK_O_STRAW = registerBlockUnstackableItem("sap_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            SHAMROCK_JACK_O_STRAW = registerBlockUnstackableItem("shamrock_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            VERMILION_JACK_O_STRAW = registerBlockUnstackableItem("vermilion_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+        }
+    }
+
     public static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
         return state -> state.get(Properties.LIT) ? litLevel : 0;
+    }
+
+    public static ToIntFunction<BlockState> createLightLevelFromWaterloggedBlockState(int litLevel) {
+        return state -> state.get(Properties.WATERLOGGED) ? litLevel : 0;
     }
 
     private static Block registerBlock(String name, Block block) {

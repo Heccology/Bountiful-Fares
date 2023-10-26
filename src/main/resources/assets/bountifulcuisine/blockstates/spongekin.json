@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "planted=false": {
+      "model": "bountifulcuisine:block/spongekin"
+    },
+    "planted=true": {
+      "model": "bountifulcuisine:block/spongekin_planted"
+    }
+  }
+}

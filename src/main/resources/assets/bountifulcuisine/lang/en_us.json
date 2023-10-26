@@ -19,6 +19,9 @@
   "block.bountifulcuisine.apple_block": "Apple Block",
   "tooltip.bountifulcuisine.apple_block": "§7§oMalus domestica",
   "block.bountifulcuisine.eaten_apple_block": "Apple Block",
+
+  "block.bountifulcuisine.golden_apple_block": "Golden Apple Block",
+  "block.bountifulcuisine.eaten_golden_apple_block": "Golden Apple Block",
   
   "block.bountifulcuisine.orange_log": "Orange Log",
   "block.bountifulcuisine.stripped_orange_log": "Stripped Orange Log",
@@ -142,8 +145,23 @@
 
   "item.bountifulcuisine.maize": "Maize",
   "item.bountifulcuisine.maize_seeds": "Maize Seeds",
-  "item.bountifulcuisine.arugula": "Arugula",
-  "item.bountifulcuisine.arugula_seeds": "Arugula Seeds",
+  "item.bountifulcuisine.tomato": "Tomato",
+  "tooltip.bountifulcuisine.tomato": "§7§oSolanum Lycopersicum",
+  "item.bountifulcuisine.tomato_seeds": "Tomato Seeds",
+  "tooltip.bountifulcuisine.tomato_seeds": "§7§oSolanum Lycopersicum",
+
+  "block.bountifulcuisine.spongekin_stem": "Spongekin Stem",
+  "block.bountifulcuisine.spongekin_sprout": "Spongekin Sprout",
+  "tooltip.bountifulcuisine.spongekin_sprout": "§7§oLuffa Aquatilis",
+  "block.bountifulcuisine.spongekin": "Spongekin",
+  "tooltip.bountifulcuisine.spongekin": "§7§oLuffa Aquatilis",
+  "item.bountifulcuisine.spongekin_seeds": "Spongekin Seeds",
+  "item.bountifulcuisine.spongekin_slice": "Spongekin Slice",
+  "tooltip.bountifulcuisine.spongekin_seeds": "§7§oLuffa Aquatilis",
+
+  "block.bountifulcuisine.prismarine_blossom": "Prismarine Blossom",
+
+  "block.bountifulcuisine.tomatoes": "Tomatoes",
 
   "item.bountifulcuisine.flour": "Flour",
 
@@ -213,6 +231,23 @@
   "block.bountifulcuisine.gray_jack_o_straw": "Gray Jack O' Straw",
   "block.bountifulcuisine.black_jack_o_straw": "Black Jack O' Straw",
   "block.bountifulcuisine.brown_jack_o_straw": "Brown Jack O' Straw",
+
+  "block.bountifulcuisine.acorn_jack_o_straw": "Acorn Jack O' Straw",
+  "block.bountifulcuisine.artichoke_jack_o_straw": "Artichoke Jack O' Straw",
+  "block.bountifulcuisine.banana_jack_o_straw": "Banana Jack O' Straw",
+  "block.bountifulcuisine.cerulean_jack_o_straw": "Cerulean Jack O' Straw",
+  "block.bountifulcuisine.fuchsia_jack_o_straw": "Fuchsia Jack O' Straw",
+  "block.bountifulcuisine.grape_jack_o_straw": "Grape Jack O' Straw",
+  "block.bountifulcuisine.indigo_jack_o_straw": "Indigo Jack O' Straw",
+  "block.bountifulcuisine.maroon_jack_o_straw": "Maroon Jack O' Straw",
+  "block.bountifulcuisine.mauve_jack_o_straw": "Mauve Jack O' Straw",
+  "block.bountifulcuisine.mint_jack_o_straw": "Mint Jack O' Straw",
+  "block.bountifulcuisine.navy_jack_o_straw": "Navy Jack O' Straw",
+  "block.bountifulcuisine.peach_jack_o_straw": "Peach Jack O' Straw",
+  "block.bountifulcuisine.periwinkle_jack_o_straw": "Periwinkle Jack O' Straw",
+  "block.bountifulcuisine.sap_jack_o_straw": "Sap Jack O' Straw",
+  "block.bountifulcuisine.shamrock_jack_o_straw": "Shamrock Jack O' Straw",
+  "block.bountifulcuisine.vermilion_jack_o_straw": "Vermilion Jack O' Straw",
 
   "block.bountifulcuisine.quern_stone": "Quern Stone"
 }

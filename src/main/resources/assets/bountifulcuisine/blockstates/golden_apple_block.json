@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bountifulcuisine:block/golden_apple_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bountifulcuisine:block/golden_apple_block"
+    },
+    "facing=south": {
+      "model": "bountifulcuisine:block/golden_apple_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bountifulcuisine:block/golden_apple_block",
+      "y": 270
+    }
+  }
+}

@@ -22,13 +22,14 @@ import org.slf4j.LoggerFactory;
 
 public class BountifulCuisine implements ModInitializer {
 	public static final String MOD_ID = "bountifulcuisine";
+	public static final String ELS_AND_LS_DYES_MOD_ID = "bountifulcuisine";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	@Override
 	public void onInitialize() {
-		ModTrunkPlacerTypes.register();
-		ModBlocks.registerModBlocks();
-		ModBlockEntities.registerBlockEntities();
 		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
+		ModBlocks.registerElsAndLsDyesCompatibilityBlocks();
+		ModBlockEntities.registerBlockEntities();
 		ModItemGroups.registerItemGroups();
 		ModRegistries.RegisterModStuffs();
 		ModWorldGeneration.generateModWorldGeneration();
@@ -40,5 +41,6 @@ public class BountifulCuisine implements ModInitializer {
 		ModRecipes.registerRecipes();
 		ModParticles.registerParticles();
 		ModPotions.registerPotions();
+		ModTrunkPlacerTypes.register();
 	}
 }
