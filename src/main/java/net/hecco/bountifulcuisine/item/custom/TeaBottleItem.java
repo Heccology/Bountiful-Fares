@@ -3,8 +3,6 @@ package net.hecco.bountifulcuisine.item.custom;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,8 +17,8 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
-public class LiquidBottleItem extends Item {
-    public LiquidBottleItem(Settings settings) {
+public class TeaBottleItem extends Item {
+    public TeaBottleItem(Settings settings) {
         super(settings);
     }
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
@@ -28,6 +26,9 @@ public class LiquidBottleItem extends Item {
         if (user instanceof ServerPlayerEntity serverPlayerEntity) {
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+            for (int i = 0; i < getStatusEffectsToRemove().length; i++) {
+                user.removeStatusEffect(getStatusEffectsToRemove()[i]);
+            }
         }
         if (stack.isEmpty()) {
             return new ItemStack(Items.GLASS_BOTTLE);
@@ -44,11 +45,19 @@ public class LiquidBottleItem extends Item {
         }
     }
 
+    public StatusEffect[] getStatusEffectsToRemove() {
+        return new StatusEffect[] {};
+    }
+
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.DRINK;
     }
 
     public SoundEvent getDrinkSound() {
+        return SoundEvents.ENTITY_GENERIC_DRINK;
+    }
+
+    public SoundEvent getEatSound() {
         return SoundEvents.ENTITY_GENERIC_DRINK;
     }
 
