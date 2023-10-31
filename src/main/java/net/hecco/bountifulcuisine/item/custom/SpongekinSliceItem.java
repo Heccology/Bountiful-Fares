@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.item.custom;
 
+import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
@@ -9,8 +10,10 @@ import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
 
 public class SpongekinSliceItem extends Item {
-    public SpongekinSliceItem(Settings settings) {
+    public static int airTickIncrease;
+    public SpongekinSliceItem(int airTickIncrease, Settings settings) {
         super(settings);
+        SpongekinSliceItem.airTickIncrease = airTickIncrease;
     }
 
 
@@ -23,9 +26,13 @@ public class SpongekinSliceItem extends Item {
         }
         int air = user.getAir();
         int maxAir = user.getMaxAir();
-        if (air >= (maxAir - 100)) {
-            user.setAir(air + 100);
+        if (air < maxAir - airTickIncrease){
+            user.setAir(air + airTickIncrease);
+        } else {
+            user.setAir(maxAir);
         }
+        BountifulCuisine.LOGGER.info("maxair: " + maxAir);
+        BountifulCuisine.LOGGER.info("air: " + air);
         return super.finishUsing(stack, world, user);
     }
 }

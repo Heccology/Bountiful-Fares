@@ -9,7 +9,8 @@ import net.minecraft.util.Identifier;
 
 public class ModParticles {
 
-    public static final DefaultParticleType FLOUR_CLOUD_PARTICLE = registerParticle("flour_cloud_particle", FabricParticleTypes.simple());
+    public static final DefaultParticleType FLOUR_CLOUD_PARTICLE = registerParticle("flour_cloud", FabricParticleTypes.simple());
+    public static final DefaultParticleType PRISMARINE_BLOSSOM_PARTICLE = registerParticle("prismarine_blossom", FabricParticleTypes.simple());
 
     private static DefaultParticleType registerParticle(String name, DefaultParticleType particleType) {
         return Registry.register(Registries.PARTICLE_TYPE, new Identifier(BountifulCuisine.MOD_ID, name), particleType);

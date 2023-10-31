@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import net.hecco.bountifulcuisine.particle.ModParticles;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -10,6 +11,8 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -40,6 +43,19 @@ public class PrismarineBlossomBlock extends PlantBlock implements Waterloggable 
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
         BlockPos blockPos = pos.down();
         return world.getBlockState(blockPos).isSideSolidFullSquare(world, blockPos, Direction.UP);
+    }
+
+    @Override
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        if (state.get(WATERLOGGED)) {
+            for (int x = 0; x < world.random.nextBetween(0, 1); ++x) {
+                spawnPrismarineBlossomParticles(world, new Vec3d(pos.getX()+0.5, pos.getY()+0.3, pos.getZ()+0.5));
+            }
+        }
+    }
+
+    private static void spawnPrismarineBlossomParticles(World world, Vec3d vec3d) {
+        world.addParticle(ModParticles.PRISMARINE_BLOSSOM_PARTICLE, vec3d.x + world.random.nextGaussian()/8, vec3d.y + world.random.nextGaussian()/10, vec3d.z + world.random.nextGaussian()/8, world.random.nextGaussian()/60, world.random.nextFloat()/40, world.random.nextGaussian()/60);
     }
 
     @Override

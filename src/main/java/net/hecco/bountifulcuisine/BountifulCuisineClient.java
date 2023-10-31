@@ -15,6 +15,7 @@ import net.hecco.bountifulcuisine.entity.ModEntities;
 import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
 import net.hecco.bountifulcuisine.particle.FlourCloudParticle;
 import net.hecco.bountifulcuisine.particle.ModParticles;
+import net.hecco.bountifulcuisine.particle.PrismarineBlossomParticle;
 import net.hecco.bountifulcuisine.screen.ModScreenHandlers;
 import net.hecco.bountifulcuisine.screen.QuernStoneScreen;
 import net.hecco.bountifulcuisine.util.ModWoodTypes;
@@ -147,6 +148,7 @@ public class BountifulCuisineClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.QUERN_STONE_SCREEN_HANDLER, QuernStoneScreen::new);
         EntityRendererRegistry.register(ModEntities.THROWN_FLOUR_PROJECTILE, FlyingItemEntityRenderer::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.FLOUR_CLOUD_PARTICLE, FlourCloudParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.PRISMARINE_BLOSSOM_PARTICLE, PrismarineBlossomParticle.Factory::new);
     }
 
 
