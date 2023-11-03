@@ -1,9 +1,9 @@
 {
-  "feature": "bountifulcuisine:honeysuckle",
+  "feature": "bountifulcuisine:tea_shrub",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 6
+      "chance": 8
     },
     {
       "type": "minecraft:in_square"

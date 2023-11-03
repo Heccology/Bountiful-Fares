@@ -8,7 +8,11 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "bountifulcuisine:wild_beetroots"
+              "Name": "bountifulcuisine:tea_shrub",
+              "Properties": {
+                "age": "4",
+                "berries": "true"
+              }
             }
           }
         }
@@ -24,7 +28,7 @@
       ]
     },
     "tries": 16,
-    "xz_spread": 5,
+    "xz_spread": 12,
     "y_spread": 2
   }
 }

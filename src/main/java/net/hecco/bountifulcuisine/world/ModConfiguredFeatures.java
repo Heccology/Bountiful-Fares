@@ -28,6 +28,8 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> WILD_CARROTS_KEY = registerKey("wild_carrots");
     public static final RegistryKey<ConfiguredFeature<?, ?>> WILD_POTATOES_KEY = registerKey("wild_potatoes");
     public static final RegistryKey<ConfiguredFeature<?, ?>> WILD_BEETROOTS_KEY = registerKey("wild_beetroots");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TEA_SHRUB_KEY = registerKey("tea_shrub");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> FOREST_TEA_SHRUB_KEY = registerKey("forest_tea_shrub");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         register(context, APPLE_KEY, Feature.TREE, new TreeFeatureConfig.Builder(BlockStateProvider.of(ModBlocks.APPLE_LOG),
