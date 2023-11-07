@@ -1,22 +1,13 @@
 {
   "variants": {
-    "type=bottom,checkered=false": {
+    "type=bottom": {
       "model": "bountifulcuisine:block/ceramic_tile_slab"
     },
-    "type=double,checkered=false": {
+    "type=double": {
       "model": "bountifulcuisine:block/ceramic_tiles"
     },
-    "type=top,checkered=false": {
+    "type=top": {
       "model": "bountifulcuisine:block/ceramic_tile_slab_top"
-    },
-    "type=bottom,checkered=true": {
-      "model": "bountifulcuisine:block/checkered_ceramic_tile_slab"
-    },
-    "type=double,checkered=true": {
-      "model": "bountifulcuisine:block/checkered_ceramic_tiles"
-    },
-    "type=top,checkered=true": {
-      "model": "bountifulcuisine:block/checkered_ceramic_tile_slab_top"
     }
   }
 }

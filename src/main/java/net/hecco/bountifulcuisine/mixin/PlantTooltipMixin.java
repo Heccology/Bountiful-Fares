@@ -14,7 +14,7 @@ import java.util.List;
 
 @Mixin(Item.class)
 public class PlantTooltipMixin {
-    @Inject(method = "appendTooltip", at = @At("HEAD"))
+    @Inject(method = "appendTooltip", at = @At("TAIL"))
     protected void plantTooltips(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
         if (Screen.hasShiftDown()) {
             if (stack.getItem() == Items.GLOW_BERRIES) {

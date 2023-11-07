@@ -108,6 +108,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CERAMIC_TILES);
                         entries.add(ModBlocks.CERAMIC_TILE_STAIRS);
                         entries.add(ModBlocks.CERAMIC_TILE_SLAB);
+                        entries.add(ModBlocks.CHECKERED_CERAMIC_TILES);
+                        entries.add(ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
+                        entries.add(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
                         entries.add(ModBlocks.FERMENTATION_VESSEL);
                         entries.add(ModItems.ELDERBERRY_WINE_BOTTLE);
                         entries.add(ModBlocks.QUERN_STONE);

@@ -24,7 +24,7 @@
     ]
   },
   "ceramic_tiles_step": {
-    "subtitle": "subtitles.block.generic.footstep",
+    "subtitle": "subtitles.block.generic.footsteps",
     "sounds": [
       "bountifulcuisine:ceramic_tiles/place1",
       "bountifulcuisine:ceramic_tiles/place2",
@@ -32,42 +32,11 @@
     ]
   },
   "ceramic_tiles_fall": {
-    "subtitle": "subtitles.block.generic.small_fall",
+    "subtitle": "subtitles.entity.generic.small_fall",
     "sounds": [
       "bountifulcuisine:ceramic_tiles/hit1",
       "bountifulcuisine:ceramic_tiles/hit2",
       "bountifulcuisine:ceramic_tiles/hit3"
-    ]
-  },
-  "golden_apple_block_place": {
-    "subtitle": "subtitles.block.generic.place",
-    "sounds": [
-      "bountifulcuisine:golden_apple_block/place1",
-      "bountifulcuisine:golden_apple_block/place2"    ]
-  },
-  "golden_apple_block_break": {
-    "subtitle": "subtitles.block.generic.break",
-    "sounds": [
-      "bountifulcuisine:golden_apple_block/place1",
-      "bountifulcuisine:golden_apple_block/place2"    ]
-  },
-  "golden_apple_block_hit": {
-    "subtitle": "subtitles.block.generic.hit",
-    "sounds": [
-      "bountifulcuisine:golden_apple_block/place1",
-      "bountifulcuisine:golden_apple_block/place2"    ]
-  },
-  "golden_apple_block_step": {
-    "subtitle": "subtitles.block.generic.footstep",
-    "sounds": [
-      "bountifulcuisine:golden_apple_block/place1",
-      "bountifulcuisine:golden_apple_block/place2"    ]
-  },
-  "golden_apple_block_fall": {
-    "subtitle": "subtitles.block.generic.small_fall",
-    "sounds": [
-      "bountifulcuisine:golden_apple_block/place1",
-      "bountifulcuisine:golden_apple_block/place2"
     ]
   }
 }

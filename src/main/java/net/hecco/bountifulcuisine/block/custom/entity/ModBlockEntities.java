@@ -16,6 +16,12 @@ public class ModBlockEntities {
             FabricBlockEntityTypeBuilder.create(CeramicTilesBlockEntity::new, CERAMIC_TILES, CERAMIC_TILE_STAIRS, CERAMIC_TILE_SLAB).build()
     );
 
+    public static final BlockEntityType<CheckeredCeramicTilesBlockEntity> CHECKERED_CERAMIC_TILES_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulCuisine.MOD_ID, "checkered_ceramic_tiles_block_entity"),
+            FabricBlockEntityTypeBuilder.create(CheckeredCeramicTilesBlockEntity::new, CHECKERED_CERAMIC_TILES, CHECKERED_CERAMIC_TILE_STAIRS, CHECKERED_CERAMIC_TILE_SLAB).build()
+    );
+
     public static final BlockEntityType<ModSignBlockEntity> MOD_SIGN_BLOCK_ENTITY = Registry.register(
             Registries.BLOCK_ENTITY_TYPE,
             new Identifier(BountifulCuisine.MOD_ID, "mod_sign_entity"),

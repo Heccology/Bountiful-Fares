@@ -4,18 +4,14 @@ import net.hecco.bountifulcuisine.block.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
 import net.hecco.bountifulcuisine.block.custom.entity.CheckeredCeramicTilesBlockEntity;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockEntityProvider;
+import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -26,14 +22,14 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class CeramicTileSlabBlock extends SlabBlock implements DyeableCeramicBlockInterface {
-    public CeramicTileSlabBlock(Settings settings) {
+public class CheckeredCeramicTileSlabBlock extends SlabBlock implements DyeableCeramicBlockInterface {
+    public CheckeredCeramicTileSlabBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(TYPE, SlabType.BOTTOM).with(WATERLOGGED, false));
     }
     @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        if (CeramicTilesBlockEntity.getColor(world, pos) != CeramicTilesBlockEntity.DEFAULT_COLOR) {
+        if (CheckeredCeramicTilesBlockEntity.getColor(world, pos) != CheckeredCeramicTilesBlockEntity.DEFAULT_COLOR) {
             ItemStack stack = super.getPickStack(world, pos, state);
             return pickBlock(world,pos,stack);
         } else {
@@ -41,22 +37,16 @@ public class CeramicTileSlabBlock extends SlabBlock implements DyeableCeramicBlo
         }
     }
 
-
-
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(TYPE, WATERLOGGED);
-    }
-
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
         int oldColor = CeramicTilesBlockEntity.getColor(world, pos);
-        if ((itemStack.isOf(Items.SPONGE) || itemStack.isOf(Items.WET_SPONGE)) && CheckeredCeramicTilesBlockEntity.getColor(world, pos) != CheckeredCeramicTilesBlockEntity.DEFAULT_COLOR) {
-            world.setBlockState(pos, ModBlocks.CHECKERED_CERAMIC_TILE_SLAB.getStateWithProperties(state));
-            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_BIG_DRIPLEAF_TILT_UP, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            if (world.getBlockEntity(pos) instanceof CheckeredCeramicTilesBlockEntity checkeredCeramicTilesBlockEntity) {
-                checkeredCeramicTilesBlockEntity.color = oldColor;
-                checkeredCeramicTilesBlockEntity.markDirty();
+        if ((itemStack.isIn(ModItemTags.DYES) || itemStack.isIn(ModItemTags.ELS_AND_LS_DYES)) && CeramicTilesBlockEntity.getColor(world, pos) != CeramicTilesBlockEntity.DEFAULT_COLOR) {
+            world.setBlockState(pos, ModBlocks.CERAMIC_TILE_SLAB.getStateWithProperties(state), 2);
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_GLOW_INK_SAC_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat());
+            if (world.getBlockEntity(pos) instanceof CeramicTilesBlockEntity ceramicTilesBlockEntity) {
+                ceramicTilesBlockEntity.color = oldColor;
+                ceramicTilesBlockEntity.markDirty();
                 return ActionResult.SUCCESS;
             }
         }

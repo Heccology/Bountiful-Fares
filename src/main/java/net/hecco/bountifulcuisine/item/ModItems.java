@@ -68,9 +68,6 @@ public class ModItems {
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), item);
     }
-    private static Item registerBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), new TallBlockItem(block, new FabricItemSettings()));
-    }
     public static void registerModItems() {
         BountifulCuisine.LOGGER.info("Registering Mod Items for ", BountifulCuisine.MOD_ID);
     }

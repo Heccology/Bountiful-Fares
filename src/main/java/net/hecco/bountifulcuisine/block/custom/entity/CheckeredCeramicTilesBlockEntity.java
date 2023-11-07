@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom.entity;
 
+import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -10,11 +11,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import org.jetbrains.annotations.Nullable;
 
-public class CeramicTilesBlockEntity extends BlockEntity {
-    public CeramicTilesBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.CERAMIC_TILES_BLOCK_ENTITY, pos, state);
+public class CheckeredCeramicTilesBlockEntity extends BlockEntity {
+    public CheckeredCeramicTilesBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.CHECKERED_CERAMIC_TILES_BLOCK_ENTITY, pos, state);
     }
-    public static final int DEFAULT_COLOR = 16777215;
+    public static final int DEFAULT_COLOR = 2236468;
     public int color = DEFAULT_COLOR;
 
 
@@ -43,13 +44,14 @@ public class CeramicTilesBlockEntity extends BlockEntity {
 
     public static int getColor(BlockView world, BlockPos pos){
         if(world==null){
-            return CeramicTilesBlockEntity.DEFAULT_COLOR;
+            return CheckeredCeramicTilesBlockEntity.DEFAULT_COLOR;
         }
+        BountifulCuisine.LOGGER.info("checkered " + DEFAULT_COLOR);
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if(blockEntity instanceof CeramicTilesBlockEntity ceramicTilesBlockEntity){
-            return ceramicTilesBlockEntity.color;
+        if(blockEntity instanceof CheckeredCeramicTilesBlockEntity checkeredCeramicTilesBlockEntity){
+            return checkeredCeramicTilesBlockEntity.color;
         } else {
-            return CeramicTilesBlockEntity.DEFAULT_COLOR;
+            return CheckeredCeramicTilesBlockEntity.DEFAULT_COLOR;
         }
     }
 }
