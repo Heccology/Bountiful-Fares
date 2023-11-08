@@ -1,4 +1,4 @@
-package net.hecco.bountifulcuisine.block.custom.template;
+package net.hecco.bountifulcuisine.block.custom;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.minecraft.block.*;

@@ -12,7 +12,7 @@ public class FlourCloudParticle extends SpriteBillboardParticle {
         this.velocityY = yd;
         this.velocityZ = zd;
         this.scale = 0.5f + world.random.nextFloat();
-        this.maxAge = 100 + world.random.nextInt(50);
+        this.maxAge = 200 + world.random.nextBetween(0, 10);
         this.collidesWithWorld = true;
 
 //        this.alpha = 0f;
@@ -32,12 +32,11 @@ public class FlourCloudParticle extends SpriteBillboardParticle {
         this.velocityX *= (double)this.velocityMultiplier;
         this.velocityY *= (double)this.velocityMultiplier;
         this.velocityZ *= (double)this.velocityMultiplier;
-//        this.move(this.velocityX, this.velocityY, this.velocityZ);
         if (this.age != this.maxAge) {
-            this.scale *= 1.005f;
+            this.scale *= 1.001f;
         }
-        if (this.age >= this.maxAge - 50 && this.alpha > 0f) {
-            this.alpha *= 0.8f;
+        if (this.age >= this.maxAge - 100 && this.alpha > 0.01f) {
+            this.alpha -= 0.01f;
         }
     }
 

@@ -2,6 +2,7 @@ package net.hecco.bountifulcuisine.block.custom.entity;
 
 import net.hecco.bountifulcuisine.block.custom.ChamomileCandleBlock;
 import net.hecco.bountifulcuisine.block.custom.GreenTeaCandleBlock;
+import net.hecco.bountifulcuisine.effect.ModEffects;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -21,12 +22,12 @@ public class ChamomileCandleBlockEntity extends BlockEntity {
         isLit = ((ChamomileCandleBlock)state.getBlock()).getLit();
     }
     public static void tick(World world, BlockPos pos, BlockState state, ChamomileCandleBlockEntity blockEntity) {
-        Box box = new Box(pos).expand(5).stretch(0.0, 0.0, 0.0);
+        Box box = new Box(pos).expand(5);
         List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, box);
         if (state.get(isLit)) {
             if (!world.isClient() && !list.isEmpty()) {
                 for (PlayerEntity playerEntity : list) {
-                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.LUCK, 50, 0, true, false));
+                    playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.VIVACITY, 50, 0, true, false));
                 }
             }
         }

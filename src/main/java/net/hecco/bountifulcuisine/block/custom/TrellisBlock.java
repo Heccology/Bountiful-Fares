@@ -1,7 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.hecco.bountifulcuisine.block.custom.template.HangingFruitBlock;
 import net.hecco.bountifulcuisine.block.enums.Flower;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.*;
@@ -27,8 +26,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
-
-import java.util.Objects;
 
 import static net.hecco.bountifulcuisine.block.custom.FlowerTrellisBlock.FLOWER;
 

@@ -61,7 +61,7 @@ public class LemonBlock extends FallingBlock {
     @Override
     public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
         if (!world.isClient) {
-            world.setBlockState(hit.getBlockPos(), Blocks.AIR.getDefaultState());
+            world.breakBlock(hit.getBlockPos(), false);
             world.spawnEntity(new ItemEntity(world, hit.getBlockPos().getX() + 0.5, hit.getBlockPos().getY() + 0.5, hit.getBlockPos().getZ() + 0.5, new ItemStack(ModItems.LEMON, 9)));
             world.playSound(null, hit.getBlockPos(), SoundEvents.BLOCK_BAMBOO_WOOD_FALL, SoundCategory.BLOCKS, 1.0F, 1.0F);
         }

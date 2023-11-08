@@ -21,7 +21,7 @@ public class GreenTeaCandleBlockEntity extends BlockEntity {
         isLit = ((GreenTeaCandleBlock)state.getBlock()).getLit();
     }
     public static void tick(World world, BlockPos pos, BlockState state, GreenTeaCandleBlockEntity blockEntity) {
-        Box box = new Box(pos).expand(5).stretch(0.0, 0.0, 0.0);
+        Box box = new Box(pos).expand(5);
         List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, box);
         if (state.get(isLit)) {
             if (!world.isClient() && !list.isEmpty()) {

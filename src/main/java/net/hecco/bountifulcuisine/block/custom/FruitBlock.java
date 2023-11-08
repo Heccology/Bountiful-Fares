@@ -32,6 +32,35 @@ public class FruitBlock extends FallingBlock {
     }
 
     @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        Direction direction = state.get(FACING);
+        if (player.canConsume(false)) {
+            world.setBlockState(pos, getEatenBlock().getDefaultState().with(EatenFruitBlock.FACING, direction), Block.NOTIFY_LISTENERS);
+            player.getHungerManager().add(4, 0.1f);
+            world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            return ActionResult.SUCCESS;
+        }
+        return ActionResult.FAIL;
+    }
+
+    @Override
+    public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
+        if (!world.isClient) {
+            world.breakBlock(hit.getBlockPos(), false);
+            world.spawnEntity(new ItemEntity(world, hit.getBlockPos().getX() + 0.5, hit.getBlockPos().getY() + 0.5, hit.getBlockPos().getZ() + 0.5, new ItemStack(getFruitItem(), 9)));
+            world.playSound(null, hit.getBlockPos(), SoundEvents.BLOCK_BAMBOO_WOOD_FALL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        }
+    }
+
+    public Item getFruitItem() {
+        return null;
+    }
+
+    public Block getEatenBlock() {
+        return null;
+    }
+
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }

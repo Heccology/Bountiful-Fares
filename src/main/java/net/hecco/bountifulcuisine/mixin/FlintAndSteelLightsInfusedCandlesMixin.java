@@ -1,6 +1,6 @@
 package net.hecco.bountifulcuisine.mixin;
 
-import net.hecco.bountifulcuisine.block.custom.template.InfusedCandleBlock;
+import net.hecco.bountifulcuisine.block.custom.InfusedCandleBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;

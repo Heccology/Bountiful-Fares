@@ -13,6 +13,6 @@ public class GreenTeaBottleItem extends TeaBottleItem{
 
     @Override
     public StatusEffect[] getStatusEffectsToRemove() {
-        return new StatusEffect[] {StatusEffects.POISON, StatusEffects.HUNGER, ModEffects.ACIDIC};
+        return new StatusEffect[] {ModEffects.STUPOR, StatusEffects.HUNGER, ModEffects.ACIDIC};
     }
 }
