@@ -57,7 +57,7 @@ public class ModItems {
     public static final Item BELLFLOWER_TEA_BOTTLE = registerItem("bellflower_tea_bottle", new BellflowerTeaBottleItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.5f).statusEffect(new StatusEffectInstance(ModEffects.VIVACITY, 600, 0), 1f).alwaysEdible().build())));
     public static final Item TORCHFLOWER_TEA_BOTTLE = registerItem("torchflower_tea_bottle", new TorchflowerTeaBottleItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.5f).statusEffect(new StatusEffectInstance(ModEffects.VIVACITY, 600, 0), 1f).alwaysEdible().build())));
     public static final Item MAIZE = registerItem("maize", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).build())));
-    public static final Item MAIZE_SEEDS = registerItem("maize_seeds", new Item(new FabricItemSettings()));
+    public static final Item MAIZE_SEEDS = registerItem("maize_seeds", new AliasedPlantItem(ModBlocks.MAIZE_CROP, new FabricItemSettings()));
     public static final Item TOMATO = registerItem("tomato", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.1f).build())));
     public static final Item TOMATO_SEEDS = registerItem("tomato_seeds", new AliasedPlantItem(ModBlocks.TOMATOES, new FabricItemSettings()));
     public static final Item SPONGEKIN_SEEDS = registerItem("spongekin_seeds", new AliasedPlantItem(ModBlocks.SPONGEKIN_STEM, new FabricItemSettings()));

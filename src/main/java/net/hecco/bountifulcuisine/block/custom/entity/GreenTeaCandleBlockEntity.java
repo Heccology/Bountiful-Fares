@@ -1,7 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom.entity;
 
 import net.hecco.bountifulcuisine.block.custom.GreenTeaCandleBlock;
-import net.minecraft.block.AbstractBannerBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -13,6 +12,7 @@ import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 
 import java.util.List;
+import java.util.Objects;
 
 public class GreenTeaCandleBlockEntity extends BlockEntity {
     private static BooleanProperty isLit;
@@ -26,7 +26,12 @@ public class GreenTeaCandleBlockEntity extends BlockEntity {
         if (state.get(isLit)) {
             if (!world.isClient() && !list.isEmpty()) {
                 for (PlayerEntity playerEntity : list) {
-                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 50, 0, true, false));
+                    StatusEffectInstance existingEffect = playerEntity.getStatusEffect(StatusEffects.ABSORPTION);
+                    if (existingEffect == null) {
+                        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 50, 0, true, false));
+                    } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
+                        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 50, 0, true, false));
+                    }
                 }
             }
         }

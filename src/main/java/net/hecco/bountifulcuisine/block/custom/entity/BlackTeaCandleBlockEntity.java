@@ -26,7 +26,12 @@ public class BlackTeaCandleBlockEntity extends BlockEntity {
         if (state.get(isLit)) {
             if (!world.isClient() && !list.isEmpty()) {
                 for (PlayerEntity playerEntity : list) {
-                    playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 50, 0, true, false));
+                    StatusEffectInstance existingEffect = playerEntity.getStatusEffect(StatusEffects.RESISTANCE);
+                    if (existingEffect == null) {
+                        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 50, 0, true, false));
+                    } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
+                        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 50, 0, true, false));
+                    }
                 }
             }
         }

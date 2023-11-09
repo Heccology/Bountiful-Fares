@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/crop",
+	"textures": {
+		"crop": "bountifulcuisine:block/maize_crop_3"
+	}
+}
