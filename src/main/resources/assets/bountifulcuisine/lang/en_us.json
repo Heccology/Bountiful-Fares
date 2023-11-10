@@ -1,12 +1,15 @@
 {
   "itemgroup.bountiful_cuisine": "Bountiful Cuisine",
 
-  "tooltip.bountifulcuisine.apple": "§7§oMalus domestica",
+  "tooltip.bountifulcuisine.apple": "§7§oMalus Domestica",
   "tooltip.bountifulcuisine.glow_berries": "§7§oBaccate Candentis",
   "tooltip.bountifulcuisine.carrot": "§7§oDaucus Carota Sativus",
   "tooltip.bountifulcuisine.potato": "§7§oSolanum Tuberosum",
   "tooltip.bountifulcuisine.wheat": "§7§oTriticum Aestivum",
   "tooltip.bountifulcuisine.beetroot": "§7§oBeta Vulgaris",
+  "tooltip.bountifulcuisine.pumpkin": "§7§oCucurbita Pepo",
+  "tooltip.bountifulcuisine.melon": "§7§oCitrullus Lanatus",
+  "tooltip.bountifulcuisine.sweet_berries": "§7§oPyracantha Coccinea",
   "tooltip.bountifulcuisine.pitcher_pod": "§7§oNepenthes Primordium",
   "tooltip.bountifulcuisine.pitcher_plant": "§7§oNepenthes Primordium",
   "tooltip.bountifulcuisine.torchflower_seeds": "§7§Kniphofia Primordium",
@@ -21,7 +24,7 @@
   "block.bountifulcuisine.apple_sapling": "Apple Sapling",
   "block.bountifulcuisine.hanging_apple": "Hanging Apple",
   "block.bountifulcuisine.apple_block": "Apple Block",
-  "tooltip.bountifulcuisine.apple_block": "§7§oMalus domestica",
+  "tooltip.bountifulcuisine.apple_block": "§7§oMalus Domestica",
   "block.bountifulcuisine.eaten_apple_block": "Apple Block",
 
   "block.bountifulcuisine.golden_apple_block": "Golden Apple Block",
@@ -162,8 +165,8 @@
 
   "item.bountifulcuisine.maize": "Maize",
   "item.bountifulcuisine.maize_seeds": "Maize Seeds",
-  "tooltip.bountifulcuisine.maize_seeds": "§7§oZea mays",
-  "tooltip.bountifulcuisine.maize": "§7§oZea mays",
+  "tooltip.bountifulcuisine.maize_seeds": "§7§oZea Mays",
+  "tooltip.bountifulcuisine.maize": "§7§oZea Mays",
   "item.bountifulcuisine.tomato": "Tomato",
   "tooltip.bountifulcuisine.tomato": "§7§oSolanum Lycopersicum",
   "item.bountifulcuisine.tomato_seeds": "Tomato Seeds",
@@ -226,7 +229,7 @@
   "tooltip.bountifulcuisine.honeysuckle": "§7§oLonicera Periclymenum",
 
   "block.bountifulcuisine.violet_bellflower": "Violet Bellflower",
-  "tooltip.bountifulcuisine.violet_bellflower": "§7§oCampanula",
+  "tooltip.bountifulcuisine.violet_bellflower": "§7§oCampanula Latifolia",
 
   "block.bountifulcuisine.green_tea_candle": "Green Tea Candle",
   "block.bountifulcuisine.black_tea_candle": "Black Tea Candle",

@@ -21,16 +21,18 @@ public class BellflowerCandleBlockEntity extends BlockEntity {
         isLit = ((BellflowerCandleBlock)state.getBlock()).getLit();
     }
     public static void tick(World world, BlockPos pos, BlockState state, BellflowerCandleBlockEntity blockEntity) {
-        Box box = new Box(pos).expand(5);
-        List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, box);
-        if (state.get(isLit)) {
-            if (!world.isClient() && !list.isEmpty()) {
-                for (PlayerEntity playerEntity : list) {
-                    StatusEffectInstance existingEffect = playerEntity.getStatusEffect(StatusEffects.NIGHT_VISION);
-                    if (existingEffect == null) {
-                        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 50, 0, true, false));
-                    } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
-                        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 50, 0, true, false));
+        if (world.getTime() % 25L == 0L) {
+            Box box = new Box(pos).expand(5);
+            List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, box);
+            if (state.get(isLit)) {
+                if (!world.isClient() && !list.isEmpty()) {
+                    for (PlayerEntity playerEntity : list) {
+                        StatusEffectInstance existingEffect = playerEntity.getStatusEffect(StatusEffects.NIGHT_VISION);
+                        if (existingEffect == null) {
+                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 50, 0, true, false));
+                        } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
+                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 50, 0, true, false));
+                        }
                     }
                 }
             }

@@ -29,8 +29,29 @@ public class PlantTooltipMixin {
             if (stack.getItem() == Items.POTATO) {
                 tooltip.add(Text.translatable("tooltip.bountifulcuisine.potato"));
             }
+            if (stack.getItem() == Items.POISONOUS_POTATO) {
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.potato"));
+            }
             if (stack.getItem() == Items.WHEAT) {
                 tooltip.add(Text.translatable("tooltip.bountifulcuisine.potato"));
+            }
+            if (stack.getItem() == Items.PUMPKIN) {
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.pumpkin"));
+            }
+            if (stack.getItem() == Items.CARVED_PUMPKIN) {
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.pumpkin"));
+            }
+            if (stack.getItem() == Items.PUMPKIN_SEEDS) {
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.pumpkin"));
+            }
+            if (stack.getItem() == Items.MELON) {
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.melon"));
+            }
+            if (stack.getItem() == Items.MELON_SEEDS) {
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.melon"));
+            }
+            if (stack.getItem() == Items.SWEET_BERRIES) {
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.sweet_berries"));
             }
             if (stack.getItem() == Items.PITCHER_POD) {
                 tooltip.add(Text.translatable("tooltip.bountifulcuisine.pitcher_plant"));

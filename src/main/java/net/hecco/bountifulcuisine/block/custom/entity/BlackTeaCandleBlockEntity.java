@@ -21,16 +21,18 @@ public class BlackTeaCandleBlockEntity extends BlockEntity {
         isLit = ((BlackTeaCandleBlock)state.getBlock()).getLit();
     }
     public static void tick(World world, BlockPos pos, BlockState state, BlackTeaCandleBlockEntity blockEntity) {
-        Box box = new Box(pos).expand(5);
-        List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, box);
-        if (state.get(isLit)) {
-            if (!world.isClient() && !list.isEmpty()) {
-                for (PlayerEntity playerEntity : list) {
-                    StatusEffectInstance existingEffect = playerEntity.getStatusEffect(StatusEffects.RESISTANCE);
-                    if (existingEffect == null) {
-                        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 50, 0, true, false));
-                    } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
-                        playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 50, 0, true, false));
+        if (world.getTime() % 25L == 0L) {
+            Box box = new Box(pos).expand(5);
+            List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, box);
+            if (state.get(isLit)) {
+                if (!world.isClient() && !list.isEmpty()) {
+                    for (PlayerEntity playerEntity : list) {
+                        StatusEffectInstance existingEffect = playerEntity.getStatusEffect(StatusEffects.STRENGTH);
+                        if (existingEffect == null) {
+                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 50, 0, true, false));
+                        } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
+                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 50, 0, true, false));
+                        }
                     }
                 }
             }

@@ -56,7 +56,7 @@ public class ModItems {
     public static final Item TOMATO = registerItem("tomato", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.1f).build())));
     public static final Item TOMATO_SEEDS = registerItem("tomato_seeds", new AliasedPlantItem(ModBlocks.TOMATOES, new FabricItemSettings()));
     public static final Item SPONGEKIN_SEEDS = registerItem("spongekin_seeds", new AliasedPlantItem(ModBlocks.SPONGEKIN_STEM, new FabricItemSettings()));
-    public static final Item SPONGEKIN_SLICE = registerItem("spongekin_slice", new SpongekinSliceItem( 100, new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.3f).build())));
+    public static final Item SPONGEKIN_SLICE = registerItem("spongekin_slice", new SpongekinSliceItem( 100, new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.3f).alwaysEdible().build())));
     public static final Item FLOUR = registerItem("flour", new FlourItem(new FabricItemSettings()));
     public static final Item SUN_HAT = registerItem("sun_hat", new FarmersHatItem(new FabricItemSettings().maxCount(1)));
 

@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import net.hecco.bountifulcuisine.util.ModBlockTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -10,6 +11,7 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.SoundCategory;
@@ -52,7 +54,22 @@ public class InfusedCandleBlock extends BlockWithEntity implements BlockEntityPr
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.getStackInHand(hand).isEmpty() && state.get(LIT)) {
             extinguish(player, state, world, pos);
-            return ActionResult.success(world.isClient);
+            return ActionResult.SUCCESS;
+        }
+        if ((player.getStackInHand(hand).isOf(Items.FLINT_AND_STEEL) || player.getStackInHand(hand).isOf(Items.FIRE_CHARGE)) && !canBeLit(state)) {
+            return ActionResult.FAIL;
+        } else if (player.getStackInHand(hand).isOf(Items.FLINT_AND_STEEL)) {
+            setLit(world, state, pos, true);
+            world.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, world.getRandom().nextFloat() * 0.4F + 0.8F);
+            player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
+            return ActionResult.SUCCESS;
+        } else if (player.getStackInHand(hand).isOf(Items.FIRE_CHARGE)) {
+            setLit(world, state, pos, true);
+            world.playSound(null, pos, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1.0F, (world.random.nextFloat() - world.random.nextFloat()) * 0.2F + 1.0F);
+            if (!player.isCreative()) {
+                player.getStackInHand(hand).decrement(1);
+            }
+            return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;
     }
@@ -126,7 +143,7 @@ public class InfusedCandleBlock extends BlockWithEntity implements BlockEntityPr
     }
 
     public static boolean canBeLit(BlockState state) {
-        return state.isIn(BlockTags.CANDLES, statex -> statex.contains(LIT) && statex.contains(WATERLOGGED)) && !state.get(LIT) && !state.get(WATERLOGGED);
+        return state.isIn(ModBlockTags.INFUSED_CANDLES, statex -> statex.contains(LIT) && statex.contains(WATERLOGGED)) && !state.get(LIT) && !state.get(WATERLOGGED);
     }
 
     private static void setLit(WorldAccess world, BlockState state, BlockPos pos, boolean lit) {
