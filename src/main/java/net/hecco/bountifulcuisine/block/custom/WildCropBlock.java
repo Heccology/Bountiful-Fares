@@ -12,20 +12,13 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
 public class WildCropBlock extends PlantBlock {
-    private Item cropItem;
     protected static final VoxelShape SHAPE = Block.createCuboidShape(2, 0, 2, 14, 14, 14);
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
     }
 
-    @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(cropItem);
-    }
-
-    public WildCropBlock(Item item, Settings settings) {
+    public WildCropBlock(Settings settings) {
         super(settings);
-        this.cropItem = item;
     }
 }

@@ -77,7 +77,6 @@ public class ModItemGroups {
                         entries.add(ModBlocks.HOARY_LEAVES);
                         entries.add(ModItems.HOARY_APPLE);
                         entries.add(ModBlocks.HOARY_APPLE_BLOCK);
-                        entries.add(ModItems.CITRUS_JUICE_BOTTLE);
                         entries.add(ModItems.CITRIC_ACID);
                         entries.add(ModItems.CANDIED_ORANGE);
                         entries.add(ModItems.CANDIED_LEMON);
@@ -88,13 +87,9 @@ public class ModItemGroups {
                         entries.add(ModItems.LAPISBERRIES);
                         entries.add(ModItems.LAPISBERRY_SEEDS);
                         entries.add(ModBlocks.WILD_CARROTS);
-                        entries.add(ModItems.WILD_CARROT);
                         entries.add(ModBlocks.WILD_POTATOES);
-                        entries.add(ModItems.WILD_POTATO);
                         entries.add(ModBlocks.WILD_WHEAT);
-                        entries.add(ModItems.WILD_WHEAT_SEEDS);
                         entries.add(ModBlocks.WILD_BEETROOTS);
-                        entries.add(ModItems.WILD_BEETROOT_SEEDS);
                         entries.add(ModItems.MAIZE_SEEDS);
                         entries.add(ModItems.MAIZE);
                         entries.add(ModItems.TOMATO_SEEDS);

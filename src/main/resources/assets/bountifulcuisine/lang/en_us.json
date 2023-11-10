@@ -1,12 +1,16 @@
 {
   "itemgroup.bountiful_cuisine": "Bountiful Cuisine",
 
-  "tooltip.minecraft.apple": "§7§oMalus domestica",
-  "tooltip.minecraft.glow_berries": "§7§oBaccate Candentis",
-  "tooltip.minecraft.carrot": "§7§oDaucus Carota Sativus",
-  "tooltip.minecraft.potato": "§7§oSolanum Tuberosum",
-  "tooltip.minecraft.wheat": "§7§oTriticum Aestivum",
-  "tooltip.minecraft.beetroot": "§7§oBeta Vulgaris",
+  "tooltip.bountifulcuisine.apple": "§7§oMalus domestica",
+  "tooltip.bountifulcuisine.glow_berries": "§7§oBaccate Candentis",
+  "tooltip.bountifulcuisine.carrot": "§7§oDaucus Carota Sativus",
+  "tooltip.bountifulcuisine.potato": "§7§oSolanum Tuberosum",
+  "tooltip.bountifulcuisine.wheat": "§7§oTriticum Aestivum",
+  "tooltip.bountifulcuisine.beetroot": "§7§oBeta Vulgaris",
+  "tooltip.bountifulcuisine.pitcher_pod": "§7§oNepenthes Primordium",
+  "tooltip.bountifulcuisine.pitcher_plant": "§7§oNepenthes Primordium",
+  "tooltip.bountifulcuisine.torchflower_seeds": "§7§Kniphofia Primordium",
+  "tooltip.bountifulcuisine.torchflower": "§7§Kniphofia Primordium",
 
   "block.bountifulcuisine.apple_log": "Apple Log",
   "block.bountifulcuisine.stripped_apple_log": "Stripped Apple Log",
@@ -158,6 +162,8 @@
 
   "item.bountifulcuisine.maize": "Maize",
   "item.bountifulcuisine.maize_seeds": "Maize Seeds",
+  "tooltip.bountifulcuisine.maize_seeds": "§7§oZea mays",
+  "tooltip.bountifulcuisine.maize": "§7§oZea mays",
   "item.bountifulcuisine.tomato": "Tomato",
   "tooltip.bountifulcuisine.tomato": "§7§oSolanum Lycopersicum",
   "item.bountifulcuisine.tomato_seeds": "Tomato Seeds",

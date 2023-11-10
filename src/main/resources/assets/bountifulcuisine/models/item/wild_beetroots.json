@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bountifulcuisine:block/wild_beetroots"
+    "layer0": "bountifulcuisine:item/wild_beetroots"
   }
 }

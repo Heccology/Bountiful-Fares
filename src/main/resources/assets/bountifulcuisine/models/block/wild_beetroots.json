@@ -1,6 +1,7 @@
 {
-	"parent": "minecraft:block/cross",
+	"parent": "bountifulcuisine:block/tintable_cross_with_overlay",
 	"textures": {
-		"cross": "bountifulcuisine:block/wild_beetroots"
+		"cross": "bountifulcuisine:block/wild_beetroots",
+		"tint": "bountifulcuisine:block/wild_beetroots_tint"
 	}
 }

@@ -18,19 +18,31 @@ public class PlantTooltipMixin {
     protected void plantTooltips(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
         if (Screen.hasShiftDown()) {
             if (stack.getItem() == Items.GLOW_BERRIES) {
-                tooltip.add(Text.translatable("tooltip.minecraft.glow_berries"));
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.glow_berries"));
             }
             if (stack.getItem() == Items.APPLE) {
-                tooltip.add(Text.translatable("tooltip.minecraft.apple"));
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.apple"));
             }
             if (stack.getItem() == Items.CARROT) {
-                tooltip.add(Text.translatable("tooltip.minecraft.carrot"));
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.carrot"));
             }
             if (stack.getItem() == Items.POTATO) {
-                tooltip.add(Text.translatable("tooltip.minecraft.potato"));
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.potato"));
             }
             if (stack.getItem() == Items.WHEAT) {
-                tooltip.add(Text.translatable("tooltip.minecraft.potato"));
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.potato"));
+            }
+            if (stack.getItem() == Items.PITCHER_POD) {
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.pitcher_plant"));
+            }
+            if (stack.getItem() == Items.PITCHER_PLANT) {
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.pitcher_plant"));
+            }
+            if (stack.getItem() == Items.TORCHFLOWER_SEEDS) {
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.torchflower"));
+            }
+            if (stack.getItem() == Items.TORCHFLOWER) {
+                tooltip.add(Text.translatable("tooltip.bountifulcuisine.torchflower"));
             }
         }
     }
