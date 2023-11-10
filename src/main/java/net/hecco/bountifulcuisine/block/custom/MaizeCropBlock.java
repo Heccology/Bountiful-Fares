@@ -15,11 +15,43 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 
 public class MaizeCropBlock extends TallPlantBlock implements Fertilizable {
     public static final IntProperty AGE;
+    public static final VoxelShape[] LOWER_SHAPES = new VoxelShape[] {
+            Block.createCuboidShape(0, 0, 0, 16, 2, 16),
+            Block.createCuboidShape(0, 0, 0, 16, 6, 16),
+            Block.createCuboidShape(0, 0, 0, 16, 12, 16),
+            Block.createCuboidShape(0, 0, 0, 16, 16, 16)
+    };
+    public static final VoxelShape[] UPPER_SHAPES = new VoxelShape[] {
+            Block.createCuboidShape(0, 0, 0, 16, 4, 16),
+            Block.createCuboidShape(0, 0, 0, 16, 8, 16),
+            Block.createCuboidShape(0, 0, 0, 16, 16, 16),
+    };
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        if (state.get(HALF) == DoubleBlockHalf.LOWER) {
+            return switch (state.get(AGE)) {
+                case 0 -> LOWER_SHAPES[0];
+                case 1 -> LOWER_SHAPES[1];
+                case 2 -> LOWER_SHAPES[2];
+                default -> LOWER_SHAPES[3];
+            };
+        } else if (state.get(HALF) == DoubleBlockHalf.UPPER) {
+            return switch (state.get(AGE)) {
+                case 0, 1, 2, 3, 4 -> UPPER_SHAPES[0];
+                case 5 -> UPPER_SHAPES[1];
+                default -> UPPER_SHAPES[2];
+            };
+        }
+        return LOWER_SHAPES[3];
+    }
 
     public MaizeCropBlock(Settings settings) {
         super(settings);
