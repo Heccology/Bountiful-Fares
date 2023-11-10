@@ -22,7 +22,7 @@ public class HoneysuckleCandleBlockEntity extends BlockEntity {
     }
     public static void tick(World world, BlockPos pos, BlockState state, HoneysuckleCandleBlockEntity blockEntity) {
         if (world.getTime() % 25L == 0L) {
-            Box box = new Box(pos).expand(5);
+            Box box = new Box(pos).expand(3);
             List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, box);
             if (state.get(isLit)) {
                 if (!world.isClient() && !list.isEmpty()) {
