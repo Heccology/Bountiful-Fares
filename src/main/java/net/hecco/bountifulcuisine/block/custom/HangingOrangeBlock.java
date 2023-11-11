@@ -45,7 +45,7 @@ public class HangingOrangeBlock extends HangingFruitBlock {
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         return Block.sideCoversSmallSquare(world, pos.up(), Direction.DOWN) && !world.isWater(pos)
                 || world.getBlockState(pos.up()).isOf(ModBlocks.ORANGE_LEAVES) && !world.isWater(pos)
-                || world.getBlockState(pos.up()).isOf(ModBlocks.BLOSSOMING_ORANGE_LEAVES) && !world.isWater(pos);
+                || world.getBlockState(pos.up()).isOf(ModBlocks.FLOWERING_ORANGE_LEAVES) && !world.isWater(pos);
     }
 
     @Override

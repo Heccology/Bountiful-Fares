@@ -1,7 +1,6 @@
 package net.hecco.bountifulcuisine;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.server.ServerTickCallback;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.custom.entity.ModBlockEntities;
 import net.hecco.bountifulcuisine.effect.ModEffects;
@@ -12,6 +11,7 @@ import net.hecco.bountifulcuisine.particle.ModParticles;
 import net.hecco.bountifulcuisine.potion.ModPotions;
 import net.hecco.bountifulcuisine.recipe.ModRecipes;
 import net.hecco.bountifulcuisine.screen.ModScreenHandlers;
+import net.hecco.bountifulcuisine.util.ItemGroupAdditions;
 import net.hecco.bountifulcuisine.util.ModLootTableModifiers;
 import net.hecco.bountifulcuisine.util.ModRegistries;
 import net.hecco.bountifulcuisine.world.gen.ModWorldGeneration;
@@ -31,6 +31,7 @@ public class BountifulCuisine implements ModInitializer {
 		ModBlocks.registerElsAndLsDyesCompatibilityBlocks();
 		ModBlockEntities.registerBlockEntities();
 		ModItemGroups.registerItemGroups();
+		ItemGroupAdditions.registerItemGroupAdditions();
 		ModRegistries.RegisterModStuffs();
 		ModWorldGeneration.generateModWorldGeneration();
 		ModFoliagePlacerTypes.register();

@@ -23,7 +23,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.STRIPPED_APPLE_LOG);
                         entries.add(ModBlocks.STRIPPED_APPLE_WOOD);
                         entries.add(ModBlocks.APPLE_LEAVES);
-                        entries.add(ModBlocks.BLOSSOMING_APPLE_LEAVES);
+                        entries.add(ModBlocks.FLOWERING_APPLE_LEAVES);
                         entries.add(Items.APPLE);
                         entries.add(ModBlocks.APPLE_BLOCK);
                         entries.add(ModBlocks.APPLE_SAPLING);
@@ -32,7 +32,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.STRIPPED_ORANGE_LOG);
                         entries.add(ModBlocks.STRIPPED_ORANGE_WOOD);
                         entries.add(ModBlocks.ORANGE_LEAVES);
-                        entries.add(ModBlocks.BLOSSOMING_ORANGE_LEAVES);
+                        entries.add(ModBlocks.FLOWERING_ORANGE_LEAVES);
                         entries.add(ModItems.ORANGE);
                         entries.add(ModBlocks.ORANGE_BLOCK);
                         entries.add(ModBlocks.ORANGE_SAPLING);
@@ -41,7 +41,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.STRIPPED_LEMON_LOG);
                         entries.add(ModBlocks.STRIPPED_LEMON_WOOD);
                         entries.add(ModBlocks.LEMON_LEAVES);
-                        entries.add(ModBlocks.BLOSSOMING_LEMON_LEAVES);
+                        entries.add(ModBlocks.FLOWERING_LEMON_LEAVES);
                         entries.add(ModItems.LEMON);
                         entries.add(ModBlocks.LEMON_BLOCK);
                         entries.add(ModBlocks.LEMON_SAPLING);
@@ -50,7 +50,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.STRIPPED_PLUM_LOG);
                         entries.add(ModBlocks.STRIPPED_PLUM_WOOD);
                         entries.add(ModBlocks.PLUM_LEAVES);
-                        entries.add(ModBlocks.BLOSSOMING_PLUM_LEAVES);
+                        entries.add(ModBlocks.FLOWERING_PLUM_LEAVES);
                         entries.add(ModItems.PLUM);
                         entries.add(ModBlocks.PLUM_BLOCK);
                         entries.add(ModBlocks.PLUM_SAPLING);

@@ -27,7 +27,7 @@ public class AppleLogBlock extends FruitLogBlock {
 
         for (Direction direction : directions) {
             BlockState neighborState = world.getBlockState(pos.offset(direction));
-            if (neighborState.getBlock() != ModBlocks.APPLE_LEAVES && neighborState.getBlock() != ModBlocks.BLOSSOMING_APPLE_LEAVES) {
+            if (neighborState.getBlock() != ModBlocks.APPLE_LEAVES && neighborState.getBlock() != ModBlocks.FLOWERING_APPLE_LEAVES) {
                 return false;
             }
         }

@@ -46,7 +46,7 @@ public class HangingPlumBlock extends HangingFruitBlock {
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         return Block.sideCoversSmallSquare(world, pos.up(), Direction.DOWN) && !world.isWater(pos)
                 || world.getBlockState(pos.up()).isOf(ModBlocks.PLUM_LEAVES) && !world.isWater(pos)
-                || world.getBlockState(pos.up()).isOf(ModBlocks.BLOSSOMING_PLUM_LEAVES) && !world.isWater(pos);
+                || world.getBlockState(pos.up()).isOf(ModBlocks.FLOWERING_PLUM_LEAVES) && !world.isWater(pos);
     }
 
     @Override

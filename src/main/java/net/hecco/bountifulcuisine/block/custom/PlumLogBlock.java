@@ -28,7 +28,7 @@ public class PlumLogBlock extends FruitLogBlock {
 
         for (Direction direction : directions) {
             BlockState neighborState = world.getBlockState(pos.offset(direction));
-            if (neighborState.getBlock() != ModBlocks.PLUM_LEAVES && neighborState.getBlock() != ModBlocks.BLOSSOMING_PLUM_LEAVES) {
+            if (neighborState.getBlock() != ModBlocks.PLUM_LEAVES && neighborState.getBlock() != ModBlocks.FLOWERING_PLUM_LEAVES) {
                 return false;
             }
         }

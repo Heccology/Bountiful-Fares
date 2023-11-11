@@ -7,6 +7,7 @@ import net.hecco.bountifulcuisine.block.custom.entity.CheckeredCeramicTilesBlock
 import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.TransparentBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
@@ -21,7 +22,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class CheckeredCeramicTilesBlock extends Block implements DyeableCeramicBlockInterface {
+public class CheckeredCeramicTilesBlock extends TransparentBlock implements DyeableCeramicBlockInterface {
     public CheckeredCeramicTilesBlock(Settings settings) {
         super(settings);
     }

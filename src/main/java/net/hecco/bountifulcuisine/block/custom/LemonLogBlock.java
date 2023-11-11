@@ -28,7 +28,7 @@ public class LemonLogBlock extends FruitLogBlock {
 
         for (Direction direction : directions) {
             BlockState neighborState = world.getBlockState(pos.offset(direction));
-            if (neighborState.getBlock() != ModBlocks.LEMON_LEAVES && neighborState.getBlock() != ModBlocks.BLOSSOMING_LEMON_LEAVES) {
+            if (neighborState.getBlock() != ModBlocks.LEMON_LEAVES && neighborState.getBlock() != ModBlocks.FLOWERING_LEMON_LEAVES) {
                 return false;
             }
         }

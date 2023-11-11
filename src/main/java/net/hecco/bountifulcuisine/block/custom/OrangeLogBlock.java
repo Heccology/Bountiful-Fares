@@ -28,7 +28,7 @@ public class OrangeLogBlock extends FruitLogBlock {
 
         for (Direction direction : directions) {
             BlockState neighborState = world.getBlockState(pos.offset(direction));
-            if (neighborState.getBlock() != ModBlocks.ORANGE_LEAVES && neighborState.getBlock() != ModBlocks.BLOSSOMING_ORANGE_LEAVES) {
+            if (neighborState.getBlock() != ModBlocks.ORANGE_LEAVES && neighborState.getBlock() != ModBlocks.FLOWERING_ORANGE_LEAVES) {
                 return false;
             }
         }

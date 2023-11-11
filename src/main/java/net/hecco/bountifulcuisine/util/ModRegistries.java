@@ -32,21 +32,21 @@ public class ModRegistries {
 
     private static void registerModCompostables() {
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.APPLE_LEAVES.asItem(), 0.3f);
-        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.BLOSSOMING_APPLE_LEAVES.asItem(), 0.5f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.FLOWERING_APPLE_LEAVES.asItem(), 0.5f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.APPLE_SAPLING.asItem(), 0.85f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.APPLE_BLOCK.asItem(), 1f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.ORANGE_LEAVES.asItem(), 0.3f);
-        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.BLOSSOMING_ORANGE_LEAVES.asItem(), 0.5f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.FLOWERING_ORANGE_LEAVES.asItem(), 0.5f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.ORANGE_SAPLING.asItem(), 0.85f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.ORANGE_BLOCK.asItem(), 1f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.ORANGE, 0.65f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.LEMON_LEAVES.asItem(), 0.3f);
-        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.BLOSSOMING_LEMON_LEAVES.asItem(), 0.5f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.FLOWERING_LEMON_LEAVES.asItem(), 0.5f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.LEMON_SAPLING.asItem(), 0.85f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.LEMON_BLOCK.asItem(), 1f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.LEMON, 0.65f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.PLUM_LEAVES.asItem(), 0.3f);
-        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.BLOSSOMING_PLUM_LEAVES.asItem(), 0.5f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.FLOWERING_PLUM_LEAVES.asItem(), 0.5f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.PLUM_SAPLING.asItem(), 0.85f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.PLUM_BLOCK.asItem(), 1f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.PLUM, 0.65f);
