@@ -74,6 +74,7 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.WILD_WHEAT.asItem(), ModBlocks.WILD_CARROTS.asItem());
             entries.addAfter(ModBlocks.WILD_CARROTS.asItem(), ModBlocks.WILD_POTATOES.asItem());
             entries.addAfter(ModBlocks.WILD_POTATOES.asItem(), ModBlocks.WILD_BEETROOTS.asItem());
+            entries.addAfter(ModBlocks.WILD_BEETROOTS.asItem(), ModBlocks.WILD_TOMATOES.asItem());
             entries.addAfter(Items.KELP, ModBlocks.SPONGEKIN_SPROUT.asItem());
             entries.addAfter(ModBlocks.SPONGEKIN_SPROUT.asItem(), ModBlocks.SPONGEKIN.asItem());
             entries.addAfter(ModBlocks.SPONGEKIN.asItem(), ModBlocks.PRISMARINE_BLOSSOM.asItem());

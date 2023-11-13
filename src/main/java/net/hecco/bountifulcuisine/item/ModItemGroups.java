@@ -90,6 +90,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WILD_POTATOES);
                         entries.add(ModBlocks.WILD_WHEAT);
                         entries.add(ModBlocks.WILD_BEETROOTS);
+                        entries.add(ModBlocks.WILD_TOMATOES);
                         entries.add(ModItems.MAIZE_SEEDS);
                         entries.add(ModItems.MAIZE);
                         entries.add(ModItems.TOMATO_SEEDS);
