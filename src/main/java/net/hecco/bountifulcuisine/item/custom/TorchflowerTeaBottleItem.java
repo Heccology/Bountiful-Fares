@@ -11,6 +11,6 @@ public class TorchflowerTeaBottleItem extends TeaBottleItem{
 
     @Override
     public StatusEffect[] getStatusEffectsToRemove() {
-        return new StatusEffect[] {StatusEffects.INVISIBILITY, StatusEffects.BLINDNESS, ModEffects.ACIDIC};
+        return new StatusEffect[] {StatusEffects.DARKNESS, StatusEffects.BLINDNESS, ModEffects.ACIDIC};
     }
 }

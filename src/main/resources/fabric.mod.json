@@ -3,12 +3,12 @@
 	"id": "bountifulcuisine",
 	"version": "${version}",
 	"name": "Bountiful Cuisine",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A Bountiful Journey Awaits!",
 	"authors": [
 		"Hecco"
 	],
 	"contact": {
-		"homepage": "https://twitter.com/hecco",
+		"homepage": "https://linktr.ee/thehecco",
 		"sources": ""
 	},
 	"license": "MIT License",

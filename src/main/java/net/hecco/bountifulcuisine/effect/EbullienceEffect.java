@@ -1,17 +1,12 @@
 package net.hecco.bountifulcuisine.effect;
 
-import net.hecco.bountifulcuisine.BountifulCuisine;
-import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 
-public class VivacityEffect extends StatusEffect {
-    protected VivacityEffect(StatusEffectCategory category, int color) {
+public class EbullienceEffect extends StatusEffect {
+    protected EbullienceEffect(StatusEffectCategory category, int color) {
         super(category, color);
     }
 

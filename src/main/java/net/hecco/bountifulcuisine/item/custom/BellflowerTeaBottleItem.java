@@ -11,6 +11,6 @@ public class BellflowerTeaBottleItem extends TeaBottleItem{
 
     @Override
     public StatusEffect[] getStatusEffectsToRemove() {
-        return new StatusEffect[] {StatusEffects.LEVITATION, StatusEffects.MINING_FATIGUE, ModEffects.ACIDIC};
+        return new StatusEffect[] {StatusEffects.LEVITATION, StatusEffects.SLOWNESS, ModEffects.ACIDIC};
     }
 }

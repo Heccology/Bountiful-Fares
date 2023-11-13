@@ -11,6 +11,6 @@ public class HoneysuckleTeaBottleItem extends TeaBottleItem{
 
     @Override
     public StatusEffect[] getStatusEffectsToRemove() {
-        return new StatusEffect[] {StatusEffects.WITHER, StatusEffects.UNLUCK, ModEffects.ACIDIC};
+        return new StatusEffect[] {StatusEffects.WITHER, StatusEffects.WEAKNESS, ModEffects.ACIDIC};
     }
 }
