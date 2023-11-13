@@ -68,6 +68,7 @@ public class StuporEffect extends StatusEffect {
                 player.addStatusEffect(effect);
             }
         }
+        super.onApplied(entity, attributes, amplifier);
     }
 
     @Override

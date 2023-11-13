@@ -11,6 +11,7 @@ public class ModEffects {
     public static final StatusEffect ACIDIC = registerStatusEffect("acidic", new AcidicEffect(StatusEffectCategory.NEUTRAL, 0xE7FF6D));
     public static final StatusEffect STUPOR = registerStatusEffect("stupor", new StuporEffect(StatusEffectCategory.NEUTRAL, 0x4539B3));
     public static final StatusEffect EBULLIENCE = registerStatusEffect("ebullience", new EbullienceEffect(StatusEffectCategory.BENEFICIAL, 0xE9DEE2));
+    public static final StatusEffect GORGING = registerStatusEffect("gorging", new GorgingEffect(StatusEffectCategory.NEUTRAL, 0xFFCC00));
     private static StatusEffect registerStatusEffect(String name, StatusEffect statusEffect) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(BountifulCuisine.MOD_ID, name), statusEffect);
     }

@@ -28,11 +28,11 @@ public class ChamomileCandleBlockEntity extends BlockEntity {
             if (state.get(isLit)) {
                 if (!world.isClient() && !list.isEmpty()) {
                     for (PlayerEntity playerEntity : list) {
-                        StatusEffectInstance existingEffect = playerEntity.getStatusEffect(ModEffects.VIVACITY);
+                        StatusEffectInstance existingEffect = playerEntity.getStatusEffect(ModEffects.EBULLIENCE);
                         if (existingEffect == null) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.VIVACITY, 50, 0, true, false));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.EBULLIENCE, 50, 0, true, false));
                         } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.VIVACITY, 50, 0, true, false));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.EBULLIENCE, 50, 0, true, false));
                         }
                     }
                 }

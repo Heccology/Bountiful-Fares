@@ -69,6 +69,7 @@ public class AcidicEffect extends StatusEffect {
                 player.addStatusEffect(effect);
             }
         }
+        super.onApplied(entity, attributes, amplifier);
     }
 
     @Override
