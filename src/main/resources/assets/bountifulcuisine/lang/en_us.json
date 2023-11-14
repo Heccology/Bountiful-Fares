@@ -154,17 +154,17 @@
   "tooltip.bountifulcuisine.wild_wheat": "§7§oTriticum Monococcum",
   "block.bountifulcuisine.wild_beetroots": "Wild Beetroots",
   "tooltip.bountifulcuisine.wild_beetroots": "§7§oBeta Vulgaris Maritima",
-  "block.bountifulcuisine.wild_tomatoes": "Wild Tomatoes",
-  "tooltip.bountifulcuisine.wild_tomatoes": "§7§oSolanum Lycopersicum Cerasiforme",
+  "block.bountifulcuisine.wild_gooseberries": "Wild Gooseberries",
+  "tooltip.bountifulcuisine.wild_gooseberries": "§7§oPhysalis Angulata",
 
   "item.bountifulcuisine.maize": "Maize",
   "item.bountifulcuisine.maize_seeds": "Maize Seeds",
   "tooltip.bountifulcuisine.maize_seeds": "§7§oZea Mays",
   "tooltip.bountifulcuisine.maize": "§7§oZea Mays",
-  "item.bountifulcuisine.tomato": "Tomato",
-  "tooltip.bountifulcuisine.tomato": "§7§oSolanum Lycopersicum",
-  "item.bountifulcuisine.tomato_seeds": "Tomato Seeds",
-  "tooltip.bountifulcuisine.tomato_seeds": "§7§oSolanum Lycopersicum",
+  "item.bountifulcuisine.gooseberries": "Gooseberries",
+  "tooltip.bountifulcuisine.gooseberries": "§7§oPhysalis Peruviana",
+  "item.bountifulcuisine.gooseberry_seeds": "Gooseberry Seeds",
+  "tooltip.bountifulcuisine.gooseberry_seeds": "§7§oPhysalis Peruviana",
 
   "block.bountifulcuisine.spongekin_stem": "Spongekin Stem",
   "block.bountifulcuisine.spongekin_sprout": "Spongekin Sprout",
@@ -177,7 +177,7 @@
 
   "block.bountifulcuisine.prismarine_blossom": "Prismarine Blossom",
 
-  "block.bountifulcuisine.tomatoes": "Tomatoes",
+  "block.bountifulcuisine.gooseberries": "Gooseberries",
 
   "item.bountifulcuisine.flour": "Flour",
 

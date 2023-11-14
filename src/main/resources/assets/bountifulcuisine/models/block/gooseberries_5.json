@@ -1,6 +1,6 @@
 {
 	"parent": "minecraft:block/crop",
 	"textures": {
-		"crop": "bountifulcuisine:block/tomatoes_5"
+		"crop": "bountifulcuisine:block/gooseberries_5"
 	}
 }

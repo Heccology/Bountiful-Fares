@@ -13,12 +13,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
-public class  TomatoCropBlock extends CropBlock {
+public class GooseberryCropBlock extends CropBlock {
 
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[]{Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 4.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 10.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 12.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 12.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 12.0, 16.0)};
     public static final int MAX_AGE = 5;
     public static final IntProperty AGE = Properties.AGE_5;
-    public TomatoCropBlock(Settings settings) {
+    public GooseberryCropBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0));
     }
@@ -40,7 +40,7 @@ public class  TomatoCropBlock extends CropBlock {
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return ModItems.TOMATO_SEEDS;
+        return ModItems.GOOSEBERRY_SEEDS;
     }
 
     @Override

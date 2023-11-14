@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bountifulcuisine:item/wild_tomatoes"
+    "layer0": "bountifulcuisine:item/gooseberry_seeds"
   }
 }

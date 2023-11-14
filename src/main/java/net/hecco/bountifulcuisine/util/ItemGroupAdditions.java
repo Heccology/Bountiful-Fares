@@ -74,7 +74,7 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.WILD_WHEAT.asItem(), ModBlocks.WILD_CARROTS.asItem());
             entries.addAfter(ModBlocks.WILD_CARROTS.asItem(), ModBlocks.WILD_POTATOES.asItem());
             entries.addAfter(ModBlocks.WILD_POTATOES.asItem(), ModBlocks.WILD_BEETROOTS.asItem());
-            entries.addAfter(ModBlocks.WILD_BEETROOTS.asItem(), ModBlocks.WILD_TOMATOES.asItem());
+            entries.addAfter(ModBlocks.WILD_BEETROOTS.asItem(), ModBlocks.WILD_GOOSEBERRIES.asItem());
             entries.addAfter(Items.KELP, ModBlocks.SPONGEKIN_SPROUT.asItem());
             entries.addAfter(ModBlocks.SPONGEKIN_SPROUT.asItem(), ModBlocks.SPONGEKIN.asItem());
             entries.addAfter(ModBlocks.SPONGEKIN.asItem(), ModBlocks.PRISMARINE_BLOSSOM.asItem());
@@ -82,8 +82,8 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.CHAMOMILE_FLOWERS.asItem(), ModBlocks.HONEYSUCKLE.asItem());
             entries.addAfter(ModBlocks.HONEYSUCKLE.asItem(), ModBlocks.VIOLET_BELLFLOWER.asItem());
             entries.addAfter(Items.BEETROOT_SEEDS, ModItems.MAIZE_SEEDS);
-            entries.addAfter(ModItems.MAIZE_SEEDS, ModItems.TOMATO_SEEDS);
-            entries.addAfter(ModItems.TOMATO_SEEDS, ModItems.TEA_BERRIES);
+            entries.addAfter(ModItems.MAIZE_SEEDS, ModItems.GOOSEBERRY_SEEDS);
+            entries.addAfter(ModItems.GOOSEBERRY_SEEDS, ModItems.TEA_BERRIES);
             entries.addAfter(Items.PITCHER_POD, ModItems.LAPISBERRY_SEEDS);
             entries.addAfter(ModItems.LAPISBERRY_SEEDS, ModItems.HOARY_SEEDS);
         });
@@ -140,7 +140,7 @@ public class ItemGroupAdditions {
             entries.addAfter(ModItems.HONEYSUCKLE_TEA_BOTTLE, ModItems.BELLFLOWER_TEA_BOTTLE);
             entries.addAfter(ModItems.BELLFLOWER_TEA_BOTTLE, ModItems.TORCHFLOWER_TEA_BOTTLE);
             entries.addAfter(Items.BEETROOT, ModItems.MAIZE);
-            entries.addAfter(ModItems.MAIZE, ModItems.TOMATO);
+            entries.addAfter(ModItems.MAIZE, ModItems.GOOSEBERRIES);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
