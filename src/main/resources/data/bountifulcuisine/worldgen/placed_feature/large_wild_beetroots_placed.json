@@ -1,9 +1,9 @@
 {
-  "feature": "bountifulcuisine:wild_wheat",
+  "feature": "bountifulcuisine:large_wild_beetroots",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 32
+      "chance": 64
     },
     {
       "type": "minecraft:in_square"
