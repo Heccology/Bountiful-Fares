@@ -24,7 +24,7 @@ public class FlourItem extends Item {
         if (!world.isClient) {
             FlourProjectileEntity flourProjectileEntity = new FlourProjectileEntity(user, world);
             flourProjectileEntity.setItem(itemStack);
-            flourProjectileEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 0.25f, 5.0f);
+            flourProjectileEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 0.35f, 7.5f);
             world.spawnEntity(flourProjectileEntity);
         }
         user.incrementStat(Stats.USED.getOrCreateStat(this));

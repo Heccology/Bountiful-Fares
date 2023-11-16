@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:quern_stone",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:maize"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "bountifulcuisine:flour"
+  }
+}

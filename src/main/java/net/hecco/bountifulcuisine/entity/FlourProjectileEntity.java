@@ -25,7 +25,7 @@ public class FlourProjectileEntity extends ThrownItemEntity {
     }
 
     public FlourProjectileEntity(World world, double x, double y, double z) {
-        super((EntityType<? extends ThrownItemEntity>)ModEntities.THROWN_FLOUR_PROJECTILE, x, y, z, world);
+        super(ModEntities.THROWN_FLOUR_PROJECTILE, x, y, z, world);
     }
 
     @Override
@@ -37,23 +37,6 @@ public class FlourProjectileEntity extends ThrownItemEntity {
     protected Item getDefaultItem() {
         return ModItems.FLOUR;
     }
-
-//    @Override
-//    protected void onCollision(HitResult hitResult) {
-//        World world = this.getWorld();
-//        if (!world.isClient()) {
-//            world.sendEntityStatus(this, (byte)3);
-//        }
-//        for (int x = 0; x < 18; ++x) {
-//            world.addParticle(ModParticles.FLOUR_CLOUD_PARTICLE, this.getX(), this.getY(), this.getZ(), 0.5f, 0.5f, 0.5f);
-//
-//        }
-//        if (world.isClient()) {
-//            return;
-//        }
-//        this.discard();
-//        super.onCollision(hitResult);
-//    }
 
 
     @Override
@@ -84,39 +67,4 @@ public class FlourProjectileEntity extends ThrownItemEntity {
             }
         }
     }
-
-    //    @Override
-//    protected void onBlockHit(BlockHitResult blockHitResult) {
-//        super.onBlockHit(blockHitResult);
-//        World world = this.getWorld();
-//        if (!world.isClient()) {
-//            world.sendEntityStatus(this, (byte)3);
-//        }
-//        for (int x = 0; x < 32; ++x) {
-//            world.addParticle(ModParticles.FLOUR_CLOUD_PARTICLE, this.getX()+world.random.nextFloat(), this.getY()+world.random.nextFloat(), this.getZ()+world.random.nextFloat(), world.random.nextGaussian()/16, world.random.nextFloat()/4, world.random.nextGaussian()/16);
-//        }
-//        if (world.isClient()) {
-//            return;
-//        }
-//        if (!this.getWorld().isClient && !this.isRemoved()) {
-//            this.discard();
-//        }
-//    }
-
-//    @Override
-//    protected void onEntityHit(EntityHitResult entityHitResult) {
-//        World world = this.getWorld();
-//        if (!world.isClient()) {
-//            world.sendEntityStatus(this, (byte)3);
-//        }
-//        for (int x = 0; x < 32; ++x) {
-//            world.addParticle(ModParticles.FLOUR_CLOUD_PARTICLE, this.getX()+world.random.nextFloat(), this.getY()+world.random.nextFloat(), this.getZ()+world.random.nextFloat(), world.random.nextGaussian()/16, world.random.nextFloat()/4, world.random.nextGaussian()/16);
-//
-//        }
-//        if (world.isClient()) {
-//            return;
-//        }
-//
-//        super.onEntityHit(entityHitResult);
-//    }
 }
