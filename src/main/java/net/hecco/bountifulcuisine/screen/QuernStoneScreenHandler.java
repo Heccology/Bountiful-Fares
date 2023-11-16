@@ -1,6 +1,7 @@
 package net.hecco.bountifulcuisine.screen;
 
 import net.hecco.bountifulcuisine.block.custom.entity.QuernStoneBlockEntity;
+import net.hecco.bountifulcuisine.block.custom.entity.slot.QuernStoneOutputSlot;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -46,7 +47,7 @@ public class QuernStoneScreenHandler extends ScreenHandler {
         this.blockEntity = ((QuernStoneBlockEntity) blockEntity);
 
         this.addSlot(new Slot(inventory, 0, 44, 42));
-        this.addSlot(new Slot(inventory, 1, 116, 42));
+        this.addSlot(new QuernStoneOutputSlot(inventory, 1, 116, 42));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
