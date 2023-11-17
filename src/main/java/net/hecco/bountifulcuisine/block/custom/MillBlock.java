@@ -16,6 +16,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.state.property.Property;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -28,6 +29,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class MillBlock extends BlockWithEntity implements BlockEntityProvider, Waterloggable {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    public static final BooleanProperty MILLING = BooleanProperty.of("milling");
     public MillBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(FACING, Direction.NORTH));
@@ -35,8 +37,13 @@ public class MillBlock extends BlockWithEntity implements BlockEntityProvider, W
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
+        builder.add(FACING, MILLING);
     }
+
+    public static BooleanProperty getMillingState() {
+        return MILLING;
+    }
+
 
     @Nullable
     @Override

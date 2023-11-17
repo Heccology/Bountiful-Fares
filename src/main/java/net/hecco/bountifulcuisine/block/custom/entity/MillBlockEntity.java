@@ -1,6 +1,8 @@
 package net.hecco.bountifulcuisine.block.custom.entity;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.hecco.bountifulcuisine.block.custom.BellflowerCandleBlock;
+import net.hecco.bountifulcuisine.block.custom.MillBlock;
 import net.hecco.bountifulcuisine.recipe.MillingRecipe;
 import net.hecco.bountifulcuisine.screen.MillScreenHandler;
 import net.minecraft.block.BlockState;
@@ -17,6 +19,7 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -28,6 +31,7 @@ import java.util.Optional;
 
 public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
 
+    private static BooleanProperty isMilling;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
     private static final int[] TOP_SLOTS = new int[]{0};
@@ -39,6 +43,7 @@ public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandle
     private int maxProgress = 72;
     public MillBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.MILL_BLOCK_ENTITY, pos, state);
+        isMilling = ((MillBlock)state.getBlock()).getMillingState();
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
@@ -104,6 +109,7 @@ public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandle
         if (canInsertOutputSlot() && hasRecipe()) {
             increaseCraftingProgress();
             markDirty(world, pos, state);
+
             if (hasCraftingFinished()) {
                 craftItem();
                 resetProgress();

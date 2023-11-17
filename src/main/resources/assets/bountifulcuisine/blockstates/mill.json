@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,milling=false": {
+      "model": "bountifulcuisine:block/mill",
+      "y": 90
+    },
+    "facing=north,milling=false": {
+      "model": "bountifulcuisine:block/mill"
+    },
+    "facing=south,milling=false": {
+      "model": "bountifulcuisine:block/mill",
+      "y": 180
+    },
+    "facing=west,milling=false": {
+      "model": "bountifulcuisine:block/mill",
+      "y": 270
+    },
+    "facing=east,milling=true": {
+      "model": "bountifulcuisine:block/mill_milling",
+      "y": 90
+    },
+    "facing=north,milling=true": {
+      "model": "bountifulcuisine:block/mill_milling"
+    },
+    "facing=south,milling=true": {
+      "model": "bountifulcuisine:block/mill_milling",
+      "y": 180
+    },
+    "facing=west,milling=true": {
+      "model": "bountifulcuisine:block/mill_milling",
+      "y": 270
+    }
+  }
+}
