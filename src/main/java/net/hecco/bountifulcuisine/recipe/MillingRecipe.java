@@ -12,13 +12,13 @@ import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public class QuernStoneRecipe implements Recipe<SimpleInventory> {
+public class MillingRecipe implements Recipe<SimpleInventory> {
 
     private final Identifier id;
     private final ItemStack output;
     private final DefaultedList<Ingredient> recipeItems;
 
-    public QuernStoneRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
+    public MillingRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
         this.id = id;
         this.output = output;
         this.recipeItems = recipeItems;
@@ -67,19 +67,19 @@ public class QuernStoneRecipe implements Recipe<SimpleInventory> {
         return this.recipeItems;
     }
 
-    public static class Type implements RecipeType<QuernStoneRecipe> {
+    public static class Type implements RecipeType<MillingRecipe> {
         private Type() { }
         public static final Type INSTANCE = new Type();
-        public static final String ID = "quern_stone";
+        public static final String ID = "milling";
     }
 
-    public static class Serializer implements RecipeSerializer<QuernStoneRecipe> {
+    public static class Serializer implements RecipeSerializer<MillingRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final String ID = "quern_stone";
+        public static final String ID = "milling";
         // this is the name given in the json file
 
         @Override
-        public QuernStoneRecipe read(Identifier id, JsonObject json) {
+        public MillingRecipe read(Identifier id, JsonObject json) {
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
 
             JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
@@ -89,11 +89,11 @@ public class QuernStoneRecipe implements Recipe<SimpleInventory> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new QuernStoneRecipe(id, output, inputs);
+            return new MillingRecipe(id, output, inputs);
         }
 
         @Override
-        public QuernStoneRecipe read(Identifier id, PacketByteBuf buf) {
+        public MillingRecipe read(Identifier id, PacketByteBuf buf) {
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
@@ -101,11 +101,11 @@ public class QuernStoneRecipe implements Recipe<SimpleInventory> {
             }
 
             ItemStack output = buf.readItemStack();
-            return new QuernStoneRecipe(id, output, inputs);
+            return new MillingRecipe(id, output, inputs);
         }
 
         @Override
-        public void write(PacketByteBuf buf, QuernStoneRecipe recipe) {
+        public void write(PacketByteBuf buf, MillingRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.write(buf);

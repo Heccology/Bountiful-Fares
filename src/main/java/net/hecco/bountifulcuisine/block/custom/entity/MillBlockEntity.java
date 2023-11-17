@@ -1,9 +1,8 @@
 package net.hecco.bountifulcuisine.block.custom.entity;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
-import net.hecco.bountifulcuisine.item.ModItems;
-import net.hecco.bountifulcuisine.recipe.QuernStoneRecipe;
-import net.hecco.bountifulcuisine.screen.QuernStoneScreenHandler;
+import net.hecco.bountifulcuisine.recipe.MillingRecipe;
+import net.hecco.bountifulcuisine.screen.MillScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,7 +10,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.PropertyDelegate;
@@ -27,9 +25,8 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
-import java.util.UUID;
 
-public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
+public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
@@ -40,14 +37,14 @@ public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreen
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 72;
-    public QuernStoneBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.QUERN_STONE_BLOCK_ENTITY, pos, state);
+    public MillBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.MILL_BLOCK_ENTITY, pos, state);
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
                 return switch (index) {
-                    case 0 -> QuernStoneBlockEntity.this.progress;
-                    case 1 -> QuernStoneBlockEntity.this.maxProgress;
+                    case 0 -> MillBlockEntity.this.progress;
+                    case 1 -> MillBlockEntity.this.maxProgress;
                     default -> 0;
                 };
             }
@@ -55,8 +52,8 @@ public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreen
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: QuernStoneBlockEntity.this.progress = value;
-                    case 1: QuernStoneBlockEntity.this.maxProgress = value;
+                    case 0: MillBlockEntity.this.progress = value;
+                    case 1: MillBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -74,13 +71,13 @@ public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreen
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("block.bountifulcuisine.quern_stone");
+        return Text.translatable("block.bountifulcuisine.mill");
     }
 
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new QuernStoneScreenHandler(syncId, playerInventory, this, propertyDelegate);
+        return new MillScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
 
     @Override
@@ -121,7 +118,7 @@ public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreen
     }
 
     private void craftItem() {
-        Optional<QuernStoneRecipe> recipe = getCurrentRecipe();
+        Optional<MillingRecipe> recipe = getCurrentRecipe();
 
         this.removeStack(INPUT_SLOT, 1);
         this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutput(null).getItem(),
@@ -143,7 +140,7 @@ public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreen
         }
     }
     private boolean hasRecipe() {
-        Optional<QuernStoneRecipe> recipe = getCurrentRecipe();
+        Optional<MillingRecipe> recipe = getCurrentRecipe();
 
         if (recipe.isEmpty()) return false;
         ItemStack output = recipe.get().getOutput(null);
@@ -171,12 +168,12 @@ public class QuernStoneBlockEntity extends BlockEntity implements ExtendedScreen
         return TOP_SLOTS;
     }
 
-    private Optional<QuernStoneRecipe> getCurrentRecipe() {
+    private Optional<MillingRecipe> getCurrentRecipe() {
         SimpleInventory inventory = new SimpleInventory(this.size());
         for (int i = 0; i < this.size(); i++) {
             inventory.setStack(i, this.getStack(i));
         }
-        return this.getWorld().getRecipeManager().getFirstMatch(QuernStoneRecipe.Type.INSTANCE, inventory, this.getWorld());
+        return this.getWorld().getRecipeManager().getFirstMatch(MillingRecipe.Type.INSTANCE, inventory, this.getWorld());
     }
 
     private boolean canInsertOutputSlot() {

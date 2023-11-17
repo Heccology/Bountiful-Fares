@@ -1,7 +1,7 @@
 package net.hecco.bountifulcuisine.screen;
 
-import net.hecco.bountifulcuisine.block.custom.entity.QuernStoneBlockEntity;
-import net.hecco.bountifulcuisine.block.custom.entity.slot.QuernStoneOutputSlot;
+import net.hecco.bountifulcuisine.block.custom.entity.MillBlockEntity;
+import net.hecco.bountifulcuisine.block.custom.entity.slot.MillOutputSlot;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -14,14 +14,14 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-public class QuernStoneScreenHandler extends ScreenHandler {
+public class MillScreenHandler extends ScreenHandler {
 
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
-    public final QuernStoneBlockEntity blockEntity;
+    public final MillBlockEntity blockEntity;
     private RecipeBookCategory category;
 
-    public QuernStoneScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
+    public MillScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
                 new ArrayPropertyDelegate(2));
     }
@@ -38,16 +38,16 @@ public class QuernStoneScreenHandler extends ScreenHandler {
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
-    public QuernStoneScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity,
-                                        PropertyDelegate arrayPropertyDelegate) {
-        super(ModScreenHandlers.QUERN_STONE_SCREEN_HANDLER, syncId);
+    public MillScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity,
+                             PropertyDelegate arrayPropertyDelegate) {
+        super(ModScreenHandlers.MILL_SCREEN_HANDLER, syncId);
         checkSize(((Inventory) blockEntity), 2);
         this.inventory = (Inventory)blockEntity;
         this.propertyDelegate = arrayPropertyDelegate;
-        this.blockEntity = ((QuernStoneBlockEntity) blockEntity);
+        this.blockEntity = ((MillBlockEntity) blockEntity);
 
         this.addSlot(new Slot(inventory, 0, 44, 42));
-        this.addSlot(new QuernStoneOutputSlot(inventory, 1, 116, 42));
+        this.addSlot(new MillOutputSlot(inventory, 1, 116, 42));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

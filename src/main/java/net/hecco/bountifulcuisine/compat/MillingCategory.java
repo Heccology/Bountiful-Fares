@@ -17,22 +17,22 @@ import net.minecraft.util.Identifier;
 import java.util.LinkedList;
 import java.util.List;
 
-public class QuernStoneCategory implements DisplayCategory<BasicDisplay> {
-    public static final Identifier TEXTURE = new Identifier(BountifulCuisine.MOD_ID, "textures/gui/quern_stone.png");
-    public static final CategoryIdentifier<QuernStoneDisplay> QUERN_STONE = CategoryIdentifier.of(BountifulCuisine.MOD_ID, "quern_stone");
+public class MillingCategory implements DisplayCategory<BasicDisplay> {
+    public static final Identifier TEXTURE = new Identifier(BountifulCuisine.MOD_ID, "textures/gui/mill.png");
+    public static final CategoryIdentifier<MillingDisplay> MILLING = CategoryIdentifier.of(BountifulCuisine.MOD_ID, "milling");
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {
-        return QUERN_STONE;
+        return MILLING;
     }
 
     @Override
     public Text getTitle() {
-        return Text.translatable("block.bountifulcuisine.quern_stone");
+        return Text.translatable("block.bountifulcuisine.mill");
     }
 
     @Override
     public Renderer getIcon() {
-        return EntryStacks.of(ModBlocks.QUERN_STONE.asItem().getDefaultStack());
+        return EntryStacks.of(ModBlocks.MILL.asItem().getDefaultStack());
     }
 
     @Override

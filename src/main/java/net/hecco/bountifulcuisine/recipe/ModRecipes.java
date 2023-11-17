@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 
 public class ModRecipes {
     public static void registerRecipes() {
-        Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(BountifulCuisine.MOD_ID, QuernStoneRecipe.Serializer.ID), QuernStoneRecipe.Serializer.INSTANCE);
-        Registry.register(Registries.RECIPE_TYPE, new Identifier(BountifulCuisine.MOD_ID, QuernStoneRecipe.Type.ID), QuernStoneRecipe.Type.INSTANCE);
+        Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(BountifulCuisine.MOD_ID, MillingRecipe.Serializer.ID), MillingRecipe.Serializer.INSTANCE);
+        Registry.register(Registries.RECIPE_TYPE, new Identifier(BountifulCuisine.MOD_ID, MillingRecipe.Type.ID), MillingRecipe.Type.INSTANCE);
     }
 }

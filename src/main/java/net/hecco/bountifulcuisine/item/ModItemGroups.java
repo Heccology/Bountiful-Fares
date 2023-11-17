@@ -108,7 +108,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
                         entries.add(ModBlocks.FERMENTATION_VESSEL);
                         entries.add(ModItems.ELDERBERRY_WINE_BOTTLE);
-                        entries.add(ModBlocks.QUERN_STONE);
+                        entries.add(ModBlocks.MILL);
                         entries.add(ModBlocks.SPONGEKIN_SPROUT);
                         entries.add(ModItems.SPONGEKIN_SEEDS);
                         entries.add(ModBlocks.SPONGEKIN);
