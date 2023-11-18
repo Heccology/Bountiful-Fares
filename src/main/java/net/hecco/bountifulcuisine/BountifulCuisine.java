@@ -32,6 +32,7 @@ public class BountifulCuisine implements ModInitializer {
 		ModBlockEntities.registerBlockEntities();
 		ModItemGroups.registerItemGroups();
 		ItemGroupAdditions.registerItemGroupAdditions();
+		ModRecipes.registerRecipes();
 		ModRegistries.RegisterModStuffs();
 		ModWorldGeneration.generateModWorldGeneration();
 		ModFoliagePlacerTypes.register();
@@ -39,7 +40,6 @@ public class BountifulCuisine implements ModInitializer {
 		ModBoats.registerBoats();
 		ModLootTableModifiers.modifyLootTables();
 		ModScreenHandlers.registerScreenHandlers();
-		ModRecipes.registerRecipes();
 		ModParticles.registerParticles();
 		ModPotions.registerPotions();
 		ModTrunkPlacerTypes.register();

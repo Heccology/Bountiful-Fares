@@ -1,6 +1,7 @@
 package net.hecco.bountifulcuisine.block.custom.entity;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.custom.BellflowerCandleBlock;
 import net.hecco.bountifulcuisine.block.custom.MillBlock;
 import net.hecco.bountifulcuisine.recipe.MillingRecipe;
@@ -31,7 +32,7 @@ import java.util.Optional;
 
 public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
 
-    private static BooleanProperty isMilling;
+    private static BooleanProperty millingState;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
 
     private static final int[] TOP_SLOTS = new int[]{0};
@@ -43,7 +44,7 @@ public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandle
     private int maxProgress = 72;
     public MillBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.MILL_BLOCK_ENTITY, pos, state);
-        isMilling = ((MillBlock)state.getBlock()).getMillingState();
+        millingState = ((MillBlock)state.getBlock()).getMillingState();
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
@@ -95,21 +96,31 @@ public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandle
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         Inventories.writeNbt(nbt, inventory);
-        nbt.putInt("quern_stone.progress", progress);
+        nbt.putInt("milling.progress", progress);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         Inventories.readNbt(nbt, inventory);
-        nbt.getInt("quern_stone.progress");
+        nbt.getInt("milling.progress");
         super.readNbt(nbt);
     }
 
+    private boolean isCrafting() {
+        return hasRecipe() && canInsertOutputSlot();
+    }
+
     public void tick(World world, BlockPos pos, BlockState state) {
+        if (!inventory.get(0).isEmpty() && isCrafting() && progress == 0) {
+            world.setBlockState(pos, state.with(millingState, true));
+        }
+        if (canInsertOutputSlot() && !hasRecipe() && !world.isClient() && progress != 0) {
+            world.setBlockState(pos, state.with(millingState, false));
+        }
+        BountifulCuisine.LOGGER.info(canInsertOutputSlot() + String.valueOf(hasRecipe()));
         if (canInsertOutputSlot() && hasRecipe()) {
             increaseCraftingProgress();
             markDirty(world, pos, state);
-
             if (hasCraftingFinished()) {
                 craftItem();
                 resetProgress();
@@ -120,7 +131,7 @@ public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandle
     }
 
     private void resetProgress() {
-        this.progress = 0;
+        this.progress = 1;
     }
 
     private void craftItem() {

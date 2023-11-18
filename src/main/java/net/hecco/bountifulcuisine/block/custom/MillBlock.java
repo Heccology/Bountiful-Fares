@@ -32,7 +32,7 @@ public class MillBlock extends BlockWithEntity implements BlockEntityProvider, W
     public static final BooleanProperty MILLING = BooleanProperty.of("milling");
     public MillBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.getStateManager().getDefaultState().with(FACING, Direction.NORTH));
+        this.setDefaultState(this.getStateManager().getDefaultState().with(FACING, Direction.NORTH).with(MILLING, false));
     }
 
     @Override
@@ -40,7 +40,7 @@ public class MillBlock extends BlockWithEntity implements BlockEntityProvider, W
         builder.add(FACING, MILLING);
     }
 
-    public static BooleanProperty getMillingState() {
+    public BooleanProperty getMillingState() {
         return MILLING;
     }
 
@@ -59,6 +59,10 @@ public class MillBlock extends BlockWithEntity implements BlockEntityProvider, W
     @Override
     public BlockState mirror(BlockState state, BlockMirror mirror) {
         return state.rotate(mirror.getRotation(state.get(FACING)));
+    }
+
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
     }
 
     @Override

@@ -1,8 +1,8 @@
 {
-  "type": "bountifulcuisine:quern_stone",
+  "type": "bountifulcuisine:milling",
   "ingredients": [
     {
-      "item": "bountifulcuisine:maize"
+      "item": "minecraft:wheat"
     }
   ],
   "output": {
