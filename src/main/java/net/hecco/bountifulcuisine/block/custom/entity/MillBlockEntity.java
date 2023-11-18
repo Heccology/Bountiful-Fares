@@ -111,13 +111,12 @@ public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandle
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        if (!inventory.get(0).isEmpty() && isCrafting() && progress == 0) {
+        if (!state.get(millingState) && !inventory.get(0).isEmpty() && isCrafting()) {
             world.setBlockState(pos, state.with(millingState, true));
         }
-        if (canInsertOutputSlot() && !hasRecipe() && !world.isClient() && progress != 0) {
+        if (state.get(millingState) && canInsertOutputSlot() && !hasRecipe() && !world.isClient() && progress != 0) {
             world.setBlockState(pos, state.with(millingState, false));
         }
-        BountifulCuisine.LOGGER.info(canInsertOutputSlot() + String.valueOf(hasRecipe()));
         if (canInsertOutputSlot() && hasRecipe()) {
             increaseCraftingProgress();
             markDirty(world, pos, state);

@@ -40,8 +40,8 @@ public class MillingCategory implements DisplayCategory<BasicDisplay> {
         Point startpoint = new Point(bounds.getCenterX() - 87, bounds.getCenterY() - 35);
         List<Widget> widgets = new LinkedList<>();
         widgets.add(Widgets.createTexturedWidget(TEXTURE, new Rectangle(startpoint.x, startpoint.y, 175, 182)));
-        widgets.add(Widgets.createSlot(new Point(startpoint.x + 44, startpoint.y + 42)).entries(display.getInputEntries().get(0)));
-        widgets.add(Widgets.createSlot(new Point(startpoint.x + 116, startpoint.y + 42)).markOutput().entries(display.getOutputEntries().get(0)));
+        widgets.add(Widgets.createSlot(new Point(startpoint.x + 44, startpoint.y + 36)).entries(display.getInputEntries().get(0)));
+        widgets.add(Widgets.createSlot(new Point(startpoint.x + 116, startpoint.y + 36)).markOutput().entries(display.getOutputEntries().get(0)));
 
         return widgets;
     }

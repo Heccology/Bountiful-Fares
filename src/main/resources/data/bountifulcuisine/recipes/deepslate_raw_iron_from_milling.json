@@ -1,8 +1,8 @@
 {
-  "type": "bountifulcuisine:quern_stone",
+  "type": "bountifulcuisine:milling",
   "ingredients": [
     {
-      "item": "minecraft:iron_ore"
+      "item": "minecraft:deepslate_iron_ore"
     }
   ],
   "output": {

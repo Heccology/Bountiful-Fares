@@ -46,8 +46,8 @@ public class MillScreenHandler extends ScreenHandler {
         this.propertyDelegate = arrayPropertyDelegate;
         this.blockEntity = ((MillBlockEntity) blockEntity);
 
-        this.addSlot(new Slot(inventory, 0, 44, 42));
-        this.addSlot(new MillOutputSlot(inventory, 1, 116, 42));
+        this.addSlot(new Slot(inventory, 0, 44, 36));
+        this.addSlot(new MillOutputSlot(inventory, 1, 116, 36));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
