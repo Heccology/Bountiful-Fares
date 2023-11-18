@@ -139,7 +139,7 @@ public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandle
         this.removeStack(INPUT_SLOT, 1);
         this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutput(null).getItem(),
                 this.getStack(OUTPUT_SLOT).getCount() + recipe.get().getOutput(null).getCount()));
-        world.playSound(null, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 0.8f, 0.5f + world.random.nextFloat() * 0.4f);
+//        world.playSound(null, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 0.8f, 0.5f + world.random.nextFloat() * 0.4f);
 
     }
 
