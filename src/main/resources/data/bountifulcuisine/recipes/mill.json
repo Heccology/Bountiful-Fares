@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "item": "minecraft:brick"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "# #",
+    "#I#",
+    "BBB"
+  ],
+  "result": {
+    "item": "bountifulcuisine:mill"
+  },
+  "show_notification": true
+}

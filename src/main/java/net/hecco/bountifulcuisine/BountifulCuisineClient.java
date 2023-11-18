@@ -35,6 +35,7 @@ import net.minecraft.nbt.NbtElement;
 public class BountifulCuisineClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+//        ElsAndLsDyes compat
         if (FabricLoader.getInstance().isModLoaded(BountifulCuisine.ELS_AND_LS_DYES_MOD_ID)) {
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ACORN_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ARTICHOKE_JACK_O_STRAW, RenderLayer.getCutout());
@@ -162,11 +163,13 @@ public class BountifulCuisineClient implements ClientModInitializer {
 
 
     private void registerBlockColor(Block ModCeramicBlocksItems) {
+//        Registers tint for ceramic tile blocks
         registerItemColor(ModCeramicBlocksItems);
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> CeramicTilesBlockEntity.getColor(world,pos),ModCeramicBlocksItems);
     }
 
     private void registerItemColor(Block ModCeramicBlocksItems) {
+//        Registers tint for ceramic tile items
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
             NbtCompound nbtCompound = stack.getSubNbt(DyeableCeramicBlockItem.DISPLAY_KEY);
             if (nbtCompound != null && nbtCompound.contains(DyeableCeramicBlockItem.COLOR_KEY, NbtElement.NUMBER_TYPE)) {

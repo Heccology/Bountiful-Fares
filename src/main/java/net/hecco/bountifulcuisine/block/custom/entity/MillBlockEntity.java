@@ -111,12 +111,15 @@ public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandle
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
+//        Updates the block state based on if it is milling
         if (!state.get(millingState) && !inventory.get(0).isEmpty() && isCrafting()) {
             world.setBlockState(pos, state.with(millingState, true));
         }
         if (state.get(millingState) && canInsertOutputSlot() && !hasRecipe() && !world.isClient() && progress != 0) {
             world.setBlockState(pos, state.with(millingState, false));
         }
+
+//        Crafting logic
         if (canInsertOutputSlot() && hasRecipe()) {
             increaseCraftingProgress();
             markDirty(world, pos, state);
@@ -139,8 +142,6 @@ public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandle
         this.removeStack(INPUT_SLOT, 1);
         this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutput(null).getItem(),
                 this.getStack(OUTPUT_SLOT).getCount() + recipe.get().getOutput(null).getCount()));
-//        world.playSound(null, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 0.8f, 0.5f + world.random.nextFloat() * 0.4f);
-
     }
 
     private boolean hasCraftingFinished() {
