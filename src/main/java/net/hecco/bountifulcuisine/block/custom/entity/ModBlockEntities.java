@@ -34,10 +34,10 @@ public class ModBlockEntities {
             FabricBlockEntityTypeBuilder.create(ModHangingSignBlockEntity::new, HOARY_HANGING_SIGN, HOARY_WALL_HANGING_SIGN).build()
     );
 
-    public static final BlockEntityType<MillBlockEntity> MILL_BLOCK_ENTITY = Registry.register(
+    public static final BlockEntityType<GristmillBlockEntity> GRISTMILL_BLOCK_ENTITY = Registry.register(
             Registries.BLOCK_ENTITY_TYPE,
-            new Identifier(BountifulCuisine.MOD_ID, "mill_block_entity"),
-            FabricBlockEntityTypeBuilder.create(MillBlockEntity::new, MILL).build(null)
+            new Identifier(BountifulCuisine.MOD_ID, "gristmill_block_entity"),
+            FabricBlockEntityTypeBuilder.create(GristmillBlockEntity::new, GRISTMILL).build(null)
     );
 
     public static final BlockEntityType<GreenTeaCandleBlockEntity> GREEN_TEA_CANDLE_BLOCK_ENTITY = Registry.register(

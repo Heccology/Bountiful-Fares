@@ -9,9 +9,9 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class MillScreen extends HandledScreen<MillScreenHandler> {
-    private static final Identifier TEXTURE = new Identifier(BountifulCuisine.MOD_ID, "textures/gui/mill.png");
-    public MillScreen(MillScreenHandler handler, PlayerInventory inventory, Text title) {
+public class GristmillScreen extends HandledScreen<GristmillScreenHandler> {
+    private static final Identifier TEXTURE = new Identifier(BountifulCuisine.MOD_ID, "textures/gui/gristmill.png");
+    public GristmillScreen(GristmillScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 

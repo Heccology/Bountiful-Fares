@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "bountifulcuisine:block/gristmill_front_milling",
+    "east": "bountifulcuisine:block/gristmill_side",
+    "south": "bountifulcuisine:block/gristmill_side",
+    "west": "bountifulcuisine:block/gristmill_side",
+    "up": "bountifulcuisine:block/gristmill_top_milling",
+    "down": "bountifulcuisine:block/gristmill_bottom",
+    "particle": "bountifulcuisine:block/gristmill_side"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate_diamond_ore"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "minecraft:diamond"
+  }
+}

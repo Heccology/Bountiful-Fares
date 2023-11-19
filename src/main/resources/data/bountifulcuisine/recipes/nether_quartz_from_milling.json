@@ -2,11 +2,11 @@
   "type": "bountifulcuisine:milling",
   "ingredients": [
     {
-      "item": "minecraft:lapis_ore"
+      "item": "minecraft:nether_quartz_ore"
     }
   ],
   "output": {
     "count": 3,
-    "item": "minecraft:lapis"
+    "item": "minecraft:nether_quartz"
   }
 }

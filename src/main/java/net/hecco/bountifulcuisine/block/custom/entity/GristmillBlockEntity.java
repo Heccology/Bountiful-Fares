@@ -1,11 +1,9 @@
 package net.hecco.bountifulcuisine.block.custom.entity;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
-import net.hecco.bountifulcuisine.BountifulCuisine;
-import net.hecco.bountifulcuisine.block.custom.BellflowerCandleBlock;
-import net.hecco.bountifulcuisine.block.custom.MillBlock;
+import net.hecco.bountifulcuisine.block.custom.GristmillBlock;
 import net.hecco.bountifulcuisine.recipe.MillingRecipe;
-import net.hecco.bountifulcuisine.screen.MillScreenHandler;
+import net.hecco.bountifulcuisine.screen.GristmillScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,8 +16,6 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
@@ -30,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
+public class GristmillBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
 
     private static BooleanProperty millingState;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
@@ -42,15 +38,15 @@ public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandle
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 72;
-    public MillBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.MILL_BLOCK_ENTITY, pos, state);
-        millingState = ((MillBlock)state.getBlock()).getMillingState();
+    public GristmillBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.GRISTMILL_BLOCK_ENTITY, pos, state);
+        millingState = ((GristmillBlock)state.getBlock()).getMillingState();
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
                 return switch (index) {
-                    case 0 -> MillBlockEntity.this.progress;
-                    case 1 -> MillBlockEntity.this.maxProgress;
+                    case 0 -> GristmillBlockEntity.this.progress;
+                    case 1 -> GristmillBlockEntity.this.maxProgress;
                     default -> 0;
                 };
             }
@@ -58,8 +54,8 @@ public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandle
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: MillBlockEntity.this.progress = value;
-                    case 1: MillBlockEntity.this.maxProgress = value;
+                    case 0: GristmillBlockEntity.this.progress = value;
+                    case 1: GristmillBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -77,13 +73,13 @@ public class MillBlockEntity extends BlockEntity implements ExtendedScreenHandle
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("block.bountifulcuisine.mill");
+        return Text.translatable("block.bountifulcuisine.gristmill");
     }
 
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new MillScreenHandler(syncId, playerInventory, this, propertyDelegate);
+        return new GristmillScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
 
     @Override

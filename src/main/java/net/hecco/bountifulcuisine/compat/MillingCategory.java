@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MillingCategory implements DisplayCategory<BasicDisplay> {
-    public static final Identifier TEXTURE = new Identifier(BountifulCuisine.MOD_ID, "textures/gui/mill.png");
+    public static final Identifier TEXTURE = new Identifier(BountifulCuisine.MOD_ID, "textures/gui/gristmill.png");
     public static final CategoryIdentifier<MillingDisplay> MILLING = CategoryIdentifier.of(BountifulCuisine.MOD_ID, "milling");
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {
@@ -27,12 +27,12 @@ public class MillingCategory implements DisplayCategory<BasicDisplay> {
 
     @Override
     public Text getTitle() {
-        return Text.translatable("block.bountifulcuisine.mill");
+        return Text.translatable("block.bountifulcuisine.gristmill");
     }
 
     @Override
     public Renderer getIcon() {
-        return EntryStacks.of(ModBlocks.MILL.asItem().getDefaultStack());
+        return EntryStacks.of(ModBlocks.GRISTMILL.asItem().getDefaultStack());
     }
 
     @Override

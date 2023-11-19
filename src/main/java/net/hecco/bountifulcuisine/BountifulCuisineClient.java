@@ -16,7 +16,7 @@ import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
 import net.hecco.bountifulcuisine.particle.FlourCloudParticle;
 import net.hecco.bountifulcuisine.particle.ModParticles;
 import net.hecco.bountifulcuisine.particle.PrismarineBlossomParticle;
-import net.hecco.bountifulcuisine.screen.MillScreen;
+import net.hecco.bountifulcuisine.screen.GristmillScreen;
 import net.hecco.bountifulcuisine.screen.ModScreenHandlers;
 import net.hecco.bountifulcuisine.util.ModWoodTypes;
 import net.minecraft.block.Block;
@@ -155,7 +155,7 @@ public class BountifulCuisineClient implements ClientModInitializer {
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos)
                 : FoliageColors.getDefaultColor(), ModBlocks.CHAMOMILE_FLOWERS);
 
-        HandledScreens.register(ModScreenHandlers.MILL_SCREEN_HANDLER, MillScreen::new);
+        HandledScreens.register(ModScreenHandlers.GRISTMILL_SCREEN_HANDLER, GristmillScreen::new);
         EntityRendererRegistry.register(ModEntities.THROWN_FLOUR_PROJECTILE, FlyingItemEntityRenderer::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.FLOUR_CLOUD_PARTICLE, FlourCloudParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.PRISMARINE_BLOSSOM_PARTICLE, PrismarineBlossomParticle.Factory::new);

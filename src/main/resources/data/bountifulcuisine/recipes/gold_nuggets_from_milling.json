@@ -2,11 +2,11 @@
   "type": "bountifulcuisine:milling",
   "ingredients": [
     {
-      "item": "minecraft:lapis_ore"
+      "item": "minecraft:nether_gold_ore"
     }
   ],
   "output": {
-    "count": 3,
-    "item": "minecraft:lapis"
+    "count": 8,
+    "item": "minecraft:gold_nugget"
   }
 }

@@ -1,6 +1,6 @@
 package net.hecco.bountifulcuisine.screen;
 
-import net.hecco.bountifulcuisine.block.custom.entity.MillBlockEntity;
+import net.hecco.bountifulcuisine.block.custom.entity.GristmillBlockEntity;
 import net.hecco.bountifulcuisine.block.custom.entity.slot.MillOutputSlot;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,14 +14,14 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-public class MillScreenHandler extends ScreenHandler {
+public class GristmillScreenHandler extends ScreenHandler {
 
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
-    public final MillBlockEntity blockEntity;
+    public final GristmillBlockEntity blockEntity;
     private RecipeBookCategory category;
 
-    public MillScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
+    public GristmillScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
         this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
                 new ArrayPropertyDelegate(2));
     }
@@ -32,19 +32,19 @@ public class MillScreenHandler extends ScreenHandler {
 
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1);  // Max Progress
-        int progressArrowSize = 34; // This is the width in pixels of your arrow
+        int maxProgress = this.propertyDelegate.get(1);
+        int progressArrowSize = 34;
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
-    public MillScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity,
-                             PropertyDelegate arrayPropertyDelegate) {
-        super(ModScreenHandlers.MILL_SCREEN_HANDLER, syncId);
+    public GristmillScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity,
+                                  PropertyDelegate arrayPropertyDelegate) {
+        super(ModScreenHandlers.GRISTMILL_SCREEN_HANDLER, syncId);
         checkSize(((Inventory) blockEntity), 2);
         this.inventory = (Inventory)blockEntity;
         this.propertyDelegate = arrayPropertyDelegate;
-        this.blockEntity = ((MillBlockEntity) blockEntity);
+        this.blockEntity = ((GristmillBlockEntity) blockEntity);
 
         this.addSlot(new Slot(inventory, 0, 44, 36));
         this.addSlot(new MillOutputSlot(inventory, 1, 116, 36));
@@ -100,9 +100,4 @@ public class MillScreenHandler extends ScreenHandler {
     public RecipeBookCategory getCategory() {
         return this.category;
     }
-
-//    @Override
-//    public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
-//        return slot.getIndex() == 0;
-//    }
 }

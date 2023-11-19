@@ -8,7 +8,7 @@ import me.shedaniel.rei.api.client.registry.screen.ScreenRegistry;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.recipe.MillingRecipe;
-import net.hecco.bountifulcuisine.screen.MillScreen;
+import net.hecco.bountifulcuisine.screen.GristmillScreen;
 
 public class BountifulCuisineREIClientPlugin implements REIClientPlugin {
 
@@ -16,7 +16,7 @@ public class BountifulCuisineREIClientPlugin implements REIClientPlugin {
     public void registerCategories(CategoryRegistry registry) {
         registry.add(new MillingCategory());
 
-        registry.addWorkstations(MillingCategory.MILLING, EntryStacks.of(ModBlocks.MILL));
+        registry.addWorkstations(MillingCategory.MILLING, EntryStacks.of(ModBlocks.GRISTMILL));
     }
 
     @Override
@@ -26,6 +26,6 @@ public class BountifulCuisineREIClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerScreens(ScreenRegistry registry) {
-        registry.registerClickArea(screen -> new Rectangle(75, 30, 20, 30), MillScreen.class, MillingCategory.MILLING);
+        registry.registerClickArea(screen -> new Rectangle(75, 30, 20, 30), GristmillScreen.class, MillingCategory.MILLING);
     }
 }

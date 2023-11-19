@@ -8,8 +8,8 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
 public class ModScreenHandlers {
-    public static final ScreenHandlerType<MillScreenHandler> MILL_SCREEN_HANDLER =
-            Registry.register(Registries.SCREEN_HANDLER, new Identifier(BountifulCuisine.MOD_ID, "mill_screen_handler"), new ExtendedScreenHandlerType<>(MillScreenHandler::new));
+    public static final ScreenHandlerType<GristmillScreenHandler> GRISTMILL_SCREEN_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(BountifulCuisine.MOD_ID, "gristmill_screen_handler"), new ExtendedScreenHandlerType<>(GristmillScreenHandler::new));
     public static void registerScreenHandlers() {
         BountifulCuisine.LOGGER.info("Registering Screen Handlers for" + BountifulCuisine.MOD_ID);
     }
