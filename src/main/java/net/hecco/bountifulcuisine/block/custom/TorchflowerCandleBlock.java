@@ -10,7 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class TorchflowerCandleBlock extends InfusedCandleBlock {
+public class TorchflowerCandleBlock extends TeaCandleBlock {
     public TorchflowerCandleBlock(Settings settings) {
         super(settings);
     }

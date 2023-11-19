@@ -13,7 +13,6 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -34,12 +33,12 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
-public class InfusedCandleBlock extends BlockWithEntity implements BlockEntityProvider, Waterloggable {
+public class TeaCandleBlock extends BlockWithEntity implements BlockEntityProvider, Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final BooleanProperty LIT = AbstractCandleBlock.LIT;
     public static boolean canBeLit;
 
-    public InfusedCandleBlock(Settings settings) {
+    public TeaCandleBlock(Settings settings) {
         super(settings);
         canBeLit = canBeLit(getDefaultState());
         this.setDefaultState(this.stateManager.getDefaultState().with(LIT, false).with(WATERLOGGED, false));
