@@ -1,7 +1,7 @@
 package net.hecco.bountifulcuisine.screen;
 
 import net.hecco.bountifulcuisine.block.custom.entity.GristmillBlockEntity;
-import net.hecco.bountifulcuisine.block.custom.entity.slot.MillOutputSlot;
+import net.hecco.bountifulcuisine.block.custom.entity.slot.GristmillOutputSlot;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -47,7 +47,7 @@ public class GristmillScreenHandler extends ScreenHandler {
         this.blockEntity = ((GristmillBlockEntity) blockEntity);
 
         this.addSlot(new Slot(inventory, 0, 44, 36));
-        this.addSlot(new MillOutputSlot(inventory, 1, 116, 36));
+        this.addSlot(new GristmillOutputSlot(inventory, 1, 116, 36));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

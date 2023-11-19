@@ -4,8 +4,8 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.slot.Slot;
 
-public class MillOutputSlot extends Slot {
-    public MillOutputSlot(Inventory inventory, int index, int x, int y) {
+public class GristmillOutputSlot extends Slot {
+    public GristmillOutputSlot(Inventory inventory, int index, int x, int y) {
         super(inventory, index, x, y);
     }
 

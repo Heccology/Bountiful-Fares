@@ -157,6 +157,7 @@ public class ModBlocks {
     public static final Block TORCHFLOWER_CANDLE = registerBlock("torchflower_candle", new TorchflowerCandleBlock(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
 
     public static Block ACORN_JACK_O_STRAW;
+    public static Block AMBER_JACK_O_STRAW;
     public static Block ARTICHOKE_JACK_O_STRAW;
     public static Block BANANA_JACK_O_STRAW;
     public static Block CERULEAN_JACK_O_STRAW;
@@ -166,15 +167,19 @@ public class ModBlocks {
     public static Block MAROON_JACK_O_STRAW;
     public static Block MAUVE_JACK_O_STRAW;
     public static Block MINT_JACK_O_STRAW;
+    public static Block MOLD_JACK_O_STRAW;
     public static Block NAVY_JACK_O_STRAW;
     public static Block PEACH_JACK_O_STRAW;
     public static Block PERIWINKLE_JACK_O_STRAW;
+    public static Block SAGE_JACK_O_STRAW;
     public static Block SAP_JACK_O_STRAW;
     public static Block SHAMROCK_JACK_O_STRAW;
+    public static Block VELVET_JACK_O_STRAW;
     public static Block VERMILION_JACK_O_STRAW;
     public static void registerElsAndLsDyesCompatibilityBlocks() {
         if (FabricLoader.getInstance().isModLoaded(BountifulCuisine.ELS_AND_LS_DYES_MOD_ID)) {
             ACORN_JACK_O_STRAW = registerBlockUnstackableItem("acorn_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            AMBER_JACK_O_STRAW = registerBlockUnstackableItem("amber_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             ARTICHOKE_JACK_O_STRAW = registerBlockUnstackableItem("artichoke_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             BANANA_JACK_O_STRAW = registerBlockUnstackableItem("banana_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             CERULEAN_JACK_O_STRAW = registerBlockUnstackableItem("cerulean_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
@@ -184,11 +189,14 @@ public class ModBlocks {
             MAROON_JACK_O_STRAW = registerBlockUnstackableItem("maroon_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             MAUVE_JACK_O_STRAW = registerBlockUnstackableItem("mauve_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             MINT_JACK_O_STRAW = registerBlockUnstackableItem("mint_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            MOLD_JACK_O_STRAW = registerBlockUnstackableItem("mold_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             NAVY_JACK_O_STRAW = registerBlockUnstackableItem("navy_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             PEACH_JACK_O_STRAW = registerBlockUnstackableItem("peach_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             PERIWINKLE_JACK_O_STRAW = registerBlockUnstackableItem("periwinkle_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            SAGE_JACK_O_STRAW = registerBlockUnstackableItem("sage_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             SAP_JACK_O_STRAW = registerBlockUnstackableItem("sap_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             SHAMROCK_JACK_O_STRAW = registerBlockUnstackableItem("shamrock_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+            VELVET_JACK_O_STRAW = registerBlockUnstackableItem("velvet_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             VERMILION_JACK_O_STRAW = registerBlockUnstackableItem("vermilion_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
         }
     }

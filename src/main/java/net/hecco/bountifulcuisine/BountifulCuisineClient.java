@@ -39,6 +39,7 @@ public class BountifulCuisineClient implements ClientModInitializer {
         if (FabricLoader.getInstance().isModLoaded(BountifulCuisine.ELS_AND_LS_DYES_MOD_ID)) {
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ACORN_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ARTICHOKE_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.AMBER_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BANANA_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CERULEAN_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FUCHSIA_JACK_O_STRAW, RenderLayer.getCutout());
@@ -46,12 +47,15 @@ public class BountifulCuisineClient implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INDIGO_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MAROON_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MAUVE_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MOLD_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MINT_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NAVY_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PEACH_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PERIWINKLE_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SAGE_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SAP_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SHAMROCK_JACK_O_STRAW, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.VELVET_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.VERMILION_JACK_O_STRAW, RenderLayer.getCutout());
         }
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_LOG, RenderLayer.getCutout());

@@ -191,9 +191,12 @@ public class ItemGroupAdditions {
                 entries.addAfter(ModBlocks.BROWN_JACK_O_STRAW.asItem(),ModBlocks.MAROON_JACK_O_STRAW.asItem());
                 entries.addAfter(ModBlocks.RED_JACK_O_STRAW.asItem(),ModBlocks.PEACH_JACK_O_STRAW.asItem());
                 entries.addAfter(ModBlocks.PEACH_JACK_O_STRAW.asItem(),ModBlocks.VERMILION_JACK_O_STRAW.asItem());
+                entries.addAfter(ModBlocks.ORANGE_JACK_O_STRAW.asItem(),ModBlocks.AMBER_JACK_O_STRAW.asItem());
                 entries.addAfter(ModBlocks.YELLOW_JACK_O_STRAW.asItem(),ModBlocks.BANANA_JACK_O_STRAW.asItem());
                 entries.addAfter(ModBlocks.BANANA_JACK_O_STRAW.asItem(),ModBlocks.ARTICHOKE_JACK_O_STRAW.asItem());
-                entries.addAfter(ModBlocks.LIME_JACK_O_STRAW.asItem(),ModBlocks.SAP_JACK_O_STRAW.asItem());
+                entries.addAfter(ModBlocks.ARTICHOKE_JACK_O_STRAW.asItem(),ModBlocks.MOLD_JACK_O_STRAW.asItem());
+                entries.addAfter(ModBlocks.LIME_JACK_O_STRAW.asItem(),ModBlocks.SAGE_JACK_O_STRAW.asItem());
+                entries.addAfter(ModBlocks.SAGE_JACK_O_STRAW.asItem(),ModBlocks.SAP_JACK_O_STRAW.asItem());
                 entries.addAfter(ModBlocks.GREEN_JACK_O_STRAW.asItem(),ModBlocks.SHAMROCK_JACK_O_STRAW.asItem());
                 entries.addAfter(ModBlocks.SHAMROCK_JACK_O_STRAW.asItem(),ModBlocks.MINT_JACK_O_STRAW.asItem());
                 entries.addAfter(ModBlocks.CYAN_JACK_O_STRAW.asItem(),ModBlocks.CERULEAN_JACK_O_STRAW.asItem());
@@ -202,7 +205,8 @@ public class ItemGroupAdditions {
                 entries.addAfter(ModBlocks.PERIWINKLE_JACK_O_STRAW.asItem(),ModBlocks.GRAPE_JACK_O_STRAW.asItem());
                 entries.addAfter(ModBlocks.PURPLE_JACK_O_STRAW.asItem(),ModBlocks.INDIGO_JACK_O_STRAW.asItem());
                 entries.addAfter(ModBlocks.MAGENTA_JACK_O_STRAW.asItem(),ModBlocks.MAUVE_JACK_O_STRAW.asItem());
-                entries.addAfter(ModBlocks.MAUVE_JACK_O_STRAW.asItem(),ModBlocks.FUCHSIA_JACK_O_STRAW.asItem());
+                entries.addAfter(ModBlocks.MAUVE_JACK_O_STRAW.asItem(),ModBlocks.VELVET_JACK_O_STRAW.asItem());
+                entries.addAfter(ModBlocks.VELVET_JACK_O_STRAW.asItem(),ModBlocks.FUCHSIA_JACK_O_STRAW.asItem());
             });
         }
     }

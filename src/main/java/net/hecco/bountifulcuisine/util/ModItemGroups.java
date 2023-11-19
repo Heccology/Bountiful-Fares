@@ -154,10 +154,13 @@ public class ModItemGroups {
                             entries.add(ModBlocks.PEACH_JACK_O_STRAW);
                             entries.add(ModBlocks.VERMILION_JACK_O_STRAW);
                             entries.add(ModBlocks.ORANGE_JACK_O_STRAW);
+                            entries.add(ModBlocks.AMBER_JACK_O_STRAW);
                             entries.add(ModBlocks.YELLOW_JACK_O_STRAW);
                             entries.add(ModBlocks.BANANA_JACK_O_STRAW);
                             entries.add(ModBlocks.ARTICHOKE_JACK_O_STRAW);
+                            entries.add(ModBlocks.MOLD_JACK_O_STRAW);
                             entries.add(ModBlocks.LIME_JACK_O_STRAW);
+                            entries.add(ModBlocks.SAGE_JACK_O_STRAW);
                             entries.add(ModBlocks.SAP_JACK_O_STRAW);
                             entries.add(ModBlocks.GREEN_JACK_O_STRAW);
                             entries.add(ModBlocks.SHAMROCK_JACK_O_STRAW);
@@ -173,6 +176,7 @@ public class ModItemGroups {
                             entries.add(ModBlocks.INDIGO_JACK_O_STRAW);
                             entries.add(ModBlocks.MAGENTA_JACK_O_STRAW);
                             entries.add(ModBlocks.MAUVE_JACK_O_STRAW);
+                            entries.add(ModBlocks.VELVET_JACK_O_STRAW);
                             entries.add(ModBlocks.FUCHSIA_JACK_O_STRAW);
                             entries.add(ModBlocks.PINK_JACK_O_STRAW);
                         } else {
