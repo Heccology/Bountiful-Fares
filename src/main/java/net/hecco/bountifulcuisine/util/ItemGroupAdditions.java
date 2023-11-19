@@ -48,6 +48,8 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.CERAMIC_CLAY_BLOCK.asItem(), ModBlocks.CERAMIC_TILES.asItem());
             entries.addAfter(ModBlocks.CERAMIC_TILES.asItem(), ModBlocks.CERAMIC_TILE_STAIRS.asItem());
             entries.addAfter(ModBlocks.CERAMIC_TILE_STAIRS.asItem(), ModBlocks.CERAMIC_TILE_SLAB.asItem());
+            entries.addAfter(ModBlocks.CERAMIC_TILE_SLAB.asItem(), ModBlocks.CERAMIC_PRESSURE_PLATE.asItem());
+            entries.addAfter(ModBlocks.CERAMIC_PRESSURE_PLATE.asItem(), ModBlocks.CERAMIC_BUTTON.asItem());
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
@@ -102,6 +104,8 @@ public class ItemGroupAdditions {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> {
+            entries.addAfter(Items.STONE_BUTTON, ModBlocks.CERAMIC_BUTTON.asItem());
+            entries.addAfter(Items.HEAVY_WEIGHTED_PRESSURE_PLATE, ModBlocks.CERAMIC_PRESSURE_PLATE.asItem());
             entries.addAfter(Items.WHITE_WOOL, ModBlocks.CERAMIC_TILES.asItem());
         });
 

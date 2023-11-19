@@ -12,8 +12,8 @@
   "tooltip.bountifulcuisine.sweet_berries": "§7§oPyracantha Coccinea",
   "tooltip.bountifulcuisine.pitcher_pod": "§7§oNepenthes Primordium",
   "tooltip.bountifulcuisine.pitcher_plant": "§7§oNepenthes Primordium",
-  "tooltip.bountifulcuisine.torchflower_seeds": "§7§Kniphofia Primordium",
-  "tooltip.bountifulcuisine.torchflower": "§7§Kniphofia Primordium",
+  "tooltip.bountifulcuisine.torchflower_seeds": "§7§oKniphofia Primordium",
+  "tooltip.bountifulcuisine.torchflower": "§7§oKniphofia Primordium",
 
   "block.bountifulcuisine.apple_log": "Apple Log",
   "block.bountifulcuisine.stripped_apple_log": "Stripped Apple Log",
@@ -193,6 +193,8 @@
   "block.bountifulcuisine.checkered_ceramic_tiles": "Checkered Ceramic Tiles",
   "block.bountifulcuisine.checkered_ceramic_tile_stairs": "Checkered Ceramic Tile Stairs",
   "block.bountifulcuisine.checkered_ceramic_tile_slab": "Checkered Ceramic Tile Slab",
+  "block.bountifulcuisine.ceramic_pressure_plate": "Ceramic Pressure Plate",
+  "block.bountifulcuisine.ceramic_button": "Ceramic Button",
 
   "item.bountifulcuisine.elderberry_wine_bottle": "Elderberry Wine Bottle",
 

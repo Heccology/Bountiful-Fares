@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:ceramic_tile"
+    }
+  ],
+  "result": {
+    "item": "bountifulcuisine:ceramic_button",
+    "count": 1
+  }
+}

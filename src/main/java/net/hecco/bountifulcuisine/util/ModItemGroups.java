@@ -1,9 +1,10 @@
-package net.hecco.bountifulcuisine.item;
+package net.hecco.bountifulcuisine.util;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.potion.ModPotions;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
@@ -54,7 +55,6 @@ public class ModItemGroups {
                         entries.add(ModItems.PLUM);
                         entries.add(ModBlocks.PLUM_BLOCK);
                         entries.add(ModBlocks.PLUM_SAPLING);
-                        entries.add(ModBlocks.GOLDEN_APPLE_BLOCK);
                         entries.add(ModItems.HOARY_SEEDS);
                         entries.add(ModBlocks.HOARY_APPLE_SAPLING);
                         entries.add(ModBlocks.HOARY_LOG);
@@ -77,14 +77,12 @@ public class ModItemGroups {
                         entries.add(ModBlocks.HOARY_LEAVES);
                         entries.add(ModItems.HOARY_APPLE);
                         entries.add(ModBlocks.HOARY_APPLE_BLOCK);
-                        entries.add(ModItems.CITRIC_ACID);
-                        entries.add(ModItems.CANDIED_ORANGE);
-                        entries.add(ModItems.CANDIED_LEMON);
+                        entries.add(ModBlocks.GOLDEN_APPLE_BLOCK);
                         entries.add(ModBlocks.TRELLIS);
                         entries.add(ModItems.PASSION_FRUIT);
                         entries.add(ModItems.ELDERBERRIES);
-                        entries.add(ModItems.LAPISBERRIES);
                         entries.add(ModItems.LAPISBERRY_SEEDS);
+                        entries.add(ModItems.LAPISBERRIES);
                         entries.add(ModBlocks.WILD_CARROTS);
                         entries.add(ModBlocks.WILD_POTATOES);
                         entries.add(ModBlocks.WILD_WHEAT);
@@ -94,7 +92,6 @@ public class ModItemGroups {
                         entries.add(ModItems.MAIZE);
                         entries.add(ModItems.GOOSEBERRY_SEEDS);
                         entries.add(ModItems.GOOSEBERRIES);
-                        entries.add(ModItems.FLOUR);
                         entries.add(ModItems.FELDSPAR);
                         entries.add(ModBlocks.FELDSPAR_BLOCK);
                         entries.add(ModItems.CERAMIC_CLAY);
@@ -106,6 +103,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CHECKERED_CERAMIC_TILES);
                         entries.add(ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
                         entries.add(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
+                        entries.add(ModBlocks.CERAMIC_PRESSURE_PLATE);
+                        entries.add(ModBlocks.CERAMIC_BUTTON);
                         entries.add(ModBlocks.FERMENTATION_VESSEL);
                         entries.add(ModItems.ELDERBERRY_WINE_BOTTLE);
                         entries.add(ModBlocks.MILL);
@@ -138,6 +137,10 @@ public class ModItemGroups {
                         entries.add(ModBlocks.HONEYSUCKLE_CANDLE);
                         entries.add(ModBlocks.BELLFLOWER_CANDLE);
                         entries.add(ModBlocks.TORCHFLOWER_CANDLE);
+                        entries.add(ModItems.FLOUR);
+                        entries.add(ModItems.CITRIC_ACID);
+                        entries.add(ModItems.CANDIED_ORANGE);
+                        entries.add(ModItems.CANDIED_LEMON);
                         entries.add(ModItems.SUN_HAT);
                         if (FabricLoader.getInstance().isModLoaded(BountifulCuisine.ELS_AND_LS_DYES_MOD_ID)) {
                             entries.add(ModBlocks.WHITE_JACK_O_STRAW);

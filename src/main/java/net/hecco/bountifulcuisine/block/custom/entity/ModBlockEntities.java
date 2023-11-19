@@ -13,7 +13,7 @@ public class ModBlockEntities {
     public static final BlockEntityType<CeramicTilesBlockEntity> CERAMIC_TILES_BLOCK_ENTITY = Registry.register(
             Registries.BLOCK_ENTITY_TYPE,
             new Identifier(BountifulCuisine.MOD_ID, "ceramic_tiles_block_entity"),
-            FabricBlockEntityTypeBuilder.create(CeramicTilesBlockEntity::new, CERAMIC_TILES, CERAMIC_TILE_STAIRS, CERAMIC_TILE_SLAB).build()
+            FabricBlockEntityTypeBuilder.create(CeramicTilesBlockEntity::new, CERAMIC_TILES, CERAMIC_TILE_STAIRS, CERAMIC_TILE_SLAB, CERAMIC_PRESSURE_PLATE, CERAMIC_BUTTON).build()
     );
 
     public static final BlockEntityType<CheckeredCeramicTilesBlockEntity> CHECKERED_CERAMIC_TILES_BLOCK_ENTITY = Registry.register(

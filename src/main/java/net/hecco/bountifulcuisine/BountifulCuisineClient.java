@@ -146,6 +146,8 @@ public class BountifulCuisineClient implements ClientModInitializer {
         registerBlockColor(ModBlocks.CHECKERED_CERAMIC_TILES);
         registerBlockColor(ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
         registerBlockColor(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
+        registerBlockColor(ModBlocks.CERAMIC_PRESSURE_PLATE);
+        registerBlockColor(ModBlocks.CERAMIC_BUTTON);
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.HOARY, TexturedRenderLayers.getSignTextureId(ModWoodTypes.HOARY));
         BlockEntityRendererFactories.register(ModBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignBlockEntityRenderer::new);
