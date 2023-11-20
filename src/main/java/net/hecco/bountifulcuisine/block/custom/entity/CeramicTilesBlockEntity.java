@@ -20,8 +20,10 @@ public class CeramicTilesBlockEntity extends BlockEntity {
 
     @Override
     public void writeNbt(NbtCompound nbt) {
-        nbt.putInt("color", color);
-        super.writeNbt(nbt);
+        if (color != DEFAULT_COLOR) {
+            nbt.putInt("color", color);
+            super.writeNbt(nbt);
+        }
     }
 
     @Override
@@ -29,6 +31,8 @@ public class CeramicTilesBlockEntity extends BlockEntity {
         super.readNbt(nbt);
         color = nbt.getInt("color");
     }
+
+
 
     @Nullable
     @Override

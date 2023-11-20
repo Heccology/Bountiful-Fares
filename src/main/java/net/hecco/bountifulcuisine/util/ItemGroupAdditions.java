@@ -86,14 +86,15 @@ public class ItemGroupAdditions {
             entries.addAfter(Items.BEETROOT_SEEDS, ModItems.MAIZE_SEEDS);
             entries.addAfter(ModItems.MAIZE_SEEDS, ModItems.GOOSEBERRY_SEEDS);
             entries.addAfter(ModItems.GOOSEBERRY_SEEDS, ModItems.TEA_BERRIES);
+            entries.addAfter(ModItems.TEA_BERRIES, ModItems.SPONGEKIN_SEEDS);
             entries.addAfter(Items.PITCHER_POD, ModItems.LAPISBERRY_SEEDS);
             entries.addAfter(ModItems.LAPISBERRY_SEEDS, ModItems.HOARY_SEEDS);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
+            entries.addAfter(Items.GRINDSTONE, ModBlocks.GRISTMILL.asItem());
             entries.addAfter(Items.SOUL_CAMPFIRE, ModBlocks.FERMENTATION_VESSEL.asItem());
-            entries.addAfter(ModBlocks.FERMENTATION_VESSEL.asItem(), ModBlocks.GRISTMILL.asItem());
-            entries.addAfter(Items.PINK_BANNER, ModBlocks.GREEN_TEA_CANDLE.asItem());
+            entries.addAfter(Items.GLOW_LICHEN, ModBlocks.GREEN_TEA_CANDLE.asItem());
             entries.addAfter(ModBlocks.GREEN_TEA_CANDLE.asItem(), ModBlocks.BLACK_TEA_CANDLE.asItem());
             entries.addAfter(ModBlocks.BLACK_TEA_CANDLE.asItem(), ModBlocks.CHAMOMILE_CANDLE.asItem());
             entries.addAfter(ModBlocks.CHAMOMILE_CANDLE.asItem(), ModBlocks.HONEYSUCKLE_CANDLE.asItem());
@@ -131,6 +132,7 @@ public class ItemGroupAdditions {
             entries.addAfter(ModItems.PLUM, ModBlocks.PLUM_BLOCK.asItem());
             entries.addAfter(ModBlocks.PLUM_BLOCK.asItem(), ModItems.HOARY_APPLE);
             entries.addAfter(ModItems.HOARY_APPLE, ModBlocks.HOARY_APPLE_BLOCK.asItem());
+            entries.addAfter(Items.ENCHANTED_GOLDEN_APPLE, ModBlocks.GOLDEN_APPLE_BLOCK.asItem());
             entries.addAfter(Items.MELON_SLICE, ModItems.SPONGEKIN_SLICE);
             entries.addAfter(Items.SWEET_BERRIES, ModItems.PASSION_FRUIT);
             entries.addAfter(ModItems.PASSION_FRUIT, ModItems.ELDERBERRIES);
@@ -154,17 +156,13 @@ public class ItemGroupAdditions {
             entries.addAfter(ModItems.FELDSPAR, ModItems.CERAMIC_CLAY);
             entries.addAfter(ModItems.CERAMIC_CLAY, ModItems.CERAMIC_TILE);
             entries.addAfter(Items.FIREWORK_STAR, ModItems.TEA_LEAVES);
-            entries.addAfter(ModItems.TEA_LEAVES, ModItems.GREEN_TEA_BLEND);
-            entries.addAfter(ModItems.GREEN_TEA_BLEND, ModItems.DRIED_TEA_LEAVES);
-            entries.addAfter(ModItems.DRIED_TEA_LEAVES, ModItems.BLACK_TEA_BLEND);
-            entries.addAfter(ModItems.BLACK_TEA_BLEND, ModBlocks.CHAMOMILE_FLOWERS.asItem());
-            entries.addAfter(ModBlocks.CHAMOMILE_FLOWERS.asItem(), ModItems.CHAMOMILE_TEA_BLEND);
-            entries.addAfter(ModItems.CHAMOMILE_TEA_BLEND, ModBlocks.HONEYSUCKLE.asItem());
-            entries.addAfter(ModBlocks.HONEYSUCKLE.asItem(), ModItems.HONEYSUCKLE_TEA_BLEND);
-            entries.addAfter(ModItems.HONEYSUCKLE_TEA_BLEND, ModBlocks.VIOLET_BELLFLOWER.asItem());
-            entries.addAfter(ModBlocks.VIOLET_BELLFLOWER.asItem(), ModItems.BELLFLOWER_TEA_BLEND);
-            entries.addAfter(ModItems.BELLFLOWER_TEA_BLEND, Items.TORCHFLOWER);
-            entries.addAfter(Items.TORCHFLOWER, ModItems.TORCHFLOWER_TEA_BLEND);
+            entries.addAfter(ModItems.TEA_LEAVES, ModItems.DRIED_TEA_LEAVES);
+            entries.addAfter(ModItems.DRIED_TEA_LEAVES, ModItems.GREEN_TEA_BLEND);
+            entries.addAfter(ModItems.GREEN_TEA_BLEND, ModItems.BLACK_TEA_BLEND);
+            entries.addAfter(ModItems.BLACK_TEA_BLEND, ModItems.CHAMOMILE_TEA_BLEND);
+            entries.addAfter(ModItems.CHAMOMILE_TEA_BLEND, ModItems.HONEYSUCKLE_TEA_BLEND);
+            entries.addAfter(ModItems.HONEYSUCKLE_TEA_BLEND, ModItems.BELLFLOWER_TEA_BLEND);
+            entries.addAfter(ModItems.BELLFLOWER_TEA_BLEND, ModItems.TORCHFLOWER_TEA_BLEND);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {

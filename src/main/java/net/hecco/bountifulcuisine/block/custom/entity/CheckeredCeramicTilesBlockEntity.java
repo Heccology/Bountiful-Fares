@@ -21,8 +21,10 @@ public class CheckeredCeramicTilesBlockEntity extends BlockEntity {
 
     @Override
     public void writeNbt(NbtCompound nbt) {
-        nbt.putInt("color", color);
-        super.writeNbt(nbt);
+        if (color != DEFAULT_COLOR) {
+            nbt.putInt("color", color);
+            super.writeNbt(nbt);
+        }
     }
 
     @Override
