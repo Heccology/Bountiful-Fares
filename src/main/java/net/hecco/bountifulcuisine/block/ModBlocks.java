@@ -155,6 +155,11 @@ public class ModBlocks {
     public static final Block HONEYSUCKLE_CANDLE = registerBlock("honeysuckle_candle", new HoneysuckleCandleBlock(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block BELLFLOWER_CANDLE = registerBlock("bellflower_candle", new BellflowerCandleBlock(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block TORCHFLOWER_CANDLE = registerBlock("torchflower_candle", new TorchflowerCandleBlock(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block PASSION_FRUIT_TART = registerBlock16StackItem("passion_fruit_tart", new Block(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block ELDERBERRY_TART = registerBlock16StackItem("elderberry_tart", new Block(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block GLOW_BERRY_TART = registerBlock16StackItem("glow_berry_tart", new Block(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block LAPISBERRY_TART = registerBlock16StackItem("lapisberry_tart", new Block(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block SWEET_BERRY_TART = registerBlock16StackItem("sweet_berry_tart", new Block(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
 
     public static Block ACORN_JACK_O_STRAW;
     public static Block AMBER_JACK_O_STRAW;
@@ -218,6 +223,11 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(BountifulCuisine.MOD_ID, name), block);
     }
 
+    private static Block registerBlock16StackItem(String name, Block block) {
+        register16StackItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(BountifulCuisine.MOD_ID, name), block);
+    }
+
     private static Block registerPlantBlock(String name, Block block) {
         registerPlantBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(BountifulCuisine.MOD_ID, name), block);
@@ -228,6 +238,10 @@ public class ModBlocks {
 
     private static void registerBlockItem(String name, Block block) {
         Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
+    }
+
+    private static void register16StackItem(String name, Block block) {
+        Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), new BlockItem(block, new FabricItemSettings().maxCount(16)));
     }
 
     private static void registerUnstackableBlockItem(String name, Block block) {

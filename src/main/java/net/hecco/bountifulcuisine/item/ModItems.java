@@ -60,6 +60,12 @@ public class ModItems {
     public static final Item FLOUR = registerItem("flour", new FlourItem(new FabricItemSettings()));
     public static final Item SUN_HAT = registerItem("sun_hat", new FarmersHatItem(new FabricItemSettings().maxCount(1)));
 
+
+    public static final Item MELLOW_CANDY = registerItem("mellow_candy", new Item(new FabricItemSettings()));
+    public static final Item SOUR_CANDY = registerItem("sour_candy", new Item(new FabricItemSettings()));
+    public static final Item PIQUANT_CANDY = registerItem("piquant_candy", new Item(new FabricItemSettings()));
+    public static final Item BITTER_CANDY = registerItem("bitter_candy", new Item(new FabricItemSettings()));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), item);
     }
