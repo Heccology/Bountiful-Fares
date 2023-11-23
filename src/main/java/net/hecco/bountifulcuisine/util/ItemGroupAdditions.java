@@ -147,6 +147,11 @@ public class ItemGroupAdditions {
             entries.addAfter(ModItems.BELLFLOWER_TEA_BOTTLE, ModItems.TORCHFLOWER_TEA_BOTTLE);
             entries.addAfter(Items.BEETROOT, ModItems.MAIZE);
             entries.addAfter(ModItems.MAIZE, ModItems.GOOSEBERRIES);
+            entries.addAfter(Items.COOKIE, ModBlocks.PASSION_FRUIT_TART.asItem());
+            entries.addAfter(ModBlocks.PASSION_FRUIT_TART.asItem(), ModBlocks.ELDERBERRY_TART.asItem());
+            entries.addAfter(ModBlocks.ELDERBERRY_TART.asItem(), ModBlocks.GLOW_BERRY_TART.asItem());
+            entries.addAfter(ModBlocks.GLOW_BERRY_TART.asItem(), ModBlocks.SWEET_BERRY_TART.asItem());
+            entries.addAfter(ModBlocks.SWEET_BERRY_TART.asItem(), ModBlocks.LAPISBERRY_TART.asItem());
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {

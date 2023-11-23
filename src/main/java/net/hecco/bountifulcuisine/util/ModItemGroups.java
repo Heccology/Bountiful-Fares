@@ -197,6 +197,11 @@ public class ModItemGroups {
                             entries.add(ModBlocks.MAGENTA_JACK_O_STRAW);
                             entries.add(ModBlocks.PINK_JACK_O_STRAW);
                         }
+                        entries.add(ModBlocks.PASSION_FRUIT_TART);
+                        entries.add(ModBlocks.ELDERBERRY_TART);
+                        entries.add(ModBlocks.GLOW_BERRY_TART);
+                        entries.add(ModBlocks.SWEET_BERRY_TART);
+                        entries.add(ModBlocks.LAPISBERRY_TART);
                     }).build());
     public static void registerItemGroups() {
         BountifulCuisine.LOGGER.info("Registering Item Group Entries for " + BountifulCuisine.MOD_ID);

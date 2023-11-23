@@ -1,0 +1,9 @@
+{
+	"parent": "bountifulcuisine:block/tart_3",
+	"textures": {
+		"top": "bountifulcuisine:block/passion_fruit_tart_top",
+		"side": "bountifulcuisine:block/tart_side",
+		"bottom": "bountifulcuisine:block/tart_bottom",
+		"inside": "bountifulcuisine:block/passion_fruit_tart_inside"
+	}
+}
