@@ -36,47 +36,10 @@ public class QuarterPastryBlock extends Block {
     public static final IntProperty BITES = IntProperty.of("bites", 0, 3);
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final int DEFAULT_COMPARATOR_OUTPUT = getComparatorOutput(0);
-    public static final VoxelShape[] NORTH_SHAPES = new VoxelShape[] {
-            Block.createCuboidShape(1, 0, 1, 15, 4, 15),
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(1, 0, 8, 15, 4, 15), Block.createCuboidShape(8, 0, 1, 15, 4, 8), BooleanBiFunction.OR),
-            Block.createCuboidShape(1, 0, 8, 15, 4, 15),
-            Block.createCuboidShape(1, 0, 8, 8, 4, 15)
-    };
-    public static final VoxelShape[] EAST_SHAPES = new VoxelShape[] {
-            Block.createCuboidShape(1, 0, 1, 15, 4, 15),
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 8, 15, 4, 15), Block.createCuboidShape(1, 0, 1, 8, 4, 15), BooleanBiFunction.OR),
-            Block.createCuboidShape(1, 0, 1, 8, 4, 15),
-            Block.createCuboidShape(1, 0, 1, 8, 4, 8)
-    };
-    public static final VoxelShape[] SOUTH_SHAPES = new VoxelShape[] {
-            Block.createCuboidShape(1, 0, 1, 15, 4, 15),
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(1, 0, 8, 8, 4, 15), Block.createCuboidShape(1, 0, 1, 15, 4, 8), BooleanBiFunction.OR),
-            Block.createCuboidShape(1, 0, 1, 15, 4, 8),
-            Block.createCuboidShape(8, 0, 1, 15, 4, 8)
-    };
-    public static final VoxelShape[] WEST_SHAPES = new VoxelShape[] {
-            Block.createCuboidShape(1, 0, 1, 15, 4, 15),
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(1, 0, 1, 8, 4, 8), Block.createCuboidShape(8, 0, 1, 15, 4, 15), BooleanBiFunction.OR),
-            Block.createCuboidShape(8, 0, 1, 15, 4, 15),
-            Block.createCuboidShape(8, 0, 8, 15, 4, 15)
-    };
+
     public QuarterPastryBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(BITES, 0).with(FACING, Direction.NORTH));
-    }
-
-    @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(FACING) == Direction.NORTH) {
-            return NORTH_SHAPES[state.get(BITES)];
-        } else if (state.get(FACING) == Direction.EAST) {
-            return EAST_SHAPES[state.get(BITES)];
-        } else if (state.get(FACING) == Direction.SOUTH) {
-            return SOUTH_SHAPES[state.get(BITES)];
-        } else if (state.get(FACING) == Direction.WEST) {
-            return WEST_SHAPES[state.get(BITES)];
-        }
-        return NORTH_SHAPES[state.get(BITES)];
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
