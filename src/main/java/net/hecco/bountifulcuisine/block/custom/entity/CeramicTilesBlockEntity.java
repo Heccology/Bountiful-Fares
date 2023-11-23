@@ -28,8 +28,12 @@ public class CeramicTilesBlockEntity extends BlockEntity {
 
     @Override
     public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
-        color = nbt.getInt("color");
+        if (nbt.getInt("color") == 0) {
+            color = DEFAULT_COLOR;
+        } else {
+            super.readNbt(nbt);
+            color = nbt.getInt("color");
+        }
     }
 
 
