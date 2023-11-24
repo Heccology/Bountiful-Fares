@@ -27,10 +27,7 @@ import net.minecraft.world.World;
 
 import java.util.stream.Stream;
 
-public class EatenLemonBlock extends FallingBlock {
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
-    public static final IntProperty SLICES = IntProperty.of("slices", 0, 2);
-
+public class EatenLemonBlock extends EatenFruitBlock {
     private static final VoxelShape[] NORTH_SHAPES = new VoxelShape[] {
             Stream.of(
                     Block.createCuboidShape(8, 0, 0, 16, 16, 16),
@@ -73,7 +70,6 @@ public class EatenLemonBlock extends FallingBlock {
     };
     public EatenLemonBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.getStateManager().getDefaultState().with(SLICES, 0).with(FACING, Direction.NORTH));
     }
 
     @Override
@@ -88,40 +84,6 @@ public class EatenLemonBlock extends FallingBlock {
             return WEST_SHAPES[state.get(SLICES)];
         }
         return NORTH_SHAPES[state.get(SLICES)];
-    }
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(SLICES, FACING);
-    }
-
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
-    }
-
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (state.get(SLICES) != 2 && player.canConsume(false)) {
-            world.setBlockState(pos, state.cycle(SLICES), Block.NOTIFY_LISTENERS);
-            player.getHungerManager().add(4, 0.1f);
-            world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            return ActionResult.SUCCESS;
-        } else if (state.get(SLICES) == 2 && player.canConsume(false)) {
-            world.removeBlock(pos, false);
-            player.getHungerManager().add(4, 0.1f);
-            world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            return ActionResult.SUCCESS;
-        }
-        return ActionResult.FAIL;
-    }
-
-    @Override
-    public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
-        if (!world.isClient) {
-            world.setBlockState(hit.getBlockPos(), Blocks.AIR.getDefaultState());
-            world.playSound(null, hit.getBlockPos(), SoundEvents.BLOCK_BAMBOO_WOOD_FALL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-        }
     }
 
     @Override

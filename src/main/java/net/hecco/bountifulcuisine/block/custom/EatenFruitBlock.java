@@ -28,6 +28,8 @@ public class EatenFruitBlock extends FallingBlock {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final IntProperty SLICES = IntProperty.of("slices", 0, 2);
 
+    public static final int DEFAULT_COMPARATOR_OUTPUT = getComparatorOutput(10);
+
     private static final VoxelShape[] NORTH_SHAPES = new VoxelShape[] {
             VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 0, 16, 16, 16), Block.createCuboidShape(0, 0, 8, 8, 16, 16), BooleanBiFunction.OR),
             Block.createCuboidShape(0, 0, 8, 16, 16, 16),
@@ -51,20 +53,6 @@ public class EatenFruitBlock extends FallingBlock {
     public EatenFruitBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(SLICES, 0).with(FACING, Direction.NORTH));
-    }
-
-    @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(FACING) == Direction.NORTH) {
-            return NORTH_SHAPES[state.get(SLICES)];
-        } else if (state.get(FACING) == Direction.EAST) {
-            return EAST_SHAPES[state.get(SLICES)];
-        } else if (state.get(FACING) == Direction.SOUTH) {
-            return SOUTH_SHAPES[state.get(SLICES)];
-        } else if (state.get(FACING) == Direction.WEST) {
-            return WEST_SHAPES[state.get(SLICES)];
-        }
-        return NORTH_SHAPES[state.get(SLICES)];
     }
 
     @Override
@@ -99,5 +87,15 @@ public class EatenFruitBlock extends FallingBlock {
             world.setBlockState(hit.getBlockPos(), Blocks.AIR.getDefaultState());
             world.playSound(null, hit.getBlockPos(), SoundEvents.BLOCK_BAMBOO_WOOD_FALL, SoundCategory.BLOCKS, 1.0F, 1.0F);
         }
+    }
+
+    public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
+        return getComparatorOutput(state.get(SLICES));
+    }
+    public static int getComparatorOutput(int slices) {
+        return (7 - ((slices + 1) * 2)) * 2;
+    }
+    public boolean hasComparatorOutput(BlockState state) {
+        return true;
     }
 }

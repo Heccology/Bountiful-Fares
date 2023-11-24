@@ -26,6 +26,8 @@ import net.minecraft.world.World;
 
 public class FruitBlock extends FallingBlock {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+
+    public static final int DEFAULT_COMPARATOR_OUTPUT = getComparatorOutput(15);
     public FruitBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(FACING, Direction.NORTH));
@@ -65,6 +67,17 @@ public class FruitBlock extends FallingBlock {
         builder.add(FACING);
     }
 
+    @Override
+    public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
+        return 15;
+    }
+
+    public static int getComparatorOutput(int slices) {
+        return 15;
+    }
+    public boolean hasComparatorOutput(BlockState state) {
+        return true;
+    }
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
