@@ -3,21 +3,15 @@ package net.hecco.bountifulcuisine.block.custom;
 import net.hecco.bountifulcuisine.block.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
-import net.hecco.bountifulcuisine.block.custom.entity.CheckeredCeramicTilesBlockEntity;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.block.enums.BlockHalf;
 import net.minecraft.block.enums.StairShape;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -48,12 +42,12 @@ public class CeramicTileStairsBlock extends StairsBlock implements DyeableCerami
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
         int oldColor = CeramicTilesBlockEntity.getColor(world, pos);
-        if ((itemStack.isOf(Items.SPONGE) || itemStack.isOf(Items.WET_SPONGE)) && CheckeredCeramicTilesBlockEntity.getColor(world, pos) != CheckeredCeramicTilesBlockEntity.DEFAULT_COLOR) {
+        if ((itemStack.isOf(Items.SPONGE) || itemStack.isOf(Items.WET_SPONGE)) && CeramicTilesBlockEntity.getColor(world, pos) != CeramicTilesBlockEntity.DEFAULT_COLOR) {
             world.setBlockState(pos, ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS.getStateWithProperties(state));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_BIG_DRIPLEAF_TILT_UP, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            if (world.getBlockEntity(pos) instanceof CheckeredCeramicTilesBlockEntity checkeredCeramicTilesBlockEntity) {
-                checkeredCeramicTilesBlockEntity.color = oldColor;
-                checkeredCeramicTilesBlockEntity.markDirty();
+            if (world.getBlockEntity(pos) instanceof CeramicTilesBlockEntity CeramicTilesBlockEntity) {
+                CeramicTilesBlockEntity.color = oldColor;
+                CeramicTilesBlockEntity.markDirty();
                 return ActionResult.SUCCESS;
             }
         }

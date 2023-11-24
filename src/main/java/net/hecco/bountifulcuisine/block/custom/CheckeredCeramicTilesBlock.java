@@ -3,11 +3,9 @@ package net.hecco.bountifulcuisine.block.custom;
 import net.hecco.bountifulcuisine.block.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
-import net.hecco.bountifulcuisine.block.custom.entity.CheckeredCeramicTilesBlockEntity;
 import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.TransparentBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
@@ -28,7 +26,7 @@ public class CheckeredCeramicTilesBlock extends Block implements DyeableCeramicB
     }
     @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        if (CheckeredCeramicTilesBlockEntity.getColor(world, pos) != CheckeredCeramicTilesBlockEntity.DEFAULT_COLOR) {
+        if (CeramicTilesBlockEntity.getColor(world, pos) != CeramicTilesBlockEntity.DEFAULT_COLOR) {
             ItemStack stack = super.getPickStack(world, pos, state);
             return pickBlock(world,pos,stack);
         } else {
