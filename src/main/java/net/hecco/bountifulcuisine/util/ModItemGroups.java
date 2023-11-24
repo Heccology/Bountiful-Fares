@@ -197,6 +197,7 @@ public class ModItemGroups {
                             entries.add(ModBlocks.MAGENTA_JACK_O_STRAW);
                             entries.add(ModBlocks.PINK_JACK_O_STRAW);
                         }
+                        entries.add(ModBlocks.ARTISAN_BREAD);
                         entries.add(ModBlocks.PASSION_FRUIT_TART);
                         entries.add(ModBlocks.ELDERBERRY_TART);
                         entries.add(ModBlocks.GLOW_BERRY_TART);

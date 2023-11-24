@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -22,13 +23,13 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
 
-public class QuarterPastryBlock extends Block {
-    public static final int MAX_BITES = 3;
-    public static final IntProperty BITES = IntProperty.of("bites", 0, 3);
+public class SixSlicePastry extends Block {
+    public static final int MAX_BITES = 6;
+    public static final IntProperty BITES = IntProperty.of("bites", 0, 6);
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final int DEFAULT_COMPARATOR_OUTPUT = getComparatorOutput(0);
 
-    public QuarterPastryBlock(Settings settings) {
+    public SixSlicePastry(AbstractBlock.Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(BITES, 0).with(FACING, Direction.NORTH));
     }
@@ -83,7 +84,7 @@ public class QuarterPastryBlock extends Block {
     }
 
     public static int getComparatorOutput(int bites) {
-        return (7 - (bites * 2)) * 2;
+        return (7 - bites) * 2;
     }
 
     public boolean hasComparatorOutput(BlockState state) {
