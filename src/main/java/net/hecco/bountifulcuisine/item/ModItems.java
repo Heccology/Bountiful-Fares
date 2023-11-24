@@ -25,10 +25,7 @@ public class ModItems {
     public static final Item HOARY_HANGING_SIGN = registerItem("hoary_hanging_sign", new HangingSignItem(ModBlocks.HOARY_HANGING_SIGN, ModBlocks.HOARY_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
     public static final Item HOARY_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.HOARY_BOAT_ID, ModBoats.HOARY_BOAT_KEY, false);
     public static final Item HOARY_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.HOARY_CHEST_BOAT_ID, ModBoats.HOARY_BOAT_KEY, true);
-    public static final Item PASSION_FRUIT = registerItem("passion_fruit", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().build())));
-    public static final Item ELDERBERRIES = registerItem("elderberries", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1), 0.3f).build())));
-    public static final Item LAPISBERRIES = registerItem("lapisberries", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().build())));
-    public static final Item LAPISBERRY_SEEDS = registerItem("lapisberry_seeds", new PlantItem(new FabricItemSettings()));
+    public static final Item LAPISBERRY_SEEDS = registerItem("lapisberry_seeds", new Item(new FabricItemSettings()));
     public static final Item CITRIC_ACID = registerItem("citric_acid", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(0).saturationModifier(0).snack().alwaysEdible().statusEffect(new StatusEffectInstance(ModEffects.ACIDIC, 300, 0),1).build())));
     public static final Item CANDIED_ORANGE = registerItem("candied_orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).snack().build())));
     public static final Item CANDIED_LEMON = registerItem("candied_lemon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).snack().build())));
@@ -70,6 +67,6 @@ public class ModItems {
         return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), item);
     }
     public static void registerModItems() {
-        BountifulCuisine.LOGGER.info("Registering Mod Items for ", BountifulCuisine.MOD_ID);
+        BountifulCuisine.LOGGER.info("Registering Mod Items for " + BountifulCuisine.MOD_ID);
     }
 }

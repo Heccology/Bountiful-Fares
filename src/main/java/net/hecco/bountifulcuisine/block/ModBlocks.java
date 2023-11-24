@@ -15,8 +15,11 @@ import net.hecco.bountifulcuisine.world.tree.*;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -86,11 +89,21 @@ public class ModBlocks {
     public static final Block HOARY_LEAVES = registerBlock("hoary_leaves", new HoaryLeavesBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).strength(0.2f).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)));
     public static final Block HANGING_HOARY_APPLE = registerBlockNoItem("hanging_hoary_apple", new HangingHoaryAppleBlock(FabricBlockSettings.copyOf(ModBlocks.HANGING_APPLE)));
     public static final Block TRELLIS = registerBlock("trellis", new TrellisBlock(FabricBlockSettings.create().strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).nonOpaque()));
-    public static final Block PASSION_FRUIT_TRELLIS = registerBlockNoItem("passion_fruit_trellis", new PassionFruitTrellisBlock(ModItems.PASSION_FRUIT, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
-    public static final Block ELDERBERRY_TRELLIS = registerBlockNoItem("elderberry_trellis", new ElderberryTrellisBlock(ModItems.ELDERBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
-    public static final Block GLOW_BERRY_TRELLIS = registerBlockNoItem("glow_berry_trellis", new GlowBerryTrellisBlock(Items.GLOW_BERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
-    public static final Block LAPISBERRY_TRELLIS = registerBlockNoItem("lapisberry_trellis", new LapisberryTrellisBlock(ModItems.LAPISBERRY_SEEDS, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
-    public static final Block FLOWER_TRELLIS = registerBlockNoItem("flower_trellis", new FlowerTrellisBlock(FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
+
+    private static Item registerItem(String name, Item item) {
+        return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), item);
+    }
+    public static final Item PASSION_FRUIT = registerItem("passion_fruit", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().build())));
+    public static final Item ELDERBERRIES = registerItem("elderberries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1), 0.3f).build())));
+    public static final Item LAPISBERRIES = registerItem("lapisberries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().build())));
+    public static final Block PASSION_FRUIT_TRELLIS = registerBlockNoItem("passion_fruit_trellis", new CropTrellisBlock(ModBlocks.PASSION_FRUIT, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
+    public static final Block ELDERBERRY_TRELLIS = registerBlockNoItem("elderberry_trellis", new CropTrellisBlock(ModBlocks.ELDERBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
+    public static final Block GLOW_BERRY_TRELLIS = registerBlockNoItem("glow_berry_trellis", new CropTrellisBlock(Items.GLOW_BERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
+    public static final Block LAPISBERRY_TRELLIS = registerBlockNoItem("lapisberry_trellis", new CropTrellisBlock(ModBlocks.LAPISBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
+    public static final Block ROSE_TRELLIS = registerBlockNoItem("rose_trellis", new DecorationalTrellisBlock(Items.ROSE_BUSH, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
+    public static final Block LILAC_TRELLIS = registerBlockNoItem("lilac_trellis", new DecorationalTrellisBlock(Items.LILAC, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
+    public static final Block PEONY_TRELLIS = registerBlockNoItem("peony_trellis", new DecorationalTrellisBlock(Items.PEONY, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
+    public static final Block SUNFLOWER_TRELLIS = registerBlockNoItem("sunflower_trellis", new DecorationalTrellisBlock(Items.SUNFLOWER, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
     public static final Block WILD_WHEAT = registerPlantBlock("wild_wheat", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILD_CARROTS = registerPlantBlock("wild_carrots", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILD_POTATOES = registerPlantBlock("wild_potatoes", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)));

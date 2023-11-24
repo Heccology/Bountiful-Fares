@@ -1,21 +1,29 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -24,20 +32,22 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.event.GameEvent;
 
-public class PlantedTrellisBlock extends Block implements Waterloggable, Fertilizable {
+public class CropTrellisBlock extends Block implements Waterloggable, Fertilizable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final DirectionProperty FACING;
     public static final IntProperty AGE = Properties.AGE_3;
+    private final Item berryItem;
     protected static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0, 0, 15, 16, 16, 16);
     protected static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0, 0, 0, 16, 16, 1);
     protected static final VoxelShape WEST_SHAPE = Block.createCuboidShape(15, 0, 0, 16, 16, 16);
     protected static final VoxelShape EAST_SHAPE = Block.createCuboidShape(0, 0, 0, 1, 16, 16);
     public static BooleanProperty SNIPPED = BooleanProperty.of("snipped");
-    protected static Item BERRY_ITEM;
-    public PlantedTrellisBlock(Item berryItem, Settings settings) {
+    public CropTrellisBlock(Item berryItem, Settings settings) {
         super(settings);
-        BERRY_ITEM = berryItem;
+        this.berryItem = berryItem;
+        BountifulCuisine.LOGGER.info("Berry Item: " + berryItem);
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(AGE, 0).with(SNIPPED, false));
     }
 
@@ -57,6 +67,33 @@ public class PlantedTrellisBlock extends Block implements Waterloggable, Fertili
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(WATERLOGGED, FACING, AGE, SNIPPED);
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        int i = state.get(AGE);
+        if (player.getStackInHand(hand).isOf(Items.SHEARS) && !state.get(SNIPPED)) {
+            player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
+            world.setBlockState(pos, state.with(SNIPPED, true));
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            player.getStackInHand(hand).damage(1, player, (playerx) -> {
+                playerx.sendToolBreakStatus(hand);
+            });
+            return ActionResult.SUCCESS;
+        } else if(i != 3) {
+            return ActionResult.PASS;
+        } else if(state.get(AGE) == 3 & !state.get(SNIPPED)) {
+            int j = 1 + world.random.nextInt(2);
+            if (this.berryItem != null) {
+                dropStack(world, pos, new ItemStack(this.berryItem));
+                world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
+            }
+            BlockState blockState = state.with(AGE, 1);
+            world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+            return ActionResult.SUCCESS;
+        }
+        return super.onUse(state, world, pos, player, hand, hit);
     }
 
     @Override

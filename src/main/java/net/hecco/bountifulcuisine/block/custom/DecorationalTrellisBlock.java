@@ -1,11 +1,9 @@
 package net.hecco.bountifulcuisine.block.custom;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.hecco.bountifulcuisine.block.enums.Flower;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
-import net.minecraft.block.TallFlowerBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,7 +12,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -25,32 +22,18 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-public class FlowerTrellisBlock extends TrellisBlock implements Fertilizable {
+public class DecorationalTrellisBlock extends TrellisBlock implements Fertilizable {
 
-    protected static final EnumProperty<Flower> FLOWER = EnumProperty.of("flower", Flower.class);
-
-    Item flowerItem = Items.DIAMOND;
-    public FlowerTrellisBlock(Settings settings) {
+    public static Item item;
+    public DecorationalTrellisBlock(Item item, Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(FLOWER, Flower.ROSE));
+        DecorationalTrellisBlock.item = item;
+        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED, FACING, FLOWER);
-    }
-
-    public Item getFlowerItem(BlockState state) {
-        if (state.get(FLOWER) == (Flower.ROSE)) {
-            return Items.ROSE_BUSH;
-        } else if (state.get(FLOWER) == (Flower.PEONY)) {
-            return Items.PEONY;
-        } else if (state.get(FLOWER) == (Flower.LILAC)) {
-            return Items.LILAC;
-        } else if (state.get(FLOWER) == (Flower.SUNFLOWER)) {
-            return Items.SUNFLOWER;
-        }
-        return Items.ROSE_BUSH;
+        builder.add(WATERLOGGED, FACING);
     }
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
@@ -58,7 +41,7 @@ public class FlowerTrellisBlock extends TrellisBlock implements Fertilizable {
         if (player.getStackInHand(hand).isOf(Items.SHEARS)) {
             player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
             world.setBlockState(pos, ModBlocks.TRELLIS.getDefaultState().with(FACING, facing), 2);
-            dropStack(world, pos, new ItemStack(getFlowerItem(state)));
+            dropStack(world, pos, new ItemStack(item));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
             return ActionResult.SUCCESS;
         }
@@ -82,6 +65,6 @@ public class FlowerTrellisBlock extends TrellisBlock implements Fertilizable {
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        TallFlowerBlock.dropStack(world, pos, new ItemStack(getFlowerItem(state)));
+        dropStack(world, pos, new ItemStack(item));
     }
 }

@@ -92,7 +92,7 @@ public class FermentationVesselBlock extends Block implements Waterloggable {
                 itemStack.decrement(1);
             }
             return ActionResult.SUCCESS;
-        } else if(state.get(WATER) && itemStack.isOf(ModItems.ELDERBERRIES)) {
+        } else if(state.get(WATER) && itemStack.isOf(ModBlocks.ELDERBERRIES)) {
             if (state.get(WATERLOGGED)) {
                 world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.ELDERBERRIES).with(WATERLOGGED, true), 2);
             } else if (!state.get(WATERLOGGED)) {

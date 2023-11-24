@@ -22,7 +22,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class CheckeredCeramicTilesBlock extends TransparentBlock implements DyeableCeramicBlockInterface {
+public class CheckeredCeramicTilesBlock extends Block implements DyeableCeramicBlockInterface {
     public CheckeredCeramicTilesBlock(Settings settings) {
         super(settings);
     }

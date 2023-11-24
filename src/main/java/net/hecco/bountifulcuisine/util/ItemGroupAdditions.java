@@ -134,10 +134,10 @@ public class ItemGroupAdditions {
             entries.addAfter(ModItems.HOARY_APPLE, ModBlocks.HOARY_APPLE_BLOCK.asItem());
             entries.addAfter(Items.ENCHANTED_GOLDEN_APPLE, ModBlocks.GOLDEN_APPLE_BLOCK.asItem());
             entries.addAfter(Items.MELON_SLICE, ModItems.SPONGEKIN_SLICE);
-            entries.addAfter(Items.SWEET_BERRIES, ModItems.PASSION_FRUIT);
-            entries.addAfter(ModItems.PASSION_FRUIT, ModItems.ELDERBERRIES);
-            entries.addAfter(ModItems.ELDERBERRIES, ModItems.ELDERBERRY_WINE_BOTTLE);
-            entries.addAfter(Items.GLOW_BERRIES, ModItems.LAPISBERRIES);
+            entries.addAfter(Items.SWEET_BERRIES, ModBlocks.PASSION_FRUIT);
+            entries.addAfter(ModBlocks.PASSION_FRUIT, ModBlocks.ELDERBERRIES);
+            entries.addAfter(ModBlocks.ELDERBERRIES, ModItems.ELDERBERRY_WINE_BOTTLE);
+            entries.addAfter(Items.GLOW_BERRIES, ModBlocks.LAPISBERRIES);
             entries.addAfter(Items.SPIDER_EYE, ModItems.CITRIC_ACID);
             entries.addAfter(Items.MILK_BUCKET, ModItems.GREEN_TEA_BOTTLE);
             entries.addAfter(ModItems.GREEN_TEA_BOTTLE, ModItems.BLACK_TEA_BOTTLE);

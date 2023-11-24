@@ -20,16 +20,15 @@ import net.hecco.bountifulcuisine.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 public class BountifulCuisine implements ModInitializer {
 	public static final String MOD_ID = "bountifulcuisine";
 	public static final String ELS_AND_LS_DYES_MOD_ID = "bountifulcuisine";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
 	@Override
 	public void onInitialize() {
 		ModItems.registerModItems();
-		ModBlocks.registerModBlocks();
-		ModBlocks.registerElsAndLsDyesCompatibilityBlocks();
-		ModBlockEntities.registerBlockEntities();
 		ModItemGroups.registerItemGroups();
 		ItemGroupAdditions.registerItemGroupAdditions();
 		ModRecipes.registerRecipes();
@@ -43,5 +42,8 @@ public class BountifulCuisine implements ModInitializer {
 		ModParticles.registerParticles();
 		ModPotions.registerPotions();
 		ModTrunkPlacerTypes.register();
+		ModBlocks.registerModBlocks();
+		ModBlocks.registerElsAndLsDyesCompatibilityBlocks();
+		ModBlockEntities.registerBlockEntities();
 	}
 }

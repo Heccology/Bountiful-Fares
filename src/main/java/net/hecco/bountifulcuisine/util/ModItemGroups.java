@@ -18,7 +18,7 @@ import net.minecraft.util.Identifier;
 public class ModItemGroups {
     public static ItemGroup BOUNTIFUL_CUISINE = Registry.register(Registries.ITEM_GROUP, new Identifier(BountifulCuisine.MOD_ID, "bountiful_cuisine"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.bountiful_cuisine"))
-                    .icon(() -> new ItemStack(ModItems.PASSION_FRUIT)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModBlocks.PASSION_FRUIT)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.APPLE_LOG);
                         entries.add(ModBlocks.APPLE_WOOD);
                         entries.add(ModBlocks.STRIPPED_APPLE_LOG);
@@ -79,10 +79,10 @@ public class ModItemGroups {
                         entries.add(ModBlocks.HOARY_APPLE_BLOCK);
                         entries.add(ModBlocks.GOLDEN_APPLE_BLOCK);
                         entries.add(ModBlocks.TRELLIS);
-                        entries.add(ModItems.PASSION_FRUIT);
-                        entries.add(ModItems.ELDERBERRIES);
+                        entries.add(ModBlocks.PASSION_FRUIT);
+                        entries.add(ModBlocks.ELDERBERRIES);
                         entries.add(ModItems.LAPISBERRY_SEEDS);
-                        entries.add(ModItems.LAPISBERRIES);
+                        entries.add(ModBlocks.LAPISBERRIES);
                         entries.add(ModBlocks.WILD_CARROTS);
                         entries.add(ModBlocks.WILD_POTATOES);
                         entries.add(ModBlocks.WILD_WHEAT);

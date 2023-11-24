@@ -1,7 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.hecco.bountifulcuisine.block.enums.Flower;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -26,8 +25,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
-
-import static net.hecco.bountifulcuisine.block.custom.FlowerTrellisBlock.FLOWER;
 
 public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -59,7 +56,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
         Direction facing = state.get(FACING);
         ItemStack itemStack = player.getStackInHand(hand);
         Boolean isSurvival = !player.isCreative();
-        if (itemStack.isOf(ModItems.PASSION_FRUIT)) {
+        if (itemStack.isOf(ModBlocks.PASSION_FRUIT)) {
             if (isSurvival) {
                 itemStack.decrement(1);
             }
@@ -68,7 +65,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
-        if (itemStack.isOf(ModItems.ELDERBERRIES)) {
+        if (itemStack.isOf(ModBlocks.ELDERBERRIES)) {
             if (isSurvival) {
                 itemStack.decrement(1);
             }
@@ -100,7 +97,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
             if (isSurvival) {
                 itemStack.decrement(1);
             }
-            world.setBlockState(pos, ModBlocks.FLOWER_TRELLIS.getDefaultState().with(FACING, facing).with(FLOWER, Flower.ROSE), 2);
+            world.setBlockState(pos, ModBlocks.ROSE_TRELLIS.getDefaultState().with(FACING, facing), 2);
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
@@ -109,7 +106,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
             if (isSurvival) {
                 itemStack.decrement(1);
             }
-            world.setBlockState(pos, ModBlocks.FLOWER_TRELLIS.getDefaultState().with(FACING, facing).with(FLOWER, Flower.LILAC), 2);
+            world.setBlockState(pos, ModBlocks.LILAC_TRELLIS.getDefaultState().with(FACING, facing), 2);
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
@@ -118,7 +115,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
             if (isSurvival) {
                 itemStack.decrement(1);
             }
-            world.setBlockState(pos, ModBlocks.FLOWER_TRELLIS.getDefaultState().with(FACING, facing).with(FLOWER, Flower.PEONY), 2);
+            world.setBlockState(pos, ModBlocks.PEONY_TRELLIS.getDefaultState().with(FACING, facing), 2);
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
@@ -127,7 +124,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
             if (isSurvival) {
                 itemStack.decrement(1);
             }
-            world.setBlockState(pos, ModBlocks.FLOWER_TRELLIS.getDefaultState().with(FACING, facing).with(FLOWER, Flower.SUNFLOWER), 2);
+            world.setBlockState(pos, ModBlocks.SUNFLOWER_TRELLIS.getDefaultState().with(FACING, facing), 2);
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
