@@ -11,6 +11,6 @@ public class TingedGlassBlock extends GlassBlock {
     }
 
     public int getOpacity(BlockState state, BlockView world, BlockPos pos) {
-        return 2;
+        return world.getMaxLightLevel() / 5;
     }
 }

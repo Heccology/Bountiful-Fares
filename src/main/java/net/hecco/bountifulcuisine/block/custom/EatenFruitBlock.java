@@ -28,7 +28,7 @@ public class EatenFruitBlock extends FallingBlock {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final IntProperty SLICES = IntProperty.of("slices", 0, 2);
 
-    public static final int DEFAULT_COMPARATOR_OUTPUT = getComparatorOutput(10);
+    public static final int DEFAULT_COMPARATOR_OUTPUT = getComparatorOutput(0);
 
     private static final VoxelShape[] NORTH_SHAPES = new VoxelShape[] {
             VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 0, 16, 16, 16), Block.createCuboidShape(0, 0, 8, 8, 16, 16), BooleanBiFunction.OR),
