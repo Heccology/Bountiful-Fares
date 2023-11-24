@@ -100,6 +100,7 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.CHAMOMILE_CANDLE.asItem(), ModBlocks.HONEYSUCKLE_CANDLE.asItem());
             entries.addAfter(ModBlocks.HONEYSUCKLE_CANDLE.asItem(), ModBlocks.BELLFLOWER_CANDLE.asItem());
             entries.addAfter(ModBlocks.BELLFLOWER_CANDLE.asItem(), ModBlocks.TORCHFLOWER_CANDLE.asItem());
+            entries.addAfter(Items.TINTED_GLASS, ModBlocks.TINGED_GLASS.asItem());
             entries.addAfter(Items.WARPED_HANGING_SIGN, ModItems.HOARY_SIGN);
             entries.addAfter(ModItems.HOARY_SIGN, ModItems.HOARY_HANGING_SIGN);
         });
@@ -138,7 +139,6 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.PASSION_FRUIT, ModBlocks.ELDERBERRIES);
             entries.addAfter(ModBlocks.ELDERBERRIES, ModItems.ELDERBERRY_WINE_BOTTLE);
             entries.addAfter(Items.GLOW_BERRIES, ModBlocks.LAPISBERRIES);
-            entries.addAfter(Items.SPIDER_EYE, ModItems.CITRIC_ACID);
             entries.addAfter(Items.MILK_BUCKET, ModItems.GREEN_TEA_BOTTLE);
             entries.addAfter(ModItems.GREEN_TEA_BOTTLE, ModItems.BLACK_TEA_BOTTLE);
             entries.addAfter(ModItems.BLACK_TEA_BOTTLE, ModItems.CHAMOMILE_TEA_BOTTLE);
@@ -157,6 +157,11 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.APPLE_PIE.asItem(), ModBlocks.ORANGE_PIE.asItem());
             entries.addAfter(ModBlocks.ORANGE_PIE.asItem(), ModBlocks.LEMON_PIE.asItem());
             entries.addAfter(ModBlocks.LEMON_PIE.asItem(), ModBlocks.PLUM_PIE.asItem());
+            entries.addAfter(Items.SPIDER_EYE, ModItems.CITRIC_ACID);
+            entries.addAfter(ModItems.CITRIC_ACID, ModItems.CANDY);
+            entries.addAfter(ModItems.CANDY, ModItems.PIQUANT_CANDY);
+            entries.addAfter(ModItems.PIQUANT_CANDY, ModItems.SOUR_CANDY);
+            entries.addAfter(ModItems.SOUR_CANDY, ModItems.BITTER_CANDY);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
@@ -176,6 +181,7 @@ public class ItemGroupAdditions {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
+            entries.addAfter(Items.TINTED_GLASS, ModBlocks.TINGED_GLASS.asItem());
             entries.add(ModBlocks.WHITE_JACK_O_STRAW.asItem());
             entries.add(ModBlocks.LIGHT_GRAY_JACK_O_STRAW.asItem());
             entries.add(ModBlocks.GRAY_JACK_O_STRAW.asItem());

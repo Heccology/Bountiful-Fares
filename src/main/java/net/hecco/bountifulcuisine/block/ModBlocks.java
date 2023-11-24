@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.custom.*;
-import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
 import net.hecco.bountifulcuisine.item.custom.PlantBlockItem;
 import net.hecco.bountifulcuisine.sounds.ModSounds;
@@ -180,6 +179,7 @@ public class ModBlocks {
     public static final Block PLUM_PIE = registerBlock16StackItem("plum_pie", new PieBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block CHOCOLATE_CAKE = registerBlockUnstackableItem("chocolate_cake", new CakeBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block ARTISAN_BREAD = registerBlock16StackItem("artisan_bread", new ArtisanBreadBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block TINGED_GLASS = registerBlock("tinged_glass", new TingedGlassBlock(FabricBlockSettings.create().instrument(Instrument.HAT).strength(0.3F).sounds(BlockSoundGroup.GLASS).nonOpaque().allowsSpawning(Blocks::never).solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never)));
     public static Block ACORN_JACK_O_STRAW;
     public static Block AMBER_JACK_O_STRAW;
     public static Block ARTICHOKE_JACK_O_STRAW;

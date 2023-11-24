@@ -183,6 +183,7 @@
 
   "item.bountifulcuisine.feldspar": "Feldspar",
   "block.bountifulcuisine.feldspar_block": "Block of Feldspar",
+  "block.bountifulcuisine.tinged_glass": "Tinged Glass",
   "item.bountifulcuisine.ceramic_clay": "Ceramic Clay",
   "item.bountifulcuisine.ceramic_tile": "Ceramic Tile",
   "block.bountifulcuisine.ceramic_clay_block": "Block of Ceramic Clay",
@@ -294,5 +295,9 @@
   "block.bountifulcuisine.orange_pie": "Orange Pie",
   "block.bountifulcuisine.lemon_pie": "Lemon Pie",
   "block.bountifulcuisine.plum_pie": "Plum Pie",
-  "block.bountifulcuisine.chocolate_cake": "Chocolate Cake"
+  "block.bountifulcuisine.chocolate_cake": "Chocolate Cake",
+  "item.bountifulcuisine.candy": "Candy",
+  "item.bountifulcuisine.sour_candy": "Sour Candy",
+  "item.bountifulcuisine.piquant_candy": "Piquant Candy",
+  "item.bountifulcuisine.bitter_candy": "Bitter Candy"
 }

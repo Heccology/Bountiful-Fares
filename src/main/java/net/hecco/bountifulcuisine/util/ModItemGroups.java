@@ -94,6 +94,7 @@ public class ModItemGroups {
                         entries.add(ModItems.GOOSEBERRIES);
                         entries.add(ModItems.FELDSPAR);
                         entries.add(ModBlocks.FELDSPAR_BLOCK);
+                        entries.add(ModBlocks.TINGED_GLASS);
                         entries.add(ModItems.CERAMIC_CLAY);
                         entries.add(ModBlocks.CERAMIC_CLAY_BLOCK);
                         entries.add(ModItems.CERAMIC_TILE);
@@ -141,6 +142,10 @@ public class ModItemGroups {
                         entries.add(ModItems.CITRIC_ACID);
                         entries.add(ModItems.CANDIED_ORANGE);
                         entries.add(ModItems.CANDIED_LEMON);
+                        entries.add(ModItems.CANDY);
+                        entries.add(ModItems.PIQUANT_CANDY);
+                        entries.add(ModItems.SOUR_CANDY);
+                        entries.add(ModItems.BITTER_CANDY);
                         entries.add(ModItems.SUN_HAT);
                         if (FabricLoader.getInstance().isModLoaded(BountifulCuisine.ELS_AND_LS_DYES_MOD_ID)) {
                             entries.add(ModBlocks.WHITE_JACK_O_STRAW);

@@ -58,7 +58,7 @@ public class ModItems {
     public static final Item SUN_HAT = registerItem("sun_hat", new FarmersHatItem(new FabricItemSettings().maxCount(1)));
 
 
-    public static final Item MELLOW_CANDY = registerItem("mellow_candy", new Item(new FabricItemSettings()));
+    public static final Item CANDY = registerItem("candy", new Item(new FabricItemSettings()));
     public static final Item SOUR_CANDY = registerItem("sour_candy", new Item(new FabricItemSettings()));
     public static final Item PIQUANT_CANDY = registerItem("piquant_candy", new Item(new FabricItemSettings()));
     public static final Item BITTER_CANDY = registerItem("bitter_candy", new Item(new FabricItemSettings()));
