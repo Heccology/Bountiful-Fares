@@ -36,11 +36,11 @@ import static net.hecco.bountifulcuisine.block.custom.FullFermentationVesselBloc
 
 public class FermentationVesselBlock extends Block implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    private static BooleanProperty isFullWithWater = BooleanProperty.of("is_full_with_water");
+    private static final BooleanProperty WATER = BooleanProperty.of("water");
     protected static final VoxelShape VOXEL_SHAPE = VoxelShapes.combineAndSimplify(Block.createCuboidShape(2, 0, 2, 14, 13, 14), Block.createCuboidShape(5, 13, 5, 11, 15, 11), BooleanBiFunction.OR);
     public FermentationVesselBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(isFullWithWater, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(WATER, false));
     }
 
     @Override
@@ -49,14 +49,14 @@ public class FermentationVesselBlock extends Block implements Waterloggable {
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED, isFullWithWater);
+        builder.add(WATERLOGGED, WATER);
     }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         var itemStack = player.getStackInHand(hand);
-        if(itemStack.isOf(Items.POTION) && PotionUtil.getPotion(itemStack) == Potions.WATER && !state.get(isFullWithWater)) {
-            world.setBlockState(pos, state.with(isFullWithWater, true), 2);
+        if(itemStack.isOf(Items.POTION) && PotionUtil.getPotion(itemStack) == Potions.WATER && !state.get(WATER)) {
+            world.setBlockState(pos, state.with(WATER, true), 2);
             world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 0.8F);
             if (!player.isCreative()) {
                 itemStack.decrement(1);
@@ -67,9 +67,21 @@ public class FermentationVesselBlock extends Block implements Waterloggable {
                 player.dropItem(new ItemStack(Items.GLASS_BOTTLE), false);
             }
             return ActionResult.SUCCESS;
-        } else if(itemStack.isOf(Items.POTION) && PotionUtil.getPotion(itemStack) == Potions.WATER && state.get(isFullWithWater)) {
+        } else if (itemStack.isOf(Items.WATER_BUCKET) && !state.get(WATER)) {
+            world.setBlockState(pos, state.with(WATER, true), 2);
+            world.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F);
+            if (!player.isCreative()) {
+                itemStack.decrement(1);
+            }
+            if (itemStack.isEmpty() && !player.isCreative()) {
+                player.setStackInHand(hand, new ItemStack(Items.BUCKET));
+            } else if (!player.getInventory().insertStack(new ItemStack(Items.BUCKET))) {
+                player.dropItem(new ItemStack(Items.BUCKET), false);
+            }
+            return ActionResult.SUCCESS;
+         }else if(itemStack.isOf(Items.POTION) && PotionUtil.getPotion(itemStack) == Potions.WATER && state.get(WATER)) {
             return ActionResult.PASS;
-        } else if(state.get(isFullWithWater) && itemStack.isOf(Items.SPIDER_EYE)) {
+        } else if(state.get(WATER) && itemStack.isOf(Items.SPIDER_EYE)) {
             if(state.get(WATERLOGGED)) {
                 world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.SPIDER_EYE).with(WATERLOGGED, true), 2);
             } else if(!state.get(WATERLOGGED)) {
@@ -80,7 +92,7 @@ public class FermentationVesselBlock extends Block implements Waterloggable {
                 itemStack.decrement(1);
             }
             return ActionResult.SUCCESS;
-        } else if(state.get(isFullWithWater) && itemStack.isOf(ModItems.ELDERBERRIES)) {
+        } else if(state.get(WATER) && itemStack.isOf(ModItems.ELDERBERRIES)) {
             if (state.get(WATERLOGGED)) {
                 world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.ELDERBERRIES).with(WATERLOGGED, true), 2);
             } else if (!state.get(WATERLOGGED)) {
