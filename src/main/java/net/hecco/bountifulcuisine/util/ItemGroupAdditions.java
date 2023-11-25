@@ -148,7 +148,8 @@ public class ItemGroupAdditions {
             entries.addAfter(Items.BEETROOT, ModItems.MAIZE);
             entries.addAfter(ModItems.MAIZE, ModItems.GOOSEBERRIES);
             entries.addAfter(Items.BREAD, ModBlocks.ARTISAN_BREAD.asItem());
-            entries.addAfter(Items.COOKIE, ModBlocks.PASSION_FRUIT_TART.asItem());
+            entries.addAfter(Items.COOKIE, ModItems.ARTISAN_COOKIE);
+            entries.addAfter(ModItems.ARTISAN_COOKIE, ModBlocks.PASSION_FRUIT_TART.asItem());
             entries.addAfter(ModBlocks.PASSION_FRUIT_TART.asItem(), ModBlocks.ELDERBERRY_TART.asItem());
             entries.addAfter(ModBlocks.ELDERBERRY_TART.asItem(), ModBlocks.GLOW_BERRY_TART.asItem());
             entries.addAfter(ModBlocks.GLOW_BERRY_TART.asItem(), ModBlocks.SWEET_BERRY_TART.asItem());
