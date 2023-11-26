@@ -94,6 +94,7 @@ public class ModItemGroups {
                         entries.add(ModItems.GOOSEBERRIES);
                         entries.add(ModItems.FELDSPAR);
                         entries.add(ModBlocks.FELDSPAR_BLOCK);
+                        entries.add(ModBlocks.FELDSPAR_LANTERN);
                         entries.add(ModBlocks.TINGED_GLASS);
                         entries.add(ModItems.CERAMIC_CLAY);
                         entries.add(ModBlocks.CERAMIC_CLAY_BLOCK);

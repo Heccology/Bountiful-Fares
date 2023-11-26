@@ -92,6 +92,7 @@ public class ItemGroupAdditions {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
+            entries.addAfter(Items.LANTERN, ModBlocks.FELDSPAR_LANTERN.asItem());
             entries.addAfter(Items.GRINDSTONE, ModBlocks.GRISTMILL.asItem());
             entries.addAfter(Items.SOUL_CAMPFIRE, ModBlocks.FERMENTATION_VESSEL.asItem());
             entries.addAfter(Items.GLOW_LICHEN, ModBlocks.GREEN_TEA_CANDLE.asItem());

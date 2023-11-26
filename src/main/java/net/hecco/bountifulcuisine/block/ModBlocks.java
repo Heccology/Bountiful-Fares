@@ -109,6 +109,7 @@ public class ModBlocks {
     public static final Block WILD_BEETROOTS = registerPlantBlock("wild_beetroots", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILD_GOOSEBERRIES = registerPlantBlock("wild_gooseberries", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block FELDSPAR_BLOCK = registerBlock("feldspar_block", new Block(FabricBlockSettings.copyOf(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE).instrument(Instrument.BASEDRUM).strength(1.5f).sounds(BlockSoundGroup.CALCITE)));
+    public static final Block FELDSPAR_LANTERN = registerBlock("feldspar_lantern", new FeldsparLanternBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).solid().requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(8).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block TINGED_GLASS = registerBlock("tinged_glass", new TingedGlassBlock(FabricBlockSettings.create().instrument(Instrument.HAT).strength(0.3F).sounds(BlockSoundGroup.GLASS).nonOpaque().allowsSpawning(Blocks::never).solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never)));
     public static final Block CERAMIC_CLAY_BLOCK = registerBlock("ceramic_clay_block", new Block(FabricBlockSettings.copyOf(Blocks.CLAY).instrument(Instrument.FLUTE).mapColor(MapColor.WHITE)));
     public static final Block CERAMIC_TILES = registerDyeableCeramicBlock("ceramic_tiles", new CeramicTilesBlock(FabricBlockSettings.create().solidBlock(Blocks::never).requiresTool().strength(2f, 16f).sounds(ModSounds.CERAMIC_TILES).instrument(Instrument.HAT).mapColor(MapColor.OFF_WHITE)));
@@ -138,7 +139,7 @@ public class ModBlocks {
     public static final Block SPONGEKIN_SPROUT = registerPlantBlock("spongekin_sprout", new SpongekinSproutBlock(FabricBlockSettings.create().mapColor(MapColor.WATER_BLUE).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block SPONGEKIN_STEM = registerBlockNoItem("spongekin_stem", new SpongekinStemBlock(FabricBlockSettings.create().mapColor(MapColor.WATER_BLUE).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block SPONGEKIN = registerPlantBlock("spongekin", new SpongekinBlock(FabricBlockSettings.create().mapColor(MapColor.BRIGHT_TEAL).instrument(Instrument.DIDGERIDOO).strength(1.0f).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block PRISMARINE_BLOSSOM = registerPlantBlock("prismarine_blossom", new PrismarineBlossomBlock(FabricBlockSettings.create().mapColor(MapColor.CYAN).ticksRandomly().strength(0.4f).nonOpaque().noCollision().sounds(BlockSoundGroup.CALCITE).luminance(createLightLevelFromWaterloggedBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block PRISMARINE_BLOSSOM = registerPlantBlock("prismarine_blossom", new PrismarineBlossomBlock(FabricBlockSettings.create().mapColor(MapColor.CYAN).ticksRandomly().strength(0.4f).nonOpaque().noCollision().sounds(BlockSoundGroup.CALCITE).luminance(state -> state.get(Properties.WATERLOGGED) ? 12 : 0).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block TEA_SHRUB = registerBlockNoItem("tea_shrub", new TeaShrubBlock(FabricBlockSettings.create().nonOpaque().strength(0.5f).ticksRandomly().noCollision().mapColor(MapColor.GREEN).sounds(BlockSoundGroup.AZALEA).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block CHAMOMILE_FLOWERS = registerPlantBlock("chamomile_flowers", new ChamomileFlowersBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).noCollision().sounds(BlockSoundGroup.PINK_PETALS).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block HONEYSUCKLE = registerPlantBlock("honeysuckle", new TeaFlowerBlock(StatusEffects.REGENERATION, 5, FabricBlockSettings.copyOf(Blocks.POPPY)));
@@ -230,9 +231,6 @@ public class ModBlocks {
         return state -> state.get(Properties.LIT) ? litLevel : 0;
     }
 
-    public static ToIntFunction<BlockState> createLightLevelFromWaterloggedBlockState(int litLevel) {
-        return state -> state.get(Properties.WATERLOGGED) ? litLevel : 0;
-    }
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(BountifulCuisine.MOD_ID, name), block);
