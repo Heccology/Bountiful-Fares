@@ -183,7 +183,6 @@ public class ItemGroupAdditions {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
-            entries.addAfter(Items.TINTED_GLASS, ModBlocks.TINGED_GLASS.asItem());
             entries.add(ModBlocks.WHITE_JACK_O_STRAW.asItem());
             entries.add(ModBlocks.LIGHT_GRAY_JACK_O_STRAW.asItem());
             entries.add(ModBlocks.GRAY_JACK_O_STRAW.asItem());
