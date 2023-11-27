@@ -111,7 +111,7 @@ public class GristmillBlockEntity extends BlockEntity implements ExtendedScreenH
         if (!state.get(millingState) && !inventory.get(0).isEmpty() && isCrafting()) {
             world.setBlockState(pos, state.with(millingState, true));
         }
-        if (state.get(millingState) && canInsertOutputSlot() && !hasRecipe() && !world.isClient() && progress != 0) {
+        if (state.get(millingState) && !hasRecipe() && !world.isClient() && progress != 0) {
             world.setBlockState(pos, state.with(millingState, false));
         }
 

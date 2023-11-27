@@ -164,6 +164,7 @@ public class ItemGroupAdditions {
             entries.addAfter(ModItems.CANDY, ModItems.PIQUANT_CANDY);
             entries.addAfter(ModItems.PIQUANT_CANDY, ModItems.SOUR_CANDY);
             entries.addAfter(ModItems.SOUR_CANDY, ModItems.BITTER_CANDY);
+            entries.addAfter(Items.RABBIT_STEW, ModItems.PASSION_GLAZED_SALMON);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {

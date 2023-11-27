@@ -64,6 +64,13 @@ public class ModItems {
     public static final Item PIQUANT_CANDY = registerItem("piquant_candy", new Item(new FabricItemSettings()));
     public static final Item BITTER_CANDY = registerItem("bitter_candy", new Item(new FabricItemSettings()));
 
+
+    public static final Item PASSION_GLAZED_SALMON = registerItem("passion_glazed_salmon", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.6F).build())));
+
+
+    private static FoodComponent.Builder createStew(int hunger) {
+        return (new FoodComponent.Builder()).hunger(hunger).saturationModifier(0.6F);
+    }
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), item);
     }
