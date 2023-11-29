@@ -214,6 +214,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.LEMON_PIE);
                         entries.add(ModBlocks.PLUM_PIE);
                         entries.add(ModBlocks.CHOCOLATE_CAKE);
+                        entries.add(ModItems.PASSION_GLAZED_SALMON);
+                        entries.add(ModItems.BOUNTIFUL_STEW);
                     }).build());
     public static void registerItemGroups() {
         BountifulCuisine.LOGGER.info("Registering Item Group Entries for " + BountifulCuisine.MOD_ID);
