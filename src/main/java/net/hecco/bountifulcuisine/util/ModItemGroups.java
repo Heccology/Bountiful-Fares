@@ -107,8 +107,14 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
                         entries.add(ModBlocks.CERAMIC_PRESSURE_PLATE);
                         entries.add(ModBlocks.CERAMIC_BUTTON);
+                        entries.add(ModItems.JAR);
                         entries.add(ModBlocks.FERMENTATION_VESSEL);
                         entries.add(ModItems.ELDERBERRY_WINE_BOTTLE);
+                        entries.add(ModItems.LAPISBERRY_WINE_BOTTLE);
+                        entries.add(ModItems.MEAD_BOTTLE);
+                        entries.add(ModItems.APPLE_CIDER_JAR);
+                        entries.add(ModItems.PLUM_CIDER_JAR);
+                        entries.add(ModItems.HOARY_CIDER_JAR);
                         entries.add(ModBlocks.GRISTMILL);
                         entries.add(ModBlocks.SPONGEKIN_SPROUT);
                         entries.add(ModItems.SPONGEKIN_SEEDS);
@@ -143,6 +149,11 @@ public class ModItemGroups {
                         entries.add(ModItems.CITRIC_ACID);
                         entries.add(ModItems.CANDIED_ORANGE);
                         entries.add(ModItems.CANDIED_LEMON);
+                        entries.add(ModItems.APPLE_COMPOTE_JAR);
+                        entries.add(ModItems.ORANGE_COMPOTE_JAR);
+                        entries.add(ModItems.LEMON_COMPOTE_JAR);
+                        entries.add(ModItems.PLUM_COMPOTE_JAR);
+                        entries.add(ModItems.HOARY_COMPOTE_JAR);
                         entries.add(ModItems.CANDY);
                         entries.add(ModItems.PIQUANT_CANDY);
                         entries.add(ModItems.SOUR_CANDY);

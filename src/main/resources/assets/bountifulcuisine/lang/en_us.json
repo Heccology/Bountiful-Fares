@@ -199,6 +199,8 @@
   "block.bountifulcuisine.ceramic_button": "Ceramic Button",
 
   "item.bountifulcuisine.elderberry_wine_bottle": "Elderberry Wine Bottle",
+  "item.bountifulcuisine.lapisberry_wine_bottle": "Lapisberry Wine Bottle",
+  "item.bountifulcuisine.mead_bottle": "Mead Bottle",
 
   "item.bountifulcuisine.tea_berries": "Tea Berries",
   "tooltip.bountifulcuisine.tea_berries": "§7§oCamellia Sinensis",
@@ -286,6 +288,15 @@
 
 
 
+  "item.bountifulcuisine.jar": "Jar",
+  "item.bountifulcuisine.apple_compote_jar": "Apple Compote Jar",
+  "item.bountifulcuisine.orange_compote_jar": "Orange Compote Jar",
+  "item.bountifulcuisine.lemon_compote_jar": "Lemon Compote Jar",
+  "item.bountifulcuisine.plum_compote_jar": "Plum Compote Jar",
+  "item.bountifulcuisine.hoary_compote_jar": "Hoary Compote Jar",
+  "item.bountifulcuisine.apple_cider_jar": "Apple Cider Jar",
+  "item.bountifulcuisine.plum_cider_jar": "Plum Cider Jar",
+  "item.bountifulcuisine.hoary_cider_jar": "Hoary Cider Jar",
   "block.bountifulcuisine.artisan_bread": "Artisan Bread",
   "item.bountifulcuisine.artisan_cookie": "Artisan Cookie",
   "block.bountifulcuisine.artisan_cookies": "Artisan Cookies",
@@ -307,6 +318,7 @@
 
   "item.bountifulcuisine.passion_glazed_salmon": "Passion Glazed Salmon",
   "item.bountifulcuisine.bountiful_stew": "Bountiful Stew",
+  "item.bountifulcuisine.wild_roast": "Wild Roast",
   "item.bountifulcuisine.crimson_chow": "Crimson Chow",
   "item.bountifulcuisine.warped_chow": "Warped Chow"
 }

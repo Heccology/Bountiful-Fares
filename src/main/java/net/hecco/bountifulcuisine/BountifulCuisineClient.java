@@ -23,6 +23,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -31,6 +32,9 @@ import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.util.Identifier;
+
+import static net.hecco.bountifulcuisine.item.ModItems.SUN_HAT;
 
 public class BountifulCuisineClient implements ClientModInitializer {
     @Override
@@ -170,6 +174,13 @@ public class BountifulCuisineClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.PRISMARINE_BLOSSOM_PARTICLE, PrismarineBlossomParticle.Factory::new);
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : FoliageColors.getDefaultColor()), ModBlocks.WILD_POTATOES, ModBlocks.WILD_CARROTS, ModBlocks.WILD_BEETROOTS, ModBlocks.WILD_GOOSEBERRIES);
+
+//        ModelPredicateProviderRegistry.register(SUN_HAT, new Identifier("head"), (itemStack, clientWorld, livingEntity) -> {
+//            if (livingEntity == null) {
+//                return 0.0F;
+//            }
+//            return livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F;
+//        });
     }
 
 

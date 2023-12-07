@@ -20,8 +20,8 @@
 			}
 		},
 		{
-			"from": [-6, 0.05, -6],
-			"to": [22, 0.05, 22],
+			"from": [-6, -0.05, -6],
+			"to": [22, -0.05, 22],
 			"faces": {
 				"up": {"uv": [1, 1, 15, 15], "texture": "#stem", "cullface": "up"},
 				"down": {"uv": [1, 1, 15, 15], "texture": "#stem", "cullface": "down"}

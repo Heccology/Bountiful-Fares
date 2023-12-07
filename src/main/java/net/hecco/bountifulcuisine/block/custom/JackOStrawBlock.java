@@ -4,6 +4,8 @@ import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
+import net.minecraft.client.network.AbstractClientPlayerEntity;
+import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
@@ -29,6 +31,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
@@ -73,13 +76,21 @@ public class JackOStrawBlock extends Block {
         }
         return blockState.isOf(this);
     }
-
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         if (world.getBlockState(pos.up(1)).isOf(Blocks.AIR) && state.get(HALF) == DoubleBlockHalf.LOWER) {
             world.setBlockState(pos.up(1), this.getDefaultState().with(FACING, state.get(FACING)).with(HALF, DoubleBlockHalf.UPPER), 2);
-        }
 
+        }
+    }
+
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        DoubleBlockHalf doubleBlockHalf = state.get(HALF);
+        if (direction.getAxis() == Direction.Axis.Y && doubleBlockHalf == DoubleBlockHalf.LOWER == (direction == Direction.UP) && (!neighborState.isOf(this) || neighborState.get(HALF) == doubleBlockHalf)) {
+            return Blocks.AIR.getDefaultState();
+        } else {
+            return doubleBlockHalf == DoubleBlockHalf.LOWER && direction == Direction.DOWN && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+        }
     }
 
     @Override

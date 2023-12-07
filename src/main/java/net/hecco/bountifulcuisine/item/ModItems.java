@@ -6,9 +6,6 @@ import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.effect.ModEffects;
 import net.hecco.bountifulcuisine.entity.ModBoats;
 import net.hecco.bountifulcuisine.item.custom.*;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.TallFlowerBlock;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
@@ -30,6 +27,8 @@ public class ModItems {
     public static final Item CANDIED_ORANGE = registerItem("candied_orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).snack().build())));
     public static final Item CANDIED_LEMON = registerItem("candied_lemon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).snack().build())));
     public static final Item ELDERBERRY_WINE_BOTTLE = registerItem("elderberry_wine_bottle", new LiquidBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 0), 0.3f).alwaysEdible().build()).maxCount(16)));
+    public static final Item LAPISBERRY_WINE_BOTTLE = registerItem("lapisberry_wine_bottle", new LiquidBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 600, 0), 1).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 0), 0.3f).alwaysEdible().build()).maxCount(16)));
+    public static final Item MEAD_BOTTLE = registerItem("mead_bottle", new MeadBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 200, 0), 1).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 0), 0.3f).alwaysEdible().build()).maxCount(16)));
     public static final Item FELDSPAR = registerItem("feldspar", new Item(new FabricItemSettings()));
     public static final Item CERAMIC_CLAY = registerItem("ceramic_clay", new Item(new FabricItemSettings()));
     public static final Item CERAMIC_TILE = registerItem("ceramic_tile", new Item(new FabricItemSettings()));
@@ -59,14 +58,25 @@ public class ModItems {
     public static final Item SUN_HAT = registerItem("sun_hat", new FarmersHatItem(new FabricItemSettings().maxCount(1)));
 
 
+    public static final Item JAR = registerItem("jar", new Item(new FabricItemSettings().maxCount(16)));
+    public static final Item APPLE_COMPOTE_JAR = registerItem("apple_compote_jar", new EdibleJarItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(6).saturationModifier(0.4f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200, 0), 1f).build())));
+    public static final Item ORANGE_COMPOTE_JAR = registerItem("orange_compote_jar", new EdibleJarItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(6).saturationModifier(0.4f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200, 0), 1f).build())));
+    public static final Item LEMON_COMPOTE_JAR = registerItem("lemon_compote_jar", new EdibleJarItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(6).saturationModifier(0.4f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200, 0), 1f).build())));
+    public static final Item PLUM_COMPOTE_JAR = registerItem("plum_compote_jar", new EdibleJarItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(6).saturationModifier(0.4f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200, 0), 1f).build())));
+    public static final Item HOARY_COMPOTE_JAR = registerItem("hoary_compote_jar", new EdibleJarItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(6).saturationModifier(0.4f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200, 0), 1f).build())));
+
+    public static final Item APPLE_CIDER_JAR = registerItem("apple_cider_jar", new DrinkableJarItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).build())));
+    public static final Item PLUM_CIDER_JAR = registerItem("plum_cider_jar", new DrinkableJarItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).build())));
+    public static final Item HOARY_CIDER_JAR = registerItem("hoary_cider_jar", new DrinkableJarItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).build())));
+
     public static final Item CANDY = registerItem("candy", new Item(new FabricItemSettings()));
     public static final Item SOUR_CANDY = registerItem("sour_candy", new Item(new FabricItemSettings()));
     public static final Item PIQUANT_CANDY = registerItem("piquant_candy", new Item(new FabricItemSettings()));
     public static final Item BITTER_CANDY = registerItem("bitter_candy", new Item(new FabricItemSettings()));
 
-
     public static final Item PASSION_GLAZED_SALMON = registerItem("passion_glazed_salmon", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.6F).build())));
     public static final Item BOUNTIFUL_STEW = registerItem("bountiful_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(12).saturationModifier(0.8F).build())));
+    public static final Item WILD_ROAST = registerItem("wild_roast", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(18).saturationModifier(0.8F).build())));
     public static final Item CRIMSON_CHOW = registerItem("crimson_chow", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(10).saturationModifier(0.6F).build())));
     public static final Item WARPED_CHOW = registerItem("warped_chow", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(7).saturationModifier(0.6F).build())));
 

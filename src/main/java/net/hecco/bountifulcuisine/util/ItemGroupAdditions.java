@@ -166,6 +166,9 @@ public class ItemGroupAdditions {
             entries.addAfter(ModItems.SOUR_CANDY, ModItems.BITTER_CANDY);
             entries.addAfter(Items.RABBIT_STEW, ModItems.PASSION_GLAZED_SALMON);
             entries.addAfter(ModItems.PASSION_GLAZED_SALMON, ModItems.BOUNTIFUL_STEW);
+            entries.addAfter(ModItems.BOUNTIFUL_STEW, ModItems.WILD_ROAST);
+            entries.addAfter(ModItems.WILD_ROAST, ModItems.CRIMSON_CHOW);
+            entries.addAfter(ModItems.CRIMSON_CHOW, ModItems.WARPED_CHOW);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
