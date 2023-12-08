@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 
 public class BountifulCuisine implements ModInitializer {
 	public static final String MOD_ID = "bountifulcuisine";
-	public static final String ELS_AND_LS_DYES_MOD_ID = "bountifulcuisine";
+	public static final String ELS_AND_LS_DYES_MOD_ID = "elsandlsdyes";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
@@ -43,7 +43,6 @@ public class BountifulCuisine implements ModInitializer {
 		ModPotions.registerPotions();
 		ModTrunkPlacerTypes.register();
 		ModBlocks.registerModBlocks();
-		ModBlocks.registerElsAndLsDyesCompatibilityBlocks();
 		ModBlockEntities.registerBlockEntities();
 	}
 }
