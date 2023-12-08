@@ -30,6 +30,7 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.util.Identifier;
@@ -175,12 +176,12 @@ public class BountifulCuisineClient implements ClientModInitializer {
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : FoliageColors.getDefaultColor()), ModBlocks.WILD_POTATOES, ModBlocks.WILD_CARROTS, ModBlocks.WILD_BEETROOTS, ModBlocks.WILD_GOOSEBERRIES);
 
-//        ModelPredicateProviderRegistry.register(SUN_HAT, new Identifier("head"), (itemStack, clientWorld, livingEntity) -> {
-//            if (livingEntity == null) {
-//                return 0.0F;
-//            }
-//            return livingEntity.isUsingItem() && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F;
-//        });
+        ModelPredicateProviderRegistry.register(SUN_HAT, new Identifier("head"), (itemStack, clientWorld, livingEntity, seed) -> {
+            if (livingEntity == null) {
+                return 0.0F;
+            }
+            return livingEntity.getEquippedStack(EquipmentSlot.HEAD) == itemStack ? 1.0F : 0.0F;
+        });
     }
 
 
