@@ -10,6 +10,8 @@ import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
@@ -77,9 +79,11 @@ public class ArtisanCookiesBlock extends Block {
             if (!player.getStackInHand(hand).isOf(ModItems.ARTISAN_COOKIE)) {
                 if (count > 0) {
                     world.setBlockState(pos, state.with(COUNT, count - 1), 3);
+                    world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 0.5f, 1.0f);
                 } else {
                     world.removeBlock(pos, false);
                     world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
+                    world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 0.5f, 1.0f);
                 }
 
                 return ActionResult.SUCCESS;
