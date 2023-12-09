@@ -23,6 +23,8 @@ import org.slf4j.LoggerFactory;
 
 public class BountifulCuisine implements ModInitializer {
 	public static final String MOD_ID = "bountifulcuisine";
+
+	// modid used for features that should only register if El's and L's Dye Mod is installed, like itemgroups.
 	public static final String ELS_AND_LS_DYES_MOD_ID = "elsandlsdyes";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 

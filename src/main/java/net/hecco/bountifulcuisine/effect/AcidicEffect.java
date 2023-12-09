@@ -16,58 +16,46 @@ public class AcidicEffect extends StatusEffect {
 
     @Override
     public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        if (entity instanceof net.minecraft.server.network.ServerPlayerEntity) {
-            net.minecraft.server.network.ServerPlayerEntity player = (net.minecraft.server.network.ServerPlayerEntity) entity;
-
-            // Create a list to store modified effects
-            List<StatusEffectInstance> modifiedEffects = new ArrayList<>();
-
-            // Loop through all active status effects except Acidic
-            for (StatusEffectInstance effect : player.getStatusEffects()) {
+        List<StatusEffectInstance> effectsToModify = new ArrayList<>();
+            for (StatusEffectInstance effect : entity.getStatusEffects()) {
                 if (effect.getEffectType() != this) {
+                    // goes through each effect on the entity that isnt Acidic and increases the amplifier
                     int newAmplifier = effect.getAmplifier() + amplifier + 1;
                     if (newAmplifier > 255) {
                         newAmplifier = 255;
                     }
                     StatusEffectInstance newEffect = new StatusEffectInstance(effect.getEffectType(), effect.getDuration(), newAmplifier, effect.isAmbient(), effect.shouldShowParticles(), effect.shouldShowIcon());
-                    modifiedEffects.add(newEffect);
+                    effectsToModify.add(newEffect);
                 }
             }
 
-            // Remove and re-add modified effects
-            for (StatusEffectInstance effect : modifiedEffects) {
-                player.removeStatusEffect(effect.getEffectType());
-                player.addStatusEffect(effect);
+            for (StatusEffectInstance effect : effectsToModify) {
+                //applies the new effects
+                entity.removeStatusEffect(effect.getEffectType());
+                entity.addStatusEffect(effect);
             }
-        }
         super.onApplied(entity, attributes, amplifier);
     }
 
     @Override
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        if (entity instanceof net.minecraft.server.network.ServerPlayerEntity) {
-            net.minecraft.server.network.ServerPlayerEntity player = (net.minecraft.server.network.ServerPlayerEntity) entity;
+        List<StatusEffectInstance> effectsToModify = new ArrayList<>();
 
-            // Create a list to store modified effects
-            List<StatusEffectInstance> modifiedEffects = new ArrayList<>();
-
-            // Loop through all active status effects except Acidic
-            for (StatusEffectInstance effect : player.getStatusEffects()) {
-                if (effect.getEffectType() != this) {
-                    int newAmplifier = effect.getAmplifier() - amplifier - 1;
-                    if (newAmplifier < 0) {
-                        newAmplifier = 0;
-                    }
-                    StatusEffectInstance newEffect = new StatusEffectInstance(effect.getEffectType(), effect.getDuration(), newAmplifier, effect.isAmbient(), effect.shouldShowParticles(), effect.shouldShowIcon());
-                    modifiedEffects.add(newEffect);
+        for (StatusEffectInstance effect : entity.getStatusEffects()) {
+            if (effect.getEffectType() != this) {
+                // goes through each effect on the entity that isnt Acidic and reverts the amplifier
+                int newAmplifier = effect.getAmplifier() - amplifier - 1;
+                if (newAmplifier < 0) {
+                    newAmplifier = 0;
                 }
+                StatusEffectInstance newEffect = new StatusEffectInstance(effect.getEffectType(), effect.getDuration(), newAmplifier, effect.isAmbient(), effect.shouldShowParticles(), effect.shouldShowIcon());
+                effectsToModify.add(newEffect);
             }
-
-            // Remove and re-add modified effects
-            for (StatusEffectInstance effect : modifiedEffects) {
-                player.removeStatusEffect(effect.getEffectType());
-                player.addStatusEffect(effect);
-            }
+        }
+        for (StatusEffectInstance effect : effectsToModify) {
+            //applies the new effects
+            entity.removeStatusEffect(effect.getEffectType());
+            entity.addStatusEffect(effect);
         }
         super.onApplied(entity, attributes, amplifier);
     }

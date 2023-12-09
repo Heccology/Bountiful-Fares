@@ -15,60 +15,20 @@ public class StuporEffect extends StatusEffect {
     }
 
     @Override
-    public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        if (entity instanceof net.minecraft.server.network.ServerPlayerEntity) {
-            net.minecraft.server.network.ServerPlayerEntity player = (net.minecraft.server.network.ServerPlayerEntity) entity;
+    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+        List<StatusEffectInstance> effectsToRemove = new ArrayList<>();
 
-            List<StatusEffectInstance> modifiedEffects = new ArrayList<>();
-            List<StatusEffectInstance> effectsToRemove = new ArrayList<>();
-
-            for (StatusEffectInstance effect : player.getStatusEffects()) {
-                if (effect.getEffectType() != this) {
-                    int newAmplifier = effect.getAmplifier() - amplifier - 1;
-                    if (newAmplifier >= 0) {
-                        StatusEffectInstance newEffect = new StatusEffectInstance(effect.getEffectType(), effect.getDuration(), newAmplifier, effect.isAmbient(), effect.shouldShowParticles(), effect.shouldShowIcon());
-                        modifiedEffects.add(newEffect);
-                    } else {
-                        effectsToRemove.add(effect);
-                    }
-                }
-            }
-
-            for (StatusEffectInstance effect : modifiedEffects) {
-                player.removeStatusEffect(effect.getEffectType());
-                player.addStatusEffect(effect);
-            }
-            for (StatusEffectInstance effect : effectsToRemove) {
-                player.removeStatusEffect(effect.getEffectType());
+        for (StatusEffectInstance effect : entity.getStatusEffects()) {
+            // goes through each effect that isnt Stupor, and adds it to a list to be removed
+            if (effect.getEffectType() != this) {
+                effectsToRemove.add(effect);
             }
         }
-        super.onApplied(entity, attributes, amplifier);
-    }
-
-    @Override
-    public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        if (entity instanceof net.minecraft.server.network.ServerPlayerEntity) {
-            net.minecraft.server.network.ServerPlayerEntity player = (net.minecraft.server.network.ServerPlayerEntity) entity;
-
-            List<StatusEffectInstance> modifiedEffects = new ArrayList<>();
-
-            for (StatusEffectInstance effect : player.getStatusEffects()) {
-                if (effect.getEffectType() != this) {
-                    int newAmplifier = effect.getAmplifier() + amplifier + 1;
-                    if (newAmplifier > 255) {
-                        newAmplifier = 255;
-                    }
-                    StatusEffectInstance newEffect = new StatusEffectInstance(effect.getEffectType(), effect.getDuration(), newAmplifier, effect.isAmbient(), effect.shouldShowParticles(), effect.shouldShowIcon());
-                    modifiedEffects.add(newEffect);
-                }
-            }
-
-            for (StatusEffectInstance effect : modifiedEffects) {
-                player.removeStatusEffect(effect.getEffectType());
-                player.addStatusEffect(effect);
-            }
+        for (StatusEffectInstance effect : effectsToRemove) {
+            // Remove the specified effects
+            entity.removeStatusEffect(effect.getEffectType());
         }
-        super.onApplied(entity, attributes, amplifier);
+        super.applyUpdateEffect(entity, amplifier);
     }
 
     @Override

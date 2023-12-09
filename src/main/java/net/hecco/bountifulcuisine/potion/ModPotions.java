@@ -14,8 +14,6 @@ public class ModPotions {
     public static final Potion STRONG_ACIDIC = registerPotion("bountifulcuisine.strong_acidic", new Potion(new StatusEffectInstance(ModEffects.ACIDIC, 1800, 1)));
     public static final Potion STUPOR = registerPotion("bountifulcuisine.stupor", new Potion(new StatusEffectInstance(ModEffects.STUPOR, 3600, 0)));
     public static final Potion LONG_STUPOR = registerPotion("bountifulcuisine.long_stupor", new Potion(new StatusEffectInstance(ModEffects.STUPOR, 9600, 0)));
-    public static final Potion STRONG_STUPOR = registerPotion("bountifulcuisine.strong_stupor", new Potion(new StatusEffectInstance(ModEffects.STUPOR, 1800, 1)));
-
     private static Potion registerPotion(String name, Potion potion) {
         return Registry.register(Registries.POTION, new Identifier(BountifulCuisine.MOD_ID, name), potion);
     }
