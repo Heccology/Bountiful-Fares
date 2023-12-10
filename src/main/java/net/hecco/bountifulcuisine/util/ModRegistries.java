@@ -88,8 +88,6 @@ public class ModRegistries {
         invokeRegisterPotionRecipe(Potions.AWKWARD, Items.GLOWSTONE_DUST, ModPotions.STRONG_ACIDIC);
         invokeRegisterPotionRecipe(ModPotions.ACIDIC, Items.FERMENTED_SPIDER_EYE, ModPotions.STUPOR);
         invokeRegisterPotionRecipe(ModPotions.LONG_ACIDIC, Items.FERMENTED_SPIDER_EYE, ModPotions.LONG_STUPOR);
-        invokeRegisterPotionRecipe(ModPotions.STRONG_ACIDIC, Items.FERMENTED_SPIDER_EYE, ModPotions.STRONG_STUPOR);
         invokeRegisterPotionRecipe(ModPotions.STUPOR, Items.REDSTONE, ModPotions.LONG_STUPOR);
-        invokeRegisterPotionRecipe(ModPotions.STUPOR, Items.GLOWSTONE_DUST, ModPotions.STRONG_STUPOR);
     }
 }

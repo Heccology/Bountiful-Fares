@@ -1,6 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
-import net.hecco.bountifulcuisine.block.custom.entity.ModSignBlockEntity;
+import net.hecco.bountifulcuisine.block.entity.ModSignBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.WallSignBlock;
 import net.minecraft.block.WoodType;

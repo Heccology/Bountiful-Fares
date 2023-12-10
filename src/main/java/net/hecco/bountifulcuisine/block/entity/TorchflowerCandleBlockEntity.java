@@ -1,7 +1,6 @@
-package net.hecco.bountifulcuisine.block.custom.entity;
+package net.hecco.bountifulcuisine.block.entity;
 
-import net.hecco.bountifulcuisine.block.custom.GreenTeaCandleBlock;
-import net.hecco.bountifulcuisine.block.custom.HoneysuckleCandleBlock;
+import net.hecco.bountifulcuisine.block.custom.TorchflowerCandleBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -14,24 +13,24 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class HoneysuckleCandleBlockEntity extends BlockEntity {
+public class TorchflowerCandleBlockEntity extends BlockEntity {
     private static BooleanProperty isLit;
-    public HoneysuckleCandleBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.HONEYSUCKLE_CANDLE_BLOCK_ENTITY, pos, state);
-        isLit = ((HoneysuckleCandleBlock)state.getBlock()).getLit();
+    public TorchflowerCandleBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.TORCHFLOWER_CANDLE_BLOCK_ENTITY, pos, state);
+        isLit = ((TorchflowerCandleBlock)state.getBlock()).getLit();
     }
-    public static void tick(World world, BlockPos pos, BlockState state, HoneysuckleCandleBlockEntity blockEntity) {
+    public static void tick(World world, BlockPos pos, BlockState state, TorchflowerCandleBlockEntity blockEntity) {
         if (world.getTime() % 25L == 0L) {
             Box box = new Box(pos).expand(3);
             List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, box);
             if (state.get(isLit)) {
                 if (!world.isClient() && !list.isEmpty()) {
                     for (PlayerEntity playerEntity : list) {
-                        StatusEffectInstance existingEffect = playerEntity.getStatusEffect(StatusEffects.REGENERATION);
+                        StatusEffectInstance existingEffect = playerEntity.getStatusEffect(StatusEffects.STRENGTH);
                         if (existingEffect == null) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 50, 0, true, false));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 50, 0, true, false));
                         } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 50, 0, true, false));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 50, 0, true, false));
                         }
                     }
                 }

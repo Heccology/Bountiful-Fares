@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bountifulcuisine:block/ceramic_dish",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bountifulcuisine:block/ceramic_dish"
+    },
+    "facing=south": {
+      "model": "bountifulcuisine:block/ceramic_dish",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bountifulcuisine:block/ceramic_dish",
+      "y": 270
+    }
+  }
+}

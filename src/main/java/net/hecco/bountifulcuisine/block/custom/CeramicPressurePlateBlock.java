@@ -2,17 +2,15 @@ package net.hecco.bountifulcuisine.block.custom;
 
 import net.hecco.bountifulcuisine.block.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
 import net.hecco.bountifulcuisine.sounds.ModSounds;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockRenderView;

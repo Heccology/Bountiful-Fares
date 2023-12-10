@@ -1,6 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
-import net.hecco.bountifulcuisine.block.custom.entity.ModHangingSignBlockEntity;
+import net.hecco.bountifulcuisine.block.entity.ModHangingSignBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HangingSignBlock;
 import net.minecraft.block.WoodType;

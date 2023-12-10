@@ -1,4 +1,4 @@
-package net.hecco.bountifulcuisine.block.custom.entity;
+package net.hecco.bountifulcuisine.block.entity;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;

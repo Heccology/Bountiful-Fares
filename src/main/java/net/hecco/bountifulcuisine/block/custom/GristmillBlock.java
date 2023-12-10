@@ -1,7 +1,7 @@
 package net.hecco.bountifulcuisine.block.custom;
 
-import net.hecco.bountifulcuisine.block.custom.entity.GristmillBlockEntity;
-import net.hecco.bountifulcuisine.block.custom.entity.ModBlockEntities;
+import net.hecco.bountifulcuisine.block.entity.GristmillBlockEntity;
+import net.hecco.bountifulcuisine.block.entity.ModBlockEntities;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -20,7 +20,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class GristmillBlock extends BlockWithEntity implements BlockEntityProvider, Waterloggable {
+public class GristmillBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty MILLING = BooleanProperty.of("milling");
     public GristmillBlock(Settings settings) {

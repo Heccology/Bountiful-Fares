@@ -6,13 +6,14 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
-import net.hecco.bountifulcuisine.block.custom.entity.ModBlockEntities;
+import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulcuisine.block.entity.ModBlockEntities;
+import net.hecco.bountifulcuisine.block.entity.renderer.CeramicDishBlockEntityRenderer;
 import net.hecco.bountifulcuisine.entity.ModBoats;
 import net.hecco.bountifulcuisine.entity.ModEntities;
 import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
+import net.hecco.bountifulcuisine.networking.ModMessages;
 import net.hecco.bountifulcuisine.particle.FlourCloudParticle;
 import net.hecco.bountifulcuisine.particle.ModParticles;
 import net.hecco.bountifulcuisine.particle.PrismarineBlossomParticle;
@@ -40,6 +41,8 @@ import static net.hecco.bountifulcuisine.item.ModItems.SUN_HAT;
 public class BountifulCuisineClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        ModMessages.registerS2CPackets();
+        BlockEntityRendererFactories.register(ModBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, CeramicDishBlockEntityRenderer::new);
 //        ElsAndLsDyes compat
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ACORN_JACK_O_STRAW, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ARTICHOKE_JACK_O_STRAW, RenderLayer.getCutout());

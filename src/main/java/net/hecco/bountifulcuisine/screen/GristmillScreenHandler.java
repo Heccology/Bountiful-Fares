@@ -1,7 +1,7 @@
 package net.hecco.bountifulcuisine.screen;
 
-import net.hecco.bountifulcuisine.block.custom.entity.GristmillBlockEntity;
-import net.hecco.bountifulcuisine.block.custom.entity.slot.GristmillOutputSlot;
+import net.hecco.bountifulcuisine.block.entity.GristmillBlockEntity;
+import net.hecco.bountifulcuisine.block.entity.slot.GristmillOutputSlot;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

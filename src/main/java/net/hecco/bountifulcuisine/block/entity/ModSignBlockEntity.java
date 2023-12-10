@@ -1,4 +1,4 @@
-package net.hecco.bountifulcuisine.block.custom.entity;
+package net.hecco.bountifulcuisine.block.entity;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;

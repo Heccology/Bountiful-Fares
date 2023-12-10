@@ -2,7 +2,7 @@ package net.hecco.bountifulcuisine.block.custom;
 
 import net.hecco.bountifulcuisine.block.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
 import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

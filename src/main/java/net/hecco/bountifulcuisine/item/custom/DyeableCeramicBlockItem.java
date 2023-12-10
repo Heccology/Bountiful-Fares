@@ -1,6 +1,6 @@
 package net.hecco.bountifulcuisine.item.custom;
 
-import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.BlockItem;

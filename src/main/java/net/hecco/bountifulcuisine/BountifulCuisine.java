@@ -2,7 +2,7 @@ package net.hecco.bountifulcuisine;
 
 import net.fabricmc.api.ModInitializer;
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.hecco.bountifulcuisine.block.custom.entity.ModBlockEntities;
+import net.hecco.bountifulcuisine.block.entity.ModBlockEntities;
 import net.hecco.bountifulcuisine.effect.ModEffects;
 import net.hecco.bountifulcuisine.entity.ModBoats;
 import net.hecco.bountifulcuisine.util.ModItemGroups;

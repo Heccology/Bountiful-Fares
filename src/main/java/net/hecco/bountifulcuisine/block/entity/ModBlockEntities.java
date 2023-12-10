@@ -1,4 +1,4 @@
-package net.hecco.bountifulcuisine.block.custom.entity;
+package net.hecco.bountifulcuisine.block.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.hecco.bountifulcuisine.BountifulCuisine;
@@ -14,6 +14,12 @@ public class ModBlockEntities {
             Registries.BLOCK_ENTITY_TYPE,
             new Identifier(BountifulCuisine.MOD_ID, "ceramic_tiles_block_entity"),
             FabricBlockEntityTypeBuilder.create(CeramicTilesBlockEntity::new, CERAMIC_TILES, CERAMIC_TILE_STAIRS, CERAMIC_TILE_SLAB, CERAMIC_PRESSURE_PLATE, CERAMIC_BUTTON, CHECKERED_CERAMIC_TILES, CHECKERED_CERAMIC_TILE_STAIRS, CHECKERED_CERAMIC_TILE_SLAB).build()
+    );
+
+    public static final BlockEntityType<CeramicDishBlockEntity> CERAMIC_DISH_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulCuisine.MOD_ID, "ceramic_dish_block_entity"),
+            FabricBlockEntityTypeBuilder.create(CeramicDishBlockEntity::new, CERAMIC_DISH).build()
     );
 
     public static final BlockEntityType<ModSignBlockEntity> MOD_SIGN_BLOCK_ENTITY = Registry.register(

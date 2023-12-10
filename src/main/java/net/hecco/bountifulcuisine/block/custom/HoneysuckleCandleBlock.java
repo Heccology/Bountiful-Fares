@@ -1,7 +1,7 @@
 package net.hecco.bountifulcuisine.block.custom;
 
-import net.hecco.bountifulcuisine.block.custom.entity.HoneysuckleCandleBlockEntity;
-import net.hecco.bountifulcuisine.block.custom.entity.ModBlockEntities;
+import net.hecco.bountifulcuisine.block.entity.HoneysuckleCandleBlockEntity;
+import net.hecco.bountifulcuisine.block.entity.ModBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;

@@ -1,4 +1,4 @@
-package net.hecco.bountifulcuisine.block.custom.entity.slot;
+package net.hecco.bountifulcuisine.block.entity.slot;
 
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;

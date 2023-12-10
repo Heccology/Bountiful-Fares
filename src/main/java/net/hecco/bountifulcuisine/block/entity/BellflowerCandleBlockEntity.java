@@ -1,6 +1,6 @@
-package net.hecco.bountifulcuisine.block.custom.entity;
+package net.hecco.bountifulcuisine.block.entity;
 
-import net.hecco.bountifulcuisine.block.custom.GreenTeaCandleBlock;
+import net.hecco.bountifulcuisine.block.custom.BellflowerCandleBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -12,26 +12,25 @@ import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 
 import java.util.List;
-import java.util.Objects;
 
-public class GreenTeaCandleBlockEntity extends BlockEntity {
+public class BellflowerCandleBlockEntity extends BlockEntity {
     private static BooleanProperty isLit;
-    public GreenTeaCandleBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.GREEN_TEA_CANDLE_BLOCK_ENTITY, pos, state);
-        isLit = ((GreenTeaCandleBlock)state.getBlock()).getLit();
+    public BellflowerCandleBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.BELLFLOWER_CANDLE_BLOCK_ENTITY, pos, state);
+        isLit = ((BellflowerCandleBlock)state.getBlock()).getLit();
     }
-    public static void tick(World world, BlockPos pos, BlockState state, GreenTeaCandleBlockEntity blockEntity) {
+    public static void tick(World world, BlockPos pos, BlockState state, BellflowerCandleBlockEntity blockEntity) {
         if (world.getTime() % 25L == 0L) {
             Box box = new Box(pos).expand(3);
             List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, box);
             if (state.get(isLit)) {
                 if (!world.isClient() && !list.isEmpty()) {
                     for (PlayerEntity playerEntity : list) {
-                        StatusEffectInstance existingEffect = playerEntity.getStatusEffect(StatusEffects.HASTE);
+                        StatusEffectInstance existingEffect = playerEntity.getStatusEffect(StatusEffects.SPEED);
                         if (existingEffect == null) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 50, 0, true, false));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 50, 0, true, false));
                         } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 50, 0, true, false));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 50, 0, true, false));
                         }
                     }
                 }

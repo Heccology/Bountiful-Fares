@@ -1,4 +1,4 @@
-package net.hecco.bountifulcuisine.block.custom.entity;
+package net.hecco.bountifulcuisine.block.entity;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.hecco.bountifulcuisine.block.custom.GristmillBlock;
@@ -29,7 +29,7 @@ import java.util.Optional;
 public class GristmillBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
 
     private static BooleanProperty millingState;
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
 
     private static final int[] TOP_SLOTS = new int[]{0};
     private static final int[] BOTTOM_SLOTS = new int[]{1};

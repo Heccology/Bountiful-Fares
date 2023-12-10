@@ -10,4 +10,5 @@ public class ModItemTags {
     public static final TagKey<Item> JACK_O_STRAW_LIGHTABLE = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "jack_o_straw_lightable"));
     public static final TagKey<Item> DYES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "dyes"));
     public static final TagKey<Item> ELS_AND_LS_DYES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "els_and_ls_dyes"));
+    public static final TagKey<Item> EATABLE_ON_DISH = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "eatable_on_dish"));
 }

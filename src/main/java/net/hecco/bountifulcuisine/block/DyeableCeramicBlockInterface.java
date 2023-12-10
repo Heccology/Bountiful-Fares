@@ -1,6 +1,6 @@
 package net.hecco.bountifulcuisine.block;
 
-import net.hecco.bountifulcuisine.block.custom.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
-import static net.hecco.bountifulcuisine.block.custom.entity.ModBlockEntities.CERAMIC_TILES_BLOCK_ENTITY;
+import static net.hecco.bountifulcuisine.block.entity.ModBlockEntities.CERAMIC_TILES_BLOCK_ENTITY;
 
 public interface DyeableCeramicBlockInterface extends BlockEntityProvider {
     @Override
