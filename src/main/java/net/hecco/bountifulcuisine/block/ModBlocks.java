@@ -2,7 +2,6 @@ package net.hecco.bountifulcuisine.block;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.custom.*;
 import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
@@ -204,6 +203,20 @@ public class ModBlocks {
     public static Block SHAMROCK_JACK_O_STRAW = registerBlockUnstackableItem("shamrock_jack_o_straw", new ElsAndLsJackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     public static Block VELVET_JACK_O_STRAW = registerBlockUnstackableItem("velvet_jack_o_straw", new ElsAndLsJackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     public static Block VERMILION_JACK_O_STRAW = registerBlockUnstackableItem("vermilion_jack_o_straw", new ElsAndLsJackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+
+
+    public static Block OAK_PICKETS = registerBlock("oak_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.OAK_TAN).strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block SPRUCE_PICKETS = registerBlock("spruce_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block BIRCH_PICKETS = registerBlock("birch_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.PALE_YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block JUNGLE_PICKETS = registerBlock("jungle_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.DIRT_BROWN).strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block ACACIA_PICKETS = registerBlock("acacia_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.ORANGE).strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block DARK_OAK_PICKETS = registerBlock("dark_oak_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.BROWN).strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block MANGROVE_PICKETS = registerBlock("mangrove_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.RED).strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block CHERRY_PICKETS = registerBlock("cherry_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.5F).sounds(BlockSoundGroup.CHERRY_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block BAMBOO_PICKETS = registerBlock("bamboo_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.BAMBOO_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block HOARY_PICKETS = registerBlock("hoary_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.TERRACOTTA_GRAY).strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block CRIMSON_PICKETS = registerBlock("crimson_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.DULL_PINK).strength(0.5F).sounds(BlockSoundGroup.NETHER_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block WARPED_PICKETS = registerBlock("warped_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.DARK_AQUA).strength(0.5F).sounds(BlockSoundGroup.NETHER_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
 
     public static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
         return state -> state.get(Properties.LIT) ? litLevel : 0;

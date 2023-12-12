@@ -78,6 +78,18 @@ public class ModItemGroups {
                         entries.add(ModItems.HOARY_APPLE);
                         entries.add(ModBlocks.HOARY_APPLE_BLOCK);
                         entries.add(ModBlocks.GOLDEN_APPLE_BLOCK);
+                        entries.add(ModBlocks.OAK_PICKETS);
+                        entries.add(ModBlocks.SPRUCE_PICKETS);
+                        entries.add(ModBlocks.BIRCH_PICKETS);
+                        entries.add(ModBlocks.JUNGLE_PICKETS);
+                        entries.add(ModBlocks.ACACIA_PICKETS);
+                        entries.add(ModBlocks.DARK_OAK_PICKETS);
+                        entries.add(ModBlocks.MANGROVE_PICKETS);
+                        entries.add(ModBlocks.CHERRY_PICKETS);
+                        entries.add(ModBlocks.BAMBOO_PICKETS);
+                        entries.add(ModBlocks.HOARY_PICKETS);
+                        entries.add(ModBlocks.CRIMSON_PICKETS);
+                        entries.add(ModBlocks.WARPED_PICKETS);
                         entries.add(ModBlocks.TRELLIS);
                         entries.add(ModBlocks.PASSION_FRUIT);
                         entries.add(ModBlocks.ELDERBERRIES);
