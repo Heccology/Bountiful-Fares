@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bountifulcuisine:item/chocolate_cake"
+    "layer0": "bountifulcuisine:item/mushroom_stuffed_potato"
   }
 }

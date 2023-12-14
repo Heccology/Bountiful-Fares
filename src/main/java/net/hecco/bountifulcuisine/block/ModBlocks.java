@@ -86,7 +86,7 @@ public class ModBlocks {
     public static final Block HOARY_WALL_HANGING_SIGN = registerBlockNoItem("hoary_wall_hanging_sign", new ModWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).strength(1.0f, 5.0f).mapColor(MapColor.GRAY), ModWoodTypes.HOARY));
     public static final Block HOARY_LEAVES = registerBlock("hoary_leaves", new HoaryLeavesBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).strength(0.2f).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)));
     public static final Block HANGING_HOARY_APPLE = registerBlockNoItem("hanging_hoary_apple", new HangingHoaryAppleBlock(FabricBlockSettings.copyOf(ModBlocks.HANGING_APPLE)));
-    public static final Block TRELLIS = registerBlock("trellis", new TrellisBlock(FabricBlockSettings.create().strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).nonOpaque()));
+    public static final Block TRELLIS = registerBlock("trellis", new TrellisBlock(FabricBlockSettings.create().notSolid().strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).nonOpaque()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), item);
@@ -179,7 +179,7 @@ public class ModBlocks {
     public static final Block ORANGE_PIE = registerBlock16StackItem("orange_pie", new PieBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block LEMON_PIE = registerBlock16StackItem("lemon_pie", new PieBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block PLUM_PIE = registerBlock16StackItem("plum_pie", new PieBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block CHOCOLATE_CAKE = registerBlockUnstackableItem("chocolate_cake", new CakeBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block COCOA_CAKE = registerBlockUnstackableItem("cocoa_cake", new CakeBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block ARTISAN_BREAD = registerBlock16StackItem("artisan_bread", new ArtisanBreadBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block ARTISAN_COOKIES = registerBlockNoItem("artisan_cookies", new ArtisanCookiesBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
 

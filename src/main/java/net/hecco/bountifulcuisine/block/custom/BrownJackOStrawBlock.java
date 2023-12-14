@@ -4,6 +4,8 @@ import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -27,7 +29,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
-public class BrownJackOStrawBlock extends Block {
+public class BrownJackOStrawBlock extends Block implements Waterloggable {
+
+    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
     private static final VoxelShape NORTH_SOUTH_UPPER = VoxelShapes.combineAndSimplify(Block.createCuboidShape(3, 9, 3, 13, 21, 13), Block.createCuboidShape(4, 0, 6, 12, 9, 10), BooleanBiFunction.OR);
@@ -55,7 +60,7 @@ public class BrownJackOStrawBlock extends Block {
 
     public BrownJackOStrawBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(HALF, DoubleBlockHalf.LOWER));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, false));
     }
 
     @Override
@@ -72,8 +77,11 @@ public class BrownJackOStrawBlock extends Block {
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         if (world.getBlockState(pos.up(1)).isOf(Blocks.AIR) && state.get(HALF) == DoubleBlockHalf.LOWER) {
             world.setBlockState(pos.up(1), this.getDefaultState().with(FACING, state.get(FACING)).with(HALF, DoubleBlockHalf.UPPER), 2);
-        }
 
+        }
+        if (world.getBlockState(pos.up(1)).isOf(Blocks.WATER) && state.get(HALF) == DoubleBlockHalf.LOWER) {
+            world.setBlockState(pos.up(1), this.getDefaultState().with(FACING, state.get(FACING)).with(HALF, DoubleBlockHalf.UPPER).with(WATERLOGGED, true), 2);
+        }
     }
 
     @Override
@@ -89,11 +97,18 @@ public class BrownJackOStrawBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, HALF);
+        builder.add(FACING, HALF, WATERLOGGED);
+    }
+    @Override
+    public FluidState getFluidState(BlockState state) {
+        if (state.get(WATERLOGGED)) {
+            return Fluids.WATER.getStill(false);
+        }
+        return super.getFluidState(state);
     }
 }

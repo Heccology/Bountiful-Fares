@@ -8,6 +8,8 @@ import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -35,7 +37,10 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
-public class JackOStrawBlock extends Block {
+public class JackOStrawBlock extends Block implements Waterloggable {
+
+    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
     public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
     public static final BooleanProperty LIT = Properties.LIT;
@@ -62,9 +67,11 @@ public class JackOStrawBlock extends Block {
         return NORTH_SOUTH_UPPER;
     }
 
+
+
     public JackOStrawBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(HALF, DoubleBlockHalf.LOWER).with(LIT, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(HALF, DoubleBlockHalf.LOWER).with(LIT, false).with(WATERLOGGED, false));
     }
 
     @Override
@@ -72,7 +79,7 @@ public class JackOStrawBlock extends Block {
         BlockPos blockPos = pos.down();
         BlockState blockState = world.getBlockState(blockPos);
         if (state.get(HALF) == DoubleBlockHalf.LOWER) {
-            return blockState.isSideSolidFullSquare(world, blockPos, Direction.UP) || world.getBlockState(pos.down()).isOf(Blocks.FARMLAND);
+            return (blockState.isSideSolidFullSquare(world, blockPos, Direction.UP) || world.getBlockState(pos.down()).isOf(Blocks.FARMLAND)) && world.getBlockState(pos.up()).isOf(Blocks.AIR) || world.getBlockState(pos.up()).isOf(Blocks.WATER);
         }
         return blockState.isOf(this);
     }
@@ -82,6 +89,10 @@ public class JackOStrawBlock extends Block {
             world.setBlockState(pos.up(1), this.getDefaultState().with(FACING, state.get(FACING)).with(HALF, DoubleBlockHalf.UPPER), 2);
 
         }
+        if (world.getBlockState(pos.up(1)).isOf(Blocks.WATER) && state.get(HALF) == DoubleBlockHalf.LOWER) {
+            world.setBlockState(pos.up(1), this.getDefaultState().with(FACING, state.get(FACING)).with(HALF, DoubleBlockHalf.UPPER).with(WATERLOGGED, true), 2);
+
+        }
     }
 
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
@@ -89,8 +100,11 @@ public class JackOStrawBlock extends Block {
         if (direction.getAxis() == Direction.Axis.Y && doubleBlockHalf == DoubleBlockHalf.LOWER == (direction == Direction.UP) && (!neighborState.isOf(this) || neighborState.get(HALF) == doubleBlockHalf)) {
             return Blocks.AIR.getDefaultState();
         } else {
-            return doubleBlockHalf == DoubleBlockHalf.LOWER && direction == Direction.DOWN && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+            if (direction.getAxis() == Direction.Axis.Y && doubleBlockHalf == DoubleBlockHalf.LOWER == (direction == Direction.UP) && (!neighborState.isOf(this) || neighborState.get(HALF) == doubleBlockHalf)) {
+                return this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
+            }
         }
+        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
     @Override
@@ -119,11 +133,19 @@ public class JackOStrawBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, HALF, LIT);
+        builder.add(FACING, HALF, LIT, WATERLOGGED);
+    }
+
+    @Override
+    public FluidState getFluidState(BlockState state) {
+        if (state.get(WATERLOGGED)) {
+            return Fluids.WATER.getStill(false);
+        }
+        return super.getFluidState(state);
     }
 }

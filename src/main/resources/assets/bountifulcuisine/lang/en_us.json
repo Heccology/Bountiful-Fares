@@ -320,12 +320,14 @@
   "block.bountifulcuisine.orange_pie": "Orange Pie",
   "block.bountifulcuisine.lemon_pie": "Lemon Pie",
   "block.bountifulcuisine.plum_pie": "Plum Pie",
-  "block.bountifulcuisine.chocolate_cake": "Chocolate Cake",
+  "block.bountifulcuisine.cocoa_cake": "Cocoa Cake",
   "item.bountifulcuisine.candy": "Candy",
   "item.bountifulcuisine.sour_candy": "Sour Candy",
   "item.bountifulcuisine.piquant_candy": "Piquant Candy",
   "item.bountifulcuisine.bitter_candy": "Bitter Candy",
 
+
+  "item.bountifulcuisine.mushroom_stuffed_potato": "Mushroom Stuffed Potato",
 
   "item.bountifulcuisine.passion_glazed_salmon": "Passion Glazed Salmon",
   "item.bountifulcuisine.bountiful_stew": "Bountiful Stew",

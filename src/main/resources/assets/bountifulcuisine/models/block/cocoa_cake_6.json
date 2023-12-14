@@ -1,13 +1,13 @@
 {
     "textures": {
-        "particle": "bountifulcuisine:block/chocolate_cake_side",
-        "bottom": "bountifulcuisine:block/chocolate_cake_bottom",
-        "top": "bountifulcuisine:block/chocolate_cake_top",
-        "side": "bountifulcuisine:block/chocolate_cake_side",
-        "inside": "bountifulcuisine:block/chocolate_cake_inside"
+        "particle": "bountifulcuisine:block/cocoa_cake_side",
+        "bottom": "bountifulcuisine:block/cocoa_cake_bottom",
+        "top": "bountifulcuisine:block/cocoa_cake_top",
+        "side": "bountifulcuisine:block/cocoa_cake_side",
+        "inside": "bountifulcuisine:block/cocoa_cake_inside"
     },
     "elements": [
-        {   "from": [ 3, 0, 1 ],
+        {   "from": [ 13, 0, 1 ],
             "to": [ 15, 8, 15 ],
             "faces": {
                 "down":  { "texture": "#bottom", "cullface": "down" },
