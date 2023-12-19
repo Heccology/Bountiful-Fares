@@ -8,24 +8,17 @@ import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 import static net.minecraft.data.family.BlockFamilies.register;
 import static net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder.getItemId;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
-
-    public static final String[] DYE_COLORS = {
-            "white", "light_gray", "gray", "black", "brown", "red", "orange", "yellow", "lime",
-            "green", "cyan", "light_blue", "blue", "purple", "magenta", "pink"
-    };
     public ModRecipeProvider(FabricDataOutput output) {
         super(output);
     }
@@ -263,6 +256,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerTeaRecipes(exporter, ModItems.HONEYSUCKLE_TEA_BOTTLE, ModBlocks.HONEYSUCKLE_CANDLE, ModItems.HONEYSUCKLE_TEA_BLEND);
         offerTeaRecipes(exporter, ModItems.BELLFLOWER_TEA_BOTTLE, ModBlocks.BELLFLOWER_CANDLE, ModItems.BELLFLOWER_TEA_BLEND);
         offerTeaRecipes(exporter, ModItems.TORCHFLOWER_TEA_BOTTLE, ModBlocks.TORCHFLOWER_CANDLE, ModItems.TORCHFLOWER_TEA_BLEND);
+        offerCompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SPONGEKIN, ModItems.SPONGEKIN_SLICE);
         offerCompoteJarRecipe(exporter, ModItems.APPLE_COMPOTE_JAR, Items.APPLE);
         offerCompoteJarRecipe(exporter, ModItems.ORANGE_COMPOTE_JAR, ModItems.ORANGE);
         offerCompoteJarRecipe(exporter, ModItems.LEMON_COMPOTE_JAR, ModItems.LEMON);

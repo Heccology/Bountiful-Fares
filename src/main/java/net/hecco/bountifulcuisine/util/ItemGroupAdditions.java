@@ -12,6 +12,15 @@ public class ItemGroupAdditions {
     public static void registerItemGroupAdditions() {
         BountifulCuisine.LOGGER.info("Adding Items to Vanilla Tabs from " + BountifulCuisine.MOD_ID);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+            entries.addAfter(Items.OAK_FENCE_GATE, ModBlocks.OAK_PICKETS.asItem());
+            entries.addAfter(Items.SPRUCE_FENCE_GATE, ModBlocks.SPRUCE_PICKETS.asItem());
+            entries.addAfter(Items.BIRCH_FENCE_GATE, ModBlocks.BIRCH_PICKETS.asItem());
+            entries.addAfter(Items.JUNGLE_FENCE_GATE, ModBlocks.JUNGLE_PICKETS.asItem());
+            entries.addAfter(Items.ACACIA_FENCE_GATE, ModBlocks.ACACIA_PICKETS.asItem());
+            entries.addAfter(Items.DARK_OAK_FENCE_GATE, ModBlocks.DARK_OAK_PICKETS.asItem());
+            entries.addAfter(Items.MANGROVE_FENCE_GATE, ModBlocks.MANGROVE_PICKETS.asItem());
+            entries.addAfter(Items.CHERRY_FENCE_GATE, ModBlocks.CHERRY_PICKETS.asItem());
+            entries.addAfter(Items.BAMBOO_FENCE_GATE, ModBlocks.BAMBOO_PICKETS.asItem());
             entries.addAfter(Items.BAMBOO_BUTTON, ModBlocks.HOARY_LOG.asItem());
             entries.addAfter(ModBlocks.HOARY_LOG.asItem(), ModBlocks.HOARY_WOOD.asItem());
             entries.addAfter(ModBlocks.HOARY_WOOD.asItem(), ModBlocks.STRIPPED_HOARY_LOG.asItem());
@@ -21,10 +30,13 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.HOARY_STAIRS.asItem(), ModBlocks.HOARY_SLAB.asItem());
             entries.addAfter(ModBlocks.HOARY_SLAB.asItem(), ModBlocks.HOARY_FENCE.asItem());
             entries.addAfter(ModBlocks.HOARY_FENCE.asItem(), ModBlocks.HOARY_FENCE_GATE.asItem());
-            entries.addAfter(ModBlocks.HOARY_FENCE_GATE.asItem(), ModBlocks.HOARY_DOOR.asItem());
+            entries.addAfter(ModBlocks.HOARY_FENCE_GATE.asItem(), ModBlocks.HOARY_PICKETS.asItem());
+            entries.addAfter(ModBlocks.HOARY_PICKETS.asItem(), ModBlocks.HOARY_DOOR.asItem());
             entries.addAfter(ModBlocks.HOARY_DOOR.asItem(), ModBlocks.HOARY_TRAPDOOR.asItem());
             entries.addAfter(ModBlocks.HOARY_TRAPDOOR.asItem(), ModBlocks.HOARY_PRESSURE_PLATE.asItem());
             entries.addAfter(ModBlocks.HOARY_PRESSURE_PLATE.asItem(), ModBlocks.HOARY_BUTTON.asItem());
+            entries.addAfter(Items.CRIMSON_FENCE_GATE, ModBlocks.CRIMSON_PICKETS.asItem());
+            entries.addAfter(Items.WARPED_FENCE_GATE, ModBlocks.WARPED_PICKETS.asItem());
             entries.addAfter(Items.WARPED_BUTTON, ModBlocks.APPLE_LOG.asItem());
             entries.addAfter(ModBlocks.APPLE_LOG.asItem(), ModBlocks.APPLE_WOOD.asItem());
             entries.addAfter(ModBlocks.APPLE_WOOD.asItem(), ModBlocks.STRIPPED_APPLE_LOG.asItem());
@@ -123,29 +135,41 @@ public class ItemGroupAdditions {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
-            entries.addAfter(Items.APPLE, ModBlocks.APPLE_BLOCK.asItem());
+            entries.addAfter(Items.APPLE, ModItems.APPLE_COMPOTE_JAR);
+            entries.addAfter(ModItems.APPLE_COMPOTE_JAR, ModItems.APPLE_CIDER_JAR);
+            entries.addAfter(ModItems.APPLE_CIDER_JAR, ModBlocks.APPLE_BLOCK.asItem());
             entries.addAfter(ModBlocks.APPLE_BLOCK.asItem(), ModItems.ORANGE);
-            entries.addAfter(ModItems.ORANGE, ModItems.CANDIED_ORANGE);
+            entries.addAfter(ModItems.ORANGE, ModItems.ORANGE_COMPOTE_JAR);
+            entries.addAfter(ModItems.ORANGE_COMPOTE_JAR, ModItems.CANDIED_ORANGE);
             entries.addAfter(ModItems.CANDIED_ORANGE, ModBlocks.ORANGE_BLOCK.asItem());
             entries.addAfter(ModBlocks.ORANGE_BLOCK.asItem(), ModItems.LEMON);
-            entries.addAfter(ModItems.LEMON, ModItems.CANDIED_LEMON);
+            entries.addAfter(ModItems.LEMON, ModItems.LEMON_COMPOTE_JAR);
+            entries.addAfter(ModItems.LEMON_COMPOTE_JAR, ModItems.CANDIED_LEMON);
             entries.addAfter(ModItems.CANDIED_LEMON, ModBlocks.LEMON_BLOCK.asItem());
             entries.addAfter(ModBlocks.LEMON_BLOCK.asItem(), ModItems.PLUM);
-            entries.addAfter(ModItems.PLUM, ModBlocks.PLUM_BLOCK.asItem());
+            entries.addAfter(ModItems.PLUM, ModItems.PLUM_COMPOTE_JAR);
+            entries.addAfter(ModItems.PLUM_COMPOTE_JAR, ModItems.PLUM_CIDER_JAR);
+            entries.addAfter(ModItems.PLUM_CIDER_JAR, ModBlocks.PLUM_BLOCK.asItem());
             entries.addAfter(ModBlocks.PLUM_BLOCK.asItem(), ModItems.HOARY_APPLE);
-            entries.addAfter(ModItems.HOARY_APPLE, ModBlocks.HOARY_APPLE_BLOCK.asItem());
+            entries.addAfter(ModItems.HOARY_APPLE, ModItems.HOARY_COMPOTE_JAR);
+            entries.addAfter(ModItems.HOARY_COMPOTE_JAR, ModItems.HOARY_CIDER_JAR);
+            entries.addAfter(ModItems.HOARY_CIDER_JAR, ModBlocks.HOARY_APPLE_BLOCK.asItem());
             entries.addAfter(Items.ENCHANTED_GOLDEN_APPLE, ModBlocks.GOLDEN_APPLE_BLOCK.asItem());
             entries.addAfter(Items.MELON_SLICE, ModItems.SPONGEKIN_SLICE);
             entries.addAfter(Items.SWEET_BERRIES, ModBlocks.PASSION_FRUIT);
             entries.addAfter(ModBlocks.PASSION_FRUIT, ModBlocks.ELDERBERRIES);
             entries.addAfter(ModBlocks.ELDERBERRIES, ModItems.ELDERBERRY_WINE_BOTTLE);
             entries.addAfter(Items.GLOW_BERRIES, ModBlocks.LAPISBERRIES);
+            entries.addAfter(ModBlocks.LAPISBERRIES, ModItems.LAPISBERRY_WINE_BOTTLE);
+            entries.addAfter(Items.MILK_BUCKET, ModItems.GREEN_TEA_BOTTLE);
             entries.addAfter(Items.MILK_BUCKET, ModItems.GREEN_TEA_BOTTLE);
             entries.addAfter(ModItems.GREEN_TEA_BOTTLE, ModItems.BLACK_TEA_BOTTLE);
             entries.addAfter(ModItems.BLACK_TEA_BOTTLE, ModItems.CHAMOMILE_TEA_BOTTLE);
             entries.addAfter(ModItems.CHAMOMILE_TEA_BOTTLE, ModItems.HONEYSUCKLE_TEA_BOTTLE);
             entries.addAfter(ModItems.HONEYSUCKLE_TEA_BOTTLE, ModItems.BELLFLOWER_TEA_BOTTLE);
             entries.addAfter(ModItems.BELLFLOWER_TEA_BOTTLE, ModItems.TORCHFLOWER_TEA_BOTTLE);
+            entries.addAfter(Items.HONEY_BOTTLE, ModItems.MEAD_BOTTLE);
+            entries.addAfter(Items.BAKED_POTATO, ModItems.MUSHROOM_STUFFED_POTATO);
             entries.addAfter(Items.BEETROOT, ModItems.MAIZE);
             entries.addAfter(ModItems.MAIZE, ModItems.GOOSEBERRIES);
             entries.addAfter(Items.BREAD, ModBlocks.ARTISAN_BREAD.asItem());
@@ -155,6 +179,7 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.ELDERBERRY_TART.asItem(), ModBlocks.GLOW_BERRY_TART.asItem());
             entries.addAfter(ModBlocks.GLOW_BERRY_TART.asItem(), ModBlocks.SWEET_BERRY_TART.asItem());
             entries.addAfter(ModBlocks.SWEET_BERRY_TART.asItem(), ModBlocks.LAPISBERRY_TART.asItem());
+            entries.addAfter(Items.CAKE, ModBlocks.COCOA_CAKE);
             entries.addAfter(Items.PUMPKIN_PIE, ModBlocks.APPLE_PIE.asItem());
             entries.addAfter(ModBlocks.APPLE_PIE.asItem(), ModBlocks.ORANGE_PIE.asItem());
             entries.addAfter(ModBlocks.ORANGE_PIE.asItem(), ModBlocks.LEMON_PIE.asItem());
@@ -177,6 +202,8 @@ public class ItemGroupAdditions {
             entries.addAfter(Items.SLIME_BALL, ModItems.FELDSPAR);
             entries.addAfter(ModItems.FELDSPAR, ModItems.CERAMIC_CLAY);
             entries.addAfter(ModItems.CERAMIC_CLAY, ModItems.CERAMIC_TILE);
+            entries.addAfter(Items.BOWL, ModBlocks.CERAMIC_DISH);
+            entries.addAfter(ModBlocks.CERAMIC_DISH, ModItems.JAR);
             entries.addAfter(Items.FIREWORK_STAR, ModItems.TEA_LEAVES);
             entries.addAfter(ModItems.TEA_LEAVES, ModItems.DRIED_TEA_LEAVES);
             entries.addAfter(ModItems.DRIED_TEA_LEAVES, ModItems.GREEN_TEA_BLEND);
