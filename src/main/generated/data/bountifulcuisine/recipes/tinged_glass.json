@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "F": {
+      "item": "bountifulcuisine:feldspar"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    }
+  },
+  "pattern": [
+    " F ",
+    "FGF",
+    " F "
+  ],
+  "result": {
+    "item": "bountifulcuisine:tinged_glass"
+  },
+  "show_notification": true
+}

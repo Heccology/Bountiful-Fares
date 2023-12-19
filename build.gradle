@@ -4,6 +4,7 @@ plugins {
 //	id 'org.jetbrains.kotlin.jvm' version('1.8.0-RC')
 }
 
+
 version = project.mod_version
 group = project.maven_group
 
@@ -56,6 +57,35 @@ processResources {
 
 	filesMatching("fabric.mod.json") {
 		expand "version": project.version
+	}
+}
+
+sourceSets {
+	main {
+		resources {
+			srcDirs += [
+					'src/main/generated'
+			]
+		}
+	}
+}
+
+loom {
+
+	// ... (Whatever exists here)
+
+	runs {
+		// This adds a new gradle task that runs the datagen API: "gradlew runDatagen"
+		datagen {
+
+			inherit client
+			name "Data Generation"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+			vmArg "-Dfabric-api.datagen.modid=${modid}"
+
+			runDir "build/datagen"
+		}
 	}
 }
 

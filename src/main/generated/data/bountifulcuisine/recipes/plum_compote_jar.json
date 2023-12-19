@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:plum"
+    },
+    {
+      "item": "bountifulcuisine:plum"
+    },
+    {
+      "item": "bountifulcuisine:citric_acid"
+    },
+    {
+      "item": "bountifulcuisine:jar"
+    }
+  ],
+  "result": {
+    "item": "bountifulcuisine:plum_compote_jar"
+  }
+}

@@ -2,23 +2,23 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "tag": "minecraft:planks"
-    },
     "B": {
       "item": "minecraft:brick"
     },
     "I": {
       "item": "minecraft:iron_ingot"
+    },
+    "P": {
+      "tag": "minecraft:planks"
     }
   },
   "pattern": [
-    "###",
-    "#I#",
+    "PPP",
+    "PIP",
     "BBB"
   ],
   "result": {
-    "item": "bountifulcuisine:grist"
+    "item": "bountifulcuisine:gristmill"
   },
   "show_notification": true
 }

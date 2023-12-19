@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bountifulcuisine:torchflower_tea_bottle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_torchflower_tea_blend": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bountifulcuisine:torchflower_tea_blend"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_torchflower_tea_blend",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bountifulcuisine:torchflower_tea_bottle"
+    ]
+  },
+  "sends_telemetry_event": false
+}

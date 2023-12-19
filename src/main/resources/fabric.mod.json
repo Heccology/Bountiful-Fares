@@ -23,6 +23,9 @@
 		],
 		"rei_client": [
 			"net.hecco.bountifulcuisine.compat.BountifulCuisineREIClientPlugin"
+		],
+		"fabric-datagen": [
+			"net.hecco.bountifulcuisine.BountifulCuisineDataGenerator"
 		]
 	},
 	"mixins": [

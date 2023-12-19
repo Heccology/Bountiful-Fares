@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "bountifulcuisine:citric_acid"
+    },
+    {
+      "item": "bountifulcuisine:jar"
+    }
+  ],
+  "result": {
+    "item": "bountifulcuisine:apple_compote_jar"
+  }
+}
