@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "bountifulcuisine:ceramic_tiles",
+    "bountifulcuisine:ceramic_tile_stairs",
+    "bountifulcuisine:ceramic_tile_slab",
+    "bountifulcuisine:checkered_ceramic_tiles",
+    "bountifulcuisine:checkered_ceramic_tile_stairs",
+    "bountifulcuisine:checkered_ceramic_tile_slab",
+    "bountifulcuisine:ceramic_pressure_plate",
+    "bountifulcuisine:ceramic_button",
+    "bountifulcuisine:ceramic_dish"
+  ]
+}

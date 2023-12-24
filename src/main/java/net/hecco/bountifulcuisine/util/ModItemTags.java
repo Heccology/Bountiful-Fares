@@ -7,10 +7,20 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 public class ModItemTags {
+    public static final TagKey<Item> APPLE_LOGS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "apple_logs"));
+    public static final TagKey<Item> ORANGE_LOGS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "orange_logs"));
+    public static final TagKey<Item> LEMON_LOGS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "lemon_logs"));
+    public static final TagKey<Item> PLUM_LOGS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "plum_logs"));
     public static final TagKey<Item> HOARY_LOGS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "hoary_logs"));
+    public static final TagKey<Item> APPLE_LEAVES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "apple_leaves"));
+    public static final TagKey<Item> ORANGE_LEAVES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "orange_leaves"));
+    public static final TagKey<Item> LEMON_LEAVES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "lemon_leaves"));
+    public static final TagKey<Item> PLUM_LEAVES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "plum_leaves"));
     public static final TagKey<Item> FRUIT_LOGS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "fruit_logs"));
     public static final TagKey<Item> JACK_O_STRAW_LIGHTABLE = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "jack_o_straw_lightable"));
     public static final TagKey<Item> DYES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "dyes"));
     public static final TagKey<Item> ELS_AND_LS_DYES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "els_and_ls_dyes"));
     public static final TagKey<Item> EATABLE_ON_DISH = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "eatable_on_dish"));
+    public static final TagKey<Item> DYEABLE_CERAMIC_BLOCKS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "dyeable_ceramic_blocks"));
+    public static final TagKey<Item> FELSIC_STONES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "felsic_stones"));
 }
