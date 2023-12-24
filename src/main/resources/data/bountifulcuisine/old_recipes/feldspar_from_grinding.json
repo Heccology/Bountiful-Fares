@@ -2,7 +2,7 @@
   "type": "bountifulcuisine:milling",
   "ingredients": [
     {
-      "item": "minecraft:granite"
+      "item": "#bountifulcuisine:felsic_stones"
     }
   ],
   "output": {

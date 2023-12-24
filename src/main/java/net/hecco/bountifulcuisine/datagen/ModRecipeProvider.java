@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
@@ -209,6 +210,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.WARPED_ROOTS), conditionsFromItem(Items.WARPED_ROOTS))
                 .offerTo(exporter);
 
+        offerPlanksRecipe(exporter, Items.STICK, ModItemTags.FRUIT_LOGS, 8);
         offerBarkBlockRecipe(exporter, ModBlocks.APPLE_WOOD, ModBlocks.APPLE_LOG);
         offerBarkBlockRecipe(exporter, ModBlocks.STRIPPED_APPLE_WOOD, ModBlocks.STRIPPED_APPLE_LOG);
         offerBarkBlockRecipe(exporter, ModBlocks.ORANGE_WOOD, ModBlocks.ORANGE_LOG);

@@ -68,7 +68,7 @@ public class ItemGroupAdditions {
             entries.addAfter(Items.CHERRY_LOG, ModBlocks.APPLE_LOG.asItem());
             entries.addAfter(ModBlocks.APPLE_LOG.asItem(), ModBlocks.ORANGE_LOG.asItem());
             entries.addAfter(ModBlocks.ORANGE_LOG.asItem(), ModBlocks.LEMON_LOG.asItem());
-            entries.addAfter(ModBlocks.LEMON_LOG.asItem(), ModBlocks.PLUM_BLOCK.asItem());
+            entries.addAfter(ModBlocks.LEMON_LOG.asItem(), ModBlocks.PLUM_LOG.asItem());
             entries.addAfter(Items.CHERRY_LOG, ModBlocks.HOARY_LOG.asItem());
             entries.addAfter(Items.FLOWERING_AZALEA_LEAVES, ModBlocks.APPLE_LEAVES.asItem());
             entries.addAfter(ModBlocks.APPLE_LEAVES.asItem(), ModBlocks.FLOWERING_APPLE_LEAVES.asItem());

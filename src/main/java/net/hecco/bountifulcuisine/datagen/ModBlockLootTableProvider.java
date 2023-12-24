@@ -145,6 +145,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .conditionally(WITH_SILK_TOUCH)
                         .with(ItemEntry.builder(ModBlocks.PRISMARINE_BLOSSOM))));
+        addDrop(ModBlocks.WHITE_JACK_O_STRAW, doorDrops(ModBlocks.WHITE_JACK_O_STRAW));
     }
     public LootTable.Builder plantedTrellisDrops(Block block, Item plant) {
         return LootTable.builder()

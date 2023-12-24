@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "bountifulcuisine:feldspar_block",
+    "bountifulcuisine:feldspar_lantern",
+    "bountifulcuisine:ceramic_tiles",
+    "bountifulcuisine:ceramic_tile_stairs",
+    "bountifulcuisine:ceramic_tile_slab",
+    "bountifulcuisine:checkered_ceramic_tiles",
+    "bountifulcuisine:checkered_ceramic_tile_stairs",
+    "bountifulcuisine:checkered_ceramic_tile_slab",
+    "bountifulcuisine:fermentation_vessel",
+    "bountifulcuisine:full_fermentation_vessel"
+  ]
+}
