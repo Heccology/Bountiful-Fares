@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "bountifulcuisine:block/walnut_slab"
+    },
+    "type=double": {
+      "model": "bountifulcuisine:block/walnut_planks"
+    },
+    "type=top": {
+      "model": "bountifulcuisine:block/walnut_slab_top"
+    }
+  }
+}

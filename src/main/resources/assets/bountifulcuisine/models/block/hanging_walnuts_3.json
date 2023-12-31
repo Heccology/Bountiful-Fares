@@ -1,0 +1,7 @@
+{
+	"parent": "bountifulcuisine:block/tintable_cross_with_overlay",
+	"textures": {
+		"cross": "bountifulcuisine:block/hanging_walnuts_3",
+		"tint": "bountifulcuisine:block/hanging_walnuts_3_tint"
+	}
+}

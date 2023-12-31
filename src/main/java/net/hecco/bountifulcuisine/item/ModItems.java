@@ -22,6 +22,12 @@ public class ModItems {
     public static final Item HOARY_HANGING_SIGN = registerItem("hoary_hanging_sign", new HangingSignItem(ModBlocks.HOARY_HANGING_SIGN, ModBlocks.HOARY_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
     public static final Item HOARY_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.HOARY_BOAT_ID, ModBoats.HOARY_BOAT_KEY, false);
     public static final Item HOARY_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.HOARY_CHEST_BOAT_ID, ModBoats.HOARY_BOAT_KEY, true);
+
+    public static final Item WALNUT = registerItem("walnut", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(1).saturationModifier(0).snack().build())));
+    public static final Item WALNUT_SIGN = registerItem("walnut_sign", new SignItem(new FabricItemSettings().maxCount(16), ModBlocks.WALNUT_SIGN, ModBlocks.WALNUT_WALL_SIGN));
+    public static final Item WALNUT_HANGING_SIGN = registerItem("walnut_hanging_sign", new HangingSignItem(ModBlocks.WALNUT_HANGING_SIGN, ModBlocks.WALNUT_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
+    public static final Item WALNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.WALNUT_BOAT_ID, ModBoats.WALNUT_BOAT_KEY, false);
+    public static final Item WALNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.WALNUT_CHEST_BOAT_ID, ModBoats.WALNUT_BOAT_KEY, true);
     public static final Item LAPISBERRY_SEEDS = registerItem("lapisberry_seeds", new Item(new FabricItemSettings()));
     public static final Item CITRIC_ACID = registerItem("citric_acid", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(0).saturationModifier(0).snack().alwaysEdible().statusEffect(new StatusEffectInstance(ModEffects.ACIDIC, 300, 0),1).build())));
     public static final Item CANDIED_ORANGE = registerItem("candied_orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).snack().build())));

@@ -1,5 +1,11 @@
 {
   "itemgroup.bountiful_cuisine": "Bountiful Cuisine",
+  "advancement.bountifulcuisine.bountiful_cuisine": "Bountiful Cuisine",
+  "advancement.bountifulcuisine.bountiful_cuisine.description": "The world is filled with more food!",
+  "advancement.bountifulcuisine.obtain_feldspar": "Felsic Forager",
+  "advancement.bountifulcuisine.obtain_feldspar.description": "Obtain feldspar from grinding",
+  "advancement.bountifulcuisine.obtain_ceramic_tiles": "Double Rainbow All the Way",
+  "advancement.bountifulcuisine.obtain_ceramic_tiles.description": "Obtain a block which can become any color you can imagine",
 
   "tooltip.bountifulcuisine.apple": "§7§oMalus Domestica",
   "tooltip.bountifulcuisine.glow_berries": "§7§oBaccate Candentis",
@@ -99,6 +105,28 @@
   "tooltip.bountifulcuisine.hoary_apple": "§7§oMalus Primordium",
   "block.bountifulcuisine.hoary_apple_block": "Hoary Apple Block",
   "tooltip.bountifulcuisine.hoary_apple_block": "§7§oMalus Primordium",
+
+  "block.bountifulcuisine.walnut_log": "Walnut Log",
+  "block.bountifulcuisine.stripped_walnut_log": "Stripped Walnut Log",
+  "block.bountifulcuisine.walnut_wood": "Walnut Wood",
+  "block.bountifulcuisine.stripped_walnut_wood": "Stripped Walnut Wood",
+  "block.bountifulcuisine.walnut_planks": "Walnut Planks",
+  "block.bountifulcuisine.walnut_stairs": "Walnut Stairs",
+  "block.bountifulcuisine.walnut_slab": "Walnut Slab",
+  "block.bountifulcuisine.walnut_fence": "Walnut Fence",
+  "block.bountifulcuisine.walnut_fence_gate": "Walnut Fence Gate",
+  "block.bountifulcuisine.walnut_door": "Walnut Door",
+  "block.bountifulcuisine.walnut_trapdoor": "Walnut Trapdoor",
+  "block.bountifulcuisine.walnut_pressure_plate": "Walnut Pressure Plate",
+  "block.bountifulcuisine.walnut_button": "Walnut Button",
+  "block.bountifulcuisine.walnut_leaves": "Walnut Leaves",
+  "block.bountifulcuisine.walnut_sign": "Walnut Sign",
+  "block.bountifulcuisine.walnut_hanging_sign": "Walnut Hanging Sign",
+  "item.bountifulcuisine.walnut_boat": "Walnut Boat",
+  "item.bountifulcuisine.walnut_chest_boat": "Walnut Boat with Chest",
+  "item.bountifulcuisine.walnut": "Walnut",
+  "block.bountifulcuisine.walnut_mulch": "Walnut Mulch",
+  "block.bountifulcuisine.walnut_mulch_block": "Walnut Mulch Block",
 
   "item.bountifulcuisine.citrus_juice_bottle": "Citrus Juice Bottle",
   "item.bountifulcuisine.citric_acid": "Citric Acid",
@@ -234,6 +262,7 @@
   "block.bountifulcuisine.honeysuckle_candle": "Honeysuckle Candle",
   "block.bountifulcuisine.bellflower_candle": "Bellflower Candle",
   "block.bountifulcuisine.torchflower_candle": "Torchflower Candle",
+  "block.bountifulcuisine.walnut_candle": "Walnut Candle",
 
   "effect.bountifulcuisine.ebullience": "Ebullience",
 

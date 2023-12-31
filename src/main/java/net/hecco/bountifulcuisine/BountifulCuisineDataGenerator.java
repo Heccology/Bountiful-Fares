@@ -2,10 +2,11 @@ package net.hecco.bountifulcuisine;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.hecco.bountifulcuisine.datagen.ModBlockLootTableProvider;
-import net.hecco.bountifulcuisine.datagen.ModBlockTagProvider;
-import net.hecco.bountifulcuisine.datagen.ModItemTagProvider;
-import net.hecco.bountifulcuisine.datagen.ModRecipeProvider;
+import net.hecco.bountifulcuisine.datagen.*;
+import net.hecco.bountifulcuisine.world.ModConfiguredFeatures;
+import net.hecco.bountifulcuisine.world.ModPlacedFeatures;
+import net.minecraft.registry.RegistryBuilder;
+import net.minecraft.registry.RegistryKeys;
 
 public class BountifulCuisineDataGenerator implements DataGeneratorEntrypoint {
     @Override
@@ -15,5 +16,13 @@ public class BountifulCuisineDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModBlockLootTableProvider::new);
         pack.addProvider(ModBlockTagProvider::new);
         pack.addProvider(ModItemTagProvider::new);
+        pack.addProvider(ModAdvancementProvider::new);
+        pack.addProvider(ModModelProvider::new);
+    }
+
+    @Override
+    public void buildRegistry(RegistryBuilder registryBuilder) {
+        registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
+        registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
     }
 }

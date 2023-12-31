@@ -3,13 +3,17 @@ package net.hecco.bountifulcuisine.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.block.custom.FallenWalnutsBlock;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.SlabBlock;
+import net.minecraft.block.enums.SlabType;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
@@ -19,6 +23,7 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.NumberRange;
+import net.minecraft.predicate.StatePredicate;
 import net.minecraft.predicate.item.EnchantmentPredicate;
 
 public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
@@ -95,6 +100,24 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .with(ItemEntry.builder(ModBlocks.HOARY_LEAVES))));
         addDrop(ModBlocks.HOARY_APPLE_BLOCK);
         addDrop(ModBlocks.GOLDEN_APPLE_BLOCK);
+        addDrop(ModBlocks.WALNUT_LOG);
+        addDrop(ModBlocks.WALNUT_WOOD);
+        addDrop(ModBlocks.STRIPPED_WALNUT_LOG);
+        addDrop(ModBlocks.STRIPPED_WALNUT_WOOD);
+        addDrop(ModBlocks.WALNUT_PLANKS);
+        addDrop(ModBlocks.WALNUT_STAIRS);
+        addDrop(ModBlocks.WALNUT_SLAB);
+        addDrop(ModBlocks.WALNUT_FENCE);
+        addDrop(ModBlocks.WALNUT_FENCE_GATE);
+        addDrop(ModBlocks.WALNUT_DOOR, doorDrops(ModBlocks.WALNUT_DOOR));
+        addDrop(ModBlocks.WALNUT_TRAPDOOR);
+        addDrop(ModBlocks.WALNUT_PRESSURE_PLATE);
+        addDrop(ModBlocks.WALNUT_BUTTON);
+        addDrop(ModBlocks.WALNUT_SIGN);
+        addDrop(ModBlocks.WALNUT_WALL_SIGN);
+        addDrop(ModBlocks.WALNUT_HANGING_SIGN);
+        addDrop(ModBlocks.WALNUT_WALL_HANGING_SIGN);
+        addDrop(ModBlocks.WALNUT_LEAVES, leavesDrops(ModBlocks.WALNUT_LEAVES, ModBlocks.PLUM_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(ModBlocks.OAK_PICKETS);
         addDrop(ModBlocks.SPRUCE_PICKETS);
         addDrop(ModBlocks.BIRCH_PICKETS);
@@ -146,6 +169,23 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .conditionally(WITH_SILK_TOUCH)
                         .with(ItemEntry.builder(ModBlocks.PRISMARINE_BLOSSOM))));
         addDrop(ModBlocks.WHITE_JACK_O_STRAW, doorDrops(ModBlocks.WHITE_JACK_O_STRAW));
+        addDrop(ModBlocks.FALLEN_WALNUTS, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(2.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.FALLEN_WALNUTS)
+                                .properties(StatePredicate.Builder.create().exactMatch(FallenWalnutsBlock.COUNT, 0)))
+                        .with(this.applyExplosionDecay(ModBlocks.FALLEN_WALNUTS, ItemEntry.builder(ModItems.WALNUT))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(4.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.FALLEN_WALNUTS)
+                                .properties(StatePredicate.Builder.create().exactMatch(FallenWalnutsBlock.COUNT, 1)))
+                        .with(this.applyExplosionDecay(ModBlocks.FALLEN_WALNUTS, ItemEntry.builder(ModItems.WALNUT))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(5.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.FALLEN_WALNUTS)
+                                .properties(StatePredicate.Builder.create().exactMatch(FallenWalnutsBlock.COUNT, 2)))
+                        .with(this.applyExplosionDecay(ModBlocks.FALLEN_WALNUTS, ItemEntry.builder(ModItems.WALNUT))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(6.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.FALLEN_WALNUTS)
+                                .properties(StatePredicate.Builder.create().exactMatch(FallenWalnutsBlock.COUNT, 3)))
+                        .with(this.applyExplosionDecay(ModBlocks.FALLEN_WALNUTS, ItemEntry.builder(ModItems.WALNUT)))));
     }
     public LootTable.Builder plantedTrellisDrops(Block block, Item plant) {
         return LootTable.builder()

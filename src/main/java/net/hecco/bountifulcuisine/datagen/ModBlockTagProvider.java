@@ -76,6 +76,23 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.HOARY_WALL_SIGN)
                 .add(ModBlocks.HOARY_HANGING_SIGN)
                 .add(ModBlocks.HOARY_WALL_HANGING_SIGN)
+                .add(ModBlocks.WALNUT_LOG)
+                .add(ModBlocks.WALNUT_WOOD)
+                .add(ModBlocks.STRIPPED_WALNUT_LOG)
+                .add(ModBlocks.STRIPPED_WALNUT_WOOD)
+                .add(ModBlocks.WALNUT_PLANKS)
+                .add(ModBlocks.WALNUT_STAIRS)
+                .add(ModBlocks.WALNUT_SLAB)
+                .add(ModBlocks.WALNUT_FENCE)
+                .add(ModBlocks.WALNUT_FENCE_GATE)
+                .add(ModBlocks.WALNUT_DOOR)
+                .add(ModBlocks.WALNUT_TRAPDOOR)
+                .add(ModBlocks.WALNUT_PRESSURE_PLATE)
+                .add(ModBlocks.WALNUT_BUTTON)
+                .add(ModBlocks.WALNUT_SIGN)
+                .add(ModBlocks.WALNUT_WALL_SIGN)
+                .add(ModBlocks.WALNUT_HANGING_SIGN)
+                .add(ModBlocks.WALNUT_WALL_HANGING_SIGN)
                 .add(ModBlocks.OAK_PICKETS)
                 .add(ModBlocks.SPRUCE_PICKETS)
                 .add(ModBlocks.BIRCH_PICKETS)
@@ -136,9 +153,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PINK_JACK_O_STRAW)
         ;
         getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(ModBlocks.GOLDEN_APPLE_BLOCK);
-        getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS).add(ModBlocks.HOARY_HANGING_SIGN);
         getOrCreateTagBuilder(BlockTags.CROPS).add(ModBlocks.HOARY_APPLE_SAPLING_CROP, ModBlocks.MAIZE_CROP, ModBlocks.GOOSEBERRIES);
-        getOrCreateTagBuilder(BlockTags.FENCE_GATES).add(ModBlocks.HOARY_FENCE_GATE);
         getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
                 .add(ModBlocks.POTTED_HOARY_APPLE_SAPLING,
                 ModBlocks.POTTED_APPLE_SAPLING,
@@ -148,35 +163,41 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 ModBlocks.POTTED_HONEYSUCKLE,
                 ModBlocks.POTTED_VIOLET_BELLFLOWER);
         getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS).add(ModBlocks.HONEYSUCKLE, ModBlocks.VIOLET_BELLFLOWER);
+
         getOrCreateTagBuilder(BlockTags.LEAVES)
                 .addTag(ModBlockTags.APPLE_LEAVES)
                 .addTag(ModBlockTags.ORANGE_LEAVES)
                 .addTag(ModBlockTags.LEMON_LEAVES)
                 .addTag(ModBlockTags.PLUM_LEAVES)
-                .add(ModBlocks.HOARY_LEAVES);
+                .add(ModBlocks.HOARY_LEAVES)
+                .add(ModBlocks.WALNUT_LEAVES);
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .addTag(ModBlockTags.APPLE_LOGS)
                 .addTag(ModBlockTags.ORANGE_LOGS)
                 .addTag(ModBlockTags.LEMON_LOGS)
                 .addTag(ModBlockTags.PLUM_LOGS)
+                .addTag(ModBlockTags.WALNUT_LOGS)
                 .addTag(ModBlockTags.HOARY_LOGS);
         getOrCreateTagBuilder(BlockTags.OVERWORLD_NATURAL_LOGS)
                 .add(ModBlocks.APPLE_LOG)
                 .add(ModBlocks.ORANGE_LOG)
                 .add(ModBlocks.LEMON_LOG)
                 .add(ModBlocks.PLUM_LOG)
+                .add(ModBlocks.WALNUT_LOG)
                 .add(ModBlocks.HOARY_LOG);
-        getOrCreateTagBuilder(BlockTags.PLANKS).add(ModBlocks.HOARY_PLANKS);
-        getOrCreateTagBuilder(BlockTags.STANDING_SIGNS).add(ModBlocks.HOARY_SIGN);
-        getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS).add(ModBlocks.HOARY_WALL_HANGING_SIGN);
-        getOrCreateTagBuilder(BlockTags.WALL_SIGNS).add(ModBlocks.HOARY_WALL_SIGN);
-        getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).add(ModBlocks.HOARY_BUTTON);
-        getOrCreateTagBuilder(BlockTags.WOODEN_DOORS).add(ModBlocks.HOARY_DOOR);
-        getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(ModBlocks.HOARY_FENCE);
-        getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES).add(ModBlocks.HOARY_PRESSURE_PLATE);
-        getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).add(ModBlocks.HOARY_SLAB);
-        getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).add(ModBlocks.HOARY_STAIRS);
-        getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS).add(ModBlocks.HOARY_TRAPDOOR);
+        getOrCreateTagBuilder(BlockTags.PLANKS).add(ModBlocks.WALNUT_PLANKS, ModBlocks.HOARY_PLANKS);
+        getOrCreateTagBuilder(BlockTags.STANDING_SIGNS).add(ModBlocks.WALNUT_SIGN, ModBlocks.HOARY_SIGN);
+        getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS).add(ModBlocks.WALNUT_HANGING_SIGN, ModBlocks.HOARY_HANGING_SIGN);
+        getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS).add(ModBlocks.WALNUT_WALL_HANGING_SIGN, ModBlocks.HOARY_WALL_HANGING_SIGN);
+        getOrCreateTagBuilder(BlockTags.WALL_SIGNS).add(ModBlocks.WALNUT_WALL_SIGN, ModBlocks.HOARY_WALL_SIGN);
+        getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).add(ModBlocks.WALNUT_BUTTON, ModBlocks.HOARY_BUTTON);
+        getOrCreateTagBuilder(BlockTags.WOODEN_DOORS).add(ModBlocks.WALNUT_DOOR, ModBlocks.HOARY_DOOR);
+        getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(ModBlocks.WALNUT_FENCE, ModBlocks.HOARY_FENCE);
+        getOrCreateTagBuilder(BlockTags.FENCE_GATES).add(ModBlocks.WALNUT_FENCE_GATE, ModBlocks.HOARY_FENCE_GATE);
+        getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES).add(ModBlocks.WALNUT_PRESSURE_PLATE, ModBlocks.HOARY_PRESSURE_PLATE);
+        getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).add(ModBlocks.WALNUT_SLAB, ModBlocks.HOARY_SLAB);
+        getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).add(ModBlocks.WALNUT_STAIRS, ModBlocks.HOARY_STAIRS);
+        getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS).add(ModBlocks.WALNUT_TRAPDOOR, ModBlocks.HOARY_TRAPDOOR);
         getOrCreateTagBuilder(BlockTags.PRESSURE_PLATES).add(ModBlocks.CERAMIC_PRESSURE_PLATE);
         getOrCreateTagBuilder(BlockTags.BUTTONS).add(ModBlocks.CERAMIC_BUTTON);
 
@@ -187,7 +208,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CHAMOMILE_CANDLE)
                 .add(ModBlocks.HONEYSUCKLE_CANDLE)
                 .add(ModBlocks.BELLFLOWER_CANDLE)
-                .add(ModBlocks.TORCHFLOWER_CANDLE);
+                .add(ModBlocks.TORCHFLOWER_CANDLE)
+                .add(ModBlocks.WALNUT_CANDLE);
 
         getOrCreateTagBuilder(ModBlockTags.APPLE_LEAVES).add(ModBlocks.APPLE_LEAVES, ModBlocks.FLOWERING_APPLE_LEAVES);
         getOrCreateTagBuilder(ModBlockTags.ORANGE_LEAVES).add(ModBlocks.ORANGE_LEAVES, ModBlocks.FLOWERING_ORANGE_LEAVES);
@@ -216,6 +238,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.STRIPPED_PLUM_LOG)
                 .add(ModBlocks.PLUM_WOOD)
                 .add(ModBlocks.STRIPPED_PLUM_WOOD)
+        ;
+        getOrCreateTagBuilder(ModBlockTags.WALNUT_LOGS)
+                .add(ModBlocks.WALNUT_LOG)
+                .add(ModBlocks.STRIPPED_WALNUT_LOG)
+                .add(ModBlocks.WALNUT_WOOD)
+                .add(ModBlocks.STRIPPED_WALNUT_WOOD)
         ;
         getOrCreateTagBuilder(ModBlockTags.HOARY_LOGS)
                 .add(ModBlocks.HOARY_LOG)

@@ -1,0 +1,39 @@
+{
+  "parent": "bountifulcuisine:bountiful_cuisine",
+  "criteria": {
+    "obtain_feldspar": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bountifulcuisine:feldspar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulcuisine.obtain_feldspar.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulcuisine:feldspar"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bountifulcuisine.obtain_feldspar"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_feldspar"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

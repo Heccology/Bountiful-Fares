@@ -33,12 +33,12 @@ import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
-public class TeaCandleBlock extends BlockWithEntity implements BlockEntityProvider, Waterloggable {
+public class InfusedCandleBlock extends BlockWithEntity implements BlockEntityProvider, Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final BooleanProperty LIT = AbstractCandleBlock.LIT;
     public static boolean canBeLit;
 
-    public TeaCandleBlock(Settings settings) {
+    public InfusedCandleBlock(Settings settings) {
         super(settings);
         canBeLit = canBeLit(getDefaultState());
         this.setDefaultState(this.stateManager.getDefaultState().with(LIT, false).with(WATERLOGGED, false));
@@ -107,7 +107,7 @@ public class TeaCandleBlock extends BlockWithEntity implements BlockEntityProvid
     public static void extinguish(@Nullable PlayerEntity player, BlockState state, WorldAccess world, BlockPos pos) {
         setLit(world, state, pos, false);
         world.playSound(null, pos, SoundEvents.BLOCK_CANDLE_EXTINGUISH, SoundCategory.BLOCKS, 1.0f, 1.0f);
-        world.emitGameEvent((Entity)player, GameEvent.BLOCK_CHANGE, pos);
+        world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
     }
 
     @Override
@@ -145,7 +145,7 @@ public class TeaCandleBlock extends BlockWithEntity implements BlockEntityProvid
         return state.isIn(ModBlockTags.INFUSED_CANDLES, statex -> statex.contains(LIT) && statex.contains(WATERLOGGED)) && !state.get(LIT) && !state.get(WATERLOGGED);
     }
 
-    private static void setLit(WorldAccess world, BlockState state, BlockPos pos, boolean lit) {
+    static void setLit(WorldAccess world, BlockState state, BlockPos pos, boolean lit) {
         world.setBlockState(pos, state.with(LIT, lit), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
     }
 

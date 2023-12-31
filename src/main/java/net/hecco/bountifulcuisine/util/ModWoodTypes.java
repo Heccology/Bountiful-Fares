@@ -7,5 +7,6 @@ import net.minecraft.util.Identifier;
 
 public class ModWoodTypes {
     public static final WoodType HOARY = WoodTypeRegistry.register(new Identifier(BountifulCuisine.MOD_ID, "hoary"), ModBlockSetTypes.HOARY);
+    public static final WoodType WALNUT = WoodTypeRegistry.register(new Identifier(BountifulCuisine.MOD_ID, "walnut"), ModBlockSetTypes.WALNUT);
 }
 

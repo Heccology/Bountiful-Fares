@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:milling",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:walnut"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "bountifulcuisine:walnut_mulch"
+  }
+}

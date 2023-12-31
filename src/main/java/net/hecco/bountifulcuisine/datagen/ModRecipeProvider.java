@@ -220,6 +220,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerBarkBlockRecipe(exporter, ModBlocks.PLUM_WOOD, ModBlocks.PLUM_LOG);
         offerBarkBlockRecipe(exporter, ModBlocks.STRIPPED_PLUM_WOOD, ModBlocks.STRIPPED_PLUM_LOG);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, Items.BROWN_DYE)
+                .input(ModBlocks.WALNUT_MULCH)
+                .criterion("has_mulch", conditionsFromItem(ModBlocks.WALNUT_MULCH))
+                .offerTo(exporter);
+
+        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.WALNUT_MULCH_BLOCK, ModBlocks.WALNUT_MULCH);
+
         offerBarkBlockRecipe(exporter, ModBlocks.HOARY_WOOD, ModBlocks.HOARY_LOG);
         offerBarkBlockRecipe(exporter, ModBlocks.STRIPPED_HOARY_WOOD, ModBlocks.STRIPPED_HOARY_LOG);
         offerBoatRecipe(exporter, ModItems.HOARY_BOAT, ModBlocks.HOARY_PLANKS);
@@ -258,6 +265,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerTeaRecipes(exporter, ModItems.HONEYSUCKLE_TEA_BOTTLE, ModBlocks.HONEYSUCKLE_CANDLE, ModItems.HONEYSUCKLE_TEA_BLEND);
         offerTeaRecipes(exporter, ModItems.BELLFLOWER_TEA_BOTTLE, ModBlocks.BELLFLOWER_CANDLE, ModItems.BELLFLOWER_TEA_BLEND);
         offerTeaRecipes(exporter, ModItems.TORCHFLOWER_TEA_BOTTLE, ModBlocks.TORCHFLOWER_CANDLE, ModItems.TORCHFLOWER_TEA_BLEND);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.WALNUT_CANDLE, 1)
+                .input('S', Items.STRING)
+                .input('H', Items.HONEYCOMB)
+                .input('#', ModItems.WALNUT)
+                .pattern("S")
+                .pattern("H")
+                .pattern("#")
+                .criterion(hasItem(Items.HONEYCOMB), conditionsFromItem(Items.HONEYCOMB))
+                .criterion(hasItem(ModItems.WALNUT), conditionsFromItem(ModItems.WALNUT))
+                .offerTo(exporter);
         offerCompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SPONGEKIN, ModItems.SPONGEKIN_SLICE);
         offerCompoteJarRecipe(exporter, ModItems.APPLE_COMPOTE_JAR, Items.APPLE);
         offerCompoteJarRecipe(exporter, ModItems.ORANGE_COMPOTE_JAR, ModItems.ORANGE);
@@ -313,7 +330,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Items.POTION)
                 .criterion(hasItem(teaBlendItem), conditionsFromItem(teaBlendItem))
                 .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, teaCandle, 4)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, teaCandle, 1)
                 .input('S', Items.STRING)
                 .input('H', Items.HONEYCOMB)
                 .input('#', teaBlendItem)

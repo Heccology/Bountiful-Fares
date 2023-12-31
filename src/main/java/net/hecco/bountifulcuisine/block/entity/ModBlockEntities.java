@@ -25,13 +25,13 @@ public class ModBlockEntities {
     public static final BlockEntityType<ModSignBlockEntity> MOD_SIGN_BLOCK_ENTITY = Registry.register(
             Registries.BLOCK_ENTITY_TYPE,
             new Identifier(BountifulCuisine.MOD_ID, "mod_sign_entity"),
-            FabricBlockEntityTypeBuilder.create(ModSignBlockEntity::new, HOARY_SIGN, HOARY_WALL_SIGN).build()
+            FabricBlockEntityTypeBuilder.create(ModSignBlockEntity::new, HOARY_SIGN, HOARY_WALL_SIGN, WALNUT_SIGN, WALNUT_WALL_SIGN).build()
     );
 
     public static final BlockEntityType<ModHangingSignBlockEntity> MOD_HANGING_SIGN_BLOCK_ENTITY = Registry.register(
             Registries.BLOCK_ENTITY_TYPE,
             new Identifier(BountifulCuisine.MOD_ID, "mod_hanging_sign_entity"),
-            FabricBlockEntityTypeBuilder.create(ModHangingSignBlockEntity::new, HOARY_HANGING_SIGN, HOARY_WALL_HANGING_SIGN).build()
+            FabricBlockEntityTypeBuilder.create(ModHangingSignBlockEntity::new, HOARY_HANGING_SIGN, HOARY_WALL_HANGING_SIGN, WALNUT_HANGING_SIGN, WALNUT_WALL_HANGING_SIGN).build()
     );
 
     public static final BlockEntityType<GristmillBlockEntity> GRISTMILL_BLOCK_ENTITY = Registry.register(
@@ -69,6 +69,12 @@ public class ModBlockEntities {
             Registries.BLOCK_ENTITY_TYPE,
             new Identifier(BountifulCuisine.MOD_ID, "torchflower_candle_entity"),
             FabricBlockEntityTypeBuilder.create(TorchflowerCandleBlockEntity::new, TORCHFLOWER_CANDLE).build()
+    );
+
+    public static final BlockEntityType<WalnutCandleBlockEntity> WALNUT_CANDLE_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulCuisine.MOD_ID, "walnut_candle_entity"),
+            FabricBlockEntityTypeBuilder.create(WalnutCandleBlockEntity::new, CHAMOMILE_CANDLE).build()
     );
 
     public static void registerBlockEntities() {

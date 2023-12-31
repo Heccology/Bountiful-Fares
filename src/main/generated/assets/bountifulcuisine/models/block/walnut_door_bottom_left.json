@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "textures": {
+    "bottom": "bountifulcuisine:block/walnut_door_bottom",
+    "top": "bountifulcuisine:block/walnut_door_top"
+  }
+}

@@ -10,7 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class GreenTeaCandleBlock extends TeaCandleBlock {
+public class GreenTeaCandleBlock extends InfusedCandleBlock {
     public GreenTeaCandleBlock(Settings settings) {
         super(settings);
     }

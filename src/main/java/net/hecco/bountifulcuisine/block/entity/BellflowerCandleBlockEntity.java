@@ -28,9 +28,9 @@ public class BellflowerCandleBlockEntity extends BlockEntity {
                     for (PlayerEntity playerEntity : list) {
                         StatusEffectInstance existingEffect = playerEntity.getStatusEffect(StatusEffects.SPEED);
                         if (existingEffect == null) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 50, 0, true, false));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 50, 0, true, false, true));
                         } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 50, 0, true, false));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 50, 0, true, false, true));
                         }
                     }
                 }

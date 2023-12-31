@@ -17,6 +17,7 @@ public class ModBlockTags {
     public static final TagKey<Block> ORANGE_LOGS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulCuisine.MOD_ID, "orange_logs"));
     public static final TagKey<Block> LEMON_LOGS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulCuisine.MOD_ID, "lemon_logs"));
     public static final TagKey<Block> PLUM_LOGS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulCuisine.MOD_ID, "plum_logs"));
+    public static final TagKey<Block> WALNUT_LOGS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulCuisine.MOD_ID, "walnut_logs"));
     public static final TagKey<Block> HOARY_LOGS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulCuisine.MOD_ID, "hoary_logs"));
     public static final TagKey<Block> JACK_O_STRAWS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulCuisine.MOD_ID, "jack_o_straws"));
 

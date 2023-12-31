@@ -28,9 +28,9 @@ public class GreenTeaCandleBlockEntity extends BlockEntity {
                     for (PlayerEntity playerEntity : list) {
                         StatusEffectInstance existingEffect = playerEntity.getStatusEffect(StatusEffects.HASTE);
                         if (existingEffect == null) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 50, 0, true, false));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 50, 0, true, false, true));
                         } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 50, 0, true, false));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 50, 0, true, false, true));
                         }
                     }
                 }
