@@ -67,6 +67,8 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.PLUM_WOOD, ModBlocks.STRIPPED_PLUM_LOG);
             entries.addAfter(ModBlocks.STRIPPED_PLUM_LOG, ModBlocks.STRIPPED_PLUM_WOOD);
             entries.addAfter(ModBlocks.STRIPPED_PLUM_WOOD, ModBlocks.TRELLIS);
+            entries.addAfter(ModBlocks.TRELLIS, ModBlocks.WALNUT_MULCH);
+            entries.addAfter(ModBlocks.WALNUT_MULCH, ModBlocks.WALNUT_MULCH_BLOCK);
             entries.addAfter(Items.DARK_PRISMARINE, ModBlocks.PRISMARINE_BLOSSOM);
             entries.addAfter(Items.PURPUR_SLAB, ModBlocks.FELDSPAR_BLOCK);
             entries.addAfter(ModBlocks.FELDSPAR_BLOCK, ModBlocks.CERAMIC_CLAY_BLOCK);
@@ -121,13 +123,14 @@ public class ItemGroupAdditions {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
             entries.addAfter(Items.LANTERN, ModBlocks.FELDSPAR_LANTERN);
             entries.addAfter(Items.GRINDSTONE, ModBlocks.GRISTMILL);
-            entries.addAfter(Items.SOUL_CAMPFIRE, ModBlocks.FERMENTATION_VESSEL);
-            entries.addAfter(Items.GLOW_LICHEN, ModBlocks.GREEN_TEA_CANDLE);
+            entries.addAfter(Items.SOUL_CAMPFIRE, ModBlocks.GREEN_TEA_CANDLE);
             entries.addAfter(ModBlocks.GREEN_TEA_CANDLE, ModBlocks.BLACK_TEA_CANDLE);
             entries.addAfter(ModBlocks.BLACK_TEA_CANDLE, ModBlocks.CHAMOMILE_CANDLE);
             entries.addAfter(ModBlocks.CHAMOMILE_CANDLE, ModBlocks.HONEYSUCKLE_CANDLE);
             entries.addAfter(ModBlocks.HONEYSUCKLE_CANDLE, ModBlocks.BELLFLOWER_CANDLE);
             entries.addAfter(ModBlocks.BELLFLOWER_CANDLE, ModBlocks.TORCHFLOWER_CANDLE);
+            entries.addAfter(ModBlocks.TORCHFLOWER_CANDLE, ModBlocks.WALNUT_CANDLE);
+            entries.addAfter(ModBlocks.WALNUT_CANDLE, ModBlocks.FERMENTATION_VESSEL);
             entries.addAfter(Items.TINTED_GLASS, ModBlocks.TINGED_GLASS);
             entries.addAfter(Items.BAMBOO_HANGING_SIGN, ModItems.WALNUT_SIGN);
             entries.addAfter(ModItems.WALNUT_SIGN, ModItems.WALNUT_HANGING_SIGN);
@@ -191,6 +194,7 @@ public class ItemGroupAdditions {
             entries.addAfter(Items.BAKED_POTATO, ModItems.MUSHROOM_STUFFED_POTATO);
             entries.addAfter(Items.BEETROOT, ModItems.MAIZE);
             entries.addAfter(ModItems.MAIZE, ModItems.GOOSEBERRIES);
+            entries.addAfter(ModItems.GOOSEBERRIES, ModItems.WALNUT);
             entries.addAfter(Items.BREAD, ModBlocks.ARTISAN_BREAD);
             entries.addAfter(Items.COOKIE, ModItems.ARTISAN_COOKIE);
             entries.addAfter(ModItems.ARTISAN_COOKIE, ModBlocks.PASSION_FRUIT_TART);
