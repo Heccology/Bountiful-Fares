@@ -192,6 +192,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.MAIZE), conditionsFromItem(ModItems.MAIZE))
                 .offerTo(exporter);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CRUSTED_BEEF)
+                .input(Items.COOKED_BEEF)
+                .input(ModItems.WALNUT)
+                .input(Items.POTATO)
+                .input(ModBlocks.ELDERBERRIES)
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.COOKED_BEEF), conditionsFromItem(Items.COOKED_BEEF))
+                .criterion(hasItem(Items.POTATO), conditionsFromItem(Items.POTATO))
+                .criterion(hasItem(ModItems.WALNUT), conditionsFromItem(ModItems.WALNUT))
+                .criterion(hasItem(ModBlocks.ELDERBERRIES), conditionsFromItem(ModBlocks.ELDERBERRIES))
+                .offerTo(exporter);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CRIMSON_CHOW)
                 .input(Items.COOKED_PORKCHOP)
                 .input(Items.CRIMSON_FUNGUS)

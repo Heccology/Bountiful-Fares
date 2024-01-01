@@ -52,10 +52,22 @@ public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
     @Override
     public void onDestroyedOnLanding(World world, BlockPos pos, FallingBlockEntity fallingBlockEntity) {
         if (world.getBlockState(pos).isAir() || world.getBlockState(pos).isIn(BlockTags.REPLACEABLE)) {
-            world.setBlockState(pos, ModBlocks.FALLEN_WALNUTS.getDefaultState(), 2);
+            if (world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos, Direction.UP)) {
+                world.setBlockState(pos, ModBlocks.FALLEN_WALNUTS.getDefaultState(), 2);
+            }
+
         } else {
+            if (world.getBlockState(pos).isSideSolidFullSquare(world, pos, Direction.UP)) {
+                world.setBlockState(pos.up(), ModBlocks.FALLEN_WALNUTS.getDefaultState(), 2);
+            }
             if (world.getBlockState(pos).isOf(ModBlocks.FALLEN_WALNUTS) && world.getBlockState(pos).get(FallenWalnutsBlock.COUNT) != 3) {
                 world.setBlockState(pos, ModBlocks.FALLEN_WALNUTS.getDefaultState().with(FallenWalnutsBlock.COUNT, world.getBlockState(pos).get(FallenWalnutsBlock.COUNT) + 1), 2);
+            } else if (!world.getBlockState(pos).isSideSolidFullSquare(world, pos, Direction.UP)) {
+                if (world.getBlockState(pos.up()).isOf(ModBlocks.FALLEN_WALNUTS) && world.getBlockState(pos.up()).get(FallenWalnutsBlock.COUNT) != 3) {
+                    world.setBlockState(pos.up(), ModBlocks.FALLEN_WALNUTS.getDefaultState().with(FallenWalnutsBlock.COUNT, world.getBlockState(pos.up()).get(FallenWalnutsBlock.COUNT) + 1), 2);
+                } else {
+                    world.setBlockState(pos.up(), ModBlocks.FALLEN_WALNUTS.getDefaultState(), 2);
+                }
             } else {
                 world.setBlockState(pos, ModBlocks.WALNUT_MULCH.getDefaultState());
             }

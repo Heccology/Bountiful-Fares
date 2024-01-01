@@ -263,6 +263,7 @@ public class ModItemGroups {
                         entries.add(ModItems.MUSHROOM_STUFFED_POTATO);
                         entries.add(ModItems.PASSION_GLAZED_SALMON);
                         entries.add(ModItems.BOUNTIFUL_STEW);
+                        entries.add(ModItems.CRUSTED_BEEF);
                         entries.add(ModItems.CRIMSON_CHOW);
                         entries.add(ModItems.WARPED_CHOW);
                     }).build());

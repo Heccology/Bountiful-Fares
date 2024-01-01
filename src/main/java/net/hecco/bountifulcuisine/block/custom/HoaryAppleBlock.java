@@ -1,55 +1,84 @@
 package net.hecco.bountifulcuisine.block.custom;
 
-import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
+import net.minecraft.item.Item;
 import net.minecraft.util.function.BooleanBiFunction;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 
-public class HoaryAppleBlock extends FruitBlock{
+import java.util.stream.Stream;
+
+public class HoaryAppleBlock extends FruitBlock {
+
+    private static final VoxelShape[] NORTH_SHAPES = new VoxelShape[] {
+            Stream.of(
+                    Block.createCuboidShape(8, 0, 0, 16, 16, 16),
+                    Block.createCuboidShape(0, 0, 8, 8, 16, 16),
+                    Block.createCuboidShape(4, 16, 8, 12, 20, 12),
+                    Block.createCuboidShape(8, 16, 4, 12, 20, 8)
+            ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get(),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 8, 16, 16, 16), Block.createCuboidShape(4, 16, 8, 12, 20, 12), BooleanBiFunction.OR),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 8, 8, 16, 16), Block.createCuboidShape(4, 16, 8, 8, 20, 12), BooleanBiFunction.OR)
+    };
+    private static final VoxelShape[] EAST_SHAPES = new VoxelShape[] {
+            Stream.of(
+                    Block.createCuboidShape(0, 0, 8, 16, 16, 16),
+                    Block.createCuboidShape(0, 0, 0, 8, 16, 8),
+                    Block.createCuboidShape(4, 16, 4, 8, 20, 12),
+                    Block.createCuboidShape(8, 16, 8, 12, 20, 12)
+            ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get(),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 0, 8, 16, 16), Block.createCuboidShape(4, 16, 4, 8, 20, 12), BooleanBiFunction.OR),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 0, 8, 16, 8), Block.createCuboidShape(4, 16, 4, 8, 20, 8), BooleanBiFunction.OR)
+    };
+    private static final VoxelShape[] SOUTH_SHAPES = new VoxelShape[] {
+            Stream.of(
+                    Block.createCuboidShape(0, 0, 0, 8, 16, 16),
+                    Block.createCuboidShape(8, 0, 0, 16, 16, 8),
+                    Block.createCuboidShape(4, 16, 4, 12, 20, 8),
+                    Block.createCuboidShape(4, 16, 8, 8, 20, 12)
+            ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get(),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 0, 16, 16, 8), Block.createCuboidShape(4, 16, 4, 12, 20, 8), BooleanBiFunction.OR),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 0, 16, 16, 8), Block.createCuboidShape(8, 16, 4, 12, 20, 8), BooleanBiFunction.OR)
+    };
+    private static final VoxelShape[] WEST_SHAPES = new VoxelShape[] {
+            Stream.of(
+                    Block.createCuboidShape(0, 0, 0, 16, 16, 8),
+                    Block.createCuboidShape(8, 0, 8, 16, 16, 16),
+                    Block.createCuboidShape(8, 16, 4, 12, 20, 12),
+                    Block.createCuboidShape(4, 16, 4, 8, 20, 8)
+            ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get(),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 0, 16, 16, 16), Block.createCuboidShape(8, 16, 4, 12, 20, 12), BooleanBiFunction.OR),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 8, 16, 16, 16), Block.createCuboidShape(8, 16, 8, 12, 20, 12), BooleanBiFunction.OR)
+    };
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        if (state.get(SLICES) != 0) {
+            if (state.get(FACING) == Direction.NORTH) {
+                return NORTH_SHAPES[state.get(SLICES) - 1];
+            } else if (state.get(FACING) == Direction.EAST) {
+                return EAST_SHAPES[state.get(SLICES) - 1];
+            } else if (state.get(FACING) == Direction.SOUTH) {
+                return SOUTH_SHAPES[state.get(SLICES) - 1];
+            } else if (state.get(FACING) == Direction.WEST) {
+                return WEST_SHAPES[state.get(SLICES) - 1];
+            }
+        }
+        return VoxelShapes.combineAndSimplify(Block.createCuboidShape(4, 16, 4, 12, 20, 12),
+                Block.createCuboidShape(0, 0, 0, 16, 16, 16),
+                BooleanBiFunction.OR);
+    }
     public HoaryAppleBlock(Settings settings) {
         super(settings);
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.combineAndSimplify(Block.createCuboidShape(4, 16, 4, 12, 20, 12), Block.createCuboidShape(0, 0, 0, 16, 16, 16), BooleanBiFunction.OR);
-    }
-
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        Direction direction = state.get(FACING);
-        if (player.canConsume(false)) {
-            world.setBlockState(pos, ModBlocks.EATEN_HOARY_APPLE_BLOCK.getDefaultState().with(EatenFruitBlock.FACING, direction), Block.NOTIFY_LISTENERS);
-            player.getHungerManager().add(4, 0.1f);
-            world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            return ActionResult.SUCCESS;
-        }
-        return ActionResult.FAIL;
-    }
-    @Override
-    public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
-        if (!world.isClient) {
-            world.breakBlock(hit.getBlockPos(), false);
-            world.spawnEntity(new ItemEntity(world, hit.getBlockPos().getX() + 0.5, hit.getBlockPos().getY() + 0.5, hit.getBlockPos().getZ() + 0.5, new ItemStack(ModItems.HOARY_APPLE, 9)));
-            world.playSound(null, hit.getBlockPos(), SoundEvents.BLOCK_BAMBOO_WOOD_FALL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-        }
+    public Item getFruitItem() {
+        return ModItems.HOARY_APPLE;
     }
 }
