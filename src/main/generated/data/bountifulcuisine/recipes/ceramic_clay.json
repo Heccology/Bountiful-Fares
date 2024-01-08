@@ -13,25 +13,11 @@
       "item": "minecraft:clay_ball"
     },
     {
-      "item": "minecraft:clay_ball"
-    },
-    {
-      "item": "minecraft:clay_ball"
-    },
-    {
-      "item": "minecraft:clay_ball"
-    },
-    {
-      "item": "minecraft:clay_ball"
-    },
-    {
-      "item": "minecraft:clay_ball"
-    },
-    {
       "item": "bountifulcuisine:feldspar"
     }
   ],
   "result": {
+    "count": 4,
     "item": "bountifulcuisine:ceramic_clay"
   }
 }

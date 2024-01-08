@@ -8,6 +8,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
@@ -52,21 +53,31 @@ public class ArtisanCookiesBlock extends Block {
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
-
         if (itemStack.isOf(ModItems.ARTISAN_COOKIE) && state.get(COUNT) < MAX_COUNT) {
-            world.setBlockState(pos, state.with(COUNT, state.get(COUNT) + 1));
-            return ActionResult.SUCCESS;
+            return ActionResult.PASS;
         } else if (world.isClient) {
             if (tryEat(world, pos, state, player, hand).isAccepted()) {
                 return ActionResult.SUCCESS;
             }
+        }
+        return tryEat(world, pos, state, player, hand);
+    }
 
-            if (itemStack.isEmpty()) {
-                return ActionResult.CONSUME;
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos());
+        if (blockState.isOf(this)) {
+            if (blockState.get(COUNT) < 3) {
+                return super.getStateWithProperties(blockState).with(COUNT, blockState.get(COUNT) + 1);
+            } else {
+                return null;
             }
         }
+        return super.getPlacementState(ctx);
+    }
 
-        return tryEat(world, pos, state, player, hand);
+    @Override
+    public boolean canReplace(BlockState state, ItemPlacementContext context) {
+        return !context.shouldCancelInteraction() && context.getStack().getItem() == this.asItem() || super.canReplace(state, context);
     }
 
     protected static ActionResult tryEat(WorldAccess world, BlockPos pos, BlockState state, PlayerEntity player, Hand hand) {

@@ -55,8 +55,8 @@ public class ModItems {
     public static final Item TORCHFLOWER_TEA_BOTTLE = registerItem("torchflower_tea_bottle", new TorchflowerTeaBottleItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).statusEffect(new StatusEffectInstance(ModEffects.EBULLIENCE, 600, 0), 1f).alwaysEdible().build())));
     public static final Item MAIZE = registerItem("maize", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).build())));
     public static final Item MAIZE_SEEDS = registerItem("maize_seeds", new AliasedPlantItem(ModBlocks.MAIZE_CROP, new FabricItemSettings()));
-    public static final Item GOOSEBERRIES = registerItem("gooseberries", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).build())));
-    public static final Item GOOSEBERRY_SEEDS = registerItem("gooseberry_seeds", new AliasedPlantItem(ModBlocks.GOOSEBERRIES, new FabricItemSettings()));
+    public static final Item LEEK = registerItem("leek", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).build())));
+    public static final Item LEEK_SEEDS = registerItem("leek_seeds", new AliasedPlantItem(ModBlocks.LEEKS, new FabricItemSettings()));
     public static final Item SPONGEKIN_SEEDS = registerItem("spongekin_seeds", new AliasedPlantItem(ModBlocks.SPONGEKIN_STEM, new FabricItemSettings()));
     public static final Item SPONGEKIN_SLICE = registerItem("spongekin_slice", new SpongekinSliceItem( 100, new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).alwaysEdible().build())));
     public static final Item FLOUR = registerItem("flour", new FlourItem(new FabricItemSettings()));
@@ -80,17 +80,26 @@ public class ModItems {
     public static final Item PIQUANT_CANDY = registerItem("piquant_candy", new Item(new FabricItemSettings()));
     public static final Item BITTER_CANDY = registerItem("bitter_candy", new Item(new FabricItemSettings()));
 
+
+
     public static final Item PASSION_GLAZED_SALMON = registerItem("passion_glazed_salmon", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.6F).build())));
-    public static final Item BOUNTIFUL_STEW = registerItem("bountiful_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(12).saturationModifier(0.9F).build())));
-    public static final Item CRUSTED_BEEF = registerItem("crusted_beef", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(18).saturationModifier(0.8F).build())));
+    public static final Item BOUNTIFUL_STEW = registerItem("bountiful_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(createStew(16))));
+    public static final Item CRUSTED_BEEF = registerItem("crusted_beef", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(18).saturationModifier(0.6F).build())));
+    public static final Item LEEK_STEW = registerItem("leek_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(createStew(12))));
     public static final Item CRIMSON_CHOW = registerItem("crimson_chow", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(12).saturationModifier(0.8F).build())));
     public static final Item WARPED_CHOW = registerItem("warped_chow", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(10).saturationModifier(0.8F).build())));
 
+    public static final Item DELICACY = registerItem("delicacy", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8F).build())));
+    public static final Item PIQUANT_DELICACY = registerItem("piquant_delicacy", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8F).build())));
+    public static final Item EXOTIC_DELICACY = registerItem("exotic_delicacy", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8F).build())));
+    public static final Item APPLE_DELICACY = registerItem("apple_delicacy", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8F).build())));
+    public static final Item GLOWING_DELICACY = registerItem("glowing_delicacy", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8F).build())));
+    public static final Item ANCIENT_DELICACY = registerItem("ancient_delicacy", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8F).build())));
     public static final Item MUSHROOM_STUFFED_POTATO = registerItem("mushroom_stuffed_potato", new Item(new FabricItemSettings().maxCount(64).food(new FoodComponent.Builder().hunger(7).saturationModifier(0.8F).build())));
 
 
-    private static FoodComponent.Builder createStew(int hunger) {
-        return (new FoodComponent.Builder()).hunger(hunger).saturationModifier(0.6F);
+    private static FoodComponent createStew(int hunger) {
+        return (new FoodComponent.Builder()).hunger(hunger).saturationModifier(0.6F).build();
     }
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), item);

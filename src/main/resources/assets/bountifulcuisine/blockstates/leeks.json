@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "bountifulcuisine:block/leeks_0"
+    },
+    "age=1": {
+      "model": "bountifulcuisine:block/leeks_0"
+    },
+    "age=2": {
+      "model": "bountifulcuisine:block/leeks_1"
+    },
+    "age=3": {
+      "model": "bountifulcuisine:block/leeks_1"
+    },
+    "age=4": {
+      "model": "bountifulcuisine:block/leeks_1"
+    },
+    "age=5": {
+      "model": "bountifulcuisine:block/leeks_2"
+    },
+    "age=6": {
+      "model": "bountifulcuisine:block/leeks_2"
+    },
+    "age=7": {
+      "model": "bountifulcuisine:block/leeks_3"
+    }
+  }
+}

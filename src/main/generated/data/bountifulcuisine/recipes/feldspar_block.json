@@ -7,9 +7,8 @@
     }
   },
   "pattern": [
-    "###",
-    "###",
-    "###"
+    "##",
+    "##"
   ],
   "result": {
     "item": "bountifulcuisine:feldspar_block"

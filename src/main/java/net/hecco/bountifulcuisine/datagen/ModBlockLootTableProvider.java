@@ -143,9 +143,13 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.WILD_CARROTS, Items.CARROT);
         addDrop(ModBlocks.WILD_POTATOES, Items.POTATO);
         addDrop(ModBlocks.WILD_BEETROOTS, Items.BEETROOT_SEEDS);
-        addDrop(ModBlocks.WILD_GOOSEBERRIES, ModItems.GOOSEBERRY_SEEDS);
+        addDrop(ModBlocks.WILD_GOOSEBERRIES, ModItems.LEEK_SEEDS);
         addDrop(ModBlocks.MAIZE_CROP, ModItems.MAIZE);
         addDrop(ModBlocks.FELDSPAR_BLOCK);
+        addDrop(ModBlocks.CUT_FELDSPAR_BLOCK);
+        addDrop(ModBlocks.FELDSPAR_BRICKS);
+        addDrop(ModBlocks.FELDSPAR_BRICK_STAIRS);
+        addDrop(ModBlocks.FELDSPAR_BRICK_SLAB);
         addDrop(ModBlocks.FELDSPAR_LANTERN);
         addDrop(ModBlocks.TINGED_GLASS, dropsWithSilkTouch(ModBlocks.TINGED_GLASS));
         addDrop(ModBlocks.CERAMIC_CLAY_BLOCK);

@@ -124,10 +124,14 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WILD_GOOSEBERRIES);
                         entries.add(ModItems.MAIZE_SEEDS);
                         entries.add(ModItems.MAIZE);
-                        entries.add(ModItems.GOOSEBERRY_SEEDS);
-                        entries.add(ModItems.GOOSEBERRIES);
+                        entries.add(ModItems.LEEK_SEEDS);
+                        entries.add(ModItems.LEEK);
                         entries.add(ModItems.FELDSPAR);
                         entries.add(ModBlocks.FELDSPAR_BLOCK);
+                        entries.add(ModBlocks.CUT_FELDSPAR_BLOCK);
+                        entries.add(ModBlocks.FELDSPAR_BRICKS);
+                        entries.add(ModBlocks.FELDSPAR_BRICK_STAIRS);
+                        entries.add(ModBlocks.FELDSPAR_BRICK_SLAB);
                         entries.add(ModBlocks.FELDSPAR_LANTERN);
                         entries.add(ModBlocks.TINGED_GLASS);
                         entries.add(ModItems.CERAMIC_CLAY);
@@ -259,6 +263,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.ORANGE_PIE);
                         entries.add(ModBlocks.LEMON_PIE);
                         entries.add(ModBlocks.PLUM_PIE);
+                        entries.add(ModBlocks.HOARY_PIE);
                         entries.add(ModBlocks.COCOA_CAKE);
                         entries.add(ModItems.MUSHROOM_STUFFED_POTATO);
                         entries.add(ModItems.PASSION_GLAZED_SALMON);

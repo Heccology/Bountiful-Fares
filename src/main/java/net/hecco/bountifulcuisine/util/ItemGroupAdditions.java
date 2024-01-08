@@ -71,7 +71,11 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.WALNUT_MULCH, ModBlocks.WALNUT_MULCH_BLOCK);
             entries.addAfter(Items.DARK_PRISMARINE, ModBlocks.PRISMARINE_BLOSSOM);
             entries.addAfter(Items.PURPUR_SLAB, ModBlocks.FELDSPAR_BLOCK);
-            entries.addAfter(ModBlocks.FELDSPAR_BLOCK, ModBlocks.CERAMIC_CLAY_BLOCK);
+            entries.addAfter(ModBlocks.FELDSPAR_BLOCK, ModBlocks.CUT_FELDSPAR_BLOCK);
+            entries.addAfter(ModBlocks.CUT_FELDSPAR_BLOCK, ModBlocks.FELDSPAR_BRICKS);
+            entries.addAfter(ModBlocks.FELDSPAR_BRICKS, ModBlocks.FELDSPAR_BRICK_STAIRS);
+            entries.addAfter(ModBlocks.FELDSPAR_BRICK_STAIRS, ModBlocks.FELDSPAR_BRICK_SLAB);
+            entries.addAfter(ModBlocks.FELDSPAR_BRICK_SLAB, ModBlocks.CERAMIC_CLAY_BLOCK);
             entries.addAfter(ModBlocks.CERAMIC_CLAY_BLOCK, ModBlocks.CERAMIC_TILES);
             entries.addAfter(ModBlocks.CERAMIC_TILES, ModBlocks.CERAMIC_TILE_STAIRS);
             entries.addAfter(ModBlocks.CERAMIC_TILE_STAIRS, ModBlocks.CERAMIC_TILE_SLAB);
@@ -113,8 +117,8 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.CHAMOMILE_FLOWERS, ModBlocks.HONEYSUCKLE);
             entries.addAfter(ModBlocks.HONEYSUCKLE, ModBlocks.VIOLET_BELLFLOWER);
             entries.addAfter(Items.BEETROOT_SEEDS, ModItems.MAIZE_SEEDS);
-            entries.addAfter(ModItems.MAIZE_SEEDS, ModItems.GOOSEBERRY_SEEDS);
-            entries.addAfter(ModItems.GOOSEBERRY_SEEDS, ModItems.TEA_BERRIES);
+            entries.addAfter(ModItems.MAIZE_SEEDS, ModItems.LEEK_SEEDS);
+            entries.addAfter(ModItems.LEEK_SEEDS, ModItems.TEA_BERRIES);
             entries.addAfter(ModItems.TEA_BERRIES, ModItems.SPONGEKIN_SEEDS);
             entries.addAfter(Items.PITCHER_POD, ModItems.LAPISBERRY_SEEDS);
             entries.addAfter(ModItems.LAPISBERRY_SEEDS, ModItems.HOARY_SEEDS);
@@ -193,8 +197,8 @@ public class ItemGroupAdditions {
             entries.addAfter(Items.HONEY_BOTTLE, ModItems.MEAD_BOTTLE);
             entries.addAfter(Items.BAKED_POTATO, ModItems.MUSHROOM_STUFFED_POTATO);
             entries.addAfter(Items.BEETROOT, ModItems.MAIZE);
-            entries.addAfter(ModItems.MAIZE, ModItems.GOOSEBERRIES);
-            entries.addAfter(ModItems.GOOSEBERRIES, ModItems.WALNUT);
+            entries.addAfter(ModItems.MAIZE, ModItems.LEEK);
+            entries.addAfter(ModItems.LEEK, ModItems.WALNUT);
             entries.addAfter(Items.BREAD, ModBlocks.ARTISAN_BREAD);
             entries.addAfter(Items.COOKIE, ModItems.ARTISAN_COOKIE);
             entries.addAfter(ModItems.ARTISAN_COOKIE, ModBlocks.PASSION_FRUIT_TART);
@@ -207,6 +211,7 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.APPLE_PIE, ModBlocks.ORANGE_PIE);
             entries.addAfter(ModBlocks.ORANGE_PIE, ModBlocks.LEMON_PIE);
             entries.addAfter(ModBlocks.LEMON_PIE, ModBlocks.PLUM_PIE);
+            entries.addAfter(ModBlocks.PLUM_PIE, ModBlocks.HOARY_PIE);
             entries.addAfter(Items.SPIDER_EYE, ModItems.CITRIC_ACID);
             entries.addAfter(ModItems.CITRIC_ACID, ModItems.CANDY);
             entries.addAfter(ModItems.CANDY, ModItems.PIQUANT_CANDY);

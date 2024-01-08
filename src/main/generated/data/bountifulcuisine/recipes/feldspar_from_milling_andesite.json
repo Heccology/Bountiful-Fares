@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:andesite"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "bountifulcuisine:feldspar"
+  }
+}

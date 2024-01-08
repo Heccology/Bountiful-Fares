@@ -6,7 +6,6 @@ import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.data.client.*;
 import net.minecraft.data.family.BlockFamilies;
-import net.minecraft.util.Identifier;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -29,10 +28,16 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_WALNUT_LOG, ModBlocks.WALNUT_HANGING_SIGN, ModBlocks.WALNUT_WALL_HANGING_SIGN);
         blockStateModelGenerator.registerDoor(ModBlocks.WALNUT_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.WALNUT_TRAPDOOR);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CUT_FELDSPAR_BLOCK);
+        BlockStateModelGenerator.BlockTexturePool feldsparTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FELDSPAR_BRICKS);
+        feldsparTexturePool.stairs(ModBlocks.FELDSPAR_BRICK_STAIRS);
+        feldsparTexturePool.slab(ModBlocks.FELDSPAR_BRICK_SLAB);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        itemModelGenerator.register(ModItems.LEEK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LEEK_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.CRUSTED_BEEF, Models.GENERATED);
         itemModelGenerator.register(ModItems.WALNUT, Models.GENERATED);
         itemModelGenerator.register(ModItems.WALNUT_BOAT, Models.GENERATED);

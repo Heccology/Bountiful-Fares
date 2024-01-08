@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "building",
-  "group": "planks",
+  "category": "misc",
   "ingredients": [
     {
       "tag": "bountifulcuisine:fruit_logs"

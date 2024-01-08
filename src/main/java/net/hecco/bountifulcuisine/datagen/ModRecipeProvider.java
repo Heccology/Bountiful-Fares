@@ -1,10 +1,13 @@
 package net.hecco.bountifulcuisine.datagen;
 
+import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.datagen.recipe.MillingRecipeBuilder;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.util.ModItemTags;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
@@ -13,7 +16,9 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.util.Identifier;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 import static net.minecraft.data.family.BlockFamilies.register;
@@ -23,6 +28,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     public ModRecipeProvider(FabricDataOutput output) {
         super(output);
     }
+
+    private static final ImmutableList<ItemConvertible> CERAMIC_CLAY = ImmutableList.of(ModItems.CERAMIC_CLAY);
+    private static final ImmutableList<ItemConvertible> TEA_LEAVES = ImmutableList.of(ModItems.TEA_LEAVES);
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GRISTMILL)
@@ -72,8 +80,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.FELDSPAR), conditionsFromItem(ModItems.FELDSPAR))
                 .offerTo(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CERAMIC_CLAY)
-                .input(Items.CLAY_BALL, 8)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CERAMIC_CLAY, 4)
+                .input(Items.CLAY_BALL, 3)
                 .input(ModItems.FELDSPAR)
                 .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
                 .criterion(hasItem(ModItems.FELDSPAR), conditionsFromItem(ModItems.FELDSPAR))
@@ -222,7 +230,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.WARPED_ROOTS), conditionsFromItem(Items.WARPED_ROOTS))
                 .offerTo(exporter);
 
-        offerPlanksRecipe(exporter, Items.STICK, ModItemTags.FRUIT_LOGS, 8);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.STICK, 8)
+                        .input(ModItemTags.FRUIT_LOGS)
+                        .criterion("has_fruit_log", conditionsFromTag(ModItemTags.FRUIT_LOGS))
+                        .offerTo(exporter);
+
         offerBarkBlockRecipe(exporter, ModBlocks.APPLE_WOOD, ModBlocks.APPLE_LOG);
         offerBarkBlockRecipe(exporter, ModBlocks.STRIPPED_APPLE_WOOD, ModBlocks.STRIPPED_APPLE_LOG);
         offerBarkBlockRecipe(exporter, ModBlocks.ORANGE_WOOD, ModBlocks.ORANGE_LOG);
@@ -308,7 +320,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerTartAndPieRecipe(exporter, ModBlocks.PLUM_PIE, ModItems.PLUM);
         offerTartAndPieRecipe(exporter, ModBlocks.HOARY_PIE, ModItems.HOARY_APPLE);
 
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.FELDSPAR, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BLOCK);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BLOCK)
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModItems.FELDSPAR)
+                .criterion(hasItem(ModItems.FELDSPAR), conditionsFromItem(ModItems.FELDSPAR))
+                .offerTo(exporter);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.FELDSPAR)
+                .input(ModBlocks.FELDSPAR_BLOCK)
+                .criterion(hasItem(ModBlocks.FELDSPAR_BLOCK), conditionsFromItem(ModBlocks.FELDSPAR_BLOCK))
+                .offerTo(exporter);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.CERAMIC_CLAY, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_CLAY_BLOCK, "ceramic_clay_block", null, "ceramic_clay_from_block", "ceramic_clay");
         offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_TILES, ModItems.CERAMIC_TILE);
         
@@ -330,6 +351,64 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerJackOStrawRecipes(exporter, ModBlocks.MAGENTA_JACK_O_STRAW, Items.MAGENTA_WOOL);
         offerJackOStrawRecipes(exporter, ModBlocks.PINK_JACK_O_STRAW, Items.PINK_WOOL);
 
+        offerTeaBlendMillingRecipe(exporter, ModItems.GREEN_TEA_BLEND, ModItems.TEA_LEAVES);
+        offerTeaBlendMillingRecipe(exporter, ModItems.BLACK_TEA_BLEND, ModItems.DRIED_TEA_LEAVES);
+        offerTeaBlendMillingRecipe(exporter, ModItems.CHAMOMILE_TEA_BLEND, ModBlocks.CHAMOMILE_FLOWERS);
+        offerTeaBlendMillingRecipe(exporter, ModItems.HONEYSUCKLE_TEA_BLEND, ModBlocks.HONEYSUCKLE);
+        offerTeaBlendMillingRecipe(exporter, ModItems.BELLFLOWER_TEA_BLEND, ModBlocks.VIOLET_BELLFLOWER);
+        offerTeaBlendMillingRecipe(exporter, ModItems.TORCHFLOWER_TEA_BLEND, Items.TORCHFLOWER);
+        new MillingRecipeBuilder(Items.GRANITE, ModItems.FELDSPAR, 2, "granite")
+                .group("feldspar")
+                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
+                .offerTo(exporter);
+        new MillingRecipeBuilder(Items.DIORITE, ModItems.FELDSPAR, 2, "diorite")
+                .group("feldspar")
+                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
+                .offerTo(exporter);
+        new MillingRecipeBuilder(Items.ANDESITE, ModItems.FELDSPAR, 2, "andesite")
+                .group("feldspar")
+                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
+                .offerTo(exporter);
+        new MillingRecipeBuilder(Items.BONE, Items.BONE_MEAL, 4, null)
+                .group("bone_meal")
+                .criterion(hasItem(Items.BONE), conditionsFromItem(Items.BONE))
+                .offerTo(exporter);
+        new MillingRecipeBuilder(Items.WHEAT, ModItems.FLOUR, 2, "wheat")
+                .group("flour")
+                .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
+                .offerTo(exporter);
+        new MillingRecipeBuilder(ModItems.MAIZE, ModItems.FLOUR, 2, "maize")
+                .group("flour")
+                .criterion(hasItem(ModItems.MAIZE), conditionsFromItem(ModItems.MAIZE))
+                .offerTo(exporter);
+
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CUT_FELDSPAR_BLOCK, ModBlocks.FELDSPAR_BLOCK);
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICKS, ModBlocks.CUT_FELDSPAR_BLOCK);
+        BlockFamily feldsparBricksFamily = register(ModBlocks.FELDSPAR_BRICKS)
+                .stairs(ModBlocks.FELDSPAR_BRICK_STAIRS)
+                .stairs(ModBlocks.FELDSPAR_BRICK_SLAB)
+                .unlockCriterionName("has_feldspar_bricks")
+                .build();
+        generateFamily(exporter, feldsparBricksFamily);
+
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CUT_FELDSPAR_BLOCK, ModBlocks.FELDSPAR_BLOCK, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICKS, ModBlocks.FELDSPAR_BLOCK, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICK_STAIRS, ModBlocks.FELDSPAR_BLOCK, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICK_SLAB, ModBlocks.FELDSPAR_BLOCK, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICKS, ModBlocks.CUT_FELDSPAR_BLOCK, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICK_STAIRS, ModBlocks.CUT_FELDSPAR_BLOCK, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICK_SLAB, ModBlocks.CUT_FELDSPAR_BLOCK, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICK_STAIRS, ModBlocks.FELDSPAR_BRICKS, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICK_SLAB, ModBlocks.FELDSPAR_BRICKS, 2);
+
+        offerSmelting(exporter, CERAMIC_CLAY, RecipeCategory.MISC, ModItems.CERAMIC_TILE, 0.3f, 200, "ceramic_tile");
+        offerSmelting(exporter, TEA_LEAVES, RecipeCategory.FOOD, ModItems.DRIED_TEA_LEAVES, 0.3f, 200, "dried_tea_leaves");
+    }
+
+    public static void offerTeaBlendMillingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+        new MillingRecipeBuilder(input, output, 1, null)
+                .criterion(hasItem(input), conditionsFromItem(input))
+                .offerTo(exporter);
     }
 
     public static void offerPicketsRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
@@ -352,6 +431,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.HONEYCOMB), conditionsFromItem(Items.HONEYCOMB))
                 .criterion("has_tea_blend", conditionsFromItem(teaBlendItem))
                 .offerTo(exporter);
+
+
     }
     public static void offerCompoteJarRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output)

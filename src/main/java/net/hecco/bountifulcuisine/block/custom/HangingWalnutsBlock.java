@@ -62,7 +62,7 @@ public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
             }
             if (world.getBlockState(pos).isOf(ModBlocks.FALLEN_WALNUTS) && world.getBlockState(pos).get(FallenWalnutsBlock.COUNT) != 3) {
                 world.setBlockState(pos, ModBlocks.FALLEN_WALNUTS.getDefaultState().with(FallenWalnutsBlock.COUNT, world.getBlockState(pos).get(FallenWalnutsBlock.COUNT) + 1), 2);
-            } else if (!world.getBlockState(pos).isSideSolidFullSquare(world, pos, Direction.UP)) {
+            } else if (world.getBlockState(pos).isOf(Blocks.FARMLAND) || world.getBlockState(pos).isOf(Blocks.DIRT_PATH)) {
                 if (world.getBlockState(pos.up()).isOf(ModBlocks.FALLEN_WALNUTS) && world.getBlockState(pos.up()).get(FallenWalnutsBlock.COUNT) != 3) {
                     world.setBlockState(pos.up(), ModBlocks.FALLEN_WALNUTS.getDefaultState().with(FallenWalnutsBlock.COUNT, world.getBlockState(pos.up()).get(FallenWalnutsBlock.COUNT) + 1), 2);
                 } else {
@@ -136,5 +136,10 @@ public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
 
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
         return type == NavigationType.AIR && !this.collidable || super.canPathfindThrough(state, world, pos, type);
+    }
+
+    @Override
+    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+        return ModItems.WALNUT.getDefaultStack();
     }
 }

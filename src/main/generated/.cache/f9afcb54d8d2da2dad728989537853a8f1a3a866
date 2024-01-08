@@ -1,4 +1,7 @@
-// 1.20.1	2024-01-01T04:07:47.098688	Bountiful Cuisine/Advancements
+// 1.20.1	2024-01-07T21:33:27.373112	Bountiful Cuisine/Advancements
 1419bb893ed1adbd1e7811bf02b11aea91caa30d data/bountifulcuisine/advancements/bountiful_cuisine.json
-eb02e2d22c46442b0c5485e44f1040a9478d1357 data/bountifulcuisine/advancements/obtain_feldspar.json
+071bf9533a38675ffe1f6242d81454315c3e2b82 data/bountifulcuisine/advancements/eat_ancient_fruit.json
+a66f74d92c83f5bd4e175d1cefe934f89cf42c83 data/bountifulcuisine/advancements/obtain_gristmill.json
+f4ec6e2500b5603f86b0ac68f625c6c974866299 data/bountifulcuisine/advancements/obtain_feldspar.json
+a1f9342368b93c98eeb13a312b540aa82b186b6e data/bountifulcuisine/advancements/obtain_fermentation_vessel.json
 9ba090a3c76a5785fc1897046b46ad2f7774a5db data/bountifulcuisine/advancements/obtain_ceramic_tiles.json

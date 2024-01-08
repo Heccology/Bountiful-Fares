@@ -1,10 +1,12 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
@@ -37,7 +39,7 @@ public class FallenWalnutsBlock extends Block {
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.down();
-        return world.getBlockState(blockPos).isSideSolidFullSquare(world, pos, Direction.UP);
+        return world.getBlockState(blockPos).isSideSolidFullSquare(world, pos, Direction.UP) || world.getBlockState(blockPos).isOf(Blocks.FARMLAND) || world.getBlockState(blockPos).isOf(Blocks.DIRT_PATH);
     }
 
     public boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
@@ -46,5 +48,10 @@ public class FallenWalnutsBlock extends Block {
 
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
         return type == NavigationType.AIR && !this.collidable || super.canPathfindThrough(state, world, pos, type);
+    }
+
+    @Override
+    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+        return ModItems.WALNUT.getDefaultStack();
     }
 }

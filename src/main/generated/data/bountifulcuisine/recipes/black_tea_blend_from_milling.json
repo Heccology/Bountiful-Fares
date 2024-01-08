@@ -1,0 +1,11 @@
+{
+  "type": "bountifulcuisine:milling",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:dried_tea_leaves"
+    }
+  ],
+  "output": {
+    "item": "bountifulcuisine:black_tea_blend"
+  }
+}

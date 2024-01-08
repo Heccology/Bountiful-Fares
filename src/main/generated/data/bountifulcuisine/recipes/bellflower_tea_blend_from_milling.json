@@ -1,0 +1,11 @@
+{
+  "type": "bountifulcuisine:milling",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:violet_bellflower"
+    }
+  ],
+  "output": {
+    "item": "bountifulcuisine:bellflower_tea_blend"
+  }
+}

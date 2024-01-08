@@ -1,0 +1,11 @@
+{
+  "type": "bountifulcuisine:milling",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:honeysuckle"
+    }
+  ],
+  "output": {
+    "item": "bountifulcuisine:honeysuckle_tea_blend"
+  }
+}

@@ -153,7 +153,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PINK_JACK_O_STRAW)
         ;
         getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(ModBlocks.GOLDEN_APPLE_BLOCK);
-        getOrCreateTagBuilder(BlockTags.CROPS).add(ModBlocks.HOARY_APPLE_SAPLING_CROP, ModBlocks.MAIZE_CROP, ModBlocks.GOOSEBERRIES);
+        getOrCreateTagBuilder(BlockTags.CROPS).add(ModBlocks.HOARY_APPLE_SAPLING_CROP, ModBlocks.MAIZE_CROP, ModBlocks.LEEKS);
         getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
                 .add(ModBlocks.POTTED_HOARY_APPLE_SAPLING,
                 ModBlocks.POTTED_APPLE_SAPLING,
