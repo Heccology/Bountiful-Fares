@@ -1,0 +1,220 @@
+{
+  "parent": "bountifulcuisine:bountiful_cuisine",
+  "criteria": {
+    "apple_pie": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:apple_pie",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "artisan_bread": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:artisan_bread",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "artisan_cookie": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:artisan_cookies",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "cake": {
+      "conditions": {
+        "location": [
+          {
+            "block": "minecraft:cake",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "cocoa_cake": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:cocoa_cake",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "elderberry_tart": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:elderberry_tart",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "glow_berry_tart": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:glow_berry_tart",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "hoary_pie": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:hoary_pie",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "lapisberry_tart": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:lapisberry_tart",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "lemon_pie": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:lemon_pie",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "orange_pie": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:orange_pie",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "passion_fruit_tart": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:passion_fruit_tart",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "plum_pie": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:plum_pie",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    },
+    "sweet_berry_tart": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulcuisine:sweet_berry_tart",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulcuisine.place_all_baked_goods.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulcuisine:artisan_bread"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bountifulcuisine.place_all_baked_goods"
+    }
+  },
+  "requirements": [
+    [
+      "cake"
+    ],
+    [
+      "cocoa_cake"
+    ],
+    [
+      "artisan_bread"
+    ],
+    [
+      "artisan_cookie"
+    ],
+    [
+      "apple_pie"
+    ],
+    [
+      "orange_pie"
+    ],
+    [
+      "lemon_pie"
+    ],
+    [
+      "plum_pie"
+    ],
+    [
+      "hoary_pie"
+    ],
+    [
+      "passion_fruit_tart"
+    ],
+    [
+      "elderberry_tart"
+    ],
+    [
+      "glow_berry_tart"
+    ],
+    [
+      "sweet_berry_tart"
+    ],
+    [
+      "lapisberry_tart"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

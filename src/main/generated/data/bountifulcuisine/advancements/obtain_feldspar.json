@@ -1,5 +1,5 @@
 {
-  "parent": "bountifulcuisine:obtain_gristmill",
+  "parent": "bountifulcuisine:place_gristmill",
   "criteria": {
     "obtain_feldspar": {
       "conditions": {

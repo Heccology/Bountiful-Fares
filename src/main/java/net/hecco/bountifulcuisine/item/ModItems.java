@@ -13,17 +13,17 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 public class ModItems {
-    public static final Item ORANGE = registerItem("orange", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).build())));
-    public static final Item LEMON = registerItem("lemon", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).build())));
-    public static final Item PLUM = registerItem("plum", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).build())));
-    public static final Item HOARY_APPLE = registerItem("hoary_apple", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6F).build())));
-    public static final Item HOARY_SEEDS = registerItem("hoary_seeds", new AliasedPlantItem(ModBlocks.HOARY_APPLE_SAPLING_CROP, new FabricItemSettings()));
+    public static final Item ORANGE = registerItem("orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).build())));
+    public static final Item LEMON = registerItem("lemon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).build())));
+    public static final Item PLUM = registerItem("plum", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).build())));
+    public static final Item HOARY_APPLE = registerItem("hoary_apple", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6F).build())));
+    public static final Item HOARY_SEEDS = registerItem("hoary_seeds", new AliasedBlockItem(ModBlocks.HOARY_APPLE_SAPLING_CROP, new FabricItemSettings()));
     public static final Item HOARY_SIGN = registerItem("hoary_sign", new SignItem(new FabricItemSettings().maxCount(16), ModBlocks.HOARY_SIGN, ModBlocks.HOARY_WALL_SIGN));
     public static final Item HOARY_HANGING_SIGN = registerItem("hoary_hanging_sign", new HangingSignItem(ModBlocks.HOARY_HANGING_SIGN, ModBlocks.HOARY_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
     public static final Item HOARY_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.HOARY_BOAT_ID, ModBoats.HOARY_BOAT_KEY, false);
     public static final Item HOARY_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.HOARY_CHEST_BOAT_ID, ModBoats.HOARY_BOAT_KEY, true);
 
-    public static final Item WALNUT = registerItem("walnut", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(1).saturationModifier(0).snack().build())));
+    public static final Item WALNUT = registerItem("walnut", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(1).saturationModifier(0).snack().build())));
     public static final Item WALNUT_SIGN = registerItem("walnut_sign", new SignItem(new FabricItemSettings().maxCount(16), ModBlocks.WALNUT_SIGN, ModBlocks.WALNUT_WALL_SIGN));
     public static final Item WALNUT_HANGING_SIGN = registerItem("walnut_hanging_sign", new HangingSignItem(ModBlocks.WALNUT_HANGING_SIGN, ModBlocks.WALNUT_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
     public static final Item WALNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.WALNUT_BOAT_ID, ModBoats.WALNUT_BOAT_KEY, false);
@@ -39,7 +39,7 @@ public class ModItems {
     public static final Item CERAMIC_CLAY = registerItem("ceramic_clay", new Item(new FabricItemSettings()));
     public static final Item CERAMIC_TILE = registerItem("ceramic_tile", new Item(new FabricItemSettings()));
     public static final Item TEA_BERRIES = registerItem("tea_berries", new TeaBerriesItem(ModBlocks.TEA_SHRUB, new FabricItemSettings()));
-    public static final Item TEA_LEAVES = registerItem("tea_leaves", new PlantItem(new FabricItemSettings()));
+    public static final Item TEA_LEAVES = registerItem("tea_leaves", new Item(new FabricItemSettings()));
     public static final Item DRIED_TEA_LEAVES = registerItem("dried_tea_leaves", new Item(new FabricItemSettings()));
     public static final Item GREEN_TEA_BLEND = registerItem("green_tea_blend", new Item(new FabricItemSettings()));
     public static final Item BLACK_TEA_BLEND = registerItem("black_tea_blend", new Item(new FabricItemSettings()));
@@ -53,11 +53,11 @@ public class ModItems {
     public static final Item HONEYSUCKLE_TEA_BOTTLE = registerItem("honeysuckle_tea_bottle", new HoneysuckleTeaBottleItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).statusEffect(new StatusEffectInstance(ModEffects.EBULLIENCE, 600, 0), 1f).alwaysEdible().build())));
     public static final Item BELLFLOWER_TEA_BOTTLE = registerItem("bellflower_tea_bottle", new BellflowerTeaBottleItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).statusEffect(new StatusEffectInstance(ModEffects.EBULLIENCE, 600, 0), 1f).alwaysEdible().build())));
     public static final Item TORCHFLOWER_TEA_BOTTLE = registerItem("torchflower_tea_bottle", new TorchflowerTeaBottleItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).statusEffect(new StatusEffectInstance(ModEffects.EBULLIENCE, 600, 0), 1f).alwaysEdible().build())));
-    public static final Item MAIZE = registerItem("maize", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).build())));
-    public static final Item MAIZE_SEEDS = registerItem("maize_seeds", new AliasedPlantItem(ModBlocks.MAIZE_CROP, new FabricItemSettings()));
-    public static final Item LEEK = registerItem("leek", new PlantItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).build())));
-    public static final Item LEEK_SEEDS = registerItem("leek_seeds", new AliasedPlantItem(ModBlocks.LEEKS, new FabricItemSettings()));
-    public static final Item SPONGEKIN_SEEDS = registerItem("spongekin_seeds", new AliasedPlantItem(ModBlocks.SPONGEKIN_STEM, new FabricItemSettings()));
+    public static final Item MAIZE = registerItem("maize", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).build())));
+    public static final Item MAIZE_SEEDS = registerItem("maize_seeds", new AliasedBlockItem(ModBlocks.MAIZE_CROP, new FabricItemSettings()));
+    public static final Item LEEK = registerItem("leek", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).build())));
+    public static final Item LEEK_SEEDS = registerItem("leek_seeds", new AliasedBlockItem(ModBlocks.LEEKS, new FabricItemSettings()));
+    public static final Item SPONGEKIN_SEEDS = registerItem("spongekin_seeds", new AliasedBlockItem(ModBlocks.SPONGEKIN_STEM, new FabricItemSettings()));
     public static final Item SPONGEKIN_SLICE = registerItem("spongekin_slice", new SpongekinSliceItem( 100, new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).alwaysEdible().build())));
     public static final Item FLOUR = registerItem("flour", new FlourItem(new FabricItemSettings()));
     public static final Item ARTISAN_COOKIE = registerItem("artisan_cookie", new AliasedBlockItem(ModBlocks.ARTISAN_COOKIES, new FabricItemSettings()));
@@ -75,10 +75,10 @@ public class ModItems {
     public static final Item PLUM_CIDER_JAR = registerItem("plum_cider_jar", new DrinkableJarItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).build())));
     public static final Item HOARY_CIDER_JAR = registerItem("hoary_cider_jar", new DrinkableJarItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).build())));
 
-    public static final Item CANDY = registerItem("candy", new Item(new FabricItemSettings()));
-    public static final Item SOUR_CANDY = registerItem("sour_candy", new Item(new FabricItemSettings()));
-    public static final Item PIQUANT_CANDY = registerItem("piquant_candy", new Item(new FabricItemSettings()));
-    public static final Item BITTER_CANDY = registerItem("bitter_candy", new Item(new FabricItemSettings()));
+    public static final Item CANDY = registerItem("candy", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.4F).snack().build())));
+    public static final Item SOUR_CANDY = registerItem("sour_candy", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.4F).statusEffect(new StatusEffectInstance(ModEffects.ACIDIC, 200), 0.2f).snack().build())));
+    public static final Item PIQUANT_CANDY = registerItem("piquant_candy", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.4F).snack().build())));
+    public static final Item BITTER_CANDY = registerItem("bitter_candy", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1), 0.75f).snack().build())));
 
 
 

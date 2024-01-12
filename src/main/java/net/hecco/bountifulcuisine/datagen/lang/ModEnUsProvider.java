@@ -9,6 +9,8 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 
+import java.nio.file.Path;
+
 public class ModEnUsProvider extends FabricLanguageProvider {
     public ModEnUsProvider(FabricDataOutput dataOutput) {
         super(dataOutput, "en_us");
@@ -123,6 +125,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModItems.HOARY_APPLE);
         generate(translationBuilder, ModBlocks.HOARY_APPLE_BLOCK);
 
+        generate(translationBuilder, ModBlocks.WALNUT_SAPLING);
         generate(translationBuilder, ModBlocks.WALNUT_LOG);
         generate(translationBuilder, ModBlocks.STRIPPED_WALNUT_LOG);
         generate(translationBuilder, ModBlocks.WALNUT_WOOD);
@@ -308,6 +311,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generateJackOStraw(translationBuilder, ModBlocks.VELVET_JACK_O_STRAW, "Velvet");
         generateJackOStraw(translationBuilder, ModBlocks.VERMILION_JACK_O_STRAW, "Vermillion");
         generate(translationBuilder, "tooltip.bountifulcuisine.els_and_ls_dye_mod_warning", "§7§oEl's and L's Dye Mod Is Not Installed!");
+        generate(translationBuilder, "tooltip.bountifulcuisine.dyeable", "§7§oDyeable");
 
         generate(translationBuilder, ModBlocks.GRISTMILL);
 
@@ -350,6 +354,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModItems.BITTER_CANDY);
         generate(translationBuilder, ModItems.MUSHROOM_STUFFED_POTATO);
         generate(translationBuilder, ModItems.PASSION_GLAZED_SALMON);
+        generate(translationBuilder, ModItems.LEEK_STEW);
         generate(translationBuilder, ModItems.BOUNTIFUL_STEW);
         generate(translationBuilder, ModItems.CRUSTED_BEEF);
         generate(translationBuilder, ModItems.CRIMSON_CHOW);
@@ -358,8 +363,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulcuisine.bountiful_cuisine", "Bountiful Cuisine");
         generate(translationBuilder, "advancement.bountifulcuisine.bountiful_cuisine.description", "The world is filled with more food!");
 
-        generate(translationBuilder, "advancement.bountifulcuisine.obtain_gristmill", "On the Grind");
-        generate(translationBuilder, "advancement.bountifulcuisine.obtain_gristmill.description", "Craft a Gristmill");
+        generate(translationBuilder, "advancement.bountifulcuisine.place_gristmill", "On the Grind");
+        generate(translationBuilder, "advancement.bountifulcuisine.place_gristmill.description", "Place a Gristmill");
 
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_feldspar", "Felsic Forager");
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_feldspar.description", "Collect Feldspar from milling stones");
@@ -376,11 +381,40 @@ public class ModEnUsProvider extends FabricLanguageProvider {
 
         generate(translationBuilder, "advancement.bountifulcuisine.eat_ancient_fruit", "How Long Has This Sat Out?");
         generate(translationBuilder, "advancement.bountifulcuisine.eat_ancient_fruit.description", "Eat a fruit from the distant past");
-//        try {
-//            Path existingFilePath = dataOutput.getModContainer().findPath("assets/bountifulcuisine/old_lang/en_us.existing.json").get();
-//            translationBuilder.add(existingFilePath);
-//        } catch (Exception e) {
-//            throw new RuntimeException("Failed to add existing language file!", e);
-//        }
+
+        generate(translationBuilder, "advancement.bountifulcuisine.place_all_baked_goods", "Baker's Dozen");
+        generate(translationBuilder, "advancement.bountifulcuisine.place_all_baked_goods.description", "Place every baked good");
+
+        generate(translationBuilder, "advancement.bountifulcuisine.eat_citric_acid", "Pass the Antacid");
+        generate(translationBuilder, "advancement.bountifulcuisine.eat_citric_acid.description", "Eat Citric Acid");
+
+        generate(translationBuilder, "advancement.bountifulcuisine.throw_flour", "Great Escape");
+        generate(translationBuilder, "advancement.bountifulcuisine.throw_flour.description", "Throw Flour");
+
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_sun_hat", "Who's the Farmer Now?");
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_sun_hat.description", "Obtain a Sun Hat");
+
+        generate(translationBuilder, "advancement.bountifulcuisine.eat_all_candy", "Sweet Tooth");
+        generate(translationBuilder, "advancement.bountifulcuisine.eat_all_candy.description", "Eat every Candy");
+
+        generate(translationBuilder, "advancement.bountifulcuisine.gorge", "Maybe One More...");
+        generate(translationBuilder, "advancement.bountifulcuisine.gorge.description", "Gorge");
+
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_tea_blends", "Tea Tea");
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_tea_blends.description", "Obtain every Tea Blend");
+
+        generate(translationBuilder, "advancement.bountifulcuisine.place_all_tea_candles", "Fragrant!");
+        generate(translationBuilder, "advancement.bountifulcuisine.place_all_tea_candles.description", "Place every Tea Candle");
+
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_walnut", "Deez");
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_walnut.description", "Find a Walnut");
+
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin_seeds", "LOOOORE");
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin_seeds.description", "Discover the source of all these Sponges...");
+
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin", "Oompah Loofah");
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin.description", "Grow and collect a Spongekin");
+
+
     }
 }

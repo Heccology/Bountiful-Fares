@@ -105,6 +105,7 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.ORANGE_SAPLING, ModBlocks.LEMON_SAPLING);
             entries.addAfter(ModBlocks.LEMON_SAPLING, ModBlocks.PLUM_SAPLING);
             entries.addAfter(ModBlocks.PLUM_SAPLING, ModBlocks.HOARY_APPLE_SAPLING);
+            entries.addAfter(ModBlocks.HOARY_APPLE_SAPLING, ModBlocks.WALNUT_SAPLING);
             entries.addAfter(Items.DEAD_BUSH, ModBlocks.WILD_WHEAT);
             entries.addAfter(ModBlocks.WILD_WHEAT, ModBlocks.WILD_CARROTS);
             entries.addAfter(ModBlocks.WILD_CARROTS, ModBlocks.WILD_POTATOES);

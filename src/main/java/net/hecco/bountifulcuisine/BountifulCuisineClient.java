@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
 import net.hecco.bountifulcuisine.block.entity.ModBlockEntities;
 import net.hecco.bountifulcuisine.block.entity.renderer.CeramicDishBlockEntityRenderer;
@@ -23,6 +24,7 @@ import net.hecco.bountifulcuisine.util.ModWoodTypes;
 import net.minecraft.block.Block;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.FoliageColors;
+import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
@@ -89,6 +91,7 @@ public class BountifulCuisineClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HOARY_APPLE_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_HOARY_APPLE_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HANGING_HOARY_APPLE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WALNUT_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HANGING_WALNUTS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FALLEN_WALNUTS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRELLIS, RenderLayer.getCutout());
@@ -177,14 +180,15 @@ public class BountifulCuisineClient implements ClientModInitializer {
         registerBlockColor(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
         registerBlockColor(ModBlocks.CERAMIC_PRESSURE_PLATE);
         registerBlockColor(ModBlocks.CERAMIC_BUTTON);
+        registerDishColor(ModBlocks.CERAMIC_DISH);
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.HOARY, TexturedRenderLayers.getSignTextureId(ModWoodTypes.HOARY));
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.WALNUT, TexturedRenderLayers.getSignTextureId(ModWoodTypes.WALNUT));
         BlockEntityRendererFactories.register(ModBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(ModBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignBlockEntityRenderer::new);
         TerraformBoatClientHelper.registerModelLayers(ModBoats.HOARY_BOAT_ID, false);
         TerraformBoatClientHelper.registerModelLayers(ModBoats.WALNUT_BOAT_ID, false);
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos)
-                : FoliageColors.getDefaultColor(), ModBlocks.CHAMOMILE_FLOWERS);
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos)
+                : GrassColors.getDefaultColor(), ModBlocks.CHAMOMILE_FLOWERS);
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos)
                 : FoliageColors.getDefaultColor(), ModBlocks.WALNUT_LEAVES);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FoliageColors.getDefaultColor(), ModBlocks.WALNUT_LEAVES);
@@ -222,5 +226,22 @@ public class BountifulCuisineClient implements ClientModInitializer {
             }
             return CeramicTilesBlockEntity.DEFAULT_COLOR;
         },ModCeramicBlocksItems);
+    }
+
+    private void registerDishColor(Block ModCeramicDishItems) {
+//        Registers tint for ceramic tile blocks
+        registerDishItemColor(ModCeramicDishItems);
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> CeramicDishBlockEntity.getColor(world,pos),ModCeramicDishItems);
+    }
+
+    private void registerDishItemColor(Block ModCeramicDishItems) {
+//        Registers tint for ceramic tile items
+        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
+            NbtCompound nbtCompound = stack.getSubNbt(DyeableCeramicBlockItem.DISPLAY_KEY);
+            if (nbtCompound != null && nbtCompound.contains(DyeableCeramicBlockItem.COLOR_KEY, NbtElement.NUMBER_TYPE)) {
+                return nbtCompound.getInt(DyeableCeramicBlockItem.COLOR_KEY);
+            }
+            return CeramicDishBlockEntity.DEFAULT_COLOR;
+        },ModCeramicDishItems);
     }
 }

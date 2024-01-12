@@ -78,6 +78,7 @@ public class ModItemGroups {
                         entries.add(ModItems.HOARY_APPLE);
                         entries.add(ModBlocks.HOARY_APPLE_BLOCK);
                         entries.add(ModBlocks.GOLDEN_APPLE_BLOCK);
+                        entries.add(ModBlocks.WALNUT_SAPLING);
                         entries.add(ModBlocks.WALNUT_LOG);
                         entries.add(ModBlocks.WALNUT_WOOD);
                         entries.add(ModBlocks.STRIPPED_WALNUT_LOG);

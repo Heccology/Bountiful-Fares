@@ -100,6 +100,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .with(ItemEntry.builder(ModBlocks.HOARY_LEAVES))));
         addDrop(ModBlocks.HOARY_APPLE_BLOCK);
         addDrop(ModBlocks.GOLDEN_APPLE_BLOCK);
+        addDrop(ModBlocks.WALNUT_SAPLING);
         addDrop(ModBlocks.WALNUT_LOG);
         addDrop(ModBlocks.WALNUT_WOOD);
         addDrop(ModBlocks.STRIPPED_WALNUT_LOG);
@@ -155,6 +156,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.CERAMIC_CLAY_BLOCK);
         addDrop(ModBlocks.CERAMIC_PRESSURE_PLATE);
         addDrop(ModBlocks.CERAMIC_BUTTON);
+        addDrop(ModBlocks.CERAMIC_DISH);
         addDrop(ModBlocks.GRISTMILL);
         addDrop(ModBlocks.SPONGEKIN_SPROUT, ModItems.SPONGEKIN_SEEDS);
         addDrop(ModBlocks.PRISMARINE_BLOSSOM, LootTable.builder()

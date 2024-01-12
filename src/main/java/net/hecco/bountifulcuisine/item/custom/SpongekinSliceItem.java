@@ -31,8 +31,6 @@ public class SpongekinSliceItem extends Item {
         } else {
             user.setAir(maxAir);
         }
-        BountifulCuisine.LOGGER.info("maxair: " + maxAir);
-        BountifulCuisine.LOGGER.info("air: " + air);
         return super.finishUsing(stack, world, user);
     }
 }

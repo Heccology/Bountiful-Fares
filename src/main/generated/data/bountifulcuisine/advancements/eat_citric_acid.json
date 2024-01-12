@@ -1,0 +1,37 @@
+{
+  "parent": "bountifulcuisine:obtain_fermentation_vessel",
+  "criteria": {
+    "eat_citric_acid": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:citric_acid"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulcuisine.eat_citric_acid.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulcuisine:citric_acid"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bountifulcuisine.eat_citric_acid"
+    }
+  },
+  "requirements": [
+    [
+      "eat_citric_acid"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:leek"
+    },
+    {
+      "item": "bountifulcuisine:leek"
+    },
+    {
+      "item": "bountifulcuisine:leek"
+    },
+    {
+      "item": "bountifulcuisine:leek"
+    },
+    {
+      "item": "bountifulcuisine:leek"
+    },
+    {
+      "item": "bountifulcuisine:leek"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "bountifulcuisine:leek_stew"
+  }
+}

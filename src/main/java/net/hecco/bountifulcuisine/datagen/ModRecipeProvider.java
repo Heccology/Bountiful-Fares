@@ -192,17 +192,23 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BOUNTIFUL_STEW)
                 .input(Items.COOKED_PORKCHOP)
-                .input(Items.CARROT)
-                .input(ModItems.MAIZE)
+                .input(Items.CARROT, 2)
+                .input(ModItems.MAIZE, 2)
                 .input(Items.BOWL)
                 .criterion(hasItem(Items.COOKED_PORKCHOP), conditionsFromItem(Items.COOKED_PORKCHOP))
                 .criterion(hasItem(Items.CARROT), conditionsFromItem(Items.CARROT))
                 .criterion(hasItem(ModItems.MAIZE), conditionsFromItem(ModItems.MAIZE))
                 .offerTo(exporter);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.LEEK_STEW)
+                .input(ModItems.LEEK, 6)
+                .input(Items.BOWL)
+                .criterion(hasItem(ModItems.LEEK), conditionsFromItem(ModItems.LEEK))
+                .offerTo(exporter);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CRUSTED_BEEF)
                 .input(Items.COOKED_BEEF)
-                .input(ModItems.WALNUT)
+                .input(ModItems.WALNUT, 2)
                 .input(Items.POTATO)
                 .input(ModBlocks.ELDERBERRIES)
                 .input(Items.BOWL)
@@ -214,7 +220,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CRIMSON_CHOW)
                 .input(Items.COOKED_PORKCHOP)
-                .input(Items.CRIMSON_FUNGUS)
+                .input(Items.CRIMSON_FUNGUS, 2)
                 .input(Items.CRIMSON_ROOTS)
                 .input(Items.BOWL)
                 .criterion(hasItem(Items.CRIMSON_FUNGUS), conditionsFromItem(Items.CRIMSON_FUNGUS))
@@ -222,7 +228,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.WARPED_CHOW)
-                .input(Items.WARPED_FUNGUS)
+                .input(Items.WARPED_FUNGUS, 2)
                 .input(Items.WARPED_ROOTS)
                 .input(Items.NETHER_SPROUTS)
                 .input(Items.BOWL)
@@ -231,6 +237,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.STICK, 8)
+                        .group("stick")
                         .input(ModItemTags.FRUIT_LOGS)
                         .criterion("has_fruit_log", conditionsFromTag(ModItemTags.FRUIT_LOGS))
                         .offerTo(exporter);

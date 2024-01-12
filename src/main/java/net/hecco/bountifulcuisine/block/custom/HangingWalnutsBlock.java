@@ -68,8 +68,6 @@ public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
                 } else {
                     world.setBlockState(pos.up(), ModBlocks.FALLEN_WALNUTS.getDefaultState(), 2);
                 }
-            } else {
-                world.setBlockState(pos, ModBlocks.WALNUT_MULCH.getDefaultState());
             }
         }
         super.onDestroyedOnLanding(world, pos, fallingBlockEntity);

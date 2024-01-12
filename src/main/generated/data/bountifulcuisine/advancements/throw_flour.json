@@ -1,0 +1,41 @@
+{
+  "parent": "bountifulcuisine:place_gristmill",
+  "criteria": {
+    "throw_flour": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "bountifulcuisine:flour"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:summoned_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulcuisine.throw_flour.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulcuisine:flour"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bountifulcuisine.throw_flour"
+    }
+  },
+  "requirements": [
+    [
+      "throw_flour"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

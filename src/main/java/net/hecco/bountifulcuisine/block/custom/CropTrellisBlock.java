@@ -101,7 +101,9 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
         if(state.get(SNIPPED)) {
 
         } else if (!isFullyGrown(state)) {
-            world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
+            if (world.random.nextBoolean()) {
+                world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
+            }
         }
     }
     @Override
@@ -109,7 +111,9 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
         if(state.get(SNIPPED)) {
 
         } else if (!isFullyGrown(state)) {
-            world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
+            if (world.random.nextBoolean()) {
+                world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
+            }
         }
     }
 

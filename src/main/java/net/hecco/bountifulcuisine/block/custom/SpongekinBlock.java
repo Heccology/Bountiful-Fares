@@ -35,7 +35,7 @@ public class SpongekinBlock extends Block {
             }
             world.setBlockState(pos, Blocks.WET_SPONGE.getDefaultState(), 2);
             player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
-            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
             return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;

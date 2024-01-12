@@ -1,0 +1,44 @@
+{
+  "parent": "bountifulcuisine:obtain_spongekin_seeds",
+  "criteria": {
+    "obtain_spongekin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bountifulcuisine:spongekin"
+            ]
+          },
+          {
+            "items": [
+              "bountifulcuisine:spongekin_slice"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulcuisine.obtain_spongekin.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulcuisine:spongekin"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bountifulcuisine.obtain_spongekin"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_spongekin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

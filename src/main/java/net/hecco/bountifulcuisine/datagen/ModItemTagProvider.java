@@ -3,6 +3,7 @@ package net.hecco.bountifulcuisine.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.util.ModBlockTags;
 import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.Blocks;
@@ -93,6 +94,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.HOARY_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_HOARY_WOOD.asItem())
         ;
+        getOrCreateTagBuilder(ModItemTags.FRUIT_LOGS)
+                .addTag(ModItemTags.APPLE_LOGS)
+                .addTag(ModItemTags.ORANGE_LOGS)
+                .addTag(ModItemTags.LEMON_LOGS)
+                .addTag(ModItemTags.PLUM_LOGS)
+        ;
         getOrCreateTagBuilder(ModItemTags.DYEABLE_CERAMIC_BLOCKS)
                 .add(ModBlocks.CERAMIC_TILES.asItem())
                 .add(ModBlocks.CERAMIC_TILE_STAIRS.asItem())
@@ -130,6 +137,60 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.PURPLE_DYE)
                 .add(Items.MAGENTA_DYE)
                 .add(Items.PINK_DYE)
+        ;
+        getOrCreateTagBuilder(ModItemTags.EATABLE_ON_DISH)
+                .add(Items.APPLE)
+                .add(Items.GOLDEN_APPLE)
+                .add(Items.ENCHANTED_GOLDEN_APPLE)
+                .add(Items.MELON_SLICE)
+                .add(Items.SWEET_BERRIES)
+                .add(Items.GLOW_BERRIES)
+                .add(Items.CHORUS_FRUIT)
+                .add(Items.CARROT)
+                .add(Items.GOLDEN_CARROT)
+                .add(Items.POTATO)
+                .add(Items.BAKED_POTATO)
+                .add(Items.POISONOUS_POTATO)
+                .add(Items.BEETROOT)
+                .add(Items.DRIED_KELP)
+                .add(Items.BEEF)
+                .add(Items.COOKED_BEEF)
+                .add(Items.PORKCHOP)
+                .add(Items.COOKED_PORKCHOP)
+                .add(Items.MUTTON)
+                .add(Items.COOKED_MUTTON)
+                .add(Items.RABBIT)
+                .add(Items.COOKED_RABBIT)
+                .add(Items.COD)
+                .add(Items.COOKED_COD)
+                .add(Items.SALMON)
+                .add(Items.COOKED_SALMON)
+                .add(Items.TROPICAL_FISH)
+                .add(Items.PUFFERFISH)
+                .add(Items.BREAD)
+                .add(Items.COOKIE)
+                .add(Items.PUMPKIN_PIE)
+                .add(Items.ROTTEN_FLESH)
+                .add(Items.SPIDER_EYE)
+                .add(ModItems.MUSHROOM_STUFFED_POTATO)
+                .add(ModItems.CANDIED_ORANGE)
+                .add(ModItems.CANDIED_LEMON)
+                .add(ModItems.CANDY)
+                .add(ModItems.PIQUANT_CANDY)
+                .add(ModItems.SOUR_CANDY)
+                .add(ModItems.BITTER_CANDY)
+                .add(ModItems.SPONGEKIN_SLICE)
+                .add(ModBlocks.PASSION_FRUIT)
+                .add(ModBlocks.ELDERBERRIES)
+                .add(ModBlocks.LAPISBERRIES)
+                .add(ModItems.ORANGE)
+                .add(ModItems.LEMON)
+                .add(ModItems.PLUM)
+                .add(ModItems.HOARY_APPLE)
+                .add(ModItems.WALNUT)
+                .add(ModItems.MAIZE)
+                .add(ModItems.LEEK)
+                .add(ModItems.CITRIC_ACID)
         ;
     }
 }

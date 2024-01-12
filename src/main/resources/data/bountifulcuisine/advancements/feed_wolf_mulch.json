@@ -1,5 +1,5 @@
 {
-  "parent": "bountifulcuisine:obtain_gristmill",
+  "parent": "bountifulcuisine:obtain_walnut",
   "criteria": {
     "feed_wolf_mulch": {
       "conditions": {

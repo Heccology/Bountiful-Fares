@@ -32,12 +32,14 @@ public class ModModelProvider extends FabricModelProvider {
         BlockStateModelGenerator.BlockTexturePool feldsparTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FELDSPAR_BRICKS);
         feldsparTexturePool.stairs(ModBlocks.FELDSPAR_BRICK_STAIRS);
         feldsparTexturePool.slab(ModBlocks.FELDSPAR_BRICK_SLAB);
+
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.LEEK, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEEK_SEEDS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LEEK_STEW, Models.GENERATED);
         itemModelGenerator.register(ModItems.CRUSTED_BEEF, Models.GENERATED);
         itemModelGenerator.register(ModItems.WALNUT, Models.GENERATED);
         itemModelGenerator.register(ModItems.WALNUT_BOAT, Models.GENERATED);

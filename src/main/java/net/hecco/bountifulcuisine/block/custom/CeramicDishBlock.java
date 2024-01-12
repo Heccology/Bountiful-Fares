@@ -1,19 +1,30 @@
 package net.hecco.bountifulcuisine.block.custom;
 
 import com.mojang.datafixers.util.Pair;
+import net.hecco.bountifulcuisine.block.interfaces.CeramicDishBlockInterface;
+import net.hecco.bountifulcuisine.block.interfaces.DyeableCeramicBlockInterface;
+import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.entity.CeramicDishBlockEntity;
+import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.item.custom.SpongekinSliceItem;
 import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.ChorusFruitItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -24,23 +35,38 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Objects;
 
-public class CeramicDishBlock extends Block implements BlockEntityProvider, Waterloggable {
+import static net.hecco.bountifulcuisine.item.custom.SpongekinSliceItem.airTickIncrease;
+
+public class CeramicDishBlock extends Block implements BlockEntityProvider, Waterloggable, CeramicDishBlockInterface {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public CeramicDishBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+    }
+
+    @Override
+    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+        if (CeramicDishBlockEntity.getColor(world, pos) != CeramicDishBlockEntity.DEFAULT_COLOR) {
+            ItemStack stack = super.getPickStack(world, pos, state);
+            return pickBlock(world,pos,stack);
+        } else {
+            return new ItemStack(ModBlocks.CERAMIC_DISH);
+        }
     }
 
     @Override
@@ -70,7 +96,7 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
                     blockEntity.removeItem();
                     blockEntity.markDirty();
                     return ActionResult.SUCCESS;
-                } else if (stack.isIn(ModItemTags.EATABLE_ON_DISH)) {
+                } else if (stack.isIn(ModItemTags.EATABLE_ON_DISH) && stack.isFood()) {
                     boolean shouldIgnore = stack.getItem().getFoodComponent().isAlwaysEdible();
                     if (player.canConsume(shouldIgnore)) {
                         int hunger = Objects.requireNonNull(stack.getItem().getFoodComponent()).getHunger();
@@ -78,7 +104,19 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
                         List<Pair<StatusEffectInstance, Float>> effects = stack.getItem().getFoodComponent().getStatusEffects();
                         player.getHungerManager().add(hunger, sat);
                         world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 0.5f, 0.8f + world.random.nextFloat());
-                        world.playSound(null, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.BLOCKS, 0.4f, 1.0f);
+                        world.playSound(null, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.BLOCKS, 0.3f, 1.0f);
+                        if (stack.isOf(ModItems.SPONGEKIN_SLICE)) {
+                            int air = player.getAir();
+                            int maxAir = player.getMaxAir();
+                            if (air < maxAir - SpongekinSliceItem.airTickIncrease){
+                                player.setAir(air + SpongekinSliceItem.airTickIncrease);
+                            } else {
+                                player.setAir(maxAir);
+                            }
+                        }
+                        if (stack.isOf(Items.CHORUS_FRUIT)) {
+                            chorusTeleport(world, player);
+                        }
                         for (int i = 0; i < effects.size(); i++) {
                             StatusEffectInstance effect = effects.get(i).getFirst();
                             int length = effect.getDuration();
@@ -143,5 +181,31 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
             return Fluids.WATER.getStill(false);
         }
         return super.getFluidState(state);
+    }
+
+    public void chorusTeleport(World world, LivingEntity user) {
+        if (!world.isClient) {
+            double d = user.getX();
+            double e = user.getY();
+            double f = user.getZ();
+
+            for(int i = 0; i < 16; ++i) {
+                double g = user.getX() + (user.getRandom().nextDouble() - 0.5) * 16.0;
+                double h = MathHelper.clamp(user.getY() + (double)(user.getRandom().nextInt(16) - 8), (double)world.getBottomY(), (double)(world.getBottomY() + ((ServerWorld)world).getLogicalHeight() - 1));
+                double j = user.getZ() + (user.getRandom().nextDouble() - 0.5) * 16.0;
+                if (user.hasVehicle()) {
+                    user.stopRiding();
+                }
+
+                Vec3d vec3d = user.getPos();
+                if (user.teleport(g, h, j, true)) {
+                    world.emitGameEvent(GameEvent.TELEPORT, vec3d, GameEvent.Emitter.of(user));
+                    SoundEvent soundEvent = user instanceof FoxEntity ? SoundEvents.ENTITY_FOX_TELEPORT : SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT;
+                    world.playSound((PlayerEntity)null, d, e, f, soundEvent, SoundCategory.PLAYERS, 1.0F, 1.0F);
+                    user.playSound(soundEvent, 1.0F, 1.0F);
+                    break;
+                }
+            }
+        }
     }
 }
