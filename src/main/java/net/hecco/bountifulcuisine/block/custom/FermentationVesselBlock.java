@@ -92,11 +92,33 @@ public class FermentationVesselBlock extends Block implements Waterloggable {
                 itemStack.decrement(1);
             }
             return ActionResult.SUCCESS;
-        } else if(state.get(WATER) && itemStack.isOf(ModBlocks.ELDERBERRIES)) {
+        } else if(state.get(WATER) && itemStack.isOf(ModItems.ELDERBERRIES)) {
             if (state.get(WATERLOGGED)) {
                 world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.ELDERBERRIES).with(WATERLOGGED, true), 2);
             } else if (!state.get(WATERLOGGED)) {
                 world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.ELDERBERRIES), 2);
+            }
+            world.playSound(null, pos, SoundEvents.ENTITY_AXOLOTL_SPLASH, SoundCategory.BLOCKS, 1.0F, 0.8F);
+            if (!player.isCreative()) {
+                itemStack.decrement(1);
+            }
+            return ActionResult.SUCCESS;
+        }  else if(state.get(WATER) && itemStack.isOf(ModItems.ORANGE)) {
+            if (state.get(WATERLOGGED)) {
+                world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.CITRUS).with(WATERLOGGED, true), 2);
+            } else if (!state.get(WATERLOGGED)) {
+                world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.CITRUS), 2);
+            }
+            world.playSound(null, pos, SoundEvents.ENTITY_AXOLOTL_SPLASH, SoundCategory.BLOCKS, 1.0F, 0.8F);
+            if (!player.isCreative()) {
+                itemStack.decrement(1);
+            }
+            return ActionResult.SUCCESS;
+        }  else if(state.get(WATER) && itemStack.isOf(ModItems.LEMON)) {
+            if (state.get(WATERLOGGED)) {
+                world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.CITRUS).with(WATERLOGGED, true), 2);
+            } else if (!state.get(WATERLOGGED)) {
+                world.setBlockState(pos, ModBlocks.FULL_FERMENTATION_VESSEL.getDefaultState().with(ITEM_FERMENTING, ItemFermenting.CITRUS), 2);
             }
             world.playSound(null, pos, SoundEvents.ENTITY_AXOLOTL_SPLASH, SoundCategory.BLOCKS, 1.0F, 0.8F);
             if (!player.isCreative()) {

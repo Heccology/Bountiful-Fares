@@ -16,7 +16,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         super(dataOutput, "en_us");
     }
 
-    // Credit to Hibiscus Team's Natures Spirit for lang gen capitalization code
+    // Lang gen capitalization code by Hibiscus Team's Natures Spirit
     public static String capitalizeString(String string) {
         char[] chars = string.toLowerCase().toCharArray();
         boolean found = false;
@@ -185,15 +185,17 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.PEONY_TRELLIS);
         generate(translationBuilder, ModBlocks.SUNFLOWER_TRELLIS);
 
-        generate(translationBuilder, ModBlocks.PASSION_FRUIT);
-        generate(translationBuilder, ModBlocks.ELDERBERRIES);
-        generate(translationBuilder, ModBlocks.LAPISBERRIES);
+        generate(translationBuilder, ModItems.PASSION_FRUIT);
+        generate(translationBuilder, ModItems.ELDERBERRIES);
+        generate(translationBuilder, ModItems.LAPISBERRIES);
         generate(translationBuilder, ModItems.LAPISBERRY_SEEDS);
 
         generate(translationBuilder, ModBlocks.WILD_WHEAT);
         generate(translationBuilder, ModBlocks.WILD_CARROTS);
         generate(translationBuilder, ModBlocks.WILD_POTATOES);
         generate(translationBuilder, ModBlocks.WILD_BEETROOTS);
+        generate(translationBuilder, ModBlocks.WILD_PASSION_FRUIT_VINE);
+        generate(translationBuilder, ModBlocks.WILD_ELDERBERRY_VINE);
 
         generate(translationBuilder, ModItems.MAIZE);
         generate(translationBuilder, ModBlocks.MAIZE_CROP, "Maize");

@@ -1,11 +1,14 @@
 package net.hecco.bountifulcuisine.datagen;
 
+import dev.architectury.platform.Mod;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.custom.FallenWalnutsBlock;
 import net.hecco.bountifulcuisine.item.ModItems;
+import net.minecraft.block.BeetrootsBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.enchantment.Enchantments;
@@ -118,7 +121,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.WALNUT_WALL_SIGN);
         addDrop(ModBlocks.WALNUT_HANGING_SIGN);
         addDrop(ModBlocks.WALNUT_WALL_HANGING_SIGN);
-        addDrop(ModBlocks.WALNUT_LEAVES, leavesDrops(ModBlocks.WALNUT_LEAVES, ModBlocks.PLUM_SAPLING, SAPLING_DROP_CHANCE));
+        addDrop(ModBlocks.WALNUT_LEAVES, leavesDrops(ModBlocks.WALNUT_LEAVES, ModBlocks.WALNUT_SAPLING, SAPLING_DROP_CHANCE));
         addDrop(ModBlocks.OAK_PICKETS);
         addDrop(ModBlocks.SPRUCE_PICKETS);
         addDrop(ModBlocks.BIRCH_PICKETS);
@@ -132,10 +135,10 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.CRIMSON_PICKETS);
         addDrop(ModBlocks.WARPED_PICKETS);
         addDrop(ModBlocks.TRELLIS);
-        addDrop(ModBlocks.PASSION_FRUIT_TRELLIS, plantedTrellisDrops(ModBlocks.PASSION_FRUIT_TRELLIS, ModBlocks.PASSION_FRUIT));
-        addDrop(ModBlocks.ELDERBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.ELDERBERRY_TRELLIS, ModBlocks.ELDERBERRIES));
+        addDrop(ModBlocks.PASSION_FRUIT_TRELLIS, plantedTrellisDrops(ModBlocks.PASSION_FRUIT_TRELLIS, ModItems.PASSION_FRUIT));
+        addDrop(ModBlocks.ELDERBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.ELDERBERRY_TRELLIS, ModItems.ELDERBERRIES));
         addDrop(ModBlocks.GLOW_BERRY_TRELLIS, plantedTrellisDrops(ModBlocks.GLOW_BERRY_TRELLIS, Items.GLOW_BERRIES));
-        addDrop(ModBlocks.LAPISBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.LAPISBERRY_TRELLIS, ModBlocks.LAPISBERRIES));
+        addDrop(ModBlocks.LAPISBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.LAPISBERRY_TRELLIS, ModItems.LAPISBERRIES));
         addDrop(ModBlocks.ROSE_TRELLIS, plantedTrellisDrops(ModBlocks.ROSE_TRELLIS, Items.ROSE_BUSH));
         addDrop(ModBlocks.LILAC_TRELLIS, plantedTrellisDrops(ModBlocks.LILAC_TRELLIS, Items.LILAC));
         addDrop(ModBlocks.PEONY_TRELLIS, plantedTrellisDrops(ModBlocks.PEONY_TRELLIS, Items.PEONY));
@@ -158,6 +161,8 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.CERAMIC_BUTTON);
         addDrop(ModBlocks.CERAMIC_DISH);
         addDrop(ModBlocks.GRISTMILL);
+        addDrop(ModBlocks.HONEYSUCKLE);
+        addDrop(ModBlocks.VIOLET_BELLFLOWER);
         addDrop(ModBlocks.SPONGEKIN_SPROUT, ModItems.SPONGEKIN_SEEDS);
         addDrop(ModBlocks.PRISMARINE_BLOSSOM, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(3.0F))
@@ -192,6 +197,8 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.FALLEN_WALNUTS)
                                 .properties(StatePredicate.Builder.create().exactMatch(FallenWalnutsBlock.COUNT, 3)))
                         .with(this.applyExplosionDecay(ModBlocks.FALLEN_WALNUTS, ItemEntry.builder(ModItems.WALNUT)))));
+
+        cropDrops(ModBlocks.LEEKS, ModItems.LEEK, ModItems.LEEK_SEEDS, BlockStatePropertyLootCondition.builder(ModBlocks.LEEKS).properties(StatePredicate.Builder.create().exactMatch(BeetrootsBlock.AGE, 7)));
     }
     public LootTable.Builder plantedTrellisDrops(Block block, Item plant) {
         return LootTable.builder()

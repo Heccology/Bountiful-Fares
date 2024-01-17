@@ -1,0 +1,7 @@
+{
+	"parent": "bountifulcuisine:block/wild_vine_crop",
+	"textures": {
+		"tint": "bountifulcuisine:block/wild_passion_fruit_vine_tint",
+		"texture": "bountifulcuisine:block/wild_passion_fruit_vine"
+	}
+}

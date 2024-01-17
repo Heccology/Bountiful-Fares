@@ -5,8 +5,7 @@
   "mixins": [
     "BrewingRecipeRegistryMixin",
     "FoliagePlacerTypeInvoker",
-    "PlantTooltipMixin",
-    "SpongekinSproutGenerationMixin",
+    "TreeDecoratorTypeInvoker",
     "TrunkPlacerTypeInvoker",
     "WolfEntityMixin"
   ],

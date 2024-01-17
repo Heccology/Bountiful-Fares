@@ -1,11 +1,13 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import com.google.common.collect.Maps;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
@@ -22,12 +24,18 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-public class DecorationalTrellisBlock extends TrellisBlock implements Fertilizable {
+import java.util.Map;
+
+public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable {
 
     public static Item item;
-    public DecorationalTrellisBlock(Item item, Settings settings) {
+    private static final Map<Item, DecorativeTrellisBlock> PLANTS_TO_DECORATIVE_TRELLISES = Maps.newHashMap();
+    private static final Map<DecorativeTrellisBlock, Item> DECORATIVE_TRELLISES_TO_PLANTS = Maps.newHashMap();
+    public DecorativeTrellisBlock(Item item, Settings settings) {
         super(settings);
-        DecorationalTrellisBlock.item = item;
+        DecorativeTrellisBlock.item = item;
+        PLANTS_TO_DECORATIVE_TRELLISES.put(item, this);
+        DECORATIVE_TRELLISES_TO_PLANTS.put(this, item);
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH));
     }
 
@@ -41,7 +49,7 @@ public class DecorationalTrellisBlock extends TrellisBlock implements Fertilizab
         if (player.getStackInHand(hand).isOf(Items.SHEARS)) {
             player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
             world.setBlockState(pos, ModBlocks.TRELLIS.getDefaultState().with(FACING, facing), 2);
-            dropStack(world, pos, new ItemStack(item));
+            dropStack(world, pos, new ItemStack(DECORATIVE_TRELLISES_TO_PLANTS.get(this)));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
             return ActionResult.SUCCESS;
         }
@@ -66,5 +74,9 @@ public class DecorationalTrellisBlock extends TrellisBlock implements Fertilizab
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         dropStack(world, pos, new ItemStack(item));
+    }
+
+    public static BlockState getDecorativeTrellisFromPlant(Item item) {
+        return (PLANTS_TO_DECORATIVE_TRELLISES.get(item)).getDefaultState();
     }
 }

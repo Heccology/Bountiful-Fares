@@ -155,9 +155,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ARTISAN_COOKIE)
                 .input(ModItems.FLOUR)
-                .input(ModBlocks.ELDERBERRIES)
+                .input(ModItems.ELDERBERRIES)
                 .input(Items.SUGAR)
-                .criterion(hasItem(ModBlocks.ELDERBERRIES), conditionsFromItem(ModBlocks.ELDERBERRIES))
+                .criterion(hasItem(ModItems.ELDERBERRIES), conditionsFromItem(ModItems.ELDERBERRIES))
                 .criterion(hasItem(ModItems.FLOUR), conditionsFromItem(ModItems.FLOUR))
                 .offerTo(exporter);
 
@@ -183,10 +183,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.PASSION_GLAZED_SALMON)
-                .input(ModBlocks.PASSION_FRUIT, 3)
+                .input(ModItems.PASSION_FRUIT, 3)
                 .input(Items.COOKED_SALMON)
                 .input(Items.BOWL)
-                .criterion(hasItem(ModBlocks.PASSION_FRUIT), conditionsFromItem(ModBlocks.PASSION_FRUIT))
+                .criterion(hasItem(ModItems.PASSION_FRUIT), conditionsFromItem(ModItems.PASSION_FRUIT))
                 .criterion(hasItem(Items.COOKED_SALMON), conditionsFromItem(Items.COOKED_SALMON))
                 .offerTo(exporter);
 
@@ -210,12 +210,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Items.COOKED_BEEF)
                 .input(ModItems.WALNUT, 2)
                 .input(Items.POTATO)
-                .input(ModBlocks.ELDERBERRIES)
+                .input(ModItems.ELDERBERRIES)
                 .input(Items.BOWL)
                 .criterion(hasItem(Items.COOKED_BEEF), conditionsFromItem(Items.COOKED_BEEF))
                 .criterion(hasItem(Items.POTATO), conditionsFromItem(Items.POTATO))
                 .criterion(hasItem(ModItems.WALNUT), conditionsFromItem(ModItems.WALNUT))
-                .criterion(hasItem(ModBlocks.ELDERBERRIES), conditionsFromItem(ModBlocks.ELDERBERRIES))
+                .criterion(hasItem(ModItems.ELDERBERRIES), conditionsFromItem(ModItems.ELDERBERRIES))
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CRIMSON_CHOW)
@@ -315,11 +315,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerCandyRecipe(exporter, ModItems.CANDY, Items.HONEY_BOTTLE);
         offerCandyRecipe(exporter, ModItems.PIQUANT_CANDY, Items.SWEET_BERRIES);
         offerCandyRecipe(exporter, ModItems.SOUR_CANDY, ModItems.CITRIC_ACID);
-        offerCandyRecipe(exporter, ModItems.BITTER_CANDY, ModBlocks.ELDERBERRIES);
-        offerTartAndPieRecipe(exporter, ModBlocks.PASSION_FRUIT_TART, ModBlocks.PASSION_FRUIT);
-        offerTartAndPieRecipe(exporter, ModBlocks.ELDERBERRY_TART, ModBlocks.ELDERBERRIES);
+        offerCandyRecipe(exporter, ModItems.BITTER_CANDY, ModItems.ELDERBERRIES);
+        offerTartAndPieRecipe(exporter, ModBlocks.PASSION_FRUIT_TART, ModItems.PASSION_FRUIT);
+        offerTartAndPieRecipe(exporter, ModBlocks.ELDERBERRY_TART, ModItems.ELDERBERRIES);
         offerTartAndPieRecipe(exporter, ModBlocks.GLOW_BERRY_TART, Items.GLOW_BERRIES);
-        offerTartAndPieRecipe(exporter, ModBlocks.LAPISBERRY_TART, ModBlocks.LAPISBERRIES);
+        offerTartAndPieRecipe(exporter, ModBlocks.LAPISBERRY_TART, ModItems.LAPISBERRIES);
         offerTartAndPieRecipe(exporter, ModBlocks.SWEET_BERRY_TART, Items.SWEET_BERRIES);
         offerTartAndPieRecipe(exporter, ModBlocks.APPLE_PIE, Items.APPLE);
         offerTartAndPieRecipe(exporter, ModBlocks.ORANGE_PIE, ModItems.ORANGE);

@@ -16,6 +16,7 @@ import net.hecco.bountifulcuisine.util.ModLootTableModifiers;
 import net.hecco.bountifulcuisine.util.ModRegistries;
 import net.hecco.bountifulcuisine.world.gen.ModWorldGeneration;
 import net.hecco.bountifulcuisine.world.tree.ModFoliagePlacerTypes;
+import net.hecco.bountifulcuisine.world.tree.ModTreeDecoratorTypes;
 import net.hecco.bountifulcuisine.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +45,7 @@ public class BountifulCuisine implements ModInitializer {
 		ModParticles.registerParticles();
 		ModPotions.registerPotions();
 		ModTrunkPlacerTypes.register();
+		ModTreeDecoratorTypes.register();
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerBlockEntities();
 	}

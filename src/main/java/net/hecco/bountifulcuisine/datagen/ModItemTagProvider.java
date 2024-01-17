@@ -7,6 +7,7 @@ import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.util.ModBlockTags;
 import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
@@ -180,9 +181,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.SOUR_CANDY)
                 .add(ModItems.BITTER_CANDY)
                 .add(ModItems.SPONGEKIN_SLICE)
-                .add(ModBlocks.PASSION_FRUIT)
-                .add(ModBlocks.ELDERBERRIES)
-                .add(ModBlocks.LAPISBERRIES)
+                .add(ModItems.PASSION_FRUIT)
+                .add(ModItems.ELDERBERRIES)
+                .add(ModItems.LAPISBERRIES)
                 .add(ModItems.ORANGE)
                 .add(ModItems.LEMON)
                 .add(ModItems.PLUM)
@@ -191,6 +192,18 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.MAIZE)
                 .add(ModItems.LEEK)
                 .add(ModItems.CITRIC_ACID)
+        ;
+        getOrCreateTagBuilder(ModItemTags.VINE_CROP_SEEDS)
+                .add(ModItems.PASSION_FRUIT)
+                .add(ModItems.ELDERBERRIES)
+                .add(Items.GLOW_BERRIES)
+                .add(ModItems.LAPISBERRY_SEEDS)
+        ;
+        getOrCreateTagBuilder(ModItemTags.PLANTABLE_ON_TRELLIS)
+                .add(Items.ROSE_BUSH)
+                .add(Items.LILAC)
+                .add(Items.PEONY)
+                .add(Items.SUNFLOWER)
         ;
     }
 }

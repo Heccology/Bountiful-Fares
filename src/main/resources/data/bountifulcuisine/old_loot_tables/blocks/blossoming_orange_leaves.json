@@ -37,7 +37,7 @@
                   ]
                 }
               ],
-              "name": "bountifulcuisine:blossoming_orange_leaves"
+              "name": "bountifulcuisine:flowering_orange_leaves"
             },
             {
               "type": "minecraft:item",
@@ -132,5 +132,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "bountifulcuisine:blocks/blossoming_orange_leaves"
+  "random_sequence": "bountifulcuisine:blocks/flowering_orange_leaves"
 }

@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.enums.ItemFermenting;
 import net.hecco.bountifulcuisine.item.ModItems;
@@ -21,6 +22,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.function.BooleanBiFunction;
@@ -86,7 +88,7 @@ public class FullFermentationVesselBlock extends Block implements Waterloggable 
         }
 
 
-        if (state.get(ITEM_FERMENTING) == ItemFermenting.ELDERBERRIES && state.get(COMPLETE) && itemStack.isOf(Items.GLASS_BOTTLE)) {
+        if (state.get(ITEM_FERMENTING) == ItemFermenting.ELDERBERRIES && state.get(COMPLETE)) {
             if(itemStack.isOf(Items.GLASS_BOTTLE)) {
                 world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 0.8F);
                 if (!player.isCreative()) {
@@ -97,7 +99,20 @@ public class FullFermentationVesselBlock extends Block implements Waterloggable 
                 } else if (!player.getInventory().insertStack(new ItemStack(ModItems.ELDERBERRY_WINE_BOTTLE))) {
                     player.dropItem(new ItemStack(ModItems.ELDERBERRY_WINE_BOTTLE), false);
                 }
+                if(state.get(WATERLOGGED)) {
+                    world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState().with(WATERLOGGED, true), 2);
+                } else if(!state.get(WATERLOGGED)) {
+                    world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState(), 2);
+                }
+                world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F);
+                return ActionResult.SUCCESS;
+            } else {
+                player.sendMessage(Text.translatable("warning." + BountifulCuisine.MOD_ID + "fermentation_vessel.use_bottle"), true);
             }
+
+        }
+        if (state.get(ITEM_FERMENTING) == ItemFermenting.CITRUS && state.get(COMPLETE)) {
+            FullFermentationVesselBlock.dropStack(world, new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), new ItemStack(ModItems.CITRIC_ACID, 1));
             if(state.get(WATERLOGGED)) {
                 world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState().with(WATERLOGGED, true), 2);
             } else if(!state.get(WATERLOGGED)) {
@@ -106,6 +121,7 @@ public class FullFermentationVesselBlock extends Block implements Waterloggable 
             world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F);
             return ActionResult.SUCCESS;
         }
+
         return ActionResult.PASS;
     }
 

@@ -42,6 +42,8 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> FOREST_TEA_SHRUB_PLACED_KEY = registerKey("forest_tea_shrub_placed");
     public static final RegistryKey<PlacedFeature> WALNUT_PLACED_KEY = registerKey("walnut_placed");
     public static final RegistryKey<PlacedFeature> BEACH_WALNUT_PLACED_KEY = registerKey("beach_walnut_placed");
+    public static final RegistryKey<PlacedFeature> PASSION_FRUIT_JUNGLE_TREE = registerKey("passion_fruit_jungle_tree");
+    public static final RegistryKey<PlacedFeature> ELDERBERRY_SWAMP_OAK = registerKey("elderberry_swamp_oak");
 
 
     public static void bootstrap(Registerable<PlacedFeature> context) {

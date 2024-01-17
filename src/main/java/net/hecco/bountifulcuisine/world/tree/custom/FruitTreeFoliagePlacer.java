@@ -36,14 +36,14 @@ public class FruitTreeFoliagePlacer extends LargeOakFoliagePlacer {
 
         for(int i = 0; i < 50; ++i) {
             mutable.set(blockPos, random.nextInt(radius) - random.nextInt(radius), random.nextInt(foliageHeight) - random.nextInt(foliageHeight), random.nextInt(radius) - random.nextInt(radius));
-            placeBlossomingLeaves(world, placer, random, config, mutable);
+            placeFloweringLeaves(world, placer, random, config, mutable);
         }
 
     }
 
 
-    protected static void placeBlossomingLeaves(TestableWorld world, BlockPlacer placer, Random random, TreeFeatureConfig config, BlockPos pos) {
-        if (!canBlossomingLeavesReplace(world, pos)) {
+    protected static void placeFloweringLeaves(TestableWorld world, BlockPlacer placer, Random random, TreeFeatureConfig config, BlockPos pos) {
+        if (!canFloweringLeavesReplace(world, pos)) {
         } else {
             BlockState blockState = config.foliageProvider.get(random, pos);
             if (blockState.contains(Properties.WATERLOGGED)) {
@@ -57,7 +57,7 @@ public class FruitTreeFoliagePlacer extends LargeOakFoliagePlacer {
     }
 
 
-    public static boolean canBlossomingLeavesReplace(TestableWorld world, BlockPos pos) {
+    public static boolean canFloweringLeavesReplace(TestableWorld world, BlockPos pos) {
         return world.testBlockState(pos, (state) -> {
             return state.isIn(BlockTags.LEAVES);
         });

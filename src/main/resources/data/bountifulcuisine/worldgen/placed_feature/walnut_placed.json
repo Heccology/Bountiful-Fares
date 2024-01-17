@@ -36,7 +36,7 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "bountifulcuisine:apple_sapling",
+          "Name": "bountifulcuisine:walnut_sapling",
           "Properties": {
             "stage": "0"
           }

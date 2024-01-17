@@ -37,7 +37,7 @@
                   ]
                 }
               ],
-              "name": "bountifulcuisine:blossoming_apple_leaves"
+              "name": "bountifulcuisine:flowering_apple_leaves"
             },
             {
               "type": "minecraft:item",
@@ -132,5 +132,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "bountifulcuisine:blocks/blossoming_apple_leaves"
+  "random_sequence": "bountifulcuisine:blocks/flowering_apple_leaves"
 }

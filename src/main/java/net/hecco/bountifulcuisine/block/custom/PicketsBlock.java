@@ -13,6 +13,8 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
+import net.minecraft.util.BlockMirror;
+import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -133,6 +135,25 @@ public class PicketsBlock extends Block implements Waterloggable {
             default:
                 return NORTH;
         }
+    }
+
+    @Override
+    public BlockState rotate(BlockState state, BlockRotation rotation) {
+        return switch (rotation) {
+            case CLOCKWISE_180 -> (((state.with(NORTH, state.get(SOUTH))).with(EAST, state.get(WEST))).with(SOUTH, state.get(NORTH))).with(WEST, state.get(EAST));
+            case COUNTERCLOCKWISE_90 -> (((state.with(NORTH, state.get(EAST))).with(EAST, state.get(SOUTH))).with(SOUTH, state.get(WEST))).with(WEST, state.get(NORTH));
+            case CLOCKWISE_90 -> (((state.with(NORTH, state.get(WEST))).with(EAST, state.get(NORTH))).with(SOUTH, state.get(EAST))).with(WEST, state.get(SOUTH));
+            default -> state;
+        };
+    }
+
+    @Override
+    public BlockState mirror(BlockState state, BlockMirror mirror) {
+        return switch (mirror) {
+            case LEFT_RIGHT -> (state.with(NORTH, state.get(SOUTH))).with(SOUTH, state.get(NORTH));
+            case FRONT_BACK -> (state.with(EAST, state.get(WEST))).with(WEST, state.get(EAST));
+            default -> super.mirror(state, mirror);
+        };
     }
 
     @Override

@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import com.google.common.collect.Maps;
 import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.minecraft.block.*;
@@ -34,20 +35,30 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
 
+import java.util.Map;
+
 public class CropTrellisBlock extends Block implements Waterloggable, Fertilizable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final DirectionProperty FACING;
     public static final IntProperty AGE = Properties.AGE_3;
+    private static final Map<Item, CropTrellisBlock> CROPS_TO_CROP_TRELLISES = Maps.newHashMap();
     private final Item berryItem;
     protected static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0, 0, 15, 16, 16, 16);
     protected static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0, 0, 0, 16, 16, 1);
     protected static final VoxelShape WEST_SHAPE = Block.createCuboidShape(15, 0, 0, 16, 16, 16);
     protected static final VoxelShape EAST_SHAPE = Block.createCuboidShape(0, 0, 0, 1, 16, 16);
     public static BooleanProperty SNIPPED = BooleanProperty.of("snipped");
+
     public CropTrellisBlock(Item berryItem, Settings settings) {
         super(settings);
         this.berryItem = berryItem;
-        BountifulCuisine.LOGGER.info("Berry Item: " + berryItem);
+        CROPS_TO_CROP_TRELLISES.put(berryItem, this);
+        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(AGE, 0).with(SNIPPED, false));
+    }
+    public CropTrellisBlock(Item seedsItem, Item berryItem, Settings settings) {
+        super(settings);
+        this.berryItem = berryItem;
+        CROPS_TO_CROP_TRELLISES.put(seedsItem, this);
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(AGE, 0).with(SNIPPED, false));
     }
 
@@ -85,7 +96,7 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
         } else if(state.get(AGE) == 3 & !state.get(SNIPPED)) {
             int j = 1 + world.random.nextInt(2);
             if (this.berryItem != null) {
-                dropStack(world, pos, new ItemStack(this.berryItem));
+                dropStack(world, pos, new ItemStack(this.berryItem, world.random.nextBetween(1, 2)));
                 world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
             }
             BlockState blockState = state.with(AGE, 1);
@@ -101,7 +112,7 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
         if(state.get(SNIPPED)) {
 
         } else if (!isFullyGrown(state)) {
-            if (world.random.nextBoolean()) {
+            if (world.random.nextFloat() < 0.2f) {
                 world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
             }
         }
@@ -111,9 +122,7 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
         if(state.get(SNIPPED)) {
 
         } else if (!isFullyGrown(state)) {
-            if (world.random.nextBoolean()) {
-                world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
-            }
+            world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
         }
     }
 
@@ -182,5 +191,9 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
 
     static {
         FACING = Properties.HORIZONTAL_FACING;
+    }
+
+    public static BlockState getCropTrellisFromCrop(Item seedsItem) {
+        return (CROPS_TO_CROP_TRELLISES.get(seedsItem)).getDefaultState();
     }
 }

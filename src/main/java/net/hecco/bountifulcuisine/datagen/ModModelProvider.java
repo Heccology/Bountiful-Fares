@@ -44,6 +44,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.WALNUT, Models.GENERATED);
         itemModelGenerator.register(ModItems.WALNUT_BOAT, Models.GENERATED);
         itemModelGenerator.register(ModItems.WALNUT_CHEST_BOAT, Models.GENERATED);
-
+        itemModelGenerator.register(ModBlocks.WILD_PASSION_FRUIT_VINE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.WILD_ELDERBERRY_VINE.asItem(), Models.GENERATED);
     }
 }

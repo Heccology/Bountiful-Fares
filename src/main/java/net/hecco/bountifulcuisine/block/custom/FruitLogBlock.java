@@ -26,10 +26,10 @@ public abstract class FruitLogBlock extends PillarBlock implements Waterloggable
     public static final BooleanProperty LEAFY = BooleanProperty.of("leafy");
     public static Block LEAVES;
     public static Block LEAVES2;
-    public FruitLogBlock(Block leaves, Block blossomingleaves, Settings settings) {
+    public FruitLogBlock(Block leaves, Block floweringleaves, Settings settings) {
         super(settings);
         LEAVES = leaves;
-        LEAVES2 = blossomingleaves;
+        LEAVES2 = floweringleaves;
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(AXIS, Direction.Axis.Y).with(LEAFY, false));
     }
 

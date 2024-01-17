@@ -9,8 +9,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
 public class LemonLogBlock extends FruitLogBlock {
-    public LemonLogBlock(Block leaves, Block blossomingleaves, Settings settings) {
-        super(leaves, blossomingleaves, settings);
+    public LemonLogBlock(Block leaves, Block floweringleaves, Settings settings) {
+        super(leaves, floweringleaves, settings);
     }
 
     @Override

@@ -13,6 +13,11 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 public class ModItems {
+    public static final Item PASSION_FRUIT = registerItem("passion_fruit", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().build())));
+    public static final Item ELDERBERRIES = registerItem("elderberries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1), 0.3f).build())));
+    public static final Item LAPISBERRIES = registerItem("lapisberries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().build())));
+    public static final Item LAPISBERRY_SEEDS = registerItem("lapisberry_seeds", new Item(new FabricItemSettings()));
+
     public static final Item ORANGE = registerItem("orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).build())));
     public static final Item LEMON = registerItem("lemon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).build())));
     public static final Item PLUM = registerItem("plum", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).build())));
@@ -28,7 +33,6 @@ public class ModItems {
     public static final Item WALNUT_HANGING_SIGN = registerItem("walnut_hanging_sign", new HangingSignItem(ModBlocks.WALNUT_HANGING_SIGN, ModBlocks.WALNUT_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
     public static final Item WALNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.WALNUT_BOAT_ID, ModBoats.WALNUT_BOAT_KEY, false);
     public static final Item WALNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.WALNUT_CHEST_BOAT_ID, ModBoats.WALNUT_BOAT_KEY, true);
-    public static final Item LAPISBERRY_SEEDS = registerItem("lapisberry_seeds", new Item(new FabricItemSettings()));
     public static final Item CITRIC_ACID = registerItem("citric_acid", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(0).saturationModifier(0).snack().alwaysEdible().statusEffect(new StatusEffectInstance(ModEffects.ACIDIC, 300, 0),1).build())));
     public static final Item CANDIED_ORANGE = registerItem("candied_orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).snack().build())));
     public static final Item CANDIED_LEMON = registerItem("candied_lemon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).snack().build())));
@@ -95,7 +99,8 @@ public class ModItems {
     public static final Item APPLE_DELICACY = registerItem("apple_delicacy", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8F).build())));
     public static final Item GLOWING_DELICACY = registerItem("glowing_delicacy", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8F).build())));
     public static final Item ANCIENT_DELICACY = registerItem("ancient_delicacy", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8F).build())));
-    public static final Item MUSHROOM_STUFFED_POTATO = registerItem("mushroom_stuffed_potato", new Item(new FabricItemSettings().maxCount(64).food(new FoodComponent.Builder().hunger(7).saturationModifier(0.8F).build())));
+    public static final Item MUSHROOM_STUFFED_POTATO = registerItem("mushroom_stuffed_potato", new Item(new FabricItemSettings().maxCount(64).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8F).build())));
+    public static final Item SWEET_BERRY_STUFFED_POTATO = registerItem("sweet_berry_stuffed_potato", new Item(new FabricItemSettings().maxCount(64).food(new FoodComponent.Builder().hunger(7).saturationModifier(0.8F).build())));
 
 
     private static FoodComponent createStew(int hunger) {

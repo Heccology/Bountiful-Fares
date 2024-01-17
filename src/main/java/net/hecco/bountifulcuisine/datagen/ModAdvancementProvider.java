@@ -38,7 +38,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
     @Override
     public void generateAdvancement(Consumer<Advancement> consumer) {
         Advancement root_advancement = Advancement.Builder.create()
-                .display(new AdvancementDisplay(new ItemStack(ModBlocks.PASSION_FRUIT),
+                .display(new AdvancementDisplay(new ItemStack(ModItems.PASSION_FRUIT),
                         Text.translatable("advancement.bountifulcuisine.bountiful_cuisine"),
                         Text.translatable("advancement.bountifulcuisine.bountiful_cuisine.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
                         false,
@@ -95,7 +95,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         false))
                 .parent(root_advancement)
-                .criterion("eat_ancient_fruit", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.HOARY_APPLE, ModBlocks.LAPISBERRIES).build()))
+                .criterion("eat_ancient_fruit", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.HOARY_APPLE, ModItems.LAPISBERRIES).build()))
                 .build(consumer, BountifulCuisine.MOD_ID + ":eat_ancient_fruit");
         Advancement place_all_baked_goods = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(ModBlocks.ARTISAN_BREAD),
