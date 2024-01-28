@@ -95,6 +95,20 @@ public class JackOStrawBlock extends Block implements Waterloggable {
         }
     }
 
+    private static void onBreakInCreative(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        DoubleBlockHalf doubleBlockHalf = state.get(HALF);
+        if (doubleBlockHalf == DoubleBlockHalf.UPPER) {
+            BlockPos blockPos = pos.down();
+            BlockState blockState = world.getBlockState(blockPos);
+            if (blockState.isOf(state.getBlock()) && blockState.get(HALF) == DoubleBlockHalf.LOWER) {
+                BlockState blockState2 = blockState.getFluidState().isOf(Fluids.WATER) ? Blocks.WATER.getDefaultState() : Blocks.AIR.getDefaultState();
+                world.setBlockState(blockPos, blockState2, 35);
+                world.syncWorldEvent(player, 2001, blockPos, Block.getRawIdFromState(blockState));
+            }
+        }
+
+    }
+
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         DoubleBlockHalf doubleBlockHalf = state.get(HALF);
         if (direction.getAxis() == Direction.Axis.Y && doubleBlockHalf == DoubleBlockHalf.LOWER == (direction == Direction.UP) && (!neighborState.isOf(this) || neighborState.get(HALF) == doubleBlockHalf)) {
@@ -109,7 +123,9 @@ public class JackOStrawBlock extends Block implements Waterloggable {
 
     @Override
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (world.getBlockState(pos.up(1)).isOf(this) && state.get(HALF) == DoubleBlockHalf.LOWER) {
+        if (!world.isClient && player.isCreative()) {
+            onBreakInCreative(world, pos, state, player);
+        } else if (world.getBlockState(pos.up(1)).isOf(this) && state.get(HALF) == DoubleBlockHalf.LOWER) {
             world.breakBlock(pos, true);
             world.breakBlock(pos.up(1), false);
         } else if (world.getBlockState(pos.down(1)).isOf(this) && state.get(HALF) == DoubleBlockHalf.UPPER) {

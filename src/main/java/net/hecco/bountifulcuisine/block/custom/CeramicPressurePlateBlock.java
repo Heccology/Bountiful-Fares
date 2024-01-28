@@ -3,14 +3,21 @@ package net.hecco.bountifulcuisine.block.custom;
 import net.hecco.bountifulcuisine.block.interfaces.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulcuisine.sounds.ModSounds;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockRenderView;
@@ -54,6 +61,24 @@ public class CeramicPressurePlateBlock extends AbstractPressurePlateBlock implem
             }
 
         }
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        ItemStack itemStack = player.getStackInHand(hand);
+        if (itemStack.isOf(ModItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
+            int brushColor = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY).getInt(ArtisanBrushItem.COLOR_KEY);
+            world.removeBlock(pos, false);
+            world.setBlockState(pos, this.getStateWithProperties(state));
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+            if (world.getBlockEntity(pos) instanceof CeramicTilesBlockEntity ceramicTilesBlockEntity && ceramicTilesBlockEntity.color != brushColor) {
+                ceramicTilesBlockEntity.color = brushColor;
+                ceramicTilesBlockEntity.markDirty();
+                return ActionResult.SUCCESS;
+
+            }
+        }
+        return super.onUse(state, world, pos, player, hand, hit);
     }
 
     private void updateCeramicPlateState(@Nullable Entity entity, World world, BlockPos pos, BlockState state, int output) {

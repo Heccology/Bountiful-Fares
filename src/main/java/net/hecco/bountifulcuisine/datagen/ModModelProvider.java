@@ -46,5 +46,22 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.WALNUT_CHEST_BOAT, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.WILD_PASSION_FRUIT_VINE.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModBlocks.WILD_ELDERBERRY_VINE.asItem(), Models.GENERATED);
+        itemModelGenerator.register(ModItems.FISH_STEW, Models.GENERATED);
+        itemModelGenerator.register(ModItems.STONE_STEW, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SYLVAN_MEDLEY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.OUTBACK_MEDLEY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COASTAL_MEDLEY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BERRY_STUFFED_POTATO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MAIZE_STUFFED_POTATO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MAIZE_BREAD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WALNUT_COOKIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CUSTARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PIQUANT_CUSTARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PASSION_CUSTARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COCOA_CUSTARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GLOWING_CUSTARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ANCIENT_CUSTARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CANDIED_APPLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CANDIED_PLUM, Models.GENERATED);
     }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:spider_eye"
+    }
+  ],
+  "output": {
+    "collector": "minecraft:air",
+    "item": "minecraft:fermented_spider_eye"
+  }
+}

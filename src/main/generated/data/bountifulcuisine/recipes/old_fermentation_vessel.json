@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "bountifulcuisine:ceramic_clay"
+    }
+  },
+  "pattern": [
+    " # ",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "item": "bountifulcuisine:old_fermentation_vessel"
+  },
+  "show_notification": true
+}

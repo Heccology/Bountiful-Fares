@@ -1,0 +1,7 @@
+{
+	"parent": "bountifulcuisine:block/tintable_cross_with_overlay",
+	"textures": {
+		"cross": "bountifulcuisine:block/wild_maize_bottom",
+		"tint": "bountifulcuisine:block/wild_maize_bottom_tint"
+	}
+}

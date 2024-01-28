@@ -3,6 +3,8 @@ package net.hecco.bountifulcuisine.block.custom;
 import net.hecco.bountifulcuisine.block.interfaces.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.item.custom.ArtisanBrushItem;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.block.enums.BlockHalf;
@@ -51,11 +53,18 @@ public class CeramicTileStairsBlock extends StairsBlock implements DyeableCerami
                 return ActionResult.SUCCESS;
             }
         }
-        return ActionResult.PASS;
-    }
+        if (itemStack.isOf(ModItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
+            int brushColor = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY).getInt(ArtisanBrushItem.COLOR_KEY);
+            world.removeBlock(pos, false);
+            world.setBlockState(pos, this.getStateWithProperties(state));
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+            if (world.getBlockEntity(pos) instanceof CeramicTilesBlockEntity ceramicTilesBlockEntity && ceramicTilesBlockEntity.color != brushColor) {
+                ceramicTilesBlockEntity.color = brushColor;
+                ceramicTilesBlockEntity.markDirty();
+                return ActionResult.SUCCESS;
 
-    @Override
-    public BlockState getAppearance(BlockState state, BlockRenderView renderView, BlockPos pos, Direction side, @Nullable BlockState sourceState, @Nullable BlockPos sourcePos) {
-        return super.getAppearance(state, renderView, pos, side, sourceState, sourcePos);
+            }
+        }
+        return ActionResult.PASS;
     }
 }

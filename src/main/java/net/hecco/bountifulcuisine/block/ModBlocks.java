@@ -7,7 +7,6 @@ import net.hecco.bountifulcuisine.block.custom.*;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.item.custom.CeramicDishBlockItem;
 import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
-import net.hecco.bountifulcuisine.item.custom.PlantBlockItem;
 import net.hecco.bountifulcuisine.sounds.ModSounds;
 import net.hecco.bountifulcuisine.util.ModBlockSetTypes;
 import net.hecco.bountifulcuisine.util.ModWoodTypes;
@@ -15,11 +14,8 @@ import net.hecco.bountifulcuisine.world.tree.*;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -91,23 +87,23 @@ public class ModBlocks {
 
     public static final Block WALNUT_SAPLING = registerBlock("walnut_sapling", new SaplingBlock(new WalnutSaplingGenerator(), FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).ticksRandomly().noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block POTTED_WALNUT_SAPLING = registerBlock("potted_walnut_sapling", new FlowerPotBlock(ModBlocks.WALNUT_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_POPPY)));
-    public static final Block WALNUT_LOG = registerBlock("walnut_log", new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).mapColor(MapColor.TERRACOTTA_GRAY)));
-    public static final Block WALNUT_WOOD = registerBlock("walnut_wood", new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).mapColor(MapColor.TERRACOTTA_GRAY)));
-    public static final Block STRIPPED_WALNUT_LOG = registerBlock("stripped_walnut_log", new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_LOG).mapColor(MapColor.GRAY)));
-    public static final Block STRIPPED_WALNUT_WOOD = registerBlock("stripped_walnut_wood", new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD).mapColor(MapColor.GRAY)));
-    public static final Block WALNUT_PLANKS = registerBlock("walnut_planks", new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2.0f, 5.0f).mapColor(MapColor.GRAY)));
+    public static final Block WALNUT_LOG = registerBlock("walnut_log", new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).mapColor(MapColor.BROWN)));
+    public static final Block WALNUT_WOOD = registerBlock("walnut_wood", new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD).mapColor(MapColor.BROWN)));
+    public static final Block STRIPPED_WALNUT_LOG = registerBlock("stripped_walnut_log", new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_LOG).mapColor(MapColor.BROWN)));
+    public static final Block STRIPPED_WALNUT_WOOD = registerBlock("stripped_walnut_wood", new PillarBlock(FabricBlockSettings.copyOf(Blocks.STRIPPED_OAK_WOOD).mapColor(MapColor.BROWN)));
+    public static final Block WALNUT_PLANKS = registerBlock("walnut_planks", new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2.0f, 5.0f).mapColor(MapColor.BROWN)));
     public static final Block WALNUT_STAIRS = registerBlock("walnut_stairs", new ModStairsBlock(ModBlocks.WALNUT_PLANKS.getDefaultState(), FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
     public static final Block WALNUT_SLAB = registerBlock("walnut_slab", new SlabBlock(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
-    public static final Block WALNUT_FENCE = registerBlock("walnut_fence", new FenceBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE).strength(2.0f, 5.0f).mapColor(MapColor.GRAY)));
-    public static final Block WALNUT_FENCE_GATE = registerBlock("walnut_fence_gate", new ModFenceGateBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE).strength(2.0f, 5.0f).mapColor(MapColor.GRAY), ModWoodTypes.WALNUT));
-    public static final Block WALNUT_DOOR = registerBlock("walnut_door", new DoorBlock(FabricBlockSettings.copyOf(Blocks.OAK_DOOR).strength(2.0f, 5.0f).mapColor(MapColor.GRAY), ModBlockSetTypes.WALNUT));
-    public static final Block WALNUT_TRAPDOOR = registerBlock("walnut_trapdoor", new ModTrapdoorBlock(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR).strength(2.0f, 5.0f).mapColor(MapColor.GRAY), ModBlockSetTypes.WALNUT));
-    public static final Block WALNUT_PRESSURE_PLATE = registerBlock("walnut_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.OAK_PRESSURE_PLATE).strength(0.5f, 5.0f), ModBlockSetTypes.WALNUT));
-    public static final Block WALNUT_BUTTON = registerBlock("walnut_button", new ButtonBlock(AbstractBlock.Settings.copy(ModBlocks.WALNUT_PLANKS).noCollision().strength(0.5f, 5f), ModBlockSetTypes.WALNUT, 30, true));
-    public static final Block WALNUT_SIGN = registerBlockNoItem("walnut_sign", new ModStandingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_SIGN).strength(1.0f, 5.0f).mapColor(MapColor.GRAY), ModWoodTypes.WALNUT));
-    public static final Block WALNUT_WALL_SIGN = registerBlockNoItem("walnut_wall_sign", new ModWallSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN).strength(1.0f, 5.0f).mapColor(MapColor.GRAY), ModWoodTypes.WALNUT));
-    public static final Block WALNUT_HANGING_SIGN = registerBlockNoItem("walnut_hanging_sign", new ModHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN).strength(1.0f, 5.0f).mapColor(MapColor.GRAY), ModWoodTypes.WALNUT));
-    public static final Block WALNUT_WALL_HANGING_SIGN = registerBlockNoItem("walnut_wall_hanging_sign", new ModWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).strength(1.0f, 5.0f).mapColor(MapColor.GRAY), ModWoodTypes.WALNUT));
+    public static final Block WALNUT_FENCE = registerBlock("walnut_fence", new FenceBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE).strength(2.0f, 5.0f).mapColor(MapColor.BROWN)));
+    public static final Block WALNUT_FENCE_GATE = registerBlock("walnut_fence_gate", new ModFenceGateBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE).strength(2.0f, 5.0f).mapColor(MapColor.BROWN), ModWoodTypes.WALNUT));
+    public static final Block WALNUT_DOOR = registerBlock("walnut_door", new DoorBlock(FabricBlockSettings.copyOf(Blocks.OAK_DOOR).strength(2.0f, 5.0f).mapColor(MapColor.BROWN), ModBlockSetTypes.WALNUT));
+    public static final Block WALNUT_TRAPDOOR = registerBlock("walnut_trapdoor", new ModTrapdoorBlock(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR).strength(2.0f, 5.0f).mapColor(MapColor.BROWN), ModBlockSetTypes.WALNUT));
+    public static final Block WALNUT_PRESSURE_PLATE = registerBlock("walnut_pressure_plate", new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.OAK_PRESSURE_PLATE).mapColor(MapColor.BROWN).strength(0.5f, 5.0f), ModBlockSetTypes.WALNUT));
+    public static final Block WALNUT_BUTTON = registerBlock("walnut_button", new ButtonBlock(AbstractBlock.Settings.copy(ModBlocks.WALNUT_PLANKS).mapColor(MapColor.BROWN).noCollision().strength(0.5f, 5f), ModBlockSetTypes.WALNUT, 30, true));
+    public static final Block WALNUT_SIGN = registerBlockNoItem("walnut_sign", new ModStandingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_SIGN).strength(1.0f, 5.0f).mapColor(MapColor.BROWN), ModWoodTypes.WALNUT));
+    public static final Block WALNUT_WALL_SIGN = registerBlockNoItem("walnut_wall_sign", new ModWallSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN).strength(1.0f, 5.0f).mapColor(MapColor.BROWN), ModWoodTypes.WALNUT));
+    public static final Block WALNUT_HANGING_SIGN = registerBlockNoItem("walnut_hanging_sign", new ModHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN).strength(1.0f, 5.0f).mapColor(MapColor.BROWN), ModWoodTypes.WALNUT));
+    public static final Block WALNUT_WALL_HANGING_SIGN = registerBlockNoItem("walnut_wall_hanging_sign", new ModWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).strength(1.0f, 5.0f).mapColor(MapColor.BROWN), ModWoodTypes.WALNUT));
     public static final Block WALNUT_LEAVES = registerBlock("walnut_leaves", new WalnutLeavesBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).strength(0.2f).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)));
     public static final Block WALNUT_MULCH = registerBlock("walnut_mulch", new WalnutMulchBlock(FabricBlockSettings.create().notSolid().mapColor(MapColor.BROWN).notSolid().strength(0.4f).sounds(BlockSoundGroup.ROOTED_DIRT).burnable()));
     public static final Block WALNUT_MULCH_BLOCK = registerBlock("walnut_mulch_block", new Block(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(0.4f).sounds(BlockSoundGroup.ROOTED_DIRT).burnable()));
@@ -126,13 +122,14 @@ public class ModBlocks {
     public static final Block LILAC_TRELLIS = registerBlockNoItem("lilac_trellis", new DecorativeTrellisBlock(Items.LILAC, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
     public static final Block PEONY_TRELLIS = registerBlockNoItem("peony_trellis", new DecorativeTrellisBlock(Items.PEONY, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
     public static final Block SUNFLOWER_TRELLIS = registerBlockNoItem("sunflower_trellis", new DecorativeTrellisBlock(Items.SUNFLOWER, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
-    public static final Block WILD_WHEAT = registerPlantBlock("wild_wheat", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block WILD_CARROTS = registerPlantBlock("wild_carrots", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block WILD_POTATOES = registerPlantBlock("wild_potatoes", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block WILD_BEETROOTS = registerPlantBlock("wild_beetroots", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block WILD_GOOSEBERRIES = registerPlantBlock("wild_gooseberries", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block WILD_PASSION_FRUIT_VINE = registerPlantBlock("wild_passion_fruit_vine", new WildVineCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block WILD_ELDERBERRY_VINE = registerPlantBlock("wild_elderberry_vine", new WildVineCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WILD_WHEAT = registerBlock("wild_wheat", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WILD_CARROTS = registerBlock("wild_carrots", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WILD_POTATOES = registerBlock("wild_potatoes", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WILD_BEETROOTS = registerBlock("wild_beetroots", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WILD_LEEKS = registerBlock("wild_leeks", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WILD_MAIZE = registerBlock("wild_maize", new WildMaizeBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WILD_PASSION_FRUIT_VINE = registerBlock("wild_passion_fruit_vine", new WildVineCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WILD_ELDERBERRY_VINE = registerBlock("wild_elderberry_vine", new WildVineCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block FELDSPAR_BLOCK = registerBlock("feldspar_block", new Block(FabricBlockSettings.copyOf(Blocks.STONE).mapColor(MapColor.TERRACOTTA_WHITE).instrument(Instrument.BASEDRUM).strength(1.5f).sounds(BlockSoundGroup.CALCITE)));
     public static final Block CUT_FELDSPAR_BLOCK = registerBlock("cut_feldspar_block", new Block(FabricBlockSettings.copyOf(ModBlocks.FELDSPAR_BLOCK)));
     public static final Block FELDSPAR_BRICKS = registerBlock("feldspar_bricks", new Block(FabricBlockSettings.copyOf(ModBlocks.FELDSPAR_BLOCK)));
@@ -151,24 +148,25 @@ public class ModBlocks {
     public static final Block CERAMIC_BUTTON = registerDyeableCeramicBlock("ceramic_button", new CeramicButtonBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).solid().sounds(ModSounds.CERAMIC_TILES).instrument(Instrument.HAT).requiresTool().noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY), ModBlockSetTypes.CERAMIC, 10, true));
     public static final Block CERAMIC_DISH = registerCeramicDishBlock("ceramic_dish", new CeramicDishBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).sounds(ModSounds.CERAMIC_TILES).strength(0.2F).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block FERMENTATION_VESSEL = registerBlock("fermentation_vessel", new FermentationVesselBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).instrument(Instrument.BASEDRUM).requiresTool().nonOpaque().sounds(ModSounds.CERAMIC_TILES)));
-    public static final Block FULL_FERMENTATION_VESSEL = registerBlockNoItem("full_fermentation_vessel", new FullFermentationVesselBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).instrument(Instrument.BASEDRUM).requiresTool().nonOpaque().ticksRandomly().sounds(ModSounds.CERAMIC_TILES)));
-    public static final Block APPLE_BLOCK = registerPlantBlock("apple_block", new AppleBlock(FabricBlockSettings.create().mapColor(MapColor.RED).strength(1f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block OLD_FERMENTATION_VESSEL = registerBlock("old_fermentation_vessel", new OldFermentationVesselBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).instrument(Instrument.BASEDRUM).requiresTool().nonOpaque().sounds(ModSounds.CERAMIC_TILES)));
+    public static final Block FULL_OLD_FERMENTATION_VESSEL = registerBlockNoItem("full_old_fermentation_vessel", new FullFermentationVesselBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).instrument(Instrument.BASEDRUM).requiresTool().nonOpaque().ticksRandomly().sounds(ModSounds.CERAMIC_TILES)));
+    public static final Block APPLE_BLOCK = registerBlock("apple_block", new AppleBlock(FabricBlockSettings.create().mapColor(MapColor.RED).strength(1f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block GOLDEN_APPLE_BLOCK = registerBlock("golden_apple_block", new GoldenAppleBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(1f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.METAL).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block ORANGE_BLOCK = registerPlantBlock("orange_block", new OrangeBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).strength(0.5f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD)));
-    public static final Block LEMON_BLOCK = registerPlantBlock("lemon_block", new LemonBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.5f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD)));
-    public static final Block PLUM_BLOCK = registerPlantBlock("plum_block", new PlumBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_DULL_PINK).strength(0.5f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD)));
-    public static final Block HOARY_APPLE_BLOCK = registerPlantBlock("hoary_apple_block", new HoaryAppleBlock(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_GRAY).strength(0.5f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD)));
+    public static final Block ORANGE_BLOCK = registerBlock("orange_block", new OrangeBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).strength(0.5f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD)));
+    public static final Block LEMON_BLOCK = registerBlock("lemon_block", new LemonBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.5f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD)));
+    public static final Block PLUM_BLOCK = registerBlock("plum_block", new PlumBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_DULL_PINK).strength(0.5f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD)));
+    public static final Block HOARY_APPLE_BLOCK = registerBlock("hoary_apple_block", new HoaryAppleBlock(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_GRAY).strength(0.5f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD)));
     public static final Block LEEKS = registerBlockNoItem("leeks", new LeekCropBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block MAIZE_CROP = registerBlockNoItem("maize_crop", new MaizeCropBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block SPONGEKIN_SPROUT = registerPlantBlock("spongekin_sprout", new SpongekinSproutBlock(FabricBlockSettings.create().mapColor(MapColor.WATER_BLUE).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block SPONGEKIN_SPROUT = registerBlock("spongekin_sprout", new SpongekinSproutBlock(FabricBlockSettings.create().mapColor(MapColor.WATER_BLUE).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block SPONGEKIN_STEM = registerBlockNoItem("spongekin_stem", new SpongekinStemBlock(FabricBlockSettings.create().mapColor(MapColor.WATER_BLUE).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block SPONGEKIN = registerPlantBlock("spongekin", new SpongekinBlock(FabricBlockSettings.create().mapColor(MapColor.BRIGHT_TEAL).instrument(Instrument.DIDGERIDOO).strength(1.0f).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block PRISMARINE_BLOSSOM = registerPlantBlock("prismarine_blossom", new PrismarineBlossomBlock(FabricBlockSettings.create().mapColor(MapColor.CYAN).ticksRandomly().strength(0.4f).nonOpaque().noCollision().sounds(BlockSoundGroup.CALCITE).luminance(state -> state.get(Properties.WATERLOGGED) ? 12 : 0).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block SPONGEKIN = registerBlock("spongekin", new SpongekinBlock(FabricBlockSettings.create().mapColor(MapColor.BRIGHT_TEAL).instrument(Instrument.DIDGERIDOO).strength(1.0f).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block PRISMARINE_BLOSSOM = registerBlock("prismarine_blossom", new PrismarineBlossomBlock(FabricBlockSettings.create().mapColor(MapColor.CYAN).ticksRandomly().strength(0.4f).nonOpaque().noCollision().sounds(BlockSoundGroup.CALCITE).luminance(state -> state.get(Properties.WATERLOGGED) ? 12 : 0).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block TEA_SHRUB = registerBlockNoItem("tea_shrub", new TeaShrubBlock(FabricBlockSettings.create().nonOpaque().strength(0.5f).ticksRandomly().noCollision().mapColor(MapColor.GREEN).sounds(BlockSoundGroup.AZALEA).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block CHAMOMILE_FLOWERS = registerPlantBlock("chamomile_flowers", new ChamomileFlowersBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).noCollision().sounds(BlockSoundGroup.PINK_PETALS).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block HONEYSUCKLE = registerPlantBlock("honeysuckle", new TeaFlowerBlock(StatusEffects.REGENERATION, 5, FabricBlockSettings.copyOf(Blocks.POPPY)));
+    public static final Block CHAMOMILE_FLOWERS = registerBlock("chamomile_flowers", new ChamomileFlowersBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).noCollision().sounds(BlockSoundGroup.PINK_PETALS).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block HONEYSUCKLE = registerBlock("honeysuckle", new TeaFlowerBlock(StatusEffects.REGENERATION, 5, FabricBlockSettings.copyOf(Blocks.POPPY)));
     public static final Block POTTED_HONEYSUCKLE = registerBlockNoItem("potted_honeysuckle", new FlowerPotBlock(ModBlocks.HONEYSUCKLE, FabricBlockSettings.copyOf(Blocks.POTTED_POPPY)));
-    public static final Block VIOLET_BELLFLOWER = registerPlantBlock("violet_bellflower", new TeaFlowerBlock(StatusEffects.INVISIBILITY, 5, FabricBlockSettings.copyOf(Blocks.POPPY)));
+    public static final Block VIOLET_BELLFLOWER = registerBlock("violet_bellflower", new TeaFlowerBlock(StatusEffects.INVISIBILITY, 5, FabricBlockSettings.copyOf(Blocks.POPPY)));
     public static final Block POTTED_VIOLET_BELLFLOWER = registerBlockNoItem("potted_violet_bellflower", new FlowerPotBlock(ModBlocks.VIOLET_BELLFLOWER, FabricBlockSettings.copyOf(Blocks.POTTED_POPPY)));
     public static final Block WHITE_JACK_O_STRAW = registerBlockUnstackableItem("white_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block LIGHT_GRAY_JACK_O_STRAW = registerBlockUnstackableItem("light_gray_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
@@ -239,6 +237,7 @@ public class ModBlocks {
     public static Block MANGROVE_PICKETS = registerBlock("mangrove_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.RED).strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
     public static Block CHERRY_PICKETS = registerBlock("cherry_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.5F).sounds(BlockSoundGroup.CHERRY_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
     public static Block BAMBOO_PICKETS = registerBlock("bamboo_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(BlockSoundGroup.BAMBOO_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block WALNUT_PICKETS = registerBlock("walnut_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
     public static Block HOARY_PICKETS = registerBlock("hoary_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.TERRACOTTA_GRAY).strength(0.5F).sounds(BlockSoundGroup.WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
     public static Block CRIMSON_PICKETS = registerBlock("crimson_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.DULL_PINK).strength(0.5F).sounds(BlockSoundGroup.NETHER_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
     public static Block WARPED_PICKETS = registerBlock("warped_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.DARK_AQUA).strength(0.5F).sounds(BlockSoundGroup.NETHER_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
@@ -261,11 +260,6 @@ public class ModBlocks {
         register16StackItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(BountifulCuisine.MOD_ID, name), block);
     }
-
-    private static Block registerPlantBlock(String name, Block block) {
-        registerPlantBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(BountifulCuisine.MOD_ID, name), block);
-    }
     private static Block registerBlockNoItem(String name, Block block) {
         return Registry.register(Registries.BLOCK, new Identifier(BountifulCuisine.MOD_ID, name), block);
     }
@@ -280,10 +274,6 @@ public class ModBlocks {
 
     private static void registerUnstackableBlockItem(String name, Block block) {
         Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), new BlockItem(block, new FabricItemSettings().maxCount(1)));
-    }
-
-    private static void registerPlantBlockItem(String name, Block block) {
-        Registry.register(Registries.ITEM, new Identifier(BountifulCuisine.MOD_ID, name), new PlantBlockItem(block, new FabricItemSettings()));
     }
 
     private static Block registerDyeableCeramicBlock(String name, Block block) {

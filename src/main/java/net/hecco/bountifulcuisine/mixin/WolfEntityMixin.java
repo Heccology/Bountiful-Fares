@@ -1,7 +1,6 @@
 package net.hecco.bountifulcuisine.mixin;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

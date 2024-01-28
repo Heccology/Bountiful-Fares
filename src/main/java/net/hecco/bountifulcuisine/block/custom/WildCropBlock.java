@@ -12,10 +12,9 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
 public class WildCropBlock extends PlantBlock {
-    protected static final VoxelShape SHAPE = Block.createCuboidShape(2, 0, 2, 14, 14, 14);
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE;
+        return Block.createCuboidShape(2, 0, 2, 14, 14, 14);
     }
 
     public WildCropBlock(Settings settings) {

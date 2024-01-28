@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:artisan_brush"
+    }
+  ],
+  "result": {
+    "item": "bountifulcuisine:artisan_brush"
+  }
+}

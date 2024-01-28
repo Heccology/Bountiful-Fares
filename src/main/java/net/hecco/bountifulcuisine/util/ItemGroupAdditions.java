@@ -30,7 +30,8 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.WALNUT_STAIRS, ModBlocks.WALNUT_SLAB);
             entries.addAfter(ModBlocks.WALNUT_SLAB, ModBlocks.WALNUT_FENCE);
             entries.addAfter(ModBlocks.WALNUT_FENCE, ModBlocks.WALNUT_FENCE_GATE);
-            entries.addAfter(ModBlocks.WALNUT_FENCE_GATE, ModBlocks.WALNUT_DOOR);
+            entries.addAfter(ModBlocks.WALNUT_FENCE_GATE, ModBlocks.WALNUT_PICKETS);
+            entries.addAfter(ModBlocks.WALNUT_PICKETS, ModBlocks.WALNUT_DOOR);
             entries.addAfter(ModBlocks.WALNUT_DOOR, ModBlocks.WALNUT_TRAPDOOR);
             entries.addAfter(ModBlocks.WALNUT_TRAPDOOR, ModBlocks.WALNUT_PRESSURE_PLATE);
             entries.addAfter(ModBlocks.WALNUT_PRESSURE_PLATE, ModBlocks.WALNUT_BUTTON);
@@ -100,17 +101,20 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.PLUM_LEAVES, ModBlocks.FLOWERING_PLUM_LEAVES);
             entries.addAfter(ModBlocks.FLOWERING_PLUM_LEAVES, ModBlocks.WALNUT_LEAVES);
             entries.addAfter(ModBlocks.WALNUT_LEAVES, ModBlocks.HOARY_LEAVES);
-            entries.addAfter(Items.FLOWERING_AZALEA, ModBlocks.APPLE_SAPLING);
+            entries.addAfter(Items.CHERRY_SAPLING, ModBlocks.APPLE_SAPLING);
             entries.addAfter(ModBlocks.APPLE_SAPLING, ModBlocks.ORANGE_SAPLING);
             entries.addAfter(ModBlocks.ORANGE_SAPLING, ModBlocks.LEMON_SAPLING);
             entries.addAfter(ModBlocks.LEMON_SAPLING, ModBlocks.PLUM_SAPLING);
             entries.addAfter(ModBlocks.PLUM_SAPLING, ModBlocks.HOARY_APPLE_SAPLING);
             entries.addAfter(ModBlocks.HOARY_APPLE_SAPLING, ModBlocks.WALNUT_SAPLING);
-            entries.addAfter(Items.DEAD_BUSH, ModBlocks.WILD_WHEAT);
+            entries.addAfter(Items.SNIFFER_EGG, ModBlocks.WILD_WHEAT);
             entries.addAfter(ModBlocks.WILD_WHEAT, ModBlocks.WILD_CARROTS);
             entries.addAfter(ModBlocks.WILD_CARROTS, ModBlocks.WILD_POTATOES);
             entries.addAfter(ModBlocks.WILD_POTATOES, ModBlocks.WILD_BEETROOTS);
-            entries.addAfter(ModBlocks.WILD_BEETROOTS, ModBlocks.WILD_GOOSEBERRIES);
+            entries.addAfter(ModBlocks.WILD_BEETROOTS, ModBlocks.WILD_LEEKS);
+            entries.addAfter(ModBlocks.WILD_LEEKS, ModBlocks.WILD_MAIZE);
+            entries.addAfter(ModBlocks.WILD_MAIZE, ModBlocks.WILD_PASSION_FRUIT_VINE);
+            entries.addAfter(ModBlocks.WILD_PASSION_FRUIT_VINE, ModBlocks.WILD_ELDERBERRY_VINE);
             entries.addAfter(Items.KELP, ModBlocks.SPONGEKIN_SPROUT);
             entries.addAfter(ModBlocks.SPONGEKIN_SPROUT, ModBlocks.SPONGEKIN);
             entries.addAfter(ModBlocks.SPONGEKIN, ModBlocks.PRISMARINE_BLOSSOM);
@@ -151,6 +155,7 @@ public class ItemGroupAdditions {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
             entries.addAfter(Items.LEAD, ModItems.SUN_HAT);
+            entries.addAfter(Items.BRUSH, ModItems.ARTISAN_BRUSH);
             entries.addAfter(Items.BAMBOO_CHEST_RAFT, ModItems.WALNUT_BOAT);
             entries.addAfter(ModItems.WALNUT_BOAT, ModItems.WALNUT_CHEST_BOAT);
             entries.addAfter(ModItems.WALNUT_CHEST_BOAT, ModItems.HOARY_BOAT);
@@ -219,7 +224,8 @@ public class ItemGroupAdditions {
             entries.addAfter(ModItems.PIQUANT_CANDY, ModItems.SOUR_CANDY);
             entries.addAfter(ModItems.SOUR_CANDY, ModItems.BITTER_CANDY);
             entries.addAfter(Items.RABBIT_STEW, ModItems.PASSION_GLAZED_SALMON);
-            entries.addAfter(ModItems.PASSION_GLAZED_SALMON, ModItems.BOUNTIFUL_STEW);
+            entries.addAfter(ModItems.PASSION_GLAZED_SALMON, ModItems.LEEK_STEW);
+            entries.addAfter(ModItems.BOUNTIFUL_STEW, ModItems.BOUNTIFUL_STEW);
             entries.addAfter(ModItems.BOUNTIFUL_STEW, ModItems.CRUSTED_BEEF);
             entries.addAfter(ModItems.CRUSTED_BEEF, ModItems.CRIMSON_CHOW);
             entries.addAfter(ModItems.CRIMSON_CHOW, ModItems.WARPED_CHOW);

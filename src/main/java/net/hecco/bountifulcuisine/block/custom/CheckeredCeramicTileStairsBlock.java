@@ -3,6 +3,8 @@ package net.hecco.bountifulcuisine.block.custom;
 import net.hecco.bountifulcuisine.block.interfaces.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.StairsBlock;
@@ -44,18 +46,25 @@ public class CheckeredCeramicTileStairsBlock extends StairsBlock implements Dyea
         int oldColor = CeramicTilesBlockEntity.getColor(world, pos);
         if ((itemStack.isIn(ModItemTags.DYES) || itemStack.isIn(ModItemTags.ELS_AND_LS_DYES)) && CeramicTilesBlockEntity.getColor(world, pos) != CeramicTilesBlockEntity.DEFAULT_COLOR) {
             world.setBlockState(pos, ModBlocks.CERAMIC_TILE_STAIRS.getStateWithProperties(state), 2);
-            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_GLOW_INK_SAC_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat());
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat());
             if (world.getBlockEntity(pos) instanceof CeramicTilesBlockEntity ceramicTilesBlockEntity) {
                 ceramicTilesBlockEntity.color = oldColor;
                 ceramicTilesBlockEntity.markDirty();
                 return ActionResult.SUCCESS;
             }
         }
-        return ActionResult.PASS;
-    }
+        if (itemStack.isOf(ModItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
+            int brushColor = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY).getInt(ArtisanBrushItem.COLOR_KEY);
+            world.removeBlock(pos, false);
+            world.setBlockState(pos, this.getStateWithProperties(state));
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+            if (world.getBlockEntity(pos) instanceof CeramicTilesBlockEntity ceramicTilesBlockEntity && ceramicTilesBlockEntity.color != brushColor) {
+                ceramicTilesBlockEntity.color = brushColor;
+                ceramicTilesBlockEntity.markDirty();
+                return ActionResult.SUCCESS;
 
-    @Override
-    public BlockState getAppearance(BlockState state, BlockRenderView renderView, BlockPos pos, Direction side, @Nullable BlockState sourceState, @Nullable BlockPos sourcePos) {
-        return super.getAppearance(state, renderView, pos, side, sourceState, sourcePos);
+            }
+        }
+        return ActionResult.PASS;
     }
 }

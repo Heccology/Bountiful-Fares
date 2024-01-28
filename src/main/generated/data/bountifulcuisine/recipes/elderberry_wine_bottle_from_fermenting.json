@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:milling",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:elderberries"
+    }
+  ],
+  "output": {
+    "collector": "minecraft:glass_bottle",
+    "item": "bountifulcuisine:elderberry_wine_bottle"
+  }
+}

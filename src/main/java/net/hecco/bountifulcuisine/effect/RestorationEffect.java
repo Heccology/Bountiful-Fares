@@ -21,7 +21,6 @@ public class RestorationEffect extends StatusEffect {
         if (health > highestHealth && health <= maxHealth) {
             highestHealth = health;
         } else if (health < highestHealth && health < maxHealth) {
-            BountifulCuisine.LOGGER.info(String.valueOf(highestHealth));
             entity.heal(0.5f);
         }
         super.applyUpdateEffect(entity, amplifier);

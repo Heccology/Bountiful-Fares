@@ -2,6 +2,10 @@
   "replace": false,
   "values": [
     "bountifulcuisine:feldspar_block",
+    "bountifulcuisine:cut_feldspar_block",
+    "bountifulcuisine:feldspar_bricks",
+    "bountifulcuisine:feldspar_brick_stairs",
+    "bountifulcuisine:feldspar_brick_slab",
     "bountifulcuisine:feldspar_lantern",
     "bountifulcuisine:ceramic_tiles",
     "bountifulcuisine:ceramic_tile_stairs",
@@ -9,7 +13,10 @@
     "bountifulcuisine:checkered_ceramic_tiles",
     "bountifulcuisine:checkered_ceramic_tile_stairs",
     "bountifulcuisine:checkered_ceramic_tile_slab",
+    "bountifulcuisine:ceramic_pressure_plate",
+    "bountifulcuisine:ceramic_button",
+    "bountifulcuisine:ceramic_dish",
     "bountifulcuisine:fermentation_vessel",
-    "bountifulcuisine:full_fermentation_vessel"
+    "bountifulcuisine:golden_apple_block"
   ]
 }

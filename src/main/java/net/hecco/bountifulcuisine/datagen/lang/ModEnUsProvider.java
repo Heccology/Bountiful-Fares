@@ -194,6 +194,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.WILD_CARROTS);
         generate(translationBuilder, ModBlocks.WILD_POTATOES);
         generate(translationBuilder, ModBlocks.WILD_BEETROOTS);
+        generate(translationBuilder, ModBlocks.WILD_LEEKS);
+        generate(translationBuilder, ModBlocks.WILD_MAIZE);
         generate(translationBuilder, ModBlocks.WILD_PASSION_FRUIT_VINE);
         generate(translationBuilder, ModBlocks.WILD_ELDERBERRY_VINE);
 
@@ -217,13 +219,17 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.FELDSPAR_BLOCK);
         generate(translationBuilder, ModBlocks.CUT_FELDSPAR_BLOCK);
         generate(translationBuilder, ModBlocks.FELDSPAR_BRICKS);
+        generate(translationBuilder, ModBlocks.FELDSPAR_BRICK_STAIRS);
+        generate(translationBuilder, ModBlocks.FELDSPAR_BRICK_SLAB);
         generate(translationBuilder, ModBlocks.FELDSPAR_LANTERN);
         generate(translationBuilder, ModBlocks.TINGED_GLASS);
         generate(translationBuilder, ModItems.CERAMIC_CLAY);
         generate(translationBuilder, ModItems.CERAMIC_TILE);
         generate(translationBuilder, ModBlocks.CERAMIC_CLAY_BLOCK);
         generate(translationBuilder, ModBlocks.FERMENTATION_VESSEL);
-        generate(translationBuilder, ModBlocks.FULL_FERMENTATION_VESSEL, "Fermentation Vessel");
+        generate(translationBuilder, ModBlocks.OLD_FERMENTATION_VESSEL);
+        generate(translationBuilder, ModBlocks.FULL_OLD_FERMENTATION_VESSEL, "Fermentation Vessel");
+        generate(translationBuilder, ModItems.ARTISAN_BRUSH);
         generate(translationBuilder, ModBlocks.CERAMIC_TILES);
         generate(translationBuilder, ModBlocks.CERAMIC_TILE_STAIRS);
         generate(translationBuilder, ModBlocks.CERAMIC_TILE_SLAB);
@@ -326,6 +332,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.MANGROVE_PICKETS);
         generate(translationBuilder, ModBlocks.CHERRY_PICKETS);
         generate(translationBuilder, ModBlocks.BAMBOO_PICKETS);
+        generate(translationBuilder, ModBlocks.WALNUT_PICKETS);
         generate(translationBuilder, ModBlocks.HOARY_PICKETS);
         generate(translationBuilder, ModBlocks.CRIMSON_PICKETS);
         generate(translationBuilder, ModBlocks.WARPED_PICKETS);
@@ -350,17 +357,34 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.PLUM_PIE);
         generate(translationBuilder, ModBlocks.HOARY_PIE);
         generate(translationBuilder, ModBlocks.COCOA_CAKE);
+        generate(translationBuilder, ModItems.WALNUT_COOKIE);
         generate(translationBuilder, ModItems.CANDY);
         generate(translationBuilder, ModItems.SOUR_CANDY);
         generate(translationBuilder, ModItems.PIQUANT_CANDY);
         generate(translationBuilder, ModItems.BITTER_CANDY);
+        generate(translationBuilder, ModItems.MAIZE_BREAD);
+        generate(translationBuilder, ModItems.CANDIED_APPLE);
+        generate(translationBuilder, ModItems.CANDIED_PLUM);
         generate(translationBuilder, ModItems.MUSHROOM_STUFFED_POTATO);
+        generate(translationBuilder, ModItems.BERRY_STUFFED_POTATO);
+        generate(translationBuilder, ModItems.MAIZE_STUFFED_POTATO);
         generate(translationBuilder, ModItems.PASSION_GLAZED_SALMON);
         generate(translationBuilder, ModItems.LEEK_STEW);
+        generate(translationBuilder, ModItems.FISH_STEW);
+        generate(translationBuilder, ModItems.STONE_STEW);
         generate(translationBuilder, ModItems.BOUNTIFUL_STEW);
         generate(translationBuilder, ModItems.CRUSTED_BEEF);
+        generate(translationBuilder, ModItems.CUSTARD);
+        generate(translationBuilder, ModItems.PIQUANT_CUSTARD);
+        generate(translationBuilder, ModItems.PASSION_CUSTARD);
+        generate(translationBuilder, ModItems.COCOA_CUSTARD);
+        generate(translationBuilder, ModItems.GLOWING_CUSTARD);
+        generate(translationBuilder, ModItems.ANCIENT_CUSTARD);
         generate(translationBuilder, ModItems.CRIMSON_CHOW);
         generate(translationBuilder, ModItems.WARPED_CHOW);
+
+        generate(translationBuilder, "warning.bountifulcuisine.fermentation_vessel.glass_bottle", "Use a Glass Bottle to Collect This");
+        generate(translationBuilder, "warning.bountifulcuisine.fermentation_vessel.jar", "Use a Jar to Collect This");
 
         generate(translationBuilder, "advancement.bountifulcuisine.bountiful_cuisine", "Bountiful Cuisine");
         generate(translationBuilder, "advancement.bountifulcuisine.bountiful_cuisine.description", "The world is filled with more food!");
@@ -408,13 +432,13 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulcuisine.place_all_tea_candles", "Fragrant!");
         generate(translationBuilder, "advancement.bountifulcuisine.place_all_tea_candles.description", "Place every Tea Candle");
 
-        generate(translationBuilder, "advancement.bountifulcuisine.obtain_walnut", "Deez");
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_walnut", "Roasting on an Open Fire");
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_walnut.description", "Find a Walnut");
 
-        generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin_seeds", "LOOOORE");
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin_seeds", "A Spongy Place");
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin_seeds.description", "Discover the source of all these Sponges...");
 
-        generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin", "Oompah Loofah");
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin", "Who Lives in a Loofah Under the Sea");
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin.description", "Grow and collect a Spongekin");
 
 

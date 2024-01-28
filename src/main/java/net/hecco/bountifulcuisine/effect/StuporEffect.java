@@ -5,6 +5,7 @@ import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +20,8 @@ public class StuporEffect extends StatusEffect {
         List<StatusEffectInstance> effectsToRemove = new ArrayList<>();
 
         for (StatusEffectInstance effect : entity.getStatusEffects()) {
-            // goes through each effect that isnt Stupor, and adds it to a list to be removed
-            if (effect.getEffectType() != this) {
+            // goes through each effect that shouldn't be affected, and adds it to a list to be removed
+            if (effect.getEffectType() != this || effect.getEffectType() != StatusEffects.BAD_OMEN || effect.getEffectType() != StatusEffects.HERO_OF_THE_VILLAGE) {
                 effectsToRemove.add(effect);
             }
         }

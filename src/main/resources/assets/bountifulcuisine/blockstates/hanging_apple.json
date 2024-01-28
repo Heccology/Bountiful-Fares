@@ -1,19 +1,89 @@
 {
   "variants": {
-    "age=0": {
-      "model": "bountifulcuisine:block/hanging_apple_0"
-    },
-    "age=1": {
-      "model": "bountifulcuisine:block/hanging_apple_1"
-    },
-    "age=2": {
-      "model": "bountifulcuisine:block/hanging_apple_2"
-    },
-    "age=3": {
-      "model": "bountifulcuisine:block/hanging_apple_3"
-    },
-    "age=4": {
-      "model": "bountifulcuisine:block/hanging_apple_4"
-    }
+    "age=0": [
+      {
+        "model": "bountifulcuisine:block/hanging_apple_0"
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_0",
+        "y": 90
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_0",
+        "y": 180
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_0",
+        "y": 270
+      }
+    ],
+    "age=1": [
+      {
+        "model": "bountifulcuisine:block/hanging_apple_1"
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_1",
+        "y": 90
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_1",
+        "y": 180
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_1",
+        "y": 270
+      }
+    ],
+    "age=2": [
+      {
+        "model": "bountifulcuisine:block/hanging_apple_2"
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_2",
+        "y": 90
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_2",
+        "y": 180
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_2",
+        "y": 270
+      }
+    ],
+    "age=3": [
+      {
+        "model": "bountifulcuisine:block/hanging_apple_3"
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_3",
+        "y": 90
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_3",
+        "y": 180
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_3",
+        "y": 270
+      }
+    ],
+    "age=4": [
+      {
+        "model": "bountifulcuisine:block/hanging_apple_4"
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_4",
+        "y": 90
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_4",
+        "y": 180
+      },
+      {
+        "model": "bountifulcuisine:block/hanging_apple_4",
+        "y": 270
+      }
+    ]
   }
 }

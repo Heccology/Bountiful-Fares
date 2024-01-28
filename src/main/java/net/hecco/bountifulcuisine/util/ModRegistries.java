@@ -15,6 +15,19 @@ public class ModRegistries {
         registerStrippables();
         registerModCompostables();
         registerPotionRecipes();
+        registerFermentationRecipes();
+    }
+
+    public static void registerFermentationRecipes() {
+        FermentationRecipes.addRecipeWithCollector(ModItems.ELDERBERRIES, ModItems.ELDERBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE);
+        FermentationRecipes.addRecipeWithCollector(ModItems.LAPISBERRIES, ModItems.LAPISBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE);
+        FermentationRecipes.addRecipeWithRemainderAndCollector(Items.HONEY_BOTTLE, Items.GLASS_BOTTLE, ModItems.MEAD_BOTTLE, Items.GLASS_BOTTLE);
+        FermentationRecipes.addRecipeWithCollector(Items.APPLE, ModItems.APPLE_CIDER_JAR, ModItems.JAR);
+        FermentationRecipes.addRecipeWithCollector(ModItems.PLUM, ModItems.PLUM_CIDER_JAR, ModItems.JAR);
+        FermentationRecipes.addRecipeWithCollector(ModItems.HOARY_APPLE, ModItems.HOARY_CIDER_JAR, ModItems.JAR);
+        FermentationRecipes.addRecipe(ModItems.ORANGE, ModItems.CITRIC_ACID);
+        FermentationRecipes.addRecipe(ModItems.LEMON, ModItems.CITRIC_ACID);
+        FermentationRecipes.addRecipe(Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE);
     }
 
     public static void registerStrippables() {

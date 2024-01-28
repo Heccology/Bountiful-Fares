@@ -1,11 +1,13 @@
 package net.hecco.bountifulcuisine.block.custom;
 
 import com.mojang.datafixers.util.Pair;
+import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
 import net.hecco.bountifulcuisine.block.interfaces.CeramicDishBlockInterface;
 import net.hecco.bountifulcuisine.block.interfaces.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulcuisine.item.custom.SpongekinSliceItem;
 import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.*;
@@ -83,8 +85,21 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack item = player.getStackInHand(hand);
         if (world.getBlockEntity(pos) instanceof CeramicDishBlockEntity blockEntity) {
+            ItemStack itemStack = player.getStackInHand(hand);
             ItemStack stack = blockEntity.getStack(0);
-            if (!item.isEmpty() && blockEntity.canInsertItem()) {
+            if (itemStack.isOf(ModItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
+                int brushColor = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY).getInt(ArtisanBrushItem.COLOR_KEY);
+                world.removeBlock(pos, false);
+                world.setBlockState(pos, this.getStateWithProperties(state));
+                blockEntity.insertItem(stack);
+                world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+                if (world.getBlockEntity(pos) instanceof CeramicDishBlockEntity ceramicDishBlockEntity && ceramicDishBlockEntity.color != brushColor) {
+                    ceramicDishBlockEntity.color = brushColor;
+                    ceramicDishBlockEntity.markDirty();
+                    return ActionResult.SUCCESS;
+
+                }
+            } else if (!item.isEmpty() && blockEntity.canInsertItem()) {
                 blockEntity.insertItem(item);
                 if (!player.isCreative()) {
                     item.decrement(1);
@@ -141,6 +156,7 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
 //                blockEntity.markDirty();
 //                return ActionResult.SUCCESS;
 //            }
+
         }
         return ActionResult.PASS;
     }

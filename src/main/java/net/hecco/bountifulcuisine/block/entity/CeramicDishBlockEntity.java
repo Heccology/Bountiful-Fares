@@ -30,7 +30,6 @@ public class CeramicDishBlockEntity extends BlockEntity implements ImplementedIn
     private static final int[] SLOTS = new int[]{0};
     public CeramicDishBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, pos, state);
-
     }
 
     @Override

@@ -5,11 +5,12 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.custom.FallenWalnutsBlock;
+import net.hecco.bountifulcuisine.block.custom.JackOStrawBlock;
+import net.hecco.bountifulcuisine.block.custom.PicketsBlock;
+import net.hecco.bountifulcuisine.block.custom.WalnutMulchBlock;
 import net.hecco.bountifulcuisine.item.ModItems;
-import net.minecraft.block.BeetrootsBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SlabBlock;
+import net.minecraft.block.*;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.block.enums.SlabType;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
@@ -131,6 +132,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.MANGROVE_PICKETS);
         addDrop(ModBlocks.CHERRY_PICKETS);
         addDrop(ModBlocks.BAMBOO_PICKETS);
+        addDrop(ModBlocks.WALNUT_PICKETS);
         addDrop(ModBlocks.HOARY_PICKETS);
         addDrop(ModBlocks.CRIMSON_PICKETS);
         addDrop(ModBlocks.WARPED_PICKETS);
@@ -147,7 +149,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.WILD_CARROTS, Items.CARROT);
         addDrop(ModBlocks.WILD_POTATOES, Items.POTATO);
         addDrop(ModBlocks.WILD_BEETROOTS, Items.BEETROOT_SEEDS);
-        addDrop(ModBlocks.WILD_GOOSEBERRIES, ModItems.LEEK_SEEDS);
+        addDrop(ModBlocks.WILD_LEEKS, ModItems.LEEK_SEEDS);
         addDrop(ModBlocks.MAIZE_CROP, ModItems.MAIZE);
         addDrop(ModBlocks.FELDSPAR_BLOCK);
         addDrop(ModBlocks.CUT_FELDSPAR_BLOCK);
@@ -198,13 +200,107 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                                 .properties(StatePredicate.Builder.create().exactMatch(FallenWalnutsBlock.COUNT, 3)))
                         .with(this.applyExplosionDecay(ModBlocks.FALLEN_WALNUTS, ItemEntry.builder(ModItems.WALNUT)))));
 
-        cropDrops(ModBlocks.LEEKS, ModItems.LEEK, ModItems.LEEK_SEEDS, BlockStatePropertyLootCondition.builder(ModBlocks.LEEKS).properties(StatePredicate.Builder.create().exactMatch(BeetrootsBlock.AGE, 7)));
+        addDrop(ModBlocks.LEEKS, cropDrops(ModBlocks.LEEKS, ModItems.LEEK, ModItems.LEEK_SEEDS, BlockStatePropertyLootCondition.builder(ModBlocks.LEEKS).properties(StatePredicate.Builder.create().exactMatch(BeetrootsBlock.AGE, 7))));
+
+        jackOStrawDrops(ModBlocks.RED_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.ORANGE_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.YELLOW_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.LIME_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.GREEN_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.CYAN_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.LIGHT_BLUE_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.BLUE_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.PURPLE_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.MAGENTA_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.PINK_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.WHITE_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.LIGHT_GRAY_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.GRAY_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.BLACK_JACK_O_STRAW);
+        jackOStrawDrops(ModBlocks.BROWN_JACK_O_STRAW);
+
+
+        picketsDrops(ModBlocks.OAK_PICKETS);
+        picketsDrops(ModBlocks.BIRCH_PICKETS);
+        picketsDrops(ModBlocks.SPRUCE_PICKETS);
+        picketsDrops(ModBlocks.JUNGLE_PICKETS);
+        picketsDrops(ModBlocks.ACACIA_PICKETS);
+        picketsDrops(ModBlocks.DARK_OAK_PICKETS);
+        picketsDrops(ModBlocks.MANGROVE_PICKETS);
+        picketsDrops(ModBlocks.CHERRY_PICKETS);
+        picketsDrops(ModBlocks.BAMBOO_PICKETS);
+        picketsDrops(ModBlocks.WALNUT_PICKETS);
+        picketsDrops(ModBlocks.HOARY_PICKETS);
+        picketsDrops(ModBlocks.CRIMSON_PICKETS);
+        picketsDrops(ModBlocks.WARPED_PICKETS);
+
+        addDrop(ModBlocks.WALNUT_MULCH_BLOCK);
+        addDrop(ModBlocks.WALNUT_MULCH, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WALNUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 1)))
+                        .with(this.applyExplosionDecay(ModBlocks.WALNUT_MULCH, ItemEntry.builder(ModBlocks.WALNUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(2.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WALNUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 2)))
+                        .with(this.applyExplosionDecay(ModBlocks.WALNUT_MULCH, ItemEntry.builder(ModBlocks.WALNUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(3.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WALNUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 3)))
+                        .with(this.applyExplosionDecay(ModBlocks.WALNUT_MULCH, ItemEntry.builder(ModBlocks.WALNUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(4.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WALNUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 4)))
+                        .with(this.applyExplosionDecay(ModBlocks.WALNUT_MULCH, ItemEntry.builder(ModBlocks.WALNUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(5.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WALNUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 5)))
+                        .with(this.applyExplosionDecay(ModBlocks.WALNUT_MULCH, ItemEntry.builder(ModBlocks.WALNUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(6.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WALNUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 6)))
+                        .with(this.applyExplosionDecay(ModBlocks.WALNUT_MULCH, ItemEntry.builder(ModBlocks.WALNUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(7.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WALNUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 7)))
+                        .with(this.applyExplosionDecay(ModBlocks.WALNUT_MULCH, ItemEntry.builder(ModBlocks.WALNUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(8.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WALNUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 8)))
+                        .with(this.applyExplosionDecay(ModBlocks.WALNUT_MULCH, ItemEntry.builder(ModBlocks.WALNUT_MULCH)))));
     }
+
+
+
     public LootTable.Builder plantedTrellisDrops(Block block, Item plant) {
         return LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .with(this.applyExplosionDecay(block, ItemEntry.builder(plant))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .with(this.applyExplosionDecay(block, ItemEntry.builder(ModBlocks.TRELLIS))));
+    }
+
+    public void picketsDrops(Block block) {
+        addDrop(block, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(block)
+                                .properties(StatePredicate.Builder.create().exactMatch(PicketsBlock.NORTH, true)))
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(block))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(block)
+                                .properties(StatePredicate.Builder.create().exactMatch(PicketsBlock.EAST, true)))
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(block))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(block)
+                                .properties(StatePredicate.Builder.create().exactMatch(PicketsBlock.SOUTH, true)))
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(block))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(block)
+                                .properties(StatePredicate.Builder.create().exactMatch(PicketsBlock.WEST, true)))
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(block)))));
+    }
+
+    public void jackOStrawDrops(Block block) {
+        addDrop(block, this.dropsWithProperty(block, JackOStrawBlock.HALF, DoubleBlockHalf.LOWER));
     }
 }

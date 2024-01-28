@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.hecco.bountifulcuisine.datagen.*;
 import net.hecco.bountifulcuisine.datagen.lang.ModEnUsProvider;
+import net.hecco.bountifulcuisine.datagen.lang.ModEsEsProvider;
 import net.hecco.bountifulcuisine.world.ModConfiguredFeatures;
 import net.hecco.bountifulcuisine.world.ModPlacedFeatures;
 import net.minecraft.registry.RegistryBuilder;
@@ -20,6 +21,7 @@ public class BountifulCuisineDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModAdvancementProvider::new);
         pack.addProvider(ModModelProvider::new);
         pack.addProvider(ModEnUsProvider::new);
+        pack.addProvider(ModEsEsProvider::new);
     }
 
     @Override

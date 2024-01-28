@@ -4,9 +4,9 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "BrewingRecipeRegistryMixin",
-    "FoliagePlacerTypeInvoker",
-    "TreeDecoratorTypeInvoker",
-    "TrunkPlacerTypeInvoker",
+    "FoliagePlacerTypeMixin",
+    "TreeDecoratorTypeMixin",
+    "TrunkPlacerTypeMixin",
     "WolfEntityMixin"
   ],
   "injectors": {

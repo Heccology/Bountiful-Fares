@@ -18,15 +18,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(BlockTags.FLOWERS)
-                .add(ModBlocks.FLOWERING_APPLE_LEAVES)
-                .add(ModBlocks.FLOWERING_ORANGE_LEAVES)
-                .add(ModBlocks.FLOWERING_LEMON_LEAVES)
-                .add(ModBlocks.FLOWERING_PLUM_LEAVES)
-        ;
-
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.FELDSPAR_BLOCK)
+                .add(ModBlocks.CUT_FELDSPAR_BLOCK)
+                .add(ModBlocks.FELDSPAR_BRICKS)
+                .add(ModBlocks.FELDSPAR_BRICK_STAIRS)
+                .add(ModBlocks.FELDSPAR_BRICK_SLAB)
                 .add(ModBlocks.FELDSPAR_LANTERN)
                 .add(ModBlocks.CERAMIC_TILES)
                 .add(ModBlocks.CERAMIC_TILE_STAIRS)
@@ -34,8 +31,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CHECKERED_CERAMIC_TILES)
                 .add(ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS)
                 .add(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB)
+                .add(ModBlocks.CERAMIC_PRESSURE_PLATE)
+                .add(ModBlocks.CERAMIC_BUTTON)
+                .add(ModBlocks.CERAMIC_DISH)
                 .add(ModBlocks.FERMENTATION_VESSEL)
-                .add(ModBlocks.FULL_FERMENTATION_VESSEL)
+                .add(ModBlocks.GOLDEN_APPLE_BLOCK)
         ;
 
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
@@ -102,9 +102,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.MANGROVE_PICKETS)
                 .add(ModBlocks.CHERRY_PICKETS)
                 .add(ModBlocks.BAMBOO_PICKETS)
+                .add(ModBlocks.WALNUT_PICKETS)
                 .add(ModBlocks.HOARY_PICKETS)
                 .add(ModBlocks.CRIMSON_PICKETS)
                 .add(ModBlocks.WARPED_PICKETS)
+                .add(ModBlocks.GRISTMILL)
                 .add(ModBlocks.TRELLIS)
                 .add(ModBlocks.PASSION_FRUIT_TRELLIS)
                 .add(ModBlocks.ELDERBERRY_TRELLIS)
@@ -115,6 +117,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PEONY_TRELLIS)
                 .add(ModBlocks.SUNFLOWER_TRELLIS)
                 .add(ModBlocks.SPONGEKIN)
+                .add(ModBlocks.APPLE_BLOCK)
+                .add(ModBlocks.ORANGE_BLOCK)
+                .add(ModBlocks.LEMON_BLOCK)
+                .add(ModBlocks.PLUM_BLOCK)
+                .add(ModBlocks.HOARY_APPLE_BLOCK)
                 .add(ModBlocks.WHITE_JACK_O_STRAW)
                 .add(ModBlocks.LIGHT_GRAY_JACK_O_STRAW)
                 .add(ModBlocks.GRAY_JACK_O_STRAW)
@@ -151,6 +158,32 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.VELVET_JACK_O_STRAW)
                 .add(ModBlocks.FUCHSIA_JACK_O_STRAW)
                 .add(ModBlocks.PINK_JACK_O_STRAW)
+        ;
+        getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
+                .add(ModBlocks.APPLE_LEAVES)
+                .add(ModBlocks.FLOWERING_APPLE_LEAVES)
+                .add(ModBlocks.ORANGE_LEAVES)
+                .add(ModBlocks.FLOWERING_ORANGE_LEAVES)
+                .add(ModBlocks.LEMON_LEAVES)
+                .add(ModBlocks.FLOWERING_LEMON_LEAVES)
+                .add(ModBlocks.PLUM_LEAVES)
+                .add(ModBlocks.FLOWERING_PLUM_LEAVES)
+                .add(ModBlocks.HOARY_LEAVES)
+                .add(ModBlocks.WALNUT_LEAVES)
+                .add(ModBlocks.TEA_SHRUB)
+        ;
+        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(ModBlocks.WALNUT_MULCH)
+                .add(ModBlocks.WALNUT_MULCH_BLOCK)
+                .add(ModBlocks.CERAMIC_CLAY_BLOCK)
+        ;
+
+
+        getOrCreateTagBuilder(BlockTags.FLOWERS)
+                .add(ModBlocks.FLOWERING_APPLE_LEAVES)
+                .add(ModBlocks.FLOWERING_ORANGE_LEAVES)
+                .add(ModBlocks.FLOWERING_LEMON_LEAVES)
+                .add(ModBlocks.FLOWERING_PLUM_LEAVES)
         ;
         getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS).add(ModBlocks.GOLDEN_APPLE_BLOCK);
         getOrCreateTagBuilder(BlockTags.CROPS).add(ModBlocks.HOARY_APPLE_SAPLING_CROP, ModBlocks.MAIZE_CROP, ModBlocks.LEEKS);

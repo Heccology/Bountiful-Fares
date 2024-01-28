@@ -1,12 +1,17 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import net.hecco.bountifulcuisine.BountifulCuisine;
+import net.hecco.bountifulcuisine.block.entity.ModBlockEntities;
 import net.hecco.bountifulcuisine.block.interfaces.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.item.custom.ArtisanBrushItem;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -15,6 +20,9 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.injection.At;
+
+import java.util.Objects;
 
 public class CeramicTilesBlock extends Block implements DyeableCeramicBlockInterface {
     public CeramicTilesBlock(Settings settings) {
@@ -43,6 +51,21 @@ public class CeramicTilesBlock extends Block implements DyeableCeramicBlockInter
                 return ActionResult.SUCCESS;
             }
         }
+        if (itemStack.isOf(ModItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
+            int brushColor = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY).getInt(ArtisanBrushItem.COLOR_KEY);
+            world.removeBlock(pos, false);
+            world.setBlockState(pos, this.getStateWithProperties(state));
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+            if (world.getBlockEntity(pos) instanceof CeramicTilesBlockEntity ceramicTilesBlockEntity && ceramicTilesBlockEntity.color != brushColor) {
+                ceramicTilesBlockEntity.color = brushColor;
+                ceramicTilesBlockEntity.markDirty();
+                return ActionResult.SUCCESS;
+
+            }
+        }
         return ActionResult.PASS;
     }
+
+
 }
+

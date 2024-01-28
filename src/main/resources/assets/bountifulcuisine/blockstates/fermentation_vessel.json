@@ -1,10 +1,13 @@
 {
   "variants": {
-    "water=false": {
-      "model": "bountifulcuisine:block/fermentation_vessel_empty"
+    "water=false,fermenting=false": {
+      "model": "bountifulcuisine:block/fermentation_vessel"
     },
-    "water=true": {
+    "water=true,fermenting=false": {
       "model": "bountifulcuisine:block/fermentation_vessel_water"
+    },
+    "fermenting=true": {
+      "model": "bountifulcuisine:block/fermentation_vessel_closed"
     }
   }
 }

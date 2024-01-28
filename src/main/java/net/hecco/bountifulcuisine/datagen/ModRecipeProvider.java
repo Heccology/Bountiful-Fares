@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.datagen.recipe.FermentationRecipeBuilder;
 import net.hecco.bountifulcuisine.datagen.recipe.MillingRecipeBuilder;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.util.ModItemTags;
@@ -14,6 +15,7 @@ import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
@@ -29,8 +31,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         super(output);
     }
 
-    private static final ImmutableList<ItemConvertible> CERAMIC_CLAY = ImmutableList.of(ModItems.CERAMIC_CLAY);
-    private static final ImmutableList<ItemConvertible> TEA_LEAVES = ImmutableList.of(ModItems.TEA_LEAVES);
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GRISTMILL)
@@ -94,6 +94,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, ModBlocks.CERAMIC_PRESSURE_PLATE)
+                .pattern("##")
+                .input('#', ModItems.CERAMIC_TILE)
+                .criterion(hasItem(ModItems.CERAMIC_TILE), conditionsFromItem(ModItems.CERAMIC_TILE))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.CERAMIC_DISH)
                 .pattern("###")
                 .input('#', ModItems.CERAMIC_TILE)
                 .criterion(hasItem(ModItems.CERAMIC_TILE), conditionsFromItem(ModItems.CERAMIC_TILE))
@@ -106,7 +112,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.CERAMIC_CLAY), conditionsFromItem(ModItems.CERAMIC_CLAY))
                 .offerTo(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.FERMENTATION_VESSEL)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.OLD_FERMENTATION_VESSEL)
                 .pattern(" # ")
                 .pattern("# #")
                 .pattern("###")
@@ -206,6 +212,114 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.LEEK), conditionsFromItem(ModItems.LEEK))
                 .offerTo(exporter);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.STONE_STEW)
+                .input(Items.STONE_PICKAXE)
+                .input(Items.COBBLESTONE, 2)
+                .input(Items.ROTTEN_FLESH, 1)
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.STONE_PICKAXE), conditionsFromItem(Items.STONE_PICKAXE))
+                .criterion(hasItem(Items.ROTTEN_FLESH), conditionsFromItem(Items.ROTTEN_FLESH))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.FISH_STEW)
+                .group("fish_stew")
+                .input(Ingredient.fromTag(ModItemTags.COOKED_FISHES), 2)
+                .input(Items.DRIED_KELP, 2)
+                .input(Items.BOWL)
+                .criterion("has_cooked_fish", conditionsFromTag(ModItemTags.COOKED_FISHES))
+                .criterion(hasItem(Items.DRIED_KELP), conditionsFromItem(Items.DRIED_KELP))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CUSTARD)
+                .input(Items.MILK_BUCKET, 1)
+                .input(Items.SUGAR, 2)
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.PIQUANT_CUSTARD)
+                .input(Items.MILK_BUCKET, 1)
+                .input(Items.SUGAR, 2)
+                .input(Items.SWEET_BERRIES, 2)
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .criterion(hasItem(Items.SWEET_BERRIES), conditionsFromItem(Items.SWEET_BERRIES))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.PASSION_CUSTARD)
+                .input(Items.MILK_BUCKET, 1)
+                .input(Items.SUGAR, 2)
+                .input(ModItems.PASSION_FRUIT, 2)
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .criterion(hasItem(ModItems.PASSION_FRUIT), conditionsFromItem(ModItems.PASSION_FRUIT))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.COCOA_CUSTARD)
+                .input(Items.MILK_BUCKET, 1)
+                .input(Items.SUGAR, 2)
+                .input(Items.COCOA_BEANS, 1)
+                .input(ModItems.WALNUT, 1)
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .criterion(hasItem(Items.COCOA_BEANS), conditionsFromItem(Items.COCOA_BEANS))
+                .criterion(hasItem(ModItems.WALNUT), conditionsFromItem(ModItems.WALNUT))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.GLOWING_CUSTARD)
+                .input(Items.MILK_BUCKET, 1)
+                .input(Items.SUGAR, 2)
+                .input(Items.GLOW_BERRIES, 2)
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .criterion(hasItem(Items.GLOW_BERRIES), conditionsFromItem(Items.GLOW_BERRIES))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ANCIENT_CUSTARD)
+                .input(Items.MILK_BUCKET, 1)
+                .input(Items.SUGAR, 2)
+                .input(ModItems.LAPISBERRIES, 1)
+                .input(ModItems.HOARY_APPLE, 1)
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .criterion(hasItem(ModItems.HOARY_APPLE), conditionsFromItem(ModItems.HOARY_APPLE))
+                .criterion(hasItem(ModItems.LAPISBERRIES), conditionsFromItem(ModItems.LAPISBERRIES))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CANDIED_APPLE)
+                .input(Items.APPLE, 1)
+                .input(Items.SUGAR, 1)
+                .criterion(hasItem(Items.APPLE), conditionsFromItem(Items.APPLE))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CANDIED_PLUM)
+                .input(ModItems.PLUM, 1)
+                .input(Items.SUGAR, 1)
+                .criterion(hasItem(ModItems.PLUM), conditionsFromItem(ModItems.PLUM))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CANDIED_ORANGE, 4)
+                .input(ModItems.ORANGE, 1)
+                .input(Items.SUGAR, 1)
+                .criterion(hasItem(ModItems.ORANGE), conditionsFromItem(ModItems.ORANGE))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CANDIED_LEMON, 4)
+                .input(ModItems.LEMON, 1)
+                .input(Items.SUGAR, 1)
+                .criterion(hasItem(ModItems.LEMON), conditionsFromItem(ModItems.LEMON))
+                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
+                .offerTo(exporter);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.CRUSTED_BEEF)
                 .input(Items.COOKED_BEEF)
                 .input(ModItems.WALNUT, 2)
@@ -242,6 +356,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion("has_fruit_log", conditionsFromTag(ModItemTags.FRUIT_LOGS))
                         .offerTo(exporter);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.WALNUT_MULCH, 4)
+                .group("walnut_mulch")
+                .input(ModBlocks.WALNUT_MULCH_BLOCK)
+                .criterion("has_mulch", conditionsFromItem(ModBlocks.WALNUT_MULCH_BLOCK))
+                .offerTo(exporter);
+
         offerBarkBlockRecipe(exporter, ModBlocks.APPLE_WOOD, ModBlocks.APPLE_LOG);
         offerBarkBlockRecipe(exporter, ModBlocks.STRIPPED_APPLE_WOOD, ModBlocks.STRIPPED_APPLE_LOG);
         offerBarkBlockRecipe(exporter, ModBlocks.ORANGE_WOOD, ModBlocks.ORANGE_LOG);
@@ -272,6 +392,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerPicketsRecipe(exporter, ModBlocks.MANGROVE_PICKETS, Items.MANGROVE_PLANKS);
         offerPicketsRecipe(exporter, ModBlocks.CHERRY_PICKETS, Items.CHERRY_PLANKS);
         offerPicketsRecipe(exporter, ModBlocks.BAMBOO_PICKETS, Items.BAMBOO_PLANKS);
+        offerPicketsRecipe(exporter, ModBlocks.WALNUT_PICKETS, ModBlocks.WALNUT_PLANKS);
         offerPicketsRecipe(exporter, ModBlocks.HOARY_PICKETS, ModBlocks.HOARY_PLANKS);
         offerPicketsRecipe(exporter, ModBlocks.CRIMSON_PICKETS, Items.CRIMSON_PLANKS);
         offerPicketsRecipe(exporter, ModBlocks.WARPED_PICKETS, Items.WARPED_PLANKS);
@@ -376,6 +497,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .group("feldspar")
                 .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
                 .offerTo(exporter);
+        new MillingRecipeBuilder(Items.TUFF, ModItems.FELDSPAR, 2, "tuff")
+                .group("feldspar")
+                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
+                .offerTo(exporter);
         new MillingRecipeBuilder(Items.BONE, Items.BONE_MEAL, 4, null)
                 .group("bone_meal")
                 .criterion(hasItem(Items.BONE), conditionsFromItem(Items.BONE))
@@ -387,6 +512,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         new MillingRecipeBuilder(ModItems.MAIZE, ModItems.FLOUR, 2, "maize")
                 .group("flour")
                 .criterion(hasItem(ModItems.MAIZE), conditionsFromItem(ModItems.MAIZE))
+                .offerTo(exporter);
+
+        new FermentationRecipeBuilder(Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE, null, 1, null)
+                .criterion(hasItem(Items.SPIDER_EYE), conditionsFromItem(Items.SPIDER_EYE))
+                .offerTo(exporter);
+
+        new FermentationRecipeBuilder(ModItems.ELDERBERRIES, ModItems.ELDERBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE, 1, null)
+                .criterion(hasItem(ModItems.ELDERBERRIES), conditionsFromItem(ModItems.ELDERBERRIES))
                 .offerTo(exporter);
 
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CUT_FELDSPAR_BLOCK, ModBlocks.FELDSPAR_BLOCK);
@@ -408,9 +541,46 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICK_STAIRS, ModBlocks.FELDSPAR_BRICKS, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICK_SLAB, ModBlocks.FELDSPAR_BRICKS, 2);
 
-        offerSmelting(exporter, CERAMIC_CLAY, RecipeCategory.MISC, ModItems.CERAMIC_TILE, 0.3f, 200, "ceramic_tile");
-        offerSmelting(exporter, TEA_LEAVES, RecipeCategory.FOOD, ModItems.DRIED_TEA_LEAVES, 0.3f, 200, "dried_tea_leaves");
+        offerSmelting(exporter, ImmutableList.of(ModItems.CERAMIC_CLAY), RecipeCategory.MISC, ModItems.CERAMIC_TILE, 0.3f, 200, "ceramic_tile");
+        offerSmelting(exporter, ImmutableList.of(ModItems.TEA_LEAVES), RecipeCategory.FOOD, ModItems.DRIED_TEA_LEAVES, 0.3f, 200, "dried_tea_leaves");
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.ARTISAN_BRUSH)
+                .pattern("FFF")
+                .pattern(" G ")
+                .pattern(" S ")
+                .input('F', Items.STRING)
+                .input('G', Items.GOLD_INGOT)
+                .input('S', Items.STICK)
+                .criterion(hasItem(ModBlocks.CERAMIC_TILES), conditionsFromItem(ModBlocks.CERAMIC_TILES))
+                .criterion(hasItem(Items.GOLD_INGOT), conditionsFromItem(Items.GOLD_INGOT))
+                .criterion(hasItem(Items.STRING), conditionsFromItem(Items.STRING))
+                .offerTo(exporter);
+
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_TILES);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_TILE_STAIRS);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_TILE_SLAB);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CHECKERED_CERAMIC_TILES);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_PRESSURE_PLATE);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_BUTTON);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_DISH);
+        offerCeramicUndyingRecipe(exporter, ModItems.ARTISAN_BRUSH);
     }
+
+
+
+
+
+
+
+
+
+    public static void offerCeramicUndyingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible item) {
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, item, 1).input(item)
+                .criterion("has_item", conditionsFromItem(item)).offerTo(exporter, getItemId(item) + "_undying");
+    }
+
 
     public static void offerTeaBlendMillingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
         new MillingRecipeBuilder(input, output, 1, null)

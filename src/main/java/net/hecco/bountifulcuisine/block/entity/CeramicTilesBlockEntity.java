@@ -36,6 +36,14 @@ public class CeramicTilesBlockEntity extends BlockEntity {
         }
     }
 
+    @Override
+    public void markDirty() {
+        if (this.world != null) {
+            markDirty(this.world, this.pos, this.getCachedState());
+        }
+
+    }
+
 
 
     @Nullable

@@ -78,14 +78,14 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("obtain_ceramic_tiles", InventoryChangedCriterion.Conditions.items(ModBlocks.CERAMIC_TILES))
                 .build(consumer, BountifulCuisine.MOD_ID + ":obtain_ceramic_tiles");
         Advancement obtain_fermentation_vessel = Advancement.Builder.create()
-                .display(new AdvancementDisplay(new ItemStack(ModBlocks.FERMENTATION_VESSEL),
+                .display(new AdvancementDisplay(new ItemStack(ModBlocks.OLD_FERMENTATION_VESSEL),
                         Text.translatable("advancement.bountifulcuisine.obtain_fermentation_vessel"),
                         Text.translatable("advancement.bountifulcuisine.obtain_fermentation_vessel.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
                         true,
                         true,
                         false))
                 .parent(obtain_feldspar)
-                .criterion("obtain_fermentation_vessel", InventoryChangedCriterion.Conditions.items(ModBlocks.FERMENTATION_VESSEL))
+                .criterion("obtain_fermentation_vessel", InventoryChangedCriterion.Conditions.items(ModBlocks.OLD_FERMENTATION_VESSEL))
                 .build(consumer, BountifulCuisine.MOD_ID + ":obtain_fermentation_vessel");
         Advancement eat_ancient_fruit = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(ModItems.HOARY_APPLE),

@@ -25,4 +25,5 @@ public class ModItemTags {
     public static final TagKey<Item> FELSIC_STONES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "felsic_stones"));
     public static final TagKey<Item> VINE_CROP_SEEDS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "vine_crop_seeds"));
     public static final TagKey<Item> PLANTABLE_ON_TRELLIS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "plantable_on_trellis"));
+    public static final TagKey<Item> COOKED_FISHES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulCuisine.MOD_ID, "cooked_fishes"));
 }

@@ -13,6 +13,8 @@ import net.hecco.bountifulcuisine.block.entity.ModBlockEntities;
 import net.hecco.bountifulcuisine.block.entity.renderer.CeramicDishBlockEntityRenderer;
 import net.hecco.bountifulcuisine.entity.ModBoats;
 import net.hecco.bountifulcuisine.entity.ModEntities;
+import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulcuisine.item.custom.DyeableCeramicBlockItem;
 import net.hecco.bountifulcuisine.networking.ModMessages;
 import net.hecco.bountifulcuisine.particle.FlourCloudParticle;
@@ -34,10 +36,12 @@ import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.util.Identifier;
 
+import static net.hecco.bountifulcuisine.item.ModItems.ARTISAN_BRUSH;
 import static net.hecco.bountifulcuisine.item.ModItems.SUN_HAT;
 
 public class BountifulCuisineClient implements ClientModInitializer {
@@ -107,11 +111,13 @@ public class BountifulCuisineClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WILD_POTATOES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WILD_WHEAT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WILD_BEETROOTS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WILD_GOOSEBERRIES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WILD_LEEKS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WILD_MAIZE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WILD_PASSION_FRUIT_VINE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WILD_ELDERBERRY_VINE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FERMENTATION_VESSEL, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FULL_FERMENTATION_VESSEL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.OLD_FERMENTATION_VESSEL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FULL_OLD_FERMENTATION_VESSEL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FELDSPAR_LANTERN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TINGED_GLASS, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CERAMIC_TILES, RenderLayer.getCutout());
@@ -171,9 +177,11 @@ public class BountifulCuisineClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MANGROVE_PICKETS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHERRY_PICKETS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BAMBOO_PICKETS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WALNUT_PICKETS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HOARY_PICKETS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CRIMSON_PICKETS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WARPED_PICKETS, RenderLayer.getCutout());
+        registerItemColor(ModItems.ARTISAN_BRUSH);
         registerBlockColor(ModBlocks.CERAMIC_TILES);
         registerBlockColor(ModBlocks.CERAMIC_TILE_STAIRS);
         registerBlockColor(ModBlocks.CERAMIC_TILE_SLAB);
@@ -202,7 +210,7 @@ public class BountifulCuisineClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.FLOUR_CLOUD_PARTICLE, FlourCloudParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.PRISMARINE_BLOSSOM_PARTICLE, PrismarineBlossomParticle.Factory::new);
 
-        ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : FoliageColors.getDefaultColor()), ModBlocks.WILD_POTATOES, ModBlocks.WILD_CARROTS, ModBlocks.WILD_BEETROOTS, ModBlocks.WILD_GOOSEBERRIES, ModBlocks.WILD_PASSION_FRUIT_VINE, ModBlocks.WILD_ELDERBERRY_VINE);
+        ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : FoliageColors.getDefaultColor()), ModBlocks.WILD_POTATOES, ModBlocks.WILD_CARROTS, ModBlocks.WILD_BEETROOTS, ModBlocks.WILD_LEEKS, ModBlocks.WILD_MAIZE, ModBlocks.WILD_PASSION_FRUIT_VINE, ModBlocks.WILD_ELDERBERRY_VINE);
 
         ModelPredicateProviderRegistry.register(SUN_HAT, new Identifier("head"), (itemStack, clientWorld, livingEntity, seed) -> {
             if (livingEntity == null) {
@@ -210,24 +218,31 @@ public class BountifulCuisineClient implements ClientModInitializer {
             }
             return livingEntity.getEquippedStack(EquipmentSlot.HEAD) == itemStack ? 1.0F : 0.0F;
         });
+        ModelPredicateProviderRegistry.register(ARTISAN_BRUSH, new Identifier("dyed"), (itemStack, clientWorld, livingEntity, seed) -> {
+            NbtCompound nbtCompound = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY);
+            if (nbtCompound == null) {
+                return 0.0F;
+            }
+            return 1.0F;
+        });
     }
 
 
     private void registerBlockColor(Block ModCeramicBlocksItems) {
 //        Registers tint for ceramic tile blocks
-        registerItemColor(ModCeramicBlocksItems);
+        registerItemColor(ModCeramicBlocksItems.asItem());
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> CeramicTilesBlockEntity.getColor(world,pos),ModCeramicBlocksItems);
     }
 
-    private void registerItemColor(Block ModCeramicBlocksItems) {
+    private void registerItemColor(Item item) {
 //        Registers tint for ceramic tile items
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
             NbtCompound nbtCompound = stack.getSubNbt(DyeableCeramicBlockItem.DISPLAY_KEY);
-            if (nbtCompound != null && nbtCompound.contains(DyeableCeramicBlockItem.COLOR_KEY, NbtElement.NUMBER_TYPE)) {
+            if (nbtCompound != null && nbtCompound.contains(DyeableCeramicBlockItem.COLOR_KEY, NbtElement.NUMBER_TYPE) && tintIndex == 0) {
                 return nbtCompound.getInt(DyeableCeramicBlockItem.COLOR_KEY);
             }
             return CeramicTilesBlockEntity.DEFAULT_COLOR;
-        },ModCeramicBlocksItems);
+        },item);
     }
 
     private void registerDishColor(Block ModCeramicDishItems) {

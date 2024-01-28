@@ -79,9 +79,9 @@ public class FullFermentationVesselBlock extends Block implements Waterloggable 
         if (state.get(ITEM_FERMENTING) == ItemFermenting.SPIDER_EYE && state.get(COMPLETE)) {
             FullFermentationVesselBlock.dropStack(world, pos, new ItemStack(Items.FERMENTED_SPIDER_EYE, 1));
             if(state.get(WATERLOGGED)) {
-                world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState().with(WATERLOGGED, true), 2);
+                world.setBlockState(pos, ModBlocks.OLD_FERMENTATION_VESSEL.getDefaultState().with(WATERLOGGED, true), 2);
             } else if(!state.get(WATERLOGGED)) {
-                world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState(), 2);
+                world.setBlockState(pos, ModBlocks.OLD_FERMENTATION_VESSEL.getDefaultState(), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F);
             return ActionResult.SUCCESS;
@@ -100,23 +100,23 @@ public class FullFermentationVesselBlock extends Block implements Waterloggable 
                     player.dropItem(new ItemStack(ModItems.ELDERBERRY_WINE_BOTTLE), false);
                 }
                 if(state.get(WATERLOGGED)) {
-                    world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState().with(WATERLOGGED, true), 2);
+                    world.setBlockState(pos, ModBlocks.OLD_FERMENTATION_VESSEL.getDefaultState().with(WATERLOGGED, true), 2);
                 } else if(!state.get(WATERLOGGED)) {
-                    world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState(), 2);
+                    world.setBlockState(pos, ModBlocks.OLD_FERMENTATION_VESSEL.getDefaultState(), 2);
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F);
                 return ActionResult.SUCCESS;
             } else {
-                player.sendMessage(Text.translatable("warning." + BountifulCuisine.MOD_ID + "fermentation_vessel.use_bottle"), true);
+                player.sendMessage(Text.translatable("warning." + BountifulCuisine.MOD_ID + ".fermentation_vessel.use_bottle"), true);
             }
 
         }
         if (state.get(ITEM_FERMENTING) == ItemFermenting.CITRUS && state.get(COMPLETE)) {
             FullFermentationVesselBlock.dropStack(world, new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), new ItemStack(ModItems.CITRIC_ACID, 1));
             if(state.get(WATERLOGGED)) {
-                world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState().with(WATERLOGGED, true), 2);
+                world.setBlockState(pos, ModBlocks.OLD_FERMENTATION_VESSEL.getDefaultState().with(WATERLOGGED, true), 2);
             } else if(!state.get(WATERLOGGED)) {
-                world.setBlockState(pos, ModBlocks.FERMENTATION_VESSEL.getDefaultState(), 2);
+                world.setBlockState(pos, ModBlocks.OLD_FERMENTATION_VESSEL.getDefaultState(), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F);
             return ActionResult.SUCCESS;
@@ -127,7 +127,7 @@ public class FullFermentationVesselBlock extends Block implements Waterloggable 
 
     @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(Item.fromBlock(ModBlocks.FERMENTATION_VESSEL));
+        return new ItemStack(Item.fromBlock(ModBlocks.OLD_FERMENTATION_VESSEL));
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {

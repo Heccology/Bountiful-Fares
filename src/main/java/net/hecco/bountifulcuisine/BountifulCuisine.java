@@ -1,6 +1,7 @@
 package net.hecco.bountifulcuisine;
 
 import net.fabricmc.api.ModInitializer;
+import net.hecco.bountifulcuisine.util.FermentationRecipes;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.entity.ModBlockEntities;
 import net.hecco.bountifulcuisine.effect.ModEffects;
@@ -48,5 +49,6 @@ public class BountifulCuisine implements ModInitializer {
 		ModTreeDecoratorTypes.register();
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerBlockEntities();
+		LOGGER.info(FermentationRecipes.getOutputFromInput(ModItems.ELDERBERRIES).toString());
 	}
 }

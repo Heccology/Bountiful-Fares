@@ -36,8 +36,10 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> LARGE_WILD_POTATOES_PLACED_KEY = registerKey("large_wild_potatoes_placed");
     public static final RegistryKey<PlacedFeature> WILD_BEETROOTS_PLACED_KEY = registerKey("wild_beetroots_placed");
     public static final RegistryKey<PlacedFeature> LARGE_WILD_BEETROOTS_PLACED_KEY = registerKey("large_wild_beetroots_placed");
-    public static final RegistryKey<PlacedFeature> WILD_TOMATOES_PLACED_KEY = registerKey("wild_tomatoes_placed");
-    public static final RegistryKey<PlacedFeature> LARGE_WILD_TOMATOES_PLACED_KEY = registerKey("large_wild_tomatoes_placed");
+    public static final RegistryKey<PlacedFeature> WILD_LEEKS_PLACED_KEY = registerKey("wild_leeks_placed");
+    public static final RegistryKey<PlacedFeature> LARGE_WILD_LEEKS_PLACED_KEY = registerKey("large_wild_leeks_placed");
+    public static final RegistryKey<PlacedFeature> WILD_MAIZE_PLACED_KEY = registerKey("wild_maize_placed");
+    public static final RegistryKey<PlacedFeature> LARGE_WILD_MAIZE_PLACED_KEY = registerKey("large_wild_maize_placed");
     public static final RegistryKey<PlacedFeature> TEA_SHRUB_PLACED_KEY = registerKey("tea_shrub_placed");
     public static final RegistryKey<PlacedFeature> FOREST_TEA_SHRUB_PLACED_KEY = registerKey("forest_tea_shrub_placed");
     public static final RegistryKey<PlacedFeature> WALNUT_PLACED_KEY = registerKey("walnut_placed");

@@ -6,6 +6,7 @@ import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -23,8 +24,8 @@ public class AcidicEffect extends StatusEffect {
         affectedEffects.clear();
         List<StatusEffectInstance> effectsToModify = new ArrayList<>();
         for (StatusEffectInstance effect : entity.getStatusEffects()) {
-                if (effect.getEffectType() != this) {
-                    // goes through each effect on the entity that isnt Acidic and increases the amplifier
+                if (effect.getEffectType() != this || effect.getEffectType() != StatusEffects.BAD_OMEN || effect.getEffectType() != StatusEffects.HERO_OF_THE_VILLAGE) {
+                    // goes through each effect on the entity that should be affected and increases the amplifier
                     int newAmplifier = effect.getAmplifier() + amplifier + 1;
                     if (newAmplifier > 255) {
                         newAmplifier = 255;
