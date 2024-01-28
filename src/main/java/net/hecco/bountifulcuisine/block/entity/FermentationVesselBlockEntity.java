@@ -32,7 +32,6 @@ import org.jetbrains.annotations.Nullable;
 public class FermentationVesselBlockEntity extends BlockEntity implements ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
-    private static BooleanProperty waterState;
     private int progress = 0;
     private int maxProgress = 6 + Random.create().nextBetween(0, 200);
     public boolean fermented;
@@ -41,7 +40,6 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
         super(ModBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, pos, state);
         this.fermented = false;
         this.indicatedFermentation = false;
-        waterState = ((FermentationVesselBlock)state.getBlock()).getWaterState();
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
