@@ -1,3 +1,12 @@
+All Rights Reserved
+
+This license applies to any file in the following directories:
+- ./src/main/resources/assets/
+
+This license also applies to any file in a `model` package.
+
+All other files are under the following license
+
 MIT License
 
 Copyright (c) 2023 Hecco
