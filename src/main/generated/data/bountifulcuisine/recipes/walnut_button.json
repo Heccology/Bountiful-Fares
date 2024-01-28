@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "bountifulcuisine:walnut_planks"
+    }
+  ],
+  "result": {
+    "item": "bountifulcuisine:walnut_button"
+  }
+}

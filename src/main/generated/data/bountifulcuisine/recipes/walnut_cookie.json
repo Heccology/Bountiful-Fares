@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "bountifulcuisine:flour"
+    },
+    "W": {
+      "item": "bountifulcuisine:walnut"
+    }
+  },
+  "pattern": [
+    "#W#"
+  ],
+  "result": {
+    "item": "bountifulcuisine:walnut_cookie"
+  },
+  "show_notification": true
+}

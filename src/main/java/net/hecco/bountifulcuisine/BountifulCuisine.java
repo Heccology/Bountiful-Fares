@@ -49,6 +49,5 @@ public class BountifulCuisine implements ModInitializer {
 		ModTreeDecoratorTypes.register();
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerBlockEntities();
-		LOGGER.info(FermentationRecipes.getOutputFromInput(ModItems.ELDERBERRIES).toString());
 	}
 }

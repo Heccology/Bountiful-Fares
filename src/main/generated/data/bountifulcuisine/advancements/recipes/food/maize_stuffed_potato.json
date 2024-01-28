@@ -1,36 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cocoa_beans": {
+    "has_baked_potato": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:cocoa_beans"
+              "minecraft:baked_potato"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_egg": {
+    "has_maize": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:egg"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_flour": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "bountifulcuisine:flour"
+              "bountifulcuisine:maize"
             ]
           }
         ]
@@ -39,22 +27,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulcuisine:cocoa_cake"
+        "recipe": "bountifulcuisine:maize_stuffed_potato"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_egg",
-      "has_flour",
-      "has_cocoa_beans",
+      "has_baked_potato",
+      "has_maize",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "bountifulcuisine:cocoa_cake"
+      "bountifulcuisine:maize_stuffed_potato"
     ]
   },
   "sends_telemetry_event": false

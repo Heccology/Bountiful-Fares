@@ -135,6 +135,21 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .build();
         generateFamily(exporter, hoaryFamily);
 
+        BlockFamily walnutFamily = register(ModBlocks.WALNUT_PLANKS)
+                .button(ModBlocks.WALNUT_BUTTON)
+                .fence(ModBlocks.WALNUT_FENCE)
+                .fenceGate(ModBlocks.WALNUT_FENCE_GATE)
+                .pressurePlate(ModBlocks.WALNUT_PRESSURE_PLATE)
+                .sign(ModBlocks.WALNUT_SIGN, ModBlocks.WALNUT_WALL_SIGN)
+                .slab(ModBlocks.WALNUT_SLAB)
+                .stairs(ModBlocks.WALNUT_STAIRS)
+                .door(ModBlocks.WALNUT_DOOR)
+                .trapdoor(ModBlocks.WALNUT_TRAPDOOR)
+                .group("wooden")
+                .unlockCriterionName("has_planks")
+                .build();
+        generateFamily(exporter, walnutFamily);
+
         BlockFamily ceramicFamily = register(ModBlocks.CERAMIC_TILES)
                 .slab(ModBlocks.CERAMIC_TILE_SLAB)
                 .stairs(ModBlocks.CERAMIC_TILE_STAIRS)
@@ -177,6 +192,21 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('C', Items.COCOA_BEANS)
                 .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
                 .criterion(hasItem(ModItems.FLOUR), conditionsFromItem(ModItems.FLOUR))
+                .criterion(hasItem(Items.COCOA_BEANS), conditionsFromItem(Items.COCOA_BEANS))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.MAIZE_BREAD)
+                .pattern("###")
+                .input('#', ModItems.MAIZE)
+                .criterion(hasItem(ModItems.MAIZE), conditionsFromItem(ModItems.MAIZE))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.WALNUT_COOKIE)
+                .pattern("#W#")
+                .input('#', ModItems.FLOUR)
+                .input('W', ModItems.WALNUT)
+                .criterion(hasItem(ModItems.FLOUR), conditionsFromItem(ModItems.FLOUR))
+                .criterion(hasItem(ModItems.WALNUT), conditionsFromItem(ModItems.WALNUT))
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.MUSHROOM_STUFFED_POTATO)
@@ -186,6 +216,22 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.BAKED_POTATO), conditionsFromItem(Items.BAKED_POTATO))
                 .criterion(hasItem(Items.RED_MUSHROOM), conditionsFromItem(Items.RED_MUSHROOM))
                 .criterion(hasItem(Items.BROWN_MUSHROOM), conditionsFromItem(Items.BROWN_MUSHROOM))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BERRY_STUFFED_POTATO)
+                .input(Items.BAKED_POTATO)
+                .input(Items.SWEET_BERRIES)
+                .input(Items.GLOW_BERRIES)
+                .criterion(hasItem(Items.BAKED_POTATO), conditionsFromItem(Items.BAKED_POTATO))
+                .criterion(hasItem(Items.SWEET_BERRIES), conditionsFromItem(Items.SWEET_BERRIES))
+                .criterion(hasItem(Items.GLOW_BERRIES), conditionsFromItem(Items.GLOW_BERRIES))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.MAIZE_STUFFED_POTATO)
+                .input(Items.BAKED_POTATO)
+                .input(ModItems.MAIZE)
+                .criterion(hasItem(Items.BAKED_POTATO), conditionsFromItem(Items.BAKED_POTATO))
+                .criterion(hasItem(ModItems.MAIZE), conditionsFromItem(ModItems.MAIZE))
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.PASSION_GLAZED_SALMON)
@@ -381,7 +427,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerBarkBlockRecipe(exporter, ModBlocks.HOARY_WOOD, ModBlocks.HOARY_LOG);
         offerBarkBlockRecipe(exporter, ModBlocks.STRIPPED_HOARY_WOOD, ModBlocks.STRIPPED_HOARY_LOG);
         offerBoatRecipe(exporter, ModItems.HOARY_BOAT, ModBlocks.HOARY_PLANKS);
+        offerBoatRecipe(exporter, ModItems.WALNUT_BOAT, ModBlocks.WALNUT_PLANKS);
         offerChestBoatRecipe(exporter, ModItems.HOARY_CHEST_BOAT, ModItems.HOARY_BOAT);
+        offerChestBoatRecipe(exporter, ModItems.WALNUT_CHEST_BOAT, ModItems.WALNUT_BOAT);
 
         offerPicketsRecipe(exporter, ModBlocks.OAK_PICKETS, Items.OAK_PLANKS);
         offerPicketsRecipe(exporter, ModBlocks.SPRUCE_PICKETS, Items.SPRUCE_PLANKS);
@@ -566,6 +614,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_BUTTON);
         offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_DISH);
         offerCeramicUndyingRecipe(exporter, ModItems.ARTISAN_BRUSH);
+
+        offerHangingSignRecipe(exporter, ModItems.HOARY_HANGING_SIGN, ModBlocks.STRIPPED_HOARY_LOG);
+        offerHangingSignRecipe(exporter, ModItems.WALNUT_HANGING_SIGN, ModBlocks.STRIPPED_WALNUT_LOG);
     }
 
 

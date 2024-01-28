@@ -24,7 +24,6 @@ public class ModModelProvider extends FabricModelProvider {
         walnutTexturePool.fenceGate(ModBlocks.WALNUT_FENCE_GATE);
         walnutTexturePool.pressurePlate(ModBlocks.WALNUT_PRESSURE_PLATE);
         walnutTexturePool.button(ModBlocks.WALNUT_BUTTON);
-        walnutTexturePool.family(BlockFamilies.register(ModBlocks.WALNUT_PLANKS).sign(ModBlocks.WALNUT_SIGN, ModBlocks.WALNUT_WALL_SIGN).build());
         blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_WALNUT_LOG, ModBlocks.WALNUT_HANGING_SIGN, ModBlocks.WALNUT_WALL_HANGING_SIGN);
         blockStateModelGenerator.registerDoor(ModBlocks.WALNUT_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.WALNUT_TRAPDOOR);

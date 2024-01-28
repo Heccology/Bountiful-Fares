@@ -35,21 +35,23 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(ModItemTags.ORANGE_LEAVES)
                 .addTag(ModItemTags.LEMON_LEAVES)
                 .addTag(ModItemTags.PLUM_LEAVES)
-                .add(ModBlocks.HOARY_LEAVES.asItem());
+                .add(ModBlocks.HOARY_LEAVES.asItem())
+                .add(ModBlocks.WALNUT_LEAVES.asItem());
         getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
                 .addTag(ModItemTags.APPLE_LOGS)
                 .addTag(ModItemTags.ORANGE_LOGS)
                 .addTag(ModItemTags.LEMON_LOGS)
                 .addTag(ModItemTags.PLUM_LOGS)
-                .addTag(ModItemTags.HOARY_LOGS);
-        getOrCreateTagBuilder(ItemTags.PLANKS).add(ModBlocks.HOARY_PLANKS.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS).add(ModBlocks.HOARY_BUTTON.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_DOORS).add(ModBlocks.HOARY_DOOR.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_FENCES).add(ModBlocks.HOARY_FENCE.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES).add(ModBlocks.HOARY_PRESSURE_PLATE.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_SLABS).add(ModBlocks.HOARY_SLAB.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS).add(ModBlocks.HOARY_STAIRS.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS).add(ModBlocks.HOARY_TRAPDOOR.asItem());
+                .addTag(ModItemTags.HOARY_LOGS)
+                .addTag(ModItemTags.WALNUT_LOGS);
+        getOrCreateTagBuilder(ItemTags.PLANKS).add(ModBlocks.HOARY_PLANKS.asItem(), ModBlocks.WALNUT_PLANKS.asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS).add(ModBlocks.HOARY_BUTTON.asItem(), ModBlocks.WALNUT_BUTTON.asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_DOORS).add(ModBlocks.HOARY_DOOR.asItem(), ModBlocks.WALNUT_DOOR.asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_FENCES).add(ModBlocks.HOARY_FENCE.asItem(), ModBlocks.WALNUT_FENCE.asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES).add(ModBlocks.HOARY_PRESSURE_PLATE.asItem(), ModBlocks.WALNUT_PRESSURE_PLATE.asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_SLABS).add(ModBlocks.HOARY_SLAB.asItem(), ModBlocks.WALNUT_SLAB.asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS).add(ModBlocks.HOARY_STAIRS.asItem(), ModBlocks.WALNUT_STAIRS.asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS).add(ModBlocks.HOARY_TRAPDOOR.asItem(), ModBlocks.WALNUT_TRAPDOOR.asItem());
         getOrCreateTagBuilder(ItemTags.BUTTONS).add(ModBlocks.CERAMIC_BUTTON.asItem());
 
 
@@ -59,7 +61,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.CHAMOMILE_CANDLE.asItem())
                 .add(ModBlocks.HONEYSUCKLE_CANDLE.asItem())
                 .add(ModBlocks.BELLFLOWER_CANDLE.asItem())
-                .add(ModBlocks.TORCHFLOWER_CANDLE.asItem());
+                .add(ModBlocks.TORCHFLOWER_CANDLE.asItem())
+                .add(ModBlocks.WALNUT_CANDLE.asItem());
 
         getOrCreateTagBuilder(ModItemTags.APPLE_LEAVES).add(ModBlocks.APPLE_LEAVES.asItem(), ModBlocks.FLOWERING_APPLE_LEAVES.asItem());
         getOrCreateTagBuilder(ModItemTags.ORANGE_LEAVES).add(ModBlocks.ORANGE_LEAVES.asItem(), ModBlocks.FLOWERING_ORANGE_LEAVES.asItem());
@@ -95,6 +98,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.HOARY_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_HOARY_WOOD.asItem())
         ;
+        getOrCreateTagBuilder(ModItemTags.WALNUT_LOGS)
+                .add(ModBlocks.WALNUT_LOG.asItem())
+                .add(ModBlocks.STRIPPED_WALNUT_LOG.asItem())
+                .add(ModBlocks.WALNUT_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_WALNUT_WOOD.asItem())
+        ;
         getOrCreateTagBuilder(ModItemTags.FRUIT_LOGS)
                 .addTag(ModItemTags.APPLE_LOGS)
                 .addTag(ModItemTags.ORANGE_LOGS)
@@ -116,6 +125,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.ANDESITE)
                 .add(Items.GRANITE)
                 .add(Items.DIORITE)
+                .add(Items.TUFF)
         ;
         getOrCreateTagBuilder(ModItemTags.JACK_O_STRAW_LIGHTABLE)
                 .addTag(ItemTags.CANDLES)
@@ -192,6 +202,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.MAIZE)
                 .add(ModItems.LEEK)
                 .add(ModItems.CITRIC_ACID)
+                .add(ModItems.MAIZE_BREAD)
+                .add(ModItems.WALNUT_COOKIE)
+                .add(ModItems.BERRY_STUFFED_POTATO)
+                .add(ModItems.MAIZE_STUFFED_POTATO)
+                .add(ModItems.CANDIED_APPLE)
+                .add(ModItems.CANDIED_PLUM)
         ;
         getOrCreateTagBuilder(ModItemTags.VINE_CROP_SEEDS)
                 .add(ModItems.PASSION_FRUIT)

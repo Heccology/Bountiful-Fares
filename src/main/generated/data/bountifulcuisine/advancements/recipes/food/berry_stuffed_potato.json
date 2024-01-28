@@ -1,36 +1,36 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cocoa_beans": {
+    "has_baked_potato": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:cocoa_beans"
+              "minecraft:baked_potato"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_egg": {
+    "has_glow_berries": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:egg"
+              "minecraft:glow_berries"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_flour": {
+    "has_sweet_berries": {
       "conditions": {
         "items": [
           {
             "items": [
-              "bountifulcuisine:flour"
+              "minecraft:sweet_berries"
             ]
           }
         ]
@@ -39,22 +39,22 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulcuisine:cocoa_cake"
+        "recipe": "bountifulcuisine:berry_stuffed_potato"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_egg",
-      "has_flour",
-      "has_cocoa_beans",
+      "has_baked_potato",
+      "has_sweet_berries",
+      "has_glow_berries",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "bountifulcuisine:cocoa_cake"
+      "bountifulcuisine:berry_stuffed_potato"
     ]
   },
   "sends_telemetry_event": false
