@@ -200,8 +200,6 @@ public class ModEsEsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModItems.CERAMIC_TILE, "Baldosa de cerámica");
         generate(translationBuilder, ModBlocks.CERAMIC_CLAY_BLOCK, "Bloque de arcilla cerámica");
         generate(translationBuilder, ModBlocks.FERMENTATION_VESSEL, "Vasija de fermentación");
-        generate(translationBuilder, ModBlocks.OLD_FERMENTATION_VESSEL, "Vasija de fermentación");
-        generate(translationBuilder, ModBlocks.FULL_OLD_FERMENTATION_VESSEL, "Vasija de fermentación");
         generate(translationBuilder, ModItems.ARTISAN_BRUSH, "Pincel artesano");
         generate(translationBuilder, ModBlocks.CERAMIC_TILES, "Baldosas de cerámica");
         generate(translationBuilder, ModBlocks.CERAMIC_TILE_STAIRS, "Escaleras de baldosas de cerámica");

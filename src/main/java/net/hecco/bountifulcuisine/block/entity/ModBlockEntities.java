@@ -28,12 +28,6 @@ public class ModBlockEntities {
             FabricBlockEntityTypeBuilder.create(FermentationVesselBlockEntity::new, FERMENTATION_VESSEL).build()
     );
 
-    public static final BlockEntityType<OldFermentationVesselBlockEntity> OLD_FERMENTATION_VESSEL_BLOCK_ENTITY = Registry.register(
-            Registries.BLOCK_ENTITY_TYPE,
-            new Identifier(BountifulCuisine.MOD_ID, "old_fermentation_vessel_block_entity"),
-            FabricBlockEntityTypeBuilder.create(OldFermentationVesselBlockEntity::new, OLD_FERMENTATION_VESSEL).build()
-    );
-
     public static final BlockEntityType<ModSignBlockEntity> MOD_SIGN_BLOCK_ENTITY = Registry.register(
             Registries.BLOCK_ENTITY_TYPE,
             new Identifier(BountifulCuisine.MOD_ID, "mod_sign_entity"),

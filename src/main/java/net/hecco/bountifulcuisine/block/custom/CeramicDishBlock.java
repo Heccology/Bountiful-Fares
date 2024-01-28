@@ -2,6 +2,7 @@ package net.hecco.bountifulcuisine.block.custom;
 
 import com.mojang.datafixers.util.Pair;
 import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulcuisine.block.entity.GristmillBlockEntity;
 import net.hecco.bountifulcuisine.block.interfaces.CeramicDishBlockInterface;
 import net.hecco.bountifulcuisine.block.interfaces.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.block.ModBlocks;
@@ -34,6 +35,7 @@ import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -148,17 +150,22 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
                     }
                 }
             }
-//            else if (!item.isEmpty() && stack. == item.getItem().getDefaultStack()) {
-//                if (!player.isCreative()) {
-//                    item.decrement(1);
-//                }
-//                blockEntity.removeItem();
-//                blockEntity.markDirty();
-//                return ActionResult.SUCCESS;
-//            }
 
         }
         return ActionResult.PASS;
+    }
+
+
+    @Override
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if (state.getBlock() != newState.getBlock()) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof CeramicDishBlockEntity entity) {
+                dropStack(world, pos, entity.getStack(0));
+                world.updateComparators(pos,this);
+            }
+            super.onStateReplaced(state, world, pos, newState, moved);
+        }
     }
 
     public boolean canMobSpawnInside(BlockState state) {

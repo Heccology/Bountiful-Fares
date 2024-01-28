@@ -1,6 +1,7 @@
 package net.hecco.bountifulcuisine.block.entity;
 
 import net.hecco.bountifulcuisine.BountifulCuisine;
+import net.hecco.bountifulcuisine.block.custom.GristmillBlock;
 import net.hecco.bountifulcuisine.util.FermentationRecipes;
 import net.hecco.bountifulcuisine.block.custom.FermentationVesselBlock;
 import net.minecraft.block.BlockState;
@@ -17,11 +18,13 @@ import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -29,14 +32,16 @@ import org.jetbrains.annotations.Nullable;
 public class FermentationVesselBlockEntity extends BlockEntity implements ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
+    private static BooleanProperty waterState;
     private int progress = 0;
-    private int maxProgress = 6000 + Random.create().nextBetween(0, 200);
+    private int maxProgress = 6 + Random.create().nextBetween(0, 200);
     public boolean fermented;
     public boolean indicatedFermentation;
     public FermentationVesselBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, pos, state);
         this.fermented = false;
         this.indicatedFermentation = false;
+        waterState = ((FermentationVesselBlock)state.getBlock()).getWaterState();
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
@@ -108,10 +113,8 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
 
     public void removeItem() {
         assert world != null;
-        if (!world.isClient()) {
-            this.setStack(0, Items.AIR.getDefaultStack());
-            markDirty();
-        }
+        this.setStack(0, Items.AIR.getDefaultStack());
+        markDirty();
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
@@ -132,6 +135,16 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
             indicatedFermentation = false;
             markDirty(world, pos, state);
         }
+    }
+
+    @Override
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
+        return false;
+    }
+
+    @Override
+    public boolean canExtract(int slot, ItemStack stack, Direction side) {
+        return false;
     }
 
     public ActionResult tryExtractItem(World world, BlockPos pos, BlockState state, PlayerEntity player, Hand hand) {

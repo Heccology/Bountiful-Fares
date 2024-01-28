@@ -111,6 +111,10 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
         return super.onUse(state, world, pos, player, hand, hit);
     }
 
+    public BooleanProperty getWaterState() {
+        return WATER;
+    }
+
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());

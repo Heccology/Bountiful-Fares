@@ -7,6 +7,7 @@ import net.hecco.bountifulcuisine.networking.ModMessages;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -27,7 +28,6 @@ public class CeramicDishBlockEntity extends BlockEntity implements ImplementedIn
     public static final int DEFAULT_COLOR = 16777215;
     public int color = DEFAULT_COLOR;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
-    private static final int[] SLOTS = new int[]{0};
     public CeramicDishBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, pos, state);
     }
@@ -103,14 +103,8 @@ public class CeramicDishBlockEntity extends BlockEntity implements ImplementedIn
     }
 
     @Override
-    public int[] getAvailableSlots(Direction side) {
-        if (side == Direction.DOWN) {
-            return SLOTS;
-        }
-        if (side == Direction.UP) {
-            return SLOTS;
-        }
-        return SLOTS;
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
+        return this.inventory.get(0).isEmpty();
     }
 
     public void setInventory(DefaultedList<ItemStack> list) {

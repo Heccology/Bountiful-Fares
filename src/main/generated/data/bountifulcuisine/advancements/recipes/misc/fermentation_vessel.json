@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulcuisine:old_fermentation_vessel"
+        "recipe": "bountifulcuisine:fermentation_vessel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulcuisine:old_fermentation_vessel"
+      "bountifulcuisine:fermentation_vessel"
     ]
   },
   "sends_telemetry_event": false

@@ -19,7 +19,7 @@
   "advancement.bountifulcuisine.obtain_fermentation_vessel.description": "Haz una vasija de fermentación.",
   "advancement.bountifulcuisine.obtain_spongekin": "Who Lives in a Loofah Under the Sea",
   "advancement.bountifulcuisine.obtain_spongekin.description": "Crece y junta un melón mullido.",
-  "advancement.bountifulcuisine.obtain_spongekin_seeds": "LOOOORE",
+  "advancement.bountifulcuisine.obtain_spongekin_seeds": "A Spongy Place",
   "advancement.bountifulcuisine.obtain_spongekin_seeds.description": "Discover the source of all these Sponges...",
   "advancement.bountifulcuisine.obtain_sun_hat": "Tiempo de cultivo",
   "advancement.bountifulcuisine.obtain_sun_hat.description": "Obtén el sombrero de sol.",
@@ -87,7 +87,6 @@
   "block.bountifulcuisine.flowering_orange_leaves": "Hojas de naranjo florecida",
   "block.bountifulcuisine.flowering_plum_leaves": "Hojas de ciruelo florecida",
   "block.bountifulcuisine.fuchsia_jack_o_straw": "Espantapájaros fucsia",
-  "block.bountifulcuisine.full_old_fermentation_vessel": "Vasija de fermentación",
   "block.bountifulcuisine.glow_berry_tart": "Tartaleta de baya luminosa",
   "block.bountifulcuisine.glow_berry_trellis": "Espaldera de baya luminosa",
   "block.bountifulcuisine.golden_apple_block": "Bloque de manzana dorada",
@@ -145,7 +144,6 @@
   "block.bountifulcuisine.mold_jack_o_straw": "Espantapájaros moho",
   "block.bountifulcuisine.navy_jack_o_straw": "Espantapájaros Navy",
   "block.bountifulcuisine.oak_pickets": "Estacas de roble",
-  "block.bountifulcuisine.old_fermentation_vessel": "Vasija de fermentación",
   "block.bountifulcuisine.orange_block": "Bloque de naranja",
   "block.bountifulcuisine.orange_jack_o_straw": "Espantapájaros naranja",
   "block.bountifulcuisine.orange_leaves": "Hojas de naranjo",
@@ -335,5 +333,5 @@
   "itemgroup.bountiful_cuisine": "Bountiful Cuisine",
   "tooltip.bountifulcuisine.dyeable": "§7§oSe puede teñir",
   "tooltip.bountifulcuisine.els_and_ls_dye_mod_warning": "§7§oEl's and L's Dye Mod no está instalado!",
-  "warning.bountifulcuisine.fermentation_vessel.use_bottle": "¡Necesitas usar un frasco a obtener este!"
+  "warning.bountifulcuisine.fermentation_vessel.glass_bottle": "¡Necesitas usar un frasco a obtener este!"
 }

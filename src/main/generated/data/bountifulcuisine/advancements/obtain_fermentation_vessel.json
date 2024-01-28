@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "bountifulcuisine:old_fermentation_vessel"
+              "bountifulcuisine:fermentation_vessel"
             ]
           }
         ]
@@ -23,7 +23,7 @@
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "bountifulcuisine:old_fermentation_vessel"
+      "item": "bountifulcuisine:fermentation_vessel"
     },
     "show_toast": true,
     "title": {

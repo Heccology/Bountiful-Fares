@@ -4,10 +4,7 @@ import dev.architectury.platform.Mod;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.hecco.bountifulcuisine.block.custom.FallenWalnutsBlock;
-import net.hecco.bountifulcuisine.block.custom.JackOStrawBlock;
-import net.hecco.bountifulcuisine.block.custom.PicketsBlock;
-import net.hecco.bountifulcuisine.block.custom.WalnutMulchBlock;
+import net.hecco.bountifulcuisine.block.custom.*;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
@@ -268,6 +265,14 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WALNUT_MULCH)
                                 .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 8)))
                         .with(this.applyExplosionDecay(ModBlocks.WALNUT_MULCH, ItemEntry.builder(ModBlocks.WALNUT_MULCH)))));
+
+
+        fruitBlockDrops(ModBlocks.APPLE_BLOCK, Items.APPLE);
+        fruitBlockDrops(ModBlocks.GOLDEN_APPLE_BLOCK, Items.GOLDEN_APPLE);
+        fruitBlockDrops(ModBlocks.ORANGE_BLOCK, ModItems.ORANGE);
+        fruitBlockDrops(ModBlocks.LEMON_BLOCK, ModItems.LEMON);
+        fruitBlockDrops(ModBlocks.PLUM_BLOCK, ModItems.PLUM);
+        fruitBlockDrops(ModBlocks.HOARY_APPLE_BLOCK, ModItems.HOARY_APPLE);
     }
 
 
@@ -278,6 +283,29 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .with(this.applyExplosionDecay(block, ItemEntry.builder(plant))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .with(this.applyExplosionDecay(block, ItemEntry.builder(ModBlocks.TRELLIS))));
+    }
+
+    public void fruitBlockDrops(Block block, Item fruitItem) {
+        addDrop(block, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(block)
+                                .properties(StatePredicate.Builder.create().exactMatch(FruitBlock.SLICES, 0)))
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(block))))
+
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(4.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(block)
+                                .properties(StatePredicate.Builder.create().exactMatch(FruitBlock.SLICES, 1)))
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(fruitItem))))
+
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(2.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(block)
+                                .properties(StatePredicate.Builder.create().exactMatch(FruitBlock.SLICES, 2)))
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(fruitItem))))
+
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(block)
+                                .properties(StatePredicate.Builder.create().exactMatch(FruitBlock.SLICES, 3)))
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(fruitItem)))));
     }
 
     public void picketsDrops(Block block) {

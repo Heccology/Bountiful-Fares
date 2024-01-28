@@ -227,8 +227,6 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModItems.CERAMIC_TILE);
         generate(translationBuilder, ModBlocks.CERAMIC_CLAY_BLOCK);
         generate(translationBuilder, ModBlocks.FERMENTATION_VESSEL);
-        generate(translationBuilder, ModBlocks.OLD_FERMENTATION_VESSEL);
-        generate(translationBuilder, ModBlocks.FULL_OLD_FERMENTATION_VESSEL, "Fermentation Vessel");
         generate(translationBuilder, ModItems.ARTISAN_BRUSH);
         generate(translationBuilder, ModBlocks.CERAMIC_TILES);
         generate(translationBuilder, ModBlocks.CERAMIC_TILE_STAIRS);

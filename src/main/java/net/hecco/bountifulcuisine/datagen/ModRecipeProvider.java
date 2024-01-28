@@ -112,7 +112,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.CERAMIC_CLAY), conditionsFromItem(ModItems.CERAMIC_CLAY))
                 .offerTo(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.OLD_FERMENTATION_VESSEL)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.FERMENTATION_VESSEL)
                 .pattern(" # ")
                 .pattern("# #")
                 .pattern("###")
