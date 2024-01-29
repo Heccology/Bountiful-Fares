@@ -220,6 +220,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.LILAC)
                 .add(Items.PEONY)
                 .add(Items.SUNFLOWER)
+                .add(Items.VINE)
         ;
         getOrCreateTagBuilder(ModItemTags.COOKED_FISHES)
                 .add(Items.COOKED_COD)

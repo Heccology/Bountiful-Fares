@@ -157,6 +157,7 @@ public class ModEsEsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.LILAC_TRELLIS, "Espaldera de lila");
         generate(translationBuilder, ModBlocks.PEONY_TRELLIS, "Espaldera de peonía");
         generate(translationBuilder, ModBlocks.SUNFLOWER_TRELLIS, "Espaldera de girasol");
+        generate(translationBuilder, ModBlocks.VINE_TRELLIS, "Espaldera de enredaderas");
 
         generate(translationBuilder, ModItems.PASSION_FRUIT, "Maracuyá");
         generate(translationBuilder, ModItems.ELDERBERRIES, "Bayas de saúco");

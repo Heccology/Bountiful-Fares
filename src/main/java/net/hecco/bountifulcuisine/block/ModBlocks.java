@@ -118,10 +118,11 @@ public class ModBlocks {
     public static final Block ELDERBERRY_TRELLIS = registerBlockNoItem("elderberry_trellis", new CropTrellisBlock(ModItems.ELDERBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
     public static final Block GLOW_BERRY_TRELLIS = registerBlockNoItem("glow_berry_trellis", new CropTrellisBlock(Items.GLOW_BERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
     public static final Block LAPISBERRY_TRELLIS = registerBlockNoItem("lapisberry_trellis", new CropTrellisBlock(ModItems.LAPISBERRY_SEEDS, ModItems.LAPISBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly()));
-    public static final Block ROSE_TRELLIS = registerBlockNoItem("rose_trellis", new DecorativeTrellisBlock(Items.ROSE_BUSH, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
-    public static final Block LILAC_TRELLIS = registerBlockNoItem("lilac_trellis", new DecorativeTrellisBlock(Items.LILAC, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
-    public static final Block PEONY_TRELLIS = registerBlockNoItem("peony_trellis", new DecorativeTrellisBlock(Items.PEONY, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
-    public static final Block SUNFLOWER_TRELLIS = registerBlockNoItem("sunflower_trellis", new DecorativeTrellisBlock(Items.SUNFLOWER, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
+    public static final Block ROSE_TRELLIS = registerBlockNoItem("rose_trellis", new DecorativeTrellisBlock(Items.ROSE_BUSH, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
+    public static final Block LILAC_TRELLIS = registerBlockNoItem("lilac_trellis", new DecorativeTrellisBlock(Items.LILAC, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
+    public static final Block PEONY_TRELLIS = registerBlockNoItem("peony_trellis", new DecorativeTrellisBlock(Items.PEONY, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
+    public static final Block SUNFLOWER_TRELLIS = registerBlockNoItem("sunflower_trellis", new DecorativeTrellisBlock(Items.SUNFLOWER, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
+    public static final Block VINE_TRELLIS = registerBlockNoItem("vine_trellis", new DecorativeTrellisBlock(Items.VINE, false, FabricBlockSettings.copyOf(ModBlocks.TRELLIS)));
     public static final Block WILD_WHEAT = registerBlock("wild_wheat", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILD_CARROTS = registerBlock("wild_carrots", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILD_POTATOES = registerBlock("wild_potatoes", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));

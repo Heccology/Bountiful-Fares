@@ -174,7 +174,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.FLOUR), conditionsFromItem(ModItems.FLOUR))
                 .offerTo(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ARTISAN_COOKIE)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ARTISAN_COOKIE, 4)
                 .input(ModItems.FLOUR)
                 .input(ModItems.ELDERBERRIES)
                 .input(Items.SUGAR)
@@ -201,7 +201,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.MAIZE), conditionsFromItem(ModItems.MAIZE))
                 .offerTo(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.WALNUT_COOKIE)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.WALNUT_COOKIE, 8)
                 .pattern("#W#")
                 .input('#', ModItems.FLOUR)
                 .input('W', ModItems.WALNUT)

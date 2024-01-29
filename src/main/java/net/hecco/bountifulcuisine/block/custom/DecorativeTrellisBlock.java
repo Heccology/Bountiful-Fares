@@ -27,15 +27,14 @@ import net.minecraft.world.WorldView;
 import java.util.Map;
 
 public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable {
-
-    public static Item item;
+    private final boolean canDuplicate;
     private static final Map<Item, DecorativeTrellisBlock> PLANTS_TO_DECORATIVE_TRELLISES = Maps.newHashMap();
     private static final Map<DecorativeTrellisBlock, Item> DECORATIVE_TRELLISES_TO_PLANTS = Maps.newHashMap();
-    public DecorativeTrellisBlock(Item item, Settings settings) {
+    public DecorativeTrellisBlock(Item item, boolean canDuplicate, Settings settings) {
         super(settings);
-        DecorativeTrellisBlock.item = item;
         PLANTS_TO_DECORATIVE_TRELLISES.put(item, this);
         DECORATIVE_TRELLISES_TO_PLANTS.put(this, item);
+        this.canDuplicate = canDuplicate;
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH));
     }
 
@@ -63,17 +62,19 @@ public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable
 
     @Override
     public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
-        return true;
+        return canDuplicate;
     }
 
     @Override
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
-        return true;
+        return canDuplicate;
     }
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        dropStack(world, pos, new ItemStack(item));
+        if (canDuplicate) {
+            dropStack(world, pos, new ItemStack(DECORATIVE_TRELLISES_TO_PLANTS.get(this)));
+        }
     }
 
     public static BlockState getDecorativeTrellisFromPlant(Item item) {

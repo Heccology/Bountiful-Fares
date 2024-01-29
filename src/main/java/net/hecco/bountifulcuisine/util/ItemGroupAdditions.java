@@ -202,11 +202,15 @@ public class ItemGroupAdditions {
             entries.addAfter(ModItems.BELLFLOWER_TEA_BOTTLE, ModItems.TORCHFLOWER_TEA_BOTTLE);
             entries.addAfter(Items.HONEY_BOTTLE, ModItems.MEAD_BOTTLE);
             entries.addAfter(Items.BAKED_POTATO, ModItems.MUSHROOM_STUFFED_POTATO);
+            entries.addAfter(ModItems.MUSHROOM_STUFFED_POTATO, ModItems.BERRY_STUFFED_POTATO);
+            entries.addAfter(ModItems.BERRY_STUFFED_POTATO, ModItems.MAIZE_STUFFED_POTATO);
             entries.addAfter(Items.BEETROOT, ModItems.MAIZE);
             entries.addAfter(ModItems.MAIZE, ModItems.LEEK);
             entries.addAfter(ModItems.LEEK, ModItems.WALNUT);
-            entries.addAfter(Items.BREAD, ModBlocks.ARTISAN_BREAD);
-            entries.addAfter(Items.COOKIE, ModItems.ARTISAN_COOKIE);
+            entries.addAfter(Items.BREAD, ModItems.MAIZE_BREAD);
+            entries.addAfter(ModItems.MAIZE_BREAD, ModBlocks.ARTISAN_BREAD);
+            entries.addAfter(Items.COOKIE, ModItems.WALNUT_COOKIE);
+            entries.addAfter(ModItems.WALNUT_COOKIE, ModItems.ARTISAN_COOKIE);
             entries.addAfter(ModItems.ARTISAN_COOKIE, ModBlocks.PASSION_FRUIT_TART);
             entries.addAfter(ModBlocks.PASSION_FRUIT_TART, ModBlocks.ELDERBERRY_TART);
             entries.addAfter(ModBlocks.ELDERBERRY_TART, ModBlocks.GLOW_BERRY_TART);
@@ -223,12 +227,24 @@ public class ItemGroupAdditions {
             entries.addAfter(ModItems.CANDY, ModItems.PIQUANT_CANDY);
             entries.addAfter(ModItems.PIQUANT_CANDY, ModItems.SOUR_CANDY);
             entries.addAfter(ModItems.SOUR_CANDY, ModItems.BITTER_CANDY);
+            entries.addAfter(ModItems.BITTER_CANDY, ModItems.CANDIED_APPLE);
+            entries.addAfter(ModItems.CANDIED_APPLE, ModItems.CANDIED_PLUM);
+            entries.addAfter(ModItems.CANDIED_PLUM, ModItems.CANDIED_ORANGE);
+            entries.addAfter(ModItems.CANDIED_ORANGE, ModItems.CANDIED_LEMON);
             entries.addAfter(Items.RABBIT_STEW, ModItems.PASSION_GLAZED_SALMON);
-            entries.addAfter(ModItems.PASSION_GLAZED_SALMON, ModItems.LEEK_STEW);
-            entries.addAfter(ModItems.BOUNTIFUL_STEW, ModItems.BOUNTIFUL_STEW);
-            entries.addAfter(ModItems.BOUNTIFUL_STEW, ModItems.CRUSTED_BEEF);
-            entries.addAfter(ModItems.CRUSTED_BEEF, ModItems.CRIMSON_CHOW);
+            entries.addAfter(ModItems.PASSION_GLAZED_SALMON, ModItems.CRUSTED_BEEF);
+            entries.addAfter(ModItems.CRUSTED_BEEF, ModItems.LEEK_STEW);
+            entries.addAfter(ModItems.LEEK_STEW, ModItems.FISH_STEW);
+            entries.addAfter(ModItems.FISH_STEW, ModItems.STONE_STEW);
+            entries.addAfter(ModItems.STONE_STEW, ModItems.BOUNTIFUL_STEW);
+            entries.addAfter(ModItems.BOUNTIFUL_STEW, ModItems.CRIMSON_CHOW);
             entries.addAfter(ModItems.CRIMSON_CHOW, ModItems.WARPED_CHOW);
+            entries.addAfter(ModItems.WARPED_CHOW, ModItems.CUSTARD);
+            entries.addAfter(ModItems.CUSTARD, ModItems.PIQUANT_CUSTARD);
+            entries.addAfter(ModItems.PIQUANT_CUSTARD, ModItems.PASSION_CUSTARD);
+            entries.addAfter(ModItems.PASSION_CUSTARD, ModItems.COCOA_CUSTARD);
+            entries.addAfter(ModItems.COCOA_CUSTARD, ModItems.GLOWING_CUSTARD);
+            entries.addAfter(ModItems.GLOWING_CUSTARD, ModItems.ANCIENT_CUSTARD);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
