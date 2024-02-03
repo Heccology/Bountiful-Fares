@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate_lapis_ore"
+    }
+  ],
+  "output": {
+    "count": 8,
+    "item": "minecraft:lapis_lazuli"
+  }
+}

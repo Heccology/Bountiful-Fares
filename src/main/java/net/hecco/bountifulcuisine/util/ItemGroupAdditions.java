@@ -148,6 +148,7 @@ public class ItemGroupAdditions {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(rEntries -> {
+            rEntries.addAfter(Items.LEVER, ModBlocks.CERAMIC_LEVER);
             rEntries.addAfter(Items.STONE_BUTTON, ModBlocks.CERAMIC_BUTTON);
             rEntries.addAfter(Items.HEAVY_WEIGHTED_PRESSURE_PLATE, ModBlocks.CERAMIC_PRESSURE_PLATE);
             rEntries.addAfter(Items.WHITE_WOOL, ModBlocks.CERAMIC_TILES);

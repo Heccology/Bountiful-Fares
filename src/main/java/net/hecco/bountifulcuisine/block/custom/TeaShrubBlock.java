@@ -57,9 +57,9 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (state.get(AGE) == 1) {
+        if (state.get(AGE) == 1 && random.nextFloat() < 0.5f) {
             world.setBlockState(pos, state.with(AGE, 4), Block.NOTIFY_LISTENERS);
-        } else if (!isFullyGrown(state)) {
+        } else if (!isFullyGrown(state) && random.nextFloat() < 0.5f) {
             world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
         }
     }

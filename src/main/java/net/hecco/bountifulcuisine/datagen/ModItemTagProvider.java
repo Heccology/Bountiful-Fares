@@ -119,6 +119,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB.asItem())
                 .add(ModBlocks.CERAMIC_PRESSURE_PLATE.asItem())
                 .add(ModBlocks.CERAMIC_BUTTON.asItem())
+                .add(ModBlocks.CERAMIC_LEVER.asItem())
                 .add(ModBlocks.CERAMIC_DISH.asItem())
         ;
         getOrCreateTagBuilder(ModItemTags.FELSIC_STONES)

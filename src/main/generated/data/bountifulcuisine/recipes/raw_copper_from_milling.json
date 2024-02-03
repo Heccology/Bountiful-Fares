@@ -1,0 +1,12 @@
+{
+  "type": "bountifulcuisine:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:copper_ore"
+    }
+  ],
+  "output": {
+    "count": 5,
+    "item": "minecraft:raw_copper"
+  }
+}

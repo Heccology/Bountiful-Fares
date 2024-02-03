@@ -33,7 +33,7 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 6 + Random.create().nextBetween(0, 200);
+    private int maxProgress = 6000 + Random.create().nextBetween(0, 200);
     public boolean fermented;
     public boolean indicatedFermentation;
     public FermentationVesselBlockEntity(BlockPos pos, BlockState state) {

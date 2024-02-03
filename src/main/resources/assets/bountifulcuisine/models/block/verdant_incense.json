@@ -1,7 +1,0 @@
-{
-	"parent": "bountifulcuisine:block/template_incense",
-	"textures": {
-		"bottom": "bountifulcuisine:block/incense",
-		"stick": "bountifulcuisine:block/verdant_incense_stick"
-	}
-}

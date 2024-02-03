@@ -21,7 +21,6 @@ public class BountifulCuisineDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModAdvancementProvider::new);
         pack.addProvider(ModModelProvider::new);
         pack.addProvider(ModEnUsProvider::new);
-        pack.addProvider(ModEsEsProvider::new);
     }
 
     @Override

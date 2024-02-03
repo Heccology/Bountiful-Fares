@@ -1,14 +1,13 @@
 package net.hecco.bountifulcuisine.datagen;
 
-import dev.architectury.platform.Mod;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.custom.*;
 import net.hecco.bountifulcuisine.item.ModItems;
-import net.minecraft.block.*;
+import net.minecraft.block.BeetrootsBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.block.enums.SlabType;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -31,8 +30,8 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
 
     public static final LootCondition.Builder WITH_FORTUNE = MatchToolLootCondition.builder(net.minecraft.predicate.item.ItemPredicate.Builder.create().enchantment(new EnchantmentPredicate(Enchantments.FORTUNE, NumberRange.IntRange.atLeast(1))));
     public static final float[] PRISMARINE_DROP_CHANCE = new float[]{0.0F, 0.12F, 0.15F, 0.2F};
-    public static final float[] FRUIT_SAPLING_DROP_CHANCE = new float[]{0.1F, 0.12F, 0.15F, 0.2F};
-    public static final float[] FLOWERING_FRUIT_SAPLING_DROP_CHANCE = new float[]{0.2F, 0.24F, 0.3F, 0.4F};
+    public static final float[] FRUIT_SAPLING_DROP_CHANCE = new float[]{0.01F, 0.05F, 0.08F, 0.1F};
+    public static final float[] FLOWERING_FRUIT_SAPLING_DROP_CHANCE = new float[]{0.1F, 0.12F, 0.15F, 0.2F};
     public ModBlockLootTableProvider(FabricDataOutput dataOutput) {
         super(dataOutput);
     }
@@ -142,11 +141,24 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.LILAC_TRELLIS, plantedTrellisDrops(ModBlocks.LILAC_TRELLIS, Items.LILAC));
         addDrop(ModBlocks.PEONY_TRELLIS, plantedTrellisDrops(ModBlocks.PEONY_TRELLIS, Items.PEONY));
         addDrop(ModBlocks.SUNFLOWER_TRELLIS, plantedTrellisDrops(ModBlocks.SUNFLOWER_TRELLIS, Items.SUNFLOWER));
-        addDrop(ModBlocks.WILD_WHEAT, Items.WHEAT_SEEDS);
-        addDrop(ModBlocks.WILD_CARROTS, Items.CARROT);
-        addDrop(ModBlocks.WILD_POTATOES, Items.POTATO);
-        addDrop(ModBlocks.WILD_BEETROOTS, Items.BEETROOT_SEEDS);
-        addDrop(ModBlocks.WILD_LEEKS, ModItems.LEEK_SEEDS);
+        addDrop(ModBlocks.WILD_WHEAT, WildCropDrops(Items.WHEAT_SEEDS, ModBlocks.WILD_WHEAT));
+        addDrop(ModBlocks.WILD_CARROTS, WildCropDrops(Items.CARROT, ModBlocks.WILD_CARROTS));
+        addDrop(ModBlocks.WILD_POTATOES, WildCropDrops(Items.POTATO, ModBlocks.WILD_POTATOES));
+        addDrop(ModBlocks.WILD_BEETROOTS, WildCropDrops(Items.BEETROOT_SEEDS, ModBlocks.WILD_BEETROOTS));
+        addDrop(ModBlocks.WILD_LEEKS, WildCropDrops(ModItems.LEEK_SEEDS, ModBlocks.WILD_LEEKS));
+        addDrop(ModBlocks.WILD_PASSION_FRUIT_VINE, WildCropDrops(ModItems.PASSION_FRUIT, ModBlocks.WILD_PASSION_FRUIT_VINE));
+        addDrop(ModBlocks.WILD_ELDERBERRY_VINE, WildCropDrops(ModItems.ELDERBERRIES, ModBlocks.WILD_ELDERBERRY_VINE));
+        addDrop(ModBlocks.WILD_MAIZE, LootTable.builder()
+                        .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                                .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WILD_MAIZE)
+                                        .properties(StatePredicate.Builder.create().exactMatch(WildMaizeBlock.HALF, DoubleBlockHalf.LOWER)))
+                                .conditionally(WITHOUT_SILK_TOUCH)
+                                .with(this.applyExplosionDecay(ModBlocks.WILD_MAIZE, ItemEntry.builder(ModItems.MAIZE_SEEDS))))
+                        .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                                .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WILD_MAIZE)
+                                        .properties(StatePredicate.Builder.create().exactMatch(WildMaizeBlock.HALF, DoubleBlockHalf.UPPER)))
+                                .conditionally(WITH_SILK_TOUCH)
+                                .with(this.applyExplosionDecay(ModBlocks.WILD_MAIZE, ItemEntry.builder(ModBlocks.WILD_MAIZE)))));
         addDrop(ModBlocks.MAIZE_CROP, ModItems.MAIZE);
         addDrop(ModBlocks.FELDSPAR_BLOCK);
         addDrop(ModBlocks.CUT_FELDSPAR_BLOCK);
@@ -158,7 +170,6 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.CERAMIC_CLAY_BLOCK);
         addDrop(ModBlocks.CERAMIC_PRESSURE_PLATE);
         addDrop(ModBlocks.CERAMIC_BUTTON);
-        addDrop(ModBlocks.CERAMIC_DISH);
         addDrop(ModBlocks.GRISTMILL);
         addDrop(ModBlocks.HONEYSUCKLE);
         addDrop(ModBlocks.VIOLET_BELLFLOWER);
@@ -178,7 +189,6 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .conditionally(WITH_SILK_TOUCH)
                         .with(ItemEntry.builder(ModBlocks.PRISMARINE_BLOSSOM))));
-        addDrop(ModBlocks.WHITE_JACK_O_STRAW, doorDrops(ModBlocks.WHITE_JACK_O_STRAW));
         addDrop(ModBlocks.FALLEN_WALNUTS, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(2.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.FALLEN_WALNUTS)
@@ -275,7 +285,15 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         fruitBlockDrops(ModBlocks.HOARY_APPLE_BLOCK, ModItems.HOARY_APPLE);
     }
 
-
+    public LootTable.Builder WildCropDrops(Item seed, Block block) {
+        return LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(WITHOUT_SILK_TOUCH)
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(seed))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(WITH_SILK_TOUCH)
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(block))));
+    }
 
     public LootTable.Builder plantedTrellisDrops(Block block, Item plant) {
         return LootTable.builder()

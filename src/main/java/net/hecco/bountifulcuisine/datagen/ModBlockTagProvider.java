@@ -334,6 +334,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addTag(ModBlockTags.CERAMIC_TILES)
                 .add(ModBlocks.CERAMIC_PRESSURE_PLATE)
                 .add(ModBlocks.CERAMIC_BUTTON)
+                .add(ModBlocks.CERAMIC_LEVER)
                 .add(ModBlocks.CERAMIC_DISH)
         ;
         getOrCreateTagBuilder(ModBlockTags.TRELLISES)

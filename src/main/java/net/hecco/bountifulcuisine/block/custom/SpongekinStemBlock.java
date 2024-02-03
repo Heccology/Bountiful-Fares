@@ -56,7 +56,7 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!isFullyGrown(state) && !state.get(ATTACHED)) {
+        if (!isFullyGrown(state) && !state.get(ATTACHED) && random.nextFloat() < 0.1f) {
             world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
         } else if (isFullyGrown(state) || !state.get(ATTACHED)) {
             BlockPos spongekinPos = pos.offset(Direction.UP);

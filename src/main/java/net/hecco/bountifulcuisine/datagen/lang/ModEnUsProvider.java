@@ -237,6 +237,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
         generate(translationBuilder, ModBlocks.CERAMIC_PRESSURE_PLATE);
         generate(translationBuilder, ModBlocks.CERAMIC_BUTTON);
+        generate(translationBuilder, ModBlocks.CERAMIC_LEVER);
         generate(translationBuilder, ModBlocks.CERAMIC_DISH);
 
         generate(translationBuilder, ModItems.ELDERBERRY_WINE_BOTTLE);
