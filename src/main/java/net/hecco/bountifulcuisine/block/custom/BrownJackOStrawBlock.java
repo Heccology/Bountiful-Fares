@@ -1,5 +1,7 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import net.hecco.bountifulcuisine.sounds.ModSounds;
+import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
@@ -9,6 +11,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -26,6 +29,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
@@ -58,6 +62,8 @@ public class BrownJackOStrawBlock extends Block implements Waterloggable {
         return NORTH_SOUTH_UPPER;
     }
 
+
+
     public BrownJackOStrawBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, false));
@@ -68,11 +74,10 @@ public class BrownJackOStrawBlock extends Block implements Waterloggable {
         BlockPos blockPos = pos.down();
         BlockState blockState = world.getBlockState(blockPos);
         if (state.get(HALF) == DoubleBlockHalf.LOWER) {
-            return blockState.isSideSolidFullSquare(world, blockPos, Direction.UP) || world.getBlockState(pos.down()).isOf(Blocks.FARMLAND);
+            return (blockState.isSideSolidFullSquare(world, blockPos, Direction.UP) || world.getBlockState(pos.down()).isOf(Blocks.FARMLAND)) && world.getBlockState(pos.up()).isOf(Blocks.AIR) || world.getBlockState(pos.up()).isOf(Blocks.WATER);
         }
         return blockState.isOf(this);
     }
-
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         if (world.getBlockState(pos.up(1)).isOf(Blocks.AIR) && state.get(HALF) == DoubleBlockHalf.LOWER) {
@@ -81,17 +86,55 @@ public class BrownJackOStrawBlock extends Block implements Waterloggable {
         }
         if (world.getBlockState(pos.up(1)).isOf(Blocks.WATER) && state.get(HALF) == DoubleBlockHalf.LOWER) {
             world.setBlockState(pos.up(1), this.getDefaultState().with(FACING, state.get(FACING)).with(HALF, DoubleBlockHalf.UPPER).with(WATERLOGGED, true), 2);
+
         }
+    }
+
+    private static void onBreakInCreative(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        DoubleBlockHalf doubleBlockHalf = state.get(HALF);
+        if (doubleBlockHalf == DoubleBlockHalf.UPPER) {
+            BlockPos blockPos = pos.down();
+            BlockState blockState = world.getBlockState(blockPos);
+            if (blockState.isOf(state.getBlock()) && blockState.get(HALF) == DoubleBlockHalf.LOWER) {
+                BlockState blockState2 = blockState.getFluidState().isOf(Fluids.WATER) ? Blocks.WATER.getDefaultState() : Blocks.AIR.getDefaultState();
+                world.setBlockState(blockPos, blockState2, 35);
+                world.syncWorldEvent(player, 2001, blockPos, Block.getRawIdFromState(blockState));
+            }
+        }
+
+    }
+
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        DoubleBlockHalf doubleBlockHalf = state.get(HALF);
+        if (direction.getAxis() == Direction.Axis.Y && doubleBlockHalf == DoubleBlockHalf.LOWER == (direction == Direction.UP) && (!neighborState.isOf(this) || neighborState.get(HALF) == doubleBlockHalf)) {
+            return Blocks.AIR.getDefaultState();
+        } else {
+            if (direction.getAxis() == Direction.Axis.Y && doubleBlockHalf == DoubleBlockHalf.LOWER == (direction == Direction.UP) && (!neighborState.isOf(this) || neighborState.get(HALF) == doubleBlockHalf)) {
+                return this.getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
+            }
+        }
+        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
     @Override
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (world.getBlockState(pos.up(1)).isOf(this) && state.get(HALF) == DoubleBlockHalf.LOWER) {
+        if (!world.isClient && player.isCreative()) {
+            onBreakInCreative(world, pos, state, player);
+        } else if (world.getBlockState(pos.up()).isOf(this) && state.get(HALF) == DoubleBlockHalf.LOWER) {
             world.breakBlock(pos, true);
-            world.breakBlock(pos.up(1), false);
-        } else if (world.getBlockState(pos.down(1)).isOf(this) && state.get(HALF) == DoubleBlockHalf.UPPER) {
+            world.breakBlock(pos.up(), false);
+        } else if (world.getBlockState(pos.down()).isOf(this) && state.get(HALF) == DoubleBlockHalf.UPPER) {
             world.breakBlock(pos, true);
-            world.breakBlock(pos.down(1), false);
+            world.breakBlock(pos.down(), false);
+        }
+    }
+
+    @Override
+    public BlockSoundGroup getSoundGroup(BlockState state) {
+        if (state.get(HALF) == DoubleBlockHalf.LOWER) {
+            return ModSounds.JACK_O_STRAW;
+        } else {
+            return ModSounds.SILENT;
         }
     }
 
@@ -104,6 +147,7 @@ public class BrownJackOStrawBlock extends Block implements Waterloggable {
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING, HALF, WATERLOGGED);
     }
+
     @Override
     public FluidState getFluidState(BlockState state) {
         if (state.get(WATERLOGGED)) {

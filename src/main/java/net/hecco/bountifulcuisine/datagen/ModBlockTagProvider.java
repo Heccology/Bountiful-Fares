@@ -347,11 +347,28 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.LILAC_TRELLIS)
                 .add(ModBlocks.PEONY_TRELLIS)
                 .add(ModBlocks.SUNFLOWER_TRELLIS)
+                .add(ModBlocks.VINE_TRELLIS)
         ;
         getOrCreateTagBuilder(ModBlockTags.FELSIC_STONES)
                 .add(Blocks.ANDESITE)
                 .add(Blocks.GRANITE)
                 .add(Blocks.DIORITE)
+                .add(Blocks.TUFF)
+        ;
+        getOrCreateTagBuilder(ModBlockTags.PICKETS)
+                .add(ModBlocks.OAK_PICKETS)
+                .add(ModBlocks.SPRUCE_PICKETS)
+                .add(ModBlocks.BIRCH_PICKETS)
+                .add(ModBlocks.JUNGLE_PICKETS)
+                .add(ModBlocks.ACACIA_PICKETS)
+                .add(ModBlocks.DARK_OAK_PICKETS)
+                .add(ModBlocks.MANGROVE_PICKETS)
+                .add(ModBlocks.CHERRY_PICKETS)
+                .add(ModBlocks.BAMBOO_PICKETS)
+                .add(ModBlocks.WALNUT_PICKETS)
+                .add(ModBlocks.HOARY_PICKETS)
+                .add(ModBlocks.CRIMSON_PICKETS)
+                .add(ModBlocks.WARPED_PICKETS)
         ;
     }
 }

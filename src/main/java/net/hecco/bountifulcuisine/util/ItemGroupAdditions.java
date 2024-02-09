@@ -115,8 +115,7 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.WILD_LEEKS, ModBlocks.WILD_MAIZE);
             entries.addAfter(ModBlocks.WILD_MAIZE, ModBlocks.WILD_PASSION_FRUIT_VINE);
             entries.addAfter(ModBlocks.WILD_PASSION_FRUIT_VINE, ModBlocks.WILD_ELDERBERRY_VINE);
-            entries.addAfter(Items.KELP, ModBlocks.SPONGEKIN_SPROUT);
-            entries.addAfter(ModBlocks.SPONGEKIN_SPROUT, ModBlocks.SPONGEKIN);
+            entries.addAfter(Items.KELP, ModBlocks.SPONGEKIN);
             entries.addAfter(ModBlocks.SPONGEKIN, ModBlocks.PRISMARINE_BLOSSOM);
             entries.addAfter(Items.LILY_OF_THE_VALLEY, ModBlocks.CHAMOMILE_FLOWERS);
             entries.addAfter(ModBlocks.CHAMOMILE_FLOWERS, ModBlocks.HONEYSUCKLE);

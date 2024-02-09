@@ -162,7 +162,6 @@ public class ModItemGroups {
                         entries.add(ModItems.PLUM_CIDER_JAR);
                         entries.add(ModItems.HOARY_CIDER_JAR);
                         entries.add(ModBlocks.GRISTMILL);
-                        entries.add(ModBlocks.SPONGEKIN_SPROUT);
                         entries.add(ModItems.SPONGEKIN_SEEDS);
                         entries.add(ModBlocks.SPONGEKIN);
                         entries.add(ModItems.SPONGEKIN_SLICE);

@@ -3,7 +3,13 @@
   "bountifulcuisine:hoary_leaves": "leaves",
   "#bountifulcuisine:ceramic_tiles": "marble",
   "bountifulcuisine:fermentation_vessel": "marble",
-  "bountifulcuisine:full_fermentation_vessel": "marble",
+  "bountifulcuisine:ceramic_dish": "marble",
+  "bountifulcuisine:ceramic_pressure_plate": "marble",
+  "bountifulcuisine:ceramic_button": "marble",
+  "bountifulcuisine:ceramic_lever": "NOT_EMITTER",
   "bountifulcuisine:golden_apple_block": "ore",
-  "bountifulcuisine:spongekin": "organic"
+  "bountifulcuisine:spongekin": "organic",
+  "#bountifulcuisine:pickets": "bluntwood",
+  "bountifulcuisine:gristmill": "woodutility",
+  "#bountifulcuisine:trellises": "bluntwood",
 }

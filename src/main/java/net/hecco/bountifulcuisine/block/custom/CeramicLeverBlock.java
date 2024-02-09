@@ -5,15 +5,16 @@ import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
 import net.hecco.bountifulcuisine.block.interfaces.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.item.custom.ArtisanBrushItem;
+import net.hecco.bountifulcuisine.sounds.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeverBlock;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -57,8 +58,8 @@ public class CeramicLeverBlock extends LeverBlock implements DyeableCeramicBlock
             return ActionResult.SUCCESS;
         } else {
             blockState = this.togglePower(state, world, pos);
-            float f = blockState.get(POWERED) ? 0.6F : 0.5F;
-            world.playSound(null, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 0.3F, f);
+            SoundEvent f = blockState.get(POWERED) ? ModSounds.CERAMIC_LEVER_ON : ModSounds.CERAMIC_LEVER_OFF;
+            world.playSound(null, pos, f, SoundCategory.BLOCKS, 0.8F, 1);
             world.emitGameEvent(player, blockState.get(POWERED) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
             return ActionResult.CONSUME;
         }

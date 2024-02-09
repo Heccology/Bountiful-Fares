@@ -2,6 +2,7 @@ package net.hecco.bountifulcuisine.entity;
 
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.particle.ModParticles;
+import net.hecco.bountifulcuisine.sounds.ModSounds;
 import net.minecraft.entity.EntityStatuses;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -46,7 +47,7 @@ public class FlourProjectileEntity extends ThrownItemEntity {
         if (!world.isClient()) {
             world.sendEntityStatus(this, EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES);
         }
-        this.getWorld().playSound(null, this.getBlockPos(), SoundEvents.BLOCK_SAND_PLACE, SoundCategory.BLOCKS, 1.0f, 0.75f);
+        this.getWorld().playSound(null, this.getBlockPos(), ModSounds.FLOUR_LAND, SoundCategory.BLOCKS, 1.0f, 0.9f + world.random.nextFloat()/4);
 
         if (world.isClient()) {
             return;

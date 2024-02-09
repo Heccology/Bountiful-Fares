@@ -1,6 +1,7 @@
 package net.hecco.bountifulcuisine.block.custom;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.sounds.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -35,7 +36,7 @@ public class SpongekinBlock extends Block {
             }
             world.setBlockState(pos, Blocks.WET_SPONGE.getDefaultState(), 2);
             player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
-            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), ModSounds.SPONGEKIN_SHEAR, SoundCategory.BLOCKS, 1.0F, 0.8f + world.random.nextFloat()/4);
             return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;

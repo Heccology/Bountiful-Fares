@@ -25,4 +25,5 @@ public class ModBlockTags {
     public static final TagKey<Block> DYEABLE_CERAMIC_BLOCKS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulCuisine.MOD_ID, "dyeable_ceramic_blocks"));
     public static final TagKey<Block> TRELLISES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulCuisine.MOD_ID, "trellises"));
     public static final TagKey<Block> FELSIC_STONES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulCuisine.MOD_ID, "felsic_stones"));
+    public static final TagKey<Block> PICKETS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulCuisine.MOD_ID, "pickets"));
 }

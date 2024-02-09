@@ -399,7 +399,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         // More than 50 Shades,
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_ceramic_tiles.description", "Craft Ceramic Tiles");
 
-        generate(translationBuilder, "advancement.bountifulcuisine.feed_wolf_mulch", "Mulchmaxer");
+        generate(translationBuilder, "advancement.bountifulcuisine.feed_wolf_mulch", "Mulchmaxxer");
         generate(translationBuilder, "advancement.bountifulcuisine.feed_wolf_mulch.description", "Feed a wolf Walnut Mulch - Delicious!");
 
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_fermentation_vessel", "Toil and Trouble");
@@ -432,7 +432,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulcuisine.place_all_tea_candles", "Fragrant!");
         generate(translationBuilder, "advancement.bountifulcuisine.place_all_tea_candles.description", "Place every Tea Candle");
 
-        generate(translationBuilder, "advancement.bountifulcuisine.obtain_walnut", "Roasting on an Open Fire");
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_walnut", "Nuts to You");
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_walnut.description", "Find a Walnut");
 
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin_seeds", "A Spongy Place");
@@ -440,6 +440,12 @@ public class ModEnUsProvider extends FabricLanguageProvider {
 
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin", "Who Lives in a Loofah Under the Sea");
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin.description", "Grow and collect a Spongekin");
+
+
+        generate(translationBuilder, "subtitles.block.gristmill.grind", "Gristmill Mills");
+
+        generate(translationBuilder, "subtitles.entity.flour.throw", "Flour Flies");
+        generate(translationBuilder, "subtitles.entity.flour.land", "Flour Billows");
 
 
     }

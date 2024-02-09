@@ -2,6 +2,7 @@ package net.hecco.bountifulcuisine.block.custom;
 
 import net.hecco.bountifulcuisine.block.entity.GristmillBlockEntity;
 import net.hecco.bountifulcuisine.block.entity.ModBlockEntities;
+import net.hecco.bountifulcuisine.sounds.ModSounds;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -9,6 +10,8 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -17,6 +20,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -86,6 +90,18 @@ public class GristmillBlock extends BlockWithEntity implements BlockEntityProvid
         }
 
         return ActionResult.SUCCESS;
+    }
+
+    @Override
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        if (state.get(MILLING)) {
+            double d = (double)pos.getX() + 0.5;
+            double e = pos.getY();
+            double f = (double)pos.getZ() + 0.5;
+            if (random.nextDouble() < 0.1) {
+                world.playSound(d, e, f, ModSounds.GRISTMILL_GRIND, SoundCategory.BLOCKS, 0.8F, 0.6F + random.nextFloat()/2, false);
+            }
+        }
     }
 
     @Nullable

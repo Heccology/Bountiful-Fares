@@ -1,6 +1,7 @@
 package net.hecco.bountifulcuisine.block.custom;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.sounds.ModSounds;
 import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
@@ -16,6 +17,7 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -125,12 +127,21 @@ public class JackOStrawBlock extends Block implements Waterloggable {
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!world.isClient && player.isCreative()) {
             onBreakInCreative(world, pos, state, player);
-        } else if (world.getBlockState(pos.up(1)).isOf(this) && state.get(HALF) == DoubleBlockHalf.LOWER) {
+        } else if (world.getBlockState(pos.up()).isOf(this) && state.get(HALF) == DoubleBlockHalf.LOWER) {
             world.breakBlock(pos, true);
-            world.breakBlock(pos.up(1), false);
-        } else if (world.getBlockState(pos.down(1)).isOf(this) && state.get(HALF) == DoubleBlockHalf.UPPER) {
+            world.breakBlock(pos.up(), false);
+        } else if (world.getBlockState(pos.down()).isOf(this) && state.get(HALF) == DoubleBlockHalf.UPPER) {
             world.breakBlock(pos, true);
-            world.breakBlock(pos.down(1), false);
+            world.breakBlock(pos.down(), false);
+        }
+    }
+
+    @Override
+    public BlockSoundGroup getSoundGroup(BlockState state) {
+        if (state.get(HALF) == DoubleBlockHalf.LOWER) {
+            return ModSounds.JACK_O_STRAW;
+        } else {
+            return ModSounds.SILENT;
         }
     }
 

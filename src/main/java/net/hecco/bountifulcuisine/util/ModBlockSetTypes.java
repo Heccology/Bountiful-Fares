@@ -7,14 +7,12 @@ import net.minecraft.block.BlockSetType;
 import java.util.Set;
 
 public class ModBlockSetTypes {
-    private static final Set<BlockSetType> VALUES = new ObjectArraySet<BlockSetType>();
     public static final BlockSetType HOARY = ModBlockSetTypes.register(new BlockSetType("hoary"));
     public static final BlockSetType WALNUT = ModBlockSetTypes.register(new BlockSetType("walnut"));
-    public static final BlockSetType CERAMIC = ModBlockSetTypes.register(new BlockSetType("ceramic", true, ModSounds.CERAMIC_TILES, ModSounds.CERAMIC_TILES_PLACE, ModSounds.CERAMIC_TILES_PLACE, ModSounds.CERAMIC_TILES_PLACE, ModSounds.CERAMIC_TILES_PLACE, ModSounds.CERAMIC_TILES_PLACE, ModSounds.CERAMIC_TILES_PLACE, ModSounds.CERAMIC_TILES_PLACE, ModSounds.CERAMIC_TILES_PLACE));
+    public static final BlockSetType CERAMIC = ModBlockSetTypes.register(new BlockSetType("ceramic", true, ModSounds.CERAMIC_DECORATION, ModSounds.CERAMIC_DECORATION_PLACE, ModSounds.CERAMIC_DECORATION_PLACE, ModSounds.CERAMIC_DECORATION_PLACE, ModSounds.CERAMIC_DECORATION_PLACE, ModSounds.CERAMIC_PRESSURE_PLATE_OFF, ModSounds.CERAMIC_PRESSURE_PLATE_ON, ModSounds.CERAMIC_BUTTON_OFF, ModSounds.CERAMIC_BUTTON_ON));
 
 
     private static BlockSetType register(BlockSetType blockSetType) {
-        VALUES.add(blockSetType);
         return blockSetType;
     }
 }

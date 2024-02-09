@@ -10,6 +10,7 @@ import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -20,6 +21,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockRenderView;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
@@ -52,16 +54,25 @@ public class CeramicPressurePlateBlock extends AbstractPressurePlateBlock implem
         return getEntityCount(world, BOX.offset(pos), var10000) > 0 ? 15 : 0;
     }
 
-    @Override
-    public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (!world.isClient) {
-            int i = this.getRedstoneOutput(state);
-            if (i == 0) {
-                this.updateCeramicPlateState(entity, world, pos, state, i);
-            }
-
-        }
-    }
+//    @Override
+//    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+//        int i = this.getRedstoneOutput(state);
+//        if (i > 0) {
+//            this.updateCeramicPlateState(null, world, pos, state, i);
+//        }
+//
+//    }
+//
+//    @Override
+//    public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
+//        if (!world.isClient) {
+//            int i = this.getRedstoneOutput(state);
+//            if (i == 0) {
+//                this.updateCeramicPlateState(entity, world, pos, state, i);
+//            }
+//
+//        }
+//    }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
@@ -93,11 +104,11 @@ public class CeramicPressurePlateBlock extends AbstractPressurePlateBlock implem
         }
 
         if (!bl2 && bl) {
-            world.playSound(null, pos, ModSounds.CERAMIC_TILES_BREAK, SoundCategory.BLOCKS);
+            world.playSound(null, pos, ModSounds.CERAMIC_LEVER_OFF, SoundCategory.BLOCKS);
             world.emitGameEvent(entity, GameEvent.BLOCK_DEACTIVATE, pos);
             state.get(POWERED);
         } else if (bl2 && !bl) {
-            world.playSound(null, pos, ModSounds.CERAMIC_TILES_PLACE, SoundCategory.BLOCKS);
+            world.playSound(null, pos, ModSounds.CERAMIC_LEVER_ON, SoundCategory.BLOCKS);
             world.emitGameEvent(entity, GameEvent.BLOCK_ACTIVATE, pos);
         }
 

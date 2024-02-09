@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-02T18:43:10.834867	Bountiful Cuisine/Tags for minecraft:block
+// 1.20.1	2024-02-07T17:14:14.232883	Bountiful Cuisine/Tags for minecraft:block
 e3bfb775b688681ef1b61eac991d8cdfee445a34 data/minecraft/tags/blocks/wooden_stairs.json
 5c28d18ccc773f216ca759433b8f9a2cd28794cc data/minecraft/tags/blocks/flowers.json
 ef293eb66fd9d3020e40cabd35408b357f4bfeb7 data/bountifulcuisine/tags/blocks/dyeable_ceramic_blocks.json
@@ -42,3 +42,4 @@ cec88a3615e329df5c4fbe40944ee96fd5ec3e38 data/minecraft/tags/blocks/wall_hanging
 f6ca3d7dfcbe5e784bad5ad49e72c5aa7619c41f data/minecraft/tags/blocks/logs_that_burn.json
 ab3e5ef733f6df4dc280bed370b288cc13c0009e data/minecraft/tags/blocks/mineable/pickaxe.json
 19add50829f31cf509e8ec1bd430a3bbc4b0a4e9 data/minecraft/tags/blocks/mineable/hoe.json
+16d43ee3342ad83880a5e9243556d93349c0cc37 data/bountifulcuisine/tags/blocks/pickets.json

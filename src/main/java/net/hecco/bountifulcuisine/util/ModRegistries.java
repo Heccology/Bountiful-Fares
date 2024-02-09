@@ -1,10 +1,18 @@
 package net.hecco.bountifulcuisine.util;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
+import net.hecco.bountifulcuisine.entity.FlourProjectileEntity;
+import net.hecco.bountifulcuisine.entity.ModEntities;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.potion.ModPotions;
+import net.minecraft.block.DispenserBlock;
+import net.minecraft.block.dispenser.ProjectileDispenserBehavior;
+import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
+import net.minecraft.util.math.Position;
+import net.minecraft.world.World;
 
 import static net.fabricmc.fabric.api.registry.StrippableBlockRegistry.register;
 import static net.hecco.bountifulcuisine.mixin.BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe;
@@ -16,18 +24,24 @@ public class ModRegistries {
         registerModCompostables();
         registerPotionRecipes();
         registerFermentationRecipes();
+        DispenserBlock.registerBehavior(ModItems.FLOUR, new FlourDispenserBehavior() {
+            @Override
+            protected ProjectileEntity createProjectile(World world, Position position, ItemStack stack) {
+                return new FlourProjectileEntity(world, position.getX(), position.getY(), position.getZ());
+            }
+        });
     }
 
     public static void registerFermentationRecipes() {
-        FermentationRecipes.addRecipeWithCollector(ModItems.ELDERBERRIES, ModItems.ELDERBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE);
-        FermentationRecipes.addRecipeWithCollector(ModItems.LAPISBERRIES, ModItems.LAPISBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE);
-        FermentationRecipes.addRecipeWithRemainderAndCollector(Items.HONEY_BOTTLE, Items.GLASS_BOTTLE, ModItems.MEAD_BOTTLE, Items.GLASS_BOTTLE);
-        FermentationRecipes.addRecipeWithCollector(Items.APPLE, ModItems.APPLE_CIDER_JAR, ModItems.JAR);
-        FermentationRecipes.addRecipeWithCollector(ModItems.PLUM, ModItems.PLUM_CIDER_JAR, ModItems.JAR);
-        FermentationRecipes.addRecipeWithCollector(ModItems.HOARY_APPLE, ModItems.HOARY_CIDER_JAR, ModItems.JAR);
-        FermentationRecipes.addRecipe(ModItems.ORANGE, ModItems.CITRIC_ACID);
-        FermentationRecipes.addRecipe(ModItems.LEMON, ModItems.CITRIC_ACID);
-        FermentationRecipes.addRecipe(Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE);
+        FermentationRecipes.addRecipe(ModItems.ELDERBERRIES, null, ModItems.ELDERBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE);
+        FermentationRecipes.addRecipe(ModItems.LAPISBERRIES, null, ModItems.LAPISBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE);
+        FermentationRecipes.addRecipe(Items.HONEY_BOTTLE, Items.GLASS_BOTTLE, ModItems.MEAD_BOTTLE, Items.GLASS_BOTTLE);
+        FermentationRecipes.addRecipe(Items.APPLE, null, ModItems.APPLE_CIDER_JAR, ModItems.JAR);
+        FermentationRecipes.addRecipe(ModItems.PLUM, null, ModItems.PLUM_CIDER_JAR, ModItems.JAR);
+        FermentationRecipes.addRecipe(ModItems.HOARY_APPLE, null, ModItems.HOARY_CIDER_JAR, ModItems.JAR);
+        FermentationRecipes.addRecipe(ModItems.ORANGE, null, ModItems.CITRIC_ACID, null);
+        FermentationRecipes.addRecipe(ModItems.LEMON, null, ModItems.CITRIC_ACID, null);
+        FermentationRecipes.addRecipe(Items.SPIDER_EYE, null, Items.FERMENTED_SPIDER_EYE, null);
     }
 
     public static void registerStrippables() {

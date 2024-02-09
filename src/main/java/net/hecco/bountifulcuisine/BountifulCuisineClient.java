@@ -190,7 +190,7 @@ public class BountifulCuisineClient implements ClientModInitializer {
         registerBlockColor(ModBlocks.CERAMIC_PRESSURE_PLATE);
         registerBlockColor(ModBlocks.CERAMIC_BUTTON);
         registerBlockColor(ModBlocks.CERAMIC_LEVER);
-        registerDishColor(ModBlocks.CERAMIC_DISH);
+        registerDishColor();
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.HOARY, TexturedRenderLayers.getSignTextureId(ModWoodTypes.HOARY));
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.WALNUT, TexturedRenderLayers.getSignTextureId(ModWoodTypes.WALNUT));
         BlockEntityRendererFactories.register(ModBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);
@@ -229,13 +229,13 @@ public class BountifulCuisineClient implements ClientModInitializer {
 
 
     private void registerBlockColor(Block ModCeramicBlocksItems) {
-//        Registers tint for ceramic tile blocks
+//        Registers tint for ceramic blocks
         registerItemColor(ModCeramicBlocksItems.asItem());
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> CeramicTilesBlockEntity.getColor(world,pos),ModCeramicBlocksItems);
     }
 
     private void registerItemColor(Item item) {
-//        Registers tint for ceramic tile items
+//        Registers tint for ceramic items
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
             NbtCompound nbtCompound = stack.getSubNbt(DyeableCeramicBlockItem.DISPLAY_KEY);
             if (nbtCompound != null && nbtCompound.contains(DyeableCeramicBlockItem.COLOR_KEY, NbtElement.NUMBER_TYPE) && tintIndex == 0) {
@@ -245,20 +245,20 @@ public class BountifulCuisineClient implements ClientModInitializer {
         },item);
     }
 
-    private void registerDishColor(Block ModCeramicDishItems) {
-//        Registers tint for ceramic tile blocks
-        registerDishItemColor(ModCeramicDishItems);
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> CeramicDishBlockEntity.getColor(world,pos),ModCeramicDishItems);
+    private void registerDishColor() {
+//        Registers tint for ceramic blocks
+        registerDishItemColor();
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> CeramicDishBlockEntity.getColor(world,pos), ModBlocks.CERAMIC_DISH);
     }
 
-    private void registerDishItemColor(Block ModCeramicDishItems) {
-//        Registers tint for ceramic tile items
+    private void registerDishItemColor() {
+//        Registers tint for ceramic items
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
             NbtCompound nbtCompound = stack.getSubNbt(DyeableCeramicBlockItem.DISPLAY_KEY);
             if (nbtCompound != null && nbtCompound.contains(DyeableCeramicBlockItem.COLOR_KEY, NbtElement.NUMBER_TYPE)) {
                 return nbtCompound.getInt(DyeableCeramicBlockItem.COLOR_KEY);
             }
             return CeramicDishBlockEntity.DEFAULT_COLOR;
-        },ModCeramicDishItems);
+        }, ModBlocks.CERAMIC_DISH);
     }
 }
