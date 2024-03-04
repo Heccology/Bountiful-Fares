@@ -80,7 +80,7 @@ public class ModBlockEntities {
     public static final BlockEntityType<WalnutCandleBlockEntity> WALNUT_CANDLE_BLOCK_ENTITY = Registry.register(
             Registries.BLOCK_ENTITY_TYPE,
             new Identifier(BountifulCuisine.MOD_ID, "walnut_candle_entity"),
-            FabricBlockEntityTypeBuilder.create(WalnutCandleBlockEntity::new, CHAMOMILE_CANDLE).build()
+            FabricBlockEntityTypeBuilder.create(WalnutCandleBlockEntity::new, WALNUT_CANDLE).build()
     );
 
     public static void registerBlockEntities() {

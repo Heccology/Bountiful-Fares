@@ -172,6 +172,9 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "item.minecraft.tipped_arrow.effect.bountifulcuisine.stupor", "Arrow of Stupor");
         generate(translationBuilder, "item.minecraft.tipped_arrow.effect.bountifulcuisine.long_stupor", "Arrow of Stupor");
 
+        generate(translationBuilder, "effect.bountifulcuisine.restoration", "Restoration");
+        generate(translationBuilder, "effect.bountifulcuisine.enrichment", "Enrichment");
+
         generate(translationBuilder, ModItems.CANDIED_ORANGE);
         generate(translationBuilder, ModItems.CANDIED_LEMON);
 
@@ -298,27 +301,27 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generateJackOStraw(translationBuilder, ModBlocks.BLACK_JACK_O_STRAW, "Black");
         generateJackOStraw(translationBuilder, ModBlocks.BROWN_JACK_O_STRAW, "Brown");
 
-        generateJackOStraw(translationBuilder, ModBlocks.ACORN_JACK_O_STRAW, "Acorn");
-        generateJackOStraw(translationBuilder, ModBlocks.AMBER_JACK_O_STRAW, "Amber");
-        generateJackOStraw(translationBuilder, ModBlocks.ARTICHOKE_JACK_O_STRAW, "Artichoke");
-        generateJackOStraw(translationBuilder, ModBlocks.BANANA_JACK_O_STRAW, "Banana");
-        generateJackOStraw(translationBuilder, ModBlocks.CERULEAN_JACK_O_STRAW, "Cerulean");
-        generateJackOStraw(translationBuilder, ModBlocks.FUCHSIA_JACK_O_STRAW, "Fuchsia");
-        generateJackOStraw(translationBuilder, ModBlocks.GRAPE_JACK_O_STRAW, "Grape");
-        generateJackOStraw(translationBuilder, ModBlocks.INDIGO_JACK_O_STRAW, "Indigo");
-        generateJackOStraw(translationBuilder, ModBlocks.MAROON_JACK_O_STRAW, "Maroon");
-        generateJackOStraw(translationBuilder, ModBlocks.MAUVE_JACK_O_STRAW, "Mauve");
-        generateJackOStraw(translationBuilder, ModBlocks.MINT_JACK_O_STRAW, "Mint");
-        generateJackOStraw(translationBuilder, ModBlocks.MOLD_JACK_O_STRAW, "Mold");
-        generateJackOStraw(translationBuilder, ModBlocks.NAVY_JACK_O_STRAW, "Navy");
-        generateJackOStraw(translationBuilder, ModBlocks.PEACH_JACK_O_STRAW, "Peach");
-        generateJackOStraw(translationBuilder, ModBlocks.PERIWINKLE_JACK_O_STRAW, "Periwinkle");
-        generateJackOStraw(translationBuilder, ModBlocks.SAGE_JACK_O_STRAW, "Sage");
-        generateJackOStraw(translationBuilder, ModBlocks.SAP_JACK_O_STRAW, "Sap");
-        generateJackOStraw(translationBuilder, ModBlocks.SHAMROCK_JACK_O_STRAW, "Shamrock");
-        generateJackOStraw(translationBuilder, ModBlocks.VELVET_JACK_O_STRAW, "Velvet");
-        generateJackOStraw(translationBuilder, ModBlocks.VERMILION_JACK_O_STRAW, "Vermillion");
-        generate(translationBuilder, "tooltip.bountifulcuisine.els_and_ls_dye_mod_warning", "§7§oEl's and L's Dye Mod Is Not Installed!");
+//        generateJackOStraw(translationBuilder, ModBlocks.ACORN_JACK_O_STRAW, "Acorn");
+//        generateJackOStraw(translationBuilder, ModBlocks.AMBER_JACK_O_STRAW, "Amber");
+//        generateJackOStraw(translationBuilder, ModBlocks.ARTICHOKE_JACK_O_STRAW, "Artichoke");
+//        generateJackOStraw(translationBuilder, ModBlocks.BANANA_JACK_O_STRAW, "Banana");
+//        generateJackOStraw(translationBuilder, ModBlocks.CERULEAN_JACK_O_STRAW, "Cerulean");
+//        generateJackOStraw(translationBuilder, ModBlocks.FUCHSIA_JACK_O_STRAW, "Fuchsia");
+//        generateJackOStraw(translationBuilder, ModBlocks.GRAPE_JACK_O_STRAW, "Grape");
+//        generateJackOStraw(translationBuilder, ModBlocks.INDIGO_JACK_O_STRAW, "Indigo");
+//        generateJackOStraw(translationBuilder, ModBlocks.MAROON_JACK_O_STRAW, "Maroon");
+//        generateJackOStraw(translationBuilder, ModBlocks.MAUVE_JACK_O_STRAW, "Mauve");
+//        generateJackOStraw(translationBuilder, ModBlocks.MINT_JACK_O_STRAW, "Mint");
+//        generateJackOStraw(translationBuilder, ModBlocks.MOLD_JACK_O_STRAW, "Mold");
+//        generateJackOStraw(translationBuilder, ModBlocks.NAVY_JACK_O_STRAW, "Navy");
+//        generateJackOStraw(translationBuilder, ModBlocks.PEACH_JACK_O_STRAW, "Peach");
+//        generateJackOStraw(translationBuilder, ModBlocks.PERIWINKLE_JACK_O_STRAW, "Periwinkle");
+//        generateJackOStraw(translationBuilder, ModBlocks.SAGE_JACK_O_STRAW, "Sage");
+//        generateJackOStraw(translationBuilder, ModBlocks.SAP_JACK_O_STRAW, "Sap");
+//        generateJackOStraw(translationBuilder, ModBlocks.SHAMROCK_JACK_O_STRAW, "Shamrock");
+//        generateJackOStraw(translationBuilder, ModBlocks.VELVET_JACK_O_STRAW, "Velvet");
+//        generateJackOStraw(translationBuilder, ModBlocks.VERMILION_JACK_O_STRAW, "Vermillion");
+//        generate(translationBuilder, "tooltip.bountifulcuisine.els_and_ls_dye_mod_warning", "§7§oEl's and L's Dye Mod Is Not Installed!");
         generate(translationBuilder, "tooltip.bountifulcuisine.dyeable", "§7§oDyeable");
 
         generate(translationBuilder, ModBlocks.GRISTMILL);
@@ -440,6 +443,12 @@ public class ModEnUsProvider extends FabricLanguageProvider {
 
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin", "Who Lives in a Loofah Under the Sea");
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin.description", "Grow and collect a Spongekin");
+
+        generate(translationBuilder, "advancement.bountifulcuisine.make_first_food", "Anyone can Cook");
+        generate(translationBuilder, "advancement.bountifulcuisine.make_first_food.description", "Make your first meal");
+
+        generate(translationBuilder, "advancement.bountifulcuisine.eat_all_food", "Bountiful Cuisine");
+        generate(translationBuilder, "advancement.bountifulcuisine.eat_all_food.description", "Eat every meal");
 
 
         generate(translationBuilder, "subtitles.block.gristmill.grind", "Gristmill Mills");

@@ -7,6 +7,7 @@ import net.hecco.bountifulcuisine.block.custom.*;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.BeetrootsBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
@@ -19,6 +20,7 @@ import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
 import net.minecraft.loot.entry.EmptyEntry;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
@@ -283,6 +285,9 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         fruitBlockDrops(ModBlocks.LEMON_BLOCK, ModItems.LEMON);
         fruitBlockDrops(ModBlocks.PLUM_BLOCK, ModItems.PLUM);
         fruitBlockDrops(ModBlocks.HOARY_APPLE_BLOCK, ModItems.HOARY_APPLE);
+
+        addDrop(ModBlocks.SPONGEKIN, leavesDrops(Blocks.OAK_LEAVES, Blocks.OAK_SAPLING, SAPLING_DROP_CHANCE));
+
     }
 
     public LootTable.Builder WildCropDrops(Item seed, Block block) {

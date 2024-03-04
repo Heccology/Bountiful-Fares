@@ -1,6 +1,5 @@
 package net.hecco.bountifulcuisine.block.entity;
 
-import net.hecco.bountifulcuisine.block.custom.ChamomileCandleBlock;
 import net.hecco.bountifulcuisine.block.custom.WalnutCandleBlock;
 import net.hecco.bountifulcuisine.effect.ModEffects;
 import net.minecraft.block.BlockState;
@@ -28,11 +27,11 @@ public class WalnutCandleBlockEntity extends BlockEntity {
             if (state.get(isLit)) {
                 if (!world.isClient() && !list.isEmpty()) {
                     for (PlayerEntity playerEntity : list) {
-                        StatusEffectInstance existingEffect = playerEntity.getStatusEffect(ModEffects.EBULLIENCE);
+                        StatusEffectInstance existingEffect = playerEntity.getStatusEffect(ModEffects.ENRICHMENT);
                         if (existingEffect == null) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 50, 0, true, false, true));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.ENRICHMENT, 50, 0, true, false, true));
                         } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 50, 0, true, false, true));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.ENRICHMENT, 50, 0, true, false, true));
                         }
                     }
                 }

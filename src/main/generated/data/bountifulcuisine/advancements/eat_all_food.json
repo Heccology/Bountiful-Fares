@@ -1,0 +1,284 @@
+{
+  "parent": "bountifulcuisine:make_first_food",
+  "criteria": {
+    "ancient_custard": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:ancient_custard"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "berry_stuffed_potato": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:berry_stuffed_potato"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "bountiful_stew": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:bountiful_stew"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "coastal_medley": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:coastal_medley"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cocoa_custard": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:cocoa_custard"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "crimson_chow": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:crimson_chow"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "crusted_beef": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:crusted_beef"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "custard": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:custard"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "fish_stew": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:fish_stew"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "glowing_custard": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:glowing_custard"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "leek_stew": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:leek_stew"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "maize_stuffed_potato": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:maize_stuffed_potato"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "mushroom_stuffed_potato": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:mushroom_stuffed_potato"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "outback_medley": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:forest_medley"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "passion_custard": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:passion_custard"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "passion_glazed_salmon": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:passion_glazed_salmon"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "piquant_custard": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:piquant_custard"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "stone_stew": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:stone_stew"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "sylvan_medley": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:sylvan_medley"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "warped_chow": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:warped_chow"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulcuisine.eat_all_food.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulcuisine:crusted_beef"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bountifulcuisine.eat_all_food"
+    }
+  },
+  "requirements": [
+    [
+      "mushroom_stuffed_potato"
+    ],
+    [
+      "berry_stuffed_potato"
+    ],
+    [
+      "maize_stuffed_potato"
+    ],
+    [
+      "passion_glazed_salmon"
+    ],
+    [
+      "leek_stew"
+    ],
+    [
+      "fish_stew"
+    ],
+    [
+      "stone_stew"
+    ],
+    [
+      "bountiful_stew"
+    ],
+    [
+      "sylvan_medley"
+    ],
+    [
+      "outback_medley"
+    ],
+    [
+      "coastal_medley"
+    ],
+    [
+      "crusted_beef"
+    ],
+    [
+      "crimson_chow"
+    ],
+    [
+      "warped_chow"
+    ],
+    [
+      "custard"
+    ],
+    [
+      "piquant_custard"
+    ],
+    [
+      "passion_custard"
+    ],
+    [
+      "cocoa_custard"
+    ],
+    [
+      "glowing_custard"
+    ],
+    [
+      "ancient_custard"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

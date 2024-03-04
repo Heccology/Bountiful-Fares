@@ -7,6 +7,7 @@ import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.effect.ModEffects;
 import net.hecco.bountifulcuisine.entity.ModEntities;
 import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementDisplay;
 import net.minecraft.advancement.AdvancementFrame;
@@ -45,6 +46,45 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         false,
                         false)).criterion("consume_item", ConsumeItemCriterion.Conditions.any())
                 .build(consumer, BountifulCuisine.MOD_ID + ":bountiful_cuisine");
+        Advancement make_first_food = Advancement.Builder.create()
+                .display(new AdvancementDisplay(new ItemStack(ModItems.BOUNTIFUL_STEW),
+                        Text.translatable("advancement.bountifulcuisine.make_first_food"),
+                        Text.translatable("advancement.bountifulcuisine.make_first_food.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        true,
+                        true,
+                        false))
+                .parent(root_advancement)
+                .criterion("make_first_food", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().tag(ModItemTags.MEALS).build()))
+                .build(consumer, BountifulCuisine.MOD_ID + ":make_first_food");
+        Advancement eat_all_food = Advancement.Builder.create()
+                .display(new AdvancementDisplay(new ItemStack(ModItems.CRUSTED_BEEF),
+                        Text.translatable("advancement.bountifulcuisine.eat_all_food"),
+                        Text.translatable("advancement.bountifulcuisine.eat_all_food.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.GOAL,
+                        true,
+                        true,
+                        false))
+                .parent(make_first_food)
+                .criterion("mushroom_stuffed_potato", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.MUSHROOM_STUFFED_POTATO).build()))
+                .criterion("berry_stuffed_potato", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.BERRY_STUFFED_POTATO).build()))
+                .criterion("maize_stuffed_potato", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.MAIZE_STUFFED_POTATO).build()))
+                .criterion("passion_glazed_salmon", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.PASSION_GLAZED_SALMON).build()))
+                .criterion("leek_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.LEEK_STEW).build()))
+                .criterion("fish_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.FISH_STEW).build()))
+                .criterion("stone_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.STONE_STEW).build()))
+                .criterion("bountiful_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.BOUNTIFUL_STEW).build()))
+                .criterion("sylvan_medley", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.SYLVAN_MEDLEY).build()))
+                .criterion("outback_medley", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.OUTBACK_MEDLEY).build()))
+                .criterion("coastal_medley", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.COASTAL_MEDLEY).build()))
+                .criterion("crusted_beef", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.CRUSTED_BEEF).build()))
+                .criterion("crimson_chow", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.CRIMSON_CHOW).build()))
+                .criterion("warped_chow", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.WARPED_CHOW).build()))
+                .criterion("custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.CUSTARD).build()))
+                .criterion("piquant_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.PIQUANT_CUSTARD).build()))
+                .criterion("passion_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.PASSION_CUSTARD).build()))
+                .criterion("cocoa_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.COCOA_CUSTARD).build()))
+                .criterion("glowing_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.GLOWING_CUSTARD).build()))
+                .criterion("ancient_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.ANCIENT_CUSTARD).build()))
+                .build(consumer, BountifulCuisine.MOD_ID + ":eat_all_food");
         Advancement place_gristmill = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(ModBlocks.GRISTMILL),
                         Text.translatable("advancement.bountifulcuisine.place_gristmill"),
@@ -165,16 +205,16 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("sour", ConsumeItemCriterion.Conditions.item(ModItems.SOUR_CANDY))
                 .criterion("bitter", ConsumeItemCriterion.Conditions.item(ModItems.BITTER_CANDY))
                 .build(consumer, BountifulCuisine.MOD_ID + ":eat_all_candy");
-        Advancement gorge = Advancement.Builder.create()
-                .display(new AdvancementDisplay(new ItemStack(ModItems.SOUR_CANDY),
-                        Text.translatable("advancement.bountifulcuisine.gorge"),
-                        Text.translatable("advancement.bountifulcuisine.gorge.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
-                        true,
-                        true,
-                        false))
-                .parent(eat_all_candy)
-                .criterion("gorge", EffectsChangedCriterion.Conditions.create(EntityEffectPredicate.create().withEffect(ModEffects.GORGING)))
-                .build(consumer, BountifulCuisine.MOD_ID + ":gorge");
+//        Advancement gorge = Advancement.Builder.create()
+//                .display(new AdvancementDisplay(new ItemStack(ModItems.SOUR_CANDY),
+//                        Text.translatable("advancement.bountifulcuisine.gorge"),
+//                        Text.translatable("advancement.bountifulcuisine.gorge.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+//                        true,
+//                        true,
+//                        false))
+//                .parent(eat_all_candy)
+//                .criterion("gorge", EffectsChangedCriterion.Conditions.create(EntityEffectPredicate.create().withEffect(ModEffects.GORGING)))
+//                .build(consumer, BountifulCuisine.MOD_ID + ":gorge");
         Advancement obtain_tea_blends = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(ModItems.TEA_LEAVES),
                         Text.translatable("advancement.bountifulcuisine.obtain_tea_blends"),

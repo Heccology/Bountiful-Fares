@@ -12,6 +12,7 @@ public class FermentationRecipes {
     private static final Map<Item, Item> INPUT_TO_OUTPUT = Maps.newHashMap();
     private static final Map<Item, Item> INPUT_TO_REMAINDER = Maps.newHashMap();
     private static final Map<Item, Item> OUTPUT_TO_COLLECTOR = Maps.newHashMap();
+    private static final Map<Item, Integer> OUTPUT_TO_COUNT = Maps.newHashMap();
 
 //    Remainders are items that are left behind when inputting an item into a Fermentation Vessel, for example, bottles from Honey Bottles.
 
@@ -26,7 +27,7 @@ public class FermentationRecipes {
 //        INPUT_TO_OUTPUT.put(input, output);
 //    }
 
-    public static void addRecipe(Item input, @Nullable Item remainder, Item output, @Nullable Item collector) {
+    public static void addRecipe(Item input, @Nullable Item remainder, Item output, @Nullable Item collector, @Nullable Integer resultCount) {
         INPUT_TO_OUTPUT.put(input, output);
         if (remainder != null) {
             INPUT_TO_REMAINDER.put(input, remainder);
@@ -34,12 +35,10 @@ public class FermentationRecipes {
         if (collector != null) {
             OUTPUT_TO_COLLECTOR.put(output, collector);
         }
+        if (resultCount != null) {
+            OUTPUT_TO_COUNT.put(output, resultCount);
+        }
     }
-
-//    public static void addRecipeWithRemainder(Item input, Item remainder, Item output) {
-//        INPUT_TO_OUTPUT.put(input, output);
-//        INPUT_TO_REMAINDER.put(input, remainder);
-//    }
     public static Item getOutputFromInput(Item input) {
         return (INPUT_TO_OUTPUT.get(input));
     }
@@ -51,5 +50,9 @@ public class FermentationRecipes {
     }
     public static Item getCollector(Item output) {
         return OUTPUT_TO_COLLECTOR.getOrDefault(output, null);
+    }
+
+    public static Integer getOutputCount(Item output) {
+        return OUTPUT_TO_COUNT.getOrDefault(output, 1);
     }
 }

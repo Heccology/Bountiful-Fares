@@ -1,0 +1,35 @@
+{
+  "parent": "bountifulcuisine:bountiful_cuisine",
+  "criteria": {
+    "make_first_food": {
+      "conditions": {
+        "item": {
+          "tag": "bountifulcuisine:meals"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulcuisine.make_first_food.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulcuisine:bountiful_stew"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bountifulcuisine.make_first_food"
+    }
+  },
+  "requirements": [
+    [
+      "make_first_food"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

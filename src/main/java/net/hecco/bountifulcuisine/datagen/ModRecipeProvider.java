@@ -7,6 +7,7 @@ import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.datagen.recipe.FermentationRecipeBuilder;
 import net.hecco.bountifulcuisine.datagen.recipe.MillingRecipeBuilder;
 import net.hecco.bountifulcuisine.item.ModItems;
+import net.hecco.bountifulcuisine.util.ModBlockTags;
 import net.hecco.bountifulcuisine.util.ModItemTags;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamily;
@@ -142,6 +143,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockCriterionName("has_planks")
                 .build();
         generateFamily(exporter, hoaryFamily);
+        offerPlanksRecipe(exporter, ModBlocks.HOARY_PLANKS, ModItemTags.HOARY_LOGS, 4);
+
 
         BlockFamily walnutFamily = register(ModBlocks.WALNUT_PLANKS)
                 .button(ModBlocks.WALNUT_BUTTON)
@@ -157,6 +160,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .unlockCriterionName("has_planks")
                 .build();
         generateFamily(exporter, walnutFamily);
+        offerPlanksRecipe(exporter, ModBlocks.WALNUT_PLANKS, ModItemTags.WALNUT_LOGS, 4);
 
         BlockFamily ceramicFamily = register(ModBlocks.CERAMIC_TILES)
                 .slab(ModBlocks.CERAMIC_TILE_SLAB)

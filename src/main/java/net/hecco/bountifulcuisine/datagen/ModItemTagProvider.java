@@ -227,5 +227,26 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.COOKED_COD)
                 .add(Items.COOKED_SALMON)
         ;
+        getOrCreateTagBuilder(ModItemTags.MEALS)
+                .add(ModItems.MUSHROOM_STUFFED_POTATO)
+                .add(ModItems.BERRY_STUFFED_POTATO)
+                .add(ModItems.MAIZE_STUFFED_POTATO)
+                .add(ModItems.LEEK_STEW)
+                .add(ModItems.FISH_STEW)
+                .add(ModItems.STONE_STEW)
+                .add(ModItems.BOUNTIFUL_STEW)
+                .add(ModItems.SYLVAN_MEDLEY)
+                .add(ModItems.OUTBACK_MEDLEY)
+                .add(ModItems.COASTAL_MEDLEY)
+                .add(ModItems.CRUSTED_BEEF)
+                .add(ModItems.CRIMSON_CHOW)
+                .add(ModItems.WARPED_CHOW)
+                .add(ModItems.CUSTARD)
+                .add(ModItems.PIQUANT_CUSTARD)
+                .add(ModItems.PASSION_CUSTARD)
+                .add(ModItems.COCOA_CUSTARD)
+                .add(ModItems.GLOWING_CUSTARD)
+                .add(ModItems.ANCIENT_CUSTARD)
+        ;
     }
 }

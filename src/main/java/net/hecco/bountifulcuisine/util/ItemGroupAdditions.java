@@ -283,29 +283,29 @@ public class ItemGroupAdditions {
             entries.add(ModBlocks.MAGENTA_JACK_O_STRAW);
             entries.add(ModBlocks.PINK_JACK_O_STRAW);
         });
-        if (FabricLoader.getInstance().isModLoaded(BountifulCuisine.ELS_AND_LS_DYES_MOD_ID)) {
-            ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
-                entries.addAfter(ModBlocks.BLACK_JACK_O_STRAW, ModBlocks.ACORN_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.BROWN_JACK_O_STRAW,ModBlocks.MAROON_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.RED_JACK_O_STRAW,ModBlocks.PEACH_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.PEACH_JACK_O_STRAW,ModBlocks.VERMILION_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.ORANGE_JACK_O_STRAW,ModBlocks.AMBER_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.YELLOW_JACK_O_STRAW,ModBlocks.BANANA_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.BANANA_JACK_O_STRAW,ModBlocks.ARTICHOKE_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.ARTICHOKE_JACK_O_STRAW,ModBlocks.MOLD_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.LIME_JACK_O_STRAW,ModBlocks.SAGE_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.SAGE_JACK_O_STRAW,ModBlocks.SAP_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.GREEN_JACK_O_STRAW,ModBlocks.SHAMROCK_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.SHAMROCK_JACK_O_STRAW,ModBlocks.MINT_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.CYAN_JACK_O_STRAW,ModBlocks.CERULEAN_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.LIGHT_BLUE_JACK_O_STRAW,ModBlocks.NAVY_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.BLUE_JACK_O_STRAW,ModBlocks.PERIWINKLE_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.PERIWINKLE_JACK_O_STRAW,ModBlocks.GRAPE_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.PURPLE_JACK_O_STRAW,ModBlocks.INDIGO_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.MAGENTA_JACK_O_STRAW,ModBlocks.MAUVE_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.MAUVE_JACK_O_STRAW,ModBlocks.VELVET_JACK_O_STRAW);
-                entries.addAfter(ModBlocks.VELVET_JACK_O_STRAW,ModBlocks.FUCHSIA_JACK_O_STRAW);
-            });
-        }
+//        if (FabricLoader.getInstance().isModLoaded(BountifulCuisine.ELS_AND_LS_DYES_MOD_ID)) {
+//            ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
+//                entries.addAfter(ModBlocks.BLACK_JACK_O_STRAW, ModBlocks.ACORN_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.BROWN_JACK_O_STRAW,ModBlocks.MAROON_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.RED_JACK_O_STRAW,ModBlocks.PEACH_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.PEACH_JACK_O_STRAW,ModBlocks.VERMILION_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.ORANGE_JACK_O_STRAW,ModBlocks.AMBER_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.YELLOW_JACK_O_STRAW,ModBlocks.BANANA_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.BANANA_JACK_O_STRAW,ModBlocks.ARTICHOKE_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.ARTICHOKE_JACK_O_STRAW,ModBlocks.MOLD_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.LIME_JACK_O_STRAW,ModBlocks.SAGE_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.SAGE_JACK_O_STRAW,ModBlocks.SAP_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.GREEN_JACK_O_STRAW,ModBlocks.SHAMROCK_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.SHAMROCK_JACK_O_STRAW,ModBlocks.MINT_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.CYAN_JACK_O_STRAW,ModBlocks.CERULEAN_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.LIGHT_BLUE_JACK_O_STRAW,ModBlocks.NAVY_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.BLUE_JACK_O_STRAW,ModBlocks.PERIWINKLE_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.PERIWINKLE_JACK_O_STRAW,ModBlocks.GRAPE_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.PURPLE_JACK_O_STRAW,ModBlocks.INDIGO_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.MAGENTA_JACK_O_STRAW,ModBlocks.MAUVE_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.MAUVE_JACK_O_STRAW,ModBlocks.VELVET_JACK_O_STRAW);
+//                entries.addAfter(ModBlocks.VELVET_JACK_O_STRAW,ModBlocks.FUCHSIA_JACK_O_STRAW);
+//            });
+//        }
     }
 }

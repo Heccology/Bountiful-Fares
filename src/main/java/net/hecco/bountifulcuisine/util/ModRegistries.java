@@ -33,15 +33,15 @@ public class ModRegistries {
     }
 
     public static void registerFermentationRecipes() {
-        FermentationRecipes.addRecipe(ModItems.ELDERBERRIES, null, ModItems.ELDERBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE);
-        FermentationRecipes.addRecipe(ModItems.LAPISBERRIES, null, ModItems.LAPISBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE);
-        FermentationRecipes.addRecipe(Items.HONEY_BOTTLE, Items.GLASS_BOTTLE, ModItems.MEAD_BOTTLE, Items.GLASS_BOTTLE);
-        FermentationRecipes.addRecipe(Items.APPLE, null, ModItems.APPLE_CIDER_JAR, ModItems.JAR);
-        FermentationRecipes.addRecipe(ModItems.PLUM, null, ModItems.PLUM_CIDER_JAR, ModItems.JAR);
-        FermentationRecipes.addRecipe(ModItems.HOARY_APPLE, null, ModItems.HOARY_CIDER_JAR, ModItems.JAR);
-        FermentationRecipes.addRecipe(ModItems.ORANGE, null, ModItems.CITRIC_ACID, null);
-        FermentationRecipes.addRecipe(ModItems.LEMON, null, ModItems.CITRIC_ACID, null);
-        FermentationRecipes.addRecipe(Items.SPIDER_EYE, null, Items.FERMENTED_SPIDER_EYE, null);
+        FermentationRecipes.addRecipe(ModItems.ELDERBERRIES, null, ModItems.ELDERBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE, null);
+        FermentationRecipes.addRecipe(ModItems.LAPISBERRIES, null, ModItems.LAPISBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE, null);
+        FermentationRecipes.addRecipe(Items.HONEY_BOTTLE, Items.GLASS_BOTTLE, ModItems.MEAD_BOTTLE, Items.GLASS_BOTTLE, null);
+        FermentationRecipes.addRecipe(Items.APPLE, null, ModItems.APPLE_CIDER_JAR, ModItems.JAR, null);
+        FermentationRecipes.addRecipe(ModItems.PLUM, null, ModItems.PLUM_CIDER_JAR, ModItems.JAR, null);
+        FermentationRecipes.addRecipe(ModItems.HOARY_APPLE, null, ModItems.HOARY_CIDER_JAR, ModItems.JAR, null);
+        FermentationRecipes.addRecipe(ModItems.ORANGE, null, ModItems.CITRIC_ACID, null, 4);
+        FermentationRecipes.addRecipe(ModItems.LEMON, null, ModItems.CITRIC_ACID, null, 4);
+        FermentationRecipes.addRecipe(Items.SPIDER_EYE, null, Items.FERMENTED_SPIDER_EYE, null, null);
     }
 
     public static void registerStrippables() {
@@ -55,6 +55,8 @@ public class ModRegistries {
         register(ModBlocks.PLUM_WOOD, ModBlocks.STRIPPED_PLUM_WOOD);
         register(ModBlocks.HOARY_LOG, ModBlocks.STRIPPED_HOARY_LOG);
         register(ModBlocks.HOARY_WOOD, ModBlocks.STRIPPED_HOARY_WOOD);
+        register(ModBlocks.WALNUT_LOG, ModBlocks.STRIPPED_WALNUT_LOG);
+        register(ModBlocks.WALNUT_WOOD, ModBlocks.STRIPPED_WALNUT_WOOD);
     }
 
     private static void registerModCompostables() {
@@ -82,10 +84,21 @@ public class ModRegistries {
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.HOARY_APPLE_SAPLING.asItem(), 0.85f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.HOARY_APPLE_BLOCK.asItem(), 1f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.HOARY_APPLE, 0.65f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WALNUT_LEAVES.asItem(), 0.65f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WALNUT_SAPLING.asItem(), 0.85f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.WALNUT, 0.3f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WALNUT_MULCH.asItem(), 0.65f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WALNUT_MULCH_BLOCK.asItem(), 1f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.PASSION_FRUIT, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.ELDERBERRIES, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.LAPISBERRY_SEEDS, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.LAPISBERRIES, 0.3f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WILD_WHEAT, 0.3f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WILD_POTATOES, 0.3f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WILD_CARROTS, 0.3f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WILD_BEETROOTS, 0.3f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WILD_MAIZE, 0.5f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WILD_LEEKS, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.MAIZE_SEEDS, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.MAIZE, 0.65f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.LEEK_SEEDS, 0.3f);
@@ -106,6 +119,8 @@ public class ModRegistries {
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.HONEYSUCKLE_TEA_BLEND, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.BELLFLOWER_TEA_BLEND, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.TORCHFLOWER_TEA_BLEND, 0.3f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.MAIZE_BREAD, 0.85f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.WALNUT_COOKIE, 0.85f);
     }
 
 

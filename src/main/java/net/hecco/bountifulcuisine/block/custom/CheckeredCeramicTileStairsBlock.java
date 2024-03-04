@@ -44,7 +44,8 @@ public class CheckeredCeramicTileStairsBlock extends StairsBlock implements Dyea
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
         int oldColor = CeramicTilesBlockEntity.getColor(world, pos);
-        if ((itemStack.isIn(ModItemTags.DYES) || itemStack.isIn(ModItemTags.ELS_AND_LS_DYES)) && CeramicTilesBlockEntity.getColor(world, pos) != CeramicTilesBlockEntity.DEFAULT_COLOR) {
+        if ((itemStack.isIn(ModItemTags.DYES) //|| itemStack.isIn(ModItemTags.ELS_AND_LS_DYES)
+        ) && CeramicTilesBlockEntity.getColor(world, pos) != CeramicTilesBlockEntity.DEFAULT_COLOR) {
             world.setBlockState(pos, ModBlocks.CERAMIC_TILE_STAIRS.getStateWithProperties(state), 2);
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat());
             if (world.getBlockEntity(pos) instanceof CeramicTilesBlockEntity ceramicTilesBlockEntity) {

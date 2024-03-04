@@ -154,7 +154,8 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
                 collector = FermentationRecipes.getCollector(output);
             }
             if (collector == null) {
-                FermentationVesselBlock.dropStack(world, new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), output.getDefaultStack());
+                Integer outputCount = FermentationRecipes.getOutputCount(output);
+                FermentationVesselBlock.dropStack(world, new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), new ItemStack(output, outputCount));
                 world.setBlockState(pos, state.with(FermentationVesselBlock.WATER, false).with(FermentationVesselBlock.FERMENTING, false));
                 removeItem();
                 world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F);

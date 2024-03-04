@@ -319,5 +319,6 @@
   "tooltip.bountifulcuisine.dyeable": "§7§oTeñible",
   "tooltip.bountifulcuisine.els_and_ls_dye_mod_warning": "§7§oEl's and L's Dye Mod no esta instalado!",
   "warning.bountifulcuisine.fermentation_vessel.glass_bottle": "Usa una frasco para recolectar esto",
-  "warning.bountifulcuisine.fermentation_vessel.jar": "Usa un tarro para recolectar esto"
+  "warning.bountifulcuisine.fermentation_vessel.jar": "Usa un tarro para recolectar esto",
+  "effect.bountifulcuisine.affluence": "Opulencia"
 }
