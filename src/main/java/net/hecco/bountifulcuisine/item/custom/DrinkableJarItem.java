@@ -49,6 +49,11 @@ public class DrinkableJarItem extends Item {
         return SoundEvents.ENTITY_GENERIC_DRINK;
     }
 
+    @Override
+    public SoundEvent getEatSound() {
+        return SoundEvents.ENTITY_GENERIC_DRINK;
+    }
+
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         return ItemUsage.consumeHeldItem(world, user, hand);
     }

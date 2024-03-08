@@ -248,5 +248,17 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.GLOWING_CUSTARD)
                 .add(ModItems.ANCIENT_CUSTARD)
         ;
+        getOrCreateTagBuilder(ItemTags.SAPLINGS)
+                .add(ModBlocks.APPLE_SAPLING.asItem())
+                .add(ModBlocks.ORANGE_SAPLING.asItem())
+                .add(ModBlocks.LEMON_SAPLING.asItem())
+                .add(ModBlocks.PLUM_SAPLING.asItem())
+                .add(ModBlocks.HOARY_APPLE_SAPLING.asItem())
+                .add(ModBlocks.WALNUT_SAPLING.asItem())
+        ;
+        getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS)
+                .add(ModItems.LEEK_SEEDS)
+                .add(ModItems.MAIZE_SEEDS)
+        ;
     }
 }

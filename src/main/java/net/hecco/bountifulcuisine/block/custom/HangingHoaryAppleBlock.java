@@ -32,6 +32,13 @@ public class HangingHoaryAppleBlock extends HangingFruitBlock {
             VoxelShapes.combineAndSimplify(Block.createCuboidShape(5, 8, 5, 11, 14, 11), Block.createCuboidShape(7, 14, 7, 9, 16, 9), BooleanBiFunction.OR),
             VoxelShapes.combineAndSimplify(Block.createCuboidShape(4, 4, 4, 12, 12, 12), Block.createCuboidShape(7, 12, 7, 9, 16, 9), BooleanBiFunction.OR)
     };
+    private static final VoxelShape[] COLL_SHAPES = new VoxelShape[]{
+            VoxelShapes.empty(),
+            VoxelShapes.empty(),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(5.5, 10, 5.5, 10.5, 15, 10.5), Block.createCuboidShape(7, 15, 7, 9, 16, 9), BooleanBiFunction.OR),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(5, 8, 5, 11, 14, 11), Block.createCuboidShape(7, 14, 7, 9, 16, 9), BooleanBiFunction.OR),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(4, 4, 4, 12, 12, 12), Block.createCuboidShape(7, 12, 7, 9, 16, 9), BooleanBiFunction.OR)
+    };
     public HangingHoaryAppleBlock(Settings settings) {
         super(settings);
     }
@@ -40,6 +47,13 @@ public class HangingHoaryAppleBlock extends HangingFruitBlock {
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         Vec3d vec3d = state.getModelOffset(world, pos);
         VoxelShape voxelShape = SHAPES[state.get(AGE)];
+        return voxelShape.offset(vec3d.x, vec3d.y, vec3d.z);
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        Vec3d vec3d = state.getModelOffset(world, pos);
+        VoxelShape voxelShape = COLL_SHAPES[state.get(AGE)];
         return voxelShape.offset(vec3d.x, vec3d.y, vec3d.z);
     }
 

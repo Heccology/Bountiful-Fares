@@ -286,7 +286,11 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         fruitBlockDrops(ModBlocks.PLUM_BLOCK, ModItems.PLUM);
         fruitBlockDrops(ModBlocks.HOARY_APPLE_BLOCK, ModItems.HOARY_APPLE);
 
-        addDrop(ModBlocks.SPONGEKIN, leavesDrops(Blocks.OAK_LEAVES, Blocks.OAK_SAPLING, SAPLING_DROP_CHANCE));
+        hangingFruitDrops(ModBlocks.HANGING_APPLE, Items.APPLE);
+        hangingFruitDrops(ModBlocks.HANGING_ORANGE, ModItems.ORANGE);
+        hangingFruitDrops(ModBlocks.HANGING_LEMON, ModItems.LEMON);
+        hangingFruitDrops(ModBlocks.HANGING_PLUM, ModItems.PLUM);
+        hangingFruitDrops(ModBlocks.HANGING_HOARY_APPLE, ModItems.HOARY_APPLE);
 
     }
 
@@ -298,6 +302,15 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .conditionally(WITH_SILK_TOUCH)
                         .with(this.applyExplosionDecay(block, ItemEntry.builder(block))));
+    }
+
+    public void hangingFruitDrops(Block block, Item drop) {
+        addDrop(block, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(BlockStatePropertyLootCondition.builder(block)
+                                .properties(StatePredicate.Builder.create().exactMatch(HangingFruitBlock.AGE, 4)))
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(drop))))
+        );
     }
 
     public LootTable.Builder plantedTrellisDrops(Block block, Item plant) {

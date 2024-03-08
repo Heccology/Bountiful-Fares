@@ -90,9 +90,15 @@ public class FruitBlock extends FallingBlock {
         if (!world.isClient) {
             world.breakBlock(hit.getBlockPos(), false);
             world.playSound(null, hit.getBlockPos(), SoundEvents.BLOCK_BAMBOO_WOOD_FALL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            if (state.get(SLICES) == 0) {
-                world.spawnEntity(new ItemEntity(world, hit.getBlockPos().getX() + 0.5, hit.getBlockPos().getY() + 0.5, hit.getBlockPos().getZ() + 0.5, new ItemStack(getFruitItem(), 9)));
+            int stackCount = 9;
+            if (state.get(SLICES) == 1) {
+                stackCount = 4;
+            } else if (state.get(SLICES) == 2) {
+                stackCount = 2;
+            } else if (state.get(SLICES) == 3) {
+                stackCount = 1;
             }
+            world.spawnEntity(new ItemEntity(world, hit.getBlockPos().getX() + 0.5, hit.getBlockPos().getY() + 0.5, hit.getBlockPos().getZ() + 0.5, new ItemStack(getFruitItem(), stackCount)));
         }
     }
 

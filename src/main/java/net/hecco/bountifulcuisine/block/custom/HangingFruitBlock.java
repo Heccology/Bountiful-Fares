@@ -2,6 +2,7 @@ package net.hecco.bountifulcuisine.block.custom;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
@@ -15,6 +16,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
@@ -79,5 +82,13 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
 
     private static boolean isFullyGrown(BlockState state) {
         return state.get(AGE) == 4;
+    }
+
+    @Override
+    public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
+        if (isFullyGrown(state)) {
+            world.breakBlock(hit.getBlockPos(), true);
+        }
+        super.onProjectileHit(world, state, hit, projectile);
     }
 }

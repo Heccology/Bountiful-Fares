@@ -7,6 +7,7 @@ import net.hecco.bountifulcuisine.util.ModBlockTags;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -369,6 +370,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.HOARY_PICKETS)
                 .add(ModBlocks.CRIMSON_PICKETS)
                 .add(ModBlocks.WARPED_PICKETS)
+        ;
+        getOrCreateTagBuilder(BlockTags.SAPLINGS)
+                .add(ModBlocks.APPLE_SAPLING)
+                .add(ModBlocks.ORANGE_SAPLING)
+                .add(ModBlocks.LEMON_SAPLING)
+                .add(ModBlocks.PLUM_SAPLING)
+                .add(ModBlocks.HOARY_APPLE_SAPLING)
+                .add(ModBlocks.WALNUT_SAPLING)
         ;
     }
 }

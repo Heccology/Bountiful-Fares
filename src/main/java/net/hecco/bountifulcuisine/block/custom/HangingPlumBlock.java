@@ -31,6 +31,13 @@ public class HangingPlumBlock extends HangingFruitBlock {
             Block.createCuboidShape(6.5, 13, 6.5, 9.5, 16, 9.5),
             VoxelShapes.combineAndSimplify(Block.createCuboidShape(6, 11, 6, 10, 15, 10), Block.createCuboidShape(7, 15, 7, 9, 16, 9), BooleanBiFunction.OR),
             VoxelShapes.combineAndSimplify(Block.createCuboidShape(5.5, 10, 5.5, 10.5, 15, 10.5), Block.createCuboidShape(7, 15, 7, 9, 16, 9), BooleanBiFunction.OR)};
+    private static final VoxelShape[] COLL_SHAPES = new VoxelShape[]{
+            VoxelShapes.empty(),
+            VoxelShapes.empty(),
+            Block.createCuboidShape(6.5, 13, 6.5, 9.5, 16, 9.5),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(6, 11, 6, 10, 15, 10), Block.createCuboidShape(7, 15, 7, 9, 16, 9), BooleanBiFunction.OR),
+            VoxelShapes.combineAndSimplify(Block.createCuboidShape(5.5, 10, 5.5, 10.5, 15, 10.5), Block.createCuboidShape(7, 15, 7, 9, 16, 9), BooleanBiFunction.OR)};
+
     public HangingPlumBlock(Settings settings) {
         super(settings);
     }
@@ -41,6 +48,12 @@ public class HangingPlumBlock extends HangingFruitBlock {
         VoxelShape voxelShape = SHAPES[state.get(AGE)];
         return voxelShape.offset(vec3d.x, vec3d.y, vec3d.z);
     }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        Vec3d vec3d = state.getModelOffset(world, pos);
+        VoxelShape voxelShape = COLL_SHAPES[state.get(AGE)];
+        return voxelShape.offset(vec3d.x, vec3d.y, vec3d.z);    }
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {

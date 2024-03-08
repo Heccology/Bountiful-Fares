@@ -58,9 +58,10 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (!isFullyGrown(state) && !state.get(ATTACHED) && random.nextFloat() < 0.1f) {
             world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
-        } else if (isFullyGrown(state) || !state.get(ATTACHED)) {
+        }
+        if (isFullyGrown(state) && !state.get(ATTACHED)) {
             BlockPos spongekinPos = pos.offset(Direction.UP);
-            if (world.getBlockState(spongekinPos).isAir() || world.getBlockState(spongekinPos).isOf(Blocks.WATER)) {
+            if ((world.getBlockState(spongekinPos).isAir() || world.getBlockState(spongekinPos).isOf(Blocks.WATER) && isFullyGrown(state))) {
                 world.setBlockState(spongekinPos, ModBlocks.SPONGEKIN.getDefaultState().with(SpongekinBlock.PLANTED, true), 2);
                 world.setBlockState(pos, this.getStateWithProperties(state).with(ATTACHED, true));
                 BlockPos prismarineBlossomPos = pos.offset(Direction.UP, 2);
@@ -90,21 +91,6 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         if (!isFullyGrown(state) && !state.get(ATTACHED)) {
             world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
-        } else if (isFullyGrown(state) || !state.get(ATTACHED)) {
-            BlockPos spongekinPos = pos.offset(Direction.UP);
-            if (world.getBlockState(spongekinPos).isAir() || world.getBlockState(spongekinPos).isOf(Blocks.WATER)) {
-                world.setBlockState(spongekinPos, ModBlocks.SPONGEKIN.getDefaultState().with(SpongekinBlock.PLANTED, true), 2);
-                world.setBlockState(pos, this.getStateWithProperties(state).with(ATTACHED, true));
-                BlockPos prismarineBlossomPos = pos.offset(Direction.UP, 2);
-                if (shouldPropagatePrismarine(world, pos)) {
-                    if (world.getBlockState(prismarineBlossomPos).isOf(Blocks.WATER)) {
-                        world.setBlockState(prismarineBlossomPos, ModBlocks.PRISMARINE_BLOSSOM.getDefaultState().with(PrismarineBlossomBlock.WATERLOGGED, true), 2);
-                    } else if (world.getBlockState(prismarineBlossomPos).isAir()) {
-                        world.setBlockState(prismarineBlossomPos, ModBlocks.PRISMARINE_BLOSSOM.getDefaultState(), 2);
-                    }
-
-                }
-            }
         }
     }
 
@@ -113,7 +99,7 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
     }
 
     protected static boolean isFullyGrown(BlockState state) {
-        return state.get(AGE) == MAX_AGE;
+        return state.get(AGE) == 3;
     }
 
     @Override
@@ -131,19 +117,15 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
         return null;
     }
 
-    public static boolean shouldBeAttached(WorldAccess world, BlockPos pos, BlockState state) {
-        return state.get(ATTACHED) && world.getBlockState(pos.up()).isOf(ModBlocks.SPONGEKIN);
-    }
-
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         BlockState blockState = super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
         if (!blockState.isAir()) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
-        if (!shouldBeAttached(world, pos, state)) {
-            return ModBlocks.SPONGEKIN_STEM.getStateWithProperties(state).with(ATTACHED, false);
-//            world.setBlockState(pos, state.with(ATTACHED, false));
+        if (state.get(ATTACHED) && !world.getBlockState(pos.up()).isOf(ModBlocks.SPONGEKIN)) {
+            if (state.get(AGE) == 3)
+                return state.with(ATTACHED, false);
         }
         return blockState;
     }

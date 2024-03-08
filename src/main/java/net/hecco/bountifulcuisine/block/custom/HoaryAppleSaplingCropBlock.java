@@ -4,7 +4,6 @@ import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
@@ -15,14 +14,11 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class HoaryFigSaplingCropBlock extends CropBlock {
-    public static final int field_42775 = 2;
+public class HoaryAppleSaplingCropBlock extends CropBlock {
     public static final IntProperty AGE = Properties.AGE_1;
-    private static final float field_42777 = 3.0f;
     private static final VoxelShape[] SHAPES = new VoxelShape[]{Block.createCuboidShape(5.0, -1.0, 5.0, 11.0, 3.0, 11.0), Block.createCuboidShape(5.0, -1.0, 5.0, 11.0, 10.0, 11.0)};
-    private static final int field_44479 = 1;
 
-    public HoaryFigSaplingCropBlock(AbstractBlock.Settings settings) {
+    public HoaryAppleSaplingCropBlock(AbstractBlock.Settings settings) {
         super(settings);
     }
 

@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-28T23:30:55.501383	Bountiful Cuisine/Model Definitions
+// 1.20.1	2024-03-07T14:48:46.360995	Bountiful Cuisine/Model Definitions
 d83279b753d0b47f69cd917baace4ae62a7098ea assets/bountifulcuisine/models/block/stripped_walnut_log.json
 1d98f3f7ab0b9af302a5fa64bd0b1995e9137073 assets/bountifulcuisine/models/block/walnut_button_inventory.json
 7924cf0e1acc98575d6065dc9e3df95f33172e9b assets/bountifulcuisine/models/block/stripped_walnut_wood.json
@@ -67,8 +67,8 @@ a1e099b3dfe99c8b236498036fd46a21e1c36786 assets/bountifulcuisine/blockstates/wal
 7f76243047348be4d0498f72eecb840f160ba738 assets/bountifulcuisine/blockstates/feldspar_brick_slab.json
 a0a4131c08b17dd4beb6ea6e94bda45a9326be5a assets/bountifulcuisine/blockstates/walnut_trapdoor.json
 0c13b529c7bf68cfbfa5d5cfba6deb7f26fd56f0 assets/bountifulcuisine/models/item/candied_plum.json
-ad89f3feab39d6f555dc25c10413ec23f9f580f6 assets/bountifulcuisine/models/block/walnut_slab.json
 807240ef5103da5d728dd44641a03f643c243cd4 assets/bountifulcuisine/models/item/maize_stuffed_potato.json
+ad89f3feab39d6f555dc25c10413ec23f9f580f6 assets/bountifulcuisine/models/block/walnut_slab.json
 d09b827dad657a698481f31d4086c08e5a960630 assets/bountifulcuisine/models/block/feldspar_brick_stairs.json
 0eccadfa07e333f8129b676069ae4fac596eaa46 assets/bountifulcuisine/models/block/feldspar_bricks.json
 fc964e1e24578a72a721973216be3758c9d5c4c6 assets/bountifulcuisine/blockstates/walnut_stairs.json

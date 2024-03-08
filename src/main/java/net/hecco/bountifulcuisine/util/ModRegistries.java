@@ -2,11 +2,9 @@ package net.hecco.bountifulcuisine.util;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.entity.FlourProjectileEntity;
-import net.hecco.bountifulcuisine.entity.ModEntities;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.hecco.bountifulcuisine.potion.ModPotions;
 import net.minecraft.block.DispenserBlock;
-import net.minecraft.block.dispenser.ProjectileDispenserBehavior;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
