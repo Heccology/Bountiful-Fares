@@ -4,6 +4,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.random.Random;
 
@@ -14,11 +15,11 @@ public class GorgingEffect extends StatusEffect {
 
 
     @Override
-    public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
+    public void onApplied(LivingEntity entity, int amplifier) {
         if (entity instanceof  PlayerEntity) {
             ((PlayerEntity) entity).getHungerManager().setFoodLevel(20);
         }
-        super.onApplied(entity, attributes, amplifier);
+        super.onApplied(entity, amplifier);
     }
 
     @Override
@@ -27,14 +28,20 @@ public class GorgingEffect extends StatusEffect {
         if (entity instanceof PlayerEntity) {
             ((PlayerEntity) entity).getHungerManager().setExhaustion(0f);
         }
+        for (StatusEffectInstance thisEffect : entity.getStatusEffects()) {
+            if (thisEffect.getEffectType() == this) {
+                if (thisEffect.getDuration() <= 1) {
+                    if (entity instanceof  PlayerEntity) {
+                        ((PlayerEntity) entity).getHungerManager().setFoodLevel(1 + Random.create().nextBetween(0, 5));
+                    }
+                }
+            }
+        }
     }
 
     @Override
-    public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        if (entity instanceof  PlayerEntity) {
-            ((PlayerEntity) entity).getHungerManager().setFoodLevel(1 + Random.create().nextBetween(0, 5));
-        }
-        super.onRemoved(entity, attributes, amplifier);
+    public void onRemoved(AttributeContainer attributes) {
+        super.onRemoved(attributes);
     }
 
     @Override

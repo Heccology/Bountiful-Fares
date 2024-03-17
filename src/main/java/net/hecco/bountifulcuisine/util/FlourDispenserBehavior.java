@@ -14,9 +14,9 @@ public abstract class FlourDispenserBehavior extends ItemDispenserBehavior {
     }
 
     public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-        World world = pointer.getWorld();
+        World world = pointer.world();
         Position position = DispenserBlock.getOutputLocation(pointer);
-        Direction direction = pointer.getBlockState().get(DispenserBlock.FACING);
+        Direction direction = pointer.state().get(DispenserBlock.FACING);
         ProjectileEntity projectileEntity = this.createProjectile(world, position, stack);
         projectileEntity.setVelocity(direction.getOffsetX(), ((float)direction.getOffsetY() + 0.1F), direction.getOffsetZ(), this.getForce(), this.getVariation());
         world.spawnEntity(projectileEntity);
@@ -25,7 +25,7 @@ public abstract class FlourDispenserBehavior extends ItemDispenserBehavior {
     }
 
     protected void playSound(BlockPointer pointer) {
-        pointer.getWorld().syncWorldEvent(1002, pointer.getPos(), 0);
+        pointer.world().syncWorldEvent(1002, pointer.pos(), 0);
     }
 
     protected abstract ProjectileEntity createProjectile(World world, Position position, ItemStack stack);

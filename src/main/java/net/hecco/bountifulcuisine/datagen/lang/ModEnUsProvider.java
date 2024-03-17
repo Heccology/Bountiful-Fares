@@ -445,7 +445,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulcuisine.place_all_tea_candles", "Fragrant!");
         generate(translationBuilder, "advancement.bountifulcuisine.place_all_tea_candles.description", "Place every Tea Candle");
 
-        generate(translationBuilder, "advancement.bountifulcuisine.obtain_walnut", "Nuts to You");
+        generate(translationBuilder, "advancement.bountifulcuisine.obtain_walnut", "Insert Funny Nut Phrase");
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_walnut.description", "Find a Walnut");
 
         generate(translationBuilder, "advancement.bountifulcuisine.obtain_spongekin_seeds", "A Spongy Place");

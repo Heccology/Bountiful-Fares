@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulcuisine.particle.ModParticles;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
@@ -23,9 +24,16 @@ import org.jetbrains.annotations.Nullable;
 public class PrismarineBlossomBlock extends PlantBlock implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
+    public static final MapCodec<PrismarineBlossomBlock> CODEC = PrismarineBlossomBlock.createCodec(PrismarineBlossomBlock::new);
+
     public PrismarineBlossomBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(WATERLOGGED, false));
+    }
+
+    @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return CODEC;
     }
 
     @Override

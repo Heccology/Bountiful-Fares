@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulcuisine.block.entity.ModBlockEntities;
 import net.hecco.bountifulcuisine.util.FermentationRecipes;
 import net.hecco.bountifulcuisine.block.entity.FermentationVesselBlockEntity;
@@ -41,9 +42,16 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final BooleanProperty WATER = BooleanProperty.of("water");
     public static final BooleanProperty FERMENTING = BooleanProperty.of("fermenting");
+
+    public static final MapCodec<FermentationVesselBlock> CODEC = FermentationVesselBlock.createCodec(FermentationVesselBlock::new);
     public FermentationVesselBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(WATER, false).with(FERMENTING, false).with(WATERLOGGED, false));
+    }
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -153,6 +161,6 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return validateTicker(type, ModBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

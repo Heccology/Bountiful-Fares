@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.*;
@@ -25,9 +26,16 @@ public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
 
     public static final IntProperty AGE = Properties.AGE_3;
 
+    public static final MapCodec<HangingWalnutsBlock> CODEC = HangingWalnutsBlock.createCodec(HangingWalnutsBlock::new);
+
     public HangingWalnutsBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0));
+    }
+
+    @Override
+    protected MapCodec<? extends FallingBlock> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -116,7 +124,7 @@ public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
         }
     }
 
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
 
@@ -137,7 +145,7 @@ public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return ModItems.WALNUT.getDefaultStack();
     }
 }

@@ -1,5 +1,7 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.hecco.bountifulcuisine.block.interfaces.DyeableCeramicBlockInterface;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.hecco.bountifulcuisine.block.entity.CeramicTilesBlockEntity;
@@ -25,15 +27,31 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockRenderView;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 public class CeramicPressurePlateBlock extends AbstractPressurePlateBlock implements DyeableCeramicBlockInterface {
     public static final BooleanProperty POWERED = Properties.POWERED;
 
+    protected final BlockSetType blockSetType;
+
+
+    public static final MapCodec<PressurePlateBlock> CODEC = RecordCodecBuilder.mapCodec((instance) -> {
+        return instance.group(BlockSetType.CODEC.fieldOf("block_set_type").forGetter((block) -> {
+            return null;
+        }), createSettingsCodec()).apply(instance, PressurePlateBlock::new);
+    });
+
     public CeramicPressurePlateBlock(Settings settings, BlockSetType blockSetType) {
         super(settings, blockSetType);
+        this.blockSetType = blockSetType;
         this.setDefaultState((this.stateManager.getDefaultState()).with(POWERED, false));
+    }
+
+    @Override
+    protected MapCodec<? extends AbstractPressurePlateBlock> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -124,7 +142,7 @@ public class CeramicPressurePlateBlock extends AbstractPressurePlateBlock implem
 
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         if (CeramicTilesBlockEntity.getColor(world, pos) != CeramicTilesBlockEntity.DEFAULT_COLOR) {
             ItemStack stack = super.getPickStack(world, pos, state);
             return pickBlock(world,pos,stack);

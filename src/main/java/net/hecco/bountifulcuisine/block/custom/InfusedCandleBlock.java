@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulcuisine.util.ModBlockTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -38,10 +39,17 @@ public class InfusedCandleBlock extends BlockWithEntity implements BlockEntityPr
     public static final BooleanProperty LIT = AbstractCandleBlock.LIT;
     public static boolean canBeLit;
 
+    public static final MapCodec<InfusedCandleBlock> CODEC = InfusedCandleBlock.createCodec(InfusedCandleBlock::new);
+
     public InfusedCandleBlock(Settings settings) {
         super(settings);
         canBeLit = canBeLit(getDefaultState());
         this.setDefaultState(this.stateManager.getDefaultState().with(LIT, false).with(WATERLOGGED, false));
+    }
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override

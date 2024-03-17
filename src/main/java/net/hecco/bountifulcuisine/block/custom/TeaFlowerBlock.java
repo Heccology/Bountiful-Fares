@@ -15,7 +15,7 @@ public class TeaFlowerBlock extends FlowerBlock implements Fertilizable {
         super(suspiciousStewEffect, effectDuration, settings);
     }
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return world.getBlockState(pos.down()).isOf(Blocks.FARMLAND);
     }
 

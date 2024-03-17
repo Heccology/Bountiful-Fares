@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulcuisine.item.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -33,6 +34,7 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
     private static final VoxelShape AGE1_SHAPE = Block.createCuboidShape(3, 0, 3, 13, 9, 13);
     private static final VoxelShape AGE4_SHAPE = VoxelShapes.combineAndSimplify(Block.createCuboidShape(7, 0, 7, 9, 9, 9), Block.createCuboidShape(0, 9, 0, 16, 16, 16), BooleanBiFunction.OR);
 
+    public static final MapCodec<TeaShrubBlock> CODEC = TeaShrubBlock.createCodec(TeaShrubBlock::new);
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         switch (state.get(AGE)) {
@@ -48,6 +50,11 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
     public TeaShrubBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0).with(BERRIES, false));
+    }
+
+    @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -91,12 +98,12 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return new ItemStack(ModItems.TEA_BERRIES);
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return true;
     }
 

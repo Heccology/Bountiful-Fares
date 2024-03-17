@@ -9,7 +9,7 @@ import net.minecraft.util.math.BlockPos;
 
 public class ModWallSignBlock extends WallSignBlock {
     public ModWallSignBlock(Settings settings, WoodType woodType) {
-        super(settings, woodType);
+        super(woodType, settings);
     }
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {

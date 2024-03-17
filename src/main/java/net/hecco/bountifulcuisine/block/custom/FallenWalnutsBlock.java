@@ -51,7 +51,7 @@ public class FallenWalnutsBlock extends Block {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return ModItems.WALNUT.getDefaultStack();
     }
 }

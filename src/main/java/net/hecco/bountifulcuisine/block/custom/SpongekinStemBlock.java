@@ -1,8 +1,10 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.block.ModBlocks;
 import net.minecraft.block.*;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -28,9 +30,16 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
     public static final VoxelShape[] SHAPES = new VoxelShape[] {Block.createCuboidShape(7, 0, 7, 9, 3, 9), Block.createCuboidShape(6, 0, 6, 10, 6, 10), Block.createCuboidShape(5, 0, 5, 11, 11, 11), Block.createCuboidShape(5, 0, 5, 11, 15, 11), Block.createCuboidShape(4, 0, 4, 12, 16, 12)};
     public static final int MAX_AGE = 3;
     public static final IntProperty AGE = IntProperty.of("age", 0, 3);
+
+    public static final MapCodec<SpongekinStemBlock> CODEC = SpongekinStemBlock.createCodec(SpongekinStemBlock::new);
     public SpongekinStemBlock(Settings settings) {
         super(settings);
         this.setDefaultState((this.stateManager.getDefaultState()).with(AGE, 0).with(ATTACHED, false));
+    }
+
+    @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -78,7 +87,7 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return true;
     }
 
@@ -136,7 +145,7 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
     }
 
     @Override
-    public boolean canFillWithFluid(BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
+    public boolean canFillWithFluid(@Nullable PlayerEntity player, BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
         return false;
     }
 

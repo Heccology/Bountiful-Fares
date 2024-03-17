@@ -80,7 +80,7 @@ public class HangingOrangeBlock extends HangingFruitBlock {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return new ItemStack(ModItems.ORANGE);
     }
 }

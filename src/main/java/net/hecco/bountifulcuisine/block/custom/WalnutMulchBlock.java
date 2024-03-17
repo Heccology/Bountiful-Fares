@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.item.ItemPlacementContext;
@@ -32,10 +33,16 @@ public class WalnutMulchBlock extends FallingBlock {
             Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 16.0, 16.0)
     };
 
+    public static final MapCodec<WalnutMulchBlock> CODEC = WalnutMulchBlock.createCodec(WalnutMulchBlock::new);
 
     public WalnutMulchBlock(AbstractBlock.Settings settings) {
         super(settings);
         this.setDefaultState((this.stateManager.getDefaultState()).with(LAYERS, 1));
+    }
+
+    @Override
+    protected MapCodec<? extends FallingBlock> getCodec() {
+        return CODEC;
     }
 
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {

@@ -1,5 +1,6 @@
 package net.hecco.bountifulcuisine.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
@@ -26,9 +27,16 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
 
     public static final IntProperty AGE = Properties.AGE_4;
 
+    public static final MapCodec<HangingFruitBlock> CODEC = HangingFruitBlock.createCodec(HangingFruitBlock::new);
+
     public HangingFruitBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0));
+    }
+
+    @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -65,6 +73,11 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
         return super.onUse(state, world, pos, player, hand, hit);
     }
 
+    @Override
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
+        return state.get(AGE) < 4;
+    }
+
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
@@ -74,10 +87,6 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
         if (!isFullyGrown(state)) {
             world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
         }
-    }
-
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
-        return state.get(AGE) < 4;
     }
 
     private static boolean isFullyGrown(BlockState state) {
