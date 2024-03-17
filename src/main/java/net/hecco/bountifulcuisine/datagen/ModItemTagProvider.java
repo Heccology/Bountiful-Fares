@@ -257,9 +257,5 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.HOARY_APPLE_SAPLING.asItem())
                 .add(ModBlocks.WALNUT_SAPLING.asItem())
         ;
-        getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS)
-                .add(ModItems.LEEK_SEEDS)
-                .add(ModItems.MAIZE_SEEDS)
-        ;
     }
 }
