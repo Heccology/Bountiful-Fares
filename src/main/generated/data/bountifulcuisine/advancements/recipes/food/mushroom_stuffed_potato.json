@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_baked_potato",
       "has_red_mushroom",
-      "has_brown_mushroom",
-      "has_the_recipe"
+      "has_brown_mushroom"
     ]
   ],
   "rewards": {

@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_elderberries",
-      "has_flour",
-      "has_the_recipe"
+      "has_flour"
     ]
   ],
   "rewards": {

@@ -1,5 +1,4 @@
 {
-  "parent": "minecraft:recipes/root",
   "criteria": {
     "has_chamomile_flowers": {
       "conditions": {
@@ -12,26 +11,12 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "bountifulcuisine:chamomile_tea_blend"
-      },
-      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
       "has_chamomile_flowers"
-    ],
-    [
-      "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
-      "bountifulcuisine:chamomile_tea_blend"
-    ]
-  },
   "sends_telemetry_event": true
 }

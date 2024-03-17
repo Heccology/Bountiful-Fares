@@ -58,11 +58,11 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_milk_bucket",
       "has_sugar",
       "has_hoary_apple",
-      "has_lapisberries",
-      "has_the_recipe"
+      "has_lapisberries"
     ]
   ],
   "rewards": {

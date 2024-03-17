@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_walnut_mulch",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_walnut_mulch"
     ]
   ],
   "rewards": {

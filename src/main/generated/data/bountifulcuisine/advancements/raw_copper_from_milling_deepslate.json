@@ -1,0 +1,22 @@
+{
+  "criteria": {
+    "has_deepslate_copper_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:deepslate_copper_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_deepslate_copper_ore"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

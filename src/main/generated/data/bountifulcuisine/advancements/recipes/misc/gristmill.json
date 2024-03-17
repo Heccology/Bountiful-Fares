@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_iron_ingot",
-      "has_brick",
-      "has_the_recipe"
+      "has_brick"
     ]
   ],
   "rewards": {

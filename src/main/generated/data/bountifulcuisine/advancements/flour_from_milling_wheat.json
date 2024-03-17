@@ -1,12 +1,5 @@
 {
-  "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "bountifulcuisine:flour"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
     "has_wheat": {
       "conditions": {
         "items": [
@@ -23,15 +16,7 @@
   "requirements": [
     [
       "has_wheat"
-    ],
-    [
-      "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
-      "bountifulcuisine:flour"
-    ]
-  },
   "sends_telemetry_event": true
 }

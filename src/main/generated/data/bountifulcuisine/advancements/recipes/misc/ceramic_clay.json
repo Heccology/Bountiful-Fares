@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_clay_ball",
-      "has_feldspar",
-      "has_the_recipe"
+      "has_feldspar"
     ]
   ],
   "rewards": {

@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_crimson_fungus",
-      "has_crimson_roots",
-      "has_the_recipe"
+      "has_crimson_roots"
     ]
   ],
   "rewards": {

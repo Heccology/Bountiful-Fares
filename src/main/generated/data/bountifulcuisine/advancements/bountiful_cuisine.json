@@ -1,7 +1,6 @@
 {
   "criteria": {
     "consume_item": {
-      "conditions": {},
       "trigger": "minecraft:consume_item"
     }
   },

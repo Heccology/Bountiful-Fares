@@ -1,5 +1,4 @@
 {
-  "parent": "minecraft:recipes/root",
   "criteria": {
     "has_honeysuckle": {
       "conditions": {
@@ -12,26 +11,12 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "bountifulcuisine:honeysuckle_tea_blend"
-      },
-      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
       "has_honeysuckle"
-    ],
-    [
-      "has_the_recipe"
     ]
   ],
-  "rewards": {
-    "recipes": [
-      "bountifulcuisine:honeysuckle_tea_blend"
-    ]
-  },
   "sends_telemetry_event": true
 }

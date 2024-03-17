@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_honeysuckle_tea_blend",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_honeysuckle_tea_blend"
     ]
   ],
   "rewards": {

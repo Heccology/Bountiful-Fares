@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_ceramic_tiles",
       "has_gold_ingot",
-      "has_string",
-      "has_the_recipe"
+      "has_string"
     ]
   ],
   "rewards": {

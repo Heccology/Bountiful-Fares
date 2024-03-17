@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_warped_fungus",
-      "has_warped_roots",
-      "has_the_recipe"
+      "has_warped_roots"
     ]
   ],
   "rewards": {

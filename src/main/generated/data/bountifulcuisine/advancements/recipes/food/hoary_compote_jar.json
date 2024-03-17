@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_jar",
-      "has_hoary_apple",
-      "has_the_recipe"
+      "has_hoary_apple"
     ]
   ],
   "rewards": {

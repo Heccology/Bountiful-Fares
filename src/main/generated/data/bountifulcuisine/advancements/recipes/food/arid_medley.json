@@ -58,11 +58,11 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_cactus",
       "has_potato",
       "has_maize",
-      "has_bread",
-      "has_the_recipe"
+      "has_bread"
     ]
   ],
   "rewards": {

@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_baked_potato",
-      "has_maize",
-      "has_the_recipe"
+      "has_maize"
     ]
   ],
   "rewards": {

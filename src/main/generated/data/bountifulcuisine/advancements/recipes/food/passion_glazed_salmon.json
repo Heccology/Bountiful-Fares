@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_passion_fruit",
-      "has_cooked_salmon",
-      "has_the_recipe"
+      "has_cooked_salmon"
     ]
   ],
   "rewards": {

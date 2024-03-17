@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_chamomile_flowers",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_chamomile_flowers"
     ]
   ],
   "rewards": {

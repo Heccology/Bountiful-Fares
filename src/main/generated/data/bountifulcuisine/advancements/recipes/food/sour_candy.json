@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_sugar",
-      "has_citric_acid",
-      "has_the_recipe"
+      "has_citric_acid"
     ]
   ],
   "rewards": {

@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_stone_pickaxe",
-      "has_rotten_flesh",
-      "has_the_recipe"
+      "has_rotten_flesh"
     ]
   ],
   "rewards": {
