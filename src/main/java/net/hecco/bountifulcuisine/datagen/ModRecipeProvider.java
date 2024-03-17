@@ -4,12 +4,9 @@ import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.hecco.bountifulcuisine.datagen.recipe.FermentationRecipeBuilder;
 import net.hecco.bountifulcuisine.datagen.recipe.MillingRecipeBuilder;
 import net.hecco.bountifulcuisine.item.ModItems;
-import net.hecco.bountifulcuisine.util.ModBlockTags;
 import net.hecco.bountifulcuisine.util.ModItemTags;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
@@ -19,9 +16,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.util.Identifier;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 import static net.minecraft.data.family.BlockFamilies.register;
@@ -581,130 +576,122 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerJackOStrawRecipes(exporter, ModBlocks.MAGENTA_JACK_O_STRAW, Items.MAGENTA_WOOL);
         offerJackOStrawRecipes(exporter, ModBlocks.PINK_JACK_O_STRAW, Items.PINK_WOOL);
 
-        offerTeaBlendMillingRecipe(exporter, ModItems.GREEN_TEA_BLEND, ModItems.TEA_LEAVES);
-        offerTeaBlendMillingRecipe(exporter, ModItems.BLACK_TEA_BLEND, ModItems.DRIED_TEA_LEAVES);
-        offerTeaBlendMillingRecipe(exporter, ModItems.CHAMOMILE_TEA_BLEND, ModBlocks.CHAMOMILE_FLOWERS);
-        offerTeaBlendMillingRecipe(exporter, ModItems.HONEYSUCKLE_TEA_BLEND, ModBlocks.HONEYSUCKLE);
-        offerTeaBlendMillingRecipe(exporter, ModItems.BELLFLOWER_TEA_BLEND, ModBlocks.VIOLET_BELLFLOWER);
-        offerTeaBlendMillingRecipe(exporter, ModItems.TORCHFLOWER_TEA_BLEND, Items.TORCHFLOWER);
-        new MillingRecipeBuilder(Items.GRANITE, ModItems.FELDSPAR, 2, "granite")
-                .group("feldspar")
-                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.DIORITE, ModItems.FELDSPAR, 2, "diorite")
-                .group("feldspar")
-                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.ANDESITE, ModItems.FELDSPAR, 2, "andesite")
-                .group("feldspar")
-                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.TUFF, ModItems.FELDSPAR, 2, "tuff")
-                .group("feldspar")
-                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.BONE, Items.BONE_MEAL, 4, null)
-                .group("bone_meal")
-                .criterion(hasItem(Items.BONE), conditionsFromItem(Items.BONE))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.WHEAT, ModItems.FLOUR, 2, "wheat")
-                .group("flour")
-                .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(ModItems.MAIZE, ModItems.FLOUR, 2, "maize")
-                .group("flour")
-                .criterion(hasItem(ModItems.MAIZE), conditionsFromItem(ModItems.MAIZE))
-                .offerTo(exporter);
-
-        new MillingRecipeBuilder(Items.COAL_ORE, Items.COAL, 2, null)
-                .group("coal")
-                .criterion(hasItem(Items.COAL_ORE), conditionsFromItem(Items.COAL_ORE))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.DEEPSLATE_COAL_ORE, Items.COAL, 2, "deepslate")
-                .group("coal")
-                .criterion(hasItem(Items.DEEPSLATE_COAL_ORE), conditionsFromItem(Items.DEEPSLATE_COAL_ORE))
-                .offerTo(exporter);
-
-        new MillingRecipeBuilder(Items.IRON_ORE, Items.RAW_IRON, 2, null)
-                .group("iron")
-                .criterion(hasItem(Items.IRON_ORE), conditionsFromItem(Items.IRON_ORE))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.DEEPSLATE_IRON_ORE, Items.RAW_IRON, 2, "deepslate")
-                .group("iron")
-                .criterion(hasItem(Items.DEEPSLATE_IRON_ORE), conditionsFromItem(Items.DEEPSLATE_IRON_ORE))
-                .offerTo(exporter);
-
-        new MillingRecipeBuilder(Items.GOLD_ORE, Items.RAW_GOLD, 2, null)
-                .group("gold")
-                .criterion(hasItem(Items.GOLD_ORE), conditionsFromItem(Items.GOLD_ORE))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.DEEPSLATE_GOLD_ORE, Items.RAW_GOLD, 2, "deepslate")
-                .group("gold")
-                .criterion(hasItem(Items.DEEPSLATE_GOLD_ORE), conditionsFromItem(Items.DEEPSLATE_GOLD_ORE))
-                .offerTo(exporter);
-
-        new MillingRecipeBuilder(Items.COPPER_ORE, Items.RAW_COPPER, 5, null)
-                .group("copper")
-                .criterion(hasItem(Items.COPPER_ORE), conditionsFromItem(Items.COPPER_ORE))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER, 5, "deepslate")
-                .group("copper")
-                .criterion(hasItem(Items.DEEPSLATE_COPPER_ORE), conditionsFromItem(Items.DEEPSLATE_COPPER_ORE))
-                .offerTo(exporter);
-
-        new MillingRecipeBuilder(Items.LAPIS_ORE, Items.LAPIS_LAZULI, 8, null)
-                .group("lapis")
-                .criterion(hasItem(Items.LAPIS_ORE), conditionsFromItem(Items.LAPIS_ORE))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.DEEPSLATE_LAPIS_ORE, Items.LAPIS_LAZULI, 8, "deepslate")
-                .group("lapis")
-                .criterion(hasItem(Items.DEEPSLATE_LAPIS_ORE), conditionsFromItem(Items.DEEPSLATE_LAPIS_ORE))
-                .offerTo(exporter);
-
-        new MillingRecipeBuilder(Items.REDSTONE_ORE, Items.REDSTONE, 6, null)
-                .group("redstone")
-                .criterion(hasItem(Items.REDSTONE_ORE), conditionsFromItem(Items.REDSTONE_ORE))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.DEEPSLATE_REDSTONE_ORE, Items.REDSTONE, 6, "deepslate")
-                .group("redstone")
-                .criterion(hasItem(Items.DEEPSLATE_REDSTONE_ORE), conditionsFromItem(Items.DEEPSLATE_REDSTONE_ORE))
-                .offerTo(exporter);
-
-        new MillingRecipeBuilder(Items.NETHER_GOLD_ORE, Items.GOLD_NUGGET, 8, null)
-                .group("gold_nugget")
-                .criterion(hasItem(Items.NETHER_GOLD_ORE), conditionsFromItem(Items.NETHER_GOLD_ORE))
-                .offerTo(exporter);
-
-        new MillingRecipeBuilder(Items.NETHER_QUARTZ_ORE, Items.QUARTZ, 2, null)
-                .group("quartz")
-                .criterion(hasItem(Items.NETHER_QUARTZ_ORE), conditionsFromItem(Items.NETHER_QUARTZ_ORE))
-                .offerTo(exporter);
-
-        new MillingRecipeBuilder(Items.EMERALD_ORE, Items.EMERALD, 2, null)
-                .group("emerald")
-                .criterion(hasItem(Items.EMERALD_ORE), conditionsFromItem(Items.EMERALD_ORE))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.DEEPSLATE_EMERALD_ORE, Items.EMERALD, 2, "deepslate")
-                .group("emerald")
-                .criterion(hasItem(Items.DEEPSLATE_EMERALD_ORE), conditionsFromItem(Items.DEEPSLATE_EMERALD_ORE))
-                .offerTo(exporter);
-
-        new MillingRecipeBuilder(Items.DIAMOND_ORE, Items.DIAMOND, 2, null)
-                .group("diamond")
-                .criterion(hasItem(Items.DIAMOND_ORE), conditionsFromItem(Items.DIAMOND_ORE))
-                .offerTo(exporter);
-        new MillingRecipeBuilder(Items.DEEPSLATE_DIAMOND_ORE, Items.DIAMOND, 2, "deepslate")
-                .group("diamond")
-                .criterion(hasItem(Items.DEEPSLATE_DIAMOND_ORE), conditionsFromItem(Items.DEEPSLATE_DIAMOND_ORE))
-                .offerTo(exporter);
-
-        new FermentationRecipeBuilder(Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE, null, 1, null)
-                .criterion(hasItem(Items.SPIDER_EYE), conditionsFromItem(Items.SPIDER_EYE))
-                .offerTo(exporter);
-
-        new FermentationRecipeBuilder(ModItems.ELDERBERRIES, ModItems.ELDERBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE, 1, null)
-                .criterion(hasItem(ModItems.ELDERBERRIES), conditionsFromItem(ModItems.ELDERBERRIES))
-                .offerTo(exporter);
+//        offerTeaBlendMillingRecipe(exporter, ModItems.GREEN_TEA_BLEND, ModItems.TEA_LEAVES);
+//        offerTeaBlendMillingRecipe(exporter, ModItems.BLACK_TEA_BLEND, ModItems.DRIED_TEA_LEAVES);
+//        offerTeaBlendMillingRecipe(exporter, ModItems.CHAMOMILE_TEA_BLEND, ModBlocks.CHAMOMILE_FLOWERS);
+//        offerTeaBlendMillingRecipe(exporter, ModItems.HONEYSUCKLE_TEA_BLEND, ModBlocks.HONEYSUCKLE);
+//        offerTeaBlendMillingRecipe(exporter, ModItems.BELLFLOWER_TEA_BLEND, ModBlocks.VIOLET_BELLFLOWER);
+//        offerTeaBlendMillingRecipe(exporter, ModItems.TORCHFLOWER_TEA_BLEND, Items.TORCHFLOWER);
+//        new MillingRecipeBuilder(Items.GRANITE, ModItems.FELDSPAR, 2, "granite")
+//                .group("feldspar")
+//                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.DIORITE, ModItems.FELDSPAR, 2, "diorite")
+//                .group("feldspar")
+//                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.ANDESITE, ModItems.FELDSPAR, 2, "andesite")
+//                .group("feldspar")
+//                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.TUFF, ModItems.FELDSPAR, 2, "tuff")
+//                .group("feldspar")
+//                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.BONE, Items.BONE_MEAL, 4, null)
+//                .group("bone_meal")
+//                .criterion(hasItem(Items.BONE), conditionsFromItem(Items.BONE))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.WHEAT, ModItems.FLOUR, 2, "wheat")
+//                .group("flour")
+//                .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(ModItems.MAIZE, ModItems.FLOUR, 2, "maize")
+//                .group("flour")
+//                .criterion(hasItem(ModItems.MAIZE), conditionsFromItem(ModItems.MAIZE))
+//                .offerTo(exporter);
+//
+//        new MillingRecipeBuilder(Items.COAL_ORE, Items.COAL, 2, null)
+//                .group("coal")
+//                .criterion(hasItem(Items.COAL_ORE), conditionsFromItem(Items.COAL_ORE))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.DEEPSLATE_COAL_ORE, Items.COAL, 2, "deepslate")
+//                .group("coal")
+//                .criterion(hasItem(Items.DEEPSLATE_COAL_ORE), conditionsFromItem(Items.DEEPSLATE_COAL_ORE))
+//                .offerTo(exporter);
+//
+//        new MillingRecipeBuilder(Items.IRON_ORE, Items.RAW_IRON, 2, null)
+//                .group("iron")
+//                .criterion(hasItem(Items.IRON_ORE), conditionsFromItem(Items.IRON_ORE))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.DEEPSLATE_IRON_ORE, Items.RAW_IRON, 2, "deepslate")
+//                .group("iron")
+//                .criterion(hasItem(Items.DEEPSLATE_IRON_ORE), conditionsFromItem(Items.DEEPSLATE_IRON_ORE))
+//                .offerTo(exporter);
+//
+//        new MillingRecipeBuilder(Items.GOLD_ORE, Items.RAW_GOLD, 2, null)
+//                .group("gold")
+//                .criterion(hasItem(Items.GOLD_ORE), conditionsFromItem(Items.GOLD_ORE))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.DEEPSLATE_GOLD_ORE, Items.RAW_GOLD, 2, "deepslate")
+//                .group("gold")
+//                .criterion(hasItem(Items.DEEPSLATE_GOLD_ORE), conditionsFromItem(Items.DEEPSLATE_GOLD_ORE))
+//                .offerTo(exporter);
+//
+//        new MillingRecipeBuilder(Items.COPPER_ORE, Items.RAW_COPPER, 5, null)
+//                .group("copper")
+//                .criterion(hasItem(Items.COPPER_ORE), conditionsFromItem(Items.COPPER_ORE))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER, 5, "deepslate")
+//                .group("copper")
+//                .criterion(hasItem(Items.DEEPSLATE_COPPER_ORE), conditionsFromItem(Items.DEEPSLATE_COPPER_ORE))
+//                .offerTo(exporter);
+//
+//        new MillingRecipeBuilder(Items.LAPIS_ORE, Items.LAPIS_LAZULI, 8, null)
+//                .group("lapis")
+//                .criterion(hasItem(Items.LAPIS_ORE), conditionsFromItem(Items.LAPIS_ORE))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.DEEPSLATE_LAPIS_ORE, Items.LAPIS_LAZULI, 8, "deepslate")
+//                .group("lapis")
+//                .criterion(hasItem(Items.DEEPSLATE_LAPIS_ORE), conditionsFromItem(Items.DEEPSLATE_LAPIS_ORE))
+//                .offerTo(exporter);
+//
+//        new MillingRecipeBuilder(Items.REDSTONE_ORE, Items.REDSTONE, 6, null)
+//                .group("redstone")
+//                .criterion(hasItem(Items.REDSTONE_ORE), conditionsFromItem(Items.REDSTONE_ORE))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.DEEPSLATE_REDSTONE_ORE, Items.REDSTONE, 6, "deepslate")
+//                .group("redstone")
+//                .criterion(hasItem(Items.DEEPSLATE_REDSTONE_ORE), conditionsFromItem(Items.DEEPSLATE_REDSTONE_ORE))
+//                .offerTo(exporter);
+//
+//        new MillingRecipeBuilder(Items.NETHER_GOLD_ORE, Items.GOLD_NUGGET, 8, null)
+//                .group("gold_nugget")
+//                .criterion(hasItem(Items.NETHER_GOLD_ORE), conditionsFromItem(Items.NETHER_GOLD_ORE))
+//                .offerTo(exporter);
+//
+//        new MillingRecipeBuilder(Items.NETHER_QUARTZ_ORE, Items.QUARTZ, 2, null)
+//                .group("quartz")
+//                .criterion(hasItem(Items.NETHER_QUARTZ_ORE), conditionsFromItem(Items.NETHER_QUARTZ_ORE))
+//                .offerTo(exporter);
+//
+//        new MillingRecipeBuilder(Items.EMERALD_ORE, Items.EMERALD, 2, null)
+//                .group("emerald")
+//                .criterion(hasItem(Items.EMERALD_ORE), conditionsFromItem(Items.EMERALD_ORE))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.DEEPSLATE_EMERALD_ORE, Items.EMERALD, 2, "deepslate")
+//                .group("emerald")
+//                .criterion(hasItem(Items.DEEPSLATE_EMERALD_ORE), conditionsFromItem(Items.DEEPSLATE_EMERALD_ORE))
+//                .offerTo(exporter);
+//
+//        new MillingRecipeBuilder(Items.DIAMOND_ORE, Items.DIAMOND, 2, null)
+//                .group("diamond")
+//                .criterion(hasItem(Items.DIAMOND_ORE), conditionsFromItem(Items.DIAMOND_ORE))
+//                .offerTo(exporter);
+//        new MillingRecipeBuilder(Items.DEEPSLATE_DIAMOND_ORE, Items.DIAMOND, 2, "deepslate")
+//                .group("diamond")
+//                .criterion(hasItem(Items.DEEPSLATE_DIAMOND_ORE), conditionsFromItem(Items.DEEPSLATE_DIAMOND_ORE))
+//                .offerTo(exporter);
 
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CUT_FELDSPAR_BLOCK, ModBlocks.FELDSPAR_BLOCK);
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICKS, ModBlocks.CUT_FELDSPAR_BLOCK);
