@@ -158,7 +158,7 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         if(isFullyGrown(state)) {
             return false;
         }

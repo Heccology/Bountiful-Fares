@@ -12,7 +12,7 @@ public class ChamomileFlowersBlock extends FlowerbedBlock implements Fertilizabl
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return world.getBlockState(pos.down()).isOf(Blocks.FARMLAND);
     }
 

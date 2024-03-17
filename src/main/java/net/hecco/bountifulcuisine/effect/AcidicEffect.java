@@ -1,6 +1,5 @@
 package net.hecco.bountifulcuisine.effect;
 
-import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
@@ -20,7 +19,7 @@ public class AcidicEffect extends StatusEffect {
     }
 
     @Override
-    public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
+    public void onApplied(LivingEntity entity, int amplifier) {
         if (!entity.getStatusEffects().isEmpty()) {
             affectedEffects.clear();
             List<StatusEffectInstance> effectsToModify = new ArrayList<>();
@@ -46,7 +45,7 @@ public class AcidicEffect extends StatusEffect {
                 }
             }
         }
-        super.onApplied(entity, attributes, amplifier);
+        super.onApplied(entity, amplifier);
     }
 
     @Override
@@ -79,40 +78,44 @@ public class AcidicEffect extends StatusEffect {
             }
         }
         super.applyUpdateEffect(entity, amplifier);
+        for (StatusEffectInstance thisEffect : entity.getStatusEffects()) {
+            if (thisEffect.getEffectType() == this){
+                if (thisEffect.getDuration() <= 1) {
+                    if (!entity.getStatusEffects().isEmpty()) {
+                        List<StatusEffectInstance> effectsToModify = new ArrayList<>();
+
+                        Iterator<StatusEffectInstance> iterator = affectedEffects.iterator();
+                        while (iterator.hasNext()) {
+                            StatusEffectInstance effect = iterator.next();
+
+                            if (effect.getEffectType() != this && entity.hasStatusEffect(effect.getEffectType())) {
+                                if (effect.getEffectType() != StatusEffects.HERO_OF_THE_VILLAGE || effect.getEffectType() != StatusEffects.BAD_OMEN) {
+                                    int newAmplifier = effect.getAmplifier() - amplifier - 1;
+                                    if (newAmplifier < 0) {
+                                        newAmplifier = 0;
+                                    }
+                                    StatusEffectInstance newEffect = new StatusEffectInstance(effect.getEffectType(), effect.getDuration(), newAmplifier, effect.isAmbient(), effect.shouldShowParticles(), effect.shouldShowIcon());
+                                    effectsToModify.add(newEffect);
+                                    iterator.remove();
+                                }
+                            }
+                        }
+
+                        if (!effectsToModify.isEmpty()) {
+                            effectsToModify.forEach(instance -> entity.removeStatusEffect(instance.getEffectType()));
+                            effectsToModify.forEach(entity::addStatusEffect);
+                        }
+                    }
+                    affectedEffects.clear();
+                }
+            }
+        }
     }
 
 
-
-
     @Override
-    public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        if (!entity.getStatusEffects().isEmpty()) {
-            List<StatusEffectInstance> effectsToModify = new ArrayList<>();
-
-            Iterator<StatusEffectInstance> iterator = affectedEffects.iterator();
-            while (iterator.hasNext()) {
-                StatusEffectInstance effect = iterator.next();
-
-                if (effect.getEffectType() != this && entity.hasStatusEffect(effect.getEffectType())) {
-                    if (effect.getEffectType() != StatusEffects.HERO_OF_THE_VILLAGE || effect.getEffectType() != StatusEffects.BAD_OMEN) {
-                        int newAmplifier = effect.getAmplifier() - amplifier - 1;
-                        if (newAmplifier < 0) {
-                            newAmplifier = 0;
-                        }
-                        StatusEffectInstance newEffect = new StatusEffectInstance(effect.getEffectType(), effect.getDuration(), newAmplifier, effect.isAmbient(), effect.shouldShowParticles(), effect.shouldShowIcon());
-                        effectsToModify.add(newEffect);
-                        iterator.remove();
-                    }
-                }
-            }
-
-            if (!effectsToModify.isEmpty()) {
-                effectsToModify.forEach(instance -> entity.removeStatusEffect(instance.getEffectType()));
-                effectsToModify.forEach(entity::addStatusEffect);
-            }
-        }
-        super.onApplied(entity, attributes, amplifier);
-        affectedEffects.clear();
+    public void onRemoved(AttributeContainer attributeContainer) {
+        super.onRemoved(attributeContainer);
     }
 
 

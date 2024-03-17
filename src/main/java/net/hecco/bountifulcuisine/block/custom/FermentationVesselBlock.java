@@ -153,6 +153,6 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return validateTicker(type, ModBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

@@ -6,6 +6,7 @@ import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.hecco.bountifulcuisine.recipe.MillingRecipe;
+import net.minecraft.recipe.RecipeEntry;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,8 +17,8 @@ public class MillingDisplay extends BasicDisplay {
         super(inputs, outputs);
     }
 
-    public MillingDisplay(MillingRecipe recipe) {
-        super(getInputList(recipe), List.of(EntryIngredient.of(EntryStacks.of(recipe.getOutput(null)))));
+    public MillingDisplay(RecipeEntry<MillingRecipe> recipe) {
+        super(getInputList(recipe.value()), List.of(EntryIngredient.of(EntryStacks.of(recipe.value().getResult(null)))));
     }
 
     private static List<EntryIngredient> getInputList(MillingRecipe recipe) {

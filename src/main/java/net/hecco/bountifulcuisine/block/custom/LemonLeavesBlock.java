@@ -17,7 +17,7 @@ public class LemonLeavesBlock extends LeavesBlock implements Fertilizable {
         super(settings);
     }
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return world.getBlockState(pos.down()).isAir();
     }
     @Override

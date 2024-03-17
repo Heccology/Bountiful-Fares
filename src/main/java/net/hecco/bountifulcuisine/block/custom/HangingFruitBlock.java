@@ -65,6 +65,11 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
         return super.onUse(state, world, pos, player, hand, hit);
     }
 
+    @Override
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
+        return state.get(AGE) < 4;
+    }
+
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
@@ -74,10 +79,6 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
         if (!isFullyGrown(state)) {
             world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
         }
-    }
-
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
-        return state.get(AGE) < 4;
     }
 
     private static boolean isFullyGrown(BlockState state) {

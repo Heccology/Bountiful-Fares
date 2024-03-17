@@ -5,10 +5,13 @@ import com.google.gson.JsonObject;
 import net.hecco.bountifulcuisine.BountifulCuisine;
 import net.hecco.bountifulcuisine.recipe.MillingRecipe;
 import net.minecraft.advancement.Advancement;
+import net.minecraft.advancement.AdvancementCriterion;
+import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.advancement.criterion.CriterionConditions;
 import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
 import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
@@ -35,7 +38,7 @@ public class MillingRecipeBuilder implements CraftingRecipeJsonBuilder {
     }
 
     @Override
-    public CraftingRecipeJsonBuilder criterion(String name, CriterionConditions conditions) {
+    public CraftingRecipeJsonBuilder criterion(String name, AdvancementCriterion conditions) {
         this.advancement.criterion(name, conditions);
         return this;
     }
@@ -51,10 +54,10 @@ public class MillingRecipeBuilder implements CraftingRecipeJsonBuilder {
     }
 
     @Override
-    public void offerTo(Consumer<RecipeJsonProvider> exporter, Identifier recipeId) {
-        this.advancement.parent(new Identifier("recipes/root"))
-                .criterion("has_the_recipe", RecipeUnlockedCriterion.create(recipeId))
-                .rewards(AdvancementRewards.Builder.recipe(recipeId));
+    public void offerTo(RecipeExporter exporter, Identifier recipeId) {
+//        this.advancement.parent(new Identifier("recipes/root"))
+//                .criterion("has_the_recipe", RecipeUnlockedCriterion.create(recipeId))
+//                .rewards(AdvancementRewards.Builder.recipe(recipeId));
 
         exporter.accept(new JsonBuilder(this.detailedId, recipeId, this.result, this.count, this.ingredient,
                 this.advancement, new Identifier(recipeId.getNamespace(), "recipes/"
@@ -80,10 +83,11 @@ public class MillingRecipeBuilder implements CraftingRecipeJsonBuilder {
             this.advancement = advancement;
             this.advancementId = advancementId;
         }
+
         @Override
         public void serialize(JsonObject json) {
             JsonArray jsonarray = new JsonArray();
-            jsonarray.add(ingredient.toJson());
+            jsonarray.add(ingredient.toJson(true));
 
             json.add("ingredients", jsonarray);
             JsonObject jsonobject = new JsonObject();
@@ -94,8 +98,9 @@ public class MillingRecipeBuilder implements CraftingRecipeJsonBuilder {
 
             json.add("output", jsonobject);
         }
+
         @Override
-        public Identifier getRecipeId() {
+        public Identifier id() {
             if (detailedId != null) {
                 return new Identifier(BountifulCuisine.MOD_ID,
                         Registries.ITEM.getId(this.result).getPath() + "_from_milling_" + detailedId);
@@ -104,19 +109,16 @@ public class MillingRecipeBuilder implements CraftingRecipeJsonBuilder {
                         Registries.ITEM.getId(this.result).getPath() + "_from_milling");
             }
         }
+
         @Override
-        public RecipeSerializer<?> getSerializer() {
+        public RecipeSerializer<?> serializer() {
             return MillingRecipe.Serializer.INSTANCE;
         }
+
         @Nullable
         @Override
-        public JsonObject toAdvancementJson() {
-            return this.advancement.toJson();
-        }
-        @Nullable
-        @Override
-        public Identifier getAdvancementId() {
-            return this.advancementId;
+        public AdvancementEntry advancement() {
+            return new AdvancementEntry(id(), advancement.build(id).value());
         }
     }
 }

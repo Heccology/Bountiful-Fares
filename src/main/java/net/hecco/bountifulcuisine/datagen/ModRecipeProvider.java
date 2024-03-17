@@ -4,14 +4,11 @@ import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.hecco.bountifulcuisine.datagen.recipe.FermentationRecipeBuilder;
 import net.hecco.bountifulcuisine.datagen.recipe.MillingRecipeBuilder;
 import net.hecco.bountifulcuisine.item.ModItems;
-import net.hecco.bountifulcuisine.util.ModBlockTags;
 import net.hecco.bountifulcuisine.util.ModItemTags;
-import net.minecraft.block.Blocks;
 import net.minecraft.data.family.BlockFamily;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
@@ -19,10 +16,6 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.util.Identifier;
-
-import java.util.List;
-import java.util.function.Consumer;
 
 import static net.minecraft.data.family.BlockFamilies.register;
 import static net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder.getItemId;
@@ -33,7 +26,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     @Override
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
+    public void generate(RecipeExporter exporter) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GRISTMILL)
                 .pattern("PPP")
                 .pattern("PIP")
@@ -698,14 +691,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.DEEPSLATE_DIAMOND_ORE), conditionsFromItem(Items.DEEPSLATE_DIAMOND_ORE))
                 .offerTo(exporter);
 
-        new FermentationRecipeBuilder(Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE, null, 1, null)
-                .criterion(hasItem(Items.SPIDER_EYE), conditionsFromItem(Items.SPIDER_EYE))
-                .offerTo(exporter);
-
-        new FermentationRecipeBuilder(ModItems.ELDERBERRIES, ModItems.ELDERBERRY_WINE_BOTTLE, Items.GLASS_BOTTLE, 1, null)
-                .criterion(hasItem(ModItems.ELDERBERRIES), conditionsFromItem(ModItems.ELDERBERRIES))
-                .offerTo(exporter);
-
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CUT_FELDSPAR_BLOCK, ModBlocks.FELDSPAR_BLOCK);
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICKS, ModBlocks.CUT_FELDSPAR_BLOCK);
         BlockFamily feldsparBricksFamily = register(ModBlocks.FELDSPAR_BRICKS)
@@ -763,23 +748,23 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 
 
-    public static void offerCeramicUndyingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible item) {
+    public static void offerCeramicUndyingRecipe(RecipeExporter exporter, ItemConvertible item) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, item, 1).input(item)
-                .criterion("has_item", conditionsFromItem(item)).offerTo(exporter, getItemId(item) + "_undying");
+                .criterion("has_item", conditionsFromItem(item)).offerTo( exporter, getItemId(item) + "_undying");
     }
 
 
-    public static void offerTeaBlendMillingRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+    public static void offerTeaBlendMillingRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
         new MillingRecipeBuilder(input, output, 1, null)
                 .criterion(hasItem(input), conditionsFromItem(input))
                 .offerTo(exporter);
     }
 
-    public static void offerPicketsRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+    public static void offerPicketsRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 4).input('#', input).input('S', Items.STICK)
                 .pattern("#S#").criterion("has_planks", conditionsFromItem(input)).offerTo(exporter);
     }
-    public static void offerTeaRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible teaBottle, ItemConvertible teaCandle, ItemConvertible teaBlendItem) {
+    public static void offerTeaRecipes(RecipeExporter exporter, ItemConvertible teaBottle, ItemConvertible teaCandle, ItemConvertible teaBlendItem) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, teaBottle)
                 .input(teaBlendItem, 1)
                 .input(Items.POTION)
@@ -798,7 +783,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 
     }
-    public static void offerCompoteJarRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+    public static void offerCompoteJarRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output)
                 .input(input, 2)
                 .input(ModItems.CITRIC_ACID)
@@ -807,7 +792,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(input), conditionsFromItem(input))
                 .offerTo(exporter);
     }
-    public static void offerCandyRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+    public static void offerCandyRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output)
                 .input(input)
                 .input(Items.SUGAR)
@@ -815,7 +800,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(input), conditionsFromItem(input))
                 .offerTo(exporter);
     }
-    public static void offerJackOStrawRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible wool) {
+    public static void offerJackOStrawRecipes(RecipeExporter exporter, ItemConvertible output, ItemConvertible wool) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output)
                 .input(ModItems.SUN_HAT)
                 .input(Items.CARVED_PUMPKIN)
@@ -837,7 +822,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_wool", conditionsFromItem(wool))
                 .offerTo(exporter, getItemId(output) + "_with_pumpkin");
     }
-    public static void offerTartAndPieRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
+    public static void offerTartAndPieRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output)
                 .input(input)
                 .input(ModItems.FLOUR)

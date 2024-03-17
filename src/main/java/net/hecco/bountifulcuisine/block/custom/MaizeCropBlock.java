@@ -200,7 +200,7 @@ public class MaizeCropBlock extends TallPlantBlock implements Fertilizable {
         }
     }
 
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         MaizeCropBlock.LowerHalfContext lowerHalfContext = this.getLowerHalfContext(world, pos, state);
         return lowerHalfContext != null && this.canGrow(world, lowerHalfContext.pos, lowerHalfContext.state, lowerHalfContext.state.get(AGE) + 1);
     }

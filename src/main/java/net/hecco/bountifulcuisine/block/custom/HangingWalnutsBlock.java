@@ -116,7 +116,7 @@ public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
         }
     }
 
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
 
