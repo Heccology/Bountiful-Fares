@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_deepslate_coal_ore": {
+    "has_coal_ore": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:deepslate_coal_ore"
+              "minecraft:coal_ore"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_deepslate_coal_ore"
+      "has_coal_ore"
     ],
     [
       "has_the_recipe"

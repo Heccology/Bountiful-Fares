@@ -95,9 +95,9 @@ public class ModItems {
     public static final Item LEEK_STEW = registerItem("leek_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(12).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(ModEffects.ENRICHMENT, 1800, 0, true, true), 1).build())));
     public static final Item FISH_STEW = registerItem("fish_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(14).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(ModEffects.RESTORATION, 1800, 0, true, true), 1).build())));
     public static final Item STONE_STEW = registerItem("stone_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(12).saturationModifier(0.4F).build())));
-//    uses a stone pickaxe
-    public static final Item SYLVAN_MEDLEY = registerItem("sylvan_medley", new Item(new FabricItemSettings().maxCount(16).food(createStew(14))));
-    public static final Item OUTBACK_MEDLEY = registerItem("forest_medley", new Item(new FabricItemSettings().maxCount(16).food(createStew(14))));
+    public static final Item FOREST_MEDLEY = registerItem("forest_medley", new Item(new FabricItemSettings().maxCount(16).food(createStew(14))));
+    public static final Item ARID_MEDLEY = registerItem("arid_medley", new Item(new FabricItemSettings().maxCount(16).food(createStew(14))));
+    public static final Item MEADOW_MEDLEY = registerItem("meadow_medley", new Item(new FabricItemSettings().maxCount(16).food(createStew(14))));
     public static final Item COASTAL_MEDLEY = registerItem("coastal_medley", new Item(new FabricItemSettings().maxCount(16).food(createStew(14))));
     public static final Item CRIMSON_CHOW = registerItem("crimson_chow", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(12).saturationModifier(0.8F).build())));
     public static final Item WARPED_CHOW = registerItem("warped_chow", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(10).saturationModifier(0.8F).build())));

@@ -221,6 +221,48 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.WALNUT), conditionsFromItem(ModItems.WALNUT))
                 .offerTo(exporter);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.FOREST_MEDLEY)
+                .input(Items.PORKCHOP)
+                .input(Items.CARROT)
+                .input(Items.SWEET_BERRIES)
+                .input(Items.BREAD)
+                .criterion(hasItem(Items.PORKCHOP), conditionsFromItem(Items.PORKCHOP))
+                .criterion(hasItem(Items.CARROT), conditionsFromItem(Items.CARROT))
+                .criterion(hasItem(Items.SWEET_BERRIES), conditionsFromItem(Items.SWEET_BERRIES))
+                .criterion(hasItem(Items.BREAD), conditionsFromItem(Items.BREAD))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.ARID_MEDLEY)
+                .input(Items.CACTUS)
+                .input(Items.POTATO)
+                .input(ModItems.MAIZE)
+                .input(Items.BREAD)
+                .criterion(hasItem(Items.CACTUS), conditionsFromItem(Items.CACTUS))
+                .criterion(hasItem(Items.POTATO), conditionsFromItem(Items.POTATO))
+                .criterion(hasItem(ModItems.MAIZE), conditionsFromItem(ModItems.MAIZE))
+                .criterion(hasItem(Items.BREAD), conditionsFromItem(Items.BREAD))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.MEADOW_MEDLEY)
+                .input(Items.COOKED_MUTTON)
+                .input(Items.BEETROOT)
+                .input(ModBlocks.VIOLET_BELLFLOWER)
+                .input(ModItems.LEEK)
+                .criterion(hasItem(Items.COOKED_MUTTON), conditionsFromItem(Items.COOKED_MUTTON))
+                .criterion(hasItem(Items.BEETROOT), conditionsFromItem(Items.BEETROOT))
+                .criterion(hasItem(ModBlocks.VIOLET_BELLFLOWER), conditionsFromItem(ModBlocks.VIOLET_BELLFLOWER))
+                .criterion(hasItem(ModItems.LEEK), conditionsFromItem(ModItems.LEEK))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.COASTAL_MEDLEY)
+                .input(ModItems.SPONGEKIN_SLICE)
+                .input(Items.DRIED_KELP, 2)
+                .input(ModItemTags.COOKED_FISHES)
+                .criterion(hasItem(ModItems.SPONGEKIN_SLICE), conditionsFromItem(ModItems.SPONGEKIN_SLICE))
+                .criterion(hasItem(Items.DRIED_KELP), conditionsFromItem(Items.DRIED_KELP))
+                .criterion("has_fish", conditionsFromTag(ModItemTags.COOKED_FISHES))
+                .offerTo(exporter);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.MUSHROOM_STUFFED_POTATO)
                 .input(Items.BAKED_POTATO)
                 .input(Items.RED_MUSHROOM)

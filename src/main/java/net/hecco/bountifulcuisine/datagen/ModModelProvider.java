@@ -26,7 +26,6 @@ public class ModModelProvider extends FabricModelProvider {
         walnutTexturePool.button(ModBlocks.WALNUT_BUTTON);
         blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_WALNUT_LOG, ModBlocks.WALNUT_HANGING_SIGN, ModBlocks.WALNUT_WALL_HANGING_SIGN);
         blockStateModelGenerator.registerDoor(ModBlocks.WALNUT_DOOR);
-        blockStateModelGenerator.registerTrapdoor(ModBlocks.WALNUT_TRAPDOOR);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CUT_FELDSPAR_BLOCK);
         BlockStateModelGenerator.BlockTexturePool feldsparTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FELDSPAR_BRICKS);
         feldsparTexturePool.stairs(ModBlocks.FELDSPAR_BRICK_STAIRS);
@@ -47,8 +46,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModBlocks.WILD_ELDERBERRY_VINE.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModItems.FISH_STEW, Models.GENERATED);
         itemModelGenerator.register(ModItems.STONE_STEW, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SYLVAN_MEDLEY, Models.GENERATED);
-        itemModelGenerator.register(ModItems.OUTBACK_MEDLEY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FOREST_MEDLEY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ARID_MEDLEY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MEADOW_MEDLEY, Models.GENERATED);
         itemModelGenerator.register(ModItems.COASTAL_MEDLEY, Models.GENERATED);
         itemModelGenerator.register(ModItems.BERRY_STUFFED_POTATO, Models.GENERATED);
         itemModelGenerator.register(ModItems.MAIZE_STUFFED_POTATO, Models.GENERATED);

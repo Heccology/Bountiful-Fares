@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "bountifulcuisine:item/sylvan_medley"
+    "layer0": "bountifulcuisine:item/arid_medley"
   }
 }

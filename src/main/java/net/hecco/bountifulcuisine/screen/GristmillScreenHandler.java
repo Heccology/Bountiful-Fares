@@ -38,8 +38,7 @@ public class GristmillScreenHandler extends ScreenHandler {
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
-    public GristmillScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity,
-                                  PropertyDelegate arrayPropertyDelegate) {
+    public GristmillScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
         super(ModScreenHandlers.GRISTMILL_SCREEN_HANDLER, syncId);
         checkSize(((Inventory) blockEntity), 2);
         this.inventory = (Inventory)blockEntity;

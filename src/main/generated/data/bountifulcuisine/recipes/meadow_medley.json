@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_mutton"
+    },
+    {
+      "item": "minecraft:beetroot"
+    },
+    {
+      "item": "bountifulcuisine:violet_bellflower"
+    },
+    {
+      "item": "bountifulcuisine:leek"
+    }
+  ],
+  "result": {
+    "item": "bountifulcuisine:meadow_medley"
+  }
+}

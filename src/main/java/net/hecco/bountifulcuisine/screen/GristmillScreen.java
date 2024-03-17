@@ -36,6 +36,8 @@ public class GristmillScreen extends HandledScreen<GristmillScreenHandler> {
     private void renderProgressArrow(DrawContext context, int x, int y) {
         if(handler.isCrafting()) {
             context.drawTexture(TEXTURE, x + 69, y + 36, 176, 0, handler.getScaledProgress(), 16);
+//            context.drawTexture(TEXTURE, x + 69, y + 36, 176 + handler.getScaledProgress(), 0, handler.getScaledProgress(), 16);
+
         }
     }
 

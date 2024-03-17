@@ -11,6 +11,16 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "arid_medley": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:arid_medley"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "berry_stuffed_potato": {
       "conditions": {
         "item": {
@@ -91,6 +101,16 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "forest_medley": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:forest_medley"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "glowing_custard": {
       "conditions": {
         "item": {
@@ -121,21 +141,21 @@
       },
       "trigger": "minecraft:consume_item"
     },
-    "mushroom_stuffed_potato": {
+    "meadow_medley": {
       "conditions": {
         "item": {
           "items": [
-            "bountifulcuisine:mushroom_stuffed_potato"
+            "bountifulcuisine:meadow_medley"
           ]
         }
       },
       "trigger": "minecraft:consume_item"
     },
-    "outback_medley": {
+    "mushroom_stuffed_potato": {
       "conditions": {
         "item": {
           "items": [
-            "bountifulcuisine:forest_medley"
+            "bountifulcuisine:mushroom_stuffed_potato"
           ]
         }
       },
@@ -176,16 +196,6 @@
         "item": {
           "items": [
             "bountifulcuisine:stone_stew"
-          ]
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "sylvan_medley": {
-      "conditions": {
-        "item": {
-          "items": [
-            "bountifulcuisine:sylvan_medley"
           ]
         }
       },
@@ -244,10 +254,13 @@
       "bountiful_stew"
     ],
     [
-      "sylvan_medley"
+      "forest_medley"
     ],
     [
-      "outback_medley"
+      "arid_medley"
+    ],
+    [
+      "meadow_medley"
     ],
     [
       "coastal_medley"

@@ -64,9 +64,9 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.APPLE_LEAVES);
         generate(translationBuilder, ModBlocks.FLOWERING_APPLE_LEAVES);
         generate(translationBuilder, ModBlocks.APPLE_SAPLING);
-        generate(translationBuilder, ModBlocks.HANGING_APPLE);
         generate(translationBuilder, ModBlocks.APPLE_BLOCK);
         generate(translationBuilder, ModBlocks.GOLDEN_APPLE_BLOCK);
+        generate(translationBuilder, ModBlocks.HANGING_APPLE, "Apple");
 
         generate(translationBuilder, ModItems.ORANGE);
         generate(translationBuilder, ModBlocks.ORANGE_LOG);
@@ -76,8 +76,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.ORANGE_LEAVES);
         generate(translationBuilder, ModBlocks.FLOWERING_ORANGE_LEAVES);
         generate(translationBuilder, ModBlocks.ORANGE_SAPLING);
-        generate(translationBuilder, ModBlocks.HANGING_ORANGE);
         generate(translationBuilder, ModBlocks.ORANGE_BLOCK);
+        generate(translationBuilder, ModBlocks.HANGING_ORANGE, "Orange");
 
         generate(translationBuilder, ModItems.LEMON);
         generate(translationBuilder, ModBlocks.LEMON_LOG);
@@ -87,8 +87,9 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.LEMON_LEAVES);
         generate(translationBuilder, ModBlocks.FLOWERING_LEMON_LEAVES);
         generate(translationBuilder, ModBlocks.LEMON_SAPLING);
-        generate(translationBuilder, ModBlocks.HANGING_LEMON);
         generate(translationBuilder, ModBlocks.LEMON_BLOCK);
+        generate(translationBuilder, ModBlocks.HANGING_LEMON, "Lemon");
+
 
         generate(translationBuilder, ModItems.PLUM);
         generate(translationBuilder, ModBlocks.PLUM_LOG);
@@ -98,8 +99,9 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.PLUM_LEAVES);
         generate(translationBuilder, ModBlocks.FLOWERING_PLUM_LEAVES);
         generate(translationBuilder, ModBlocks.PLUM_SAPLING);
-        generate(translationBuilder, ModBlocks.HANGING_PLUM);
         generate(translationBuilder, ModBlocks.PLUM_BLOCK);
+        generate(translationBuilder, ModBlocks.HANGING_PLUM, "Plum");
+
 
         generate(translationBuilder, ModItems.HOARY_SEEDS);
         generate(translationBuilder, ModBlocks.HOARY_APPLE_SAPLING);
@@ -124,6 +126,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModItems.HOARY_CHEST_BOAT, "Hoary Boat with Chest");
         generate(translationBuilder, ModItems.HOARY_APPLE);
         generate(translationBuilder, ModBlocks.HOARY_APPLE_BLOCK);
+        generate(translationBuilder, ModBlocks.HANGING_HOARY_APPLE, "Hoary Apple");
+
 
         generate(translationBuilder, ModBlocks.WALNUT_SAPLING);
         generate(translationBuilder, ModBlocks.WALNUT_LOG);
@@ -147,6 +151,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModItems.WALNUT);
         generate(translationBuilder, ModBlocks.WALNUT_MULCH);
         generate(translationBuilder, ModBlocks.WALNUT_MULCH_BLOCK);
+        generate(translationBuilder, ModBlocks.HANGING_WALNUTS, "Walnuts");
+
 
         generate(translationBuilder, ModItems.CITRIC_ACID);
         generate(translationBuilder, "effect.bountifulcuisine.acidic", "Acidic");
@@ -377,6 +383,10 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModItems.STONE_STEW);
         generate(translationBuilder, ModItems.BOUNTIFUL_STEW);
         generate(translationBuilder, ModItems.CRUSTED_BEEF);
+        generate(translationBuilder, ModItems.FOREST_MEDLEY);
+        generate(translationBuilder, ModItems.ARID_MEDLEY);
+        generate(translationBuilder, ModItems.MEADOW_MEDLEY);
+        generate(translationBuilder, ModItems.COASTAL_MEDLEY);
         generate(translationBuilder, ModItems.CUSTARD);
         generate(translationBuilder, ModItems.PIQUANT_CUSTARD);
         generate(translationBuilder, ModItems.PASSION_CUSTARD);
