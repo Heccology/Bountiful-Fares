@@ -293,8 +293,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BOUNTIFUL_STEW)
                 .input(Items.COOKED_PORKCHOP)
-                .input(Items.CARROT, 2)
-                .input(ModItems.MAIZE, 2)
+                .input(Items.CARROT)
+                .input(ModItems.MAIZE)
                 .input(Items.BOWL)
                 .criterion(hasItem(Items.COOKED_PORKCHOP), conditionsFromItem(Items.COOKED_PORKCHOP))
                 .criterion(hasItem(Items.CARROT), conditionsFromItem(Items.CARROT))
@@ -302,9 +302,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.LEEK_STEW)
-                .input(ModItems.LEEK, 6)
+                .input(ModItems.LEEK, 3)
                 .input(Items.BOWL)
                 .criterion(hasItem(ModItems.LEEK), conditionsFromItem(ModItems.LEEK))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.APPLE_STEW)
+                .input(Items.APPLE, 2)
+                .input(ModItems.ELDERBERRIES, 2)
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.APPLE), conditionsFromItem(Items.APPLE))
+                .criterion(hasItem(ModItems.ELDERBERRIES), conditionsFromItem(ModItems.ELDERBERRIES))
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.STONE_STEW)

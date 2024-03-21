@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-17T17:04:41.064956	Bountiful Cuisine/Advancements
+// 1.20.1	2024-03-19T19:23:01.487243	Bountiful Cuisine/Advancements
 433b928f99f48d6f9444640581d7de1b96fbe094 data/bountifulcuisine/advancements/obtain_spongekin.json
 24469bcb5737600cf1f162d2c02b8c2e285695f1 data/bountifulcuisine/advancements/place_all_baked_goods.json
 9ed11f0f3a9f886c744e3ec5e6b8e8c478126e00 data/bountifulcuisine/advancements/place_gristmill.json
@@ -14,5 +14,5 @@ c8f9c283f6ec2640e76d79500529cc7f83aa0910 data/bountifulcuisine/advancements/obta
 9aecf4660a8383c893f1305153060578479a49bd data/bountifulcuisine/advancements/obtain_feldspar.json
 a1f9342368b93c98eeb13a312b540aa82b186b6e data/bountifulcuisine/advancements/obtain_fermentation_vessel.json
 372f8a5e9a33b234c2c6c2c931e418b25e3dbcc4 data/bountifulcuisine/advancements/eat_all_candy.json
-c88a4b25199ede58a741f063886ecda3afcb05e9 data/bountifulcuisine/advancements/eat_all_food.json
+cacf1018f5d6409be94c1c7d03106d1d099dffcb data/bountifulcuisine/advancements/eat_all_food.json
 4d92d53f3f276410f56c201c186bb3522d9daa8b data/bountifulcuisine/advancements/make_first_food.json

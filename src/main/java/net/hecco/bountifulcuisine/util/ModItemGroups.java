@@ -293,6 +293,7 @@ public class ModItemGroups {
                         entries.add(ModItems.MAIZE_STUFFED_POTATO);
                         entries.add(ModItems.LEEK_STEW);
                         entries.add(ModItems.FISH_STEW);
+                        entries.add(ModItems.APPLE_STEW);
                         entries.add(ModItems.STONE_STEW);
                         entries.add(ModItems.BOUNTIFUL_STEW);
                         entries.add(ModItems.PASSION_GLAZED_SALMON);

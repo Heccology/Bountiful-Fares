@@ -70,6 +70,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("passion_glazed_salmon", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.PASSION_GLAZED_SALMON).build()))
                 .criterion("leek_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.LEEK_STEW).build()))
                 .criterion("fish_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.FISH_STEW).build()))
+                .criterion("apple_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.APPLE_STEW).build()))
                 .criterion("stone_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.STONE_STEW).build()))
                 .criterion("bountiful_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.BOUNTIFUL_STEW).build()))
                 .criterion("forest_medley", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(ModItems.FOREST_MEDLEY).build()))
