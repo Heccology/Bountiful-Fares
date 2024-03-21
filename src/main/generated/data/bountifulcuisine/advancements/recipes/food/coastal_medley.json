@@ -44,16 +44,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_spongekin_slice",
       "has_dried_kelp",
-      "has_fish",
-      "has_the_recipe"
+      "has_fish"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:coastal_medley"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

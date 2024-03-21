@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_feldspar_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_feldspar_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:cut_feldspar_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

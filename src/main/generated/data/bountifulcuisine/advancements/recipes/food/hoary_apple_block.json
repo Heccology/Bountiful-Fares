@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_hoary_apple",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_hoary_apple"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:hoary_apple_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

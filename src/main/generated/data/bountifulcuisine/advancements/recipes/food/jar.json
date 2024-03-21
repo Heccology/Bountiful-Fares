@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_ceramic_clay",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_ceramic_clay"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:jar"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

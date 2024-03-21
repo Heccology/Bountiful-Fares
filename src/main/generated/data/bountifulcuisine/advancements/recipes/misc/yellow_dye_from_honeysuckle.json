@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_honeysuckle",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_honeysuckle"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:yellow_dye_from_honeysuckle"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

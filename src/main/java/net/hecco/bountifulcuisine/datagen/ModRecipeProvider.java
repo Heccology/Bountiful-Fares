@@ -15,6 +15,7 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.resource.featuretoggle.FeatureSet;
 
 import static net.minecraft.data.family.BlockFamilies.register;
@@ -135,7 +136,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .group("wooden")
                 .unlockCriterionName("has_planks")
                 .build();
-        generateFamily(exporter, hoaryFamily, FeatureSet.empty());
+        generateFamily(exporter, hoaryFamily, FeatureSet.of(FeatureFlags.VANILLA));
         offerPlanksRecipe(exporter, ModBlocks.HOARY_PLANKS, ModItemTags.HOARY_LOGS, 4);
 
 
@@ -152,7 +153,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .group("wooden")
                 .unlockCriterionName("has_planks")
                 .build();
-        generateFamily(exporter, walnutFamily, FeatureSet.empty());
+        generateFamily(exporter, walnutFamily, FeatureSet.of(FeatureFlags.VANILLA));
         offerPlanksRecipe(exporter, ModBlocks.WALNUT_PLANKS, ModItemTags.WALNUT_LOGS, 4);
 
         BlockFamily ceramicFamily = register(ModBlocks.CERAMIC_TILES)
@@ -161,7 +162,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .group("ceramic_tiles")
                 .unlockCriterionName("has_ceramic_tiles")
                 .build();
-        generateFamily(exporter, ceramicFamily, FeatureSet.empty());
+        generateFamily(exporter, ceramicFamily, FeatureSet.of(FeatureFlags.VANILLA));
 
         BlockFamily checkeredCeramicFamily = register(ModBlocks.CHECKERED_CERAMIC_TILES)
                 .slab(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB)
@@ -169,7 +170,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .group("checkered_ceramic_tiles")
                 .unlockCriterionName("has_checkered_ceramic_tiles")
                 .build();
-        generateFamily(exporter, checkeredCeramicFamily, FeatureSet.empty());
+        generateFamily(exporter, checkeredCeramicFamily, FeatureSet.of(FeatureFlags.VANILLA));
 
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModBlocks.ARTISAN_BREAD)
@@ -291,8 +292,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BOUNTIFUL_STEW)
                 .input(Items.COOKED_PORKCHOP)
-                .input(Items.CARROT, 2)
-                .input(ModItems.MAIZE, 2)
+                .input(Items.CARROT)
+                .input(ModItems.MAIZE)
                 .input(Items.BOWL)
                 .criterion(hasItem(Items.COOKED_PORKCHOP), conditionsFromItem(Items.COOKED_PORKCHOP))
                 .criterion(hasItem(Items.CARROT), conditionsFromItem(Items.CARROT))
@@ -300,9 +301,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.LEEK_STEW)
-                .input(ModItems.LEEK, 6)
+                .input(ModItems.LEEK, 3)
                 .input(Items.BOWL)
                 .criterion(hasItem(ModItems.LEEK), conditionsFromItem(ModItems.LEEK))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.APPLE_STEW)
+                .input(Items.APPLE, 2)
+                .input(ModItems.ELDERBERRIES, 2)
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.APPLE), conditionsFromItem(Items.APPLE))
+                .criterion(hasItem(ModItems.ELDERBERRIES), conditionsFromItem(ModItems.ELDERBERRIES))
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.STONE_STEW)
@@ -695,10 +704,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICKS, ModBlocks.CUT_FELDSPAR_BLOCK);
         BlockFamily feldsparBricksFamily = register(ModBlocks.FELDSPAR_BRICKS)
                 .stairs(ModBlocks.FELDSPAR_BRICK_STAIRS)
-                .stairs(ModBlocks.FELDSPAR_BRICK_SLAB)
+                .slab(ModBlocks.FELDSPAR_BRICK_SLAB)
                 .unlockCriterionName("has_feldspar_bricks")
                 .build();
-        generateFamily(exporter, feldsparBricksFamily, FeatureSet.empty());
+        generateFamily(exporter, feldsparBricksFamily, FeatureSet.of(FeatureFlags.VANILLA));
+
+//        createStairsRecipe(ModBlocks.FELDSPAR_BRICK_STAIRS, Ingredient.ofItems(ModBlocks.FELDSPAR_BRICKS))
+//                .criterion(hasItem(ModBlocks.FELDSPAR_BRICKS), conditionsFromItem(ModBlocks.FELDSPAR_BRICKS))
+//                .offerTo(exporter);
+//        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICK_STAIRS, Ingredient.ofItems(ModBlocks.FELDSPAR_BRICKS))
+//                .criterion(hasItem(ModBlocks.FELDSPAR_BRICKS), conditionsFromItem(ModBlocks.FELDSPAR_BRICKS))
+//                .offerTo(exporter);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CUT_FELDSPAR_BLOCK, ModBlocks.FELDSPAR_BLOCK, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICKS, ModBlocks.FELDSPAR_BLOCK, 1);

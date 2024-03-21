@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_plum",
-      "has_sugar",
-      "has_the_recipe"
+      "has_sugar"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:candied_plum"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

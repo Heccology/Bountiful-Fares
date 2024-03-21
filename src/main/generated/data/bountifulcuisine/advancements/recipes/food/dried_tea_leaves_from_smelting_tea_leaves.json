@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_tea_leaves",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_tea_leaves"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:dried_tea_leaves_from_smelting_tea_leaves"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

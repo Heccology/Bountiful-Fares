@@ -157,17 +157,14 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "background": "minecraft:textures/block/farmland_moist.png",
     "description": {
       "translate": "advancement.bountifulcuisine.place_all_baked_goods.description"
     },
     "frame": "challenge",
-    "hidden": false,
     "icon": {
       "item": "bountifulcuisine:artisan_bread"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.bountifulcuisine.place_all_baked_goods"
     }

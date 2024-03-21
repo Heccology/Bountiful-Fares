@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_walnut_mulch",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_walnut_mulch"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:walnut_mulch_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

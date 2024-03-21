@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_bellflower_tea_blend",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_bellflower_tea_blend"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:bellflower_tea_bottle"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

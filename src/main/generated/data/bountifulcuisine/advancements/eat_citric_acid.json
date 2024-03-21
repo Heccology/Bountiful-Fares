@@ -13,17 +13,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "background": "minecraft:textures/block/farmland_moist.png",
     "description": {
       "translate": "advancement.bountifulcuisine.eat_citric_acid.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "bountifulcuisine:citric_acid"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.bountifulcuisine.eat_citric_acid"
     }

@@ -58,17 +58,16 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_cactus",
       "has_potato",
       "has_maize",
-      "has_bread",
-      "has_the_recipe"
+      "has_bread"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:arid_medley"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

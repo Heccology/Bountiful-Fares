@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_flour",
       "has_egg",
-      "has_orange",
-      "has_the_recipe"
+      "has_orange"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:orange_pie"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

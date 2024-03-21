@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_flour",
       "has_egg",
-      "has_lemon",
-      "has_the_recipe"
+      "has_lemon"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:lemon_pie"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

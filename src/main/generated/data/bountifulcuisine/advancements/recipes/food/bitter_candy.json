@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_sugar",
-      "has_elderberries",
-      "has_the_recipe"
+      "has_elderberries"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:bitter_candy"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -5,6 +5,7 @@
 		"0": "bountifulcuisine:block/tea_shrub_side",
 		"1": "bountifulcuisine:block/tea_shrub_top",
 		"2": "bountifulcuisine:block/tea_shrub_inside",
+		"3": "bountifulcuisine:block/tea_shrub_shoots_4",
 		"particle": "bountifulcuisine:block/tea_shrub_side"
 	},
 	"elements": [
@@ -48,6 +49,26 @@
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#2"},
 				"south": {"uv": [0, 0, 16, 16], "texture": "#2"}
+			}
+		},
+		{
+			"from": [8, 16, 0.8],
+			"to": [8, 32, 15.2],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
+			"shade": false,
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#3"}
+			}
+		},
+		{
+			"from": [0.8, 16, 8],
+			"to": [15.2, 32, 8],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
+			"shade": false,
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#3"}
 			}
 		}
 	]

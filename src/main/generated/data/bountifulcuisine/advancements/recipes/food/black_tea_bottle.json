@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_black_tea_blend",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_black_tea_blend"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:black_tea_bottle"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

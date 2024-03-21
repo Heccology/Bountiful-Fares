@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_honeycomb",
-      "has_walnut",
-      "has_the_recipe"
+      "has_walnut"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:walnut_candle"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

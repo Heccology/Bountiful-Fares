@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_green_tea_blend",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_green_tea_blend"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:green_tea_bottle"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

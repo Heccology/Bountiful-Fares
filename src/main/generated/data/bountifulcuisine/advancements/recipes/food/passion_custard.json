@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_milk_bucket",
       "has_sugar",
-      "has_passion_fruit",
-      "has_the_recipe"
+      "has_passion_fruit"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:passion_custard"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_baked_potato",
-      "has_maize",
-      "has_the_recipe"
+      "has_maize"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:maize_stuffed_potato"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

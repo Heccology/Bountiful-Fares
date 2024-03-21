@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_torchflower_tea_blend",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_torchflower_tea_blend"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:torchflower_tea_bottle"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

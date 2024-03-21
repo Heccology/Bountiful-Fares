@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_maize",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_maize"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:maize_bread"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

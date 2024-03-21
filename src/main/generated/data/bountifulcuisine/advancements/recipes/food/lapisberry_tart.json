@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_flour",
       "has_egg",
-      "has_lapisberries",
-      "has_the_recipe"
+      "has_lapisberries"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:lapisberry_tart"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

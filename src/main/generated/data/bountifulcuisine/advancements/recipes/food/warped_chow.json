@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_warped_fungus",
-      "has_warped_roots",
-      "has_the_recipe"
+      "has_warped_roots"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:warped_chow"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_flour",
       "has_egg",
-      "has_apple",
-      "has_the_recipe"
+      "has_apple"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:apple_pie"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

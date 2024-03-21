@@ -11,6 +11,16 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "apple_stew": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:apple_stew"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "arid_medley": {
       "conditions": {
         "item": {
@@ -213,17 +223,14 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "background": "minecraft:textures/block/farmland_moist.png",
     "description": {
       "translate": "advancement.bountifulcuisine.eat_all_food.description"
     },
     "frame": "goal",
-    "hidden": false,
     "icon": {
       "item": "bountifulcuisine:crusted_beef"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.bountifulcuisine.eat_all_food"
     }
@@ -246,6 +253,9 @@
     ],
     [
       "fish_stew"
+    ],
+    [
+      "apple_stew"
     ],
     [
       "stone_stew"

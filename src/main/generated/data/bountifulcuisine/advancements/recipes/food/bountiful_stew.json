@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_cooked_porkchop",
       "has_carrot",
-      "has_maize",
-      "has_the_recipe"
+      "has_maize"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:bountiful_stew"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

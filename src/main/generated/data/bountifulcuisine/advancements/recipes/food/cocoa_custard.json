@@ -58,17 +58,16 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_milk_bucket",
       "has_sugar",
       "has_cocoa_beans",
-      "has_walnut",
-      "has_the_recipe"
+      "has_walnut"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:cocoa_custard"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

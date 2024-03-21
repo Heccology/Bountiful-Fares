@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_baked_potato",
       "has_sweet_berries",
-      "has_glow_berries",
-      "has_the_recipe"
+      "has_glow_berries"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:berry_stuffed_potato"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

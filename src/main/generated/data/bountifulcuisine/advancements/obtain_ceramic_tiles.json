@@ -15,17 +15,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "background": "minecraft:textures/block/farmland_moist.png",
     "description": {
       "translate": "advancement.bountifulcuisine.obtain_ceramic_tiles.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "bountifulcuisine:ceramic_tiles"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.bountifulcuisine.obtain_ceramic_tiles"
     }

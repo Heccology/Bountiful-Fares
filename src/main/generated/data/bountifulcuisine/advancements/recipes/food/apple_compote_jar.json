@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_jar",
-      "has_apple",
-      "has_the_recipe"
+      "has_apple"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:apple_compote_jar"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

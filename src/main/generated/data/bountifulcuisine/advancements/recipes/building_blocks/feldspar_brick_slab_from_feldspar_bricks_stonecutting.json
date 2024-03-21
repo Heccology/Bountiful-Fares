@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_feldspar_bricks",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_feldspar_bricks"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:feldspar_brick_slab_from_feldspar_bricks_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

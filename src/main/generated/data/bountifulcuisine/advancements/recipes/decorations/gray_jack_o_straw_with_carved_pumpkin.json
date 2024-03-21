@@ -58,17 +58,16 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_gray_wool",
       "has_carved_pumpkin",
       "has_sun_hat",
-      "has_wool",
-      "has_the_recipe"
+      "has_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:gray_jack_o_straw_with_carved_pumpkin"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

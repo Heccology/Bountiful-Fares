@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_ceramic_clay_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_ceramic_clay_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:ceramic_clay_from_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

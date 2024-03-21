@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_sugar",
-      "has_citric_acid",
-      "has_the_recipe"
+      "has_citric_acid"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:sour_candy"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

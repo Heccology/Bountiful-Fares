@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_plum_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_plum_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:plum"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

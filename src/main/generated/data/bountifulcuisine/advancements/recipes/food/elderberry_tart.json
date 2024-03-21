@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_flour",
       "has_egg",
-      "has_elderberries",
-      "has_the_recipe"
+      "has_elderberries"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:elderberry_tart"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

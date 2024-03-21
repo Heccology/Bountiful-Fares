@@ -1,25 +1,28 @@
 package net.hecco.bountifulcuisine.block.custom;
 
 import net.hecco.bountifulcuisine.block.ModBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.block.TallPlantBlock;
+import net.hecco.bountifulcuisine.item.ModItems;
+import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.predicate.NbtPredicate;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
+import java.util.function.Predicate;
 
 public class WildMaizeBlock extends TallPlantBlock {
     public WildMaizeBlock(Settings settings) {
@@ -35,16 +38,39 @@ public class WildMaizeBlock extends TallPlantBlock {
         }
     }
 
-//    @Override
-//    public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
-//        if (player.getStackInHand(player.getActiveHand()).getEnchantments().stream().anyMatch(Enchantments.SILK_TOUCH)) {
-//            dropStack(world, pos, new ItemStack(ModBlocks.APPLE_BLOCK));
-//        }
-//        super.onBlockBreakStart(state, world, pos, player);
-//    }
+    @Override
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        DoubleBlockHalf doubleBlockHalf = state.get(HALF);
+        if (direction.getAxis() == Direction.Axis.Y && doubleBlockHalf == DoubleBlockHalf.LOWER == (direction == Direction.UP) && (!neighborState.isOf(this) || neighborState.get(HALF) == doubleBlockHalf)) {
+            world.breakBlock(pos, false);
+            return Blocks.AIR.getDefaultState();
+        } else {
+            return doubleBlockHalf == DoubleBlockHalf.LOWER && direction == Direction.DOWN && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+        }
+    }
 
     @Override
-    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
-
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        DoubleBlockHalf doubleBlockHalf = state.get(HALF);
+        if (doubleBlockHalf == DoubleBlockHalf.UPPER) {
+            BlockPos blockPos = pos.down();
+            BlockState blockState = world.getBlockState(blockPos);
+            if (blockState.isOf(state.getBlock()) && blockState.get(HALF) == DoubleBlockHalf.LOWER) {
+                if (!player.isCreative()) {
+                    dropStacks(state, world, pos, null, player, player.getMainHandStack());
+                }
+                world.breakBlock(blockPos, false);
+            }
+        } else {
+            BlockPos blockPos = pos.up();
+            BlockState blockState = world.getBlockState(blockPos);
+            if (blockState.isOf(state.getBlock()) && blockState.get(HALF) == DoubleBlockHalf.UPPER) {
+                if (!player.isCreative()) {
+                    dropStacks(state, world, pos, null, player, player.getMainHandStack());
+                }
+                world.breakBlock(blockPos, false);
+            }
+        }
+        return super.onBreak(world, pos, state, player);
     }
 }

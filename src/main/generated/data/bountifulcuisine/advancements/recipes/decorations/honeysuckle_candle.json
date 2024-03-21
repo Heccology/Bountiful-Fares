@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_honeycomb",
-      "has_tea_blend",
-      "has_the_recipe"
+      "has_tea_blend"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:honeysuckle_candle"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

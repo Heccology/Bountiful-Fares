@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_jar",
-      "has_orange",
-      "has_the_recipe"
+      "has_orange"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:orange_compote_jar"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

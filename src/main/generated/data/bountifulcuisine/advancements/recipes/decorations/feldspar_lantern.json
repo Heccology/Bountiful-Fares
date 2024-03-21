@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_iron_ingot",
       "has_iron_nugget",
-      "has_feldspar",
-      "has_the_recipe"
+      "has_feldspar"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:feldspar_lantern"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

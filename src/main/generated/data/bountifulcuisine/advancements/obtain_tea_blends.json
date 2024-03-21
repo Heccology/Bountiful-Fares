@@ -75,17 +75,14 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "background": "minecraft:textures/block/farmland_moist.png",
     "description": {
       "translate": "advancement.bountifulcuisine.obtain_tea_blends.description"
     },
     "frame": "challenge",
-    "hidden": false,
     "icon": {
       "item": "bountifulcuisine:tea_leaves"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.bountifulcuisine.obtain_tea_blends"
     }

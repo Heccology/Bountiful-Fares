@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_chamomile_tea_blend",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_chamomile_tea_blend"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:chamomile_tea_bottle"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

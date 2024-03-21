@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_violet_bellflower",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_violet_bellflower"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:purple_dye_from_violet_bellflower"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

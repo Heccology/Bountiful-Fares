@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_lemon",
-      "has_sugar",
-      "has_the_recipe"
+      "has_sugar"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:candied_lemon"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

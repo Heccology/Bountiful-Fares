@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_iron_ingot",
-      "has_brick",
-      "has_the_recipe"
+      "has_brick"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:gristmill"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

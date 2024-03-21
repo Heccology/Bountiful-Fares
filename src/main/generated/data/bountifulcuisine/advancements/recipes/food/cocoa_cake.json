@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_egg",
       "has_flour",
-      "has_cocoa_beans",
-      "has_the_recipe"
+      "has_cocoa_beans"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:cocoa_cake"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

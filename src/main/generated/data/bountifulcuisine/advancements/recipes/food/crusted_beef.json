@@ -58,17 +58,16 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_cooked_beef",
       "has_potato",
       "has_walnut",
-      "has_elderberries",
-      "has_the_recipe"
+      "has_elderberries"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:crusted_beef"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_honeysuckle_tea_blend",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_honeysuckle_tea_blend"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:honeysuckle_tea_bottle"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

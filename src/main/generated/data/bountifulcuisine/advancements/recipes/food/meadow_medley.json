@@ -58,17 +58,16 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_cooked_mutton",
       "has_beetroot",
       "has_violet_bellflower",
-      "has_leek",
-      "has_the_recipe"
+      "has_leek"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:meadow_medley"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

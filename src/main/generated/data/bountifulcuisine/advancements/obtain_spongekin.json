@@ -20,17 +20,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "background": "minecraft:textures/block/farmland_moist.png",
     "description": {
       "translate": "advancement.bountifulcuisine.obtain_spongekin.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "bountifulcuisine:spongekin"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.bountifulcuisine.obtain_spongekin"
     }

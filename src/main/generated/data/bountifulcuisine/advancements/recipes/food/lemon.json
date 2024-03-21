@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_lemon_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_lemon_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:lemon"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

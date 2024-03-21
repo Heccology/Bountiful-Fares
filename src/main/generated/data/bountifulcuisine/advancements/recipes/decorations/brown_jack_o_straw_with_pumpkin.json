@@ -58,17 +58,16 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_brown_wool",
       "has_carved_pumpkin",
       "has_sun_hat",
-      "has_wool",
-      "has_the_recipe"
+      "has_wool"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:brown_jack_o_straw_with_pumpkin"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_sugar",
-      "has_honey_bottle",
-      "has_the_recipe"
+      "has_honey_bottle"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:candy"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

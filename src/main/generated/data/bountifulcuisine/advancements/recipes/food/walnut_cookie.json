@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_flour",
-      "has_walnut",
-      "has_the_recipe"
+      "has_walnut"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:walnut_cookie"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

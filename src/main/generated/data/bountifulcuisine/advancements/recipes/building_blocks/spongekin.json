@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_spongekin_slice",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_spongekin_slice"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:spongekin"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_orange_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_orange_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:orange"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

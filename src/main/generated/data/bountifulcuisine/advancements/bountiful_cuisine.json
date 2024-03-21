@@ -1,7 +1,6 @@
 {
   "criteria": {
     "consume_item": {
-      "conditions": {},
       "trigger": "minecraft:consume_item"
     }
   },
@@ -11,8 +10,6 @@
     "description": {
       "translate": "advancement.bountifulcuisine.bountiful_cuisine.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "bountifulcuisine:passion_fruit"
     },

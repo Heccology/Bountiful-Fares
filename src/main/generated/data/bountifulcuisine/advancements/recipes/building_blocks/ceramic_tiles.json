@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_ceramic_tile",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_ceramic_tile"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:ceramic_tiles"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

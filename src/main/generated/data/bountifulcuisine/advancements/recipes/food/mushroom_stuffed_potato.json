@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_baked_potato",
       "has_red_mushroom",
-      "has_brown_mushroom",
-      "has_the_recipe"
+      "has_brown_mushroom"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:mushroom_stuffed_potato"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

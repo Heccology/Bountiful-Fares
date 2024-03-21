@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_leek",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_leek"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:leek_stew"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

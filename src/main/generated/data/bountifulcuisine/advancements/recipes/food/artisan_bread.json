@@ -34,15 +34,14 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_egg",
-      "has_flour",
-      "has_the_recipe"
+      "has_flour"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:artisan_bread"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

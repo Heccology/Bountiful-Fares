@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_mulch",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_mulch"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:brown_dye"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

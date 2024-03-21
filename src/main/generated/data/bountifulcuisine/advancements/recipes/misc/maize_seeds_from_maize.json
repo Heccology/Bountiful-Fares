@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_maize",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_maize"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:maize_seeds_from_maize"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

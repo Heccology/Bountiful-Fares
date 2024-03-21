@@ -15,17 +15,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "background": "minecraft:textures/block/farmland_moist.png",
     "description": {
       "translate": "advancement.bountifulcuisine.obtain_sun_hat.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "bountifulcuisine:sun_hat"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.bountifulcuisine.obtain_sun_hat"
     }

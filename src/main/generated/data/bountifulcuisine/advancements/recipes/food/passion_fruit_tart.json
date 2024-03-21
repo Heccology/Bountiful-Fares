@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_flour",
       "has_egg",
-      "has_passion_fruit",
-      "has_the_recipe"
+      "has_passion_fruit"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:passion_fruit_tart"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

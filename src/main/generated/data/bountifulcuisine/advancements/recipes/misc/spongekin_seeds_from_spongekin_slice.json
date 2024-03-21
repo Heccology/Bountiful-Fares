@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_spongekin_slice",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_spongekin_slice"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:spongekin_seeds_from_spongekin_slice"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

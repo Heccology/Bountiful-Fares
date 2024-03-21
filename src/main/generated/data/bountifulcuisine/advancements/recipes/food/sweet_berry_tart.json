@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_flour",
       "has_egg",
-      "has_sweet_berries",
-      "has_the_recipe"
+      "has_sweet_berries"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:sweet_berry_tart"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

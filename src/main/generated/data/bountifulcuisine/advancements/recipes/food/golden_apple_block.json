@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_golden_apple",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_golden_apple"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:golden_apple_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

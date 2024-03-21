@@ -46,16 +46,15 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_milk_bucket",
       "has_sugar",
-      "has_glow_berries",
-      "has_the_recipe"
+      "has_glow_berries"
     ]
   ],
   "rewards": {
     "recipes": [
       "bountifulcuisine:glowing_custard"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
