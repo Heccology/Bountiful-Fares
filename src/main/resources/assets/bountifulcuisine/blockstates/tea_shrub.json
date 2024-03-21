@@ -7,10 +7,10 @@
       "model": "bountifulcuisine:block/tea_shrub_1"
     },
     "age=2,berries=false": {
-      "model": "bountifulcuisine:block/tea_shrub_1"
+      "model": "bountifulcuisine:block/tea_shrub_2"
     },
     "age=3,berries=false": {
-      "model": "bountifulcuisine:block/tea_shrub_1"
+      "model": "bountifulcuisine:block/tea_shrub_3"
     },
     "age=4,berries=false": {
       "model": "bountifulcuisine:block/tea_shrub_4"

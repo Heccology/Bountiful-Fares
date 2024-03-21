@@ -45,6 +45,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModBlocks.WILD_PASSION_FRUIT_VINE.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModBlocks.WILD_ELDERBERRY_VINE.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModItems.FISH_STEW, Models.GENERATED);
+        itemModelGenerator.register(ModItems.APPLE_STEW, Models.GENERATED);
         itemModelGenerator.register(ModItems.STONE_STEW, Models.GENERATED);
         itemModelGenerator.register(ModItems.FOREST_MEDLEY, Models.GENERATED);
         itemModelGenerator.register(ModItems.ARID_MEDLEY, Models.GENERATED);

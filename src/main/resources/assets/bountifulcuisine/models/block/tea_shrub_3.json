@@ -2,10 +2,10 @@
 	"credit": "Made with Blockbench by Hecco",
 	"ambientocclusion": false,
 	"textures": {
-		"0": "bountifulcuisine:block/tea_shrub_side_berries",
-		"1": "bountifulcuisine:block/tea_shrub_top_berries",
+		"0": "bountifulcuisine:block/tea_shrub_side",
+		"1": "bountifulcuisine:block/tea_shrub_top",
 		"2": "bountifulcuisine:block/tea_shrub_inside",
-		"3": "bountifulcuisine:block/tea_shrub_shoots_berries",
+		"3": "bountifulcuisine:block/tea_shrub_shoots_3",
 		"particle": "bountifulcuisine:block/tea_shrub_side"
 	},
 	"elements": [

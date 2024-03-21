@@ -11,6 +11,16 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "apple_stew": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulcuisine:apple_stew"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "arid_medley": {
       "conditions": {
         "item": {
@@ -246,6 +256,9 @@
     ],
     [
       "fish_stew"
+    ],
+    [
+      "apple_stew"
     ],
     [
       "stone_stew"

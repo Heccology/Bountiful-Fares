@@ -152,14 +152,14 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.WILD_ELDERBERRY_VINE, WildCropDrops(ModItems.ELDERBERRIES, ModBlocks.WILD_ELDERBERRY_VINE));
         addDrop(ModBlocks.WILD_MAIZE, LootTable.builder()
                         .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                                .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WILD_MAIZE)
-                                        .properties(StatePredicate.Builder.create().exactMatch(WildMaizeBlock.HALF, DoubleBlockHalf.LOWER)))
-                                .conditionally(WITHOUT_SILK_TOUCH)
+//                                .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WILD_MAIZE)
+//                                        .properties(StatePredicate.Builder.create().exactMatch(WildMaizeBlock.HALF, DoubleBlockHalf.LOWER)))
+                                .conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
                                 .with(this.applyExplosionDecay(ModBlocks.WILD_MAIZE, ItemEntry.builder(ModItems.MAIZE_SEEDS))))
                         .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                                .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WILD_MAIZE)
-                                        .properties(StatePredicate.Builder.create().exactMatch(WildMaizeBlock.HALF, DoubleBlockHalf.UPPER)))
-                                .conditionally(WITH_SILK_TOUCH)
+//                                .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WILD_MAIZE)
+//                                        .properties(StatePredicate.Builder.create().exactMatch(WildMaizeBlock.HALF, DoubleBlockHalf.LOWER)))
+                                .conditionally(WITH_SILK_TOUCH_OR_SHEARS)
                                 .with(this.applyExplosionDecay(ModBlocks.WILD_MAIZE, ItemEntry.builder(ModBlocks.WILD_MAIZE)))));
         addDrop(ModBlocks.MAIZE_CROP, ModItems.MAIZE);
         addDrop(ModBlocks.FELDSPAR_BLOCK);
@@ -297,10 +297,10 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
     public LootTable.Builder WildCropDrops(Item seed, Block block) {
         return LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(WITHOUT_SILK_TOUCH)
+                        .conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
                         .with(this.applyExplosionDecay(block, ItemEntry.builder(seed))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(WITH_SILK_TOUCH)
+                        .conditionally(WITH_SILK_TOUCH_OR_SHEARS)
                         .with(this.applyExplosionDecay(block, ItemEntry.builder(block))));
     }
 

@@ -380,6 +380,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModItems.PASSION_GLAZED_SALMON);
         generate(translationBuilder, ModItems.LEEK_STEW);
         generate(translationBuilder, ModItems.FISH_STEW);
+        generate(translationBuilder, ModItems.APPLE_STEW);
         generate(translationBuilder, ModItems.STONE_STEW);
         generate(translationBuilder, ModItems.BOUNTIFUL_STEW);
         generate(translationBuilder, ModItems.CRUSTED_BEEF);

@@ -3,9 +3,10 @@ package net.hecco.bountifulcuisine.particle;
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
+import net.minecraft.util.math.random.Random;
 
 public class FlourCloudParticle extends SpriteBillboardParticle {
-    public FlourCloudParticle(ClientWorld world, double xCoord, double yCoord, double zCoord, SpriteProvider spriteSet, double xd, double yd, double zd) {
+    public FlourCloudParticle(ClientWorld world, double xCoord, double yCoord, double zCoord, SpriteProvider spriteSet, double xd, double yd, double zd, int angle) {
         super(world, xCoord, yCoord, zCoord, xd, yd, zd);
         this.velocityMultiplier = 0.95f;
         this.velocityX = xd;
@@ -14,17 +15,19 @@ public class FlourCloudParticle extends SpriteBillboardParticle {
         this.scale = 0.5f + world.random.nextFloat();
         this.maxAge = 200 + world.random.nextBetween(0, 10);
         this.collidesWithWorld = true;
+        this.prevAngle = angle;
 
 //        this.alpha = 0f;
-        this.setSpriteForAge(spriteSet);
+        this.setSprite(spriteSet);
     }
 
     @Override
     public void tick() {
+        this.angle = prevAngle;
         this.prevPosX = this.x;
         this.prevPosY = this.y;
         this.prevPosZ = this.z;
-        if (this.age++ >= this.maxAge || this.alpha <= 0.0f && this.age >= maxAge - 20) {
+        if (this.age++ >= this.maxAge || this.age >= maxAge) {
             this.markDead();
             return;
         }
@@ -35,7 +38,7 @@ public class FlourCloudParticle extends SpriteBillboardParticle {
         if (this.age != this.maxAge) {
             this.scale *= 1.001f;
         }
-        if (this.age >= this.maxAge - 100 && this.alpha > 0.01f) {
+        if (this.age >= this.maxAge - 100 && this.alpha > 0f) {
             this.alpha -= 0.01f;
         }
     }
@@ -52,7 +55,7 @@ public class FlourCloudParticle extends SpriteBillboardParticle {
         }
 
         public Particle createParticle(DefaultParticleType particleType, ClientWorld clientWorld, double x, double y, double z, double xd, double yd, double zd) {
-            return new FlourCloudParticle(clientWorld, x, y, z, this.sprites, xd, yd, zd);
+            return new FlourCloudParticle(clientWorld, x, y, z, this.sprites, xd, yd, zd, Random.create().nextBetween(0, 180));
         }
     }
 }
