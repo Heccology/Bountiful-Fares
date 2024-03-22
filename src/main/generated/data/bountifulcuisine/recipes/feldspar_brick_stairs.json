@@ -7,11 +7,13 @@
     }
   },
   "pattern": [
+    "#  ",
+    "## ",
     "###"
   ],
   "result": {
-    "count": 6,
-    "item": "bountifulcuisine:feldspar_brick_slab"
+    "count": 4,
+    "item": "bountifulcuisine:feldspar_brick_stairs"
   },
   "show_notification": true
 }

@@ -705,7 +705,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICKS, ModBlocks.CUT_FELDSPAR_BLOCK);
         BlockFamily feldsparBricksFamily = register(ModBlocks.FELDSPAR_BRICKS)
                 .stairs(ModBlocks.FELDSPAR_BRICK_STAIRS)
-                .stairs(ModBlocks.FELDSPAR_BRICK_SLAB)
+                .slab(ModBlocks.FELDSPAR_BRICK_SLAB)
                 .unlockCriterionName("has_feldspar_bricks")
                 .build();
         generateFamily(exporter, feldsparBricksFamily);
