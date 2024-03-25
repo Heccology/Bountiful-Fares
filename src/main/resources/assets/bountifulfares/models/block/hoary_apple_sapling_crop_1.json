@@ -1,0 +1,6 @@
+{
+	"parent": "bountifulfares:block/cross_crop",
+	"textures": {
+		"crop": "bountifulfares:block/hoary_apple_sapling_crop_1"
+	}
+}

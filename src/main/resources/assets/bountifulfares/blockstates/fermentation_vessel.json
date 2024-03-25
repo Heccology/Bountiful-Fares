@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "water=false,fermenting=false": {
+      "model": "bountifulfares:block/fermentation_vessel"
+    },
+    "water=true,fermenting=false": {
+      "model": "bountifulfares:block/fermentation_vessel_water"
+    },
+    "fermenting=true": {
+      "model": "bountifulfares:block/fermentation_vessel_closed"
+    }
+  }
+}

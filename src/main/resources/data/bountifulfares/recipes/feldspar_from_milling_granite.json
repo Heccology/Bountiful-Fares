@@ -1,0 +1,12 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:granite"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "bountifulfares:feldspar"
+  }
+}

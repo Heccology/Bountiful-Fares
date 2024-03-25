@@ -1,9 +1,0 @@
-{
-	"parent": "bountifulcuisine:block/fruit_block",
-	"textures": {
-		"side": "bountifulcuisine:block/orange_block_side",
-		"top": "bountifulcuisine:block/orange_block_top",
-		"bottom": "bountifulcuisine:block/orange_block_bottom",
-		"stem": "bountifulcuisine:block/orange_block_stem"
-	}
-}

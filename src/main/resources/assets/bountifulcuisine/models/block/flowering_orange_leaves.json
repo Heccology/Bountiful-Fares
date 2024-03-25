@@ -1,6 +1,0 @@
-{
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "bountifulcuisine:block/flowering_orange_leaves"
-	}
-}

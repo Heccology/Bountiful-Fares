@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "bountifulcuisine:block/walnut_planks",
-    "side": "bountifulcuisine:block/walnut_planks",
-    "top": "bountifulcuisine:block/walnut_planks"
-  }
-}

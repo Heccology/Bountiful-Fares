@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:torchflower"
+    }
+  ],
+  "output": {
+    "item": "bountifulfares:torchflower_tea_blend"
+  }
+}

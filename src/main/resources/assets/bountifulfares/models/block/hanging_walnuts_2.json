@@ -1,0 +1,7 @@
+{
+	"parent": "bountifulfares:block/tintable_cross_with_overlay",
+	"textures": {
+		"cross": "bountifulfares:block/hanging_walnuts_2",
+		"tint": "bountifulfares:block/hanging_walnuts_2_tint"
+	}
+}

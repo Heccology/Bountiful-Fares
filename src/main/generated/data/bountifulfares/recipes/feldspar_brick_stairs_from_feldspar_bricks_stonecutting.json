@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "bountifulfares:feldspar_bricks"
+  },
+  "result": "bountifulfares:feldspar_brick_stairs"
+}

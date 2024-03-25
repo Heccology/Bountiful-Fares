@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model":  "bountifulfares:block/green_tea_candle"
+    },
+    "lit=true": {
+      "model":  "bountifulfares:block/green_tea_candle_lit"
+    }
+  }
+}

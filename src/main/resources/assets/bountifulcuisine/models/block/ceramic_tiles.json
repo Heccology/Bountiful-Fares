@@ -1,6 +1,0 @@
-{
-	"parent": "bountifulcuisine:block/tintable_block",
-	"textures": {
-		"tint": "bountifulcuisine:block/ceramic_tiles"
-	}
-}

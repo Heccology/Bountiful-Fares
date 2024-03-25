@@ -1,8 +1,0 @@
-{
-	"parent": "bountifulcuisine:block/pie",
-	"textures": {
-		"side": "bountifulcuisine:block/pie_side",
-		"top": "bountifulcuisine:block/orange_pie_top",
-		"bottom": "bountifulcuisine:block/pie_bottom"
-	}
-}

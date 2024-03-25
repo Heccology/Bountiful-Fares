@@ -1,0 +1,8 @@
+{
+	"parent": "bountifulfares:block/template_planted_trellis",
+	"textures": {
+		"trellis": "bountifulfares:block/trellis",
+		"vines": "bountifulfares:block/peony_trellis_vines",
+		"foliage": "bountifulfares:block/peony_trellis_foliage"
+	}
+}

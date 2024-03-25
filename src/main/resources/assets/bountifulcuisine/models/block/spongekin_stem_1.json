@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "bountifulcuisine:block/spongekin_stem_1"
-  }
-}

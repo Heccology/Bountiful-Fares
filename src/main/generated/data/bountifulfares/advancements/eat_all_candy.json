@@ -1,0 +1,76 @@
+{
+  "parent": "bountifulfares:bountiful_fares",
+  "criteria": {
+    "bitter": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulfares:bitter_candy"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "candy": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulfares:candy"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "piquant": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulfares:piquant_candy"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "sour": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulfares:sour_candy"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.eat_all_candy.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulfares:candy"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bountifulfares.eat_all_candy"
+    }
+  },
+  "requirements": [
+    [
+      "candy"
+    ],
+    [
+      "piquant"
+    ],
+    [
+      "sour"
+    ],
+    [
+      "bitter"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

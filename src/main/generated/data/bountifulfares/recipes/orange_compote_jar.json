@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:orange"
+    },
+    {
+      "item": "bountifulfares:orange"
+    },
+    {
+      "item": "bountifulfares:citrus_essence"
+    },
+    {
+      "item": "bountifulfares:jar"
+    }
+  ],
+  "result": {
+    "item": "bountifulfares:orange_compote_jar"
+  }
+}

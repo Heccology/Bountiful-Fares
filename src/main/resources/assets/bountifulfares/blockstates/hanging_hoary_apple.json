@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "bountifulfares:block/hanging_hoary_apple_0"
+    },
+    "age=1": {
+      "model": "bountifulfares:block/hanging_hoary_apple_1"
+    },
+    "age=2": {
+      "model": "bountifulfares:block/hanging_hoary_apple_2"
+    },
+    "age=3": {
+      "model": "bountifulfares:block/hanging_hoary_apple_3"
+    },
+    "age=4": {
+      "model": "bountifulfares:block/hanging_hoary_apple_4"
+    }
+  }
+}

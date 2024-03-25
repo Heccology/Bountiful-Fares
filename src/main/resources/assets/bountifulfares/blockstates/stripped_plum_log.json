@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "bountifulfares:block/stripped_plum_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "bountifulfares:block/stripped_plum_log"
+    },
+    "axis=z": {
+      "model": "bountifulfares:block/stripped_plum_log",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:cherry_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "#S#"
+  ],
+  "result": {
+    "count": 4,
+    "item": "bountifulfares:cherry_pickets"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "bountifulfares:block/template_planted_trellis_0",
+	"textures": {
+		"trellis": "bountifulfares:block/trellis",
+		"vines": "bountifulfares:block/elderberry_trellis_vines_0"
+	}
+}

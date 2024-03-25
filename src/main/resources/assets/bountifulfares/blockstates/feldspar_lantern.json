@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "bountifulfares:block/feldspar_lantern"
+    },
+    "hanging=true": {
+      "model": "bountifulfares:block/feldspar_lantern_hanging"
+    }
+  }
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "bountifulcuisine:block/tintable_inner_stairs",
-  "textures": {
-    "bottom": "bountifulcuisine:block/ceramic_tiles",
-    "side": "bountifulcuisine:block/ceramic_tiles",
-    "top": "bountifulcuisine:block/ceramic_tiles"
-  }
-}

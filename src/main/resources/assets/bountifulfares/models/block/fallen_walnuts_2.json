@@ -1,0 +1,7 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"parent": "bountifulfares:block/template_fallen_walnuts",
+	"textures": {
+		"texture": "bountifulfares:block/fallen_walnuts_2"
+	}
+}

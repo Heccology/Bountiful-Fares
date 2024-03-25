@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "bountifulfares:ceramic_clay"
+    }
+  },
+  "pattern": [
+    " # ",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "item": "bountifulfares:fermentation_vessel"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,12 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate_iron_ore"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "minecraft:raw_iron"
+  }
+}

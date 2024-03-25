@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:hoary_apple_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "bountifulfares:hoary_apple"
+  }
+}

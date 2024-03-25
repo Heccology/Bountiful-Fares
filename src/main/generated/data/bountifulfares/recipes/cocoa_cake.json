@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:cocoa_beans"
+    },
+    "E": {
+      "item": "minecraft:egg"
+    },
+    "F": {
+      "item": "bountifulfares:flour"
+    },
+    "M": {
+      "item": "minecraft:milk_bucket"
+    }
+  },
+  "pattern": [
+    "MMM",
+    "CEC",
+    "FFF"
+  ],
+  "result": {
+    "item": "bountifulfares:cocoa_cake"
+  },
+  "show_notification": true
+}

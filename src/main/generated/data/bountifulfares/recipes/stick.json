@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "stick",
+  "ingredients": [
+    {
+      "tag": "bountifulfares:fruit_logs"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:stick"
+  }
+}

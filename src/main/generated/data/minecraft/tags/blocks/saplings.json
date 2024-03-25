@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "bountifulcuisine:apple_sapling",
-    "bountifulcuisine:orange_sapling",
-    "bountifulcuisine:lemon_sapling",
-    "bountifulcuisine:plum_sapling",
-    "bountifulcuisine:hoary_apple_sapling",
-    "bountifulcuisine:walnut_sapling"
+    "bountifulfares:apple_sapling",
+    "bountifulfares:orange_sapling",
+    "bountifulfares:lemon_sapling",
+    "bountifulfares:plum_sapling",
+    "bountifulfares:hoary_apple_sapling",
+    "bountifulfares:walnut_sapling"
   ]
 }

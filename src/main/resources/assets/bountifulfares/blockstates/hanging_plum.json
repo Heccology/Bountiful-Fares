@@ -1,0 +1,89 @@
+{
+  "variants": {
+    "age=0": [
+      {
+        "model": "bountifulfares:block/hanging_plum_0"
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_0",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_0",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_0",
+        "y": 270
+      }
+    ],
+    "age=1": [
+      {
+        "model": "bountifulfares:block/hanging_plum_1"
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_1",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_1",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_1",
+        "y": 270
+      }
+    ],
+    "age=2": [
+      {
+        "model": "bountifulfares:block/hanging_plum_2"
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_2",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_2",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_2",
+        "y": 270
+      }
+    ],
+    "age=3": [
+      {
+        "model": "bountifulfares:block/hanging_plum_3"
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_3",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_3",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_3",
+        "y": 270
+      }
+    ],
+    "age=4": [
+      {
+        "model": "bountifulfares:block/hanging_plum_4"
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_4",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_4",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/hanging_plum_4",
+        "y": 270
+      }
+    ]
+  }
+}

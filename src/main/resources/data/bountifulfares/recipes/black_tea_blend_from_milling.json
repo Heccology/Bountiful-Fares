@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredients": [
+    {
+      "item": "bountifulfares:dried_tea_leaves"
+    }
+  ],
+  "output": {
+    "item": "bountifulfares:black_tea_blend"
+  }
+}

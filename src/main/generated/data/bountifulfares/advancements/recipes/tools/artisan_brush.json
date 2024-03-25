@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ceramic_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bountifulfares:ceramic_tiles"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_gold_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:gold_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:string"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bountifulfares:artisan_brush"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ceramic_tiles",
+      "has_gold_ingot",
+      "has_string"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bountifulfares:artisan_brush"
+    ]
+  },
+  "sends_telemetry_event": false
+}

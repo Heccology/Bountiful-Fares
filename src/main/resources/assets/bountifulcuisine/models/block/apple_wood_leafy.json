@@ -1,7 +1,0 @@
-{
-	"parent": "bountifulcuisine:block/template_fruit_wood_leafy",
-	"textures": {
-		"all": "bountifulcuisine:block/apple_log",
-		"leaves": "bountifulcuisine:block/apple_leaves"
-	}
-}

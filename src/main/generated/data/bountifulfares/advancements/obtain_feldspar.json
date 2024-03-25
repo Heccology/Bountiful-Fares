@@ -1,0 +1,39 @@
+{
+  "parent": "bountifulfares:place_gristmill",
+  "criteria": {
+    "obtain_feldspar": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bountifulfares:feldspar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.obtain_feldspar.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulfares:feldspar"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bountifulfares.obtain_feldspar"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_feldspar"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

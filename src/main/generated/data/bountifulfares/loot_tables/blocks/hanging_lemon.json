@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:hanging_lemon",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:lemon"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

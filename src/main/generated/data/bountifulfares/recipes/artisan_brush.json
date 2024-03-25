@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "F": {
+      "item": "minecraft:string"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "FFF",
+    " G ",
+    " S "
+  ],
+  "result": {
+    "item": "bountifulfares:artisan_brush"
+  },
+  "show_notification": true
+}

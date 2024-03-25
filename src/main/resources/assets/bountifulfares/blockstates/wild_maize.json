@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=upper": {
+      "model": "bountifulfares:block/wild_maize_top"
+    },
+    "half=lower": {
+      "model": "bountifulfares:block/wild_maize_bottom"
+    }
+  }
+}

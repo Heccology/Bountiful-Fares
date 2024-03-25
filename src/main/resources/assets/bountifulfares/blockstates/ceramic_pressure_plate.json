@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "bountifulfares:block/ceramic_pressure_plate"
+    },
+    "powered=true": {
+      "model": "bountifulfares:block/ceramic_pressure_plate_down"
+    }
+  }
+}

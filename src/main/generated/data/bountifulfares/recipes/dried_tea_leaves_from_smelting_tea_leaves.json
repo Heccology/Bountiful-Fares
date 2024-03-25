@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.3,
+  "group": "dried_tea_leaves",
+  "ingredient": {
+    "item": "bountifulfares:tea_leaves"
+  },
+  "result": "bountifulfares:dried_tea_leaves"
+}

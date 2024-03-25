@@ -1,0 +1,12 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "bountifulfares:flour"
+  }
+}

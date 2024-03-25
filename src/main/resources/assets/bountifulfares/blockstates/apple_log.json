@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "axis=x,leafy=false": {
+      "model": "bountifulfares:block/apple_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=x,leafy=true": {
+      "model": "bountifulfares:block/apple_log_leafy",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,leafy=false": {
+      "model": "bountifulfares:block/apple_log"
+    },
+    "axis=y,leafy=true": {
+      "model": "bountifulfares:block/apple_log_leafy"
+    },
+    "axis=z,leafy=false": {
+      "model": "bountifulfares:block/apple_log",
+      "x": 90
+    },
+    "axis=z,leafy=true": {
+      "model": "bountifulfares:block/apple_log_leafy",
+      "x": 90
+    }
+  }
+}
