@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredients": [
+    {
+      "item": "bountifulfares:chamomile_flowers"
+    }
+  ],
+  "output": {
+    "item": "bountifulfares:chamomile_tea_blend"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:checkered_ceramic_tile_stairs"
+    }
+  ],
+  "result": {
+    "item": "bountifulfares:checkered_ceramic_tile_stairs"
+  }
+}

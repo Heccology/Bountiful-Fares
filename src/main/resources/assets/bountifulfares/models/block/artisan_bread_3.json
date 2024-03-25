@@ -1,0 +1,26 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"parent": "block/block",
+	"textures": {
+		"0": "bountifulfares:block/artisan_bread_top",
+		"1": "bountifulfares:block/artisan_bread_side",
+		"2": "bountifulfares:block/artisan_bread_end",
+		"3": "bountifulfares:block/artisan_bread_bottom",
+		"4": "bountifulfares:block/artisan_bread_inside",
+		"particle": "bountifulfares:block/artisan_bread_top"
+	},
+	"elements": [
+		{
+			"from": [3, 0, 7],
+			"to": [13, 7, 15],
+			"faces": {
+				"north": {"uv": [3, 9, 13, 16], "texture": "#4"},
+				"east": {"uv": [1, 9, 9, 16], "texture": "#1"},
+				"south": {"uv": [3, 9, 13, 16], "texture": "#2"},
+				"west": {"uv": [9, 9, 1, 16], "texture": "#1"},
+				"up": {"uv": [3, 1, 13, 9], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [3, 7, 13, 15], "rotation": 180, "texture": "#3"}
+			}
+		}
+	]
+}

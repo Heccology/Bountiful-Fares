@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "planted=false": {
+      "model": "bountifulfares:block/spongekin"
+    },
+    "planted=true": {
+      "model": "bountifulfares:block/spongekin_planted"
+    }
+  }
+}

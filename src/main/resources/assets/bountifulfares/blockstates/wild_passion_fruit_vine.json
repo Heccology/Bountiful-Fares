@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bountifulfares:block/wild_passion_fruit_vine",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bountifulfares:block/wild_passion_fruit_vine"
+    },
+    "facing=south": {
+      "model": "bountifulfares:block/wild_passion_fruit_vine",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bountifulfares:block/wild_passion_fruit_vine",
+      "y": 270
+    }
+  }
+}

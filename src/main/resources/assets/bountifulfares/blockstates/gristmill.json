@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,milling=false": {
+      "model": "bountifulfares:block/gristmill",
+      "y": 90
+    },
+    "facing=north,milling=false": {
+      "model": "bountifulfares:block/gristmill"
+    },
+    "facing=south,milling=false": {
+      "model": "bountifulfares:block/gristmill",
+      "y": 180
+    },
+    "facing=west,milling=false": {
+      "model": "bountifulfares:block/gristmill",
+      "y": 270
+    },
+    "facing=east,milling=true": {
+      "model": "bountifulfares:block/gristmill_milling",
+      "y": 90
+    },
+    "facing=north,milling=true": {
+      "model": "bountifulfares:block/gristmill_milling"
+    },
+    "facing=south,milling=true": {
+      "model": "bountifulfares:block/gristmill_milling",
+      "y": 180
+    },
+    "facing=west,milling=true": {
+      "model": "bountifulfares:block/gristmill_milling",
+      "y": 270
+    }
+  }
+}

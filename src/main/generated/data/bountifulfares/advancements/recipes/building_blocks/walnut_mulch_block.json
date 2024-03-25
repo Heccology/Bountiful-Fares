@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bountifulfares:walnut_mulch_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_walnut_mulch": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bountifulfares:walnut_mulch"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_walnut_mulch",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bountifulfares:walnut_mulch_block"
+    ]
+  },
+  "sends_telemetry_event": false
+}

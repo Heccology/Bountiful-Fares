@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:plum_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "bountifulfares:plum"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "bountifulfares:block/spongekin_stem_1"
+  }
+}

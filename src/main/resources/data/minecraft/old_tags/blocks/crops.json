@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "bountifulcuisine:hoary_apple_sapling_crop",
-    "bountifulcuisine:tomatoes"
+    "bountifulfares:hoary_apple_sapling_crop",
+    "bountifulfares:tomatoes"
   ]
 }

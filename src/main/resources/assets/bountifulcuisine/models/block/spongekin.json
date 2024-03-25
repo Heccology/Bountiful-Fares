@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/cube_bottom_top",
-	"textures": {
-		"side": "bountifulcuisine:block/spongekin_side",
-		"top": "bountifulcuisine:block/spongekin_top",
-		"bottom": "bountifulcuisine:block/spongekin_bottom"
-	}
-}

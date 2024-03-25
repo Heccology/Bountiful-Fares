@@ -1,0 +1,12 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredients": [
+    {
+      "item": "bountifulfares:walnut"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "bountifulfares:walnut_mulch"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "bountifulfares:block/stripped_orange_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "bountifulfares:block/stripped_orange_log"
+    },
+    "axis=z": {
+      "model": "bountifulfares:block/stripped_orange_log",
+      "x": 90
+    }
+  }
+}

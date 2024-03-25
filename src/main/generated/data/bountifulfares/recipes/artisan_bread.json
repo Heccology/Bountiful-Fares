@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:flour"
+    },
+    {
+      "item": "bountifulfares:flour"
+    },
+    {
+      "item": "bountifulfares:flour"
+    },
+    {
+      "item": "minecraft:egg"
+    }
+  ],
+  "result": {
+    "item": "bountifulfares:artisan_bread"
+  }
+}

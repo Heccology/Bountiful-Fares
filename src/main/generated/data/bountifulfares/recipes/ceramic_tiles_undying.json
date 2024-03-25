@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:ceramic_tiles"
+    }
+  ],
+  "result": {
+    "item": "bountifulfares:ceramic_tiles"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "criteria": {
+    "consume_item": {
+      "conditions": {},
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.bountiful_fares.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulfares:passion_fruit"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.bountifulfares.bountiful_fares"
+    }
+  },
+  "requirements": [
+    [
+      "consume_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

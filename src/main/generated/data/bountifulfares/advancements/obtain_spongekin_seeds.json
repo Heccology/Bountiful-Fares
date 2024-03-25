@@ -1,0 +1,39 @@
+{
+  "parent": "bountifulfares:bountiful_fares",
+  "criteria": {
+    "obtain_spongekin_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bountifulfares:spongekin_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.obtain_spongekin_seeds.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulfares:spongekin_seeds"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bountifulfares.obtain_spongekin_seeds"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_spongekin_seeds"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

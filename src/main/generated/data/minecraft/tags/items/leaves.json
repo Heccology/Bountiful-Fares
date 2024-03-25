@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "#bountifulcuisine:apple_leaves",
-    "#bountifulcuisine:orange_leaves",
-    "#bountifulcuisine:lemon_leaves",
-    "#bountifulcuisine:plum_leaves",
-    "bountifulcuisine:hoary_leaves",
-    "bountifulcuisine:walnut_leaves"
+    "#bountifulfares:apple_leaves",
+    "#bountifulfares:orange_leaves",
+    "#bountifulfares:lemon_leaves",
+    "#bountifulfares:plum_leaves",
+    "bountifulfares:hoary_leaves",
+    "bountifulfares:walnut_leaves"
   ]
 }

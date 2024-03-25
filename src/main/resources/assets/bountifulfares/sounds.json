@@ -1,0 +1,221 @@
+{
+  "ceramic_tiles_place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "bountifulfares:ceramic_tiles/place1",
+      "bountifulfares:ceramic_tiles/place2",
+      "bountifulfares:ceramic_tiles/place3"
+    ]
+  },
+  "ceramic_tiles_break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "bountifulfares:ceramic_tiles/break1",
+      "bountifulfares:ceramic_tiles/break2",
+      "bountifulfares:ceramic_tiles/break3"
+    ]
+  },
+  "ceramic_tiles_hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "bountifulfares:ceramic_tiles/hit1",
+      "bountifulfares:ceramic_tiles/hit2",
+      "bountifulfares:ceramic_tiles/hit3"
+    ]
+  },
+  "ceramic_tiles_step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "bountifulfares:ceramic_tiles/place1",
+      "bountifulfares:ceramic_tiles/place2",
+      "bountifulfares:ceramic_tiles/place3"
+    ]
+  },
+  "ceramic_tiles_fall": {
+    "subtitle": "subtitles.entity.generic.small_fall",
+    "sounds": [
+      "bountifulfares:ceramic_tiles/hit1",
+      "bountifulfares:ceramic_tiles/hit2",
+      "bountifulfares:ceramic_tiles/hit3"
+    ]
+  },
+    "ceramic_decoration_place": {
+      "subtitle": "subtitles.block.generic.place",
+      "sounds": [
+        "bountifulfares:ceramic_decoration/place1",
+        "bountifulfares:ceramic_decoration/place2",
+        "bountifulfares:ceramic_decoration/place3"
+      ]
+    },
+    "ceramic_decoration_break": {
+      "subtitle": "subtitles.block.generic.break",
+      "sounds": [
+        "bountifulfares:ceramic_decoration/place1",
+        "bountifulfares:ceramic_decoration/place2",
+        "bountifulfares:ceramic_decoration/place3"
+      ]
+    },
+    "ceramic_decoration_hit": {
+      "subtitle": "subtitles.block.generic.hit",
+      "sounds": [
+        "bountifulfares:ceramic_decoration/place1",
+        "bountifulfares:ceramic_decoration/place2",
+        "bountifulfares:ceramic_decoration/place3"
+      ]
+    },
+    "ceramic_decoration_step": {
+      "subtitle": "subtitles.block.generic.footsteps",
+      "sounds": [
+        "bountifulfares:ceramic_decoration/place1",
+        "bountifulfares:ceramic_decoration/place2",
+        "bountifulfares:ceramic_decoration/place3"
+      ]
+    },
+    "ceramic_decoration_fall": {
+      "subtitle": "subtitles.entity.generic.small_fall",
+      "sounds": [
+        "bountifulfares:ceramic_decoration/place1",
+        "bountifulfares:ceramic_decoration/place2",
+        "bountifulfares:ceramic_decoration/place3"
+      ]
+    },
+    "gristmill_grind": {
+      "subtitle": "subtitles.block.gristmill.grind",
+      "sounds": [
+        "bountifulfares:gristmill/grind"
+      ]
+    },
+    "light_wood_place": {
+      "subtitle": "subtitles.block.generic.place",
+      "sounds": [
+        "bountifulfares:light_wood/place1",
+        "bountifulfares:light_wood/place2",
+        "bountifulfares:light_wood/place3"
+      ]
+    },
+    "light_wood_break": {
+      "subtitle": "subtitles.block.generic.break",
+      "sounds": [
+        "bountifulfares:light_wood/place1",
+        "bountifulfares:light_wood/place2",
+        "bountifulfares:light_wood/place3"
+      ]
+    },
+    "light_wood_hit": {
+      "subtitle": "subtitles.block.generic.hit",
+      "sounds": [
+        "bountifulfares:light_wood/place1",
+        "bountifulfares:light_wood/place2",
+        "bountifulfares:light_wood/place3"
+      ]
+    },
+    "light_wood_step": {
+      "subtitle": "subtitles.block.generic.footsteps",
+      "sounds": [
+        "bountifulfares:light_wood/place1",
+        "bountifulfares:light_wood/place2",
+        "bountifulfares:light_wood/place3"
+      ]
+    },
+    "light_wood_fall": {
+      "subtitle": "subtitles.entity.generic.small_fall",
+      "sounds": [
+        "bountifulfares:light_wood/place1",
+        "bountifulfares:light_wood/place2",
+        "bountifulfares:light_wood/place3"
+      ]
+    },
+    "planted_trellis_break": {
+      "subtitle": "subtitles.block.generic.break",
+      "sounds": [
+        "bountifulfares:planted_trellis/break1",
+        "bountifulfares:planted_trellis/break2",
+        "bountifulfares:planted_trellis/break3"
+      ]
+    },
+  "jack_o_straw_break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "bountifulfares:jack_o_straw/break1",
+      "bountifulfares:jack_o_straw/break2",
+      "bountifulfares:jack_o_straw/break3"
+    ]
+  },
+    "ceramic_lever_on": {
+      "subtitle": "subtitles.block.lever.click",
+      "sounds": [
+        "bountifulfares:ceramic_lever/on"
+      ]
+    },
+    "ceramic_lever_off": {
+      "subtitle": "subtitles.block.lever.click",
+      "sounds": [
+        "bountifulfares:ceramic_lever/off"
+      ]
+    },
+  "ceramic_button_on": {
+    "subtitle": "subtitles.block.button.click",
+    "sounds": [
+      "bountifulfares:ceramic_lever/on"
+    ]
+  },
+  "ceramic_button_off": {
+    "subtitle": "subtitles.block.button.click",
+    "sounds": [
+      "bountifulfares:ceramic_lever/off"
+    ]
+  },
+  "ceramic_pressure_plate_on": {
+    "subtitle": "subtitles.block.pressure_plate.click",
+    "sounds": [
+      "bountifulfares:ceramic_lever/on"
+    ]
+  },
+  "ceramic_pressure_plate_off": {
+    "subtitle": "subtitles.block.pressure_plate.click",
+    "sounds": [
+      "bountifulfares:ceramic_lever/off"
+    ]
+  },
+    "spongekin_place": {
+      "subtitle": "subtitles.block.generic.place",
+      "sounds": [
+        "bountifulfares:spongekin/break1",
+        "bountifulfares:spongekin/break2",
+        "bountifulfares:spongekin/break3"
+      ]
+    },
+    "spongekin_break": {
+      "subtitle": "subtitles.block.generic.break",
+      "sounds": [
+        "bountifulfares:spongekin/break1",
+        "bountifulfares:spongekin/break2",
+        "bountifulfares:spongekin/break3"
+      ]
+    },
+    "spongekin_step": {
+      "subtitle": "subtitles.block.generic.footsteps",
+      "sounds": [
+        "bountifulfares:spongekin/step1",
+        "bountifulfares:spongekin/step2"
+      ]
+    },
+    "spongekin_shear": {
+      "subtitle": "subtitles.block.pumpkin.carve",
+      "sounds": [
+        "bountifulfares:spongekin/shear"
+      ]
+    },
+    "flour_throw": {
+      "subtitle": "subtitles.entity.flour.throw",
+      "sounds": [
+        "bountifulfares:flour/throw"
+      ]
+    },
+  "flour_land": {
+    "subtitle": "subtitles.entity.flour.land",
+    "sounds": [
+      "bountifulfares:flour/land"
+    ]
+  }
+  }

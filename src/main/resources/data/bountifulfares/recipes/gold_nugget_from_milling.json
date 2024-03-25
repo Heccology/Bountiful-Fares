@@ -1,0 +1,12 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:nether_gold_ore"
+    }
+  ],
+  "output": {
+    "count": 8,
+    "item": "minecraft:gold_nugget"
+  }
+}

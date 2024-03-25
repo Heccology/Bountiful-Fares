@@ -1,0 +1,38 @@
+{
+  "parent": "bountifulfares:bountiful_fares",
+  "criteria": {
+    "eat_ancient_fruit": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulfares:hoary_apple",
+            "bountifulfares:lapisberries"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.eat_ancient_fruit.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulfares:hoary_apple"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bountifulfares.eat_ancient_fruit"
+    }
+  },
+  "requirements": [
+    [
+      "eat_ancient_fruit"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

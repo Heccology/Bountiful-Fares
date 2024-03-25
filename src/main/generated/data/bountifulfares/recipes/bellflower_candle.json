@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "bountifulfares:bellflower_tea_blend"
+    },
+    "H": {
+      "item": "minecraft:honeycomb"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "S",
+    "H",
+    "#"
+  ],
+  "result": {
+    "item": "bountifulfares:bellflower_candle"
+  },
+  "show_notification": true
+}

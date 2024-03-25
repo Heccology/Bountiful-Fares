@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "bountifulcuisine:block/cut_feldspar_block"
-  }
-}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "bountifulfares:block/checkered_ceramic_tile_slab"
+    },
+    "type=double": {
+      "model": "bountifulfares:block/checkered_ceramic_tiles"
+    },
+    "type=top": {
+      "model": "bountifulfares:block/checkered_ceramic_tile_slab_top"
+    }
+  }
+}

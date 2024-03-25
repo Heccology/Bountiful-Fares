@@ -1,0 +1,12 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:nether_quartz_ore"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "minecraft:quartz"
+  }
+}

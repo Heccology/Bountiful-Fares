@@ -1,0 +1,9 @@
+{
+	"parent": "bountifulfares:block/tart_1",
+	"textures": {
+		"top": "bountifulfares:block/glow_berry_tart_top",
+		"side": "bountifulfares:block/tart_side",
+		"bottom": "bountifulfares:block/tart_bottom",
+		"inside": "bountifulfares:block/glow_berry_tart_inside"
+	}
+}

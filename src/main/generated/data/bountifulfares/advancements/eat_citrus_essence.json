@@ -1,0 +1,37 @@
+{
+  "parent": "bountifulfares:obtain_fermentation_vessel",
+  "criteria": {
+    "eat_citrus_essence": {
+      "conditions": {
+        "item": {
+          "items": [
+            "bountifulfares:citrus_essence"
+          ]
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.eat_citrus_essence.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "bountifulfares:citrus_essence"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.bountifulfares.eat_citrus_essence"
+    }
+  },
+  "requirements": [
+    [
+      "eat_citrus_essence"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

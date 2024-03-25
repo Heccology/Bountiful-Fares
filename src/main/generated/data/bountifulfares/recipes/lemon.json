@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:lemon_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "bountifulfares:lemon"
+  }
+}
