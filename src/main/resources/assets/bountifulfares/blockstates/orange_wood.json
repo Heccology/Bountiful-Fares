@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x,leafy=false": { "model": "bountifulfares:block/orange_wood", "x": 90, "y": 90 },
+    "axis=x,leafy=true": { "model": "bountifulfares:block/orange_wood_leafy", "x": 90, "y": 90 },
+    "axis=y,leafy=false": { "model": "bountifulfares:block/orange_wood" },
+    "axis=y,leafy=true": { "model": "bountifulfares:block/orange_wood_leafy" },
+    "axis=z,leafy=false": { "model": "bountifulfares:block/orange_wood", "x": 90 },
+    "axis=z,leafy=true": { "model": "bountifulfares:block/orange_wood_leafy", "x": 90 }
+  }
+}

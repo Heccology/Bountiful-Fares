@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "bountifulcuisine:leek_seeds",
-    "bountifulcuisine:maize_seeds"
+    "bountifulfares:leek_seeds",
+    "bountifulfares:maize_seeds"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#bountifulcuisine:fruit_leaves",
-    "bountifulcuisine:hoary_leaves"
+    "#bountifulfares:fruit_leaves",
+    "bountifulfares:hoary_leaves"
   ]
 }

@@ -1,8 +1,0 @@
-{
-	"parent": "bountifulcuisine:block/template_planted_trellis",
-	"textures": {
-		"trellis": "bountifulcuisine:block/trellis",
-		"vines": "bountifulcuisine:block/vine_trellis_vines",
-		"foliage": "bountifulcuisine:block/vine_trellis_foliage"
-	}
-}

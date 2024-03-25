@@ -1,0 +1,31 @@
+{
+  "parent": "bountifulfares:bountiful_fares",
+  "criteria": {
+    "make_first_food": {
+      "conditions": {
+        "item": {
+          "tag": "bountifulfares:meals"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.make_first_food.description"
+    },
+    "icon": {
+      "item": "bountifulfares:bountiful_stew"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.make_first_food"
+    }
+  },
+  "requirements": [
+    [
+      "make_first_food"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

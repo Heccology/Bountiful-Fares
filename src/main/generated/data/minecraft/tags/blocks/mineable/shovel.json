@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "bountifulcuisine:walnut_mulch",
-    "bountifulcuisine:walnut_mulch_block",
-    "bountifulcuisine:ceramic_clay_block"
+    "bountifulfares:walnut_mulch",
+    "bountifulfares:walnut_mulch_block",
+    "bountifulfares:ceramic_clay_block"
   ]
 }

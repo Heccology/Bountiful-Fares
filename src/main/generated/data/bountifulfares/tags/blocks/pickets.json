@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "bountifulfares:oak_pickets",
+    "bountifulfares:spruce_pickets",
+    "bountifulfares:birch_pickets",
+    "bountifulfares:jungle_pickets",
+    "bountifulfares:acacia_pickets",
+    "bountifulfares:dark_oak_pickets",
+    "bountifulfares:mangrove_pickets",
+    "bountifulfares:cherry_pickets",
+    "bountifulfares:bamboo_pickets",
+    "bountifulfares:walnut_pickets",
+    "bountifulfares:hoary_pickets",
+    "bountifulfares:crimson_pickets",
+    "bountifulfares:warped_pickets"
+  ]
+}

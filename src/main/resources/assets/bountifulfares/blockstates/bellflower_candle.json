@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model":  "bountifulfares:block/bellflower_candle"
+    },
+    "lit=true": {
+      "model":  "bountifulfares:block/bellflower_candle_lit"
+    }
+  }
+}

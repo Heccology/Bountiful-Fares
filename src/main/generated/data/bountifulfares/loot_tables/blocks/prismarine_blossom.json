@@ -1,0 +1,139 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "enchantments": [
+                {
+                  "enchantment": "minecraft:silk_touch",
+                  "levels": {
+                    "min": 1
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "minecraft:prismarine_crystals",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "minecraft:prismarine_shard",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 2
+        }
+      ],
+      "rolls": 3.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "enchantments": [
+              {
+                "enchantment": "minecraft:fortune",
+                "levels": {
+                  "min": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "chances": [
+            0.0,
+            0.12,
+            0.15,
+            0.2
+          ],
+          "condition": "minecraft:table_bonus",
+          "enchantment": "minecraft:fortune"
+        },
+        {
+          "chances": [
+            0.0,
+            0.12,
+            0.15,
+            0.2
+          ],
+          "condition": "minecraft:table_bonus",
+          "enchantment": "minecraft:fortune"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "minecraft:prismarine_crystals",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "minecraft:prismarine_shard",
+          "weight": 2
+        }
+      ],
+      "rolls": 2.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "enchantments": [
+              {
+                "enchantment": "minecraft:silk_touch",
+                "levels": {
+                  "min": 1
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "bountifulfares:prismarine_blossom"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

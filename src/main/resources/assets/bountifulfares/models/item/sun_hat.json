@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bountifulfares:item/sun_hat_inventory"
+  },
+  "overrides": [
+    {
+      "predicate": { "head": 1 }, "model": "bountifulfares:item/sun_hat_head"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bountifulfares:item/artisan_brush"
+  },
+  "overrides": [
+    {
+      "predicate": { "dyed": 1 }, "model": "bountifulfares:item/artisan_brush_dyed"
+    }
+  ]
+}

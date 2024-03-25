@@ -1,35 +1,33 @@
 {
 	"schemaVersion": 1,
-	"id": "bountifulcuisine",
+	"id": "bountifulfares",
 	"version": "${version}",
-	"name": "Bountiful Cuisine",
+	"name": "Bountiful Fares",
 	"description": "Adds new content to the food and farming side of Minecraft!",
 	"authors": [
 		"Hecco"
 	],
 	"contact": {
 		"homepage": "https://linktr.ee/thehecco",
-		"sources": ""
+		"sources": "https://github.com/Heccology/Bountiful-Fares",
+		"issues": "https://github.com/Heccology/Bountiful-Fares/issues"
 	},
 	"license": "MIT License",
-	"icon": "assets/bountifulcuisine/icon.png",
+	"icon": "assets/bountifulfares/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.hecco.bountifulcuisine.BountifulCuisine"
+			"net.hecco.bountifulfares.BountifulFares"
 		],
 		"client": [
-			"net.hecco.bountifulcuisine.BountifulCuisineClient"
-		],
-		"rei_client": [
-			"net.hecco.bountifulcuisine.compat.BountifulCuisineREIClientPlugin"
+			"net.hecco.bountifulfares.BountifulFaresClient"
 		],
 		"fabric-datagen": [
-			"net.hecco.bountifulcuisine.BountifulCuisineDataGenerator"
+			"net.hecco.bountifulfares.BountifulFaresDataGenerator"
 		]
 	},
 	"mixins": [
-		"bountifulcuisine.mixins.json"
+		"bountifulfares.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.22",

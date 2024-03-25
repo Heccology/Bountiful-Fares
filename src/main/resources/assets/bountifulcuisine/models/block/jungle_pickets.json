@@ -1,6 +1,0 @@
-{
-  "parent": "bountifulcuisine:block/template_pickets",
-  "textures": {
-    "texture": "bountifulcuisine:block/jungle_pickets"
-  }
-}

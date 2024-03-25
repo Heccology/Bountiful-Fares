@@ -14,11 +14,11 @@
         },
         {
           "type": "minecraft:item",
-          "name": "bountifulcuisine:hoary_seeds"
+          "name": "bountifulfares:hoary_seeds"
         },
         {
           "type": "minecraft:item",
-          "name": "bountifulcuisine:lapisberry_seeds"
+          "name": "bountifulfares:lapisberry_seeds"
         }
       ],
       "rolls": 1.0

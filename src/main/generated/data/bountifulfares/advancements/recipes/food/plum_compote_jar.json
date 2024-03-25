@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jar": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bountifulfares:jar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_plum": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bountifulfares:plum"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bountifulfares:plum_compote_jar"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_jar",
+      "has_plum"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bountifulfares:plum_compote_jar"
+    ]
+  }
+}

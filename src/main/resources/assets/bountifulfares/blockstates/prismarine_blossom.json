@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model":  "bountifulfares:block/prismarine_blossom"
+    },
+    "waterlogged=true": {
+      "model":  "bountifulfares:block/prismarine_blossom_lit"
+    }
+  }
+}

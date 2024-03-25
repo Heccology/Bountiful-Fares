@@ -1,0 +1,12 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond_ore"
+    }
+  ],
+  "output": {
+    "count": 2,
+    "item": "minecraft:diamond"
+  }
+}

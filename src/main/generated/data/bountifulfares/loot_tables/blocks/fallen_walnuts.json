@@ -1,0 +1,101 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:fallen_walnuts",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "count": "0"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:walnut"
+        }
+      ],
+      "rolls": 2.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:fallen_walnuts",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "count": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:walnut"
+        }
+      ],
+      "rolls": 4.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:fallen_walnuts",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "count": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:walnut"
+        }
+      ],
+      "rolls": 5.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:fallen_walnuts",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "count": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:walnut"
+        }
+      ],
+      "rolls": 6.0
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "fish_stew",
+  "ingredients": [
+    {
+      "tag": "bountifulfares:cooked_fishes"
+    },
+    {
+      "tag": "bountifulfares:cooked_fishes"
+    },
+    {
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "bountifulfares:fish_stew"
+  }
+}

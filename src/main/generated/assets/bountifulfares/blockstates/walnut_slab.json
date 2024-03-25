@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "bountifulfares:block/walnut_slab"
+    },
+    "type=double": {
+      "model": "bountifulfares:block/walnut_planks"
+    },
+    "type=top": {
+      "model": "bountifulfares:block/walnut_slab_top"
+    }
+  }
+}

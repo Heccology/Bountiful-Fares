@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "ceramic_clay",
+  "ingredients": [
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "bountifulfares:feldspar"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "bountifulfares:ceramic_clay"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "net.hecco.bountifulfares.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "BrewingRecipeRegistryMixin",
+    "FoliagePlacerTypeMixin",
+    "TreeDecoratorTypeMixin",
+    "TrunkPlacerTypeMixin",
+    "WolfEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+  ]
+}

@@ -1,10 +1,10 @@
 {
   "replace": false,
   "values": [
-    "#bountifulcuisine:apple_logs",
-    "#bountifulcuisine:orange_logs",
-    "#bountifulcuisine:lemon_logs",
-    "#bountifulcuisine:plum_logs",
-    "#bountifulcuisine:hoary_logs"
+    "#bountifulfares:apple_logs",
+    "#bountifulfares:orange_logs",
+    "#bountifulfares:lemon_logs",
+    "#bountifulfares:plum_logs",
+    "#bountifulfares:hoary_logs"
   ]
 }

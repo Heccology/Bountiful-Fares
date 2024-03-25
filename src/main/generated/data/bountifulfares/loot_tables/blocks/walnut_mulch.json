@@ -1,0 +1,197 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:walnut_mulch",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "layers": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:walnut_mulch"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:walnut_mulch",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "layers": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:walnut_mulch"
+        }
+      ],
+      "rolls": 2.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:walnut_mulch",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "layers": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:walnut_mulch"
+        }
+      ],
+      "rolls": 3.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:walnut_mulch",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "layers": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:walnut_mulch"
+        }
+      ],
+      "rolls": 4.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:walnut_mulch",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "layers": "5"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:walnut_mulch"
+        }
+      ],
+      "rolls": 5.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:walnut_mulch",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "layers": "6"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:walnut_mulch"
+        }
+      ],
+      "rolls": 6.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:walnut_mulch",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "layers": "7"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:walnut_mulch"
+        }
+      ],
+      "rolls": 7.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "bountifulfares:walnut_mulch",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "layers": "8"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "bountifulfares:walnut_mulch"
+        }
+      ],
+      "rolls": 8.0
+    }
+  ]
+}
