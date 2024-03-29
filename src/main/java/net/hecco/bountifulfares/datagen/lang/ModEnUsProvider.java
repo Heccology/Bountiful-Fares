@@ -213,6 +213,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.LEEKS);
         generate(translationBuilder, ModItems.LEEK_SEEDS);
 
+//        generate(translationBuilder, ModItems.GRASS_SEEDS);
+
         generate(translationBuilder, ModBlocks.SPONGEKIN_STEM);
         generate(translationBuilder, ModBlocks.SPONGEKIN_SPROUT);
         generate(translationBuilder, ModBlocks.SPONGEKIN);

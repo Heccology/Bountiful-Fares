@@ -58,6 +58,7 @@ public class ModItems {
     public static final Item BELLFLOWER_TEA_BOTTLE = registerItem("bellflower_tea_bottle", new BellflowerTeaBottleItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(6).saturationModifier(0.6f).statusEffect(new StatusEffectInstance(ModEffects.EBULLIENCE, 1800, 0, true, true), 1f).alwaysEdible().build())));
     public static final Item TORCHFLOWER_TEA_BOTTLE = registerItem("torchflower_tea_bottle", new TorchflowerTeaBottleItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(6).saturationModifier(0.6f).statusEffect(new StatusEffectInstance(ModEffects.EBULLIENCE, 1800, 0, true, true), 1f).alwaysEdible().build())));
     public static final Item MAIZE = registerItem("maize", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).build())));
+//    public static final Item GRASS_SEEDS = registerItem("grass_seeds", new GrassSeedsItem(new FabricItemSettings()));
     public static final Item MAIZE_SEEDS = registerItem("maize_seeds", new AliasedBlockItem(ModBlocks.MAIZE_CROP, new FabricItemSettings()));
     public static final Item LEEK = registerItem("leek", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).build())));
     public static final Item LEEK_SEEDS = registerItem("leek_seeds", new AliasedBlockItem(ModBlocks.LEEKS, new FabricItemSettings()));
