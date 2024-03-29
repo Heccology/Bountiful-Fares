@@ -1,4 +1,4 @@
-// 1.20.2	2024-03-25T13:53:55.478855	Bountiful Fares/Model Definitions
+// 1.20.2	2024-03-26T23:06:17.068327	Bountiful Fares/Model Definitions
 4702571e25c6569a36d0e7e9d2995f8e89d5c098 assets/bountifulfares/models/item/feldspar_brick_slab.json
 424f8789b54630ec25f1ac26b3d8a86abefc9eb8 assets/bountifulfares/models/block/walnut_stairs.json
 3097c6a3f6356a4e3f85e6e1b1fc13771e6aa8f5 assets/bountifulfares/models/block/walnut_button_pressed.json
@@ -53,8 +53,8 @@ aba275c14764667d185066c40174e8717701a795 assets/bountifulfares/models/block/waln
 a0e8ba5ff3908b0a3b2def9ca59d16f235debd78 assets/bountifulfares/models/item/coastal_medley.json
 a425574960118f8b7fae9baa676ecd309b99df3a assets/bountifulfares/models/block/feldspar_brick_slab.json
 778cf149edab14dd5746a3b2b93c613a12b08854 assets/bountifulfares/models/block/stripped_walnut_log_horizontal.json
-08930340ee22e860b8882b1d6d5e924c1a49d294 assets/bountifulfares/blockstates/feldspar_bricks.json
 2d4207fd43f2fbc173cc3cbc95e9c5f55f04f82c assets/bountifulfares/blockstates/walnut_wall_hanging_sign.json
+08930340ee22e860b8882b1d6d5e924c1a49d294 assets/bountifulfares/blockstates/feldspar_bricks.json
 0fddf377fb6acc6ccbfc386f8994bfbbc7e3f1a9 assets/bountifulfares/blockstates/stripped_walnut_wood.json
 5dfcfa977fd56a496417c5f37a16a0fb49a0bc9e assets/bountifulfares/models/block/feldspar_brick_stairs.json
 4658752dc79fab0181c4ebc0d1e1a319e16845ad assets/bountifulfares/models/item/apple_stew.json

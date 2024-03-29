@@ -53,7 +53,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
-        generate(translationBuilder, "itemgroup.bountiful_fares", "Bountiful fares");
+        generate(translationBuilder, "itemgroup.bountiful_fares", "Bountiful Fares");
         generate(translationBuilder, ModBlocks.APPLE_LOG);
         generate(translationBuilder, ModBlocks.STRIPPED_APPLE_LOG);
         generate(translationBuilder, ModBlocks.APPLE_WOOD);
@@ -397,7 +397,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "warning.bountifulfares.fermentation_vessel.glass_bottle", "Use a Glass Bottle to Collect This");
         generate(translationBuilder, "warning.bountifulfares.fermentation_vessel.jar", "Use a Jar to Collect This");
 
-        generate(translationBuilder, "advancement.bountifulfares.bountiful_fares", "Bountiful fares");
+        generate(translationBuilder, "advancement.bountifulfares.bountiful_fares", "Bountiful Fares");
         generate(translationBuilder, "advancement.bountifulfares.bountiful_fares.description", "The world is filled with more food!");
 
         generate(translationBuilder, "advancement.bountifulfares.place_gristmill", "On the Grind");
@@ -455,7 +455,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.make_first_food", "Anyone can Cook");
         generate(translationBuilder, "advancement.bountifulfares.make_first_food.description", "Make your first meal");
 
-        generate(translationBuilder, "advancement.bountifulfares.eat_all_food", "Bountiful fares");
+        generate(translationBuilder, "advancement.bountifulfares.eat_all_food", "Bountiful Fares");
         generate(translationBuilder, "advancement.bountifulfares.eat_all_food.description", "Eat every meal");
 
 

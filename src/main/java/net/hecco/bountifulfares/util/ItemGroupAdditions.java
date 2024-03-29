@@ -171,12 +171,10 @@ public class ItemGroupAdditions {
             entries.addAfter(ModItems.APPLE_CIDER_JAR, ModBlocks.APPLE_BLOCK);
             entries.addAfter(ModBlocks.APPLE_BLOCK, ModItems.ORANGE);
             entries.addAfter(ModItems.ORANGE, ModItems.ORANGE_COMPOTE_JAR);
-            entries.addAfter(ModItems.ORANGE_COMPOTE_JAR, ModItems.CANDIED_ORANGE);
-            entries.addAfter(ModItems.CANDIED_ORANGE, ModBlocks.ORANGE_BLOCK);
+            entries.addAfter(ModItems.ORANGE_COMPOTE_JAR, ModBlocks.ORANGE_BLOCK);
             entries.addAfter(ModBlocks.ORANGE_BLOCK, ModItems.LEMON);
             entries.addAfter(ModItems.LEMON, ModItems.LEMON_COMPOTE_JAR);
-            entries.addAfter(ModItems.LEMON_COMPOTE_JAR, ModItems.CANDIED_LEMON);
-            entries.addAfter(ModItems.CANDIED_LEMON, ModBlocks.LEMON_BLOCK);
+            entries.addAfter(ModItems.LEMON_COMPOTE_JAR, ModBlocks.LEMON_BLOCK);
             entries.addAfter(ModBlocks.LEMON_BLOCK, ModItems.PLUM);
             entries.addAfter(ModItems.PLUM, ModItems.PLUM_COMPOTE_JAR);
             entries.addAfter(ModItems.PLUM_COMPOTE_JAR, ModItems.PLUM_CIDER_JAR);
@@ -230,6 +228,10 @@ public class ItemGroupAdditions {
             entries.addAfter(ModItems.CANDIED_APPLE, ModItems.CANDIED_PLUM);
             entries.addAfter(ModItems.CANDIED_PLUM, ModItems.CANDIED_ORANGE);
             entries.addAfter(ModItems.CANDIED_ORANGE, ModItems.CANDIED_LEMON);
+            entries.addAfter(ModItems.CANDIED_LEMON, ModItems.FOREST_MEDLEY);
+            entries.addAfter(ModItems.FOREST_MEDLEY, ModItems.ARID_MEDLEY);
+            entries.addAfter(ModItems.ARID_MEDLEY, ModItems.MEADOW_MEDLEY);
+            entries.addAfter(ModItems.MEADOW_MEDLEY, ModItems.COASTAL_MEDLEY);
             entries.addAfter(Items.RABBIT_STEW, ModItems.LEEK_STEW);
             entries.addAfter(ModItems.LEEK_STEW, ModItems.FISH_STEW);
             entries.addAfter(ModItems.FISH_STEW, ModItems.APPLE_STEW);
