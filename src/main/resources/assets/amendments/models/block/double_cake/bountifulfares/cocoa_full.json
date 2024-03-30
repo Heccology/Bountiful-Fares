@@ -1,0 +1,13 @@
+{
+	"parent": "amendments:block/double_cake/full_template",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"side_up": "amendments:block/bountifulfares/double_cocoa_cake_side",
+		"top_up": "amendments:block/bountifulfares/double_cocoa_cake_top",
+		"bottom": "bountifulfares:block/cocoa_cake_bottom",
+		"top": "bountifulfares:block/cocoa_cake_top",
+		"particle": "bountifulfares:block/cocoa_cake_side",
+		"side": "bountifulfares:block/cocoa_cake_side"
+	}
+
+}
