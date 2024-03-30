@@ -84,6 +84,6 @@ public class ModBlockEntities {
     );
 
     public static void registerBlockEntities() {
-        BountifulFares.LOGGER.debug("Registering Block Entities for " + BountifulFares.MOD_ID);
+//        BountifulFares.LOGGER.debug("Registering Block Entities for " + BountifulFares.MOD_ID);
     }
 }

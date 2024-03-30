@@ -58,7 +58,7 @@ public class ModSounds {
         return Registry.register(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
     }
     public static void registerSounds() {
-        BountifulFares.LOGGER.info("Registering Mod Sounds for " + BountifulFares.MOD_ID);
+//        BountifulFares.LOGGER.info("Registering Mod Sounds for " + BountifulFares.MOD_ID);
     }
 }
 

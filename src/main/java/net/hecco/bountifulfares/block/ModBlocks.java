@@ -294,6 +294,6 @@ public class ModBlocks {
     }
 
     public static void registerModBlocks() {
-        BountifulFares.LOGGER.debug("Registering ModBlocks for " + BountifulFares.MOD_ID);
+//        BountifulFares.LOGGER.debug("Registering ModBlocks for " + BountifulFares.MOD_ID);
     }
 }

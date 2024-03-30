@@ -313,6 +313,6 @@ public class ModItemGroups {
                         entries.add(ModItems.CANDIED_LEMON);
                     }).build());
     public static void registerItemGroups() {
-        BountifulFares.LOGGER.info("Registering Item Group Entries for " + BountifulFares.MOD_ID);
+//        BountifulFares.LOGGER.info("Registering Item Group Entries for " + BountifulFares.MOD_ID);
     }
 }
