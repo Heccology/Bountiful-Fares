@@ -3,15 +3,9 @@ package net.hecco.bountifulfares.util;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.hecco.bountifulfares.item.ModItems;
 import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.EmptyEntry;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.util.Identifier;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ModLootTableModifiers {
 
