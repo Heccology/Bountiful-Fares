@@ -11,6 +11,6 @@ public class ModScreenHandlers {
     public static final ScreenHandlerType<GristmillScreenHandler> GRISTMILL_SCREEN_HANDLER =
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(BountifulFares.MOD_ID, "gristmill_screen_handler"), new ExtendedScreenHandlerType<>(GristmillScreenHandler::new));
     public static void registerScreenHandlers() {
-        BountifulFares.LOGGER.info("Registering Screen Handlers for" + BountifulFares.MOD_ID);
+//        BountifulFares.LOGGER.info("Registering Screen Handlers for" + BountifulFares.MOD_ID);
     }
 }

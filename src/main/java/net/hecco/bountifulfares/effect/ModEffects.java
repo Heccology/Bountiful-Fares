@@ -25,6 +25,6 @@ public class ModEffects {
     }
 
     public static void registerEffects() {
-        BountifulFares.LOGGER.info("Registring Mod Effects for " + BountifulFares.MOD_ID);
+//        BountifulFares.LOGGER.info("Registring Mod Effects for " + BountifulFares.MOD_ID);
     }
 }

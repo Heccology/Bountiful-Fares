@@ -16,6 +16,6 @@ public class ModEntities {
                     .dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build());
 
     public static void registerModEntities() {
-        BountifulFares.LOGGER.info("Registering Mod Entities for " + BountifulFares.MOD_ID);
+//        BountifulFares.LOGGER.info("Registering Mod Entities for " + BountifulFares.MOD_ID);
     }
 }

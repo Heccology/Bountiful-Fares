@@ -18,6 +18,6 @@ public class ModPotions {
         return Registry.register(Registries.POTION, new Identifier(BountifulFares.MOD_ID, name), potion);
     }
     public static void registerPotions() {
-        BountifulFares.LOGGER.info("Registering Mod Potions for " + BountifulFares.MOD_ID);
+//        BountifulFares.LOGGER.info("Registering Mod Potions for " + BountifulFares.MOD_ID);
     }
 }

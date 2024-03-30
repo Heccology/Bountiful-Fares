@@ -10,8 +10,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 
 public class ItemStackS2CPacket {
-    public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler,
-                               PacketByteBuf buf, PacketSender responseSender) {
+    public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender) {
         int size = buf.readInt();
         DefaultedList<ItemStack> list = DefaultedList.ofSize(size, ItemStack.EMPTY);
         list.set(0, buf.readItemStack());
