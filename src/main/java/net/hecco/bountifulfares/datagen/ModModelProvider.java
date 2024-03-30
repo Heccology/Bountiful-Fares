@@ -34,7 +34,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ModItems.LEEK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LEEK, Models.HANDHELD);
         itemModelGenerator.register(ModItems.LEEK_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEEK_STEW, Models.GENERATED);
         itemModelGenerator.register(ModItems.CRUSTED_BEEF, Models.GENERATED);
