@@ -16,6 +16,6 @@ public class ModParticles {
         return Registry.register(Registries.PARTICLE_TYPE, new Identifier(BountifulFares.MOD_ID, name), particleType);
     }
     public static void registerParticles() {
-        BountifulFares.LOGGER.info("Registering Mod Particles for " + BountifulFares.MOD_ID);
+//        BountifulFares.LOGGER.info("Registering Mod Particles for " + BountifulFares.MOD_ID);
     }
 }
