@@ -120,6 +120,6 @@ public class ModItems {
         return Registry.register(Registries.ITEM, new Identifier(BountifulFares.MOD_ID, name), item);
     }
     public static void registerModItems() {
-        BountifulFares.LOGGER.info("Registering Mod Items for " + BountifulFares.MOD_ID);
+//        BountifulFares.LOGGER.info("Registering Mod Items for " + BountifulFares.MOD_ID);
     }
 }

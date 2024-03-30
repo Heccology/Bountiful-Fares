@@ -9,7 +9,7 @@ import net.minecraft.item.Items;
 
 public class ItemGroupAdditions {
     public static void registerItemGroupAdditions() {
-        BountifulFares.LOGGER.info("Adding Items to Vanilla Tabs from " + BountifulFares.MOD_ID);
+//        BountifulFares.LOGGER.info("Adding Items to Vanilla Tabs from " + BountifulFares.MOD_ID);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
             entries.addAfter(Items.OAK_FENCE_GATE, ModBlocks.OAK_PICKETS);
             entries.addAfter(Items.SPRUCE_FENCE_GATE, ModBlocks.SPRUCE_PICKETS);

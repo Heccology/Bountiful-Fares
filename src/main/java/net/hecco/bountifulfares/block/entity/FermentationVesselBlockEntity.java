@@ -73,7 +73,6 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
         super.writeNbt(nbt);
         Inventories.writeNbt(nbt, inventory);
         nbt.putInt("fermenting.progress", progress);
-        BountifulFares.LOGGER.info(inventory.toString());
     }
 
     @Override
@@ -81,7 +80,6 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
         Inventories.readNbt(nbt, inventory);
         nbt.getInt("fermenting.progress");
         super.readNbt(nbt);
-        BountifulFares.LOGGER.info(inventory.toString());
     }
 
     @Nullable
