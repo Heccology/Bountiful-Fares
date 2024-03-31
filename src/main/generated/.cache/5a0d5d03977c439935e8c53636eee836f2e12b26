@@ -1,4 +1,4 @@
-// 1.20.4	2024-03-30T19:02:17.796858	Bountiful Fares/Tags for minecraft:item
+// 1.20.4	2024-03-30T19:21:06.081936	Bountiful Fares/Tags for minecraft:item
 3ddd70224576e8981437ff9380707d648aef8c04 data/minecraft/tags/items/wooden_buttons.json
 2246434a7d8676bcb0825d0d7f4227c95b8a8f8e data/bountifulfares/tags/items/apple_leaves.json
 25c0bdfc49c4b64586c883b9793a7f97ee1ce481 data/minecraft/tags/items/wooden_trapdoors.json
@@ -23,8 +23,8 @@ bbf276faa3ad0b6fa6cd8006cb73b40b1e3b6e17 data/minecraft/tags/items/wooden_pressu
 a7acd616bb767dd531b44fc21dcd0ed74e0aae9f data/bountifulfares/tags/items/fruit_logs.json
 7bff12aecf052bb3cce233468779fd53a22a4eee data/minecraft/tags/items/villager_plantable_seeds.json
 2a2b0b7088d8b4d019618e217aac6c96a4cf0017 data/minecraft/tags/items/wooden_slabs.json
-e74d0bb0f2db11bf291b60bc8d91f965cb540f4a data/minecraft/tags/items/wooden_doors.json
 1d2f2ffa595eb46837ce54d1557bdedf553b3de9 data/bountifulfares/tags/items/orange_logs.json
+e74d0bb0f2db11bf291b60bc8d91f965cb540f4a data/minecraft/tags/items/wooden_doors.json
 d1fa4d8fd93ad4c12daa20d6482d7bf4359606cc data/minecraft/tags/items/small_flowers.json
 cf5598c5fb8e3c540c80f99a5a59b7da109cb85d data/minecraft/tags/items/wooden_stairs.json
 ee6881715d2bf7e19cdbc9d07f26787765afa63f data/bountifulfares/tags/items/plantable_on_trellis.json
