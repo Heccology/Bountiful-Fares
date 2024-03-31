@@ -22,7 +22,6 @@
     {
       "apply": {
         "model": "bountifulfares:block/jungle_pickets",
-
         "y": 90
       },
       "when": {
@@ -32,7 +31,6 @@
     {
       "apply": {
         "model": "bountifulfares:block/jungle_pickets",
-
         "y": 90
       },
       "when": {
@@ -45,7 +43,6 @@
     {
       "apply": {
         "model": "bountifulfares:block/jungle_pickets",
-
         "y": 180
       },
       "when": {
@@ -55,7 +52,6 @@
     {
       "apply": {
         "model": "bountifulfares:block/jungle_pickets",
-
         "y": 180
       },
       "when": {
@@ -68,7 +64,6 @@
     {
       "apply": {
         "model": "bountifulfares:block/jungle_pickets",
-
         "y": 270
       },
       "when": {
@@ -78,7 +73,6 @@
     {
       "apply": {
         "model": "bountifulfares:block/jungle_pickets",
-
         "y": 270
       },
       "when": {

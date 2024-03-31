@@ -6,6 +6,8 @@ import net.hecco.bountifulfares.block.ModBlocks;
 import net.hecco.bountifulfares.item.ModItems;
 import net.minecraft.data.client.*;
 
+import static net.hecco.bountifulfares.datagen.custom.ModTemplateModels.registerPicketsModels;
+
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
         super(output);
@@ -30,6 +32,19 @@ public class ModModelProvider extends FabricModelProvider {
         feldsparTexturePool.stairs(ModBlocks.FELDSPAR_BRICK_STAIRS);
         feldsparTexturePool.slab(ModBlocks.FELDSPAR_BRICK_SLAB);
 
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.OAK_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.SPRUCE_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.BIRCH_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.JUNGLE_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.ACACIA_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.DARK_OAK_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.MANGROVE_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.CHERRY_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.BAMBOO_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.HOARY_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.WALNUT_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.CRIMSON_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.WARPED_PICKETS);
     }
 
     @Override
