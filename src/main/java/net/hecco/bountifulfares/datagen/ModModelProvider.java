@@ -2,9 +2,19 @@ package net.hecco.bountifulfares.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.custom.PicketsBlock;
+import net.hecco.bountifulfares.datagen.custom.ModTemplateModels;
 import net.hecco.bountifulfares.item.ModItems;
+import net.minecraft.block.Block;
 import net.minecraft.data.client.*;
+import net.minecraft.util.Identifier;
+
+import java.util.Optional;
+
+import static net.hecco.bountifulfares.datagen.custom.ModTemplateModels.registerPicketsModels;
+import static net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder.getItemId;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -29,7 +39,19 @@ public class ModModelProvider extends FabricModelProvider {
         BlockStateModelGenerator.BlockTexturePool feldsparTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FELDSPAR_BRICKS);
         feldsparTexturePool.stairs(ModBlocks.FELDSPAR_BRICK_STAIRS);
         feldsparTexturePool.slab(ModBlocks.FELDSPAR_BRICK_SLAB);
-
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.OAK_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.SPRUCE_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.BIRCH_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.JUNGLE_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.ACACIA_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.DARK_OAK_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.MANGROVE_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.CHERRY_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.BAMBOO_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.HOARY_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.WALNUT_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.CRIMSON_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ModBlocks.WARPED_PICKETS);
     }
 
     @Override

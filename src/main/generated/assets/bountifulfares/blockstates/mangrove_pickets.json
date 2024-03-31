@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "bountifulfares:block/cherry_pickets"
+        "model": "bountifulfares:block/mangrove_pickets"
       },
       "when": {
         "north": "true"
@@ -10,7 +10,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/cherry_pickets"
+        "model": "bountifulfares:block/mangrove_pickets"
       },
       "when": {
         "east": "false",
@@ -21,8 +21,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/cherry_pickets",
-
+        "model": "bountifulfares:block/mangrove_pickets",
         "y": 90
       },
       "when": {
@@ -31,8 +30,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/cherry_pickets",
-
+        "model": "bountifulfares:block/mangrove_pickets",
         "y": 90
       },
       "when": {
@@ -44,8 +42,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/cherry_pickets",
-
+        "model": "bountifulfares:block/mangrove_pickets",
         "y": 180
       },
       "when": {
@@ -54,8 +51,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/cherry_pickets",
-
+        "model": "bountifulfares:block/mangrove_pickets",
         "y": 180
       },
       "when": {
@@ -67,8 +63,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/cherry_pickets",
-
+        "model": "bountifulfares:block/mangrove_pickets",
         "y": 270
       },
       "when": {
@@ -77,8 +72,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/cherry_pickets",
-
+        "model": "bountifulfares:block/mangrove_pickets",
         "y": 270
       },
       "when": {
