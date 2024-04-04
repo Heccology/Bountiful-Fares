@@ -107,9 +107,13 @@ public class PicketsBlock extends Block implements Waterloggable {
     }
 
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        Direction playerDir = context.getHorizontalPlayerFacing().getOpposite();
-        Direction facingDirection = getFacingDirection(state);
-        return !context.shouldCancelInteraction() && context.getStack().getItem() == this.asItem() && facingDirection != playerDir || super.canReplace(state, context);
+        if (context.getPlayer() != null) {
+            Direction playerDir = context.getHorizontalPlayerFacing().getOpposite();
+            Direction facingDirection = getFacingDirection(state);
+            return !context.shouldCancelInteraction() && context.getStack().getItem() == this.asItem() && facingDirection != playerDir || super.canReplace(state, context);
+        } else {
+            return true;
+        }
     }
 
     private Direction getFacingDirection(BlockState blockState) {
