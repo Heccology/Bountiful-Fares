@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.block.custom;
 
-import com.google.common.collect.Maps;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -34,13 +33,13 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
 
-import java.util.Map;
+
+import static net.hecco.bountifulfares.block.ModBlocks.CROPS_TO_CROP_TRELLISES;
 
 public class CropTrellisBlock extends Block implements Waterloggable, Fertilizable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final DirectionProperty FACING;
     public static final IntProperty AGE = Properties.AGE_3;
-    private static final Map<Item, CropTrellisBlock> CROPS_TO_CROP_TRELLISES = Maps.newHashMap();
     private final Item berryItem;
     protected static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0, 0, 15, 16, 16, 16);
     protected static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0, 0, 0, 16, 16, 1);
@@ -51,8 +50,8 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     public CropTrellisBlock(Item berryItem, Settings settings) {
         super(settings);
         this.berryItem = berryItem;
-        CROPS_TO_CROP_TRELLISES.put(berryItem, this);
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(AGE, 0).with(SNIPPED, false));
+        CROPS_TO_CROP_TRELLISES.put(berryItem, this);
     }
     public CropTrellisBlock(Item seedsItem, Item berryItem, Settings settings) {
         super(settings);
@@ -187,12 +186,15 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     public boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
         return state.getFluidState().isEmpty();
     }
+    public static BlockState getCropTrellisFromCrop(Item seedsItem) {
+        if (seedsItem != null && CROPS_TO_CROP_TRELLISES.containsKey(seedsItem)) {
+            return (CROPS_TO_CROP_TRELLISES.get(seedsItem)).getDefaultState();
+        } else {
+            return ModBlocks.TRELLIS.getDefaultState();
+        }
+    }
 
     static {
         FACING = Properties.HORIZONTAL_FACING;
-    }
-
-    public static BlockState getCropTrellisFromCrop(Item seedsItem) {
-        return (CROPS_TO_CROP_TRELLISES.get(seedsItem)).getDefaultState();
     }
 }
