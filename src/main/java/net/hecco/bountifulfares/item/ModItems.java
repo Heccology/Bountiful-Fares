@@ -15,8 +15,8 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     public static final Item PASSION_FRUIT = registerItem("passion_fruit", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().build())));
     public static final Item ELDERBERRIES = registerItem("elderberries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1), 0.3f).build())));
-    public static final Item LAPISBERRIES = registerItem("lapisberries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().build())));
     public static final Item LAPISBERRY_SEEDS = registerItem("lapisberry_seeds", new Item(new FabricItemSettings()));
+    public static final Item LAPISBERRIES = registerItem("lapisberries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().build())));
 
     public static final Item ORANGE = registerItem("orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).build())));
     public static final Item LEMON = registerItem("lemon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).build())));

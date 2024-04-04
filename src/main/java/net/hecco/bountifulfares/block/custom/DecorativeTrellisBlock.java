@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
 import com.google.common.collect.Maps;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -26,16 +27,17 @@ import net.minecraft.world.WorldView;
 
 import java.util.Map;
 
+import static net.hecco.bountifulfares.block.ModBlocks.DECORATIVE_TRELLISES_TO_PLANTS;
+import static net.hecco.bountifulfares.block.ModBlocks.PLANTS_TO_DECORATIVE_TRELLISES;
+
 public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable {
     private final boolean canDuplicate;
-    private static final Map<Item, DecorativeTrellisBlock> PLANTS_TO_DECORATIVE_TRELLISES = Maps.newHashMap();
-    private static final Map<DecorativeTrellisBlock, Item> DECORATIVE_TRELLISES_TO_PLANTS = Maps.newHashMap();
     public DecorativeTrellisBlock(Item item, boolean canDuplicate, Settings settings) {
         super(settings);
-        PLANTS_TO_DECORATIVE_TRELLISES.put(item, this);
-        DECORATIVE_TRELLISES_TO_PLANTS.put(this, item);
         this.canDuplicate = canDuplicate;
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH));
+        PLANTS_TO_DECORATIVE_TRELLISES.put(item, this);
+        DECORATIVE_TRELLISES_TO_PLANTS.put(this, item);
     }
 
     @Override
@@ -78,6 +80,10 @@ public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable
     }
 
     public static BlockState getDecorativeTrellisFromPlant(Item item) {
-        return (PLANTS_TO_DECORATIVE_TRELLISES.get(item)).getDefaultState();
+        if (item != null && PLANTS_TO_DECORATIVE_TRELLISES.containsKey(item)) {
+            return (PLANTS_TO_DECORATIVE_TRELLISES.get(item)).getDefaultState();
+        } else {
+            return ModBlocks.TRELLIS.getDefaultState();
+        }
     }
 }

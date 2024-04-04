@@ -2,8 +2,6 @@ package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.item.ModItems;
-import net.hecco.bountifulfares.util.ModItemTags;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,7 +9,6 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -26,7 +23,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.event.GameEvent;
 
 public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -66,25 +62,22 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
         Direction facing = state.get(FACING);
         ItemStack itemStack = player.getStackInHand(hand);
         Boolean isSurvival = !player.isCreative();
-        if (itemStack.isIn(ModItemTags.VINE_CROP_SEEDS)) {
+        if (ModBlocks.CROPS_TO_CROP_TRELLISES.containsKey(itemStack.getItem())) {
             if (isSurvival) {
                 itemStack.decrement(1);
             }
             world.setBlockState(pos, CropTrellisBlock.getCropTrellisFromCrop(itemStack.getItem()).with(FACING, facing), 2);
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
-        if (itemStack.isIn(ModItemTags.PLANTABLE_ON_TRELLIS)) {
+        if (ModBlocks.PLANTS_TO_DECORATIVE_TRELLISES.containsKey(itemStack.getItem())) {
             if (isSurvival) {
                 itemStack.decrement(1);
             }
             world.setBlockState(pos, DecorativeTrellisBlock.getDecorativeTrellisFromPlant(itemStack.getItem()).with(FACING, facing), 2);
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
-
         return super.onUse(state, world, pos, player, hand, hit);
     }
 
