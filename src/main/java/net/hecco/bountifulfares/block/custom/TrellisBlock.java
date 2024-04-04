@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
+import net.hecco.bountifulfares.block.ModBlocks;
 import net.hecco.bountifulfares.util.ModItemTags;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -54,25 +55,22 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
         Direction facing = state.get(FACING);
         ItemStack itemStack = player.getStackInHand(hand);
         Boolean isSurvival = !player.isCreative();
-        if (itemStack.isIn(ModItemTags.VINE_CROP_SEEDS)) {
+        if (ModBlocks.CROPS_TO_CROP_TRELLISES.containsKey(itemStack.getItem())) {
             if (isSurvival) {
                 itemStack.decrement(1);
             }
             world.setBlockState(pos, CropTrellisBlock.getCropTrellisFromCrop(itemStack.getItem()).with(FACING, facing), 2);
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
-        if (itemStack.isIn(ModItemTags.PLANTABLE_ON_TRELLIS)) {
+        if (ModBlocks.PLANTS_TO_DECORATIVE_TRELLISES.containsKey(itemStack.getItem())) {
             if (isSurvival) {
                 itemStack.decrement(1);
             }
             world.setBlockState(pos, DecorativeTrellisBlock.getDecorativeTrellisFromPlant(itemStack.getItem()).with(FACING, facing), 2);
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, state));
             return ActionResult.SUCCESS;
         }
-
         return super.onUse(state, world, pos, player, hand, hit);
     }
 
