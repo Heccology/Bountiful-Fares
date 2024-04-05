@@ -23,6 +23,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.event.GameEvent;
 
 public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -66,16 +67,22 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
             if (isSurvival) {
                 itemStack.decrement(1);
             }
-            world.setBlockState(pos, CropTrellisBlock.getCropTrellisFromCrop(itemStack.getItem()).with(FACING, facing), 2);
+            if (!world.isClient()) {
+                world.setBlockState(pos, CropTrellisBlock.getCropTrellisFromCrop(itemStack.getItem()).with(FACING, facing), 2);
+            }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
             return ActionResult.SUCCESS;
         }
         if (ModBlocks.PLANTS_TO_DECORATIVE_TRELLISES.containsKey(itemStack.getItem())) {
             if (isSurvival) {
                 itemStack.decrement(1);
             }
-            world.setBlockState(pos, DecorativeTrellisBlock.getDecorativeTrellisFromPlant(itemStack.getItem()).with(FACING, facing), 2);
+            if (!world.isClient()) {
+                world.setBlockState(pos, DecorativeTrellisBlock.getDecorativeTrellisFromPlant(itemStack.getItem()).with(FACING, facing), 2);
+            }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
             return ActionResult.SUCCESS;
         }
         return super.onUse(state, world, pos, player, hand, hit);

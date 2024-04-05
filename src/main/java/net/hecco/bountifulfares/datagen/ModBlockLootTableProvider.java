@@ -174,8 +174,6 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.FELDSPAR_LANTERN);
         addDrop(ModBlocks.TINGED_GLASS, dropsWithSilkTouch(ModBlocks.TINGED_GLASS));
         addDrop(ModBlocks.CERAMIC_CLAY_BLOCK);
-        addDrop(ModBlocks.CERAMIC_PRESSURE_PLATE);
-        addDrop(ModBlocks.CERAMIC_BUTTON);
         addDrop(ModBlocks.FERMENTATION_VESSEL);
         addDrop(ModBlocks.GRISTMILL);
         addDrop(ModBlocks.HONEYSUCKLE);

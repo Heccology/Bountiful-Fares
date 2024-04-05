@@ -121,7 +121,7 @@ public class PicketsBlock extends Block implements Waterloggable {
         if (blockState.get(EAST)) return Direction.EAST;
         if (blockState.get(SOUTH)) return Direction.SOUTH;
         if (blockState.get(WEST)) return Direction.WEST;
-        return Direction.NORTH; // Default direction if none is set
+        return Direction.NORTH;
     }
 
     private Property<Boolean> getFacingProperty(Direction direction) {

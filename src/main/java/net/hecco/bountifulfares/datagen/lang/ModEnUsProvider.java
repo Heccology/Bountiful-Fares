@@ -194,6 +194,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.PEONY_TRELLIS);
         generate(translationBuilder, ModBlocks.SUNFLOWER_TRELLIS);
         generate(translationBuilder, ModBlocks.VINE_TRELLIS);
+        generate(translationBuilder, ModBlocks.TWISTING_TRELLIS);
+        generate(translationBuilder, ModBlocks.WEEPING_TRELLIS);
 
         generate(translationBuilder, ModItems.PASSION_FRUIT);
         generate(translationBuilder, ModItems.ELDERBERRIES);

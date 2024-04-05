@@ -349,6 +349,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PEONY_TRELLIS)
                 .add(ModBlocks.SUNFLOWER_TRELLIS)
                 .add(ModBlocks.VINE_TRELLIS)
+                .add(ModBlocks.WEEPING_TRELLIS)
+                .add(ModBlocks.TWISTING_TRELLIS)
         ;
         getOrCreateTagBuilder(ModBlockTags.FELSIC_STONES)
                 .add(Blocks.ANDESITE)
