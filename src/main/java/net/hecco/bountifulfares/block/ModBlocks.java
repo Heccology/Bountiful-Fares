@@ -22,6 +22,7 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
@@ -123,13 +124,15 @@ public class ModBlocks {
     public static final Block TRELLIS = registerBlock("trellis", new TrellisBlock(FabricBlockSettings.create().nonOpaque().strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).nonOpaque()));
     public static final Block PASSION_FRUIT_TRELLIS = registerBlockNoItem("passion_fruit_trellis", new CropTrellisBlock(ModItems.PASSION_FRUIT, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS)));
     public static final Block ELDERBERRY_TRELLIS = registerBlockNoItem("elderberry_trellis", new CropTrellisBlock(ModItems.ELDERBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS)));
-    public static final Block GLOW_BERRY_TRELLIS = registerBlockNoItem("glow_berry_trellis", new CropTrellisBlock(Items.GLOW_BERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS)));
+    public static final Block GLOW_BERRY_TRELLIS = registerBlockNoItem("glow_berry_trellis", new CropTrellisBlock(Items.GLOW_BERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS).luminance(createLightLevelFromAgeBlockState(0, 6, 12))));
     public static final Block LAPISBERRY_TRELLIS = registerBlockNoItem("lapisberry_trellis", new CropTrellisBlock(ModItems.LAPISBERRY_SEEDS, ModItems.LAPISBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS)));
     public static final Block ROSE_TRELLIS = registerBlockNoItem("rose_trellis", new DecorativeTrellisBlock(Items.ROSE_BUSH, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
     public static final Block LILAC_TRELLIS = registerBlockNoItem("lilac_trellis", new DecorativeTrellisBlock(Items.LILAC, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
     public static final Block PEONY_TRELLIS = registerBlockNoItem("peony_trellis", new DecorativeTrellisBlock(Items.PEONY, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
     public static final Block SUNFLOWER_TRELLIS = registerBlockNoItem("sunflower_trellis", new DecorativeTrellisBlock(Items.SUNFLOWER, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
     public static final Block VINE_TRELLIS = registerBlockNoItem("vine_trellis", new DecorativeTrellisBlock(Items.VINE, false, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
+    public static final Block WEEPING_TRELLIS = registerBlockNoItem("weeping_trellis", new DecorativeTrellisBlock(Items.WEEPING_VINES, false, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
+    public static final Block TWISTING_TRELLIS = registerBlockNoItem("twisting_trellis", new DecorativeTrellisBlock(Items.TWISTING_VINES, false, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
     public static final Block WILD_WHEAT = registerBlock("wild_wheat", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILD_CARROTS = registerBlock("wild_carrots", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILD_POTATOES = registerBlock("wild_potatoes", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
@@ -252,6 +255,10 @@ public class ModBlocks {
 
     public static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
         return state -> state.get(Properties.LIT) ? litLevel : 0;
+    }
+
+    public static ToIntFunction<BlockState> createLightLevelFromAgeBlockState(int lit1, int lit2, int lit3) {
+        return state -> state.get(CropTrellisBlock.AGE) == 1 ? lit1 : state.get(CropTrellisBlock.AGE) == 2 ? lit2 : state.get(CropTrellisBlock.AGE) == 3 ? lit3 : 0;
     }
 
     private static Block registerBlock(String name, Block block) {

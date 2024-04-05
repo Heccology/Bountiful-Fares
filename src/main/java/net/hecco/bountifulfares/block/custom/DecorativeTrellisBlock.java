@@ -34,9 +34,9 @@ public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable
     public DecorativeTrellisBlock(Item item, boolean canDuplicate, Settings settings) {
         super(settings);
         this.canDuplicate = canDuplicate;
-        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH));
         PLANTS_TO_DECORATIVE_TRELLISES.put(item, this);
         DECORATIVE_TRELLISES_TO_PLANTS.put(this, item);
+        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -50,8 +51,8 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     public CropTrellisBlock(Item berryItem, Settings settings) {
         super(settings);
         this.berryItem = berryItem;
-        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(AGE, 0).with(SNIPPED, false));
         CROPS_TO_CROP_TRELLISES.put(berryItem, this);
+        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(AGE, 0).with(SNIPPED, false));
     }
     public CropTrellisBlock(Item seedsItem, Item berryItem, Settings settings) {
         super(settings);
