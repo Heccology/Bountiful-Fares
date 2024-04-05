@@ -10,6 +10,6 @@ public class ModFoliagePlacerTypes {
             "fruit_tree_foliage_placer", FruitTreeFoliagePlacer.CODEC);
 
     public static void register() {
-        BountifulFares.LOGGER.info("Registering Foliage Placers for bountifulfares");
+//        BountifulFares.LOGGER.info("Registering Foliage Placers for bountifulfares");
     }
 }

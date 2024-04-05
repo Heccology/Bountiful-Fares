@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-30T19:23:43.419591	Bountiful Fares/Model Definitions
+// 1.20.1	2024-04-04T20:13:01.298742	Bountiful Fares/Model Definitions
 4702571e25c6569a36d0e7e9d2995f8e89d5c098 assets/bountifulfares/models/item/feldspar_brick_slab.json
 34baf51b00c60c215448a554c461da7d23ae535a assets/bountifulfares/models/block/oak_pickets.json
 424f8789b54630ec25f1ac26b3d8a86abefc9eb8 assets/bountifulfares/models/block/walnut_stairs.json
@@ -14,9 +14,9 @@ e8d8bcd0c574d91fda7142367171e2fcafef0f05 assets/bountifulfares/models/block/feld
 b2013f0a8659bc14cc902e137872753091c53749 assets/bountifulfares/models/block/walnut_door_bottom_left.json
 fb06131af119440ded48f9c81239320138a30e38 assets/bountifulfares/models/item/walnut_hanging_sign.json
 5040a35930d876796a7f7feb83af0f3faf3a0f89 assets/bountifulfares/models/block/walnut_fence_side.json
-835766ad6297a09ce6af5a8ccf553559720a12d2 assets/bountifulfares/models/item/walnut_fence_gate.json
 2890c5247e11358a55c80b56f9480c165b4ebe87 assets/bountifulfares/models/item/walnut_planks.json
 2c28045f3083f2f05bfd07f323ed721c20012ba2 assets/bountifulfares/models/item/candied_plum.json
+835766ad6297a09ce6af5a8ccf553559720a12d2 assets/bountifulfares/models/item/walnut_fence_gate.json
 52c420f8a4a27e0ddc9a571f972798815f971467 assets/bountifulfares/models/block/walnut_stairs_outer.json
 8560ba0289157c09438fc66ec5f54cee905c0da1 assets/bountifulfares/blockstates/walnut_log.json
 94782b8a5d096cd7d4ae645a7e455a24d859de31 assets/bountifulfares/models/block/warped_pickets.json
@@ -87,8 +87,8 @@ c338ac24f42101378b7538cd098952d4484f9039 assets/bountifulfares/models/item/spruc
 e0d4d20aea3c4871ac4a23e6a6aab98d76d5d281 assets/bountifulfares/blockstates/cut_feldspar_block.json
 0048fac02dd4802436835688a175df186cc1e90b assets/bountifulfares/models/block/walnut_door_top_left_open.json
 95abebe13e62120692ff2de87493b0cab936c373 assets/bountifulfares/models/block/walnut_pressure_plate.json
-d45ec46a8c7528abe0678928697c38f6cb9b343a assets/bountifulfares/models/item/fish_stew.json
 9e8239579f6945ee6c7fdea705f6618ff5454ed9 assets/bountifulfares/models/item/stripped_walnut_wood.json
+d45ec46a8c7528abe0678928697c38f6cb9b343a assets/bountifulfares/models/item/fish_stew.json
 166aaaf93af1ca6f9bec081f0a6ac81f8e6c40b4 assets/bountifulfares/models/block/feldspar_brick_slab_top.json
 3a0c2f556c46f1ba3de96994a1a9bc1b7601ae6d assets/bountifulfares/blockstates/walnut_stairs.json
 804f2db2756fd7bacc34759350bee7d02dd20a9b assets/bountifulfares/models/block/walnut_log.json
