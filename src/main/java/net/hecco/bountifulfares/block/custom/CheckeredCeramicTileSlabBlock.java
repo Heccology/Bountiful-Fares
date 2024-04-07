@@ -31,7 +31,7 @@ public class CheckeredCeramicTileSlabBlock extends SlabBlock implements DyeableC
             ItemStack stack = super.getPickStack(world, pos, state);
             return pickBlock(world,pos,stack);
         } else {
-            return new ItemStack(ModBlocks.CERAMIC_TILE_SLAB);
+            return new ItemStack(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
         }
     }
 
