@@ -427,8 +427,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.place_all_baked_goods", "Baker's Dozen");
         generate(translationBuilder, "advancement.bountifulfares.place_all_baked_goods.description", "Place every baked good");
 
-        generate(translationBuilder, "advancement.bountifulfares.eat_citric_acid", "Pass the Antacid");
-        generate(translationBuilder, "advancement.bountifulfares.eat_citric_acid.description", "Eat Citric Acid");
+        generate(translationBuilder, "advancement.bountifulfares.eat_citrus_essence", "Pass the Antacid");
+        generate(translationBuilder, "advancement.bountifulfares.eat_citrus_essence.description", "Eat Citrus Essence");
 
         generate(translationBuilder, "advancement.bountifulfares.throw_flour", "Great Escape");
         generate(translationBuilder, "advancement.bountifulfares.throw_flour.description", "Throw Flour");

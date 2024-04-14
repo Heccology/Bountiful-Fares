@@ -154,8 +154,8 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .build(consumer, BountifulFares.MOD_ID + ":place_all_baked_goods");
         AdvancementEntry eat_citrus_essence = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(ModItems.CITRUS_ESSENCE),
-                        Text.translatable("advancement.bountifulfares.eat_citric_acid"),
-                        Text.translatable("advancement.bountifulfares.eat_citric_acid.description"), Optional.of(new Identifier("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.eat_citrus_essence"),
+                        Text.translatable("advancement.bountifulfares.eat_citrus_essence.description"), Optional.of(new Identifier("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false
