@@ -50,6 +50,19 @@
                 }
               ],
               "name": "minecraft:grass"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:survives_explosion"
+                },
+                {
+                  "chance": 0.125,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "bountifulfares:grass_seeds"
             }
           ]
         }
@@ -105,6 +118,19 @@
                 }
               ],
               "name": "minecraft:grass"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:survives_explosion"
+                },
+                {
+                  "chance": 0.125,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "bountifulfares:grass_seeds"
             }
           ]
         }
