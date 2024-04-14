@@ -158,7 +158,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WILD_LEEKS);
                         entries.add(ModBlocks.WILD_PASSION_FRUIT_VINE);
                         entries.add(ModBlocks.WILD_ELDERBERRY_VINE);
-//                        entries.add(ModItems.GRASS_SEEDS);
+                        entries.add(ModItems.GRASS_SEEDS);
                         entries.add(ModItems.MAIZE_SEEDS);
                         entries.add(ModItems.LEEK_SEEDS);
                         entries.add(ModItems.SPONGEKIN_SEEDS);
