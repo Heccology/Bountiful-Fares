@@ -32,11 +32,15 @@ dependencies {
 
 	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:7.0.1"
 	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:7.0.1"
-//	implementation files('run/mods/net.leafenzo.mint-v0.7.0-beta+1.20.1.jar')
-//	modImplementation("net.fabricmc:fabric-language-kotlin:1.10.8+kotlin.1.9.0")
-//	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+	modApi "com.terraformersmc:modmenu:7.2.2"
 
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:12.0.648"
+
+
+	modApi("me.shedaniel.cloth:cloth-config-fabric:11.1.118") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 //	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:12.0.648"
 	// Uncomment the      following line to enable the deprecated Fabric API modules.
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.

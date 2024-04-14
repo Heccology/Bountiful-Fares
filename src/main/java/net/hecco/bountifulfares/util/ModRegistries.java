@@ -9,6 +9,7 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
+import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.Position;
 import net.minecraft.world.World;
 
@@ -26,6 +27,12 @@ public class ModRegistries {
             @Override
             protected ProjectileEntity createProjectile(World world, Position position, ItemStack stack) {
                 return new FlourProjectileEntity(world, position.getX(), position.getY(), position.getZ());
+            }
+        });
+        DispenserBlock.registerBehavior(ModItems.GRASS_SEEDS, new GrassSeedsDispenserBehavior() {
+            @Override
+            public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
+                return super.dispenseSilently(pointer, stack);
             }
         });
     }
@@ -97,6 +104,7 @@ public class ModRegistries {
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WILD_BEETROOTS, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WILD_MAIZE, 0.5f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WILD_LEEKS, 0.3f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.GRASS_SEEDS, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.MAIZE_SEEDS, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.MAIZE, 0.65f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.LEEK_SEEDS, 0.3f);

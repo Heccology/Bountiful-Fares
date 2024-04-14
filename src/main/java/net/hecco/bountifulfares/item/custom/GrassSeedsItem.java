@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.item.custom;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.sound.SoundCategory;
@@ -21,6 +22,7 @@ public class GrassSeedsItem extends Item {
         if (world.getBlockState(pos).isOf(Blocks.DIRT) && world.getBlockState(pos.up()).isAir()) {
             world.setBlockState(pos, Blocks.GRASS_BLOCK.getDefaultState());
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
+            BoneMealItem.createParticles(world, pos, 0);
             return ActionResult.success(true);
         }
         return super.useOnBlock(context);
