@@ -42,9 +42,7 @@ dependencies {
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:12.0.648"
 
 
-//	modApi("me.shedaniel.cloth:cloth-config-fabric:12.0.119") {
-//		exclude(group: "net.fabricmc.fabric-api")
-//	}
+//	modApi files("run/mods/cloth-config-12.0.119-fabric.jar")
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
