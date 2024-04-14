@@ -165,7 +165,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.MAIZE_CROP)
                                 .properties(StatePredicate.Builder.create().exactMatch(MaizeCropBlock.AGE, 7)))
-                        .with(this.applyExplosionDecay(ModBlocks.WILD_MAIZE, ItemEntry.builder(ModItems.MAIZE)))));
+                        .with(this.applyExplosionDecay(ModBlocks.MAIZE_CROP, ItemEntry.builder(ModItems.MAIZE)))));
         addDrop(ModBlocks.FELDSPAR_BLOCK);
         addDrop(ModBlocks.CUT_FELDSPAR_BLOCK);
         addDrop(ModBlocks.FELDSPAR_BRICKS);

@@ -218,6 +218,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.LEEKS);
         generate(translationBuilder, ModItems.LEEK_SEEDS);
 
+        generate(translationBuilder, ModItems.GRASS_SEEDS);
+
         generate(translationBuilder, ModBlocks.SPONGEKIN_STEM);
         generate(translationBuilder, ModBlocks.SPONGEKIN_SPROUT);
         generate(translationBuilder, ModBlocks.SPONGEKIN);
@@ -463,12 +465,22 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.eat_all_food", "Bountiful Fares");
         generate(translationBuilder, "advancement.bountifulfares.eat_all_food.description", "Eat every meal");
 
-
         generate(translationBuilder, "subtitles.block.gristmill.grind", "Gristmill Mills");
-
         generate(translationBuilder, "subtitles.entity.flour.throw", "Flour Flies");
         generate(translationBuilder, "subtitles.entity.flour.land", "Flour Billows");
 
 
+
+        generate(translationBuilder, "config.bountifulfares.restart_warning", "Requires a restart to apply changes");
+
+        generate(translationBuilder, "config.bountifulfares.item_guide_tooltips", "Should items show information when holding Shift?");
+        generate(translationBuilder, "config.bountifulfares.wild_vanilla_crops", "Should wild vanilla crops generate?");
+        generate(translationBuilder, "config.bountifulfares.apple_trees", "Should Apple Trees generate?");
+        generate(translationBuilder, "config.bountifulfares.orange_trees", "Should Orange Trees generate?");
+        generate(translationBuilder, "config.bountifulfares.lemon_trees", "Should Lemon Trees generate?");
+        generate(translationBuilder, "config.bountifulfares.plum_trees", "Should Plum Trees generate?");
+        generate(translationBuilder, "config.bountifulfares.flower_forest_fruit_trees", "Should fruit trees generate in Flower Forests?");
+        generate(translationBuilder, "config.bountifulfares.forest_tea_shrubs", "Should Tea Shrubs generate in Forests?");
+        generate(translationBuilder, "config.bountifulfares.forest_walnut_trees", "Should Walnut Trees generate in Forests?");
     }
 }
