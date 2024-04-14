@@ -380,5 +380,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.HOARY_APPLE_SAPLING)
                 .add(ModBlocks.WALNUT_SAPLING)
         ;
+        getOrCreateTagBuilder(ModBlockTags.GRASS_SEEDS_PLANTABLE_ON)
+                .add(Blocks.DIRT)
+                .add(Blocks.COARSE_DIRT)
+                .add(Blocks.ROOTED_DIRT)
+                .add(Blocks.PODZOL)
+                .add(Blocks.MYCELIUM)
+        ;
     }
 }

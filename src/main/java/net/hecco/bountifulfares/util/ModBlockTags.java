@@ -25,4 +25,5 @@ public class ModBlockTags {
     public static final TagKey<Block> TRELLISES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "trellises"));
     public static final TagKey<Block> FELSIC_STONES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "felsic_stones"));
     public static final TagKey<Block> PICKETS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "pickets"));
+    public static final TagKey<Block> GRASS_SEEDS_PLANTABLE_ON = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "grass_seeds_plantable_on"));
 }

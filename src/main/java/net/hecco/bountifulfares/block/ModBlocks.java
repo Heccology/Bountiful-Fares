@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.*;
 import net.hecco.bountifulfares.item.ModItems;
+import net.hecco.bountifulfares.item.custom.BlockItemWithInfo;
 import net.hecco.bountifulfares.item.custom.CeramicDishBlockItem;
 import net.hecco.bountifulfares.item.custom.DyeableCeramicBlockItem;
 import net.hecco.bountifulfares.sounds.ModSounds;
@@ -121,7 +122,7 @@ public class ModBlocks {
 
     public static final Block WALNUT_CANDLE = registerBlock("walnut_candle", new WalnutCandleBlock(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
 
-    public static final Block TRELLIS = registerBlock("trellis", new TrellisBlock(FabricBlockSettings.create().nonOpaque().strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).nonOpaque()));
+    public static final Block TRELLIS = registerBlockWithInfo("trellis", new TrellisBlock(FabricBlockSettings.create().nonOpaque().strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).nonOpaque()));
     public static final Block PASSION_FRUIT_TRELLIS = registerBlockNoItem("passion_fruit_trellis", new CropTrellisBlock(ModItems.PASSION_FRUIT, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS)));
     public static final Block ELDERBERRY_TRELLIS = registerBlockNoItem("elderberry_trellis", new CropTrellisBlock(ModItems.ELDERBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS)));
     public static final Block GLOW_BERRY_TRELLIS = registerBlockNoItem("glow_berry_trellis", new CropTrellisBlock(Items.GLOW_BERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS).luminance(createLightLevelFromAgeBlockState(0, 6, 12))));
@@ -160,7 +161,7 @@ public class ModBlocks {
     public static final Block CERAMIC_BUTTON = registerDyeableCeramicBlock("ceramic_button", new CeramicButtonBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).solid().sounds(ModSounds.CERAMIC_DECORATION).instrument(Instrument.HAT).noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY), ModBlockSetTypes.CERAMIC, 10, true));
     public static final Block CERAMIC_LEVER = registerDyeableCeramicBlock("ceramic_lever", new CeramicLeverBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).solid().sounds(ModSounds.CERAMIC_DECORATION).instrument(Instrument.HAT).noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block CERAMIC_DISH = registerCeramicDishBlock("ceramic_dish", new CeramicDishBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).sounds(ModSounds.CERAMIC_DECORATION).strength(0.2F).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block FERMENTATION_VESSEL = registerBlock("fermentation_vessel", new FermentationVesselBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).instrument(Instrument.BASEDRUM).requiresTool().nonOpaque().sounds(ModSounds.CERAMIC_DECORATION)));
+    public static final Block FERMENTATION_VESSEL = registerBlockWithInfo("fermentation_vessel", new FermentationVesselBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).instrument(Instrument.BASEDRUM).requiresTool().nonOpaque().sounds(ModSounds.CERAMIC_DECORATION)));
     public static final Block APPLE_BLOCK = registerBlock("apple_block", new AppleBlock(FabricBlockSettings.create().mapColor(MapColor.RED).strength(1f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block GOLDEN_APPLE_BLOCK = registerBlock("golden_apple_block", new GoldenAppleBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(1f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.METAL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block ORANGE_BLOCK = registerBlock("orange_block", new OrangeBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).strength(0.5f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD)));
@@ -264,6 +265,15 @@ public class ModBlocks {
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(BountifulFares.MOD_ID, name), block);
+    }
+
+    private static Block registerBlockWithInfo(String name, Block block) {
+        registerBlockItemWithInfo(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(BountifulFares.MOD_ID, name), block);
+    }
+
+    private static void registerBlockItemWithInfo(String name, Block block) {
+        Registry.register(Registries.ITEM, new Identifier(BountifulFares.MOD_ID, name), new BlockItemWithInfo(block, new FabricItemSettings()));
     }
 
     private static Block registerBlockUnstackableItem(String name, Block block) {

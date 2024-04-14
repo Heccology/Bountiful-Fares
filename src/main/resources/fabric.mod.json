@@ -24,6 +24,9 @@
 		],
 		"fabric-datagen": [
 			"net.hecco.bountifulfares.BountifulFaresDataGenerator"
+		],
+		"modmenu": [
+			"net.hecco.bountifulfares.config.BountifulFaresModMenu"
 		]
 	},
 	"mixins": [
