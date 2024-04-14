@@ -15,13 +15,13 @@
   "display": {
     "background": "minecraft:textures/block/farmland_moist.png",
     "description": {
-      "translate": "advancement.bountifulfares.eat_citric_acid.description"
+      "translate": "advancement.bountifulfares.eat_citrus_essence.description"
     },
     "icon": {
       "item": "bountifulfares:citrus_essence"
     },
     "title": {
-      "translate": "advancement.bountifulfares.eat_citric_acid"
+      "translate": "advancement.bountifulfares.eat_citrus_essence"
     }
   },
   "requirements": [
