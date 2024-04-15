@@ -1,5 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
+import net.fabricmc.loader.api.FabricLoader;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.sounds.ModSounds;
 import net.hecco.bountifulfares.util.ModItemTags;
 import net.minecraft.block.*;
@@ -31,6 +33,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Objects;
 
 public class JackOStrawBlock extends Block implements Waterloggable {
 
