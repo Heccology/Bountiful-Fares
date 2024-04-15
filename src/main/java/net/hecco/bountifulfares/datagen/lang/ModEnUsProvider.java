@@ -311,27 +311,43 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generateJackOStraw(translationBuilder, ModBlocks.BLACK_JACK_O_STRAW, "Black");
         generateJackOStraw(translationBuilder, ModBlocks.BROWN_JACK_O_STRAW, "Brown");
 
-//        generateJackOStraw(translationBuilder, ModBlocks.ACORN_JACK_O_STRAW, "Acorn");
-//        generateJackOStraw(translationBuilder, ModBlocks.AMBER_JACK_O_STRAW, "Amber");
-//        generateJackOStraw(translationBuilder, ModBlocks.ARTICHOKE_JACK_O_STRAW, "Artichoke");
-//        generateJackOStraw(translationBuilder, ModBlocks.BANANA_JACK_O_STRAW, "Banana");
-//        generateJackOStraw(translationBuilder, ModBlocks.CERULEAN_JACK_O_STRAW, "Cerulean");
-//        generateJackOStraw(translationBuilder, ModBlocks.FUCHSIA_JACK_O_STRAW, "Fuchsia");
-//        generateJackOStraw(translationBuilder, ModBlocks.GRAPE_JACK_O_STRAW, "Grape");
-//        generateJackOStraw(translationBuilder, ModBlocks.INDIGO_JACK_O_STRAW, "Indigo");
-//        generateJackOStraw(translationBuilder, ModBlocks.MAROON_JACK_O_STRAW, "Maroon");
-//        generateJackOStraw(translationBuilder, ModBlocks.MAUVE_JACK_O_STRAW, "Mauve");
-//        generateJackOStraw(translationBuilder, ModBlocks.MINT_JACK_O_STRAW, "Mint");
-//        generateJackOStraw(translationBuilder, ModBlocks.MOLD_JACK_O_STRAW, "Mold");
-//        generateJackOStraw(translationBuilder, ModBlocks.NAVY_JACK_O_STRAW, "Navy");
-//        generateJackOStraw(translationBuilder, ModBlocks.PEACH_JACK_O_STRAW, "Peach");
-//        generateJackOStraw(translationBuilder, ModBlocks.PERIWINKLE_JACK_O_STRAW, "Periwinkle");
-//        generateJackOStraw(translationBuilder, ModBlocks.SAGE_JACK_O_STRAW, "Sage");
-//        generateJackOStraw(translationBuilder, ModBlocks.SAP_JACK_O_STRAW, "Sap");
-//        generateJackOStraw(translationBuilder, ModBlocks.SHAMROCK_JACK_O_STRAW, "Shamrock");
-//        generateJackOStraw(translationBuilder, ModBlocks.VELVET_JACK_O_STRAW, "Velvet");
-//        generateJackOStraw(translationBuilder, ModBlocks.VERMILION_JACK_O_STRAW, "Vermillion");
-//        generate(translationBuilder, "tooltip.bountifulfares.els_and_ls_dye_mod_warning", "§7§oEl's and L's Dye Mod Is Not Installed!");
+        generateJackOStraw(translationBuilder, ModBlocks.ACORN_JACK_O_STRAW, "Acorn");
+        generateJackOStraw(translationBuilder, ModBlocks.AMBER_JACK_O_STRAW, "Amber");
+        generateJackOStraw(translationBuilder, ModBlocks.ARTICHOKE_JACK_O_STRAW, "Artichoke");
+        generateJackOStraw(translationBuilder, ModBlocks.BANANA_JACK_O_STRAW, "Banana");
+        generateJackOStraw(translationBuilder, ModBlocks.CERULEAN_JACK_O_STRAW, "Cerulean");
+        generateJackOStraw(translationBuilder, ModBlocks.FUCHSIA_JACK_O_STRAW, "Fuchsia");
+        generateJackOStraw(translationBuilder, ModBlocks.GRAPE_JACK_O_STRAW, "Grape");
+        generateJackOStraw(translationBuilder, ModBlocks.INDIGO_JACK_O_STRAW, "Indigo");
+        generateJackOStraw(translationBuilder, ModBlocks.MAROON_JACK_O_STRAW, "Maroon");
+        generateJackOStraw(translationBuilder, ModBlocks.MAUVE_JACK_O_STRAW, "Mauve");
+        generateJackOStraw(translationBuilder, ModBlocks.MINT_JACK_O_STRAW, "Mint");
+        generateJackOStraw(translationBuilder, ModBlocks.MOLD_JACK_O_STRAW, "Mold");
+        generateJackOStraw(translationBuilder, ModBlocks.NAVY_JACK_O_STRAW, "Navy");
+        generateJackOStraw(translationBuilder, ModBlocks.PEACH_JACK_O_STRAW, "Peach");
+        generateJackOStraw(translationBuilder, ModBlocks.PERIWINKLE_JACK_O_STRAW, "Periwinkle");
+        generateJackOStraw(translationBuilder, ModBlocks.SAGE_JACK_O_STRAW, "Sage");
+        generateJackOStraw(translationBuilder, ModBlocks.SAP_JACK_O_STRAW, "Sap");
+        generateJackOStraw(translationBuilder, ModBlocks.SHAMROCK_JACK_O_STRAW, "Shamrock");
+        generateJackOStraw(translationBuilder, ModBlocks.VELVET_JACK_O_STRAW, "Velvet");
+        generateJackOStraw(translationBuilder, ModBlocks.VERMILION_JACK_O_STRAW, "Vermilion");
+
+        generateJackOStraw(translationBuilder, ModBlocks.ROSE_JACK_O_STRAW, "Rose");
+        generateJackOStraw(translationBuilder, ModBlocks.CORAL_JACK_O_STRAW, "Coral");
+        generateJackOStraw(translationBuilder, ModBlocks.GINGER_JACK_O_STRAW, "Ginger");
+        generateJackOStraw(translationBuilder, ModBlocks.TAN_JACK_O_STRAW, "Tan");
+        generateJackOStraw(translationBuilder, ModBlocks.BEIGE_JACK_O_STRAW, "Beige");
+        generateJackOStraw(translationBuilder, ModBlocks.OLIVE_JACK_O_STRAW, "Olive");
+        generateJackOStraw(translationBuilder, ModBlocks.FOREST_JACK_O_STRAW, "Forest");
+        generateJackOStraw(translationBuilder, ModBlocks.VERDANT_JACK_O_STRAW, "Verdant");
+        generateJackOStraw(translationBuilder, ModBlocks.TEAL_JACK_O_STRAW, "Teal");
+        generateJackOStraw(translationBuilder, ModBlocks.AQUA_JACK_O_STRAW, "Aqua");
+        generateJackOStraw(translationBuilder, ModBlocks.SLATE_JACK_O_STRAW, "Slate");
+        generateJackOStraw(translationBuilder, ModBlocks.INDIGO2_JACK_O_STRAW, "Indigo");
+
+        generate(translationBuilder, "block.bountifulfares.ash_jack_o_straw", "Ash Jack O' Straw");
+
+
         generate(translationBuilder, "tooltip.bountifulfares.dyeable", "§7§oDyeable");
 
         generate(translationBuilder, ModBlocks.GRISTMILL);
