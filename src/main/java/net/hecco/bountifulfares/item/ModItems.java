@@ -117,8 +117,50 @@ public class ModItems {
     public static final Item CANDIED_APPLE = registerItem("candied_apple", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(7).saturationModifier(0.5F).build())));
     public static final Item CANDIED_PLUM = registerItem("candied_plum", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(0.6F).build())));
 
+//    public static final Item ACORN_WOOL = registerTempRecipeItem("acorn_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item MAROON_WOOL = registerTempRecipeItem("maroon_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item PEACH_WOOL = registerTempRecipeItem("peach_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item VERMILION_WOOL = registerTempRecipeItem("vermilion_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item AMBER_WOOL = registerTempRecipeItem("amber_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item BANANA_WOOL = registerTempRecipeItem("banana_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item ARTICHOKE_WOOL = registerTempRecipeItem("artichoke_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item MOLD_WOOL = registerTempRecipeItem("mold_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item SAGE_WOOL = registerTempRecipeItem("sage_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item SAP_WOOL = registerTempRecipeItem("sap_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item SHAMROCK_WOOL = registerTempRecipeItem("shamrock_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item MINT_WOOL = registerTempRecipeItem("mint_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item CERULEAN_WOOL = registerTempRecipeItem("cerulean_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item NAVY_WOOL = registerTempRecipeItem("navy_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item PERIWINKLE_WOOL = registerTempRecipeItem("periwinkle_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item GRAPE_WOOL = registerTempRecipeItem("grape_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item INDIGO_WOOL = registerTempRecipeItem("indigo_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item MAUVE_WOOL = registerTempRecipeItem("mauve_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item VELVET_WOOL = registerTempRecipeItem("velvet_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//    public static final Item FUCHSIA_WOOL = registerTempRecipeItem("fuchsia_wool", BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//
+//    public static final Item MAROON_WOOL2 = registerTempRecipeItem("maroon_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item ROSE_WOOL = registerTempRecipeItem("rose_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item CORAL_WOOL = registerTempRecipeItem("coral_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item GINGER_WOOL = registerTempRecipeItem("ginger_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item TAN_WOOL = registerTempRecipeItem("tan_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item BEIGE_WOOL = registerTempRecipeItem("beige_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item AMBER_WOOL2 = registerTempRecipeItem("amber_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item OLIVE_WOOL = registerTempRecipeItem("olive_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item FOREST_WOOL = registerTempRecipeItem("forest_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item VERDANT_WOOL = registerTempRecipeItem("verdant_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item TEAL_WOOL = registerTempRecipeItem("teal_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item AQUA_WOOL = registerTempRecipeItem("aqua_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item SLATE_WOOL = registerTempRecipeItem("slate_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item NAVY_WOOL2 = registerTempRecipeItem("navy_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+//    public static final Item INDIGO_WOOL2 = registerTempRecipeItem("indigo_wool", BountifulFares.DYE_DEPOT_MOD_ID);
+
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(BountifulFares.MOD_ID, name), item);
+    }
+
+    private static Item registerTempRecipeItem(String name, String id) {
+        return Registry.register(Registries.ITEM, new Identifier(id, name), new Item(new FabricItemSettings()));
     }
     public static void registerModItems() {
 //        BountifulFares.LOGGER.info("Registering Mod Items for " + BountifulFares.MOD_ID);

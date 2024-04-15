@@ -584,6 +584,43 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerJackOStrawRecipes(exporter, ModBlocks.MAGENTA_JACK_O_STRAW, Items.MAGENTA_WOOL);
         offerJackOStrawRecipes(exporter, ModBlocks.PINK_JACK_O_STRAW, Items.PINK_WOOL);
 
+//        offerJackOStrawRecipes(exporter, ModBlocks.ACORN_JACK_O_STRAW, ModItems.ACORN_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.MAROON_JACK_O_STRAW, ModItems.MAROON_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.PEACH_JACK_O_STRAW, ModItems.PEACH_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.VERMILION_JACK_O_STRAW, ModItems.VERMILION_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.AMBER_JACK_O_STRAW, ModItems.AMBER_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.BANANA_JACK_O_STRAW, ModItems.BANANA_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.ARTICHOKE_JACK_O_STRAW, ModItems.ARTICHOKE_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.MOLD_JACK_O_STRAW, ModItems.MOLD_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.SAGE_JACK_O_STRAW, ModItems.SAGE_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.SAP_JACK_O_STRAW, ModItems.SAP_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.SHAMROCK_JACK_O_STRAW, ModItems.SHAMROCK_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.MINT_JACK_O_STRAW, ModItems.MINT_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.CERULEAN_JACK_O_STRAW, ModItems.CERULEAN_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.NAVY_JACK_O_STRAW, ModItems.NAVY_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.PERIWINKLE_JACK_O_STRAW, ModItems.PERIWINKLE_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.GRAPE_JACK_O_STRAW, ModItems.GRAPE_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.INDIGO_JACK_O_STRAW, ModItems.INDIGO_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.MAUVE_JACK_O_STRAW, ModItems.MAUVE_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.VELVET_JACK_O_STRAW, ModItems.VELVET_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.FUCHSIA_JACK_O_STRAW, ModItems.FUCHSIA_WOOL);
+//
+//        offerJackOStrawRecipes(exporter, ModBlocks.ROSE_JACK_O_STRAW, ModItems.ROSE_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.CORAL_JACK_O_STRAW, ModItems.CORAL_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.GINGER_JACK_O_STRAW, ModItems.GINGER_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.TAN_JACK_O_STRAW, ModItems.TAN_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.BEIGE_JACK_O_STRAW, ModItems.BEIGE_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.AMBER_JACK_O_STRAW, ModItems.AMBER_WOOL2, "dye_depot");
+//        offerJackOStrawRecipes(exporter, ModBlocks.OLIVE_JACK_O_STRAW, ModItems.OLIVE_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.FOREST_JACK_O_STRAW, ModItems.FOREST_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.VERDANT_JACK_O_STRAW, ModItems.VERDANT_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.TEAL_JACK_O_STRAW, ModItems.TEAL_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.AQUA_JACK_O_STRAW, ModItems.AQUA_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.SLATE_JACK_O_STRAW, ModItems.SLATE_WOOL);
+//        offerJackOStrawRecipes(exporter, ModBlocks.NAVY_JACK_O_STRAW, ModItems.NAVY_WOOL2, "dye_depot");
+//        offerJackOStrawRecipes(exporter, ModBlocks.INDIGO2_JACK_O_STRAW, ModItems.INDIGO_WOOL2, "dye_depot");
+
+
 //        offerTeaBlendMillingRecipe(exporter, ModItems.GREEN_TEA_BLEND, ModItems.TEA_LEAVES);
 //        offerTeaBlendMillingRecipe(exporter, ModItems.BLACK_TEA_BLEND, ModItems.DRIED_TEA_LEAVES);
 //        offerTeaBlendMillingRecipe(exporter, ModItems.CHAMOMILE_TEA_BLEND, ModBlocks.CHAMOMILE_FLOWERS);
@@ -824,7 +861,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, getItemId(output) + "_with_carved_pumpkin");
         ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output)
                 .input(ModItems.SUN_HAT)
-                .input(Items.CARVED_PUMPKIN)
+                .input(Items.PUMPKIN)
                 .input(wool)
                 .input(Items.STICK)
                 .criterion(hasItem(wool), conditionsFromItem(wool))
@@ -832,6 +869,28 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.SUN_HAT), conditionsFromItem(ModItems.SUN_HAT))
                 .criterion("has_wool", conditionsFromItem(wool))
                 .offerTo(exporter, getItemId(output) + "_with_pumpkin");
+    }
+    public static void offerJackOStrawRecipes(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible wool, String specifier) {
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output)
+                .input(ModItems.SUN_HAT)
+                .input(Items.CARVED_PUMPKIN)
+                .input(wool)
+                .input(Items.STICK)
+                .criterion(hasItem(wool), conditionsFromItem(wool))
+                .criterion(hasItem(Items.CARVED_PUMPKIN), conditionsFromItem(Items.CARVED_PUMPKIN))
+                .criterion(hasItem(ModItems.SUN_HAT), conditionsFromItem(ModItems.SUN_HAT))
+                .criterion("has_wool", conditionsFromItem(wool))
+                .offerTo(exporter, getItemId(output) + "_with_carved_pumpkin_" + specifier);
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output)
+                .input(ModItems.SUN_HAT)
+                .input(Items.PUMPKIN)
+                .input(wool)
+                .input(Items.STICK)
+                .criterion(hasItem(wool), conditionsFromItem(wool))
+                .criterion(hasItem(Items.CARVED_PUMPKIN), conditionsFromItem(Items.CARVED_PUMPKIN))
+                .criterion(hasItem(ModItems.SUN_HAT), conditionsFromItem(ModItems.SUN_HAT))
+                .criterion("has_wool", conditionsFromItem(wool))
+                .offerTo(exporter, getItemId(output) + "_with_pumpkin_" + specifier);
     }
     public static void offerTartAndPieRecipe(Consumer<RecipeJsonProvider> exporter, ItemConvertible output, ItemConvertible input) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output)
