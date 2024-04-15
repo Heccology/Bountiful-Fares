@@ -143,6 +143,9 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.LILAC_TRELLIS, plantedTrellisDrops(ModBlocks.LILAC_TRELLIS, Items.LILAC));
         addDrop(ModBlocks.PEONY_TRELLIS, plantedTrellisDrops(ModBlocks.PEONY_TRELLIS, Items.PEONY));
         addDrop(ModBlocks.SUNFLOWER_TRELLIS, plantedTrellisDrops(ModBlocks.SUNFLOWER_TRELLIS, Items.SUNFLOWER));
+        addDrop(ModBlocks.VINE_TRELLIS, plantedTrellisDrops(ModBlocks.VINE_TRELLIS, Items.VINE));
+        addDrop(ModBlocks.WEEPING_TRELLIS, plantedTrellisDrops(ModBlocks.WEEPING_TRELLIS, Items.WEEPING_VINES));
+        addDrop(ModBlocks.TWISTING_TRELLIS, plantedTrellisDrops(ModBlocks.TWISTING_TRELLIS, Items.TWISTING_VINES));
         addDrop(ModBlocks.WILD_WHEAT, WildCropDrops(Items.WHEAT_SEEDS, ModBlocks.WILD_WHEAT));
         addDrop(ModBlocks.WILD_CARROTS, WildCropDrops(Items.CARROT, ModBlocks.WILD_CARROTS));
         addDrop(ModBlocks.WILD_POTATOES, WildCropDrops(Items.POTATO, ModBlocks.WILD_POTATOES));
