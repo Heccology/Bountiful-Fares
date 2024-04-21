@@ -387,5 +387,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.PODZOL)
                 .add(Blocks.MYCELIUM)
         ;
+        getOrCreateTagBuilder(BlockTags.DIRT)
+                .add(ModBlocks.GRASSY_DIRT)
+        ;
     }
 }

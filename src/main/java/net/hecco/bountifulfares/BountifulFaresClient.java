@@ -196,6 +196,7 @@ public class BountifulFaresClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HOARY_PICKETS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CRIMSON_PICKETS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WARPED_PICKETS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GRASSY_DIRT, RenderLayer.getCutout());
         registerItemColor(ModItems.ARTISAN_BRUSH);
         registerBlockColor(ModBlocks.CERAMIC_TILES);
         registerBlockColor(ModBlocks.CERAMIC_TILE_STAIRS);
@@ -214,7 +215,8 @@ public class BountifulFaresClient implements ClientModInitializer {
         TerraformBoatClientHelper.registerModelLayers(ModBoats.HOARY_BOAT_ID, false);
         TerraformBoatClientHelper.registerModelLayers(ModBoats.WALNUT_BOAT_ID, false);
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos)
-                : GrassColors.getDefaultColor(), ModBlocks.CHAMOMILE_FLOWERS);
+                : GrassColors.getDefaultColor(), ModBlocks.CHAMOMILE_FLOWERS, ModBlocks.GRASSY_DIRT);
+        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColors.getDefaultColor()), ModBlocks.GRASSY_DIRT);
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos)
                 : FoliageColors.getDefaultColor(), ModBlocks.WALNUT_LEAVES);
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 5809764, ModBlocks.WALNUT_LEAVES);

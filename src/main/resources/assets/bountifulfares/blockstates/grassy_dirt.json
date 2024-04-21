@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model":  "bountifulfares:block/grassy_dirt"
+      },
+      {
+        "model":  "bountifulfares:block/grassy_dirt",
+        "y": 90
+      },
+      {
+        "model":  "bountifulfares:block/grassy_dirt",
+        "y": 180
+      },
+      {
+        "model":  "bountifulfares:block/grassy_dirt",
+        "y": -90
+      }
+    ]
+  }
+}
