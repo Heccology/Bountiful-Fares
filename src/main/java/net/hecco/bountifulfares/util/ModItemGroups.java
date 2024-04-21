@@ -226,6 +226,7 @@ public class ModItemGroups {
                             entries.add(ModBlocks.MAGENTA_JACK_O_STRAW);
                             entries.add(ModBlocks.PINK_JACK_O_STRAW);
                         }
+                        entries.add(ModBlocks.GRASSY_DIRT);
                         entries.add(ModBlocks.WILD_WHEAT);
                         entries.add(ModBlocks.WILD_CARROTS);
                         entries.add(ModBlocks.WILD_POTATOES);
