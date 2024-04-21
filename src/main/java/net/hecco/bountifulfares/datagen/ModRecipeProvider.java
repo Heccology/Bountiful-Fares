@@ -754,6 +754,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         offerHangingSignRecipe(exporter, ModItems.HOARY_HANGING_SIGN, ModBlocks.STRIPPED_HOARY_LOG);
         offerHangingSignRecipe(exporter, ModItems.WALNUT_HANGING_SIGN, ModBlocks.STRIPPED_WALNUT_LOG);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.GRASSY_DIRT)
+                .input(ModItems.GRASS_SEEDS)
+                .input(ModItemTags.GRASS_SEEDS_PLANTABLE_ON)
+                .criterion(hasItem(ModItems.GRASS_SEEDS), conditionsFromItem(ModItems.GRASS_SEEDS))
+                .offerTo(exporter);
     }
 
 

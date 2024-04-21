@@ -9,8 +9,11 @@ import net.hecco.bountifulfares.util.ModItemTags;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagKey;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -132,24 +135,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(ItemTags.CANDLES)
                 .add(Items.TORCH)
         ;
-        getOrCreateTagBuilder(ModItemTags.DYES)
-                .add(Items.WHITE_DYE)
-                .add(Items.LIGHT_GRAY_DYE)
-                .add(Items.GRAY_DYE)
-                .add(Items.BLACK_DYE)
-                .add(Items.BROWN_DYE)
-                .add(Items.RED_DYE)
-                .add(Items.ORANGE_DYE)
-                .add(Items.YELLOW_DYE)
-                .add(Items.LIME_DYE)
-                .add(Items.GREEN_DYE)
-                .add(Items.CYAN_DYE)
-                .add(Items.LIGHT_BLUE_DYE)
-                .add(Items.BLUE_DYE)
-                .add(Items.PURPLE_DYE)
-                .add(Items.MAGENTA_DYE)
-                .add(Items.PINK_DYE)
-        ;
         getOrCreateTagBuilder(ModItemTags.EATABLE_ON_DISH)
                 .add(Items.APPLE)
                 .add(Items.GOLDEN_APPLE)
@@ -264,9 +249,15 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.HOARY_APPLE_SAPLING.asItem())
                 .add(ModBlocks.WALNUT_SAPLING.asItem())
         ;
-        getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS)
-                .add(ModItems.LEEK_SEEDS)
-                .add(ModItems.MAIZE_SEEDS)
+        getOrCreateTagBuilder(ItemTags.DIRT)
+                .add(ModBlocks.GRASSY_DIRT.asItem())
+        ;
+        getOrCreateTagBuilder(ModItemTags.GRASS_SEEDS_PLANTABLE_ON)
+                .add(Items.DIRT)
+                .add(Items.COARSE_DIRT)
+                .add(Items.ROOTED_DIRT)
+                .add(Items.PODZOL)
+                .add(Items.MYCELIUM)
         ;
     }
 }

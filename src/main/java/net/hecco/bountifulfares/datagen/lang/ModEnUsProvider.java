@@ -366,6 +366,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.CRIMSON_PICKETS);
         generate(translationBuilder, ModBlocks.WARPED_PICKETS);
 
+        generate(translationBuilder, ModBlocks.GRASSY_DIRT);
+
         generate(translationBuilder, ModItems.JAR);
         generate(translationBuilder, ModItems.APPLE_COMPOTE_JAR);
         generate(translationBuilder, ModItems.ORANGE_COMPOTE_JAR);
