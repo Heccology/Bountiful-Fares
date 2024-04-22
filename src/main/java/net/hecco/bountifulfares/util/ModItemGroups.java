@@ -19,6 +19,8 @@ public class ModItemGroups {
     public static ItemGroup BOUNTIFUL_FARES = Registry.register(Registries.ITEM_GROUP, new Identifier(BountifulFares.MOD_ID, "bountiful_fares"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.bountiful_fares"))
                     .icon(() -> new ItemStack(ModItems.PASSION_FRUIT)).entries((displayContext, entries) -> {
+                        boolean mint = FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+                        boolean dye_depot = FabricLoader.getInstance().isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID);
                         entries.add(ModBlocks.APPLE_LOG);
                         entries.add(ModBlocks.APPLE_WOOD);
                         entries.add(ModBlocks.STRIPPED_APPLE_LOG);
@@ -109,6 +111,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CHERRY_PICKETS);
                         entries.add(ModBlocks.BAMBOO_PICKETS);
                         entries.add(ModBlocks.WALNUT_PICKETS);
+                        if (mint) {
+                            entries.add(ModBlocks.WINTERGREEN_PICKETS);
+                        }
                         entries.add(ModBlocks.HOARY_PICKETS);
                         entries.add(ModBlocks.CRIMSON_PICKETS);
                         entries.add(ModBlocks.WARPED_PICKETS);
@@ -135,8 +140,6 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CERAMIC_DISH);
                         entries.add(ModItems.ARTISAN_BRUSH);
                         entries.add(ModItems.SUN_HAT);
-                        boolean mint = FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID);
-                        boolean dye_depot = FabricLoader.getInstance().isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID);
                         if (mint && !dye_depot) {
                             entries.add(ModBlocks.WHITE_JACK_O_STRAW);
                             entries.add(ModBlocks.LIGHT_GRAY_JACK_O_STRAW);
@@ -203,7 +206,7 @@ public class ModItemGroups {
                             entries.add(ModBlocks.BLUE_JACK_O_STRAW);
                             entries.add(ModBlocks.SLATE_JACK_O_STRAW);
                             entries.add(ModBlocks.NAVY_JACK_O_STRAW);
-                            entries.add(ModBlocks.INDIGO2_JACK_O_STRAW);
+                            entries.add(ModBlocks.INDIGO_JACK_O_STRAW);
                             entries.add(ModBlocks.PURPLE_JACK_O_STRAW);
                             entries.add(ModBlocks.MAGENTA_JACK_O_STRAW);
                             entries.add(ModBlocks.PINK_JACK_O_STRAW);

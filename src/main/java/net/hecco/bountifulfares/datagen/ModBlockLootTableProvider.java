@@ -232,6 +232,45 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         jackOStrawDrops(ModBlocks.BLACK_JACK_O_STRAW);
         jackOStrawDrops(ModBlocks.BROWN_JACK_O_STRAW);
 
+//        jackOStrawDrops(ModBlocks.MAROON_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.ROSE_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.CORAL_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.GINGER_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.TAN_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.BEIGE_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.AMBER_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.OLIVE_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.FOREST_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.VERDANT_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.TEAL_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.MINT_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.AQUA_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.SLATE_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.NAVY_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.INDIGO_JACK_O_STRAW);
+//
+//        jackOStrawDrops(ModBlocks.ACORN_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.ARTICHOKE_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.AMBER_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.BANANA_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.CERULEAN_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.FUCHSIA_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.GRAPE_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.INDIGO_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.MAROON_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.MAUVE_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.MOLD_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.MINT_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.NAVY_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.PEACH_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.PERIWINKLE_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.SAGE_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.SAP_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.SHAMROCK_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.VELVET_JACK_O_STRAW);
+//        jackOStrawDrops(ModBlocks.VERMILION_JACK_O_STRAW);
+//
+//        picketsDrops(ModBlocks.WINTERGREEN_PICKETS);
 
         picketsDrops(ModBlocks.OAK_PICKETS);
         picketsDrops(ModBlocks.BIRCH_PICKETS);

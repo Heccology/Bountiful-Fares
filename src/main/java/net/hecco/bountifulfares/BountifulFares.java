@@ -3,6 +3,7 @@ package net.hecco.bountifulfares;
 import net.fabricmc.api.ModInitializer;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.hecco.bountifulfares.block.entity.ModBlockEntities;
+import net.hecco.bountifulfares.compat.ModResourcePacks;
 import net.hecco.bountifulfares.effect.ModEffects;
 import net.hecco.bountifulfares.entity.ModBoats;
 import net.hecco.bountifulfares.item.ModItems;
@@ -29,12 +30,14 @@ public class BountifulFares implements ModInitializer {
 	// modid used for features that should only register if El's and L's Dye Mod is installed, like itemgroups.
 	public static final String ELS_AND_LS_DYES_MOD_ID = "mint";
 	public static final String DYE_DEPOT_MOD_ID = "dye_depot";
+	public static final String AMENDMENTS_MOD_ID = "amendments";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static Configuration CONFIG = new Configuration();
 	@Override
 	public void onInitialize() {
+		ModResourcePacks.registerBuiltinResourcePacks();
 		BountifulFares.CONFIG = Configuration.load();
 		ModItems.registerModItems();
 		ModItemGroups.registerItemGroups();
@@ -52,6 +55,8 @@ public class BountifulFares implements ModInitializer {
 		ModTrunkPlacerTypes.register();
 		ModTreeDecoratorTypes.register();
 		ModBlocks.registerModBlocks();
+		ModBlocks.registerElsAndLsDyesBlocks();
+		ModBlocks.registerDyeDepotBlocks();
 		ModBlockEntities.registerBlockEntities();
 		ModSounds.registerSounds();
 	}
