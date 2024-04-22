@@ -10,8 +10,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import org.jetbrains.annotations.Nullable;
 
-public class CeramicTilesBlockEntity extends BlockEntity {
-    public CeramicTilesBlockEntity(BlockPos pos, BlockState state) {
+public class DyeableCeramicBlockEntity extends BlockEntity {
+    public DyeableCeramicBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CERAMIC_TILES_BLOCK_ENTITY, pos, state);
     }
     public static final int DEFAULT_COLOR = 16777215;
@@ -59,13 +59,13 @@ public class CeramicTilesBlockEntity extends BlockEntity {
 
     public static int getColor(BlockView world, BlockPos pos){
         if(world==null){
-            return CeramicTilesBlockEntity.DEFAULT_COLOR;
+            return DyeableCeramicBlockEntity.DEFAULT_COLOR;
         }
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if(blockEntity instanceof CeramicTilesBlockEntity ceramicTilesBlockEntity){
+        if(blockEntity instanceof DyeableCeramicBlockEntity ceramicTilesBlockEntity){
             return ceramicTilesBlockEntity.color;
         } else {
-            return CeramicTilesBlockEntity.DEFAULT_COLOR;
+            return DyeableCeramicBlockEntity.DEFAULT_COLOR;
         }
     }
 }
