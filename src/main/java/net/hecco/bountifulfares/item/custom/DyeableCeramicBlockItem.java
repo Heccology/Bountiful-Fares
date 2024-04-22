@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.block.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.item.TooltipContext;
@@ -19,7 +19,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class DyeableCeramicBlockItem extends BlockItem implements DyeableItem {
-    public int DefColor = CeramicTilesBlockEntity.DEFAULT_COLOR;
+    public int DefColor = DyeableCeramicBlockEntity.DEFAULT_COLOR;
     public DyeableCeramicBlockItem(Block block, Settings settings) {
         super(block, settings);
     }
@@ -37,7 +37,7 @@ public class DyeableCeramicBlockItem extends BlockItem implements DyeableItem {
     public ActionResult place(ItemPlacementContext context) {
         ActionResult result = super.place(context);
         BlockEntity blockEntity = context.getWorld().getBlockEntity(context.getBlockPos());
-        if(blockEntity instanceof CeramicTilesBlockEntity ceramicTilesBlockEntity){
+        if(blockEntity instanceof DyeableCeramicBlockEntity ceramicTilesBlockEntity){
             ceramicTilesBlockEntity.color = getColor(context.getStack());
         }
         return result;

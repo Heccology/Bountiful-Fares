@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.interfaces;
 
-import net.hecco.bountifulfares.block.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -13,12 +13,12 @@ import static net.hecco.bountifulfares.block.entity.ModBlockEntities.CERAMIC_TIL
 public interface DyeableCeramicBlockInterface extends BlockEntityProvider {
     @Override
     default BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new CeramicTilesBlockEntity(pos, state);
+        return new DyeableCeramicBlockEntity(pos, state);
     }
 
     default ItemStack pickBlock(BlockView world, BlockPos pos, ItemStack stack){
-        CeramicTilesBlockEntity blockEntity = CERAMIC_TILES_BLOCK_ENTITY.get(world,pos);
-        int color = CeramicTilesBlockEntity.DEFAULT_COLOR;
+        DyeableCeramicBlockEntity blockEntity = CERAMIC_TILES_BLOCK_ENTITY.get(world,pos);
+        int color = DyeableCeramicBlockEntity.DEFAULT_COLOR;
         if(blockEntity != null){
             color = blockEntity.color;
         }

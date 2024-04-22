@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.block.interfaces.DyeableCeramicBlockInterface;
 import net.hecco.bountifulfares.item.ModItems;
 import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
@@ -41,7 +41,7 @@ public class CeramicLeverBlock extends LeverBlock implements DyeableCeramicBlock
             world.removeBlock(pos, false);
             world.setBlockState(pos, this.getStateWithProperties(state));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
-            if (world.getBlockEntity(pos) instanceof CeramicTilesBlockEntity ceramicTilesBlockEntity && ceramicTilesBlockEntity.color != brushColor) {
+            if (world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity ceramicTilesBlockEntity && ceramicTilesBlockEntity.color != brushColor) {
                 ceramicTilesBlockEntity.color = brushColor;
                 ceramicTilesBlockEntity.markDirty();
                 return ActionResult.SUCCESS;
@@ -99,7 +99,7 @@ public class CeramicLeverBlock extends LeverBlock implements DyeableCeramicBlock
 
     @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        if (CeramicTilesBlockEntity.getColor(world, pos) != CeramicTilesBlockEntity.DEFAULT_COLOR) {
+        if (DyeableCeramicBlockEntity.getColor(world, pos) != DyeableCeramicBlockEntity.DEFAULT_COLOR) {
             ItemStack stack = super.getPickStack(world, pos, state);
             return pickBlock(world,pos,stack);
         } else {

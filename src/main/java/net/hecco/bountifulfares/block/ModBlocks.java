@@ -35,6 +35,7 @@ public class ModBlocks {
     public static final Map<Item, CropTrellisBlock> CROPS_TO_CROP_TRELLISES = Maps.newHashMap();
     public static final Map<Item, DecorativeTrellisBlock> PLANTS_TO_DECORATIVE_TRELLISES = Maps.newHashMap();
     public static final Map<DecorativeTrellisBlock, Item> DECORATIVE_TRELLISES_TO_PLANTS = Maps.newHashMap();
+    public static final Map<Block, Block> CERAMIC_TO_CHECKERED_CERAMIC = Maps.newHashMap();
 
     public static final Block APPLE_LOG = registerBlock("apple_log", new AppleLogBlock(ModBlocks.APPLE_LEAVES, ModBlocks.FLOWERING_APPLE_LEAVES, FabricBlockSettings.copyOf(Blocks.OAK_LOG)));
     public static final Block APPLE_WOOD = registerBlock("apple_wood", new AppleLogBlock(ModBlocks.APPLE_LEAVES, ModBlocks.FLOWERING_APPLE_LEAVES, FabricBlockSettings.copyOf(Blocks.OAK_WOOD)));
@@ -154,14 +155,16 @@ public class ModBlocks {
     public static final Block CERAMIC_TILES = registerDyeableCeramicBlock("ceramic_tiles", new CeramicTilesBlock(FabricBlockSettings.create().solidBlock(Blocks::never).requiresTool().strength(2f, 16f).sounds(ModSounds.CERAMIC_TILES).instrument(Instrument.HAT).mapColor(MapColor.OFF_WHITE)));
     public static final Block CERAMIC_TILE_STAIRS = registerDyeableCeramicBlock("ceramic_tile_stairs", new CeramicTileStairsBlock(ModBlocks.CERAMIC_TILES.getDefaultState(), FabricBlockSettings.copyOf(ModBlocks.CERAMIC_TILES)));
     public static final Block CERAMIC_TILE_SLAB = registerDyeableCeramicBlock("ceramic_tile_slab", new CeramicTileSlabBlock(FabricBlockSettings.copyOf(ModBlocks.CERAMIC_TILES)));
-    public static final Block CHECKERED_CERAMIC_TILES = registerDyeableCeramicBlock("checkered_ceramic_tiles", new CheckeredCeramicTilesBlock(FabricBlockSettings.copyOf(ModBlocks.CERAMIC_TILES)));
-    public static final Block CHECKERED_CERAMIC_TILE_STAIRS = registerDyeableCeramicBlock("checkered_ceramic_tile_stairs", new CheckeredCeramicTileStairsBlock(ModBlocks.CHECKERED_CERAMIC_TILES.getDefaultState(), FabricBlockSettings.copyOf(ModBlocks.CHECKERED_CERAMIC_TILES)));
-    public static final Block CHECKERED_CERAMIC_TILE_SLAB = registerDyeableCeramicBlock("checkered_ceramic_tile_slab", new CheckeredCeramicTileSlabBlock(FabricBlockSettings.copyOf(ModBlocks.CHECKERED_CERAMIC_TILES)));
+    public static final Block CHECKERED_CERAMIC_TILES = registerDyeableCeramicBlock("checkered_ceramic_tiles", new CeramicTilesBlock(FabricBlockSettings.copyOf(ModBlocks.CERAMIC_TILES)));
+    public static final Block CHECKERED_CERAMIC_TILE_STAIRS = registerDyeableCeramicBlock("checkered_ceramic_tile_stairs", new CeramicTileStairsBlock(ModBlocks.CHECKERED_CERAMIC_TILES.getDefaultState(), FabricBlockSettings.copyOf(ModBlocks.CHECKERED_CERAMIC_TILES)));
+    public static final Block CHECKERED_CERAMIC_TILE_SLAB = registerDyeableCeramicBlock("checkered_ceramic_tile_slab", new CeramicTileSlabBlock(FabricBlockSettings.copyOf(ModBlocks.CHECKERED_CERAMIC_TILES)));
 
     public static final Block CERAMIC_PRESSURE_PLATE = registerDyeableCeramicBlock("ceramic_pressure_plate", new CeramicPressurePlateBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).solid().sounds(ModSounds.CERAMIC_DECORATION).instrument(Instrument.HAT).noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY), ModBlockSetTypes.CERAMIC));
     public static final Block CERAMIC_BUTTON = registerDyeableCeramicBlock("ceramic_button", new CeramicButtonBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).solid().sounds(ModSounds.CERAMIC_DECORATION).instrument(Instrument.HAT).noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY), ModBlockSetTypes.CERAMIC, 10, true));
     public static final Block CERAMIC_LEVER = registerDyeableCeramicBlock("ceramic_lever", new CeramicLeverBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).solid().sounds(ModSounds.CERAMIC_DECORATION).instrument(Instrument.HAT).noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block CERAMIC_DISH = registerCeramicDishBlock("ceramic_dish", new CeramicDishBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).sounds(ModSounds.CERAMIC_DECORATION).strength(0.2F).pistonBehavior(PistonBehavior.DESTROY)));
+
+
     public static final Block FERMENTATION_VESSEL = registerBlockWithInfo("fermentation_vessel", new FermentationVesselBlock(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).instrument(Instrument.BASEDRUM).requiresTool().nonOpaque().sounds(ModSounds.CERAMIC_DECORATION)));
     public static final Block APPLE_BLOCK = registerBlock("apple_block", new AppleBlock(FabricBlockSettings.create().mapColor(MapColor.RED).strength(1f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block GOLDEN_APPLE_BLOCK = registerBlock("golden_apple_block", new GoldenAppleBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(1f).instrument(Instrument.DIDGERIDOO).sounds(BlockSoundGroup.METAL).pistonBehavior(PistonBehavior.DESTROY)));
