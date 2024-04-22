@@ -27,7 +27,6 @@ public class Configuration {
     private boolean generateAllFruitTreesInFlowerForest = false;
     private boolean generateForestTeaShrubs = false;
     private boolean generateForestWalnutTrees = false;
-    private boolean enableBountifulPainting = false;
 
 
     public Configuration() {
@@ -131,14 +130,6 @@ public class Configuration {
     }
 
     public void setGenerateForestWalnutTrees(boolean bool) {
-        generateForestWalnutTrees = bool;
-    }
-
-    public boolean isEnableBountifulPainting() {
-        return generateForestWalnutTrees;
-    }
-
-    public void setEnableBountifulPainting(boolean bool) {
         generateForestWalnutTrees = bool;
     }
 
