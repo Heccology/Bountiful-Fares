@@ -4,6 +4,7 @@ import net.hecco.bountifulfares.block.ModBlocks;
 import net.hecco.bountifulfares.entity.FlourProjectileEntity;
 import net.hecco.bountifulfares.item.ModItems;
 import net.hecco.bountifulfares.potion.ModPotions;
+import net.minecraft.block.Block;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
@@ -20,6 +21,7 @@ import static net.minecraft.block.ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE;
 public class ModRegistries {
     public static void RegisterModStuffs() {
         registerStrippables();
+        registerCeramicCheckeredConversions();
         registerModCompostables();
         registerPotionRecipes();
         registerFermentationRecipes();
@@ -47,6 +49,17 @@ public class ModRegistries {
         FermentationRecipes.addRecipe(ModItems.ORANGE, null, ModItems.CITRUS_ESSENCE, null, 4);
         FermentationRecipes.addRecipe(ModItems.LEMON, null, ModItems.CITRUS_ESSENCE, null, 4);
         FermentationRecipes.addRecipe(Items.SPIDER_EYE, null, Items.FERMENTED_SPIDER_EYE, null, null);
+    }
+
+    public static void registerCeramicCheckeredConversions() {
+        registerCheckeredCeramic(ModBlocks.CERAMIC_TILES, ModBlocks.CHECKERED_CERAMIC_TILES);
+        registerCheckeredCeramic(ModBlocks.CERAMIC_TILE_STAIRS, ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
+        registerCheckeredCeramic(ModBlocks.CERAMIC_TILE_SLAB, ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
+    }
+
+    public static void registerCheckeredCeramic(Block normal, Block checkered) {
+        ModBlocks.CERAMIC_TO_CHECKERED_CERAMIC.put(normal, checkered);
+        ModBlocks.CERAMIC_TO_CHECKERED_CERAMIC.put(checkered, normal);
     }
 
     public static void registerStrippables() {

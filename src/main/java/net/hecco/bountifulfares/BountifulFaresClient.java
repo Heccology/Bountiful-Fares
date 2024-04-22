@@ -8,7 +8,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
-import net.hecco.bountifulfares.block.entity.CeramicTilesBlockEntity;
+import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.block.entity.ModBlockEntities;
 import net.hecco.bountifulfares.block.entity.renderer.CeramicDishBlockEntityRenderer;
 import net.hecco.bountifulfares.entity.ModBoats;
@@ -249,7 +249,7 @@ public class BountifulFaresClient implements ClientModInitializer {
     private void registerBlockColor(Block ModCeramicBlocksItems) {
 //        Registers tint for ceramic blocks
         registerItemColor(ModCeramicBlocksItems.asItem());
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> CeramicTilesBlockEntity.getColor(world,pos),ModCeramicBlocksItems);
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> DyeableCeramicBlockEntity.getColor(world,pos),ModCeramicBlocksItems);
     }
 
     private void registerItemColor(Item item) {
@@ -259,7 +259,7 @@ public class BountifulFaresClient implements ClientModInitializer {
             if (nbtCompound != null && nbtCompound.contains(DyeableCeramicBlockItem.COLOR_KEY, NbtElement.NUMBER_TYPE) && tintIndex == 0) {
                 return nbtCompound.getInt(DyeableCeramicBlockItem.COLOR_KEY);
             }
-            return CeramicTilesBlockEntity.DEFAULT_COLOR;
+            return DyeableCeramicBlockEntity.DEFAULT_COLOR;
         },item);
     }
 
