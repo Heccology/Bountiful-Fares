@@ -416,6 +416,9 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "warning.bountifulfares.fermentation_vessel.glass_bottle", "Use a Glass Bottle to Collect This");
         generate(translationBuilder, "warning.bountifulfares.fermentation_vessel.jar", "Use a Jar to Collect This");
 
+        generate(translationBuilder, "painting.bountifulfares.bountiful.title", "Bountiful");
+        generate(translationBuilder, "painting.bountifulfares.bountiful.author", "Hecco");
+
         generate(translationBuilder, "advancement.bountifulfares.bountiful_fares", "Bountiful Fares");
         generate(translationBuilder, "advancement.bountifulfares.bountiful_fares.description", "The world is filled with more food!");
 
@@ -494,6 +497,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "config.bountifulfares.flower_forest_fruit_trees", "Should fruit trees generate in Flower Forests?");
         generate(translationBuilder, "config.bountifulfares.forest_tea_shrubs", "Should Tea Shrubs generate in Forests?");
         generate(translationBuilder, "config.bountifulfares.forest_walnut_trees", "Should Walnut Trees generate in Forests?");
+        generate(translationBuilder, "config.bountifulfares.bountiful_painting", "Should the painting \"Bountiful\" be placeable?");
 
         generate(translationBuilder, "pack.bountifulfares.amendments", "Bountiful Fares X Amendments");
         generate(translationBuilder, "pack.bountifulfares.mint", "Bountiful Fares X El's and L's Dye Mod");

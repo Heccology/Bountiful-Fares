@@ -8,8 +8,6 @@ import net.hecco.bountifulfares.BountifulFares;
 public enum Category {
 
     SETTINGS("Settings", false,
-            Entry.booleanEntry("config.bountifulfares.item_guide_tooltips", () -> BountifulFares.CONFIG.isEnableItemGuideTooltips(),
-                    newValue -> BountifulFares.CONFIG.setEnableItemGuideTooltips(newValue), true),
             Entry.booleanEntry("config.bountifulfares.wild_vanilla_crops", () -> BountifulFares.CONFIG.isGenerateVanillaWildCrops(),
                 newValue -> BountifulFares.CONFIG.setGenerateVanillaWildCrops(newValue), true, "config.bountifulfares.restart_warning"),
             Entry.booleanEntry("config.bountifulfares.apple_trees", () -> BountifulFares.CONFIG.isGenerateAppleTrees(),
@@ -25,7 +23,11 @@ public enum Category {
             Entry.booleanEntry("config.bountifulfares.forest_tea_shrubs", () -> BountifulFares.CONFIG.isGenerateForestTeaShrubs(),
                     newValue -> BountifulFares.CONFIG.setGenerateForestTeaShrubs(newValue), false, "config.bountifulfares.restart_warning"),
             Entry.booleanEntry("config.bountifulfares.forest_walnut_trees", () -> BountifulFares.CONFIG.isGenerateForestWalnutTrees(),
-                    newValue -> BountifulFares.CONFIG.setGenerateForestWalnutTrees(newValue), false, "config.bountifulfares.restart_warning"));
+                    newValue -> BountifulFares.CONFIG.setGenerateForestWalnutTrees(newValue), false, "config.bountifulfares.restart_warning"),
+            Entry.booleanEntry("config.bountifulfares.item_guide_tooltips", () -> BountifulFares.CONFIG.isEnableItemGuideTooltips(),
+                    newValue -> BountifulFares.CONFIG.setEnableItemGuideTooltips(newValue), true),
+            Entry.booleanEntry("config.bountifulfares.bountiful_painting", () -> BountifulFares.CONFIG.isEnableBountifulPainting(),
+                    newValue -> BountifulFares.CONFIG.setEnableBountifulPainting(newValue), true, "config.bountifulfares.restart_warning"));
 
 
 
