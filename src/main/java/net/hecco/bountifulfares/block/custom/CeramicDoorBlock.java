@@ -5,12 +5,15 @@ import net.hecco.bountifulfares.block.interfaces.DyeableCeramicBlockInterface;
 import net.hecco.bountifulfares.item.ModItems;
 import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.item.custom.DyeableCeramicBlockItem;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DoorBlock;
 import net.minecraft.block.enums.DoubleBlockHalf;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -24,11 +27,15 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.event.GameEvent;
+import org.jetbrains.annotations.Nullable;
 
 public class CeramicDoorBlock extends DoorBlock implements DyeableCeramicBlockInterface {
+    private final BlockSetType blockSetType;
 
     public CeramicDoorBlock(Settings settings, BlockSetType blockSetType) {
         super(settings, blockSetType);
+        this.blockSetType = blockSetType;
     }
 
     @Override
@@ -71,7 +78,18 @@ public class CeramicDoorBlock extends DoorBlock implements DyeableCeramicBlockIn
                 return ActionResult.SUCCESS;
             }
         }
-        return super.onUse(state, world, pos, player, hand, hit);
+        if (!state.get(POWERED)) {
+            if (!this.blockSetType.canOpenByHand()) {
+                return ActionResult.PASS;
+            } else {
+                state = state.cycle(OPEN);
+                world.setBlockState(pos, state, 10);
+                this.playOpenCloseSound(player, world, pos, state.get(OPEN));
+                world.emitGameEvent(player, this.isOpen(state) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
+                return ActionResult.success(world.isClient);
+            }
+        }
+        return ActionResult.PASS;
     }
 
     @Override
@@ -87,6 +105,33 @@ public class CeramicDoorBlock extends DoorBlock implements DyeableCeramicBlockIn
             return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
         }
         return state;
+    }
+
+    @Override
+    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
+        boolean bl = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.offset(state.get(HALF) == DoubleBlockHalf.LOWER ? Direction.UP : Direction.DOWN));
+        if (!this.getDefaultState().isOf(sourceBlock) && bl != state.get(POWERED)) {
+            if (bl != state.get(POWERED)) {
+                if (!state.get(POWERED)) {
+                    state = state.cycle(OPEN);
+                    this.playOpenCloseSound(null, world, pos, bl);
+                }
+                world.setBlockState(pos, state.with(POWERED, bl), 2);
+            }
+//            if (!state.get(POWERED)) {
+//                if (bl != state.get(OPEN)) {
+//                    this.playOpenCloseSound(null, world, pos, bl);
+//                    world.emitGameEvent(null, bl ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
+//                }
+//
+//                world.setBlockState(pos, (state.with(POWERED, bl)).cycle(OPEN), 2);
+//            }
+        }
+
+    }
+
+    private void playOpenCloseSound(@Nullable Entity entity, World world, BlockPos pos, boolean open) {
+        world.playSound(entity, pos, open ? this.blockSetType.doorOpen() : this.blockSetType.doorClose(), SoundCategory.BLOCKS, 1.0F, world.getRandom().nextFloat() * 0.1F + 0.9F);
     }
 
     @Override
