@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_checkered_ceramic_tiles": {
+    "has_item": {
       "conditions": {
         "items": [
           {
             "items": [
-              "bountifulfares:checkered_ceramic_tiles"
+              "bountifulfares:ceramic_tile_pillar"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:checkered_ceramic_tile_stairs"
+        "recipe": "bountifulfares:ceramic_tile_pillar_undying"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -23,12 +23,13 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_checkered_ceramic_tiles"
+      "has_item"
     ]
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:checkered_ceramic_tile_stairs"
+      "bountifulfares:ceramic_tile_pillar_undying"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

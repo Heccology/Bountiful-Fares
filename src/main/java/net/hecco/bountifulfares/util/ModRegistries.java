@@ -55,6 +55,10 @@ public class ModRegistries {
         registerCheckeredCeramic(ModBlocks.CERAMIC_TILES, ModBlocks.CHECKERED_CERAMIC_TILES);
         registerCheckeredCeramic(ModBlocks.CERAMIC_TILE_STAIRS, ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
         registerCheckeredCeramic(ModBlocks.CERAMIC_TILE_SLAB, ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
+        registerCheckeredCeramic(ModBlocks.CRACKED_CERAMIC_TILES, ModBlocks.CRACKED_CHECKERED_CERAMIC_TILES);
+        registerCheckeredCeramic(ModBlocks.CERAMIC_MOSAIC, ModBlocks.CHECKERED_CERAMIC_MOSAIC);
+        registerCheckeredCeramic(ModBlocks.CERAMIC_MOSAIC_STAIRS, ModBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS);
+        registerCheckeredCeramic(ModBlocks.CERAMIC_MOSAIC_SLAB, ModBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB);
     }
 
     public static void registerCheckeredCeramic(Block normal, Block checkered) {

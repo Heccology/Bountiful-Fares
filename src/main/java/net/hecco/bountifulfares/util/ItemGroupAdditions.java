@@ -79,7 +79,14 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.CERAMIC_CLAY_BLOCK, ModBlocks.CERAMIC_TILES);
             entries.addAfter(ModBlocks.CERAMIC_TILES, ModBlocks.CERAMIC_TILE_STAIRS);
             entries.addAfter(ModBlocks.CERAMIC_TILE_STAIRS, ModBlocks.CERAMIC_TILE_SLAB);
-            entries.addAfter(ModBlocks.CERAMIC_TILE_SLAB, ModBlocks.CERAMIC_PRESSURE_PLATE);
+            entries.addAfter(ModBlocks.CERAMIC_TILE_SLAB, ModBlocks.CRACKED_CERAMIC_TILES);
+            entries.addAfter(ModBlocks.CRACKED_CERAMIC_TILES, ModBlocks.CERAMIC_TILE_PILLAR);
+            entries.addAfter(ModBlocks.CERAMIC_TILE_PILLAR, ModBlocks.CERAMIC_MOSAIC);
+            entries.addAfter(ModBlocks.CERAMIC_MOSAIC, ModBlocks.CERAMIC_MOSAIC_STAIRS);
+            entries.addAfter(ModBlocks.CERAMIC_MOSAIC_STAIRS, ModBlocks.CERAMIC_MOSAIC_SLAB);
+            entries.addAfter(ModBlocks.CERAMIC_MOSAIC_SLAB, ModBlocks.CERAMIC_DOOR);
+            entries.addAfter(ModBlocks.CERAMIC_DOOR, ModBlocks.CERAMIC_TRAPDOOR);
+            entries.addAfter(ModBlocks.CERAMIC_TRAPDOOR, ModBlocks.CERAMIC_PRESSURE_PLATE);
             entries.addAfter(ModBlocks.CERAMIC_PRESSURE_PLATE, ModBlocks.CERAMIC_BUTTON);
         });
 

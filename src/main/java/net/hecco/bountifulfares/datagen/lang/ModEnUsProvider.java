@@ -245,12 +245,23 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModBlocks.CERAMIC_TILES);
         generate(translationBuilder, ModBlocks.CERAMIC_TILE_STAIRS);
         generate(translationBuilder, ModBlocks.CERAMIC_TILE_SLAB);
+        generate(translationBuilder, ModBlocks.CRACKED_CERAMIC_TILES);
         generate(translationBuilder, ModBlocks.CHECKERED_CERAMIC_TILES);
         generate(translationBuilder, ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
         generate(translationBuilder, ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
+        generate(translationBuilder, ModBlocks.CRACKED_CHECKERED_CERAMIC_TILES);
+        generate(translationBuilder, ModBlocks.CERAMIC_TILE_PILLAR);
+        generate(translationBuilder, ModBlocks.CERAMIC_MOSAIC);
+        generate(translationBuilder, ModBlocks.CERAMIC_MOSAIC_STAIRS);
+        generate(translationBuilder, ModBlocks.CERAMIC_MOSAIC_SLAB);
+        generate(translationBuilder, ModBlocks.CHECKERED_CERAMIC_MOSAIC);
+        generate(translationBuilder, ModBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS);
+        generate(translationBuilder, ModBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB);
         generate(translationBuilder, ModBlocks.CERAMIC_PRESSURE_PLATE);
         generate(translationBuilder, ModBlocks.CERAMIC_BUTTON);
         generate(translationBuilder, ModBlocks.CERAMIC_LEVER);
+        generate(translationBuilder, ModBlocks.CERAMIC_DOOR);
+        generate(translationBuilder, ModBlocks.CERAMIC_TRAPDOOR);
         generate(translationBuilder, ModBlocks.CERAMIC_DISH);
 
         generate(translationBuilder, ModItems.ELDERBERRY_WINE_BOTTLE);

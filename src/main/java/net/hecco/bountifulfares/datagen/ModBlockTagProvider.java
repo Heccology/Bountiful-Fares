@@ -29,10 +29,21 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CERAMIC_TILES)
                 .add(ModBlocks.CERAMIC_TILE_STAIRS)
                 .add(ModBlocks.CERAMIC_TILE_SLAB)
+                .add(ModBlocks.CRACKED_CERAMIC_TILES)
                 .add(ModBlocks.CHECKERED_CERAMIC_TILES)
                 .add(ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS)
                 .add(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB)
+                .add(ModBlocks.CRACKED_CHECKERED_CERAMIC_TILES)
+                .add(ModBlocks.CERAMIC_TILE_PILLAR)
+                .add(ModBlocks.CERAMIC_MOSAIC)
+                .add(ModBlocks.CERAMIC_MOSAIC_STAIRS)
+                .add(ModBlocks.CERAMIC_MOSAIC_SLAB)
+                .add(ModBlocks.CHECKERED_CERAMIC_MOSAIC)
+                .add(ModBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS)
+                .add(ModBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB)
                 .add(ModBlocks.CERAMIC_PRESSURE_PLATE)
+                .add(ModBlocks.CERAMIC_DOOR)
+                .add(ModBlocks.CERAMIC_TRAPDOOR)
                 .add(ModBlocks.CERAMIC_BUTTON)
                 .add(ModBlocks.CERAMIC_DISH)
                 .add(ModBlocks.FERMENTATION_VESSEL)
@@ -232,6 +243,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).add(ModBlocks.WALNUT_SLAB, ModBlocks.HOARY_SLAB);
         getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).add(ModBlocks.WALNUT_STAIRS, ModBlocks.HOARY_STAIRS);
         getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS).add(ModBlocks.WALNUT_TRAPDOOR, ModBlocks.HOARY_TRAPDOOR);
+        getOrCreateTagBuilder(BlockTags.DOORS).add(ModBlocks.CERAMIC_DOOR);
+        getOrCreateTagBuilder(BlockTags.TRAPDOORS).add(ModBlocks.CERAMIC_TRAPDOOR);
         getOrCreateTagBuilder(BlockTags.PRESSURE_PLATES).add(ModBlocks.CERAMIC_PRESSURE_PLATE);
         getOrCreateTagBuilder(BlockTags.BUTTONS).add(ModBlocks.CERAMIC_BUTTON);
 
@@ -327,12 +340,23 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CERAMIC_TILES)
                 .add(ModBlocks.CERAMIC_TILE_STAIRS)
                 .add(ModBlocks.CERAMIC_TILE_SLAB)
+                .add(ModBlocks.CRACKED_CERAMIC_TILES)
                 .add(ModBlocks.CHECKERED_CERAMIC_TILES)
                 .add(ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS)
                 .add(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB)
+                .add(ModBlocks.CRACKED_CHECKERED_CERAMIC_TILES)
+                .add(ModBlocks.CERAMIC_TILE_PILLAR)
+                .add(ModBlocks.CERAMIC_MOSAIC)
+                .add(ModBlocks.CERAMIC_MOSAIC_STAIRS)
+                .add(ModBlocks.CERAMIC_MOSAIC_SLAB)
+                .add(ModBlocks.CHECKERED_CERAMIC_MOSAIC)
+                .add(ModBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS)
+                .add(ModBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB)
         ;
         getOrCreateTagBuilder(ModBlockTags.DYEABLE_CERAMIC_BLOCKS)
                 .addTag(ModBlockTags.CERAMIC_TILES)
+                .add(ModBlocks.CERAMIC_DOOR)
+                .add(ModBlocks.CERAMIC_TRAPDOOR)
                 .add(ModBlocks.CERAMIC_PRESSURE_PLATE)
                 .add(ModBlocks.CERAMIC_BUTTON)
                 .add(ModBlocks.CERAMIC_LEVER)
