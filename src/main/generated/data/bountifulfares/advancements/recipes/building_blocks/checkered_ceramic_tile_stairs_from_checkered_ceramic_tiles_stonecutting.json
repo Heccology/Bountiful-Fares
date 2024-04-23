@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:checkered_ceramic_tile_slab"
+        "recipe": "minecraft:checkered_ceramic_tile_stairs_from_checkered_ceramic_tiles_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:checkered_ceramic_tile_slab"
+      "minecraft:checkered_ceramic_tile_stairs_from_checkered_ceramic_tiles_stonecutting"
     ]
   },
   "sends_telemetry_event": false

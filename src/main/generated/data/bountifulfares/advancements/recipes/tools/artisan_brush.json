@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "bountifulfares:ceramic_tiles"
-            ]
+            "tag": "bountifulfares:dyeable_ceramic_blocks"
           }
         ]
       },

@@ -163,14 +163,36 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .build();
         generateFamily(exporter, ceramicFamily);
 
-        BlockFamily checkeredCeramicFamily = register(ModBlocks.CHECKERED_CERAMIC_TILES)
-                .slab(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB)
-                .stairs(ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS)
-                .group("checkered_ceramic_tiles")
-                .unlockCriterionName("has_checkered_ceramic_tiles")
-                .build();
-        generateFamily(exporter, checkeredCeramicFamily);
+//        BlockFamily checkeredCeramicFamily = register(ModBlocks.CHECKERED_CERAMIC_TILES)
+//                .slab(ModBlocks.CERAMIC_TILE_SLAB)
+//                .stairs(ModBlocks.CERAMIC_TILE_STAIRS)
+//                .group("checkered_ceramic_tiles")
+//                .unlockCriterionName("has_checkered_ceramic_tiles")
+//                .build();
+//        generateFamily(exporter, checkeredCeramicFamily);
 
+        BlockFamily ceramicMosaicFamily = register(ModBlocks.CERAMIC_MOSAIC)
+                .slab(ModBlocks.CERAMIC_MOSAIC_SLAB)
+                .stairs(ModBlocks.CERAMIC_MOSAIC_STAIRS)
+                .group("ceramic_mosaic")
+                .unlockCriterionName("has_ceramic_mosaic")
+                .build();
+        generateFamily(exporter, ceramicMosaicFamily);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CERAMIC_DOOR)
+                .pattern("##")
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModItems.CERAMIC_TILE)
+                .criterion(hasItem(ModItems.CERAMIC_TILE), conditionsFromItem(ModItems.CERAMIC_TILE))
+                .offerTo(exporter);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CERAMIC_TRAPDOOR)
+                .pattern("###")
+                .pattern("###")
+                .input('#', ModItems.CERAMIC_TILE)
+                .criterion(hasItem(ModItems.CERAMIC_TILE), conditionsFromItem(ModItems.CERAMIC_TILE))
+                .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModBlocks.ARTISAN_BREAD)
                 .input(ModItems.FLOUR, 3)
@@ -563,8 +585,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.CERAMIC_CLAY, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_CLAY_BLOCK, "ceramic_clay_block", null, "ceramic_clay_from_block", "ceramic_clay");
         offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_TILES, ModItems.CERAMIC_TILE);
-        
-        
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_TILE_PILLAR, 2)
+                .pattern("#")
+                .pattern("#")
+                .input('#', ModBlocks.CERAMIC_TILES)
+                .criterion(hasItem(ModBlocks.CERAMIC_TILES), conditionsFromItem(ModBlocks.CERAMIC_TILES))
+                .offerTo(exporter);
+        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_MOSAIC, ModBlocks.CERAMIC_TILES);
+
+
         offerJackOStrawRecipes(exporter, ModBlocks.WHITE_JACK_O_STRAW, Items.WHITE_WOOL);
         offerJackOStrawRecipes(exporter, ModBlocks.LIGHT_GRAY_JACK_O_STRAW, Items.LIGHT_GRAY_WOOL);
         offerJackOStrawRecipes(exporter, ModBlocks.GRAY_JACK_O_STRAW, Items.GRAY_WOOL);
@@ -718,8 +747,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICK_STAIRS, ModBlocks.FELDSPAR_BRICKS, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FELDSPAR_BRICK_SLAB, ModBlocks.FELDSPAR_BRICKS, 2);
 
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_TILE_STAIRS, ModBlocks.CERAMIC_TILES, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_TILE_SLAB, ModBlocks.CERAMIC_TILES, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS, ModBlocks.CHECKERED_CERAMIC_TILES, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHECKERED_CERAMIC_TILE_SLAB, ModBlocks.CHECKERED_CERAMIC_TILES, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_TILE_PILLAR, ModBlocks.CERAMIC_TILES, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_MOSAIC, ModBlocks.CERAMIC_TILES, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_MOSAIC_STAIRS, ModBlocks.CERAMIC_TILES, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_MOSAIC_SLAB, ModBlocks.CERAMIC_TILES, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_MOSAIC_STAIRS, ModBlocks.CERAMIC_MOSAIC, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CERAMIC_MOSAIC_SLAB, ModBlocks.CERAMIC_MOSAIC, 2);
+
         offerSmelting(exporter, ImmutableList.of(ModItems.CERAMIC_CLAY), RecipeCategory.MISC, ModItems.CERAMIC_TILE, 0.3f, 200, "ceramic_tile");
         offerSmelting(exporter, ImmutableList.of(ModItems.TEA_LEAVES), RecipeCategory.FOOD, ModItems.DRIED_TEA_LEAVES, 0.3f, 200, "dried_tea_leaves");
+        offerSmelting(exporter, ImmutableList.of(ModBlocks.CERAMIC_TILES), RecipeCategory.FOOD, ModBlocks.CRACKED_CERAMIC_TILES, 0.3f, 200, "cracked_ceramic_tiles");
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.ARTISAN_BRUSH)
                 .pattern("FFF")
@@ -728,7 +769,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('F', Items.STRING)
                 .input('G', Items.GOLD_INGOT)
                 .input('S', Items.STICK)
-                .criterion(hasItem(ModBlocks.CERAMIC_TILES), conditionsFromItem(ModBlocks.CERAMIC_TILES))
+                .criterion(hasItem(ModBlocks.CERAMIC_TILES), conditionsFromTag(ModItemTags.DYEABLE_CERAMIC_BLOCKS))
                 .criterion(hasItem(Items.GOLD_INGOT), conditionsFromItem(Items.GOLD_INGOT))
                 .criterion(hasItem(Items.STRING), conditionsFromItem(Items.STRING))
                 .offerTo(exporter);
@@ -736,9 +777,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_TILES);
         offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_TILE_STAIRS);
         offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_TILE_SLAB);
-        offerCeramicUndyingRecipe(exporter, ModBlocks.CHECKERED_CERAMIC_TILES);
-        offerCeramicUndyingRecipe(exporter, ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
-        offerCeramicUndyingRecipe(exporter, ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CRACKED_CERAMIC_TILES);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CHECKERED_CERAMIC_TILES, ModBlocks.CERAMIC_TILES);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS, ModBlocks.CERAMIC_TILE_STAIRS);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CHECKERED_CERAMIC_TILE_SLAB, ModBlocks.CERAMIC_TILE_SLAB);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CRACKED_CHECKERED_CERAMIC_TILES, ModBlocks.CRACKED_CERAMIC_TILES);
+        offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_TILE_PILLAR);
         offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_PRESSURE_PLATE);
         offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_BUTTON);
         offerCeramicUndyingRecipe(exporter, ModBlocks.CERAMIC_DISH);
@@ -765,6 +809,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     public static void offerCeramicUndyingRecipe(RecipeExporter exporter, ItemConvertible item) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, item, 1).input(item)
                 .criterion("has_item", conditionsFromItem(item)).offerTo( exporter, getItemId(item) + "_undying");
+    }
+
+    public static void offerCeramicUndyingRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible output) {
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, output, 1).input(input)
+                .criterion("has_item", conditionsFromItem(input)).offerTo(exporter, getItemId(input) + "_undying");
     }
 
 

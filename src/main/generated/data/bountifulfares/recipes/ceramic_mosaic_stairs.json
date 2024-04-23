@@ -1,10 +1,10 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "checkered_ceramic_tiles_stairs",
+  "group": "ceramic_mosaic_stairs",
   "key": {
     "#": {
-      "item": "bountifulfares:checkered_ceramic_tiles"
+      "item": "bountifulfares:ceramic_mosaic"
     }
   },
   "pattern": [
@@ -14,7 +14,7 @@
   ],
   "result": {
     "count": 4,
-    "item": "bountifulfares:checkered_ceramic_tile_stairs"
+    "item": "bountifulfares:ceramic_mosaic_stairs"
   },
   "show_notification": true
 }
