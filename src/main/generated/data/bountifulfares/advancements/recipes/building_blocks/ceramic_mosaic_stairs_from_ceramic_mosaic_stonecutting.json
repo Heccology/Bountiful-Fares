@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_checkered_ceramic_tiles": {
+    "has_ceramic_mosaic": {
       "conditions": {
         "items": [
           {
             "items": [
-              "bountifulfares:checkered_ceramic_tiles"
+              "bountifulfares:ceramic_mosaic"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:checkered_ceramic_tile_slab"
+        "recipe": "minecraft:ceramic_mosaic_stairs_from_ceramic_mosaic_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_checkered_ceramic_tiles",
+      "has_ceramic_mosaic",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:checkered_ceramic_tile_slab"
+      "minecraft:ceramic_mosaic_stairs_from_ceramic_mosaic_stonecutting"
     ]
   },
   "sends_telemetry_event": false

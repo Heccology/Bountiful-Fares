@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -46,16 +47,33 @@ public class ArtisanBrushItem extends Item implements DyeableItem {
         BlockState current = world.getBlockState(pos);
         int oldColor = DyeableCeramicBlockEntity.getColor(world, pos);
         if (ModBlocks.CERAMIC_TO_CHECKERED_CERAMIC.containsKey(current.getBlock()) && DyeableCeramicBlockEntity.getColor(world, pos) != DyeableCeramicBlockEntity.DEFAULT_COLOR) {
-            world.setBlockState(pos, ModBlocks.CERAMIC_TO_CHECKERED_CERAMIC.get(current.getBlock()).getStateWithProperties(current));
-            BountifulFares.LOGGER.info("correct block!");
-            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_BIG_DRIPLEAF_TILT_UP, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            if (world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity ceramicTilesBlockEntity) {
-                ceramicTilesBlockEntity.color = oldColor;
-                ceramicTilesBlockEntity.markDirty();
-                return ActionResult.SUCCESS;
+            if (this.getColor(context.getStack()) == DyeableCeramicBlockEntity.getColor(world, pos)) {
+                    world.setBlockState(pos, ModBlocks.CERAMIC_TO_CHECKERED_CERAMIC.get(current.getBlock()).getStateWithProperties(current));
+                    world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    if (world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity ceramicTilesBlockEntity) {
+                    ceramicTilesBlockEntity.color = oldColor;
+                    ceramicTilesBlockEntity.markDirty();
+                    return ActionResult.SUCCESS;
+                }
             }
         }
-                return super.useOnBlock(context);
+        if ((world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity || world.getBlockEntity(pos) instanceof CeramicDishBlockEntity) && (DyeableCeramicBlockEntity.getColor(world, pos) != DyeableCeramicBlockEntity.DEFAULT_COLOR || CeramicDishBlockEntity.getColor(world, pos) != CeramicDishBlockEntity.DEFAULT_COLOR)) {
+            if (world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity) {
+                if (this.getColor(context.getStack()) != DyeableCeramicBlockEntity.getColor(world, pos)) {
+                    this.setColor(context.getStack(), DyeableCeramicBlockEntity.getColor(world, pos));
+                    world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    return ActionResult.SUCCESS;
+                }
+            }
+            if (world.getBlockEntity(pos) instanceof CeramicDishBlockEntity) {
+                if (this.getColor(context.getStack()) != CeramicDishBlockEntity.getColor(world, pos)) {
+                    this.setColor(context.getStack(), CeramicDishBlockEntity.getColor(world, pos));
+                    world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                    return ActionResult.SUCCESS;
+                }
+            }
+        }
+        return super.useOnBlock(context);
     }
 //        if (ModBlocks.CERAMIC_TO_CHECKERED_CERAMIC.containsKey(current.getBlock()) && Objects.requireNonNull(context.getPlayer()).isSneaking()) {
 //            if (world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity ceramicTilesBlockEntity && ceramicTilesBlockEntity.color != DyeableCeramicBlockEntity.DEFAULT_COLOR) {

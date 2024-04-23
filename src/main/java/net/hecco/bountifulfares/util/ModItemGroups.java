@@ -131,9 +131,13 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CERAMIC_TILES);
                         entries.add(ModBlocks.CERAMIC_TILE_STAIRS);
                         entries.add(ModBlocks.CERAMIC_TILE_SLAB);
-                        entries.add(ModBlocks.CHECKERED_CERAMIC_TILES);
-                        entries.add(ModBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
-                        entries.add(ModBlocks.CHECKERED_CERAMIC_TILE_SLAB);
+                        entries.add(ModBlocks.CRACKED_CERAMIC_TILES);
+                        entries.add(ModBlocks.CERAMIC_TILE_PILLAR);
+                        entries.add(ModBlocks.CERAMIC_MOSAIC);
+                        entries.add(ModBlocks.CERAMIC_MOSAIC_STAIRS);
+                        entries.add(ModBlocks.CERAMIC_MOSAIC_SLAB);
+                        entries.add(ModBlocks.CERAMIC_DOOR);
+                        entries.add(ModBlocks.CERAMIC_TRAPDOOR);
                         entries.add(ModBlocks.CERAMIC_PRESSURE_PLATE);
                         entries.add(ModBlocks.CERAMIC_BUTTON);
                         entries.add(ModBlocks.CERAMIC_LEVER);
