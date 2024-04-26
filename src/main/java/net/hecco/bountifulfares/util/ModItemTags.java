@@ -28,4 +28,5 @@ public class ModItemTags {
     public static final TagKey<Item> COOKED_FISHES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulFares.MOD_ID, "cooked_fishes"));
     public static final TagKey<Item> MEALS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulFares.MOD_ID, "meals"));
     public static final TagKey<Item> GRASS_SEEDS_PLANTABLE_ON = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulFares.MOD_ID, "grass_seeds_plantable_on"));
+    public static final TagKey<Item> PICKETS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulFares.MOD_ID, "pickets"));
 }
