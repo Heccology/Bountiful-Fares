@@ -270,5 +270,21 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.PODZOL)
                 .add(Items.MYCELIUM)
         ;
+
+        getOrCreateTagBuilder(ModItemTags.PICKETS)
+                .add(ModBlocks.ACACIA_PICKETS.asItem())
+                .add(ModBlocks.BAMBOO_PICKETS.asItem())
+                .add(ModBlocks.BIRCH_PICKETS.asItem())
+                .add(ModBlocks.CHERRY_PICKETS.asItem())
+                .add(ModBlocks.CRIMSON_PICKETS.asItem())
+                .add(ModBlocks.DARK_OAK_PICKETS.asItem())
+                .add(ModBlocks.HOARY_PICKETS.asItem())
+                .add(ModBlocks.JUNGLE_PICKETS.asItem())
+                .add(ModBlocks.MANGROVE_PICKETS.asItem())
+                .add(ModBlocks.OAK_PICKETS.asItem())
+                .add(ModBlocks.SPRUCE_PICKETS.asItem())
+                .add(ModBlocks.WALNUT_PICKETS.asItem())
+                .add(ModBlocks.WARPED_PICKETS.asItem())
+        ;
     }
 }
