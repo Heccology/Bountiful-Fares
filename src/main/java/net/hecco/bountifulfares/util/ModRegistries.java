@@ -1,5 +1,8 @@
 package net.hecco.bountifulfares.util;
 
+import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.loader.api.FabricLoader;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.hecco.bountifulfares.entity.FlourProjectileEntity;
 import net.hecco.bountifulfares.item.ModItems;
@@ -7,6 +10,7 @@ import net.hecco.bountifulfares.potion.ModPotions;
 import net.minecraft.block.Block;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
@@ -22,6 +26,7 @@ public class ModRegistries {
     public static void RegisterModStuffs() {
         registerStrippables();
         registerCeramicCheckeredConversions();
+        registerFuels();
         registerModCompostables();
         registerPotionRecipes();
         registerFermentationRecipes();
@@ -50,6 +55,73 @@ public class ModRegistries {
         FermentationRecipes.addRecipe(ModItems.LEMON, null, ModItems.CITRUS_ESSENCE, null, 4);
         FermentationRecipes.addRecipe(Items.SPIDER_EYE, null, Items.FERMENTED_SPIDER_EYE, null, null);
     }
+
+    public static void registerFuels() {
+        FuelRegistry registry = FuelRegistry.INSTANCE;
+        registry.add(ModItemTags.FRUIT_LOGS, 200);
+        registry.add(ModItemTags.HOARY_LOGS, 300);
+        registry.add(ModItemTags.WALNUT_LOGS, 300);
+        registry.add(ModItemTags.PICKETS, 200);
+        registry.add(ModBlocks.TRELLIS, 300);
+        registry.add(ModBlocks.GRISTMILL, 300);
+        registry.add(ModBlocks.WHITE_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.LIGHT_GRAY_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.GRAY_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.BLACK_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.BROWN_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.RED_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.ORANGE_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.YELLOW_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.LIME_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.GREEN_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.CYAN_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.LIGHT_BLUE_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.BLUE_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.PURPLE_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.MAGENTA_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.PINK_JACK_O_STRAW, 400);
+        if (FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+            registry.add(ModBlocks.ACORN_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.AMBER_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.ARTICHOKE_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.BANANA_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.CERULEAN_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.FUCHSIA_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.GRAPE_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.INDIGO_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.MAROON_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.MAUVE_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.MINT_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.MOLD_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.NAVY_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.PEACH_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.PERIWINKLE_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.SAGE_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.SAP_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.SHAMROCK_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.VELVET_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.VERMILION_JACK_O_STRAW, 400);
+        }
+        if (FabricLoader.getInstance().isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
+            registry.add(ModBlocks.MAROON_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.ROSE_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.CORAL_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.GINGER_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.TAN_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.BEIGE_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.AMBER_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.OLIVE_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.FOREST_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.VERDANT_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.TEAL_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.MINT_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.AQUA_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.SLATE_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.NAVY_JACK_O_STRAW, 400);
+            registry.add(ModBlocks.INDIGO_JACK_O_STRAW, 400);
+        }
+
+        }
 
     public static void registerCeramicCheckeredConversions() {
         registerCheckeredCeramic(ModBlocks.CERAMIC_TILES, ModBlocks.CHECKERED_CERAMIC_TILES);
