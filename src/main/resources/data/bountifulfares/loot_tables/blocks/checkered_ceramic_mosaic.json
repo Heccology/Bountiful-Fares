@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bountifulfares:checkered_ceramic_mosaics",
+          "name": "bountifulfares:checkered_ceramic_mosaic",
           "functions": [
             {
               "function": "minecraft:copy_name",
