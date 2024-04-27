@@ -22,12 +22,12 @@ public class ModResourcePacks {
         }
     }
 
-    private static void registerBuiltinDataPack(ModContainer modContainer, String forModID) {
-        if (!FabricLoader.getInstance().isModLoaded(forModID)) {
+    private static void registerBuiltinDataPack(ModContainer modContainer, String packId, String nameId) {
+        if (!FabricLoader.getInstance().isModLoaded(packId)) {
             ResourceManagerHelper.registerBuiltinResourcePack(
-                    new Identifier(BountifulFares.MOD_ID, forModID + "_dat"),
+                    new Identifier(BountifulFares.MOD_ID, packId + "_dat"),
                     modContainer,
-                    Text.translatable("pack." + BountifulFares.MOD_ID + "." + forModID),
+                    Text.translatable("pack." + BountifulFares.MOD_ID + "." + nameId),
                     ResourcePackActivationType.ALWAYS_ENABLED
             );
         }
@@ -37,7 +37,7 @@ public class ModResourcePacks {
         Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(BountifulFares.MOD_ID);
         if (modContainer.isPresent()) {
             registerBuiltinResourcePack(modContainer.get(), BountifulFares.AMENDMENTS_MOD_ID);
-            registerBuiltinDataPack(modContainer.get(), BountifulFares.AMENDMENTS_MOD_ID);
+            registerBuiltinDataPack(modContainer.get(), BountifulFares.AMENDMENTS_MOD_ID, BountifulFares.AMENDMENTS_MOD_ID);
 //            registerBuiltinResourcePack(modContainer.get(), BountifulFares.ELS_AND_LS_DYES_MOD_ID);
 //            registerBuiltinDataPack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID);
 //            registerBuiltinResourcePack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID);
