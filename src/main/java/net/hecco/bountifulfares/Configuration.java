@@ -22,6 +22,7 @@ public class Configuration {
     private boolean generateAllFruitTreesInFlowerForest = false;
     private boolean generateForestTeaShrubs = false;
     private boolean generateForestWalnutTrees = false;
+    private int fermentationTime = 300;
 
 
     public Configuration() {
@@ -127,6 +128,15 @@ public class Configuration {
     public void setGenerateForestWalnutTrees(boolean bool) {
         generateForestWalnutTrees = bool;
     }
+
+    public int getFermentationTime() {
+        return fermentationTime;
+    }
+
+    public void setFermentationTime(int value) {
+        fermentationTime = limit(1, 600, value);
+    }
+
 
     private static double limit(double min, double max, double value) {
         if (value > max) {

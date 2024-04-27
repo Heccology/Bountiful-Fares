@@ -10,6 +10,8 @@ public enum Category {
     SETTINGS("Settings", false,
             Entry.booleanEntry("config.bountifulfares.item_guide_tooltips", () -> BountifulFares.CONFIG.isEnableItemGuideTooltips(),
                     newValue -> BountifulFares.CONFIG.setEnableItemGuideTooltips(newValue), true),
+            Entry.integerEntry("config.bountifulfares.fermentation_time", () -> BountifulFares.CONFIG.getFermentationTime(),
+                    newValue -> BountifulFares.CONFIG.setFermentationTime(newValue), 300, 1, 600),
             Entry.booleanEntry("config.bountifulfares.wild_vanilla_crops", () -> BountifulFares.CONFIG.isGenerateVanillaWildCrops(),
                 newValue -> BountifulFares.CONFIG.setGenerateVanillaWildCrops(newValue), true, "config.bountifulfares.restart_warning"),
             Entry.booleanEntry("config.bountifulfares.apple_trees", () -> BountifulFares.CONFIG.isGenerateAppleTrees(),
@@ -29,10 +31,6 @@ public enum Category {
 
 
 
-//            Entry.doubl("richSoilBoostChance", () -> BountifulFares.CONFIG.getRichSoilBoostChance(),
-//                    newValue -> BountifulFares.CONFIG.setRichSoilBoostChance(newValue), 0.2, 0.0, 1.0,
-//                    "How often (in percentage) should Rich Soil succeed in boosting a plant's",
-//                    "growth at each random tick? Set it to 0.0 to disable this."),
 //            Entry.doubl("cuttingBoardFortuneBonus", () -> BountifulFares.CONFIG.getCuttingBoardFortuneBonus(),
 //                    newValue -> BountifulFares.CONFIG.setCuttingBoardFortuneBonus(newValue), 0.1, 0.0, 1.0,
 //                    "How much of a bonus (in percentage) should each level of Fortune grant to",

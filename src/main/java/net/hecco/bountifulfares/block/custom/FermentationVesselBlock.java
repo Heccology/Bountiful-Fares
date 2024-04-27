@@ -1,6 +1,8 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.block.entity.ModBlockEntities;
+import net.hecco.bountifulfares.block.enums.FermentationStage;
+import net.hecco.bountifulfares.particle.ModParticles;
 import net.hecco.bountifulfares.util.FermentationRecipes;
 import net.hecco.bountifulfares.block.entity.FermentationVesselBlockEntity;
 import net.minecraft.block.*;
@@ -14,12 +16,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -27,6 +31,7 @@ import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -39,21 +44,21 @@ import java.util.stream.Stream;
 public class FermentationVesselBlock extends BlockWithEntity implements Waterloggable {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public static final BooleanProperty WATER = BooleanProperty.of("water");
-    public static final BooleanProperty FERMENTING = BooleanProperty.of("fermenting");
+    public static final EnumProperty<FermentationStage> FERMENTATION_STAGE = EnumProperty.of("fermentation_stage", FermentationStage.class);
+
     public FermentationVesselBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.getStateManager().getDefaultState().with(WATER, false).with(FERMENTING, false).with(WATERLOGGED, false));
+        this.setDefaultState(this.getStateManager().getDefaultState().with(FERMENTATION_STAGE, FermentationStage.EMPTY).with(WATERLOGGED, false));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(WATER, FERMENTING, WATERLOGGED);
+        builder.add(FERMENTATION_STAGE, WATERLOGGED);
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(FERMENTING)) {
+        if (state.get(FERMENTATION_STAGE) == FermentationStage.FERMENTING || state.get(FERMENTATION_STAGE) == FermentationStage.FERMENTED) {
             return Stream.of(
                     Block.createCuboidShape(4, 14, 4, 12, 16, 12),
                     Block.createCuboidShape(2, 0, 2, 14, 13, 14),
@@ -71,8 +76,8 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
-        if (itemStack.isOf(Items.POTION) && PotionUtil.getPotion(itemStack) == Potions.WATER && !state.get(WATER)) {
-            world.setBlockState(pos, state.with(WATER, true), 2);
+        if (itemStack.isOf(Items.POTION) && PotionUtil.getPotion(itemStack) == Potions.WATER && state.get(FERMENTATION_STAGE) == FermentationStage.EMPTY) {
+            world.setBlockState(pos, state.with(FERMENTATION_STAGE, FermentationStage.WATER), 2);
             world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 0.8F);
             if (!player.isCreative()) {
                 itemStack.decrement(1);
@@ -85,10 +90,10 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
             return ActionResult.SUCCESS;
 
         } else if (world.getBlockEntity(pos) instanceof FermentationVesselBlockEntity entity) {
-            if (FermentationRecipes.isItemInput(player, hand) && state.get(WATER)) {
+            if (FermentationRecipes.isItemInput(player, hand) && state.get(FERMENTATION_STAGE) == FermentationStage.WATER) {
                 if (entity.canInsertItem()) {
                     entity.insertItem(itemStack.getItem().getDefaultStack());
-                    world.setBlockState(pos, state.with(FERMENTING, true));
+                    world.setBlockState(pos, state.with(FERMENTATION_STAGE, FermentationStage.FERMENTING));
                     if (!player.isCreative()) {
                         itemStack.decrement(1);
                     }
@@ -110,11 +115,6 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
         }
         return super.onUse(state, world, pos, player, hand, hit);
     }
-
-    public BooleanProperty getWaterState() {
-        return WATER;
-    }
-
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
@@ -155,4 +155,10 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return validateTicker(type, ModBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
+
+//    @Override
+//    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+//        world.addParticle(ModParticles.FERMENTATION_BUBBLE_PARTICLE, pos.getX()+0.25 + (random.nextFloat()/2), pos.getY()+0.85, pos.getZ()+0.25 + (random.nextFloat()/2), 0.0, 0.0, 0.0);
+//        super.randomDisplayTick(state, world, pos, random);
+//    }
 }

@@ -80,46 +80,46 @@ public class ModRegistries {
         registry.add(ModBlocks.PURPLE_JACK_O_STRAW, 400);
         registry.add(ModBlocks.MAGENTA_JACK_O_STRAW, 400);
         registry.add(ModBlocks.PINK_JACK_O_STRAW, 400);
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
-            registry.add(ModBlocks.ACORN_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.AMBER_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.ARTICHOKE_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.BANANA_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.CERULEAN_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.FUCHSIA_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.GRAPE_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.INDIGO_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.MAROON_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.MAUVE_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.MINT_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.MOLD_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.NAVY_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.PEACH_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.PERIWINKLE_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.SAGE_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.SAP_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.SHAMROCK_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.VELVET_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.VERMILION_JACK_O_STRAW, 400);
-        }
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
-            registry.add(ModBlocks.MAROON_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.ROSE_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.CORAL_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.GINGER_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.TAN_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.BEIGE_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.AMBER_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.OLIVE_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.FOREST_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.VERDANT_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.TEAL_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.MINT_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.AQUA_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.SLATE_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.NAVY_JACK_O_STRAW, 400);
-            registry.add(ModBlocks.INDIGO_JACK_O_STRAW, 400);
-        }
+//        if (FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+//            registry.add(ModBlocks.ACORN_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.AMBER_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.ARTICHOKE_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.BANANA_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.CERULEAN_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.FUCHSIA_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.GRAPE_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.INDIGO_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.MAROON_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.MAUVE_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.MINT_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.MOLD_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.NAVY_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.PEACH_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.PERIWINKLE_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.SAGE_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.SAP_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.SHAMROCK_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.VELVET_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.VERMILION_JACK_O_STRAW, 400);
+//        }
+//        if (FabricLoader.getInstance().isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
+//            registry.add(ModBlocks.MAROON_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.ROSE_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.CORAL_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.GINGER_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.TAN_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.BEIGE_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.AMBER_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.OLIVE_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.FOREST_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.VERDANT_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.TEAL_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.MINT_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.AQUA_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.SLATE_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.NAVY_JACK_O_STRAW, 400);
+//            registry.add(ModBlocks.INDIGO_JACK_O_STRAW, 400);
+//        }
 
         }
 
