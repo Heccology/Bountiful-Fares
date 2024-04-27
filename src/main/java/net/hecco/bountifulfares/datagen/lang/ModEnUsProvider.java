@@ -494,22 +494,26 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.eat_all_food", "Bountiful Fares");
         generate(translationBuilder, "advancement.bountifulfares.eat_all_food.description", "Eat every meal");
 
+        generate(translationBuilder, "subtitles.block.fermentation_vessel.ferment", "Fermentation Vessel Ferments");
         generate(translationBuilder, "subtitles.block.gristmill.grind", "Gristmill Mills");
         generate(translationBuilder, "subtitles.entity.flour.throw", "Flour Flies");
         generate(translationBuilder, "subtitles.entity.flour.land", "Flour Billows");
 
-
-
         generate(translationBuilder, "config.bountifulfares.restart_warning", "Requires a restart to apply changes");
 
-        generate(translationBuilder, "config.bountifulfares.item_guide_tooltips", "Should items show information when holding Shift?");
-        generate(translationBuilder, "config.bountifulfares.wild_vanilla_crops", "Should wild vanilla crops generate?");
-        generate(translationBuilder, "config.bountifulfares.apple_trees", "Should Apple Trees generate?");
-        generate(translationBuilder, "config.bountifulfares.orange_trees", "Should Orange Trees generate?");
-        generate(translationBuilder, "config.bountifulfares.lemon_trees", "Should Lemon Trees generate?");
-        generate(translationBuilder, "config.bountifulfares.plum_trees", "Should Plum Trees generate?");
-        generate(translationBuilder, "config.bountifulfares.flower_forest_fruit_trees", "Should fruit trees generate in Flower Forests?");
-        generate(translationBuilder, "config.bountifulfares.forest_tea_shrubs", "Should Tea Shrubs generate in Forests?");
-        generate(translationBuilder, "config.bountifulfares.forest_walnut_trees", "Should Walnut Trees generate in Forests?");
+        generate(translationBuilder, "config.bountifulfares.item_guide_tooltips", "Show information in some items' tooltip");
+        generate(translationBuilder, "config.bountifulfares.fermentation_time", "Fermentation time, in seconds");
+        generate(translationBuilder, "config.bountifulfares.wild_vanilla_crops", "Generate wild vanilla crops");
+        generate(translationBuilder, "config.bountifulfares.apple_trees", "Generate Apple Trees");
+        generate(translationBuilder, "config.bountifulfares.orange_trees", "Generate Orange Trees");
+        generate(translationBuilder, "config.bountifulfares.lemon_trees", "Generate Lemon Trees");
+        generate(translationBuilder, "config.bountifulfares.plum_trees", "Generate Plum Trees");
+        generate(translationBuilder, "config.bountifulfares.flower_forest_fruit_trees", "Generate fruit trees in Flower Forests");
+        generate(translationBuilder, "config.bountifulfares.forest_tea_shrubs", "Generate Tea Shrubs in Forests");
+        generate(translationBuilder, "config.bountifulfares.forest_walnut_trees", "Generate Walnut Trees in Forests");
+
+        generate(translationBuilder, "pack.bountifulfares.amendments", "Bountiful Fares X Amendments");
+        generate(translationBuilder, "pack.bountifulfares.mint", "Bountiful Fares X El's and L's Dye Mod");
+        generate(translationBuilder, "pack.bountifulfares.dye_depot", "Bountiful Fares X Dye Depot");
     }
 }

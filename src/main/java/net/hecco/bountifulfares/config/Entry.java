@@ -23,7 +23,7 @@ public abstract class Entry<T> {
     private final T min;
     private final T max;
 
-    public static Entry<Boolean> booleanEntry (String name, Supplier<Boolean> current, Consumer<Boolean> saver, Boolean defaultValue) {
+    public static Entry<Boolean> booleanEntry(String name, Supplier<Boolean> current, Consumer<Boolean> saver, Boolean defaultValue) {
         return new Entry<>(name, current, saver, defaultValue) {
             @Override
             TooltipListEntry<Boolean> build(ConfigEntryBuilder builder) {
@@ -35,7 +35,7 @@ public abstract class Entry<T> {
         };
     }
 
-    public static Entry<Boolean> booleanEntry (String name, Supplier<Boolean> current, Consumer<Boolean> saver, Boolean defaultValue, String... tooltip) {
+    public static Entry<Boolean> booleanEntry(String name, Supplier<Boolean> current, Consumer<Boolean> saver, Boolean defaultValue, String... tooltip) {
         return new Entry<>(name, current, saver, defaultValue, tooltip) {
             @Override
             TooltipListEntry<Boolean> build(ConfigEntryBuilder builder) {
@@ -48,11 +48,11 @@ public abstract class Entry<T> {
         };
     }
 
-    public static Entry<Double> doubleEntry (String name, Supplier<Double> current, Consumer<Double> saver, Double defaultValue, Double min, Double max, String... tooltip) {
+    public static Entry<Double> doubleEntry(String name, Supplier<Double> current, Consumer<Double> saver, Double defaultValue, Double min, Double max, String... tooltip) {
         return new Entry<>(name, current, saver, defaultValue, min, max, tooltip) {
             @Override
             TooltipListEntry<Double> build(ConfigEntryBuilder builder) {
-                return builder.startDoubleField(Text.literal(getText()), getCurrent().get())
+                return builder.startDoubleField(Text.translatable(getText()), getCurrent().get())
                         .setSaveConsumer(getSaver())
                         .setTooltip(Arrays.stream(getTooltip()).map(Text::literal).toArray(Text[]::new))
                         .setDefaultValue(getDefaultValue()).setMin(getMin()).setMax(getMax())
@@ -61,11 +61,11 @@ public abstract class Entry<T> {
         };
     }
 
-    public static Entry<Integer> integerEntry (String name, Supplier<Integer> current, Consumer<Integer> saver, Integer defaultValue, Integer min, Integer max, String... tooltip) {
+    public static Entry<Integer> integerEntry(String name, Supplier<Integer> current, Consumer<Integer> saver, Integer defaultValue, Integer min, Integer max, String... tooltip) {
         return new Entry<>(name, current, saver, defaultValue, min, max, tooltip) {
             @Override
             TooltipListEntry<Integer> build(ConfigEntryBuilder builder) {
-                return builder.startIntField(Text.literal(getText()), getCurrent().get())
+                return builder.startIntField(Text.translatable(getText()), getCurrent().get())
                         .setSaveConsumer(getSaver())
                         .setTooltip(Arrays.stream(getTooltip()).map(Text::literal).toArray(Text[]::new))
                         .setDefaultValue(getDefaultValue()).setMin(getMin()).setMax(getMax())
@@ -74,20 +74,7 @@ public abstract class Entry<T> {
         };
     }
 
-    public static Entry<List<String>> listEntry (String name, Supplier<List<String>> current, Consumer<List<String>> saver, List<String> defaultValue, String... tooltip) {
-        return new Entry<>(name, current, saver, defaultValue, tooltip) {
-            @Override
-            TooltipListEntry<List<String>> build(ConfigEntryBuilder builder) {
-                return builder.startStrList(Text.literal(getText()), getCurrent().get())
-                        .setSaveConsumer(getSaver())
-                        .setTooltip(Arrays.stream(getTooltip()).map(Text::literal).toArray(Text[]::new))
-                        .setDefaultValue(getDefaultValue())
-                        .build();
-            }
-        };
-    }
-
-    public static Entry<String> stringEntry (String name, Supplier<String> current, Consumer<String> saver, String defaultValue, String... tooltip) {
+    public static Entry<String> stringEntry(String name, Supplier<String> current, Consumer<String> saver, String defaultValue, String... tooltip) {
         return new Entry<>(name, current, saver, defaultValue, tooltip) {
             @Override
             TooltipListEntry<String> build(ConfigEntryBuilder builder) {
