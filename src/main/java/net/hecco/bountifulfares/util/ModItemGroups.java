@@ -6,12 +6,15 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.hecco.bountifulfares.item.ModItems;
 import net.hecco.bountifulfares.potion.ModPotions;
+import net.minecraft.entity.decoration.painting.PaintingVariant;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.PaintingVariantTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
