@@ -438,6 +438,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "painting.bountifulfares.violet_floret.author", "Hecco");
         generate(translationBuilder, "painting.bountifulfares.phylogenesis.title", "Phylogenesis");
         generate(translationBuilder, "painting.bountifulfares.phylogenesis.author", "Hecco");
+        generate(translationBuilder, "painting.bountifulfares.escalade.title", "Escalade");
+        generate(translationBuilder, "painting.bountifulfares.escalade.author", "Hecco");
         generate(translationBuilder, "painting.bountifulfares.aquaculture.title", "Aquaculture");
         generate(translationBuilder, "painting.bountifulfares.aquaculture.author", "Hecco");
         generate(translationBuilder, "painting.bountifulfares.unpleasant_tiles.title", "Unpleasant Tiles");
@@ -523,6 +525,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "config.bountifulfares.violet_floret_painting", "Allow \"Violet Floret\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.ruminer_painting", "Allow \"Ruminer\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.phylogenesis_painting", "Allow \"Phylogenesis\" painting to be placed");
+        generate(translationBuilder, "config.bountifulfares.escalade_painting", "Allow \"Escalade\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.aquaculture_painting", "Allow \"Aquaculture\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.unpleasant_tiles_painting", "Allow \"Unpleasant Tiles\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.wild_vanilla_crops", "Generate wild vanilla crops");
