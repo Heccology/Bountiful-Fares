@@ -22,6 +22,8 @@ public enum Category {
                     newValue -> BountifulFares.CONFIG.setEnableRuminerPainting(newValue), true, "config.bountifulfares.restart_warning"),
             Entry.booleanEntry("config.bountifulfares.phylogenesis_painting", () -> BountifulFares.CONFIG.isEnablePhylogenesisPainting(),
                     newValue -> BountifulFares.CONFIG.setEnablePhylogenesisPainting(newValue), true, "config.bountifulfares.restart_warning"),
+            Entry.booleanEntry("config.bountifulfares.escalade_painting", () -> BountifulFares.CONFIG.isEnableEscaladePainting(),
+                    newValue -> BountifulFares.CONFIG.setEnableEscaladePainting(newValue), true, "config.bountifulfares.restart_warning"),
             Entry.booleanEntry("config.bountifulfares.aquaculture_painting", () -> BountifulFares.CONFIG.isEnableAquaculturePainting(),
                     newValue -> BountifulFares.CONFIG.setEnableAquaculturePainting(newValue), true, "config.bountifulfares.restart_warning"),
             Entry.booleanEntry("config.bountifulfares.unpleasant_tiles_painting", () -> BountifulFares.CONFIG.isEnableUnpleasantTilesPainting(),
