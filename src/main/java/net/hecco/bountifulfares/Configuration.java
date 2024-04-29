@@ -16,6 +16,7 @@ public class Configuration {
     private boolean enableItemGuideTooltips = true;
     private boolean enableBountifulPainting = true;
     private boolean enableCitrusDishPainting = true;
+    private boolean enableHazelFloretPainting = true;
     private boolean enableVioletFloretPainting = true;
     private boolean enableRuminerPainting = true;
     private boolean enablePhylogenesisPainting = true;
@@ -87,6 +88,14 @@ public class Configuration {
 
     public void setEnableCitrusDishPainting(boolean bool) {
         enableCitrusDishPainting = bool;
+    }
+
+    public boolean isEnableHazelFloretPainting() {
+        return enableHazelFloretPainting;
+    }
+
+    public void setEnableHazelFloretPainting(boolean bool) {
+        enableHazelFloretPainting = bool;
     }
 
     public boolean isEnableVioletFloretPainting() {
