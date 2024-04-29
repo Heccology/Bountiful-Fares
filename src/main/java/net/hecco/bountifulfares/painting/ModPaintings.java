@@ -13,6 +13,7 @@ public class ModPaintings {
     public static PaintingVariant CITRUS_DISH;
 //    public static final PaintingVariant MULCHER = register("mulcher", new PaintingVariant(16, 16));
     public static PaintingVariant RUMINER;
+    public static PaintingVariant HAZEL_FLORET;
     public static PaintingVariant VIOLET_FLORET;
     public static PaintingVariant PHYLOGENESIS;
     public static PaintingVariant ESCALADE;
@@ -28,17 +29,20 @@ public class ModPaintings {
         if (BountifulFares.CONFIG.isEnableCitrusDishPainting()) {
             CITRUS_DISH = register("citrus_dish", new PaintingVariant(16, 16));
         }
-        if (BountifulFares.CONFIG.isEnableRuminerPainting()) {
-            RUMINER = register("ruminer", new PaintingVariant(16, 32));
+        if (BountifulFares.CONFIG.isEnableHazelFloretPainting()) {
+            HAZEL_FLORET = register("hazel_floret", new PaintingVariant(16, 16));
         }
         if (BountifulFares.CONFIG.isEnableVioletFloretPainting()) {
             VIOLET_FLORET = register("violet_floret", new PaintingVariant(16, 16));
         }
-        if (BountifulFares.CONFIG.isEnablePhylogenesisPainting()) {
-            PHYLOGENESIS = register("phylogenesis", new PaintingVariant(48, 16));
+        if (BountifulFares.CONFIG.isEnableRuminerPainting()) {
+            RUMINER = register("ruminer", new PaintingVariant(16, 32));
         }
         if (BountifulFares.CONFIG.isEnableEscaladePainting()) {
             ESCALADE = register("escalade", new PaintingVariant(16, 48));
+        }
+        if (BountifulFares.CONFIG.isEnablePhylogenesisPainting()) {
+            PHYLOGENESIS = register("phylogenesis", new PaintingVariant(48, 16));
         }
         if (BountifulFares.CONFIG.isEnableAquaculturePainting()) {
             AQUACULTURE = register("aquaculture", new PaintingVariant(32, 32));

@@ -434,6 +434,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
 //        generate(translationBuilder, "painting.bountifulfares.mulcher.author", "Hecco");
         generate(translationBuilder, "painting.bountifulfares.ruminer.title", "Ruminer");
         generate(translationBuilder, "painting.bountifulfares.ruminer.author", "Hecco");
+        generate(translationBuilder, "painting.bountifulfares.hazel_floret.title", "Hazel Floret");
+        generate(translationBuilder, "painting.bountifulfares.hazel_floret.author", "Hecco");
         generate(translationBuilder, "painting.bountifulfares.violet_floret.title", "Violet Floret");
         generate(translationBuilder, "painting.bountifulfares.violet_floret.author", "Hecco");
         generate(translationBuilder, "painting.bountifulfares.phylogenesis.title", "Phylogenesis");
@@ -522,6 +524,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "config.bountifulfares.fermentation_time", "Fermentation time, in seconds");
         generate(translationBuilder, "config.bountifulfares.bountiful_painting", "Allow \"Bountiful\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.citrus_dish_painting", "Allow \"Citrus Dish\" painting to be placed");
+        generate(translationBuilder, "config.bountifulfares.hazel_floret_painting", "Allow \"Hazel Floret\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.violet_floret_painting", "Allow \"Violet Floret\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.ruminer_painting", "Allow \"Ruminer\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.phylogenesis_painting", "Allow \"Phylogenesis\" painting to be placed");
