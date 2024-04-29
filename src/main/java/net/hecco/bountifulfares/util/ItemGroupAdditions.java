@@ -91,6 +91,7 @@ public class ItemGroupAdditions {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
+            entries.addAfter(Items.GRASS_BLOCK, ModBlocks.GRASSY_DIRT);
             entries.addAfter(Items.CHERRY_LOG, ModBlocks.APPLE_LOG);
             entries.addAfter(ModBlocks.APPLE_LOG, ModBlocks.ORANGE_LOG);
             entries.addAfter(ModBlocks.ORANGE_LOG, ModBlocks.LEMON_LOG);
@@ -121,6 +122,7 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.WILD_LEEKS, ModBlocks.WILD_MAIZE);
             entries.addAfter(ModBlocks.WILD_MAIZE, ModBlocks.WILD_PASSION_FRUIT_VINE);
             entries.addAfter(ModBlocks.WILD_PASSION_FRUIT_VINE, ModBlocks.WILD_ELDERBERRY_VINE);
+            entries.addAfter(ModBlocks.WILD_ELDERBERRY_VINE, ModItems.GRASS_SEEDS);
             entries.addAfter(Items.KELP, ModBlocks.SPONGEKIN);
             entries.addAfter(ModBlocks.SPONGEKIN, ModBlocks.PRISMARINE_BLOSSOM);
             entries.addAfter(Items.LILY_OF_THE_VALLEY, ModBlocks.CHAMOMILE_FLOWERS);
