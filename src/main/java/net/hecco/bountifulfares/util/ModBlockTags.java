@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.util;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.minecraft.block.Block;
+import net.minecraft.entity.decoration.painting.PaintingVariant;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
@@ -26,4 +27,5 @@ public class ModBlockTags {
     public static final TagKey<Block> FELSIC_STONES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "felsic_stones"));
     public static final TagKey<Block> PICKETS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "pickets"));
     public static final TagKey<Block> GRASS_SEEDS_PLANTABLE_ON = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "grass_seeds_plantable_on"));
+    public static final TagKey<PaintingVariant> PAINTINGS = TagKey.of(RegistryKeys.PAINTING_VARIANT, new Identifier(BountifulFares.MOD_ID, "bf_paintings"));
 }

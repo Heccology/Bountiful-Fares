@@ -6,19 +6,30 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.hecco.bountifulfares.item.ModItems;
 import net.hecco.bountifulfares.potion.ModPotions;
+import net.minecraft.entity.decoration.painting.PaintingEntity;
 import net.minecraft.entity.decoration.painting.PaintingVariant;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.PaintingVariantTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.Comparator;
+import java.util.function.Predicate;
 
 public class ModItemGroups {
+
+    private static final Comparator<RegistryEntry<PaintingVariant>> PAINTING_VARIANT_COMPARATOR = Comparator.comparing(RegistryEntry::value, Comparator.comparingInt((paintingVariant) -> 16 * 16));
+
     public static ItemGroup BOUNTIFUL_FARES = Registry.register(Registries.ITEM_GROUP, new Identifier(BountifulFares.MOD_ID, "bountiful_fares"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.bountiful_fares"))
                     .icon(() -> new ItemStack(ModItems.PASSION_FRUIT)).entries((displayContext, entries) -> {
@@ -363,7 +374,19 @@ public class ModItemGroups {
                         entries.add(ModItems.CANDIED_PLUM);
                         entries.add(ModItems.CANDIED_ORANGE);
                         entries.add(ModItems.CANDIED_LEMON);
+                        displayContext.lookup().getOptionalWrapper(RegistryKeys.PAINTING_VARIANT).ifPresent((wrapper) -> {
+                            addPaintings(entries, wrapper, (registryEntry) -> registryEntry.isIn(ModBlockTags.PAINTINGS), ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS);
+                        });
                     }).build());
+
+    private static void addPaintings(ItemGroup.Entries entries, RegistryWrapper.Impl<PaintingVariant> registryWrapper, Predicate<RegistryEntry<PaintingVariant>> predicate, ItemGroup.StackVisibility visibility) {
+        registryWrapper.streamEntries().filter(predicate).sorted(PAINTING_VARIANT_COMPARATOR).forEach((variant) -> {
+            ItemStack itemStack = new ItemStack(Items.PAINTING);
+            NbtCompound nbtCompound = itemStack.getOrCreateSubNbt("EntityTag");
+            PaintingEntity.writeVariantToNbt(nbtCompound, variant);
+            entries.add(itemStack, visibility);
+        });
+    }
     public static void registerItemGroups() {
 //        BountifulFares.LOGGER.info("Registering Item Group Entries for " + BountifulFares.MOD_ID);
     }
