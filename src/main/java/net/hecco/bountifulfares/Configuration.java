@@ -19,6 +19,13 @@ public class Configuration {
     private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(), "bountifulfares.json");
 
     private boolean enableItemGuideTooltips = true;
+    private boolean enableBountifulPainting = true;
+    private boolean enableCitrusDishPainting = true;
+    private boolean enableVioletFloretPainting = true;
+    private boolean enableRuminerPainting = true;
+    private boolean enablePhylogenesisPainting = true;
+    private boolean enableAquaculturePainting = true;
+    private boolean enableUnpleasantTilesPainting = true;
     private boolean generateVanillaWildCrops = true;
     private boolean generateAppleTrees = true;
     private boolean generateOrangeTrees = true;
@@ -68,6 +75,62 @@ public class Configuration {
 
     public void setEnableItemGuideTooltips(boolean bool) {
         enableItemGuideTooltips = bool;
+    }
+
+    public boolean isEnableBountifulPainting() {
+        return enableBountifulPainting;
+    }
+
+    public void setEnableBountifulPainting(boolean bool) {
+        enableBountifulPainting = bool;
+    }
+
+    public boolean isEnableCitrusDishPainting() {
+        return enableCitrusDishPainting;
+    }
+
+    public void setEnableCitrusDishPainting(boolean bool) {
+        enableCitrusDishPainting = bool;
+    }
+
+    public boolean isEnableVioletFloretPainting() {
+        return enableVioletFloretPainting;
+    }
+
+    public void setEnableVioletFloretPainting(boolean bool) {
+        enableVioletFloretPainting = bool;
+    }
+
+    public boolean isEnableRuminerPainting() {
+        return enableRuminerPainting;
+    }
+
+    public void setEnableRuminerPainting(boolean bool) {
+        enableRuminerPainting = bool;
+    }
+
+    public boolean isEnablePhylogenesisPainting() {
+        return enablePhylogenesisPainting;
+    }
+
+    public void setEnablePhylogenesisPainting(boolean bool) {
+        enablePhylogenesisPainting = bool;
+    }
+
+    public boolean isEnableAquaculturePainting() {
+        return enableAquaculturePainting;
+    }
+
+    public void setEnableAquaculturePainting(boolean bool) {
+        enableAquaculturePainting = bool;
+    }
+
+    public boolean isEnableUnpleasantTilesPainting() {
+        return enableUnpleasantTilesPainting;
+    }
+
+    public void setEnableUnpleasantTilesPainting(boolean bool) {
+        enableUnpleasantTilesPainting = bool;
     }
 
     public boolean isGenerateVanillaWildCrops() {

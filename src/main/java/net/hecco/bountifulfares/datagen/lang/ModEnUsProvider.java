@@ -430,6 +430,25 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModItems.CRIMSON_CHOW);
         generate(translationBuilder, ModItems.WARPED_CHOW);
 
+        generate(translationBuilder, "painting.bountifulfares.bountiful.title", "Bountiful");
+        generate(translationBuilder, "painting.bountifulfares.bountiful.author", "Hecco");
+//        generate(translationBuilder, "painting.bountifulfares.sponge_house.title", "Sponge House");
+//        generate(translationBuilder, "painting.bountifulfares.sponge_house.author", "Hecco");
+        generate(translationBuilder, "painting.bountifulfares.citrus_dish.title", "Citrus Dish");
+        generate(translationBuilder, "painting.bountifulfares.citrus_dish.author", "Hecco");
+//        generate(translationBuilder, "painting.bountifulfares.mulcher.title", "Mulcher");
+//        generate(translationBuilder, "painting.bountifulfares.mulcher.author", "Hecco");
+        generate(translationBuilder, "painting.bountifulfares.ruminer.title", "Ruminer");
+        generate(translationBuilder, "painting.bountifulfares.ruminer.author", "Hecco");
+        generate(translationBuilder, "painting.bountifulfares.violet_floret.title", "Violet Floret");
+        generate(translationBuilder, "painting.bountifulfares.violet_floret.author", "Hecco");
+        generate(translationBuilder, "painting.bountifulfares.phylogenesis.title", "Phylogenesis");
+        generate(translationBuilder, "painting.bountifulfares.phylogenesis.author", "Hecco");
+        generate(translationBuilder, "painting.bountifulfares.aquaculture.title", "Aquaculture");
+        generate(translationBuilder, "painting.bountifulfares.aquaculture.author", "Hecco");
+        generate(translationBuilder, "painting.bountifulfares.unpleasant_tiles.title", "Unpleasant Tiles");
+        generate(translationBuilder, "painting.bountifulfares.unpleasant_tiles.author", "Hecco");
+
         generate(translationBuilder, "warning.bountifulfares.fermentation_vessel.glass_bottle", "Use a Glass Bottle to Collect This");
         generate(translationBuilder, "warning.bountifulfares.fermentation_vessel.jar", "Use a Jar to Collect This");
 
@@ -503,6 +522,13 @@ public class ModEnUsProvider extends FabricLanguageProvider {
 
         generate(translationBuilder, "config.bountifulfares.item_guide_tooltips", "Show information in some items' tooltip");
         generate(translationBuilder, "config.bountifulfares.fermentation_time", "Fermentation time, in seconds");
+        generate(translationBuilder, "config.bountifulfares.bountiful_painting", "Allow \"Bountiful\" painting to be placed");
+        generate(translationBuilder, "config.bountifulfares.citrus_dish_painting", "Allow \"Citrus Dish\" painting to be placed");
+        generate(translationBuilder, "config.bountifulfares.violet_floret_painting", "Allow \"Violet Floret\" painting to be placed");
+        generate(translationBuilder, "config.bountifulfares.ruminer_painting", "Allow \"Ruminer\" painting to be placed");
+        generate(translationBuilder, "config.bountifulfares.phylogenesis_painting", "Allow \"Phylogenesis\" painting to be placed");
+        generate(translationBuilder, "config.bountifulfares.aquaculture_painting", "Allow \"Aquaculture\" painting to be placed");
+        generate(translationBuilder, "config.bountifulfares.unpleasant_tiles_painting", "Allow \"Unpleasant Tiles\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.wild_vanilla_crops", "Generate wild vanilla crops");
         generate(translationBuilder, "config.bountifulfares.apple_trees", "Generate Apple Trees");
         generate(translationBuilder, "config.bountifulfares.orange_trees", "Generate Orange Trees");

@@ -101,6 +101,7 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
                 if (entity.canInsertItem()) {
                     entity.insertItem(itemStack.getItem().getDefaultStack());
                     world.setBlockState(pos, state.with(FERMENTATION_STAGE, FermentationStage.FERMENTING));
+                    pushEntitiesUpBeforeBlockChange(state.with(FERMENTATION_STAGE, FermentationStage.WATER), state.with(FERMENTATION_STAGE, FermentationStage.FERMENTING), world, pos);
                     if (!player.isCreative()) {
                         itemStack.decrement(1);
                     }
