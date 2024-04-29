@@ -19,6 +19,7 @@ public class Configuration {
     private boolean enableVioletFloretPainting = true;
     private boolean enableRuminerPainting = true;
     private boolean enablePhylogenesisPainting = true;
+    private boolean enableEscaladePainting = true;
     private boolean enableAquaculturePainting = true;
     private boolean enableUnpleasantTilesPainting = true;
     private boolean generateVanillaWildCrops = true;
@@ -110,6 +111,14 @@ public class Configuration {
 
     public void setEnablePhylogenesisPainting(boolean bool) {
         enablePhylogenesisPainting = bool;
+    }
+
+    public boolean isEnableEscaladePainting() {
+        return enableEscaladePainting;
+    }
+
+    public void setEnableEscaladePainting(boolean bool) {
+        enableEscaladePainting = bool;
     }
 
     public boolean isEnableAquaculturePainting() {

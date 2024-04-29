@@ -15,6 +15,7 @@ public class ModPaintings {
     public static PaintingVariant RUMINER;
     public static PaintingVariant VIOLET_FLORET;
     public static PaintingVariant PHYLOGENESIS;
+    public static PaintingVariant ESCALADE;
     public static PaintingVariant AQUACULTURE;
     public static PaintingVariant UNPLEASANT_TILES;
     private static PaintingVariant register(String name, PaintingVariant paintingVariant) {
@@ -35,6 +36,9 @@ public class ModPaintings {
         }
         if (BountifulFares.CONFIG.isEnablePhylogenesisPainting()) {
             PHYLOGENESIS = register("phylogenesis", new PaintingVariant(48, 16));
+        }
+        if (BountifulFares.CONFIG.isEnableEscaladePainting()) {
+            ESCALADE = register("escalade", new PaintingVariant(16, 48));
         }
         if (BountifulFares.CONFIG.isEnableAquaculturePainting()) {
             AQUACULTURE = register("aquaculture", new PaintingVariant(32, 32));

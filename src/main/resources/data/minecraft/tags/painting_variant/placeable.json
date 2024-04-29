@@ -22,6 +22,14 @@
       "required": false
     },
     {
+      "id": "bountifulfares:escalade",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:aquaculture",
+      "required": false
+    },
+    {
       "id": "bountifulfares:unpleasant_tiles",
       "required": false
     }
