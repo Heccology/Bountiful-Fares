@@ -7,6 +7,7 @@ import net.hecco.bountifulfares.compat.ModResourcePacks;
 import net.hecco.bountifulfares.effect.ModEffects;
 import net.hecco.bountifulfares.entity.ModBoats;
 import net.hecco.bountifulfares.item.ModItems;
+import net.hecco.bountifulfares.painting.ModPaintings;
 import net.hecco.bountifulfares.particle.ModParticles;
 import net.hecco.bountifulfares.potion.ModPotions;
 import net.hecco.bountifulfares.recipe.ModRecipes;
@@ -57,5 +58,6 @@ public class BountifulFares implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModBlockEntities.registerBlockEntities();
 		ModSounds.registerSounds();
+		ModPaintings.registerPaintings();
 	}
 }
