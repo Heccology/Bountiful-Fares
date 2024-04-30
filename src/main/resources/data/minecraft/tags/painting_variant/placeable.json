@@ -18,6 +18,10 @@
       "required": false
     },
     {
+      "id": "bountifulfares:why_blue",
+      "required": false
+    },
+    {
       "id": "bountifulfares:ruminer",
       "required": false
     },
