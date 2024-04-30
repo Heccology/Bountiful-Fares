@@ -79,6 +79,13 @@
         "bountifulfares:ceramic_decoration/place3"
       ]
     },
+  "ceramic_door_toggle": {
+    "subtitle": "subtitles.block.door.toggle",
+    "sounds": [
+      "bountifulfares:ceramic_door/toggle1",
+      "bountifulfares:ceramic_door/toggle2"
+    ]
+  },
   "fermentation_vessel_ferment": {
     "subtitle": "subtitles.block.fermentation_vessel.ferment",
     "sounds": [
