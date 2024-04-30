@@ -15,6 +15,7 @@ public class ModPaintings {
     public static PaintingVariant RUMINER;
     public static PaintingVariant HAZEL_FLORET;
     public static PaintingVariant VIOLET_FLORET;
+    public static PaintingVariant WHY_BLUE;
     public static PaintingVariant PHYLOGENESIS;
     public static PaintingVariant ESCALADE;
     public static PaintingVariant AQUACULTURE;
@@ -34,6 +35,9 @@ public class ModPaintings {
         }
         if (BountifulFares.CONFIG.isEnableVioletFloretPainting()) {
             VIOLET_FLORET = register("violet_floret", new PaintingVariant(16, 16));
+        }
+        if (BountifulFares.CONFIG.isEnableWhyBluePainting()) {
+            WHY_BLUE = register("why_blue", new PaintingVariant(16, 16));
         }
         if (BountifulFares.CONFIG.isEnableRuminerPainting()) {
             RUMINER = register("ruminer", new PaintingVariant(16, 32));

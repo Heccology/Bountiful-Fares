@@ -26,6 +26,9 @@ public enum Category {
             Entry.booleanEntry("config.bountifulfares.violet_floret_painting", () -> BountifulFares.CONFIG.isEnableVioletFloretPainting(),
                     newValue -> BountifulFares.CONFIG.setEnableVioletFloretPainting(newValue), true, "config.bountifulfares.restart_warning"),
 
+            Entry.booleanEntry("config.bountifulfares.why_blue_painting", () -> BountifulFares.CONFIG.isEnableWhyBluePainting(),
+                    newValue -> BountifulFares.CONFIG.setEnableWhyBluePainting(newValue), true, "config.bountifulfares.restart_warning"),
+
             Entry.booleanEntry("config.bountifulfares.ruminer_painting", () -> BountifulFares.CONFIG.isEnableRuminerPainting(),
                     newValue -> BountifulFares.CONFIG.setEnableRuminerPainting(newValue), true, "config.bountifulfares.restart_warning"),
 

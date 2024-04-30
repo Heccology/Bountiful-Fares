@@ -23,6 +23,7 @@ public class Configuration {
     private boolean enableCitrusDishPainting = true;
     private boolean enableHazelFloretPainting = true;
     private boolean enableVioletFloretPainting = true;
+    private boolean enableWhyBluePainting = true;
     private boolean enableRuminerPainting = true;
     private boolean enablePhylogenesisPainting = true;
     private boolean enableEscaladePainting = true;
@@ -109,6 +110,14 @@ public class Configuration {
 
     public void setEnableVioletFloretPainting(boolean bool) {
         enableVioletFloretPainting = bool;
+    }
+
+    public boolean isEnableWhyBluePainting() {
+        return enableWhyBluePainting;
+    }
+
+    public void setEnableWhyBluePainting(boolean bool) {
+        enableWhyBluePainting = bool;
     }
 
     public boolean isEnableRuminerPainting() {
