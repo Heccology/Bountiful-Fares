@@ -20,25 +20,28 @@ public class ModFoliageGeneration {
         BiomeModifications.addFeature(BiomeSelectors.tag(ModBiomeTags.HAS_CHAMOMILE),
                 GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.CHAMOMILE_PLACED_KEY);
 
-        if (BountifulFares.CONFIG.isGenerateVanillaWildCrops()) {
+        if (BountifulFares.CONFIG.isGenerateWildWheat()) {
             BiomeModifications.addFeature(BiomeSelectors.tag(ModBiomeTags.HAS_WILD_WHEAT),
                     GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WILD_WHEAT_PLACED_KEY);
 
             BiomeModifications.addFeature(BiomeSelectors.tag(ModBiomeTags.HAS_LARGE_WILD_WHEAT),
                     GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.LARGE_WILD_WHEAT_PLACED_KEY);
-
+        }
+        if (BountifulFares.CONFIG.isGenerateWildCarrots()) {
             BiomeModifications.addFeature(BiomeSelectors.tag(ModBiomeTags.HAS_WILD_CARROTS),
                     GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WILD_CARROTS_PLACED_KEY);
 
             BiomeModifications.addFeature(BiomeSelectors.tag(ModBiomeTags.HAS_LARGE_WILD_CARROTS),
                     GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.LARGE_WILD_CARROTS_PLACED_KEY);
-
+        }
+        if (BountifulFares.CONFIG.isGenerateWildPotatoes()) {
             BiomeModifications.addFeature(BiomeSelectors.tag(ModBiomeTags.HAS_WILD_POTATOES),
                     GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WILD_POTATOES_PLACED_KEY);
 
             BiomeModifications.addFeature(BiomeSelectors.tag(ModBiomeTags.HAS_LARGE_WILD_POTATOES),
                     GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.LARGE_WILD_POTATOES_PLACED_KEY);
-
+        }
+        if (BountifulFares.CONFIG.isGenerateWildBeetroot()) {
             BiomeModifications.addFeature(BiomeSelectors.tag(ModBiomeTags.HAS_WILD_BEETROOT),
                     GenerationStep.Feature.VEGETAL_DECORATION, ModPlacedFeatures.WILD_BEETROOTS_PLACED_KEY);
 

@@ -17,6 +17,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -90,20 +91,18 @@ public class ArtisanBrushItem extends Item implements DyeableItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("tooltip." + BountifulFares.MOD_ID + ".dyeable"));
-        if (BountifulFares.CONFIG.isEnableItemGuideTooltips()) {
-            if (Screen.hasShiftDown()) {
-                tooltip.add(Text.literal(""));
-                tooltip.add(Text.literal("§7Can be used to dye Ceramic blocks,"));
-                tooltip.add(Text.literal("§7such as Ceramic Tiles."));
-                tooltip.add(Text.literal("§7Interacting with a block while holding"));
-                tooltip.add(Text.literal("§7a dyed Artisan Brush will apply"));
-                tooltip.add(Text.literal("§7the corresponding color to the block."));
-            } else {
-                tooltip.add(Text.literal(""));
-                tooltip.add(Text.literal("§8Hold Shift for More Info..."));
-            }
-        }
+        tooltip.add(Text.translatable("tooltip." + BountifulFares.MOD_ID + ".dyeable").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
+//        if (BountifulFares.CONFIG.isEnableItemGuideTooltips()) {
+//            if (Screen.hasShiftDown()) {
+//                tooltip.add(Text.literal("§7Can be used to dye Ceramic blocks,"));
+//                tooltip.add(Text.literal("§7such as Ceramic Tiles."));
+//                tooltip.add(Text.literal("§7Interacting with a block while holding"));
+//                tooltip.add(Text.literal("§7a dyed Artisan Brush will apply"));
+//                tooltip.add(Text.literal("§7the corresponding color to the block."));
+//            } else {
+//                tooltip.add(Text.literal("§8Hold Shift for More Info..."));
+//            }
+//        }
         super.appendTooltip(stack, world, tooltip, context);
     }
 }

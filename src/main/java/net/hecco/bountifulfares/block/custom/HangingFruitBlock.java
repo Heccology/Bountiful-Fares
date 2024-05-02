@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.hecco.bountifulfares.BountifulFares;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
@@ -17,8 +18,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
@@ -65,9 +64,15 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
         if (i == 4) {
             HangingFruitBlock.dropStack(world, pos, new ItemStack(Items.APPLE, 1));
             world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            BlockState blockState = state.with(AGE, 0);
-            world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+            if (!world.isClient()) {
+                if (BountifulFares.CONFIG.isFruitReplaceWhenPicked()) {
+                    BlockState blockState = state.with(AGE, 0);
+                    world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
+                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+                } else {
+                    world.removeBlock(pos, false);
+                }
+            }
             return ActionResult.SUCCESS;
         }
         return super.onUse(state, world, pos, player, hand, hit);
