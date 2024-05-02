@@ -162,14 +162,14 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
                 FermentationVesselBlock.dropStack(world, new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), new ItemStack(output, outputCount));
                 world.setBlockState(pos, state.with(FermentationVesselBlock.FERMENTATION_STAGE, FermentationStage.EMPTY));
                 removeItem();
-                world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F);
+                world.playSound(null, pos, ModSounds.FERMENTATION_VESSEL_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
                 this.progress = 0;
                 this.fermented = false;
                 markDirty(world, pos, state);
                 return ActionResult.SUCCESS;
             } else {
                 if (player.getStackInHand(hand).isOf(collector)) {
-                    world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F);
+                    world.playSound(null, pos, ModSounds.FERMENTATION_VESSEL_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
                     if (!player.isCreative()) {
                         player.getStackInHand(hand).decrement(1);
                     }
