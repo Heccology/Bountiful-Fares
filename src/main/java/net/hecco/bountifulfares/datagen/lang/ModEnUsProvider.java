@@ -518,6 +518,8 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "subtitles.entity.flour.throw", "Flour Flies");
         generate(translationBuilder, "subtitles.entity.flour.land", "Flour Billows");
 
+        generate(translationBuilder, "subtitles.block.hanging_fruit.pick", "Fruit pops");
+
 
 
         generate(translationBuilder, "config.bountifulfares.title", "Bountiful Fares Configuration");

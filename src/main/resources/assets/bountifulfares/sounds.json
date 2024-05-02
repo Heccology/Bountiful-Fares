@@ -225,10 +225,17 @@
         "bountifulfares:flour/throw"
       ]
     },
-  "flour_land": {
-    "subtitle": "subtitles.entity.flour.land",
+    "flour_land": {
+      "subtitle": "subtitles.entity.flour.land",
+      "sounds": [
+        "bountifulfares:flour/land"
+      ]
+    },
+  "hanging_fruit_pick": {
+    "subtitle": "subtitles.block.hanging_fruit.pick",
     "sounds": [
-      "bountifulfares:flour/land"
+      "bountifulfares:hanging_fruit/pick1",
+      "bountifulfares:hanging_fruit/pick2"
     ]
   }
-  }
+}
