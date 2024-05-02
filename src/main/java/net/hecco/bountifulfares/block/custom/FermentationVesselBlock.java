@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.block.entity.ModBlockEntities;
 import net.hecco.bountifulfares.block.enums.FermentationStage;
 import net.hecco.bountifulfares.particle.ModParticles;
+import net.hecco.bountifulfares.sounds.ModSounds;
 import net.hecco.bountifulfares.util.FermentationRecipes;
 import net.hecco.bountifulfares.block.entity.FermentationVesselBlockEntity;
 import net.minecraft.block.*;
@@ -85,7 +86,7 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.isOf(Items.POTION) && PotionUtil.getPotion(itemStack) == Potions.WATER && state.get(FERMENTATION_STAGE) == FermentationStage.EMPTY) {
             world.setBlockState(pos, state.with(FERMENTATION_STAGE, FermentationStage.WATER), 2);
-            world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 0.8F);
+            world.playSound(null, pos, ModSounds.FERMENTATION_VESSEL_FILL, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
             if (!player.isCreative()) {
                 itemStack.decrement(1);
             }
@@ -113,7 +114,7 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
                             player.dropItem(new ItemStack(remainder), false);
                         }
                     }
-                    world.playSound(null, pos, SoundEvents.ENTITY_AXOLOTL_SPLASH, SoundCategory.BLOCKS, 1.0F, 0.8F);
+                    world.playSound(null, pos, ModSounds.FERMENTATION_VESSEL_SPLASH, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
                     return ActionResult.SUCCESS;
                 }
             } else if (!entity.canInsertItem()) {

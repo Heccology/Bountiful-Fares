@@ -519,11 +519,14 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.eat_all_food", "Bountiful Fares");
         generate(translationBuilder, "advancement.bountifulfares.eat_all_food.description", "Eat every meal");
 
-        generate(translationBuilder, "subtitles.block.fermentation_vessel.ferment", "Fermentation Vessel Ferments");
-        generate(translationBuilder, "subtitles.block.gristmill.grind", "Gristmill Mills");
-        generate(translationBuilder, "subtitles.entity.flour.throw", "Flour Flies");
-        generate(translationBuilder, "subtitles.entity.flour.land", "Flour Billows");
+        generate(translationBuilder, "subtitles.block.gristmill.grind", "Gristmill mills");
+        generate(translationBuilder, "subtitles.entity.flour.throw", "Flour flies");
+        generate(translationBuilder, "subtitles.entity.flour.land", "Flour billows");
 
+        generate(translationBuilder, "subtitles.block.fermentation_vessel.fill", "Fermentation Vessel fills");
+        generate(translationBuilder, "subtitles.block.fermentation_vessel.splash", "Fermentation Vessel splashes");
+        generate(translationBuilder, "subtitles.block.fermentation_vessel.empty", "Fermentation Vessel empties");
+        generate(translationBuilder, "subtitles.block.fermentation_vessel.ferment", "Fermentation Vessel ferments");
         generate(translationBuilder, "subtitles.block.hanging_fruit.pick", "Fruit pops");
 
 

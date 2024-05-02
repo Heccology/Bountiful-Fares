@@ -22,7 +22,10 @@ public class ModSounds {
     public static final SoundEvent CERAMIC_DECORATION_STEP = registerSoundEvent("ceramic_decoration_step");
     public static final SoundEvent CERAMIC_DECORATION_FALL = registerSoundEvent("ceramic_decoration_fall");
     public static final SoundEvent CERAMIC_DOOR_TOGGLE = registerSoundEvent("ceramic_door_toggle");
+    public static final SoundEvent FERMENTATION_VESSEL_FILL = registerSoundEvent("fermentation_vessel_fill");
+    public static final SoundEvent FERMENTATION_VESSEL_SPLASH = registerSoundEvent("fermentation_vessel_splash");
     public static final SoundEvent FERMENTATION_VESSEL_FERMENT = registerSoundEvent("fermentation_vessel_ferment");
+    public static final SoundEvent FERMENTATION_VESSEL_EMPTY = registerSoundEvent("fermentation_vessel_empty");
 
     public static final SoundEvent GRISTMILL_GRIND = registerSoundEvent("gristmill_grind");
 
