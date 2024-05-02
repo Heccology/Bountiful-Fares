@@ -11,6 +11,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
@@ -37,6 +38,9 @@ public abstract class FruitLogBlock extends PillarBlock implements Waterloggable
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        if (state.get(LEAFY)) {
+            return VoxelShapes.fullCube();
+        }
         switch (state.get(AXIS)) {
             default: {
                 return X_SHAPE;
