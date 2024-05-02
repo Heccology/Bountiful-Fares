@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.block.entity;
 
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.GristmillBlock;
 import net.hecco.bountifulfares.recipe.MillingRecipe;
 import net.hecco.bountifulfares.screen.GristmillScreenHandler;
@@ -37,7 +38,7 @@ public class GristmillBlockEntity extends BlockEntity implements ExtendedScreenH
     private static final int OUTPUT_SLOT = 1;
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 72;
+    private int maxProgress = 80;
     public GristmillBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.GRISTMILL_BLOCK_ENTITY, pos, state);
         millingState = ((GristmillBlock)state.getBlock()).getMillingState();
@@ -107,24 +108,27 @@ public class GristmillBlockEntity extends BlockEntity implements ExtendedScreenH
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-//        Updates the block state based on if it is milling
-        if (!state.get(millingState) && !inventory.get(0).isEmpty() && isCrafting()) {
-            world.setBlockState(pos, state.with(millingState, true));
-        }
-        if (state.get(millingState) && !hasRecipe() && !world.isClient() && progress != 0) {
-            world.setBlockState(pos, state.with(millingState, false));
-        }
-
-//        Crafting logic
-        if (canInsertOutputSlot() && hasRecipe()) {
-            increaseCraftingProgress();
-            markDirty(world, pos, state);
-            if (hasCraftingFinished()) {
-                craftItem();
-                resetProgress();
+        if (!world.isClient) {
+            if (this.maxProgress != (BountifulFares.CONFIG.getMillingTime() * 20)) {
+                this.maxProgress = BountifulFares.CONFIG.getMillingTime() * 20;
             }
-        } else {
-            decreaseCraftingProgress();
+//        Updates the block state based on if it is milling
+            if (!state.get(millingState) && !inventory.get(0).isEmpty() && isCrafting()) {
+                world.setBlockState(pos, state.with(millingState, true));
+            }
+            if (state.get(millingState) && !hasRecipe() && progress != 0) {
+                world.setBlockState(pos, state.with(millingState, false));
+            }
+            if (canInsertOutputSlot() && hasRecipe()) {
+                increaseCraftingProgress();
+                markDirty(world, pos, state);
+                if (hasCraftingFinished()) {
+                    craftItem();
+                    resetProgress();
+                }
+            } else {
+                decreaseCraftingProgress();
+            }
         }
     }
 

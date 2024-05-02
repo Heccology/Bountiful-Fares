@@ -35,11 +35,11 @@ public class BountifulFares implements ModInitializer {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static Configuration CONFIG = new Configuration();
+	public static BountifulFaresConfiguration CONFIG = new BountifulFaresConfiguration();
 	@Override
 	public void onInitialize() {
+		BountifulFares.CONFIG = BountifulFaresConfiguration.load();
 		ModResourcePacks.registerBuiltinResourcePacks();
-		BountifulFares.CONFIG = Configuration.load();
 		ModItems.registerModItems();
 		ModItemGroups.registerItemGroups();
 		ItemGroupAdditions.registerItemGroupAdditions();

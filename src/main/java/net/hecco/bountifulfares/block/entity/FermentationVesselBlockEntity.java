@@ -38,7 +38,6 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     public FermentationVesselBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, pos, state);
         this.fermented = false;
-        this.maxProgress = BountifulFares.CONFIG.getFermentationTime() * 20;
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
@@ -113,28 +112,30 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        if (this.maxProgress != (BountifulFares.CONFIG.getFermentationTime() * 20)) {
-            this.maxProgress = BountifulFares.CONFIG.getFermentationTime() * 20;
-        }
-        if (this.progress < this.maxProgress && !this.inventory.get(0).isEmpty()) {
-            this.progress++;
-            markDirty(world, pos, state);
-        }
-        if (this.progress >= this.maxProgress && this.inventory.get(0).isEmpty()) {
-            this.fermented = false;
-            this.progress = 0;
-            markDirty(world, pos, state);
-        }
-        if (!this.fermented && this.progress >= this.maxProgress && !this.inventory.get(0).isEmpty()) {
-            if (state.get(FermentationVesselBlock.FERMENTATION_STAGE) != FermentationStage.FERMENTED) {
-                this.fermented = true;
-                BountifulFares.LOGGER.info("changed" + progress + " " + maxProgress);
-                world.playSound(null, pos, ModSounds.FERMENTATION_VESSEL_FERMENT, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
+        if (!world.isClient) {
+            if (this.maxProgress != (BountifulFares.CONFIG.getFermentationTime() * 20)) {
+                this.maxProgress = BountifulFares.CONFIG.getFermentationTime() * 20;
+            }
+            if (this.progress < this.maxProgress && !this.inventory.get(0).isEmpty()) {
+                this.progress++;
                 markDirty(world, pos, state);
             }
-        }
-        if (this.fermented && state.get(FermentationVesselBlock.FERMENTATION_STAGE) != FermentationStage.FERMENTED) {
-            world.setBlockState(pos, state.with(FermentationVesselBlock.FERMENTATION_STAGE, FermentationStage.FERMENTED));
+            if (this.progress >= this.maxProgress && this.inventory.get(0).isEmpty()) {
+                this.fermented = false;
+                this.progress = 0;
+                markDirty(world, pos, state);
+            }
+            if (!this.fermented && this.progress >= this.maxProgress && !this.inventory.get(0).isEmpty()) {
+                if (state.get(FermentationVesselBlock.FERMENTATION_STAGE) != FermentationStage.FERMENTED) {
+                    this.fermented = true;
+                    BountifulFares.LOGGER.info("changed" + progress + " " + maxProgress);
+                    world.playSound(null, pos, ModSounds.FERMENTATION_VESSEL_FERMENT, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
+                    markDirty(world, pos, state);
+                }
+            }
+            if (this.fermented && state.get(FermentationVesselBlock.FERMENTATION_STAGE) != FermentationStage.FERMENTED) {
+                world.setBlockState(pos, state.with(FermentationVesselBlock.FERMENTATION_STAGE, FermentationStage.FERMENTED));
+            }
         }
     }
 

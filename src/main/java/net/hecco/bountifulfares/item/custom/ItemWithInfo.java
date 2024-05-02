@@ -20,15 +20,15 @@ public class ItemWithInfo extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (BountifulFares.CONFIG.isEnableItemGuideTooltips()) {
-            if (Screen.hasShiftDown()) {
-                tooltip.add(Text.literal(""));
-                writeInfo(tooltip);
-            } else {
-                tooltip.add(Text.literal(""));
-                tooltip.add(Text.literal("§8Hold Shift for More Info..."));
-            }
-        }
+//        if (BountifulFares.CONFIG.isEnableItemGuideTooltips()) {
+//            if (Screen.hasShiftDown()) {
+//                tooltip.add(Text.literal(""));
+//                writeInfo(tooltip);
+//            } else {
+//                tooltip.add(Text.literal(""));
+//                tooltip.add(Text.literal("§8Hold Shift for More Info..."));
+//            }
+//        }
         super.appendTooltip(stack, world, tooltip, context);
     }
 

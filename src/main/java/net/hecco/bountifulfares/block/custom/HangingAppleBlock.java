@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -68,9 +69,15 @@ public class HangingAppleBlock extends HangingFruitBlock {
         if (i == 4) {
             HangingFruitBlock.dropStack(world, pos, new ItemStack(Items.APPLE, 1));
             world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            BlockState blockState = state.with(AGE, 0);
-            world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
-            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+            if (!world.isClient()) {
+                if (BountifulFares.CONFIG.isFruitReplaceWhenPicked()) {
+                    BlockState blockState = state.with(AGE, 0);
+                    world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
+                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+                } else {
+                    world.removeBlock(pos, false);
+                }
+            }
             return ActionResult.SUCCESS;
         }
         return super.onUse(state, world, pos, player, hand, hit);
