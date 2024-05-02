@@ -13,6 +13,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -47,7 +48,7 @@ public class DyeableCeramicBlockItem extends BlockItem implements DyeableItem {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
 //        NbtCompound nbtCompound = stack.getSubNbt(DISPLAY_KEY);
 //        if (nbtCompound != null && nbtCompound.contains(COLOR_KEY)) {
-        tooltip.add(Text.translatable("tooltip." + BountifulFares.MOD_ID + ".dyeable"));
+        tooltip.add(Text.translatable("tooltip." + BountifulFares.MOD_ID + ".dyeable").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
 //        }
         super.appendTooltip(stack, world, tooltip, context);
     }

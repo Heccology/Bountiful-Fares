@@ -356,7 +356,7 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "block.bountifulfares.ash_jack_o_straw", "Ash Jack O' Straw");
 
 
-        generate(translationBuilder, "tooltip.bountifulfares.dyeable", "§7§oDyeable");
+        generate(translationBuilder, "tooltip.bountifulfares.dyeable", "Dyeable");
 
         generate(translationBuilder, ModBlocks.GRISTMILL);
 
@@ -521,9 +521,26 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "subtitles.entity.flour.throw", "Flour Flies");
         generate(translationBuilder, "subtitles.entity.flour.land", "Flour Billows");
 
+
+        generate(translationBuilder, "config.bountifulfares.title", "Bountiful Fares Configuration");
+
+//        generate(translationBuilder, "config.bountifulfares.category.client", "Client");
+        generate(translationBuilder, "config.bountifulfares.category.gameplay", "Gameplay");
+        generate(translationBuilder, "config.bountifulfares.category.paintings", "Paintings");
+        generate(translationBuilder, "config.bountifulfares.category.world", "World");
+//        generate(translationBuilder, "config.bountifulfares.category.compat", "Compatibility");
+//        generate(translationBuilder, "config.bountifulfares.category.mint", "El's and L's Dye Mod");
+//        generate(translationBuilder, "config.bountifulfares.category.dye_depot", "Dye Depot");
+
         generate(translationBuilder, "config.bountifulfares.restart_warning", "Requires a restart to apply changes");
 
-        generate(translationBuilder, "config.bountifulfares.item_guide_tooltips", "Show information in some items' tooltip");
+//        generate(translationBuilder, "config.bountifulfares.item_guide_tooltips", "Show information in some items' tooltip");
+        generate(translationBuilder, "config.bountifulfares.fruit_replace_when_picked", "Fruits on trees replant when picked");
+        generate(translationBuilder, "config.bountifulfares.lapisberry_seeds", "Sniffers can dig up Lapisberry Seeds");
+        generate(translationBuilder, "config.bountifulfares.hoary_seeds", "Sniffers can dig up Hoary Seeds");
+        generate(translationBuilder, "config.bountifulfares.spongekin_seeds_elder_guardian", "Elder Guardians drop Spongekin Seeds");
+        generate(translationBuilder, "config.bountifulfares.spongekin_seeds_guardian", "Guardians drop Spongekin Seeds");
+        generate(translationBuilder, "config.bountifulfares.milling_time", "Gristmill milling time, in seconds");
         generate(translationBuilder, "config.bountifulfares.fermentation_time", "Fermentation time, in seconds");
         generate(translationBuilder, "config.bountifulfares.bountiful_painting", "Allow \"Bountiful\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.citrus_dish_painting", "Allow \"Citrus Dish\" painting to be placed");
@@ -535,7 +552,10 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "config.bountifulfares.escalade_painting", "Allow \"Escalade\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.aquaculture_painting", "Allow \"Aquaculture\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.unpleasant_tiles_painting", "Allow \"Unpleasant Tiles\" painting to be placed");
-        generate(translationBuilder, "config.bountifulfares.wild_vanilla_crops", "Generate wild vanilla crops");
+        generate(translationBuilder, "config.bountifulfares.wild_wheat", "Generate Wild Wheat");
+        generate(translationBuilder, "config.bountifulfares.wild_carrots", "Generate Wild Carrots");
+        generate(translationBuilder, "config.bountifulfares.wild_potatoes", "Generate Wild Potatoes");
+        generate(translationBuilder, "config.bountifulfares.wild_beetroot", "Generate Wild Beetroot");
         generate(translationBuilder, "config.bountifulfares.apple_trees", "Generate Apple Trees");
         generate(translationBuilder, "config.bountifulfares.orange_trees", "Generate Orange Trees");
         generate(translationBuilder, "config.bountifulfares.lemon_trees", "Generate Lemon Trees");
@@ -543,9 +563,14 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "config.bountifulfares.flower_forest_fruit_trees", "Generate fruit trees in Flower Forests");
         generate(translationBuilder, "config.bountifulfares.forest_tea_shrubs", "Generate Tea Shrubs in Forests");
         generate(translationBuilder, "config.bountifulfares.forest_walnut_trees", "Generate Walnut Trees in Forests");
+//        generate(translationBuilder, "config.bountifulfares.honeysuckle_to_banana_dye", "Honeysuckles craft into Banana Dye");
+//        generate(translationBuilder, "config.bountifulfares.rename_items_to_match_dyes", "Rename dyed items to match Dye Depot's override pack");
+//        generate(translationBuilder, "config.bountifulfares.honeysuckle_to_amber_dye", "Honeysuckles craft into Amber Dye");
+//        generate(translationBuilder, "config.bountifulfares.chamomile_to_beige_dye", "Chamomile Flowers craft into Beige Dye");
 
+        generate(translationBuilder, "pack.bountifulfares.vanilla_item_override", "Vanilla Item Texture Override");
         generate(translationBuilder, "pack.bountifulfares.amendments", "Bountiful Fares X Amendments");
-        generate(translationBuilder, "pack.bountifulfares.mint", "Bountiful Fares X El's and L's Dye Mod");
-        generate(translationBuilder, "pack.bountifulfares.dye_depot", "Bountiful Fares X Dye Depot");
+//        generate(translationBuilder, "pack.bountifulfares.mint", "Bountiful Fares X El's and L's Dye Mod");
+//        generate(translationBuilder, "pack.bountifulfares.dye_depot", "Bountiful Fares X Dye Depot");
     }
 }

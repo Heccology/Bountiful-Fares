@@ -9,11 +9,16 @@ import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 
-public class Configuration {
+public class BountifulFaresConfiguration {
 
     private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(), "bountifulfares.json");
 
-    private boolean enableItemGuideTooltips = true;
+//    private boolean enableItemGuideTooltips = true;
+    private boolean fruitReplaceWhenPicked = true;
+    private boolean enableLapisberrySeeds = true;
+    private boolean enableHoarySeeds = true;
+    private boolean enableElderGuardianSpongekinSeeds = true;
+    private boolean enableGuardianSpongekinSeeds = true;
     private boolean enableBountifulPainting = true;
     private boolean enableCitrusDishPainting = true;
     private boolean enableHazelFloretPainting = true;
@@ -24,7 +29,10 @@ public class Configuration {
     private boolean enableEscaladePainting = true;
     private boolean enableAquaculturePainting = true;
     private boolean enableUnpleasantTilesPainting = true;
-    private boolean generateVanillaWildCrops = true;
+    private boolean generateWildWheat = true;
+    private boolean generateWildCarrots = true;
+    private boolean generateWildPotatoes = true;
+    private boolean generateWildBeetroot = true;
     private boolean generateAppleTrees = true;
     private boolean generateOrangeTrees = true;
     private boolean generateLemonTrees = true;
@@ -33,13 +41,15 @@ public class Configuration {
     private boolean generateForestTeaShrubs = false;
     private boolean generateForestWalnutTrees = false;
     private int fermentationTime = 300;
+    private int millingTime = 4;
 
 
-    public Configuration() {
+
+    public BountifulFaresConfiguration() {
     }
 
-    public static Configuration load() {
-        Configuration configuration = new Configuration();
+    public static BountifulFaresConfiguration load() {
+        BountifulFaresConfiguration configuration = new BountifulFaresConfiguration();
         if (!CONFIG_FILE.exists()) {
             save(configuration);
         }
@@ -47,7 +57,7 @@ public class Configuration {
         Reader reader;
         try {
             reader = Files.newBufferedReader(CONFIG_FILE.toPath());
-            configuration = (new GsonBuilder().setPrettyPrinting().create()).fromJson(reader, Configuration.class);
+            configuration = (new GsonBuilder().setPrettyPrinting().create()).fromJson(reader, BountifulFaresConfiguration.class);
             reader.close();
         } catch (IOException e) {
             BountifulFares.LOGGER.error("Error while trying to load configuration file. Default configuration used.", e);
@@ -56,7 +66,7 @@ public class Configuration {
         return configuration;
     }
 
-    public static void save(Configuration config) {
+    public static void save(BountifulFaresConfiguration config) {
         try {
             Writer writer = Files.newBufferedWriter(CONFIG_FILE.toPath());
             (new GsonBuilder().setPrettyPrinting().create()).toJson(config, writer);
@@ -67,12 +77,52 @@ public class Configuration {
         }
     }
 
-    public boolean isEnableItemGuideTooltips() {
-        return enableItemGuideTooltips;
+//    public boolean isEnableItemGuideTooltips() {
+//        return enableItemGuideTooltips;
+//    }
+//
+//    public void setEnableItemGuideTooltips(boolean bool) {
+//        enableItemGuideTooltips = bool;
+//    }
+
+    public boolean isFruitReplaceWhenPicked() {
+        return fruitReplaceWhenPicked;
     }
 
-    public void setEnableItemGuideTooltips(boolean bool) {
-        enableItemGuideTooltips = bool;
+    public void setFruitReplaceWhenPicked(boolean bool) {
+        fruitReplaceWhenPicked = bool;
+    }
+
+    public boolean isEnableLapisberrySeeds() {
+        return enableLapisberrySeeds;
+    }
+
+    public void setEnableLapisberrySeeds(boolean bool) {
+        enableLapisberrySeeds = bool;
+    }
+
+    public boolean isEnableHoarySeeds() {
+        return enableHoarySeeds;
+    }
+
+    public void setEnableHoarySeeds(boolean bool) {
+        enableHoarySeeds = bool;
+    }
+
+    public boolean isEnableElderGuardianSpongekinSeeds() {
+        return enableElderGuardianSpongekinSeeds;
+    }
+
+    public void setEnableElderGuardianSpongekinSeeds(boolean bool) {
+        enableElderGuardianSpongekinSeeds = bool;
+    }
+
+    public boolean isEnableGuardianSpongekinSeeds() {
+        return enableGuardianSpongekinSeeds;
+    }
+
+    public void setEnableGuardianSpongekinSeeds(boolean bool) {
+        enableGuardianSpongekinSeeds = bool;
     }
 
     public boolean isEnableBountifulPainting() {
@@ -155,12 +205,36 @@ public class Configuration {
         enableUnpleasantTilesPainting = bool;
     }
 
-    public boolean isGenerateVanillaWildCrops() {
-        return generateVanillaWildCrops;
+    public boolean isGenerateWildWheat() {
+        return generateWildWheat;
     }
 
-    public void setGenerateVanillaWildCrops(boolean bool) {
-        generateVanillaWildCrops = bool;
+    public void setGenerateWildWheat(boolean bool) {
+        generateWildWheat = bool;
+    }
+
+    public boolean isGenerateWildCarrots() {
+        return generateWildCarrots;
+    }
+
+    public void setGenerateWildCarrots(boolean bool) {
+        generateWildCarrots = bool;
+    }
+
+    public boolean isGenerateWildPotatoes() {
+        return generateWildPotatoes;
+    }
+
+    public void setGenerateWildPotatoes(boolean bool) {
+        generateWildPotatoes = bool;
+    }
+
+    public boolean isGenerateWildBeetroot() {
+        return generateWildBeetroot;
+    }
+
+    public void setGenerateWildBeetroot(boolean bool) {
+        generateWildBeetroot = bool;
     }
 
     public boolean isGenerateAppleTrees() {
@@ -225,6 +299,14 @@ public class Configuration {
 
     public void setFermentationTime(int value) {
         fermentationTime = limit(1, 600, value);
+    }
+
+    public int getMillingTime() {
+        return millingTime;
+    }
+
+    public void setMillingTime(int value) {
+        millingTime = limit(1, 10, value);
     }
 
 
