@@ -86,10 +86,28 @@
       "bountifulfares:ceramic_door/toggle2"
     ]
   },
+  "fermentation_vessel_fill": {
+    "subtitle": "subtitles.block.fermentation_vessel.fill",
+    "sounds": [
+      "bountifulfares:fermentation_vessel/fill1"
+    ]
+  },
+  "fermentation_vessel_splash": {
+    "subtitle": "subtitles.block.fermentation_vessel.splash",
+    "sounds": [
+      "bountifulfares:fermentation_vessel/splash1"
+    ]
+  },
   "fermentation_vessel_ferment": {
     "subtitle": "subtitles.block.fermentation_vessel.ferment",
     "sounds": [
       "bountifulfares:fermentation_vessel/ferment1"
+    ]
+  },
+  "fermentation_vessel_empty": {
+    "subtitle": "subtitles.block.fermentation_vessel.empty",
+    "sounds": [
+      "bountifulfares:fermentation_vessel/empty1"
     ]
   },
     "gristmill_grind": {
