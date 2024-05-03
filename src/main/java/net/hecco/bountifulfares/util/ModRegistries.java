@@ -64,23 +64,22 @@ public class ModRegistries {
         registry.add(ModItemTags.PICKETS, 200);
         registry.add(ModBlocks.TRELLIS, 300);
         registry.add(ModBlocks.GRISTMILL, 300);
-//        registry.add(ModBlocks.WHITE_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.LIGHT_GRAY_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.GRAY_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.BLACK_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.BROWN_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.RED_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.ORANGE_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.YELLOW_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.LIME_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.GREEN_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.CYAN_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.LIGHT_BLUE_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.BLUE_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.PURPLE_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.MAGENTA_JACK_O_STRAW, 400);
-//        registry.add(ModBlocks.PINK_JACK_O_STRAW, 400);
-
+        registry.add(ModBlocks.WHITE_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.LIGHT_GRAY_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.GRAY_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.BLACK_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.BROWN_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.RED_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.ORANGE_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.YELLOW_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.LIME_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.GREEN_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.CYAN_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.LIGHT_BLUE_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.BLUE_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.PURPLE_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.MAGENTA_JACK_O_STRAW, 400);
+        registry.add(ModBlocks.PINK_JACK_O_STRAW, 400);
         }
 
     public static void registerCeramicCheckeredConversions() {

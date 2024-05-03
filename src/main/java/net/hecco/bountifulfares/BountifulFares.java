@@ -44,7 +44,6 @@ public class BountifulFares implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ItemGroupAdditions.registerItemGroupAdditions();
 		ModRecipes.registerRecipes();
-		ModRegistries.RegisterModStuffs();
 		ModWorldGeneration.generateModWorldGeneration();
 		ModFoliagePlacerTypes.register();
 		ModEffects.registerEffects();
@@ -56,6 +55,7 @@ public class BountifulFares implements ModInitializer {
 		ModTrunkPlacerTypes.register();
 		ModTreeDecoratorTypes.register();
 		ModBlocks.registerModBlocks();
+		ModRegistries.RegisterModStuffs();
 		ModBlockEntities.registerBlockEntities();
 		ModSounds.registerSounds();
 		ModPaintings.registerPaintings();
