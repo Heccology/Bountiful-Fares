@@ -64,25 +64,25 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
         ItemStack itemStack = player.getStackInHand(hand);
         Boolean isSurvival = !player.isCreative();
         if (ModBlocks.CROPS_TO_CROP_TRELLISES.containsKey(itemStack.getItem())) {
-            if (isSurvival) {
-                itemStack.decrement(1);
-            }
             if (!world.isClient()) {
                 world.setBlockState(pos, CropTrellisBlock.getCropTrellisFromCrop(itemStack.getItem()).with(FACING, facing), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
-            return ActionResult.SUCCESS;
-        }
-        if (ModBlocks.PLANTS_TO_DECORATIVE_TRELLISES.containsKey(itemStack.getItem())) {
             if (isSurvival) {
                 itemStack.decrement(1);
             }
+            return ActionResult.SUCCESS;
+        }
+        if (ModBlocks.PLANTS_TO_DECORATIVE_TRELLISES.containsKey(itemStack.getItem())) {
             if (!world.isClient()) {
                 world.setBlockState(pos, DecorativeTrellisBlock.getDecorativeTrellisFromPlant(itemStack.getItem()).with(FACING, facing), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
+            if (isSurvival) {
+                itemStack.decrement(1);
+            }
             return ActionResult.SUCCESS;
         }
         return super.onUse(state, world, pos, player, hand, hit);
