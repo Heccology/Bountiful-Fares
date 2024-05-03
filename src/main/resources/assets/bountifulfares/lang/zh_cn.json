@@ -413,7 +413,7 @@
   "subtitles.block.hanging_fruit.pick": "水果：啵",
   "subtitles.entity.flour.land": "面粉：扬起",
   "subtitles.entity.flour.throw": "面粉：抛出",
-  "tooltip.bountifulfares.dyeable": "§7§o可染色",
+  "tooltip.bountifulfares.dyeable": "可染色",
   "warning.bountifulfares.fermentation_vessel.glass_bottle": "使用一个玻璃瓶来收集这个",
   "warning.bountifulfares.fermentation_vessel.jar": "使用一个罐子来收集这个"
 }
