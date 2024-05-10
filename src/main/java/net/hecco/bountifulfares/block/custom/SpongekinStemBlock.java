@@ -70,7 +70,7 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
         if (isFullyGrown(state) && !state.get(ATTACHED)) {
             BlockPos spongekinPos = pos.offset(Direction.UP);
             if ((world.getBlockState(spongekinPos).isAir() || world.getBlockState(spongekinPos).isOf(Blocks.WATER) && isFullyGrown(state))) {
-                world.setBlockState(spongekinPos, ModBlocks.SPONGEKIN.getDefaultState().with(SpongekinBlock.PLANTED, true), 2);
+                world.setBlockState(spongekinPos, ModBlocks.SPONGEKIN.getDefaultState(), 2);
                 world.setBlockState(pos, this.getStateWithProperties(state).with(ATTACHED, true));
                 BlockPos prismarineBlossomPos = pos.offset(Direction.UP, 2);
                 if (shouldPropagatePrismarine(world, pos)) {
@@ -86,8 +86,8 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
-        return true;
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+        return !isFullyGrown(state);
     }
 
     @Override

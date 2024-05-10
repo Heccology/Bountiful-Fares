@@ -22,10 +22,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
 public class SpongekinBlock extends Block {
-    public static BooleanProperty PLANTED = BooleanProperty.of("planted");
     public SpongekinBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((this.stateManager.getDefaultState()).with(PLANTED, false));
+        this.setDefaultState((this.stateManager.getDefaultState()));
     }
 
     @Override
@@ -40,17 +39,5 @@ public class SpongekinBlock extends Block {
             return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;
-    }
-
-    @Override
-    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
-        if (state.get(PLANTED) && world.getBlockState(pos.down()).isOf(ModBlocks.SPONGEKIN_STEM.getDefaultState().with(SpongekinStemBlock.ATTACHED, true).getBlock())) {
-            world.setBlockState(pos.down(), ModBlocks.SPONGEKIN_STEM.getDefaultState().with(SpongekinStemBlock.AGE, 3).with(SpongekinStemBlock.ATTACHED, false), 2);
-        }
-    }
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(PLANTED);
     }
 }
