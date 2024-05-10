@@ -224,6 +224,10 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModItems.SPONGEKIN_SLICE);
         generate(translationBuilder, ModBlocks.PRISMARINE_BLOSSOM);
 
+        generate(translationBuilder, ModBlocks.SCORCHKIN_STEM);
+        generate(translationBuilder, ModBlocks.SCORCHKIN);
+        generate(translationBuilder, ModItems.SCORCHKIN_SEEDS);
+
         generate(translationBuilder, ModItems.FLOUR);
 
         generate(translationBuilder, ModItems.FELDSPAR);

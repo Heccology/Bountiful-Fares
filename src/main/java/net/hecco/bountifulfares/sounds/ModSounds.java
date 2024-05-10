@@ -36,7 +36,6 @@ public class ModSounds {
     public static final SoundEvent LIGHT_WOOD_FALL = registerSoundEvent("light_wood_fall");
     public static final SoundEvent PLANTED_TRELLIS_BREAK = registerSoundEvent("planted_trellis_break");
     public static final SoundEvent JACK_O_STRAW_BREAK = registerSoundEvent("jack_o_straw_break");
-    public static final SoundEvent SILENT_SOUND = registerSoundEvent("silent");
     public static final SoundEvent CERAMIC_LEVER_ON = registerSoundEvent("ceramic_lever_on");
     public static final SoundEvent CERAMIC_LEVER_OFF = registerSoundEvent("ceramic_lever_off");
     public static final SoundEvent CERAMIC_BUTTON_ON = registerSoundEvent("ceramic_button_on");
@@ -57,7 +56,7 @@ public class ModSounds {
     public static final BlockSoundGroup CERAMIC_DECORATION = new BlockSoundGroup(1f, 1f, CERAMIC_DECORATION_BREAK, CERAMIC_DECORATION_STEP, CERAMIC_DECORATION_PLACE, CERAMIC_DECORATION_HIT, CERAMIC_DECORATION_FALL);
     public static final BlockSoundGroup LIGHT_WOOD = new BlockSoundGroup(1f, 1.1f, LIGHT_WOOD_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
     public static final BlockSoundGroup JACK_O_STRAW = new BlockSoundGroup(1f, 1f, JACK_O_STRAW_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
-    public static final BlockSoundGroup SILENT = new BlockSoundGroup(1f, 1f, SILENT_SOUND, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
+    public static final BlockSoundGroup SILENT = new BlockSoundGroup(1f, 1f, SoundEvents.INTENTIONALLY_EMPTY, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
     public static final BlockSoundGroup PLANTED_TRELLIS = new BlockSoundGroup(1f, 1.1f, PLANTED_TRELLIS_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
     public static final BlockSoundGroup SPONGEKIN = new BlockSoundGroup(1f, 1.1f, SPONGEKIN_BREAK, SPONGEKIN_STEP, SPONGEKIN_PLACE, SoundEvents.BLOCK_WOOD_HIT, SoundEvents.BLOCK_WOOD_FALL);
     private static SoundEvent registerSoundEvent(String name) {

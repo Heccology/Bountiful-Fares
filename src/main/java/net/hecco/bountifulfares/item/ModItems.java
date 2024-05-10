@@ -64,6 +64,7 @@ public class ModItems {
     public static final Item LEEK_SEEDS = registerItem("leek_seeds", new AliasedBlockItem(ModBlocks.LEEKS, new FabricItemSettings()));
     public static final Item SPONGEKIN_SEEDS = registerItem("spongekin_seeds", new AliasedBlockItem(ModBlocks.SPONGEKIN_STEM, new FabricItemSettings()));
     public static final Item SPONGEKIN_SLICE = registerItem("spongekin_slice", new SpongekinSliceItem( 100, new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).alwaysEdible().build())));
+    public static final Item SCORCHKIN_SEEDS = registerItem("scorchkin_seeds", new AliasedBlockItem(ModBlocks.SCORCHKIN_STEM, new FabricItemSettings()));
     public static final Item FLOUR = registerItem("flour", new FlourItem(new FabricItemSettings()));
     public static final Item ARTISAN_COOKIE = registerItem("artisan_cookie", new AliasedBlockItem(ModBlocks.ARTISAN_COOKIES, new FabricItemSettings()));
     public static final Item SUN_HAT = registerItem("sun_hat", new FarmersHatItem(new FabricItemSettings().maxCount(1)));
