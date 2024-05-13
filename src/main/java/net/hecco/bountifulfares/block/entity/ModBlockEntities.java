@@ -10,6 +10,12 @@ import net.minecraft.util.Identifier;
 import static net.hecco.bountifulfares.block.ModBlocks.*;
 
 public class ModBlockEntities {
+
+    public static final BlockEntityType<TestTrellisEntity> TEST_TRELLIS_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulFares.MOD_ID, "test_trellis_block_entity"),
+            FabricBlockEntityTypeBuilder.create(TestTrellisEntity::new, TEST_TRELLIS).build()
+    );
     public static final BlockEntityType<DyeableCeramicBlockEntity> CERAMIC_TILES_BLOCK_ENTITY = Registry.register(
             Registries.BLOCK_ENTITY_TYPE,
             new Identifier(BountifulFares.MOD_ID, "ceramic_tiles_block_entity"),

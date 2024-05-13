@@ -133,10 +133,10 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.CRIMSON_PICKETS);
         addDrop(ModBlocks.WARPED_PICKETS);
         addDrop(ModBlocks.TRELLIS);
-        addDrop(ModBlocks.PASSION_FRUIT_TRELLIS, plantedTrellisDrops(ModBlocks.PASSION_FRUIT_TRELLIS, ModItems.PASSION_FRUIT));
-        addDrop(ModBlocks.ELDERBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.ELDERBERRY_TRELLIS, ModItems.ELDERBERRIES));
-        addDrop(ModBlocks.GLOW_BERRY_TRELLIS, plantedTrellisDrops(ModBlocks.GLOW_BERRY_TRELLIS, Items.GLOW_BERRIES));
-        addDrop(ModBlocks.LAPISBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.LAPISBERRY_TRELLIS, ModItems.LAPISBERRIES));
+//        addDrop(ModBlocks.PASSION_FRUIT_TRELLIS, plantedTrellisDrops(ModBlocks.PASSION_FRUIT_TRELLIS, ModItems.PASSION_FRUIT));
+//        addDrop(ModBlocks.ELDERBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.ELDERBERRY_TRELLIS, ModItems.ELDERBERRIES));
+//        addDrop(ModBlocks.GLOW_BERRY_TRELLIS, plantedTrellisDrops(ModBlocks.GLOW_BERRY_TRELLIS, Items.GLOW_BERRIES));
+//        addDrop(ModBlocks.LAPISBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.LAPISBERRY_TRELLIS, ModItems.LAPISBERRIES));
         addDrop(ModBlocks.ROSE_TRELLIS, plantedTrellisDrops(ModBlocks.ROSE_TRELLIS, Items.ROSE_BUSH));
         addDrop(ModBlocks.LILAC_TRELLIS, plantedTrellisDrops(ModBlocks.LILAC_TRELLIS, Items.LILAC));
         addDrop(ModBlocks.PEONY_TRELLIS, plantedTrellisDrops(ModBlocks.PEONY_TRELLIS, Items.PEONY));

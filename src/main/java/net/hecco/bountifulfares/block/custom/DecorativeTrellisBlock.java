@@ -1,7 +1,5 @@
 package net.hecco.bountifulfares.block.custom;
 
-import com.google.common.collect.Maps;
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -24,12 +22,10 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-import java.util.Map;
-
 import static net.hecco.bountifulfares.block.ModBlocks.DECORATIVE_TRELLISES_TO_PLANTS;
 import static net.hecco.bountifulfares.block.ModBlocks.PLANTS_TO_DECORATIVE_TRELLISES;
 
-public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable {
+public class DecorativeTrellisBlock extends OldTrellisBlock implements Fertilizable {
     private final boolean canDuplicate;
     public DecorativeTrellisBlock(Item item, boolean canDuplicate, Settings settings) {
         super(settings);

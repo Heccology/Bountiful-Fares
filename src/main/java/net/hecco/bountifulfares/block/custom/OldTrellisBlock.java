@@ -1,8 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.TrellisVariants;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -26,17 +24,14 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
 
-public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable {
+public class OldTrellisBlock extends HorizontalFacingBlock implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     protected static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0, 0, 15, 16, 16, 16);
     protected static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0, 0, 0, 16, 16, 1);
     protected static final VoxelShape WEST_SHAPE = Block.createCuboidShape(15, 0, 0, 16, 16, 16);
     protected static final VoxelShape EAST_SHAPE = Block.createCuboidShape(0, 0, 0, 1, 16, 16);
-
-    public TrellisVariant variant;
-    public TrellisBlock(TrellisVariant variant, Settings settings) {
+    public OldTrellisBlock(Settings settings) {
         super(settings);
-        this.variant = variant;
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH));
     }
 
@@ -61,7 +56,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
         Boolean isSurvival = !player.isCreative();
         if (ModBlocks.CROPS_TO_CROP_TRELLISES.containsKey(itemStack.getItem())) {
             if (!world.isClient()) {
-                world.setBlockState(pos, TrellisVariants.CROP_TRELLISES.get(ModBlocks.CROPS_TO_VINE_CROPS.get(itemStack.getItem()).getNameWithId() + variant.getTrellisName()).getDefaultState().with(FACING, facing), 2);
+                world.setBlockState(pos, CropTrellisBlock.getCropTrellisFromCrop(itemStack.getItem()).with(FACING, facing), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);

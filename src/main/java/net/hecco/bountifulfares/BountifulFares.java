@@ -2,7 +2,12 @@ package net.hecco.bountifulfares;
 
 import net.fabricmc.api.ModInitializer;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.ModTrellises;
+import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.entity.ModBlockEntities;
+import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.compat.ModResourcePacks;
 import net.hecco.bountifulfares.effect.ModEffects;
 import net.hecco.bountifulfares.entity.ModBoats;
@@ -24,6 +29,9 @@ import net.hecco.bountifulfares.world.tree.ModTrunkPlacerTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class BountifulFares implements ModInitializer {
 	public static final String MOD_ID = "bountifulfares";
@@ -36,6 +44,10 @@ public class BountifulFares implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static BountifulFaresConfiguration CONFIG = new BountifulFaresConfiguration();
+
+	public static List<TrellisVariant> TrellisIndex = new ArrayList<>();
+	public static List<VineCrop> VineCropIndex = new ArrayList<>();
+	public static List<DecorativeVine> DecorativeVineIndex = new ArrayList<>();
 	@Override
 	public void onInitialize() {
 		BountifulFares.CONFIG = BountifulFaresConfiguration.load();
@@ -61,5 +73,7 @@ public class BountifulFares implements ModInitializer {
 		ModBlockEntities.registerBlockEntities();
 		ModSounds.registerSounds();
 		ModPaintings.registerPaintings();
+		ModTrellises.registerTrellisParts();
+		TrellisVariants.registerTrellises();
 	}
 }

@@ -1,0 +1,5 @@
+{
+  "loader": "bountifulfares:test_trellis",
+  "test_trellis": "bountifulfares:block/trellis",
+  "passion_fruit_vine": "bountifulfares:block/passion_fruit_vine"
+}

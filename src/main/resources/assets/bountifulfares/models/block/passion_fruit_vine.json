@@ -1,0 +1,36 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"ambientocclusion": false,
+	"textures": {
+		"vines": "bountifulfares:block/passion_fruit_trellis_vines_1",
+		"foliage": "bountifulfares:block/passion_fruit_trellis_foliage_3"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 15],
+			"to": [16, 16, 15],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#vines"},
+				"south": {"uv": [16, 0, 0, 16], "texture": "#vines"}
+			}
+		},
+		{
+			"from": [0, 0, 15],
+			"to": [16, 8, 15],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 8, 15]},
+			"faces": {
+				"north": {"uv": [0, 8, 16, 16], "texture": "#foliage"},
+				"south": {"uv": [16, 8, 0, 16], "texture": "#foliage"}
+			}
+		},
+		{
+			"from": [0, 7, 15],
+			"to": [16, 15, 15],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 15, 15]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 8], "texture": "#foliage"},
+				"south": {"uv": [16, 0, 0, 8], "texture": "#foliage"}
+			}
+		}
+	]
+}

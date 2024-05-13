@@ -1,17 +1,30 @@
 package net.hecco.bountifulfares;
 
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.block.block_models.OldTrellisBakedModel;
+import net.hecco.bountifulfares.block.block_models.TutorialModelLoadingPlugin;
+import net.hecco.bountifulfares.block.custom.CropTrellisBlock;
+import net.hecco.bountifulfares.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.block.entity.ModBlockEntities;
 import net.hecco.bountifulfares.block.entity.renderer.CeramicDishBlockEntityRenderer;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.entity.ModBoats;
 import net.hecco.bountifulfares.entity.ModEntities;
 import net.hecco.bountifulfares.item.ModItems;
@@ -23,8 +36,13 @@ import net.hecco.bountifulfares.particle.ModParticles;
 import net.hecco.bountifulfares.particle.PrismarineBlossomParticle;
 import net.hecco.bountifulfares.screen.GristmillScreen;
 import net.hecco.bountifulfares.screen.ModScreenHandlers;
+import net.hecco.bountifulfares.sounds.ModSounds;
 import net.hecco.bountifulfares.util.ModWoodTypes;
+import net.mehvahdjukaar.moonlight.api.client.model.CustomModelLoader;
+import net.mehvahdjukaar.moonlight.api.misc.EventCalled;
+import net.mehvahdjukaar.moonlight.api.platform.ClientHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.client.color.world.GrassColors;
@@ -123,10 +141,10 @@ public class BountifulFaresClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HANGING_WALNUTS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FALLEN_WALNUTS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRELLIS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PASSION_FRUIT_TRELLIS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ELDERBERRY_TRELLIS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GLOW_BERRY_TRELLIS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LAPISBERRY_TRELLIS, RenderLayer.getCutout());
+//        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PASSION_FRUIT_TRELLIS, RenderLayer.getCutout());
+//        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ELDERBERRY_TRELLIS, RenderLayer.getCutout());
+//        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GLOW_BERRY_TRELLIS, RenderLayer.getCutout());
+//        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LAPISBERRY_TRELLIS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROSE_TRELLIS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LILAC_TRELLIS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PEONY_TRELLIS, RenderLayer.getCutout());
@@ -265,6 +283,29 @@ public class BountifulFaresClient implements ClientModInitializer {
                 return 0.0F;
             }
             return 1.0F;
+        });
+
+        ClientHelper.addModelLoaderRegistration(BountifulFaresClient::registerModelLoaders);
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TEST_TRELLIS, RenderLayer.getCutout());
+
+        for (TrellisVariant trellis : BountifulFares.TrellisIndex) {
+            BlockRenderLayerMap.INSTANCE.putBlock(TrellisVariants.TRELLISES.get(trellis.getTrellisName()), RenderLayer.getCutout());
+            for (VineCrop crop : BountifulFares.VineCropIndex) {
+                BlockRenderLayerMap.INSTANCE.putBlock(TrellisVariants.CROP_TRELLISES.get(crop.getNameWithId() + trellis.getTrellisName()), RenderLayer.getCutout());
+            }
+        }
+    }
+
+    @EventCalled
+    private static void registerModelLoaders(ClientHelper.ModelLoaderEvent event) {
+        event.register(new Identifier(BountifulFares.MOD_ID, "test_trellis"), (CustomModelLoader) (jsonObject, jsonDeserializationContext) -> {
+                JsonElement innerModel1 = jsonObject.get("test_trellis");
+                JsonElement innerModelee = jsonObject.get("passion_fruit_vine");
+                return (modelBaker, spriteGetter, transform, location) -> {
+                    var innerModel = CustomModelLoader.parseModel(innerModel1, modelBaker, spriteGetter, transform, location);
+                    var secondModel = CustomModelLoader.parseModel(innerModelee, modelBaker, spriteGetter, transform, location);
+                    return new OldTrellisBakedModel(innerModel, secondModel, transform);
+                };
         });
     }
 
