@@ -1,8 +1,10 @@
 package net.hecco.bountifulfares.block.custom;
 
-import com.google.common.collect.Maps;
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
@@ -24,18 +26,21 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-import java.util.Map;
-
 import static net.hecco.bountifulfares.block.ModBlocks.DECORATIVE_TRELLISES_TO_PLANTS;
 import static net.hecco.bountifulfares.block.ModBlocks.PLANTS_TO_DECORATIVE_TRELLISES;
 
-public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable {
+public class DecorativeTrellisBlock extends OldTrellisBlock implements Fertilizable {
     private final boolean canDuplicate;
-    public DecorativeTrellisBlock(Item item, boolean canDuplicate, Settings settings) {
+
+    public TrellisVariant variant;
+    public DecorativeVine vine;
+    public DecorativeTrellisBlock(boolean canDuplicate, Item item, TrellisVariant variant, DecorativeVine vine, Settings settings) {
         super(settings);
         this.canDuplicate = canDuplicate;
         PLANTS_TO_DECORATIVE_TRELLISES.put(item, this);
         DECORATIVE_TRELLISES_TO_PLANTS.put(this, item);
+        this.variant = variant;
+        this.vine = vine;
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH));
     }
 
@@ -48,7 +53,7 @@ public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable
         Direction facing = state.get(FACING);
         if (player.getStackInHand(hand).isOf(Items.SHEARS)) {
             player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
-            world.setBlockState(pos, ModBlocks.TRELLIS.getDefaultState().with(FACING, facing), 2);
+            world.setBlockState(pos, TrellisVariants.getTrellisFromVariant(variant).getDefaultState().with(FACING, facing), 2);
             dropStack(world, pos, new ItemStack(DECORATIVE_TRELLISES_TO_PLANTS.get(this)));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
             return ActionResult.SUCCESS;
@@ -56,10 +61,10 @@ public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable
         return ActionResult.PASS;
     }
 
-    @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(ModBlocks.TRELLIS);
-    }
+//    @Override
+//    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+//        return new ItemStack(ModBlocks.TRELLIS);
+//    }
 
     @Override
     public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
@@ -82,7 +87,7 @@ public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable
         if (item != null && PLANTS_TO_DECORATIVE_TRELLISES.containsKey(item)) {
             return (PLANTS_TO_DECORATIVE_TRELLISES.get(item)).getDefaultState();
         } else {
-            return ModBlocks.TRELLIS.getDefaultState();
+            return TrellisVariants.TRELLISES.get("trellis").getDefaultState();
         }
     }
 }
