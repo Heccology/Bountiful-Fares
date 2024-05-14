@@ -2,20 +2,19 @@ package net.hecco.bountifulfares.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.custom.PicketsBlock;
-import net.hecco.bountifulfares.datagen.custom.ModTemplateModels;
+import net.hecco.bountifulfares.block.ModTrellises;
+import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.item.ModItems;
-import net.minecraft.block.Block;
-import net.minecraft.data.client.*;
-import net.minecraft.util.Identifier;
+import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.data.client.Models;
+import net.minecraft.data.client.TexturedModel;
 
-import java.util.Optional;
-
-import static net.hecco.bountifulfares.datagen.custom.ModTemplateModels.registerPicketsModels;
-import static net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder.getItemId;
-
+import static net.hecco.bountifulfares.datagen.custom.ModTemplateModels.*;
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
         super(output);
@@ -52,6 +51,35 @@ public class ModModelProvider extends FabricModelProvider {
         registerPicketsModels(blockStateModelGenerator, ModBlocks.WALNUT_PICKETS);
         registerPicketsModels(blockStateModelGenerator, ModBlocks.CRIMSON_PICKETS);
         registerPicketsModels(blockStateModelGenerator, ModBlocks.WARPED_PICKETS);
+
+        for (TrellisVariant trellis : TrellisVariants.TrellisIndex) {
+            registerTrellis(blockStateModelGenerator, TrellisVariants.getTrellisFromVariant(trellis));
+            for (VineCrop crop : TrellisVariants.VineCropIndex) {
+                registerCropTrellis(blockStateModelGenerator,
+                        TrellisVariants.getCropTrellisFromVariant(trellis, crop),
+                        trellis.getTrellisName(),
+                        crop.getName() + "_trellis_vines",
+                        crop.getName() + "_trellis_foliage",
+                        trellis.getId());
+            }
+            for (DecorativeVine vine : TrellisVariants.DecorativeVineIndex) {
+                if (vine != ModTrellises.TWISTING) {
+                    registerDecorTrellis(blockStateModelGenerator,
+                            TrellisVariants.getDecorTrellisFromVariant(trellis, vine),
+                            trellis.getTrellisName(),
+                            vine.getName() + "_trellis_vines",
+                            vine.getName() + "_trellis_foliage",
+                            trellis.getId());
+                } else {
+                    registerUpsideDownDecorTrellis(blockStateModelGenerator,
+                            TrellisVariants.getDecorTrellisFromVariant(trellis, vine),
+                            trellis.getTrellisName(),
+                            vine.getName() + "_trellis_vines",
+                            vine.getName() + "_trellis_foliage",
+                            trellis.getId());
+                }
+            }
+        }
     }
 
     @Override

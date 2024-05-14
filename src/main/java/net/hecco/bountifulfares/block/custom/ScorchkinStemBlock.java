@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -24,9 +25,17 @@ public class ScorchkinStemBlock extends PlantBlock implements Fertilizable {
     public static final VoxelShape[] SHAPES = new VoxelShape[] {Block.createCuboidShape(7, 13, 7, 9, 16, 9), Block.createCuboidShape(6, 10, 6, 10, 16, 10), Block.createCuboidShape(5, 5, 5, 11, 16, 11), Block.createCuboidShape(5, 1, 5, 11, 16, 11), Block.createCuboidShape(4, 0, 4, 12, 16, 12)};
     public static final int MAX_AGE = 3;
     public static final IntProperty AGE = IntProperty.of("age", 0, 3);
+
+    public static final MapCodec<ScorchkinStemBlock> CODEC = ScorchkinStemBlock.createCodec(ScorchkinStemBlock::new);
+
     public ScorchkinStemBlock(Settings settings) {
         super(settings);
         this.setDefaultState((this.stateManager.getDefaultState()).with(AGE, 0).with(ATTACHED, false));
+    }
+
+    @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -79,7 +88,7 @@ public class ScorchkinStemBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
 

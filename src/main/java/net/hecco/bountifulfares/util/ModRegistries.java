@@ -4,6 +4,8 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.entity.FlourProjectileEntity;
 import net.hecco.bountifulfares.item.ModItems;
 import net.hecco.bountifulfares.potion.ModPotions;
@@ -62,7 +64,9 @@ public class ModRegistries {
         registry.add(ModItemTags.HOARY_LOGS, 300);
         registry.add(ModItemTags.WALNUT_LOGS, 300);
         registry.add(ModItemTags.PICKETS, 200);
-        registry.add(ModBlocks.TRELLIS, 300);
+        for (TrellisVariant trellis : TrellisVariants.TrellisIndex) {
+            registry.add(TrellisVariants.getTrellisFromVariant(trellis), 300);
+        }
         registry.add(ModBlocks.GRISTMILL, 300);
         registry.add(ModBlocks.WHITE_JACK_O_STRAW, 400);
         registry.add(ModBlocks.LIGHT_GRAY_JACK_O_STRAW, 400);

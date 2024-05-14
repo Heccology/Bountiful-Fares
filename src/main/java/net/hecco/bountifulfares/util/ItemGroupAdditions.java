@@ -66,8 +66,7 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.PLUM_LOG, ModBlocks.PLUM_WOOD);
             entries.addAfter(ModBlocks.PLUM_WOOD, ModBlocks.STRIPPED_PLUM_LOG);
             entries.addAfter(ModBlocks.STRIPPED_PLUM_LOG, ModBlocks.STRIPPED_PLUM_WOOD);
-            entries.addAfter(ModBlocks.STRIPPED_PLUM_WOOD, ModBlocks.TRELLIS);
-            entries.addAfter(ModBlocks.TRELLIS, ModBlocks.WALNUT_MULCH);
+            entries.addAfter(ModBlocks.STRIPPED_PLUM_WOOD, ModBlocks.WALNUT_MULCH);
             entries.addAfter(ModBlocks.WALNUT_MULCH, ModBlocks.WALNUT_MULCH_BLOCK);
             entries.addAfter(Items.DARK_PRISMARINE, ModBlocks.PRISMARINE_BLOSSOM);
             entries.addAfter(Items.PURPUR_SLAB, ModBlocks.FELDSPAR_BLOCK);

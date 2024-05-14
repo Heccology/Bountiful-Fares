@@ -1,7 +1,9 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -28,12 +30,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
+import net.minecraft.world.*;
 import net.minecraft.world.event.GameEvent;
-
+import org.jetbrains.annotations.Nullable;
 
 import static net.hecco.bountifulfares.block.ModBlocks.CROPS_TO_CROP_TRELLISES;
 
@@ -48,16 +47,23 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     protected static final VoxelShape EAST_SHAPE = Block.createCuboidShape(0, 0, 0, 1, 16, 16);
     public static BooleanProperty SNIPPED = BooleanProperty.of("snipped");
 
-    public CropTrellisBlock(Item berryItem, Settings settings) {
+    public TrellisVariant variant;
+    public VineCrop crop;
+
+    public CropTrellisBlock(Item berryItem, TrellisVariant variant, VineCrop crop, Settings settings) {
         super(settings);
         this.berryItem = berryItem;
         CROPS_TO_CROP_TRELLISES.put(berryItem, this);
+        this.variant = variant;
+        this.crop = crop;
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(AGE, 0).with(SNIPPED, false));
     }
-    public CropTrellisBlock(Item seedsItem, Item berryItem, Settings settings) {
+    public CropTrellisBlock(Item seedsItem, Item berryItem, TrellisVariant variant, VineCrop crop, Settings settings) {
         super(settings);
         this.berryItem = berryItem;
         CROPS_TO_CROP_TRELLISES.put(seedsItem, this);
+        this.variant = variant;
+        this.crop = crop;
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(AGE, 0).with(SNIPPED, false));
     }
 
@@ -73,6 +79,11 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
             default:
                 return EAST_SHAPE;
         }
+    }
+
+    @Override
+    public String getTranslationKey() {
+        return "block." + variant.getId() + "." + crop.getName() + "_" + variant.getTrellisName();
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -140,7 +151,7 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
 
     @Override
     public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
-        return new ItemStack(Item.fromBlock(ModBlocks.TRELLIS));
+        return new ItemStack(TrellisVariants.getTrellisFromVariant(variant));
     }
 
     @Override
@@ -191,7 +202,7 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
         if (seedsItem != null && CROPS_TO_CROP_TRELLISES.containsKey(seedsItem)) {
             return (CROPS_TO_CROP_TRELLISES.get(seedsItem)).getDefaultState();
         } else {
-            return ModBlocks.TRELLIS.getDefaultState();
+            return TrellisVariants.TRELLISES.get("trellis").getDefaultState();
         }
     }
 

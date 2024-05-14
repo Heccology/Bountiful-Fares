@@ -46,13 +46,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
                 .offerTo(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TRELLIS)
-                .pattern("# #")
-                .pattern(" # ")
-                .pattern("# #")
-                .input('#', Items.STICK)
-                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .offerTo(exporter);
+//        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TRELLIS)
+//                .pattern("# #")
+//                .pattern(" # ")
+//                .pattern("# #")
+//                .input('#', Items.STICK)
+//                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+//                .offerTo(exporter);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.FELDSPAR_LANTERN)
                 .pattern("III")
