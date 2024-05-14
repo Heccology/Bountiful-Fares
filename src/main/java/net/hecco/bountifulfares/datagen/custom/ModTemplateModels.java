@@ -81,13 +81,12 @@ public class ModTemplateModels {
                         .register(Direction.WEST, BlockStateVariant.create()
                                 .put(VariantSettings.MODEL, modelID).put(VariantSettings.Y, VariantSettings.Rotation.R270)))
         );
-        blockStateModelGenerator.registerItemModel(trellis);
     }
     public static void registerCropTrellis(BlockStateModelGenerator blockStateModelGenerator, Block trellis, String trellisId, String vinesId, String foliageId, String modId){
-        Identifier modelID1 = TEMPLATE_TRELLIS_0.upload(trellis, TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(modId, "block/" + vinesId + "_0")), blockStateModelGenerator.modelCollector);
-        Identifier modelID2 = TEMPLATE_TRELLIS_1.upload(trellis, "_1", TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(modId, "block/" + vinesId + "_1")).put(TextureKey.FRONT, new Identifier(modId, "block/" + foliageId + "_1")), blockStateModelGenerator.modelCollector);
-        Identifier modelID3 = TEMPLATE_TRELLIS_1.upload(trellis, "_2", TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(modId, "block/" + vinesId + "_1")).put(TextureKey.FRONT, new Identifier(modId, "block/" + foliageId + "_2")), blockStateModelGenerator.modelCollector);
-        Identifier modelID4 = TEMPLATE_TRELLIS_1.upload(trellis, "_3", TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(modId, "block/" + vinesId + "_1")).put(TextureKey.FRONT, new Identifier(modId, "block/" + foliageId + "_3")), blockStateModelGenerator.modelCollector);
+        Identifier modelID1 = TEMPLATE_TRELLIS_0.upload(trellis, TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(BountifulFares.MOD_ID, "block/" + vinesId + "_0")), blockStateModelGenerator.modelCollector);
+        Identifier modelID2 = TEMPLATE_TRELLIS_1.upload(trellis, "_1", TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(BountifulFares.MOD_ID, "block/" + vinesId + "_1")).put(TextureKey.FRONT, new Identifier(BountifulFares.MOD_ID, "block/" + foliageId + "_1")), blockStateModelGenerator.modelCollector);
+        Identifier modelID3 = TEMPLATE_TRELLIS_1.upload(trellis, "_2", TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(BountifulFares.MOD_ID, "block/" + vinesId + "_1")).put(TextureKey.FRONT, new Identifier(BountifulFares.MOD_ID, "block/" + foliageId + "_2")), blockStateModelGenerator.modelCollector);
+        Identifier modelID4 = TEMPLATE_TRELLIS_1.upload(trellis, "_3", TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(BountifulFares.MOD_ID, "block/" + vinesId + "_1")).put(TextureKey.FRONT, new Identifier(BountifulFares.MOD_ID, "block/" + foliageId + "_3")), blockStateModelGenerator.modelCollector);
 
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(trellis)
                 .coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_FACING)

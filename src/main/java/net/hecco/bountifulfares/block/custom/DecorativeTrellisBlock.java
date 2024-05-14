@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.TrellisUtil;
 import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
@@ -53,7 +54,7 @@ public class DecorativeTrellisBlock extends OldTrellisBlock implements Fertiliza
         Direction facing = state.get(FACING);
         if (player.getStackInHand(hand).isOf(Items.SHEARS)) {
             player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
-            world.setBlockState(pos, TrellisVariants.getTrellisFromVariant(variant).getDefaultState().with(FACING, facing), 2);
+            world.setBlockState(pos, TrellisUtil.getTrellisFromVariant(variant).getDefaultState().with(FACING, facing), 2);
             dropStack(world, pos, new ItemStack(DECORATIVE_TRELLISES_TO_PLANTS.get(this)));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
             return ActionResult.SUCCESS;

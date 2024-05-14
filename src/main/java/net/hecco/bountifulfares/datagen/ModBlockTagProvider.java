@@ -2,12 +2,18 @@ package net.hecco.bountifulfares.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.util.ModBlockTags;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
@@ -361,20 +367,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CERAMIC_LEVER)
                 .add(ModBlocks.CERAMIC_DISH)
         ;
-        getOrCreateTagBuilder(ModBlockTags.TRELLISES)
-//                .add(ModBlocks.TRELLIS)
-//                .add(ModBlocks.PASSION_FRUIT_TRELLIS)
-//                .add(ModBlocks.ELDERBERRY_TRELLIS)
-//                .add(ModBlocks.GLOW_BERRY_TRELLIS)
-//                .add(ModBlocks.LAPISBERRY_TRELLIS)
-//                .add(ModBlocks.ROSE_TRELLIS)
-//                .add(ModBlocks.LILAC_TRELLIS)
-//                .add(ModBlocks.PEONY_TRELLIS)
-//                .add(ModBlocks.SUNFLOWER_TRELLIS)
-//                .add(ModBlocks.VINE_TRELLIS)
-//                .add(ModBlocks.WEEPING_TRELLIS)
-//                .add(ModBlocks.TWISTING_TRELLIS)
-        ;
+
         getOrCreateTagBuilder(ModBlockTags.FELSIC_STONES)
                 .add(Blocks.ANDESITE)
                 .add(Blocks.GRANITE)

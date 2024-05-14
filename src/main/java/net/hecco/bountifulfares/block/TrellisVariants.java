@@ -25,39 +25,27 @@ import java.util.Map;
 
 public class TrellisVariants {
 
-    public static List<TrellisVariant> TrellisIndex = new ArrayList<>();
-    public static List<VineCrop> VineCropIndex = new ArrayList<>();
-    public static List<DecorativeVine> DecorativeVineIndex = new ArrayList<>();
+    public static List<TrellisVariant> TrellisVariants = new ArrayList<>();
+    public static List<VineCrop> VineCrops = new ArrayList<>();
+    public static List<DecorativeVine> DecorativeVines = new ArrayList<>();
 
     public static Map<String, Block> TRELLISES = new HashMap<>();
     public static Map<String, Block> CROP_TRELLISES = new HashMap<>();
     public static Map<String, Block> DECORATIVE_TRELLISES = new HashMap<>();
     public static void registerTrellises() {
-        for (TrellisVariant trellis : TrellisIndex) {
+        for (TrellisVariant trellis : TrellisVariants) {
             TRELLISES.put(trellis.getTrellisName(), registerBlock(trellis.getId(), trellis.getTrellisName(), new TrellisBlock(trellis, FabricBlockSettings.create().nonOpaque().strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).nonOpaque())));
-            for (VineCrop crop : VineCropIndex) {
+            for (VineCrop crop : VineCrops) {
                 if (crop.getSeedsItem() != crop.getCropItem()) {
                     CROP_TRELLISES.put(crop.getName() + trellis.getTrellisName(), registerBlockNoItem(trellis.getId(), crop.getName() + "_" + trellis.getTrellisName(), new CropTrellisBlock(crop.getSeedsItem(), crop.getCropItem(), trellis, crop, FabricBlockSettings.create().nonOpaque().strength(0.5F).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS))));
                 } else {
                     CROP_TRELLISES.put(crop.getName() + trellis.getTrellisName(), registerBlockNoItem(trellis.getId(), crop.getName() + "_" + trellis.getTrellisName(), new CropTrellisBlock(crop.getCropItem(), trellis, crop, FabricBlockSettings.create().nonOpaque().strength(0.5F).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS))));
                 }
             }
-            for (DecorativeVine vine : DecorativeVineIndex) {
+            for (DecorativeVine vine : DecorativeVines) {
                 DECORATIVE_TRELLISES.put(vine.getName() + trellis.getTrellisName(), registerBlockNoItem(trellis.getId(), vine.getName() + "_" + trellis.getTrellisName(), new DecorativeTrellisBlock(vine.canDuplicate(), vine.getPlantItem(), trellis, vine, FabricBlockSettings.create().nonOpaque().strength(0.5F).instrument(Instrument.BASS).nonOpaque().sounds(ModSounds.PLANTED_TRELLIS))));
             }
         }
-    }
-
-    public static Block getTrellisFromVariant(TrellisVariant variant) {
-        return TRELLISES.get(variant.getTrellisName());
-    }
-
-    public static Block getCropTrellisFromVariant(TrellisVariant variant, VineCrop crop) {
-        return CROP_TRELLISES.get(crop.getName() + variant.getTrellisName());
-    }
-
-    public static Block getDecorTrellisFromVariant(TrellisVariant variant, DecorativeVine vine) {
-        return DECORATIVE_TRELLISES.get(vine.getName() + variant.getTrellisName());
     }
 
     private static Block registerBlockNoItem(String id, String name, Block block) {
