@@ -132,18 +132,18 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.HOARY_PICKETS);
         addDrop(ModBlocks.CRIMSON_PICKETS);
         addDrop(ModBlocks.WARPED_PICKETS);
-        addDrop(ModBlocks.TRELLIS);
-        addDrop(ModBlocks.PASSION_FRUIT_TRELLIS, plantedTrellisDrops(ModBlocks.PASSION_FRUIT_TRELLIS, ModItems.PASSION_FRUIT));
-        addDrop(ModBlocks.ELDERBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.ELDERBERRY_TRELLIS, ModItems.ELDERBERRIES));
-        addDrop(ModBlocks.GLOW_BERRY_TRELLIS, plantedTrellisDrops(ModBlocks.GLOW_BERRY_TRELLIS, Items.GLOW_BERRIES));
-        addDrop(ModBlocks.LAPISBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.LAPISBERRY_TRELLIS, ModItems.LAPISBERRIES));
-        addDrop(ModBlocks.ROSE_TRELLIS, plantedTrellisDrops(ModBlocks.ROSE_TRELLIS, Items.ROSE_BUSH));
-        addDrop(ModBlocks.LILAC_TRELLIS, plantedTrellisDrops(ModBlocks.LILAC_TRELLIS, Items.LILAC));
-        addDrop(ModBlocks.PEONY_TRELLIS, plantedTrellisDrops(ModBlocks.PEONY_TRELLIS, Items.PEONY));
-        addDrop(ModBlocks.SUNFLOWER_TRELLIS, plantedTrellisDrops(ModBlocks.SUNFLOWER_TRELLIS, Items.SUNFLOWER));
-        addDrop(ModBlocks.VINE_TRELLIS, plantedTrellisDrops(ModBlocks.VINE_TRELLIS, Items.VINE));
-        addDrop(ModBlocks.WEEPING_TRELLIS, plantedTrellisDrops(ModBlocks.WEEPING_TRELLIS, Items.WEEPING_VINES));
-        addDrop(ModBlocks.TWISTING_TRELLIS, plantedTrellisDrops(ModBlocks.TWISTING_TRELLIS, Items.TWISTING_VINES));
+//        addDrop(ModBlocks.TRELLIS);
+//        addDrop(ModBlocks.PASSION_FRUIT_TRELLIS, plantedTrellisDrops(ModBlocks.PASSION_FRUIT_TRELLIS, ModItems.PASSION_FRUIT));
+//        addDrop(ModBlocks.ELDERBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.ELDERBERRY_TRELLIS, ModItems.ELDERBERRIES));
+//        addDrop(ModBlocks.GLOW_BERRY_TRELLIS, plantedTrellisDrops(ModBlocks.GLOW_BERRY_TRELLIS, Items.GLOW_BERRIES));
+//        addDrop(ModBlocks.LAPISBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.LAPISBERRY_TRELLIS, ModItems.LAPISBERRIES));
+//        addDrop(ModBlocks.ROSE_TRELLIS, plantedTrellisDrops(ModBlocks.ROSE_TRELLIS, Items.ROSE_BUSH));
+//        addDrop(ModBlocks.LILAC_TRELLIS, plantedTrellisDrops(ModBlocks.LILAC_TRELLIS, Items.LILAC));
+//        addDrop(ModBlocks.PEONY_TRELLIS, plantedTrellisDrops(ModBlocks.PEONY_TRELLIS, Items.PEONY));
+//        addDrop(ModBlocks.SUNFLOWER_TRELLIS, plantedTrellisDrops(ModBlocks.SUNFLOWER_TRELLIS, Items.SUNFLOWER));
+//        addDrop(ModBlocks.VINE_TRELLIS, plantedTrellisDrops(ModBlocks.VINE_TRELLIS, Items.VINE));
+//        addDrop(ModBlocks.WEEPING_TRELLIS, plantedTrellisDrops(ModBlocks.WEEPING_TRELLIS, Items.WEEPING_VINES));
+//        addDrop(ModBlocks.TWISTING_TRELLIS, plantedTrellisDrops(ModBlocks.TWISTING_TRELLIS, Items.TWISTING_VINES));
         addDrop(ModBlocks.WILD_WHEAT, WildCropDrops(Items.WHEAT_SEEDS, ModBlocks.WILD_WHEAT));
         addDrop(ModBlocks.WILD_CARROTS, WildCropDrops(Items.CARROT, ModBlocks.WILD_CARROTS));
         addDrop(ModBlocks.WILD_POTATOES, WildCropDrops(Items.POTATO, ModBlocks.WILD_POTATOES));
@@ -356,13 +356,13 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         );
     }
 
-    public LootTable.Builder plantedTrellisDrops(Block block, Item plant) {
-        return LootTable.builder()
-                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .with(this.applyExplosionDecay(block, ItemEntry.builder(plant))))
-                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .with(this.applyExplosionDecay(block, ItemEntry.builder(ModBlocks.TRELLIS))));
-    }
+//    public LootTable.Builder plantedTrellisDrops(Block block, Item plant) {
+//        return LootTable.builder()
+//                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+//                        .with(this.applyExplosionDecay(block, ItemEntry.builder(plant))))
+//                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+//                        .with(this.applyExplosionDecay(block, ItemEntry.builder(ModBlocks.TRELLIS))));
+//    }
 
     public void fruitBlockDrops(Block block, Item fruitItem) {
         addDrop(block, LootTable.builder()

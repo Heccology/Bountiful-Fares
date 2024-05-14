@@ -1,7 +1,8 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.util.ModItemTags;
+import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -31,8 +32,11 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
     protected static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0, 0, 0, 16, 16, 1);
     protected static final VoxelShape WEST_SHAPE = Block.createCuboidShape(15, 0, 0, 16, 16, 16);
     protected static final VoxelShape EAST_SHAPE = Block.createCuboidShape(0, 0, 0, 1, 16, 16);
-    public TrellisBlock(Settings settings) {
+
+    public TrellisVariant variant;
+    public TrellisBlock(TrellisVariant variant, Settings settings) {
         super(settings);
+        this.variant = variant;
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH));
     }
 
@@ -54,10 +58,10 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         Direction facing = state.get(FACING);
         ItemStack itemStack = player.getStackInHand(hand);
-        Boolean isSurvival = !player.isCreative();
+        boolean isSurvival = !player.isCreative();
         if (ModBlocks.CROPS_TO_CROP_TRELLISES.containsKey(itemStack.getItem())) {
             if (!world.isClient()) {
-                world.setBlockState(pos, CropTrellisBlock.getCropTrellisFromCrop(itemStack.getItem()).with(FACING, facing), 2);
+                world.setBlockState(pos, TrellisVariants.CROP_TRELLISES.get(ModBlocks.CROPS_TO_VINE_CROPS.get(itemStack.getItem()).getName() + variant.getTrellisName()).getDefaultState().with(FACING, facing), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
@@ -68,7 +72,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
         }
         if (ModBlocks.PLANTS_TO_DECORATIVE_TRELLISES.containsKey(itemStack.getItem())) {
             if (!world.isClient()) {
-                world.setBlockState(pos, DecorativeTrellisBlock.getDecorativeTrellisFromPlant(itemStack.getItem()).with(FACING, facing), 2);
+                world.setBlockState(pos, TrellisVariants.DECORATIVE_TRELLISES.get(ModBlocks.PLANTS_TO_DECORATIVE_VINES.get(itemStack.getItem()).getName() + variant.getTrellisName()).getDefaultState().with(FACING, facing), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);

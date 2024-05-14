@@ -38,9 +38,9 @@ public class BlockItemWithInfo extends BlockItem {
             tooltip.add(Text.literal("§7"+"Fill the vessel with a Water Bottle"));
             tooltip.add(Text.literal("§7"+"and an item to ferment it."));
         }
-        if (this == ModBlocks.TRELLIS.asItem()) {
-            tooltip.add(Text.literal("§7"+"Vine Crops and some plants can be"));
-            tooltip.add(Text.literal("§7"+"grown on Trellises."));
-        }
+//        if (this == ModBlocks.TRELLIS.asItem()) {
+//            tooltip.add(Text.literal("§7"+"Vine Crops and some plants can be"));
+//            tooltip.add(Text.literal("§7"+"grown on Trellises."));
+//        }
     }
 }

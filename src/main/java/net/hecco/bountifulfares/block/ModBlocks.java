@@ -6,6 +6,9 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.*;
+import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.item.ModItems;
 import net.hecco.bountifulfares.item.custom.BlockItemWithInfo;
 import net.hecco.bountifulfares.item.custom.CeramicDishBlockItem;
@@ -24,7 +27,6 @@ import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
@@ -33,6 +35,8 @@ import java.util.function.ToIntFunction;
 
 public class ModBlocks {
     public static final Map<Item, CropTrellisBlock> CROPS_TO_CROP_TRELLISES = Maps.newHashMap();
+    public static final Map<Item, VineCrop> CROPS_TO_VINE_CROPS = Maps.newHashMap();
+    public static final Map<Item, DecorativeVine> PLANTS_TO_DECORATIVE_VINES = Maps.newHashMap();
     public static final Map<Item, DecorativeTrellisBlock> PLANTS_TO_DECORATIVE_TRELLISES = Maps.newHashMap();
     public static final Map<DecorativeTrellisBlock, Item> DECORATIVE_TRELLISES_TO_PLANTS = Maps.newHashMap();
     public static final Map<Block, Block> CERAMIC_TO_CHECKERED_CERAMIC = Maps.newHashMap();
@@ -124,18 +128,18 @@ public class ModBlocks {
 
     public static final Block WALNUT_CANDLE = registerBlock("walnut_candle", new WalnutCandleBlock(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
 
-    public static final Block TRELLIS = registerBlock("trellis", new TrellisBlock(FabricBlockSettings.create().nonOpaque().strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).nonOpaque()));
-    public static final Block PASSION_FRUIT_TRELLIS = registerBlockNoItem("passion_fruit_trellis", new CropTrellisBlock(ModItems.PASSION_FRUIT, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS)));
-    public static final Block ELDERBERRY_TRELLIS = registerBlockNoItem("elderberry_trellis", new CropTrellisBlock(ModItems.ELDERBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS)));
-    public static final Block GLOW_BERRY_TRELLIS = registerBlockNoItem("glow_berry_trellis", new CropTrellisBlock(Items.GLOW_BERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS).luminance(createLightLevelFromAgeBlockState(0, 6, 12))));
-    public static final Block LAPISBERRY_TRELLIS = registerBlockNoItem("lapisberry_trellis", new CropTrellisBlock(ModItems.LAPISBERRY_SEEDS, ModItems.LAPISBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS)));
-    public static final Block ROSE_TRELLIS = registerBlockNoItem("rose_trellis", new DecorativeTrellisBlock(Items.ROSE_BUSH, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
-    public static final Block LILAC_TRELLIS = registerBlockNoItem("lilac_trellis", new DecorativeTrellisBlock(Items.LILAC, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
-    public static final Block PEONY_TRELLIS = registerBlockNoItem("peony_trellis", new DecorativeTrellisBlock(Items.PEONY, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
-    public static final Block SUNFLOWER_TRELLIS = registerBlockNoItem("sunflower_trellis", new DecorativeTrellisBlock(Items.SUNFLOWER, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
-    public static final Block VINE_TRELLIS = registerBlockNoItem("vine_trellis", new DecorativeTrellisBlock(Items.VINE, false, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
-    public static final Block WEEPING_TRELLIS = registerBlockNoItem("weeping_trellis", new DecorativeTrellisBlock(Items.WEEPING_VINES, false, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
-    public static final Block TWISTING_TRELLIS = registerBlockNoItem("twisting_trellis", new DecorativeTrellisBlock(Items.TWISTING_VINES, false, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
+//    public static final Block TRELLIS = registerBlock("trellis", new OldTrellisBlock(FabricBlockSettings.create().nonOpaque().strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).nonOpaque()));
+//    public static final Block PASSION_FRUIT_TRELLIS = registerBlockNoItem("passion_fruit_trellis", new OldCropTrellisBlock(ModItems.PASSION_FRUIT, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS)));
+//    public static final Block ELDERBERRY_TRELLIS = registerBlockNoItem("elderberry_trellis", new OldCropTrellisBlock(ModItems.ELDERBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS)));
+//    public static final Block GLOW_BERRY_TRELLIS = registerBlockNoItem("glow_berry_trellis", new OldCropTrellisBlock(Items.GLOW_BERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS).luminance(createLightLevelFromAgeBlockState(0, 6, 12))));
+//    public static final Block LAPISBERRY_TRELLIS = registerBlockNoItem("lapisberry_trellis", new OldCropTrellisBlock(ModItems.LAPISBERRY_SEEDS, ModItems.LAPISBERRIES, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS)));
+//    public static final Block ROSE_TRELLIS = registerBlockNoItem("rose_trellis", new DecorativeTrellisBlock(Items.ROSE_BUSH, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
+//    public static final Block LILAC_TRELLIS = registerBlockNoItem("lilac_trellis", new DecorativeTrellisBlock(Items.LILAC, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
+//    public static final Block PEONY_TRELLIS = registerBlockNoItem("peony_trellis", new DecorativeTrellisBlock(Items.PEONY, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
+//    public static final Block SUNFLOWER_TRELLIS = registerBlockNoItem("sunflower_trellis", new DecorativeTrellisBlock(Items.SUNFLOWER, true, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
+//    public static final Block VINE_TRELLIS = registerBlockNoItem("vine_trellis", new DecorativeTrellisBlock(Items.VINE, false, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
+//    public static final Block WEEPING_TRELLIS = registerBlockNoItem("weeping_trellis", new DecorativeTrellisBlock(Items.WEEPING_VINES, false, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
+//    public static final Block TWISTING_TRELLIS = registerBlockNoItem("twisting_trellis", new DecorativeTrellisBlock(Items.TWISTING_VINES, false, FabricBlockSettings.copyOf(ModBlocks.TRELLIS).sounds(ModSounds.PLANTED_TRELLIS)));
     public static final Block WILD_WHEAT = registerBlock("wild_wheat", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILD_CARROTS = registerBlock("wild_carrots", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block WILD_POTATOES = registerBlock("wild_potatoes", new WildCropBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).replaceable().noCollision().breakInstantly().sounds(BlockSoundGroup.CROP).offset(AbstractBlock.OffsetType.XYZ).pistonBehavior(PistonBehavior.DESTROY)));
@@ -274,6 +278,7 @@ public class ModBlocks {
     public static Block VELVET_JACK_O_STRAW;
     public static Block VERMILION_JACK_O_STRAW;
     public static Block WINTERGREEN_PICKETS;
+//    public static TrellisVariant WINTERGREEN;
     public static void registerElsAndLsDyesBlocks() {
         if (FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
             ACORN_JACK_O_STRAW = registerBlock("acorn_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
@@ -297,6 +302,7 @@ public class ModBlocks {
             VELVET_JACK_O_STRAW = registerBlock("velvet_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             VERMILION_JACK_O_STRAW = registerBlock("vermilion_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             WINTERGREEN_PICKETS = registerBlock("wintergreen_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.BRIGHT_TEAL).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+//            WINTERGREEN = new TrellisVariant(BountifulFares.ELS_AND_LS_DYES_MOD_ID, "wintergreen");
         }
     }
     public static Block ROSE_JACK_O_STRAW;

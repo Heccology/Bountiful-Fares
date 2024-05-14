@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bountifulfares:block/rose_dark_oak_trellis",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bountifulfares:block/rose_dark_oak_trellis",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "bountifulfares:block/rose_dark_oak_trellis",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bountifulfares:block/rose_dark_oak_trellis",
+      "y": 270
+    }
+  }
+}

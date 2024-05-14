@@ -147,16 +147,16 @@ public class ModEsEsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModItems.CANDIED_ORANGE, "Naranja confitado");
         generate(translationBuilder, ModItems.CANDIED_LEMON, "Limón confitado");
 
-        generate(translationBuilder, ModBlocks.TRELLIS, "Espaldera");
-        generate(translationBuilder, ModBlocks.PASSION_FRUIT_TRELLIS, "Espaldera de maracuyá");
-        generate(translationBuilder, ModBlocks.ELDERBERRY_TRELLIS, "Espaldera de baya de saúco");
-        generate(translationBuilder, ModBlocks.GLOW_BERRY_TRELLIS, "Espaldera de baya luminosa");
-        generate(translationBuilder, ModBlocks.LAPISBERRY_TRELLIS, "Espaldera de baya azur");
-        generate(translationBuilder, ModBlocks.ROSE_TRELLIS, "Espaldera de rosa");
-        generate(translationBuilder, ModBlocks.LILAC_TRELLIS, "Espaldera de lila");
-        generate(translationBuilder, ModBlocks.PEONY_TRELLIS, "Espaldera de peonía");
-        generate(translationBuilder, ModBlocks.SUNFLOWER_TRELLIS, "Espaldera de girasol");
-        generate(translationBuilder, ModBlocks.VINE_TRELLIS, "Espaldera de enredaderas");
+//        generate(translationBuilder, ModBlocks.TRELLIS, "Espaldera");
+//        generate(translationBuilder, ModBlocks.PASSION_FRUIT_TRELLIS, "Espaldera de maracuyá");
+//        generate(translationBuilder, ModBlocks.ELDERBERRY_TRELLIS, "Espaldera de baya de saúco");
+//        generate(translationBuilder, ModBlocks.GLOW_BERRY_TRELLIS, "Espaldera de baya luminosa");
+//        generate(translationBuilder, ModBlocks.LAPISBERRY_TRELLIS, "Espaldera de baya azur");
+//        generate(translationBuilder, ModBlocks.ROSE_TRELLIS, "Espaldera de rosa");
+//        generate(translationBuilder, ModBlocks.LILAC_TRELLIS, "Espaldera de lila");
+//        generate(translationBuilder, ModBlocks.PEONY_TRELLIS, "Espaldera de peonía");
+//        generate(translationBuilder, ModBlocks.SUNFLOWER_TRELLIS, "Espaldera de girasol");
+//        generate(translationBuilder, ModBlocks.VINE_TRELLIS, "Espaldera de enredaderas");
 
         generate(translationBuilder, ModItems.PASSION_FRUIT, "Maracuyá");
         generate(translationBuilder, ModItems.ELDERBERRIES, "Bayas de saúco");
