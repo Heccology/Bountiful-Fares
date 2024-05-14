@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.TrellisUtil;
 import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.item.ModItems;
@@ -26,6 +27,7 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 public class ModItemGroups {
@@ -266,8 +268,10 @@ public class ModItemGroups {
                         entries.add(ModItems.HOARY_SEEDS);
                         entries.add(ModItems.MAIZE);
                         entries.add(ModItems.LEEK);
-                        for (TrellisVariant trellis : TrellisVariants.TrellisIndex) {
-                            entries.add(TrellisVariants.getTrellisFromVariant(trellis));
+                        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+                            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
+                                entries.add(TrellisUtil.getTrellisFromVariant(trellis));
+                            }
                         }
                         entries.add(ModItems.PASSION_FRUIT);
                         entries.add(ModItems.ELDERBERRIES);

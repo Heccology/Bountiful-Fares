@@ -278,7 +278,7 @@ public class ModBlocks {
     public static Block VELVET_JACK_O_STRAW;
     public static Block VERMILION_JACK_O_STRAW;
     public static Block WINTERGREEN_PICKETS;
-//    public static TrellisVariant WINTERGREEN;
+    public static TrellisVariant WINTERGREEN;
     public static void registerElsAndLsDyesBlocks() {
         if (FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
             ACORN_JACK_O_STRAW = registerBlock("acorn_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
@@ -302,7 +302,7 @@ public class ModBlocks {
             VELVET_JACK_O_STRAW = registerBlock("velvet_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             VERMILION_JACK_O_STRAW = registerBlock("vermilion_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             WINTERGREEN_PICKETS = registerBlock("wintergreen_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.BRIGHT_TEAL).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-//            WINTERGREEN = new TrellisVariant(BountifulFares.ELS_AND_LS_DYES_MOD_ID, "wintergreen");
+            WINTERGREEN = new TrellisVariant(BountifulFares.ELS_AND_LS_DYES_MOD_ID, "wintergreen");
         }
     }
     public static Block ROSE_JACK_O_STRAW;

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "trellis",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "P": {
+      "item": "bountifulfares:hoary_planks"
+    }
+  },
+  "pattern": [
+    "# #",
+    " P ",
+    "# #"
+  ],
+  "result": {
+    "item": "bountifulfares:hoary_trellis"
+  },
+  "show_notification": true
+}

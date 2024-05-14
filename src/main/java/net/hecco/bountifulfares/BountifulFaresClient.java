@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.TrellisUtil;
 import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
@@ -271,13 +272,13 @@ public class BountifulFaresClient implements ClientModInitializer {
             return 1.0F;
         });
 
-        for (TrellisVariant trellis : TrellisVariants.TrellisIndex) {
-            BlockRenderLayerMap.INSTANCE.putBlock(TrellisVariants.getTrellisFromVariant(trellis), RenderLayer.getCutout());
-            for (VineCrop crop : TrellisVariants.VineCropIndex) {
-                BlockRenderLayerMap.INSTANCE.putBlock(TrellisVariants.getCropTrellisFromVariant(trellis, crop), RenderLayer.getCutout());
+        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+            BlockRenderLayerMap.INSTANCE.putBlock(TrellisUtil.getTrellisFromVariant(trellis), RenderLayer.getCutout());
+            for (VineCrop crop : TrellisVariants.VineCrops) {
+                BlockRenderLayerMap.INSTANCE.putBlock(TrellisUtil.getCropTrellisFromVariant(trellis, crop), RenderLayer.getCutout());
             }
-            for (DecorativeVine vine : TrellisVariants.DecorativeVineIndex) {
-                BlockRenderLayerMap.INSTANCE.putBlock(TrellisVariants.getDecorTrellisFromVariant(trellis, vine), RenderLayer.getCutout());
+            for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
+                BlockRenderLayerMap.INSTANCE.putBlock(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), RenderLayer.getCutout());
             }
         }
     }

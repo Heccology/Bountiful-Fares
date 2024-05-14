@@ -2,8 +2,15 @@ package net.hecco.bountifulfares.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.ModTrellises;
+import net.hecco.bountifulfares.block.TrellisUtil;
+import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.custom.*;
+import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.item.ModItems;
 import net.minecraft.block.BeetrootsBlock;
 import net.minecraft.block.Block;
@@ -25,6 +32,8 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.NumberRange;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.predicate.item.EnchantmentPredicate;
+
+import java.util.Objects;
 
 public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
 
@@ -132,6 +141,27 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.HOARY_PICKETS);
         addDrop(ModBlocks.CRIMSON_PICKETS);
         addDrop(ModBlocks.WARPED_PICKETS);
+        for (TrellisVariant trellis: TrellisVariants.TrellisVariants) {
+//            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
+                addDrop(TrellisUtil.getTrellisFromVariant(trellis));
+                for (VineCrop crop : TrellisVariants.VineCrops) {
+                    addDrop(TrellisUtil.getCropTrellisFromVariant(trellis, crop),
+                            plantedTrellisDrops(
+                                    TrellisUtil.getCropTrellisFromVariant(trellis, crop),
+                                    crop.getSeedsItem(),
+                                    TrellisUtil.getTrellisFromVariant(trellis)));
+                }
+                for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
+                    addDrop(TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
+                            plantedTrellisDrops(
+                                    TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
+                                    vine.getPlantItem(),
+                                    TrellisUtil.getTrellisFromVariant(trellis)));
+                }
+//            }
+        }
+
+
 //        addDrop(ModBlocks.TRELLIS);
 //        addDrop(ModBlocks.PASSION_FRUIT_TRELLIS, plantedTrellisDrops(ModBlocks.PASSION_FRUIT_TRELLIS, ModItems.PASSION_FRUIT));
 //        addDrop(ModBlocks.ELDERBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.ELDERBERRY_TRELLIS, ModItems.ELDERBERRIES));
@@ -356,13 +386,14 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         );
     }
 
-//    public LootTable.Builder plantedTrellisDrops(Block block, Item plant) {
-//        return LootTable.builder()
-//                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-//                        .with(this.applyExplosionDecay(block, ItemEntry.builder(plant))))
-//                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-//                        .with(this.applyExplosionDecay(block, ItemEntry.builder(ModBlocks.TRELLIS))));
-//    }
+    public LootTable.Builder plantedTrellisDrops(Block block, Item plant, Block trellis) {
+        return LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(plant))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .with(this.applyExplosionDecay(block, ItemEntry.builder(trellis))));
+    }
+
 
     public void fruitBlockDrops(Block block, Item fruitItem) {
         addDrop(block, LootTable.builder()

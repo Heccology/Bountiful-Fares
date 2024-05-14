@@ -3,7 +3,11 @@ package net.hecco.bountifulfares.datagen;
 import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.TrellisUtil;
+import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.datagen.recipe.MillingRecipeBuilder;
 import net.hecco.bountifulfares.item.ModItems;
 import net.hecco.bountifulfares.util.ModItemTags;
@@ -17,6 +21,7 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
 
+import java.util.Objects;
 import java.util.function.Consumer;
 
 import static net.minecraft.data.family.BlockFamilies.register;
@@ -47,13 +52,32 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
                 .offerTo(exporter);
 
-//        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TRELLIS)
-//                .pattern("# #")
-//                .pattern(" # ")
-//                .pattern("# #")
-//                .input('#', Items.STICK)
-//                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-//                .offerTo(exporter);
+
+        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
+                if (trellis.getPlanks() != Items.STICK) {
+                    ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
+                            .pattern("# #")
+                            .pattern(" P ")
+                            .pattern("# #")
+                            .input('#', Items.STICK)
+                            .input('P', trellis.getPlanks())
+                            .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                            .criterion(hasItem(trellis.getPlanks()), conditionsFromItem(trellis.getPlanks()))
+                            .group("trellis")
+                            .offerTo(exporter);
+                } else {
+                    ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
+                            .pattern("# #")
+                            .pattern(" # ")
+                            .pattern("# #")
+                            .input('#', Items.STICK)
+                            .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                            .group("trellis")
+                            .offerTo(exporter);
+                }
+            }
+        }
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.FELDSPAR_LANTERN)
                 .pattern("III")

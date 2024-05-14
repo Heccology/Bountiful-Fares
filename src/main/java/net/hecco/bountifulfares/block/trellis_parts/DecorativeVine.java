@@ -15,7 +15,7 @@ public class DecorativeVine {
         this.TYPE_ID = id;
         this.CROP_ITEM = crop;
         this.CAN_DUPLICATE = canDuplicate;
-        TrellisVariants.DecorativeVineIndex.add(this);
+        TrellisVariants.DecorativeVines.add(this);
         ModBlocks.PLANTS_TO_DECORATIVE_VINES.put(crop, this);
     }
 

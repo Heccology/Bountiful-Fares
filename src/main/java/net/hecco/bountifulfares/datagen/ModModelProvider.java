@@ -5,12 +5,16 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.hecco.bountifulfares.block.ModTrellises;
+import net.hecco.bountifulfares.block.TrellisUtil;
 import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
+import net.hecco.bountifulfares.datagen.custom.ModTemplateModels;
 import net.hecco.bountifulfares.item.ModItems;
 import net.minecraft.data.client.*;
+
+import java.util.Objects;
 
 import static net.hecco.bountifulfares.datagen.custom.ModTemplateModels.*;
 
@@ -52,34 +56,37 @@ public class ModModelProvider extends FabricModelProvider {
         registerPicketsModels(blockStateModelGenerator, ModBlocks.CRIMSON_PICKETS);
         registerPicketsModels(blockStateModelGenerator, ModBlocks.WARPED_PICKETS);
 
-        for (TrellisVariant trellis : TrellisVariants.TrellisIndex) {
-            registerTrellis(blockStateModelGenerator, TrellisVariants.getTrellisFromVariant(trellis));
-            for (VineCrop crop : TrellisVariants.VineCropIndex) {
-                registerCropTrellis(blockStateModelGenerator,
-                        TrellisVariants.getCropTrellisFromVariant(trellis, crop),
-                        trellis.getTrellisName(),
-                        crop.getName() + "_trellis_vines",
-                        crop.getName() + "_trellis_foliage",
-                        trellis.getId());
-            }
-            for (DecorativeVine vine : TrellisVariants.DecorativeVineIndex) {
-                if (vine != ModTrellises.TWISTING) {
-                    registerDecorTrellis(blockStateModelGenerator,
-                            TrellisVariants.getDecorTrellisFromVariant(trellis, vine),
+        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
+                ModTemplateModels.registerTrellis(blockStateModelGenerator, TrellisUtil.getTrellisFromVariant(trellis));
+                for (VineCrop crop : TrellisVariants.VineCrops) {
+                    ModTemplateModels.registerCropTrellis(blockStateModelGenerator,
+                            TrellisUtil.getCropTrellisFromVariant(trellis, crop),
                             trellis.getTrellisName(),
-                            vine.getName() + "_trellis_vines",
-                            vine.getName() + "_trellis_foliage",
+                            crop.getName() + "_trellis_vines",
+                            crop.getName() + "_trellis_foliage",
                             trellis.getId());
-                } else {
-                    registerUpsideDownDecorTrellis(blockStateModelGenerator,
-                            TrellisVariants.getDecorTrellisFromVariant(trellis, vine),
-                            trellis.getTrellisName(),
-                            vine.getName() + "_trellis_vines",
-                            vine.getName() + "_trellis_foliage",
-                            trellis.getId());
+                }
+                for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
+                    if (vine != ModTrellises.TWISTING) {
+                        ModTemplateModels.registerDecorTrellis(blockStateModelGenerator,
+                                TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
+                                trellis.getTrellisName(),
+                                vine.getName() + "_trellis_vines",
+                                vine.getName() + "_trellis_foliage",
+                                trellis.getId());
+                    } else {
+                        ModTemplateModels.registerUpsideDownDecorTrellis(blockStateModelGenerator,
+                                TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
+                                trellis.getTrellisName(),
+                                vine.getName() + "_trellis_vines",
+                                vine.getName() + "_trellis_foliage",
+                                trellis.getId());
+                    }
                 }
             }
         }
+
     }
 
     @Override

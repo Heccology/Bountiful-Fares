@@ -62,6 +62,7 @@ public class BountifulFares implements ModInitializer {
 		ModPotions.registerPotions();
 		ModTrunkPlacerTypes.register();
 		ModTreeDecoratorTypes.register();
+		ModTrellises.registerTrellisParts();
 		ModBlocks.registerModBlocks();
 		ModBlocks.registerElsAndLsDyesBlocks();
 		ModBlocks.registerDyeDepotBlocks();
@@ -69,7 +70,6 @@ public class BountifulFares implements ModInitializer {
 		ModBlockEntities.registerBlockEntities();
 		ModSounds.registerSounds();
 		ModPaintings.registerPaintings();
-		ModTrellises.registerTrellisParts();
 		TrellisVariants.registerTrellises();
 	}
 }

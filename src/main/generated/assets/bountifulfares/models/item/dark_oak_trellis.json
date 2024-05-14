@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "bountifulfares:block/dark_oak_trellis"
-  }
+  "parent": "bountifulfares:block/dark_oak_trellis"
 }

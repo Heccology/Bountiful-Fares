@@ -218,13 +218,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.GLOW_BERRIES)
                 .add(ModItems.LAPISBERRY_SEEDS)
         ;
-        getOrCreateTagBuilder(ModItemTags.PLANTABLE_ON_TRELLIS)
-                .add(Items.ROSE_BUSH)
-                .add(Items.LILAC)
-                .add(Items.PEONY)
-                .add(Items.SUNFLOWER)
-                .add(Items.VINE)
-        ;
         getOrCreateTagBuilder(ModItemTags.COOKED_FISHES)
                 .add(Items.COOKED_COD)
                 .add(Items.COOKED_SALMON)
