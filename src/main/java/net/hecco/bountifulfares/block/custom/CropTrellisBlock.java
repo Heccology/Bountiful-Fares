@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.TrellisUtil;
 import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
@@ -151,7 +152,7 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
 
     @Override
     public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
-        return new ItemStack(TrellisVariants.getTrellisFromVariant(variant));
+        return new ItemStack(TrellisUtil.getTrellisFromVariant(variant));
     }
 
     @Override

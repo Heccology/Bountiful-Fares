@@ -2,7 +2,9 @@ package net.hecco.bountifulfares.datagen.lang;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.TrellisUtil;
 import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
@@ -192,23 +194,25 @@ public class ModEnUsProvider extends FabricLanguageProvider {
 //        generate(translationBuilder, ModBlocks.ELDERBERRY_TRELLIS);
 //        generate(translationBuilder, ModBlocks.GLOW_BERRY_TRELLIS);
 //        generate(translationBuilder, ModBlocks.LAPISBERRY_TRELLIS);
-        for (TrellisVariant trellis : TrellisVariants.TrellisIndex) {
-            String trellisName = trellis.getTrellisName();
-            if (Objects.equals(trellis.getName(), "oak")) {
-                trellisName = "oak_trellis";
-                generate(translationBuilder, TrellisVariants.TRELLISES.get("trellis"), "Oak Trellis");
-            } else {
-                generate(translationBuilder, TrellisVariants.TRELLISES.get(trellisName));
-            }
-            for (VineCrop crop : TrellisVariants.VineCropIndex) {
-                generate(translationBuilder,
-                        TrellisVariants.getCropTrellisFromVariant(trellis, crop),
-                        capitalizeString(Registries.BLOCK.getId(TrellisVariants.TRELLISES.get(trellisName)).getPath().replace(crop.getId() + "_", "").replace("_", " ")));
-            }
-            for (DecorativeVine vine : TrellisVariants.DecorativeVineIndex) {
-                generate(translationBuilder,
-                        TrellisVariants.getDecorTrellisFromVariant(trellis, vine),
-                        capitalizeString(Registries.BLOCK.getId(TrellisVariants.TRELLISES.get(trellisName)).getPath().replace(vine.getId() + "_", "").replace("_", " ")));
+        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
+                String trellisName = trellis.getTrellisName();
+                if (Objects.equals(trellis.getName(), "oak")) {
+                    trellisName = "oak_trellis";
+                    generate(translationBuilder, TrellisVariants.TRELLISES.get("trellis"), "Oak Trellis");
+                } else {
+                    generate(translationBuilder, TrellisVariants.TRELLISES.get(trellisName));
+                }
+                for (VineCrop crop : TrellisVariants.VineCrops) {
+                    generate(translationBuilder,
+                            TrellisUtil.getCropTrellisFromVariant(trellis, crop),
+                            capitalizeString(Registries.BLOCK.getId(TrellisVariants.TRELLISES.get(trellisName)).getPath().replace(crop.getId() + "_", "").replace("_", " ")));
+                }
+                for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
+                    generate(translationBuilder,
+                            TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
+                            capitalizeString(Registries.BLOCK.getId(TrellisVariants.TRELLISES.get(trellisName)).getPath().replace(vine.getId() + "_", "").replace("_", " ")));
+                }
             }
         }
 //        generate(translationBuilder, ModBlocks.ROSE_TRELLIS);

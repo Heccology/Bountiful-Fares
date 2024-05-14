@@ -9,24 +9,24 @@ import net.minecraft.item.Items;
 import java.util.Objects;
 
 public class TrellisVariant {
-    public final String MOD_ID;
-    public final String TYPE_ID;
+    private final String MOD_ID;
+    private final String TYPE_ID;
 
 //    Used for crafting recipes, can be ignored if there is no planks to craft it with
-    public Item PLANKS = Items.STICK;
+    private Item PLANKS = Items.STICK;
 
 
     public TrellisVariant(String modId, String id, Item planks) {
         this.MOD_ID = modId;
         this.TYPE_ID = id;
         this.PLANKS = planks;
-        TrellisVariants.TrellisIndex.add(this);
+        TrellisVariants.TrellisVariants.add(this);
     }
 
     public TrellisVariant(String modId, String id) {
         this.MOD_ID = modId;
         this.TYPE_ID = id;
-        TrellisVariants.TrellisIndex.add(this);
+        TrellisVariants.TrellisVariants.add(this);
     }
 
     public String getName() {

@@ -16,7 +16,7 @@ public class VineCrop {
         this.TYPE_ID = id;
         this.CROP_ITEM = crop;
         this.SEEDS_ITEM = seeds;
-        TrellisVariants.VineCropIndex.add(this);
+        TrellisVariants.VineCrops.add(this);
         ModBlocks.CROPS_TO_VINE_CROPS.put(seeds, this);
     }
 
@@ -25,16 +25,12 @@ public class VineCrop {
         this.TYPE_ID = id;
         this.CROP_ITEM = crop;
         this.SEEDS_ITEM = crop;
-        TrellisVariants.VineCropIndex.add(this);
+        TrellisVariants.VineCrops.add(this);
         ModBlocks.CROPS_TO_VINE_CROPS.put(crop, this);
     }
 
     public String getName() {
         return this.TYPE_ID;
-    }
-
-    public String getNameWithId() {
-        return this.MOD_ID + "_" + this.TYPE_ID;
     }
 
     public String getId() {

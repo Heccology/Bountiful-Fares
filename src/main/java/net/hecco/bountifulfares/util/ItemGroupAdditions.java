@@ -3,7 +3,12 @@ package net.hecco.bountifulfares.util;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.ModTrellises;
+import net.hecco.bountifulfares.block.TrellisUtil;
+import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.item.ModItems;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 
@@ -66,7 +71,16 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.PLUM_LOG, ModBlocks.PLUM_WOOD);
             entries.addAfter(ModBlocks.PLUM_WOOD, ModBlocks.STRIPPED_PLUM_LOG);
             entries.addAfter(ModBlocks.STRIPPED_PLUM_LOG, ModBlocks.STRIPPED_PLUM_WOOD);
-            entries.addAfter(ModBlocks.STRIPPED_PLUM_WOOD, ModBlocks.WALNUT_MULCH);
+            entries.addAfter(ModBlocks.STRIPPED_PLUM_WOOD, TrellisUtil.getTrellisFromVariant(ModTrellises.OAK));
+            TrellisVariant prevTrellis = ModTrellises.OAK;
+            for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+                if (trellis == ModTrellises.OAK) {
+                    continue;
+                }
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(prevTrellis), TrellisUtil.getTrellisFromVariant(trellis));
+                prevTrellis = trellis;
+            }
+            entries.addAfter(TrellisUtil.getTrellisFromVariant(prevTrellis), ModBlocks.WALNUT_MULCH);
             entries.addAfter(ModBlocks.WALNUT_MULCH, ModBlocks.WALNUT_MULCH_BLOCK);
             entries.addAfter(Items.DARK_PRISMARINE, ModBlocks.PRISMARINE_BLOSSOM);
             entries.addAfter(Items.PURPUR_SLAB, ModBlocks.FELDSPAR_BLOCK);
@@ -146,6 +160,15 @@ public class ItemGroupAdditions {
             entries.addAfter(ModBlocks.BELLFLOWER_CANDLE, ModBlocks.TORCHFLOWER_CANDLE);
             entries.addAfter(ModBlocks.TORCHFLOWER_CANDLE, ModBlocks.WALNUT_CANDLE);
             entries.addAfter(ModBlocks.WALNUT_CANDLE, ModBlocks.FERMENTATION_VESSEL);
+            entries.addAfter(Blocks.COMPOSTER, TrellisUtil.getTrellisFromVariant(ModTrellises.OAK));
+            TrellisVariant prevTrellis = ModTrellises.OAK;
+            for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+                if (trellis == ModTrellises.OAK) {
+                    continue;
+                }
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(prevTrellis), TrellisUtil.getTrellisFromVariant(trellis));
+                prevTrellis = trellis;
+            }
             entries.addAfter(Items.TINTED_GLASS, ModBlocks.TINGED_GLASS);
             entries.addAfter(Items.BAMBOO_HANGING_SIGN, ModItems.WALNUT_SIGN);
             entries.addAfter(ModItems.WALNUT_SIGN, ModItems.WALNUT_HANGING_SIGN);
