@@ -16,7 +16,7 @@ public class VineCrop {
         this.TYPE_ID = id;
         this.CROP_ITEM = crop;
         this.SEEDS_ITEM = seeds;
-        TrellisVariants.VineCrops.add(this);
+//        TrellisVariants.VineCrops.add(this);
         ModBlocks.CROPS_TO_VINE_CROPS.put(seeds, this);
     }
 
@@ -25,7 +25,7 @@ public class VineCrop {
         this.TYPE_ID = id;
         this.CROP_ITEM = crop;
         this.SEEDS_ITEM = crop;
-        TrellisVariants.VineCrops.add(this);
+//        TrellisVariants.VineCrops.add(this);
         ModBlocks.CROPS_TO_VINE_CROPS.put(crop, this);
     }
 
@@ -49,4 +49,8 @@ public class VineCrop {
 //        return this.BLOCK_CLASS;
 //    }
 
+    @Override
+    public String toString() {
+        return "[" + TYPE_ID + "]";
+    }
 }

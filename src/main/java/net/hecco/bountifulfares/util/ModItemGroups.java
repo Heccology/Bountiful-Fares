@@ -21,10 +21,8 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.registry.tag.PaintingVariantTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Comparator;
 import java.util.Objects;
@@ -269,8 +267,10 @@ public class ModItemGroups {
                         entries.add(ModItems.MAIZE);
                         entries.add(ModItems.LEEK);
                         for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
-                            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
-                                entries.add(TrellisUtil.getTrellisFromVariant(trellis));
+                            if (Objects.equals(trellis.getModId(), BountifulFares.MOD_ID)) {
+                                if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
+                                    entries.add(TrellisUtil.getTrellisFromVariant(trellis));
+                                }
                             }
                         }
                         entries.add(ModItems.PASSION_FRUIT);
@@ -386,9 +386,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CANDIED_ORANGE);
                         entries.add(ModItems.CANDIED_LEMON);
                         displayContext.lookup().getOptionalWrapper(RegistryKeys.PAINTING_VARIANT).ifPresent((wrapper) -> {
-                            addPaintings(entries, wrapper, (registryEntry) -> {
-                                return registryEntry.isIn(ModBlockTags.PAINTINGS);
-                            }, ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS);
+                            addPaintings(entries, wrapper, (registryEntry) -> registryEntry.isIn(ModBlockTags.PAINTINGS), ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS);
                         });
                     }).build());
 

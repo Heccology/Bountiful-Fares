@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.hecco.bountifulfares.block.ModTrellises;
 import net.hecco.bountifulfares.block.TrellisVariants;
@@ -26,6 +27,7 @@ import net.hecco.bountifulfares.world.gen.ModWorldGeneration;
 import net.hecco.bountifulfares.world.tree.ModFoliagePlacerTypes;
 import net.hecco.bountifulfares.world.tree.ModTreeDecoratorTypes;
 import net.hecco.bountifulfares.world.tree.ModTrunkPlacerTypes;
+import net.minecraft.item.Items;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,6 +51,14 @@ public class BountifulFares implements ModInitializer {
 		BountifulFares.CONFIG = BountifulFaresConfiguration.load();
 		ModResourcePacks.registerBuiltinResourcePacks();
 		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
+		ModBlocks.registerElsAndLsDyesBlocks();
+		ModBlocks.registerDyeDepotBlocks();
+		ModTrellises.registerTrellisParts();
+		TrellisVariants.registerTrellises();
+//		FabricLoader.getInstance().getEntrypoints("net.fabricmc.api.ModInitializer", BountifulFares.class).forEach(entrypoint -> {
+//				TrellisVariants.registerTrellises();
+//		});
 		ModItemGroups.registerItemGroups();
 		ItemGroupAdditions.registerItemGroupAdditions();
 		ModRecipes.registerRecipes();
@@ -62,14 +72,9 @@ public class BountifulFares implements ModInitializer {
 		ModPotions.registerPotions();
 		ModTrunkPlacerTypes.register();
 		ModTreeDecoratorTypes.register();
-		ModTrellises.registerTrellisParts();
-		ModBlocks.registerModBlocks();
-		ModBlocks.registerElsAndLsDyesBlocks();
-		ModBlocks.registerDyeDepotBlocks();
+		ModPaintings.registerPaintings();
 		ModRegistries.RegisterModStuffs();
 		ModBlockEntities.registerBlockEntities();
 		ModSounds.registerSounds();
-		ModPaintings.registerPaintings();
-		TrellisVariants.registerTrellises();
 	}
 }
