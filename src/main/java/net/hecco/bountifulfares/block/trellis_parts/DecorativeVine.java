@@ -15,7 +15,7 @@ public class DecorativeVine {
         this.TYPE_ID = id;
         this.CROP_ITEM = crop;
         this.CAN_DUPLICATE = canDuplicate;
-        TrellisVariants.DecorativeVines.add(this);
+//        TrellisVariants.DecorativeVines.add(this);
         ModBlocks.PLANTS_TO_DECORATIVE_VINES.put(crop, this);
     }
 
@@ -37,6 +37,11 @@ public class DecorativeVine {
 
     public boolean canDuplicate() {
         return CAN_DUPLICATE;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + TYPE_ID + "]";
     }
 
 }

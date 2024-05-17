@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.ModTrellises;
 import net.hecco.bountifulfares.block.TrellisUtil;
 import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
@@ -52,31 +53,44 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
 
-        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
-            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
-                if (trellis.getPlanks() != Items.STICK) {
-                    ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
-                            .pattern("# #")
-                            .pattern(" P ")
-                            .pattern("# #")
-                            .input('#', Items.STICK)
-                            .input('P', trellis.getPlanks())
-                            .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                            .criterion(hasItem(trellis.getPlanks()), conditionsFromItem(trellis.getPlanks()))
-                            .group("trellis")
-                            .offerTo(exporter);
-                } else {
-                    ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
-                            .pattern("# #")
-                            .pattern(" # ")
-                            .pattern("# #")
-                            .input('#', Items.STICK)
-                            .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                            .group("trellis")
-                            .offerTo(exporter);
-                }
-            }
-        }
+//        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+//            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
+//                if (trellis.getPlanks() != Items.STICK) {
+//                    ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
+//                            .pattern("# #")
+//                            .pattern(" P ")
+//                            .pattern("# #")
+//                            .input('#', Items.STICK)
+//                            .input('P', trellis.getPlanks())
+//                            .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+//                            .criterion(hasItem(trellis.getPlanks()), conditionsFromItem(trellis.getPlanks()))
+//                            .group("trellis")
+//                            .offerTo(exporter);
+//                } else {
+//                    ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
+//                            .pattern("# #")
+//                            .pattern(" # ")
+//                            .pattern("# #")
+//                            .input('#', Items.STICK)
+//                            .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+//                            .group("trellis")
+//                            .offerTo(exporter);
+//                }
+//            }
+//        }
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.OAK);
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.SPRUCE);
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.BIRCH);
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.JUNGLE);
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.ACACIA);
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.DARK_OAK);
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.MANGROVE);
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.CHERRY);
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.BAMBOO);
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.WALNUT);
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.HOARY);
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.CRIMSON);
+        TrellisUtil.registerTrellisRecipe(exporter, ModTrellises.WARPED);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, ModBlocks.FELDSPAR_LANTERN)
                 .pattern("III")

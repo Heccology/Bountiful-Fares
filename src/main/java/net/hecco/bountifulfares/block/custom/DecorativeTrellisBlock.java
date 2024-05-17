@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.ModTrellises;
 import net.hecco.bountifulfares.block.TrellisUtil;
 import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
@@ -88,7 +89,7 @@ public class DecorativeTrellisBlock extends OldTrellisBlock implements Fertiliza
         if (item != null && PLANTS_TO_DECORATIVE_TRELLISES.containsKey(item)) {
             return (PLANTS_TO_DECORATIVE_TRELLISES.get(item)).getDefaultState();
         } else {
-            return TrellisVariants.TRELLISES.get("trellis").getDefaultState();
+            return ModTrellises.TRELLISES.get("trellis").getDefaultState();
         }
     }
 }
