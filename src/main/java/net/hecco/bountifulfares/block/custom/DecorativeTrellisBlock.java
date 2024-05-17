@@ -1,8 +1,8 @@
 package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.hecco.bountifulfares.block.ModTrellises;
 import net.hecco.bountifulfares.block.TrellisUtil;
-import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.minecraft.block.Block;
@@ -94,7 +94,7 @@ public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable
         if (item != null && PLANTS_TO_DECORATIVE_TRELLISES.containsKey(item)) {
             return (PLANTS_TO_DECORATIVE_TRELLISES.get(item)).getDefaultState();
         } else {
-            return TrellisVariants.TRELLISES.get("trellis").getDefaultState();
+            return ModTrellises.TRELLISES.get("trellis").getDefaultState();
         }
     }
 

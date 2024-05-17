@@ -57,36 +57,49 @@ public class ModModelProvider extends FabricModelProvider {
         registerPicketsModels(blockStateModelGenerator, ModBlocks.CRIMSON_PICKETS);
         registerPicketsModels(blockStateModelGenerator, ModBlocks.WARPED_PICKETS);
 
-        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
-            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
-                ModTemplateModels.registerTrellis(blockStateModelGenerator, TrellisUtil.getTrellisFromVariant(trellis));
-                for (VineCrop crop : TrellisVariants.VineCrops) {
-                    ModTemplateModels.registerCropTrellis(blockStateModelGenerator,
-                            TrellisUtil.getCropTrellisFromVariant(trellis, crop),
-                            trellis.getTrellisName(),
-                            crop.getName() + "_trellis_vines",
-                            crop.getName() + "_trellis_foliage",
-                            trellis.getId());
-                }
-                for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
-                    if (vine != ModTrellises.TWISTING) {
-                        ModTemplateModels.registerDecorTrellis(blockStateModelGenerator,
-                                TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
-                                trellis.getTrellisName(),
-                                vine.getName() + "_trellis_vines",
-                                vine.getName() + "_trellis_foliage",
-                                trellis.getId());
-                    } else {
-                        ModTemplateModels.registerUpsideDownDecorTrellis(blockStateModelGenerator,
-                                TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
-                                trellis.getTrellisName(),
-                                vine.getName() + "_trellis_vines",
-                                vine.getName() + "_trellis_foliage",
-                                trellis.getId());
-                    }
-                }
-            }
-        }
+//        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+//            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
+//                ModTemplateModels.registerTrellis(blockStateModelGenerator, TrellisUtil.getTrellisFromVariant(trellis));
+//                for (VineCrop crop : TrellisVariants.VineCrops) {
+//                    ModTemplateModels.registerCropTrellis(blockStateModelGenerator,
+//                            TrellisUtil.getCropTrellisFromVariant(trellis, crop),
+//                            trellis.getTrellisName(),
+//                            crop.getName() + "_trellis_vines",
+//                            crop.getName() + "_trellis_foliage",
+//                            trellis.getId());
+//                }
+//                for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
+//                    if (vine != ModTrellises.TWISTING) {
+//                        ModTemplateModels.registerDecorTrellis(blockStateModelGenerator,
+//                                TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
+//                                trellis.getTrellisName(),
+//                                vine.getName() + "_trellis_vines",
+//                                vine.getName() + "_trellis_foliage",
+//                                trellis.getId());
+//                    } else {
+//                        ModTemplateModels.registerUpsideDownDecorTrellis(blockStateModelGenerator,
+//                                TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
+//                                trellis.getTrellisName(),
+//                                vine.getName() + "_trellis_vines",
+//                                vine.getName() + "_trellis_foliage",
+//                                trellis.getId());
+//                    }
+//                }
+//            }
+//        }
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.OAK);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.SPRUCE);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.BIRCH);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.JUNGLE);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.ACACIA);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.DARK_OAK);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.MANGROVE);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.CHERRY);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.BAMBOO);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.WALNUT);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.HOARY);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.CRIMSON);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.WARPED);
 
     }
 

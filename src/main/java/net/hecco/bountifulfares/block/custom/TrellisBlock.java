@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.block.ModTrellises;
 import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -73,7 +73,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
         boolean isSurvival = !player.isCreative();
         if (ModBlocks.CROPS_TO_CROP_TRELLISES.containsKey(itemStack.getItem())) {
             if (!world.isClient()) {
-                world.setBlockState(pos, TrellisVariants.CROP_TRELLISES.get(ModBlocks.CROPS_TO_VINE_CROPS.get(itemStack.getItem()).getName() + variant.getTrellisName()).getDefaultState().with(FACING, facing), 2);
+                world.setBlockState(pos, ModTrellises.CROP_TRELLISES.get(ModBlocks.CROPS_TO_VINE_CROPS.get(itemStack.getItem()).getName() + variant.getBlockName()).getDefaultState().with(FACING, facing), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
@@ -84,7 +84,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
         }
         if (ModBlocks.PLANTS_TO_DECORATIVE_TRELLISES.containsKey(itemStack.getItem())) {
             if (!world.isClient()) {
-                world.setBlockState(pos, TrellisVariants.DECORATIVE_TRELLISES.get(ModBlocks.PLANTS_TO_DECORATIVE_VINES.get(itemStack.getItem()).getName() + variant.getTrellisName()).getDefaultState().with(FACING, facing), 2);
+                world.setBlockState(pos, ModTrellises.DECORATIVE_TRELLISES.get(ModBlocks.PLANTS_TO_DECORATIVE_VINES.get(itemStack.getItem()).getName() + variant.getBlockName()).getDefaultState().with(FACING, facing), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);

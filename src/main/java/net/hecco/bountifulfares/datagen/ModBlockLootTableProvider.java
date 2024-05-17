@@ -143,25 +143,37 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.HOARY_PICKETS);
         addDrop(ModBlocks.CRIMSON_PICKETS);
         addDrop(ModBlocks.WARPED_PICKETS);
-        for (TrellisVariant trellis: TrellisVariants.TrellisVariants) {
-//            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
-                addDrop(TrellisUtil.getTrellisFromVariant(trellis));
-                for (VineCrop crop : TrellisVariants.VineCrops) {
-                    addDrop(TrellisUtil.getCropTrellisFromVariant(trellis, crop),
-                            plantedTrellisDrops(
-                                    TrellisUtil.getCropTrellisFromVariant(trellis, crop),
-                                    crop.getSeedsItem(),
-                                    TrellisUtil.getTrellisFromVariant(trellis)));
-                }
-                for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
-                    addDrop(TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
-                            plantedTrellisDrops(
-                                    TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
-                                    vine.getPlantItem(),
-                                    TrellisUtil.getTrellisFromVariant(trellis)));
-                }
-//            }
-        }
+//        for (TrellisVariant trellis: TrellisVariants.TrellisVariants) {
+////            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
+//                addDrop(TrellisUtil.getTrellisFromVariant(trellis));
+//                for (VineCrop crop : TrellisVariants.VineCrops) {
+//                    plantedTrellisDrops(
+//                                    TrellisUtil.getCropTrellisFromVariant(trellis, crop),
+//                                    crop.getSeedsItem(),
+//                                    TrellisUtil.getTrellisFromVariant(trellis));
+//                }
+//                for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
+//                    plantedTrellisDrops(
+//                                    TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
+//                                    vine.getPlantItem(),
+//                                    TrellisUtil.getTrellisFromVariant(trellis));
+//                }
+////            }
+//        }
+
+        registerTrellisLootTables(ModTrellises.OAK);
+        registerTrellisLootTables(ModTrellises.SPRUCE);
+        registerTrellisLootTables(ModTrellises.BIRCH);
+        registerTrellisLootTables(ModTrellises.JUNGLE);
+        registerTrellisLootTables(ModTrellises.ACACIA);
+        registerTrellisLootTables(ModTrellises.DARK_OAK);
+        registerTrellisLootTables(ModTrellises.MANGROVE);
+        registerTrellisLootTables(ModTrellises.CHERRY);
+        registerTrellisLootTables(ModTrellises.BAMBOO);
+        registerTrellisLootTables(ModTrellises.WALNUT);
+        registerTrellisLootTables(ModTrellises.HOARY);
+        registerTrellisLootTables(ModTrellises.CRIMSON);
+        registerTrellisLootTables(ModTrellises.WARPED);
 
 
 //        addDrop(ModBlocks.TRELLIS);
@@ -349,14 +361,6 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         );
     }
 
-    public LootTable.Builder plantedTrellisDrops(Block block, Item plant, Block trellis) {
-        return LootTable.builder()
-                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .with(this.applyExplosionDecay(block, ItemEntry.builder(plant))))
-                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .with(this.applyExplosionDecay(block, ItemEntry.builder(trellis))));
-    }
-
 
     public void fruitBlockDrops(Block block, Item fruitItem) {
         addDrop(block, LootTable.builder()
@@ -379,6 +383,30 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .conditionally(BlockStatePropertyLootCondition.builder(block)
                                 .properties(StatePredicate.Builder.create().exactMatch(FruitBlock.SLICES, 3)))
                         .with(this.applyExplosionDecay(block, ItemEntry.builder(fruitItem)))));
+    }
+
+    public void cropTrellisDrops(TrellisVariant trellis, VineCrop crop) {
+        addDrop(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .with(this.applyExplosionDecay(TrellisUtil.getCropTrellisFromVariant(trellis, crop), ItemEntry.builder(crop.getCropItem()))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .with(this.applyExplosionDecay(TrellisUtil.getCropTrellisFromVariant(trellis, crop), ItemEntry.builder(TrellisUtil.getTrellisFromVariant(trellis))))));
+    }
+    public void decorTrellisDrops(TrellisVariant trellis, DecorativeVine vine) {
+        addDrop(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .with(this.applyExplosionDecay(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), ItemEntry.builder(vine.getPlantItem()))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .with(this.applyExplosionDecay(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), ItemEntry.builder(TrellisUtil.getTrellisFromVariant(trellis))))));
+    }
+    public void registerTrellisLootTables(TrellisVariant trellis) {
+        addDrop(TrellisUtil.getTrellisFromVariant(trellis));
+        for (VineCrop crop : TrellisVariants.VineCrops) {
+            cropTrellisDrops(trellis, crop);
+        }
+        for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
+            decorTrellisDrops(trellis, vine);
+        }
     }
 
     public void picketsDrops(Block block) {
