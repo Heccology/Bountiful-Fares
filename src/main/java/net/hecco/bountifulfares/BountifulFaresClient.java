@@ -101,8 +101,13 @@ public class BountifulFaresClient implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.NAVY_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INDIGO_JACK_O_STRAW, RenderLayer.getCutout());
         }
-
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_LOG, RenderLayer.getCutout());
+//        ExcessiveBuilding compat
+        if (FabricLoader.getInstance().isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ANCIENT_PICKETS, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WALNUT_LADDER, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HOARY_LADDER, RenderLayer.getCutout());
+        }
+            BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_LOG, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_WOOD, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HANGING_APPLE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_SAPLING, RenderLayer.getCutout());
@@ -274,30 +279,10 @@ public class BountifulFaresClient implements ClientModInitializer {
             }
             return 1.0F;
         });
-//        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
-//                BlockRenderLayerMap.INSTANCE.putBlock(TrellisUtil.getTrellisFromVariant(trellis), RenderLayer.getCutout());
-//                for (VineCrop crop : TrellisVariants.VineCrops) {
-//                    BlockRenderLayerMap.INSTANCE.putBlock(TrellisUtil.getCropTrellisFromVariant(trellis, crop), RenderLayer.getCutout());
-//                }
-//                for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
-//                    BlockRenderLayerMap.INSTANCE.putBlock(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), RenderLayer.getCutout());
-//                }
-//        }
         for (Block block : ModTrellises.TRELLIS_RENDER_CUTOUT) {
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         }
     }
-//        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
-//            if (!Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
-//                BlockRenderLayerMap.INSTANCE.putBlock(TrellisUtil.getTrellisFromVariant(trellis), RenderLayer.getCutout());
-//                for (VineCrop crop : TrellisVariants.VineCrops) {
-//                    BlockRenderLayerMap.INSTANCE.putBlock(TrellisUtil.getCropTrellisFromVariant(trellis, crop), RenderLayer.getCutout());
-//                }
-//                for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
-//                    BlockRenderLayerMap.INSTANCE.putBlock(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), RenderLayer.getCutout());
-//                }
-//            }
-//        }
 
 
 

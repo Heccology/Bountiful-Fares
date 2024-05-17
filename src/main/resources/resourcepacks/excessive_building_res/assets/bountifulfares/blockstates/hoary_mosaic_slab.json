@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "bountifulfares:block/hoary_mosaic_slab"
+    },
+    "type=double": {
+      "model": "bountifulfares:block/hoary_mosaic"
+    },
+    "type=top": {
+      "model": "bountifulfares:block/hoary_mosaic_slab_top"
+    }
+  }
+}

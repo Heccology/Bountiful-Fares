@@ -1,0 +1,6 @@
+{
+  "parent": "bountifulfares:block/template_vertical_stairs",
+  "textures": {
+    "texture": "bountifulfares:block/hoary_planks"
+  }
+}

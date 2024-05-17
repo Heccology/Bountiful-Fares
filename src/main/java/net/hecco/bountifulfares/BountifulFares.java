@@ -42,6 +42,7 @@ public class BountifulFares implements ModInitializer {
 	public static final String ELS_AND_LS_DYES_MOD_ID = "mint";
 	public static final String DYE_DEPOT_MOD_ID = "dye_depot";
 	public static final String AMENDMENTS_MOD_ID = "amendments";
+	public static final String EXCESSIVE_BUILDING_MOD_ID = "excessive_building";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -54,11 +55,9 @@ public class BountifulFares implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModBlocks.registerElsAndLsDyesBlocks();
 		ModBlocks.registerDyeDepotBlocks();
+		ModBlocks.registerExcessiveBuildingBlocks();
 		ModTrellises.registerTrellisParts();
 		TrellisVariants.registerTrellises();
-//		FabricLoader.getInstance().getEntrypoints("net.fabricmc.api.ModInitializer", BountifulFares.class).forEach(entrypoint -> {
-//				TrellisVariants.registerTrellises();
-//		});
 		ModItemGroups.registerItemGroups();
 		ItemGroupAdditions.registerItemGroupAdditions();
 		ModRecipes.registerRecipes();

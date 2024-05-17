@@ -336,6 +336,41 @@ public class ModBlocks {
         }
     }
 
+
+    public static Block ANCIENT_PICKETS;
+    public static Block WALNUT_VERTICAL_STAIRS;
+    public static Block CHISELED_WALNUT_PLANKS;
+    public static Block WALNUT_MOSAIC;
+    public static Block WALNUT_MOSAIC_STAIRS;
+    public static Block WALNUT_MOSAIC_VERTICAL_STAIRS;
+    public static Block WALNUT_MOSAIC_SLAB;
+    public static Block WALNUT_LADDER;
+    public static Block HOARY_VERTICAL_STAIRS;
+    public static Block CHISELED_HOARY_PLANKS;
+    public static Block HOARY_MOSAIC;
+    public static Block HOARY_MOSAIC_STAIRS;
+    public static Block HOARY_MOSAIC_VERTICAL_STAIRS;
+    public static Block HOARY_MOSAIC_SLAB;
+    public static Block HOARY_LADDER;
+    public static void registerExcessiveBuildingBlocks() {
+        ANCIENT_PICKETS = registerBlock("ancient_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.WHITE_GRAY).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+        WALNUT_VERTICAL_STAIRS = registerBlock("walnut_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
+        CHISELED_WALNUT_PLANKS = registerBlock("chiseled_walnut_planks", new Block(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
+        WALNUT_MOSAIC = registerBlock("walnut_mosaic", new Block(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
+        WALNUT_MOSAIC_STAIRS = registerBlock("walnut_mosaic_stairs", new ModStairsBlock(ModBlocks.WALNUT_MOSAIC.getDefaultState(), FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
+        WALNUT_MOSAIC_SLAB = registerBlock("walnut_mosaic_slab", new SlabBlock(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
+        WALNUT_MOSAIC_VERTICAL_STAIRS = registerBlock("walnut_mosaic_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
+        WALNUT_LADDER = registerBlock("walnut_ladder", new LadderBlock(FabricBlockSettings.copyOf(Blocks.LADDER)));
+
+        HOARY_VERTICAL_STAIRS = registerBlock("hoary_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
+        CHISELED_HOARY_PLANKS = registerBlock("chiseled_hoary_planks", new Block(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
+        HOARY_MOSAIC = registerBlock("hoary_mosaic", new Block(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
+        HOARY_MOSAIC_STAIRS = registerBlock("hoary_mosaic_stairs", new ModStairsBlock(ModBlocks.HOARY_MOSAIC.getDefaultState(), FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
+        HOARY_MOSAIC_SLAB = registerBlock("hoary_mosaic_slab", new SlabBlock(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
+        HOARY_MOSAIC_VERTICAL_STAIRS = registerBlock("hoary_mosaic_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
+        HOARY_LADDER = registerBlock("hoary_ladder", new LadderBlock(FabricBlockSettings.copyOf(Blocks.LADDER)));
+    }
+
     public static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
         return state -> state.get(Properties.LIT) ? litLevel : 0;
     }

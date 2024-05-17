@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bountifulfares:block/hoary_mosaic_vertical_stairs",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bountifulfares:block/hoary_mosaic_vertical_stairs"
+    },
+    "facing=south": {
+      "model": "bountifulfares:block/hoary_mosaic_vertical_stairs",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bountifulfares:block/hoary_mosaic_vertical_stairs",
+      "y": 270
+    }
+  }
+}

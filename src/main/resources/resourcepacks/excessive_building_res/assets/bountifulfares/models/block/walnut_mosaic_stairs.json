@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "bountifulfares:block/walnut_mosaic",
+    "side": "bountifulfares:block/walnut_mosaic",
+    "top": "bountifulfares:block/walnut_mosaic"
+  }
+}
