@@ -273,6 +273,27 @@ public class ModItemGroups {
                                 }
                             }
                         }
+                        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+                            if (Objects.equals(trellis.getModId(), BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+                                if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
+                                    entries.add(TrellisUtil.getTrellisFromVariant(trellis));
+                                }
+                            }
+                        }
+                        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+                            if (Objects.equals(trellis.getModId(), BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+                                if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
+                                    entries.add(TrellisUtil.getTrellisFromVariant(trellis));
+                                }
+                            }
+                        }
+                        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+                            if (Objects.equals(trellis.getModId(), BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+                                if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
+                                    entries.add(TrellisUtil.getTrellisFromVariant(trellis));
+                                }
+                            }
+                        }
                         entries.add(ModItems.PASSION_FRUIT);
                         entries.add(ModItems.ELDERBERRIES);
                         entries.add(ModItems.LAPISBERRIES);

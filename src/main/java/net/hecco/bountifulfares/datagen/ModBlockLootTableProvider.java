@@ -172,6 +172,23 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         registerTrellisLootTables(ModTrellises.HOARY);
         registerTrellisLootTables(ModTrellises.CRIMSON);
         registerTrellisLootTables(ModTrellises.WARPED);
+//        registerTrellisLootTables(ModTrellises.ASPEN);
+//        registerTrellisLootTables(ModTrellises.CEDAR);
+//        registerTrellisLootTables(ModTrellises.COCONUT);
+//        registerTrellisLootTables(ModTrellises.CYPRESS);
+//        registerTrellisLootTables(ModTrellises.FIR);
+//        registerTrellisLootTables(ModTrellises.GHAF);
+//        registerTrellisLootTables(ModTrellises.JOSHUA);
+//        registerTrellisLootTables(ModTrellises.LARCH);
+//        registerTrellisLootTables(ModTrellises.MAHOGANY);
+//        registerTrellisLootTables(ModTrellises.MAPLE);
+//        registerTrellisLootTables(ModTrellises.OLIVE);
+//        registerTrellisLootTables(ModTrellises.PALO_VERDE);
+//        registerTrellisLootTables(ModTrellises.REDWOOD);
+//        registerTrellisLootTables(ModTrellises.SAXAUL);
+//        registerTrellisLootTables(ModTrellises.SUGI);
+//        registerTrellisLootTables(ModTrellises.WILLOW);
+//        registerTrellisLootTables(ModTrellises.WISTERIA);
 
 
 //        addDrop(ModBlocks.TRELLIS);

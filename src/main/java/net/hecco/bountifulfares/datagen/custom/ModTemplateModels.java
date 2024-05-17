@@ -1,7 +1,9 @@
 package net.hecco.bountifulfares.datagen.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.block.TrellisUtil;
 import net.hecco.bountifulfares.block.custom.PicketsBlock;
+import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.Tilt;
@@ -68,9 +70,11 @@ public class ModTemplateModels {
         Models.GENERATED.upload(ModelIds.getItemModelId(picket.asItem()), TextureMap.layer0(getItemId(picket)), blockStateModelGenerator.modelCollector);
     }
 
-    public static void registerTrellis(BlockStateModelGenerator blockStateModelGenerator, Block trellis){
-        Identifier modelID = TEMPLATE_TRELLIS.upload(trellis, TextureMap.texture(trellis), blockStateModelGenerator.modelCollector);
-        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(trellis)
+    public static void registerTrellis(BlockStateModelGenerator blockStateModelGenerator, TrellisVariant trellis){
+        Identifier modelID = TEMPLATE_TRELLIS.upload(TrellisUtil.getTrellisFromVariant(trellis), TextureMap.texture(TrellisUtil.getTrellisFromVariant(trellis)), blockStateModelGenerator.modelCollector);
+        blockStateModelGenerator.registerParentedItemModel(TrellisUtil.getTrellisFromVariant(trellis), modelID);
+        blockStateModelGenerator.excludeFromSimpleItemModelGeneration(TrellisUtil.getTrellisFromVariant(trellis));
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(TrellisUtil.getTrellisFromVariant(trellis))
                 .coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_FACING)
                         .register(Direction.NORTH, BlockStateVariant.create()
                                 .put(VariantSettings.MODEL, modelID).put(VariantSettings.Y, VariantSettings.Rotation.R0))

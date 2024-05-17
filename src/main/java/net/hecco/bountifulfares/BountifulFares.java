@@ -43,6 +43,7 @@ public class BountifulFares implements ModInitializer {
 	public static final String DYE_DEPOT_MOD_ID = "dye_depot";
 	public static final String AMENDMENTS_MOD_ID = "amendments";
 	public static final String EXCESSIVE_BUILDING_MOD_ID = "excessive_building";
+	public static final String NATURES_SPIRIT_MOD_ID = "natures_spirit";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 

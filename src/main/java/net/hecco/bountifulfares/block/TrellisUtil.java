@@ -33,7 +33,7 @@ public class TrellisUtil {
     }
 
     public static void registerTrellisModels(BlockStateModelGenerator blockStateModelGenerator, TrellisVariant variant) {
-        ModTemplateModels.registerTrellis(blockStateModelGenerator, TrellisUtil.getTrellisFromVariant(variant));
+        ModTemplateModels.registerTrellis(blockStateModelGenerator, variant);
         ModTemplateModels.registerCropTrellis(blockStateModelGenerator,
                 TrellisUtil.getCropTrellisFromVariant(variant, ModTrellises.PASSION_FRUIT),
                 variant.getBlockName(),

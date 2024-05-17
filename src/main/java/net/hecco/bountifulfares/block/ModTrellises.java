@@ -46,8 +46,30 @@ public class ModTrellises {
     public static final TrellisVariant HOARY = new TrellisVariant(BountifulFares.MOD_ID, "hoary", ModBlocks.HOARY_PLANKS.asItem(), TRELLIS_RENDER_CUTOUT);
     public static final TrellisVariant CRIMSON = new TrellisVariant(BountifulFares.MOD_ID, "crimson", Items.CRIMSON_PLANKS, TRELLIS_RENDER_CUTOUT);
     public static final TrellisVariant WARPED = new TrellisVariant(BountifulFares.MOD_ID, "warped", Items.WARPED_PLANKS, TRELLIS_RENDER_CUTOUT);
+//    El's and L's Dyes
     public static TrellisVariant WINTERGREEN;
+
+//    Excessive Building
     public static TrellisVariant ANCIENT;
+
+//    Nature's Spirit
+    public static TrellisVariant ASPEN;
+    public static TrellisVariant CEDAR;
+    public static TrellisVariant COCONUT;
+    public static TrellisVariant CYPRESS;
+    public static TrellisVariant FIR;
+    public static TrellisVariant GHAF;
+    public static TrellisVariant JOSHUA;
+    public static TrellisVariant LARCH;
+    public static TrellisVariant MAHOGANY;
+    public static TrellisVariant MAPLE;
+    public static TrellisVariant OLIVE;
+    public static TrellisVariant PALO_VERDE;
+    public static TrellisVariant REDWOOD;
+    public static TrellisVariant SAXAUL;
+    public static TrellisVariant SUGI;
+    public static TrellisVariant WILLOW;
+    public static TrellisVariant WISTERIA;
 
     public static void registerTrellisParts() {
         if (FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
@@ -55,6 +77,25 @@ public class ModTrellises {
         }
         if (FabricLoader.getInstance().isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
             ANCIENT = new TrellisVariant(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "ancient", null, TRELLIS_RENDER_CUTOUT);
+        }
+        if (FabricLoader.getInstance().isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+            ASPEN = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "aspen", null, TRELLIS_RENDER_CUTOUT);
+            CEDAR = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "cedar", null, TRELLIS_RENDER_CUTOUT);
+            COCONUT = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "coconut", null, TRELLIS_RENDER_CUTOUT);
+            CYPRESS = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "cypress", null, TRELLIS_RENDER_CUTOUT);
+            FIR = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "fir", null, TRELLIS_RENDER_CUTOUT);
+            GHAF = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "ghaf", null, TRELLIS_RENDER_CUTOUT);
+            JOSHUA = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "joshua", null, TRELLIS_RENDER_CUTOUT);
+            LARCH = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "larch", null, TRELLIS_RENDER_CUTOUT);
+            MAHOGANY = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "mahogany", null, TRELLIS_RENDER_CUTOUT);
+            MAPLE = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "maple", null, TRELLIS_RENDER_CUTOUT);
+            OLIVE = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "olive", null, TRELLIS_RENDER_CUTOUT);
+            PALO_VERDE = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "palo_verde", null, TRELLIS_RENDER_CUTOUT);
+            REDWOOD = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "redwood", null, TRELLIS_RENDER_CUTOUT);
+            SAXAUL = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "saxaul", null, TRELLIS_RENDER_CUTOUT);
+            SUGI = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "sugi", null, TRELLIS_RENDER_CUTOUT);
+            WILLOW = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "willow", null, TRELLIS_RENDER_CUTOUT);
+            WISTERIA = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "wisteria", null, TRELLIS_RENDER_CUTOUT);
         }
     }
 }
