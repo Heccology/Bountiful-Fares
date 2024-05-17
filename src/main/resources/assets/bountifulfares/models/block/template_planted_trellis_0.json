@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench by Hecco",
 	"ambientocclusion": false,
 	"textures": {
-		"particle": "bountifulfares:block/trellis"
+		"particle": "#texture"
 	},
 	"elements": [
 		{
