@@ -23,6 +23,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
@@ -66,12 +67,18 @@ public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable
         }
         return ActionResult.PASS;
     }
+    @Override
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (!player.isCreative()) {
+            dropStack(world, pos, new ItemStack(vine.getPlantItem()));
+        }
+        return super.onBreak(world, pos, state, player);
+    }
 
-
-//    @Override
-//    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-//        return new ItemStack(ModBlocks.TRELLIS);
-//    }
+    @Override
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
+        return new ItemStack(TrellisUtil.getTrellisFromVariant(variant));
+    }
 
     @Override
     public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {

@@ -81,6 +81,14 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     }
 
     @Override
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (!player.isCreative()) {
+            dropStack(world, pos, new ItemStack(crop.getSeedsItem()));
+        }
+        return super.onBreak(world, pos, state, player);
+    }
+
+    @Override
     public String getTranslationKey() {
         return "block." + variant.getModId() + "." + crop.getName() + "_" + variant.getBlockName();
     }

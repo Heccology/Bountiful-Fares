@@ -4,6 +4,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.ModTrellises;
+import net.hecco.bountifulfares.block.TrellisUtil;
 import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
@@ -125,15 +127,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CRIMSON_PICKETS)
                 .add(ModBlocks.WARPED_PICKETS)
                 .add(ModBlocks.GRISTMILL)
-//                .add(ModBlocks.TRELLIS)
-//                .add(ModBlocks.PASSION_FRUIT_TRELLIS)
-//                .add(ModBlocks.ELDERBERRY_TRELLIS)
-//                .add(ModBlocks.GLOW_BERRY_TRELLIS)
-//                .add(ModBlocks.LAPISBERRY_TRELLIS)
-//                .add(ModBlocks.ROSE_TRELLIS)
-//                .add(ModBlocks.LILAC_TRELLIS)
-//                .add(ModBlocks.PEONY_TRELLIS)
-//                .add(ModBlocks.SUNFLOWER_TRELLIS)
                 .add(ModBlocks.SPONGEKIN)
                 .add(ModBlocks.APPLE_BLOCK)
                 .add(ModBlocks.ORANGE_BLOCK)
@@ -177,6 +170,21 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 //                .add(ModBlocks.FUCHSIA_JACK_O_STRAW)
                 .add(ModBlocks.PINK_JACK_O_STRAW)
         ;
+
+        registerTrellisBlockTags(ModTrellises.OAK);
+        registerTrellisBlockTags(ModTrellises.SPRUCE);
+        registerTrellisBlockTags(ModTrellises.BIRCH);
+        registerTrellisBlockTags(ModTrellises.JUNGLE);
+        registerTrellisBlockTags(ModTrellises.ACACIA);
+        registerTrellisBlockTags(ModTrellises.DARK_OAK);
+        registerTrellisBlockTags(ModTrellises.MANGROVE);
+        registerTrellisBlockTags(ModTrellises.CHERRY);
+        registerTrellisBlockTags(ModTrellises.BAMBOO);
+        registerTrellisBlockTags(ModTrellises.WALNUT);
+        registerTrellisBlockTags(ModTrellises.HOARY);
+        registerTrellisBlockTags(ModTrellises.CRIMSON);
+        registerTrellisBlockTags(ModTrellises.WARPED);
+
         getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
                 .add(ModBlocks.APPLE_LEAVES)
                 .add(ModBlocks.FLOWERING_APPLE_LEAVES)
@@ -408,5 +416,21 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.DIRT)
                 .add(ModBlocks.GRASSY_DIRT)
         ;
+    }
+
+    public void registerTrellisBlockTags(TrellisVariant trellis) {
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .add(TrellisUtil.getTrellisFromVariant(trellis))
+        ;
+        for (VineCrop crop : TrellisVariants.VineCrops) {
+            getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                    .add(TrellisUtil.getCropTrellisFromVariant(trellis, crop))
+            ;
+        }
+        for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
+            getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                    .add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine))
+            ;
+        }
     }
 }

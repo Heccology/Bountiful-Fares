@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.block.trellis_parts;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.hecco.bountifulfares.block.ModBlocks;
 import net.hecco.bountifulfares.block.ModTrellises;
 import net.hecco.bountifulfares.block.TrellisVariants;
 import net.hecco.bountifulfares.block.custom.CropTrellisBlock;
@@ -40,7 +41,7 @@ public class TrellisVariant {
         renderCutoutList.add(ModTrellises.CROP_TRELLISES.get(ModTrellises.ELDERBERRY.getName() + this.getBlockName()));
         ModTrellises.CROP_TRELLISES.put(ModTrellises.LAPISBERRY.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), ModTrellises.LAPISBERRY.getName() + "_" + this.getBlockName(), new CropTrellisBlock(ModTrellises.LAPISBERRY.getSeedsItem(), ModTrellises.LAPISBERRY.getCropItem(), this, ModTrellises.LAPISBERRY, FabricBlockSettings.create().nonOpaque().strength(0.5F).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS))));
         renderCutoutList.add(ModTrellises.CROP_TRELLISES.get(ModTrellises.LAPISBERRY.getName() + this.getBlockName()));
-        ModTrellises.CROP_TRELLISES.put(ModTrellises.GLOW_BERRY.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), ModTrellises.GLOW_BERRY.getName() + "_" + this.getBlockName(), new CropTrellisBlock(ModTrellises.GLOW_BERRY.getSeedsItem(), ModTrellises.GLOW_BERRY.getCropItem(), this, ModTrellises.GLOW_BERRY, FabricBlockSettings.create().nonOpaque().strength(0.5F).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS))));
+        ModTrellises.CROP_TRELLISES.put(ModTrellises.GLOW_BERRY.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), ModTrellises.GLOW_BERRY.getName() + "_" + this.getBlockName(), new CropTrellisBlock(ModTrellises.GLOW_BERRY.getSeedsItem(), ModTrellises.GLOW_BERRY.getCropItem(), this, ModTrellises.GLOW_BERRY, FabricBlockSettings.create().nonOpaque().strength(0.5F).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS).luminance(ModBlocks.createLightLevelFromAgeBlockState(0, 6, 12)))));
         renderCutoutList.add(ModTrellises.CROP_TRELLISES.get(ModTrellises.GLOW_BERRY.getName() + this.getBlockName()));
         ModTrellises.DECORATIVE_TRELLISES.put(ModTrellises.ROSE.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), ModTrellises.ROSE.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(ModTrellises.ROSE.canDuplicate(), ModTrellises.ROSE.getPlantItem(), this, ModTrellises.ROSE, FabricBlockSettings.create().nonOpaque().strength(0.5F).instrument(Instrument.BASS).nonOpaque().sounds(ModSounds.PLANTED_TRELLIS))));
         renderCutoutList.add(ModTrellises.DECORATIVE_TRELLISES.get(ModTrellises.ROSE.getName() + this.getBlockName()));
