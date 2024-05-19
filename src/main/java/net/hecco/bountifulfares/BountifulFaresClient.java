@@ -109,7 +109,7 @@ public class BountifulFaresClient implements ClientModInitializer {
         }
 
 //        NaturesSpirit compat
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+        if (FabricLoader.getInstance().isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ASPEN_PICKETS, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CEDAR_PICKETS, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.COCONUT_PICKETS, RenderLayer.getCutout());
