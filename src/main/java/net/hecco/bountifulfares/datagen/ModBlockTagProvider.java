@@ -414,6 +414,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     }
 
     public void registerTrellisBlockTags(TrellisVariant trellis) {
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .add(TrellisUtil.getTrellisFromVariant(trellis))
+        ;
         for (VineCrop crop : TrellisVariants.VineCrops) {
             getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                     .add(TrellisUtil.getCropTrellisFromVariant(trellis, crop))

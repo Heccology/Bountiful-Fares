@@ -126,22 +126,22 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.WALNUT_HANGING_SIGN);
         addDrop(ModBlocks.WALNUT_WALL_HANGING_SIGN);
         addDrop(ModBlocks.WALNUT_LEAVES, leavesDrops(ModBlocks.WALNUT_LEAVES, ModBlocks.WALNUT_SAPLING, SAPLING_DROP_CHANCE));
-        picketsDrops(ModBlocks.ASPEN_PICKETS);
-        picketsDrops(ModBlocks.CEDAR_PICKETS);
-        picketsDrops(ModBlocks.COCONUT_PICKETS);
-        picketsDrops(ModBlocks.CYPRESS_PICKETS);
-        picketsDrops(ModBlocks.FIR_PICKETS);
-        picketsDrops(ModBlocks.GHAF_PICKETS);
-        picketsDrops(ModBlocks.JOSHUA_PICKETS);
-        picketsDrops(ModBlocks.LARCH_PICKETS);
-        picketsDrops(ModBlocks.MAHOGANY_PICKETS);
-        picketsDrops(ModBlocks.MAPLE_PICKETS);
-        picketsDrops(ModBlocks.PALO_VERDE_PICKETS);
-        picketsDrops(ModBlocks.MAHOGANY_PICKETS);
-        picketsDrops(ModBlocks.SAXAUL_PICKETS);
-        picketsDrops(ModBlocks.SUGI_PICKETS);
-        picketsDrops(ModBlocks.WILLOW_PICKETS);
-        picketsDrops(ModBlocks.WISTERIA_PICKETS);
+//        picketsDrops(ModBlocks.ASPEN_PICKETS);
+//        picketsDrops(ModBlocks.CEDAR_PICKETS);
+//        picketsDrops(ModBlocks.COCONUT_PICKETS);
+//        picketsDrops(ModBlocks.CYPRESS_PICKETS);
+//        picketsDrops(ModBlocks.FIR_PICKETS);
+//        picketsDrops(ModBlocks.GHAF_PICKETS);
+//        picketsDrops(ModBlocks.JOSHUA_PICKETS);
+//        picketsDrops(ModBlocks.LARCH_PICKETS);
+//        picketsDrops(ModBlocks.MAHOGANY_PICKETS);
+//        picketsDrops(ModBlocks.MAPLE_PICKETS);
+//        picketsDrops(ModBlocks.PALO_VERDE_PICKETS);
+//        picketsDrops(ModBlocks.MAHOGANY_PICKETS);
+//        picketsDrops(ModBlocks.SAXAUL_PICKETS);
+//        picketsDrops(ModBlocks.SUGI_PICKETS);
+//        picketsDrops(ModBlocks.WILLOW_PICKETS);
+//        picketsDrops(ModBlocks.WISTERIA_PICKETS);
 //        for (TrellisVariant trellis: TrellisVariants.TrellisVariants) {
 ////            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
 //                addDrop(TrellisUtil.getTrellisFromVariant(trellis));
