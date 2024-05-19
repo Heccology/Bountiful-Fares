@@ -11,21 +11,6 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "minecraft:sunflower"
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:explosion_decay"
-            }
-          ],
           "name": "bountifulfares:mangrove_trellis"
         }
       ],
