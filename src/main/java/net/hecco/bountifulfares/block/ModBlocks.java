@@ -240,19 +240,19 @@ public class ModBlocks {
     public static final Block ARTISAN_BREAD = registerBlock16StackItem("artisan_bread", new ArtisanBreadBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block ARTISAN_COOKIES = registerBlockNoItem("artisan_cookies", new ArtisanCookiesBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
 
-    public static Block OAK_PICKETS = registerBlock("oak_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.OAK_TAN).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-    public static Block SPRUCE_PICKETS = registerBlock("spruce_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.SPRUCE_BROWN).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-    public static Block BIRCH_PICKETS = registerBlock("birch_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.PALE_YELLOW).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-    public static Block JUNGLE_PICKETS = registerBlock("jungle_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.DIRT_BROWN).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-    public static Block ACACIA_PICKETS = registerBlock("acacia_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.ORANGE).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-    public static Block DARK_OAK_PICKETS = registerBlock("dark_oak_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.BROWN).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-    public static Block MANGROVE_PICKETS = registerBlock("mangrove_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.RED).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-    public static Block CHERRY_PICKETS = registerBlock("cherry_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-    public static Block BAMBOO_PICKETS = registerBlock("bamboo_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-    public static Block WALNUT_PICKETS = registerBlock("walnut_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.SPRUCE_BROWN).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-    public static Block HOARY_PICKETS = registerBlock("hoary_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.TERRACOTTA_GRAY).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-    public static Block CRIMSON_PICKETS = registerBlock("crimson_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.DULL_PINK).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-    public static Block WARPED_PICKETS = registerBlock("warped_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.DARK_AQUA).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block OAK_PICKETS = registerBlock("oak_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block SPRUCE_PICKETS = registerBlock("spruce_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block BIRCH_PICKETS = registerBlock("birch_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block JUNGLE_PICKETS = registerBlock("jungle_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block ACACIA_PICKETS = registerBlock("acacia_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block DARK_OAK_PICKETS = registerBlock("dark_oak_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block MANGROVE_PICKETS = registerBlock("mangrove_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block CHERRY_PICKETS = registerBlock("cherry_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block BAMBOO_PICKETS = registerBlock("bamboo_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block WALNUT_PICKETS = registerBlock("walnut_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block HOARY_PICKETS = registerBlock("hoary_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block CRIMSON_PICKETS = registerBlock("crimson_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+    public static Block WARPED_PICKETS = registerBlock("warped_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
 
     public static Block GRASSY_DIRT = registerBlock("grassy_dirt", new GrassyDirtBlock(FabricBlockSettings.copyOf(Blocks.DIRT).ticksRandomly()));
 
@@ -300,7 +300,7 @@ public class ModBlocks {
             SHAMROCK_JACK_O_STRAW = registerBlock("shamrock_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             VELVET_JACK_O_STRAW = registerBlock("velvet_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             VERMILION_JACK_O_STRAW = registerBlock("vermilion_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            WINTERGREEN_PICKETS = registerBlock("wintergreen_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.BRIGHT_TEAL).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+            WINTERGREEN_PICKETS = registerBlock("wintergreen_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
         }
     }
     public static Block ROSE_JACK_O_STRAW;
@@ -353,23 +353,68 @@ public class ModBlocks {
     public static Block HOARY_MOSAIC_SLAB;
     public static Block HOARY_LADDER;
     public static void registerExcessiveBuildingBlocks() {
-        ANCIENT_PICKETS = registerBlock("ancient_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.WHITE_GRAY).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-        WALNUT_VERTICAL_STAIRS = registerBlock("walnut_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
-        CHISELED_WALNUT_PLANKS = registerBlock("chiseled_walnut_planks", new Block(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
-        WALNUT_MOSAIC = registerBlock("walnut_mosaic", new Block(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
-        WALNUT_MOSAIC_STAIRS = registerBlock("walnut_mosaic_stairs", new ModStairsBlock(ModBlocks.WALNUT_MOSAIC.getDefaultState(), FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
-        WALNUT_MOSAIC_SLAB = registerBlock("walnut_mosaic_slab", new SlabBlock(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
-        WALNUT_MOSAIC_VERTICAL_STAIRS = registerBlock("walnut_mosaic_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
-        WALNUT_LADDER = registerBlock("walnut_ladder", new LadderBlock(FabricBlockSettings.copyOf(Blocks.LADDER)));
+        if (FabricLoader.getInstance().isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+            ANCIENT_PICKETS = registerBlock("ancient_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+            WALNUT_VERTICAL_STAIRS = registerBlock("walnut_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
+            CHISELED_WALNUT_PLANKS = registerBlock("chiseled_walnut_planks", new Block(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
+            WALNUT_MOSAIC = registerBlock("walnut_mosaic", new Block(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
+            WALNUT_MOSAIC_STAIRS = registerBlock("walnut_mosaic_stairs", new ModStairsBlock(ModBlocks.WALNUT_MOSAIC.getDefaultState(), FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
+            WALNUT_MOSAIC_SLAB = registerBlock("walnut_mosaic_slab", new SlabBlock(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
+            WALNUT_MOSAIC_VERTICAL_STAIRS = registerBlock("walnut_mosaic_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(ModBlocks.WALNUT_PLANKS)));
+            WALNUT_LADDER = registerBlock("walnut_ladder", new LadderBlock(FabricBlockSettings.copyOf(Blocks.LADDER)));
 
-        HOARY_VERTICAL_STAIRS = registerBlock("hoary_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
-        CHISELED_HOARY_PLANKS = registerBlock("chiseled_hoary_planks", new Block(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
-        HOARY_MOSAIC = registerBlock("hoary_mosaic", new Block(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
-        HOARY_MOSAIC_STAIRS = registerBlock("hoary_mosaic_stairs", new ModStairsBlock(ModBlocks.HOARY_MOSAIC.getDefaultState(), FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
-        HOARY_MOSAIC_SLAB = registerBlock("hoary_mosaic_slab", new SlabBlock(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
-        HOARY_MOSAIC_VERTICAL_STAIRS = registerBlock("hoary_mosaic_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
-        HOARY_LADDER = registerBlock("hoary_ladder", new LadderBlock(FabricBlockSettings.copyOf(Blocks.LADDER)));
+            HOARY_VERTICAL_STAIRS = registerBlock("hoary_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
+            CHISELED_HOARY_PLANKS = registerBlock("chiseled_hoary_planks", new Block(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
+            HOARY_MOSAIC = registerBlock("hoary_mosaic", new Block(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
+            HOARY_MOSAIC_STAIRS = registerBlock("hoary_mosaic_stairs", new ModStairsBlock(ModBlocks.HOARY_MOSAIC.getDefaultState(), FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
+            HOARY_MOSAIC_SLAB = registerBlock("hoary_mosaic_slab", new SlabBlock(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
+            HOARY_MOSAIC_VERTICAL_STAIRS = registerBlock("hoary_mosaic_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(ModBlocks.HOARY_PLANKS)));
+            HOARY_LADDER = registerBlock("hoary_ladder", new LadderBlock(FabricBlockSettings.copyOf(Blocks.LADDER)));
+        }
     }
+
+
+    public static Block ASPEN_PICKETS;
+    public static Block CEDAR_PICKETS;
+    public static Block COCONUT_PICKETS;
+    public static Block CYPRESS_PICKETS;
+    public static Block FIR_PICKETS;
+    public static Block GHAF_PICKETS;
+    public static Block JOSHUA_PICKETS;
+    public static Block LARCH_PICKETS;
+    public static Block MAHOGANY_PICKETS;
+    public static Block MAPLE_PICKETS;
+    public static Block OLIVE_PICKETS;
+    public static Block PALO_VERDE_PICKETS;
+    public static Block REDWOOD_PICKETS;
+    public static Block SAXAUL_PICKETS;
+    public static Block SUGI_PICKETS;
+    public static Block WILLOW_PICKETS;
+    public static Block WISTERIA_PICKETS;
+
+    public static void registerNaturesSpiritBlocks() {
+        if (FabricLoader.getInstance().isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+            ASPEN_PICKETS = registerBlock("aspen_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            CEDAR_PICKETS = registerBlock("cedar_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            COCONUT_PICKETS = registerBlock("coconut_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            CYPRESS_PICKETS = registerBlock("cypress_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            FIR_PICKETS = registerBlock("fir_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            GHAF_PICKETS = registerBlock("ghaf_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            JOSHUA_PICKETS = registerBlock("joshua_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            LARCH_PICKETS = registerBlock("larch_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            MAHOGANY_PICKETS = registerBlock("mahogany_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            MAPLE_PICKETS = registerBlock("maple_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            OLIVE_PICKETS = registerBlock("olive_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            PALO_VERDE_PICKETS = registerBlock("palo_verde_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            REDWOOD_PICKETS = registerBlock("redwood_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            SAXAUL_PICKETS = registerBlock("saxaul_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            SUGI_PICKETS = registerBlock("sugi_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            WILLOW_PICKETS = registerBlock("willow_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+            WISTERIA_PICKETS = registerBlock("wisteria_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+        }
+    }
+
+
 
     public static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
         return state -> state.get(Properties.LIT) ? litLevel : 0;

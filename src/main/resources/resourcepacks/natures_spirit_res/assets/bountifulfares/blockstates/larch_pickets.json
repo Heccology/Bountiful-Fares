@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "bountifulfares:block/wintergreen_pickets"
+        "model": "bountifulfares:block/larch_pickets"
       },
       "when": {
         "north": "true"
@@ -10,7 +10,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/wintergreen_pickets"
+        "model": "bountifulfares:block/larch_pickets"
       },
       "when": {
         "east": "false",
@@ -21,7 +21,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/wintergreen_pickets",
+        "model": "bountifulfares:block/larch_pickets",
         "y": 90
       },
       "when": {
@@ -30,7 +30,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/wintergreen_pickets",
+        "model": "bountifulfares:block/larch_pickets",
         "y": 90
       },
       "when": {
@@ -42,7 +42,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/wintergreen_pickets",
+        "model": "bountifulfares:block/larch_pickets",
         "y": 180
       },
       "when": {
@@ -51,7 +51,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/wintergreen_pickets",
+        "model": "bountifulfares:block/larch_pickets",
         "y": 180
       },
       "when": {
@@ -63,7 +63,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/wintergreen_pickets",
+        "model": "bountifulfares:block/larch_pickets",
         "y": 270
       },
       "when": {
@@ -72,7 +72,7 @@
     },
     {
       "apply": {
-        "model": "bountifulfares:block/wintergreen_pickets",
+        "model": "bountifulfares:block/larch_pickets",
         "y": 270
       },
       "when": {

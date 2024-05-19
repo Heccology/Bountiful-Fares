@@ -63,10 +63,18 @@ public class DecorativeTrellisBlock extends OldTrellisBlock implements Fertiliza
         return ActionResult.PASS;
     }
 
-//    @Override
-//    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-//        return new ItemStack(ModBlocks.TRELLIS);
-//    }
+    @Override
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (!player.isCreative()) {
+            dropStack(world, pos, new ItemStack(vine.getPlantItem()));
+        }
+        super.onBreak(world, pos, state, player);
+    }
+
+    @Override
+    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+        return new ItemStack(TrellisUtil.getTrellisFromVariant(variant));
+    }
 
     @Override
     public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {

@@ -57,6 +57,7 @@ public class BountifulFares implements ModInitializer {
 		ModBlocks.registerElsAndLsDyesBlocks();
 		ModBlocks.registerDyeDepotBlocks();
 		ModBlocks.registerExcessiveBuildingBlocks();
+		ModBlocks.registerNaturesSpiritBlocks();
 		ModTrellises.registerTrellisParts();
 		TrellisVariants.registerTrellises();
 		ModItemGroups.registerItemGroups();

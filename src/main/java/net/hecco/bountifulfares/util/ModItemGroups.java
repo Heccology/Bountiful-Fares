@@ -130,6 +130,25 @@ public class ModItemGroups {
                         if (mint) {
                             entries.add(ModBlocks.WINTERGREEN_PICKETS);
                         }
+                        if (FabricLoader.getInstance().isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+                            entries.add(ModBlocks.REDWOOD_PICKETS);
+                            entries.add(ModBlocks.SUGI_PICKETS);
+                            entries.add(ModBlocks.WISTERIA_PICKETS);
+                            entries.add(ModBlocks.FIR_PICKETS);
+                            entries.add(ModBlocks.WILLOW_PICKETS);
+                            entries.add(ModBlocks.ASPEN_PICKETS);
+                            entries.add(ModBlocks.MAPLE_PICKETS);
+                            entries.add(ModBlocks.CYPRESS_PICKETS);
+                            entries.add(ModBlocks.OLIVE_PICKETS);
+                            entries.add(ModBlocks.JOSHUA_PICKETS);
+                            entries.add(ModBlocks.GHAF_PICKETS);
+                            entries.add(ModBlocks.PALO_VERDE_PICKETS);
+                            entries.add(ModBlocks.COCONUT_PICKETS);
+                            entries.add(ModBlocks.CEDAR_PICKETS);
+                            entries.add(ModBlocks.LARCH_PICKETS);
+                            entries.add(ModBlocks.MAHOGANY_PICKETS);
+                            entries.add(ModBlocks.SAXAUL_PICKETS);
+                        }
                         entries.add(ModBlocks.HOARY_PICKETS);
                         entries.add(ModBlocks.CRIMSON_PICKETS);
                         entries.add(ModBlocks.WARPED_PICKETS);

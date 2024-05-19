@@ -55,6 +55,23 @@ public class ModModelProvider extends FabricModelProvider {
         registerPicketsModels(blockStateModelGenerator, ModBlocks.WALNUT_PICKETS);
         registerPicketsModels(blockStateModelGenerator, ModBlocks.CRIMSON_PICKETS);
         registerPicketsModels(blockStateModelGenerator, ModBlocks.WARPED_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.ASPEN_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.CEDAR_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.COCONUT_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.CYPRESS_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.FIR_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.GHAF_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.JOSHUA_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.LARCH_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.MAHOGANY_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.MAPLE_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.OLIVE_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.PALO_VERDE_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.REDWOOD_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.SAXAUL_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.SUGI_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.WILLOW_PICKETS);
+//        registerPicketsModels(blockStateModelGenerator, ModBlocks.WISTERIA_PICKETS);
 
 //        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
 //            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {

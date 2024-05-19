@@ -1,6 +1,9 @@
 package net.hecco.bountifulfares.block;
 
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
@@ -11,14 +14,26 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 import static net.minecraft.data.server.recipe.RecipeProvider.conditionsFromItem;
 
-public class TrellisUtil {
+public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
+
+
+    public TrellisUtil(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+        super(output, registriesFuture);
+    }
 
     public static Block getTrellisFromVariant(TrellisVariant variant) {
         return ModTrellises.TRELLISES.get(variant.getBlockName());
@@ -136,5 +151,10 @@ public class TrellisUtil {
                     .group("trellis")
                     .offerTo(exporter);
         }
+    }
+
+    @Override
+    protected void configure(RegistryWrapper.WrapperLookup arg) {
+
     }
 }
