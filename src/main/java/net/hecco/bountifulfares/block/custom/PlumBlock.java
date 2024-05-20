@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.item.ModItems;
+import net.hecco.bountifulfares.item.BFItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -55,6 +55,6 @@ public class PlumBlock extends FruitBlock {
 
     @Override
     public Item getFruitItem() {
-        return ModItems.PLUM;
+        return BFItems.PLUM;
     }
 }

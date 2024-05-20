@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
@@ -62,14 +62,14 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
         if (isFullyGrown(state) && !state.get(ATTACHED)) {
             BlockPos spongekinPos = pos.offset(Direction.UP);
             if ((world.getBlockState(spongekinPos).isAir() || world.getBlockState(spongekinPos).isOf(Blocks.WATER) && isFullyGrown(state))) {
-                world.setBlockState(spongekinPos, ModBlocks.SPONGEKIN.getDefaultState(), 2);
+                world.setBlockState(spongekinPos, BFBlocks.SPONGEKIN.getDefaultState(), 2);
                 world.setBlockState(pos, this.getStateWithProperties(state).with(ATTACHED, true));
                 BlockPos prismarineBlossomPos = pos.offset(Direction.UP, 2);
                 if (shouldPropagatePrismarine(world, pos)) {
                     if (world.getBlockState(prismarineBlossomPos).isOf(Blocks.WATER)) {
-                        world.setBlockState(prismarineBlossomPos, ModBlocks.PRISMARINE_BLOSSOM.getDefaultState().with(PrismarineBlossomBlock.WATERLOGGED, true), 2);
+                        world.setBlockState(prismarineBlossomPos, BFBlocks.PRISMARINE_BLOSSOM.getDefaultState().with(PrismarineBlossomBlock.WATERLOGGED, true), 2);
                     } else if (world.getBlockState(prismarineBlossomPos).isAir()) {
-                        world.setBlockState(prismarineBlossomPos, ModBlocks.PRISMARINE_BLOSSOM.getDefaultState(), 2);
+                        world.setBlockState(prismarineBlossomPos, BFBlocks.PRISMARINE_BLOSSOM.getDefaultState(), 2);
                     }
 
                 }
@@ -123,7 +123,7 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
         if (!blockState.isAir()) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
-        if (state.get(ATTACHED) && !world.getBlockState(pos.up()).isOf(ModBlocks.SPONGEKIN)) {
+        if (state.get(ATTACHED) && !world.getBlockState(pos.up()).isOf(BFBlocks.SPONGEKIN)) {
             if (state.get(AGE) == 3)
                 return state.with(ATTACHED, false);
         }

@@ -1,8 +1,8 @@
 package net.hecco.bountifulfares.entity;
 
-import net.hecco.bountifulfares.item.ModItems;
-import net.hecco.bountifulfares.particle.ModParticles;
-import net.hecco.bountifulfares.sounds.ModSounds;
+import net.hecco.bountifulfares.item.BFItems;
+import net.hecco.bountifulfares.particle.BFParticles;
+import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.entity.EntityStatuses;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -21,11 +21,11 @@ public class FlourProjectileEntity extends ThrownItemEntity {
     }
 
     public FlourProjectileEntity(LivingEntity livingEntity, World world) {
-        super(ModEntities.THROWN_FLOUR_PROJECTILE, livingEntity, world);
+        super(BFEntities.THROWN_FLOUR_PROJECTILE, livingEntity, world);
     }
 
     public FlourProjectileEntity(World world, double x, double y, double z) {
-        super(ModEntities.THROWN_FLOUR_PROJECTILE, x, y, z, world);
+        super(BFEntities.THROWN_FLOUR_PROJECTILE, x, y, z, world);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class FlourProjectileEntity extends ThrownItemEntity {
 
     @Override
     protected Item getDefaultItem() {
-        return ModItems.FLOUR;
+        return BFItems.FLOUR;
     }
 
 
@@ -46,7 +46,7 @@ public class FlourProjectileEntity extends ThrownItemEntity {
         if (!world.isClient()) {
             world.sendEntityStatus(this, EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES);
         }
-        this.getWorld().playSound(null, this.getBlockPos(), ModSounds.FLOUR_LAND, SoundCategory.BLOCKS, 1.0f, 0.9f + world.random.nextFloat()/4);
+        this.getWorld().playSound(null, this.getBlockPos(), BFSounds.FLOUR_LAND, SoundCategory.BLOCKS, 1.0f, 0.9f + world.random.nextFloat()/4);
 
         if (world.isClient()) {
             return;
@@ -60,10 +60,10 @@ public class FlourProjectileEntity extends ThrownItemEntity {
     public void handleStatus(byte status) {
         if (status == EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES) {
             for (int x = 0; x < 16; ++x) {
-                this.getWorld().addParticle(ModParticles.FLOUR_CLOUD_PARTICLE, this.getX()+this.getWorld().random.nextFloat(), this.getY()+this.getWorld().random.nextFloat(), this.getZ()+this.getWorld().random.nextFloat(), this.getWorld().random.nextGaussian()/16 + this.getVelocity().getX(), this.getWorld().random.nextFloat()/8, this.getWorld().random.nextGaussian()/16 + this.getVelocity().getZ());
+                this.getWorld().addParticle(BFParticles.FLOUR_CLOUD_PARTICLE, this.getX()+this.getWorld().random.nextFloat(), this.getY()+this.getWorld().random.nextFloat(), this.getZ()+this.getWorld().random.nextFloat(), this.getWorld().random.nextGaussian()/16 + this.getVelocity().getX(), this.getWorld().random.nextFloat()/8, this.getWorld().random.nextGaussian()/16 + this.getVelocity().getZ());
             }
             for (int x = 0; x < 16; ++x) {
-                this.getWorld().addImportantParticle(ModParticles.FLOUR_CLOUD_PARTICLE, this.getX()+this.getWorld().random.nextFloat(), this.getY()+this.getWorld().random.nextFloat(), this.getZ()+this.getWorld().random.nextFloat(), this.getWorld().random.nextGaussian()/16 + this.getVelocity().getX(), this.getWorld().random.nextFloat()/8, this.getWorld().random.nextGaussian()/16 + this.getVelocity().getZ());
+                this.getWorld().addImportantParticle(BFParticles.FLOUR_CLOUD_PARTICLE, this.getX()+this.getWorld().random.nextFloat(), this.getY()+this.getWorld().random.nextFloat(), this.getZ()+this.getWorld().random.nextFloat(), this.getWorld().random.nextGaussian()/16 + this.getVelocity().getX(), this.getWorld().random.nextFloat()/8, this.getWorld().random.nextGaussian()/16 + this.getVelocity().getZ());
             }
         }
     }

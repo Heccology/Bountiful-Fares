@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.item.custom;
 
 import net.hecco.bountifulfares.entity.FlourProjectileEntity;
-import net.hecco.bountifulfares.sounds.ModSounds;
+import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,7 +20,7 @@ public class FlourItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        world.playSound(null, user.getX(), user.getY(), user.getZ(), ModSounds.FLOUR_THROW, SoundCategory.NEUTRAL, 0.6f, 0.9f + world.random.nextFloat()/4);
+        world.playSound(null, user.getX(), user.getY(), user.getZ(), BFSounds.FLOUR_THROW, SoundCategory.NEUTRAL, 0.6f, 0.9f + world.random.nextFloat()/4);
         if (!world.isClient) {
             FlourProjectileEntity flourProjectileEntity = new FlourProjectileEntity(user, world);
             flourProjectileEntity.setItem(itemStack);

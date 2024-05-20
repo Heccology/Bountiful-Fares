@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
@@ -28,7 +28,7 @@ public class PlumLogBlock extends FruitLogBlock {
 
         for (Direction direction : directions) {
             BlockState neighborState = world.getBlockState(pos.offset(direction));
-            if (neighborState.getBlock() != ModBlocks.PLUM_LEAVES && neighborState.getBlock() != ModBlocks.FLOWERING_PLUM_LEAVES) {
+            if (neighborState.getBlock() != BFBlocks.PLUM_LEAVES && neighborState.getBlock() != BFBlocks.FLOWERING_PLUM_LEAVES) {
                 return false;
             }
         }

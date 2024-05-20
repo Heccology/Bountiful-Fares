@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
@@ -26,6 +26,6 @@ public class OrangeLeavesBlock extends LeavesBlock implements Fertilizable {
     }
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        world.setBlockState(pos.down(), ModBlocks.HANGING_ORANGE.getDefaultState(), 2);
+        world.setBlockState(pos.down(), BFBlocks.HANGING_ORANGE.getDefaultState(), 2);
     }
 }

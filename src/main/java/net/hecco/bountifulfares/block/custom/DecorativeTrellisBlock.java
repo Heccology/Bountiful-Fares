@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.trellis.ModTrellises;
+import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
@@ -25,8 +25,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-import static net.hecco.bountifulfares.block.ModBlocks.DECORATIVE_TRELLISES_TO_PLANTS;
-import static net.hecco.bountifulfares.block.ModBlocks.PLANTS_TO_DECORATIVE_TRELLISES;
+import static net.hecco.bountifulfares.block.BFBlocks.DECORATIVE_TRELLISES_TO_PLANTS;
+import static net.hecco.bountifulfares.block.BFBlocks.PLANTS_TO_DECORATIVE_TRELLISES;
 
 public class DecorativeTrellisBlock extends OldTrellisBlock implements Fertilizable {
     private final boolean canDuplicate;
@@ -94,7 +94,7 @@ public class DecorativeTrellisBlock extends OldTrellisBlock implements Fertiliza
         if (item != null && PLANTS_TO_DECORATIVE_TRELLISES.containsKey(item)) {
             return (PLANTS_TO_DECORATIVE_TRELLISES.get(item)).getDefaultState();
         } else {
-            return ModTrellises.TRELLISES.get("trellis").getDefaultState();
+            return BFTrellises.TRELLISES.get("trellis").getDefaultState();
         }
     }
 }

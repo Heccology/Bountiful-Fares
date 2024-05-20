@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.block.LeavesBlock;
@@ -25,6 +25,6 @@ public class HoaryLeavesBlock extends LeavesBlock implements Fertilizable {
     }
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        world.setBlockState(pos.down(), ModBlocks.HANGING_HOARY_APPLE.getDefaultState(), 2);
+        world.setBlockState(pos.down(), BFBlocks.HANGING_HOARY_APPLE.getDefaultState(), 2);
     }
 }

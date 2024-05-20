@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.world.tree;
 
-import net.hecco.bountifulfares.world.ModConfiguredFeatures;
+import net.hecco.bountifulfares.world.BFConfiguredFeatures;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.math.random.Random;
@@ -11,6 +11,6 @@ public class HoarySaplingGenerator extends SaplingGenerator {
     @Nullable
     @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
-        return ModConfiguredFeatures.HOARY_KEY;
+        return BFConfiguredFeatures.HOARY_KEY;
     }
 }

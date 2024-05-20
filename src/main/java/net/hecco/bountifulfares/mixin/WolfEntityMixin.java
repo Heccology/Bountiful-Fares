@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.mixin;
 
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,6 +14,6 @@ public class WolfEntityMixin {
     @Inject(method = "isBreedingItem", at = @At("HEAD"), cancellable = true)
     protected void feedMulchToWolf(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         Item item = stack.getItem();
-        cir.setReturnValue((item.isFood() && item.getFoodComponent().isMeat()) || item.getDefaultStack().isOf(ModBlocks.WALNUT_MULCH.asItem()));
+        cir.setReturnValue((item.isFood() && item.getFoodComponent().isMeat()) || item.getDefaultStack().isOf(BFBlocks.WALNUT_MULCH.asItem()));
     }
 }

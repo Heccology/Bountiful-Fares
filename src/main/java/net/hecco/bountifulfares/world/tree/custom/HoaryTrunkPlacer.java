@@ -3,8 +3,8 @@ package net.hecco.bountifulfares.world.tree.custom;
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.world.tree.ModTrunkPlacerTypes;
+import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.world.tree.BFTrunkPlacerTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
@@ -28,7 +28,7 @@ public class HoaryTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> getType() {
-        return ModTrunkPlacerTypes.HOARY_TRUNK_PLACER;
+        return BFTrunkPlacerTypes.HOARY_TRUNK_PLACER;
     }
 
     @Override
@@ -45,32 +45,32 @@ public class HoaryTrunkPlacer extends TrunkPlacer {
             }
             for (int i = 0; i < eastHorizontalLength; i++) {
                 BlockPos branchPos = startPos.up(firstVerticalLength).offset(Direction.EAST, i);
-                BlockState branchState = ModBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
+                BlockState branchState = BFBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
                 replacer.accept(branchPos, branchState);
             }
             for (int i = 0; i < bendVerticalLength; i++) {
                 BlockPos branchPos = startPos.up(firstVerticalLength + i).offset(Direction.EAST, eastHorizontalLength);
-                BlockState branchState = ModBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Y);
+                BlockState branchState = BFBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Y);
                 replacer.accept(branchPos, branchState);
             }
             for (int i = 0; i < westHorizontalLength; i++) {
                 BlockPos branchPos = startPos.up(firstVerticalLength + bendVerticalLength).offset(Direction.EAST, eastHorizontalLength - i);
-                BlockState branchState = ModBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
+                BlockState branchState = BFBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
                 replacer.accept(branchPos, branchState);
             }
             for (int i = 0; i < bendVerticalLength; i++) {
                 BlockPos branchPos = startPos.up(firstVerticalLength + bendVerticalLength + i).offset(Direction.EAST, eastHorizontalLength - westHorizontalLength);
-                BlockState branchState = ModBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Y);
+                BlockState branchState = BFBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Y);
                 replacer.accept(branchPos, branchState);
             }
             for (int i = 0; i < eastHorizontalLength; i++) {
                 BlockPos branchPos = startPos.up(firstVerticalLength + bendVerticalLength * 2).offset(Direction.EAST, eastHorizontalLength - westHorizontalLength + i);
-                BlockState branchState = ModBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
+                BlockState branchState = BFBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
                 replacer.accept(branchPos, branchState);
             }
             for (int i = 0; i < bendVerticalLength + 1; i++) {
                 BlockPos branchPos = startPos.up(firstVerticalLength + bendVerticalLength * 2 + i).offset(Direction.EAST, eastHorizontalLength - westHorizontalLength + eastHorizontalLength);
-                BlockState branchState = ModBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Y);
+                BlockState branchState = BFBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Y);
                 replacer.accept(branchPos, branchState);
             }
             return ImmutableList.of(
@@ -90,32 +90,32 @@ public class HoaryTrunkPlacer extends TrunkPlacer {
             }
             for(int i = 0; i < southHorizontalLength; i++) {
                 BlockPos branchPos = startPos.up(firstVerticalLength).offset(Direction.SOUTH, i);
-                BlockState branchState = ModBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
+                BlockState branchState = BFBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
                 replacer.accept(branchPos, branchState);
             }
             for(int i = 0; i < bendVerticalLength; i++) {
                 BlockPos branchPos = startPos.up(firstVerticalLength + i).offset(Direction.SOUTH, southHorizontalLength);
-                BlockState branchState = ModBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Y);
+                BlockState branchState = BFBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Y);
                 replacer.accept(branchPos, branchState);
             }
             for(int i = 0; i < northHorizontalLength; i++) {
                 BlockPos branchPos = startPos.up(firstVerticalLength + bendVerticalLength).offset(Direction.SOUTH, southHorizontalLength - i);
-                BlockState branchState = ModBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
+                BlockState branchState = BFBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
                 replacer.accept(branchPos, branchState);
             }
             for(int i = 0; i < bendVerticalLength; i++) {
                 BlockPos branchPos = startPos.up(firstVerticalLength + bendVerticalLength + i).offset(Direction.SOUTH, southHorizontalLength - northHorizontalLength);
-                BlockState branchState = ModBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Y);
+                BlockState branchState = BFBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Y);
                 replacer.accept(branchPos, branchState);
             }
             for(int i = 0; i < southHorizontalLength; i++) {
                 BlockPos branchPos = startPos.up(firstVerticalLength + bendVerticalLength * 2).offset(Direction.SOUTH, southHorizontalLength - northHorizontalLength + i);
-                BlockState branchState = ModBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
+                BlockState branchState = BFBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
                 replacer.accept(branchPos, branchState);
             }
             for(int i = 0; i < bendVerticalLength + 1; i++) {
                 BlockPos branchPos = startPos.up(firstVerticalLength + bendVerticalLength * 2 + i).offset(Direction.SOUTH, southHorizontalLength - northHorizontalLength + southHorizontalLength);
-                BlockState branchState = ModBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Y);
+                BlockState branchState = BFBlocks.HOARY_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Y);
                 replacer.accept(branchPos, branchState);
             }
             return ImmutableList.of(

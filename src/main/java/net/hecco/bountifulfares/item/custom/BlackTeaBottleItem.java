@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.item.custom;
 
-import net.hecco.bountifulfares.effect.ModEffects;
+import net.hecco.bountifulfares.effect.BFEffects;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
 
@@ -11,6 +11,6 @@ public class BlackTeaBottleItem extends TeaBottleItem{
 
     @Override
     public StatusEffect[] getStatusEffectsToRemove() {
-        return new StatusEffect[] {StatusEffects.WEAKNESS, StatusEffects.SLOWNESS, ModEffects.ACIDIC};
+        return new StatusEffect[] {StatusEffects.WEAKNESS, StatusEffects.SLOWNESS, BFEffects.ACIDIC};
     }
 }

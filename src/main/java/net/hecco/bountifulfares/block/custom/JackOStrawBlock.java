@@ -1,9 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.fabricmc.loader.api.FabricLoader;
-import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.sounds.ModSounds;
-import net.hecco.bountifulfares.util.ModItemTags;
+import net.hecco.bountifulfares.sounds.BFSounds;
+import net.hecco.bountifulfares.util.BFItemTags;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
@@ -33,8 +31,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Objects;
 
 public class JackOStrawBlock extends Block implements Waterloggable {
 
@@ -136,15 +132,15 @@ public class JackOStrawBlock extends Block implements Waterloggable {
     @Override
     public BlockSoundGroup getSoundGroup(BlockState state) {
         if (state.get(HALF) == DoubleBlockHalf.LOWER) {
-            return ModSounds.JACK_O_STRAW;
+            return BFSounds.JACK_O_STRAW;
         } else {
-            return ModSounds.SILENT;
+            return BFSounds.SILENT;
         }
     }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (state.get(HALF) == DoubleBlockHalf.UPPER & !state.get(LIT) & player.getStackInHand(hand).isIn(ModItemTags.JACK_O_STRAW_LIGHTABLE)) {
+        if (state.get(HALF) == DoubleBlockHalf.UPPER & !state.get(LIT) & player.getStackInHand(hand).isIn(BFItemTags.JACK_O_STRAW_LIGHTABLE)) {
             if (!player.isCreative()) {
                 player.getStackInHand(hand).decrement(1);
             }
