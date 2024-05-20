@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.world.tree;
 
-import net.hecco.bountifulfares.world.ModConfiguredFeatures;
+import net.hecco.bountifulfares.world.BFConfiguredFeatures;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.math.random.Random;
@@ -11,7 +11,7 @@ public class PlumSaplingGenerator extends SaplingGenerator {
     @Nullable
     @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
-        return ModConfiguredFeatures.PLUM_KEY;
+        return BFConfiguredFeatures.PLUM_KEY;
     }
 
 }

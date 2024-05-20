@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.item.ModItems;
+import net.hecco.bountifulfares.item.BFItems;
 import net.minecraft.block.CropBlock;
 import net.minecraft.item.ItemConvertible;
 
@@ -12,6 +12,6 @@ public class LeekCropBlock extends CropBlock {
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return ModItems.LEEK_SEEDS;
+        return BFItems.LEEK_SEEDS;
     }
 }

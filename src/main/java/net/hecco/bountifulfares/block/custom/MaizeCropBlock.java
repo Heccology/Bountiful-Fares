@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.item.ModItems;
+import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.item.BFItems;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.Entity;
@@ -111,7 +111,7 @@ public class MaizeCropBlock extends TallPlantBlock implements Fertilizable {
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         DoubleBlockHalf doubleBlockHalf = state.get(HALF);
         if (doubleBlockHalf == DoubleBlockHalf.LOWER && state.get(AGE) < 7) {
-            dropStack(world, pos, ModItems.MAIZE_SEEDS.getDefaultStack());
+            dropStack(world, pos, BFItems.MAIZE_SEEDS.getDefaultStack());
         }
         super.onBreak(world, pos, state, player);
     }
@@ -180,7 +180,7 @@ public class MaizeCropBlock extends TallPlantBlock implements Fertilizable {
 
     private static boolean canGrowAt(WorldView world, BlockPos pos) {
         BlockState blockState = world.getBlockState(pos);
-        return blockState.isAir() || blockState.isOf(ModBlocks.MAIZE_CROP);
+        return blockState.isAir() || blockState.isOf(BFBlocks.MAIZE_CROP);
     }
 
     private static boolean canPlaceAt(WorldView world, BlockPos pos) {
@@ -188,11 +188,11 @@ public class MaizeCropBlock extends TallPlantBlock implements Fertilizable {
     }
 
     private static boolean isLowerHalf(BlockState state) {
-        return state.isOf(ModBlocks.MAIZE_CROP) && state.get(HALF) == DoubleBlockHalf.LOWER;
+        return state.isOf(BFBlocks.MAIZE_CROP) && state.get(HALF) == DoubleBlockHalf.LOWER;
     }
 
     private static boolean isUpperHalf(BlockState state) {
-        return state.isOf(ModBlocks.MAIZE_CROP) && state.get(HALF) == DoubleBlockHalf.UPPER;
+        return state.isOf(BFBlocks.MAIZE_CROP) && state.get(HALF) == DoubleBlockHalf.UPPER;
     }
 
     private boolean canGrow(WorldView world, BlockPos pos, BlockState state, int age) {

@@ -39,7 +39,7 @@ public class GristmillScreenHandler extends ScreenHandler {
     }
 
     public GristmillScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
-        super(ModScreenHandlers.GRISTMILL_SCREEN_HANDLER, syncId);
+        super(BFScreenHandlers.GRISTMILL_SCREEN_HANDLER, syncId);
         checkSize(((Inventory) blockEntity), 2);
         this.inventory = (Inventory)blockEntity;
         this.propertyDelegate = arrayPropertyDelegate;

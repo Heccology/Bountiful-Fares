@@ -12,6 +12,6 @@ public class ModSignBlockEntity extends SignBlockEntity {
 
     @Override
     public BlockEntityType<?> getType() {
-        return ModBlockEntities.MOD_SIGN_BLOCK_ENTITY;
+        return BFBlockEntities.MOD_SIGN_BLOCK_ENTITY;
     }
 }

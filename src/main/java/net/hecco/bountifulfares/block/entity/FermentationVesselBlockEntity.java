@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.block.entity;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.enums.FermentationStage;
-import net.hecco.bountifulfares.sounds.ModSounds;
+import net.hecco.bountifulfares.sounds.BFSounds;
 import net.hecco.bountifulfares.util.FermentationRecipes;
 import net.hecco.bountifulfares.block.custom.FermentationVesselBlock;
 import net.minecraft.block.BlockState;
@@ -18,14 +18,12 @@ import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -36,7 +34,7 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     private int maxProgress;
     public boolean fermented;
     public FermentationVesselBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, pos, state);
+        super(BFBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, pos, state);
         this.fermented = false;
         this.propertyDelegate = new PropertyDelegate() {
             @Override
@@ -129,7 +127,7 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
                 if (state.get(FermentationVesselBlock.FERMENTATION_STAGE) != FermentationStage.FERMENTED) {
                     this.fermented = true;
                     BountifulFares.LOGGER.info("changed" + progress + " " + maxProgress);
-                    world.playSound(null, pos, ModSounds.FERMENTATION_VESSEL_FERMENT, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
+                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FERMENT, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
                     markDirty(world, pos, state);
                 }
             }
@@ -162,14 +160,14 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
                 FermentationVesselBlock.dropStack(world, new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), new ItemStack(output, outputCount));
                 world.setBlockState(pos, state.with(FermentationVesselBlock.FERMENTATION_STAGE, FermentationStage.EMPTY));
                 removeItem();
-                world.playSound(null, pos, ModSounds.FERMENTATION_VESSEL_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
+                world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
                 this.progress = 0;
                 this.fermented = false;
                 markDirty(world, pos, state);
                 return ActionResult.SUCCESS;
             } else {
                 if (player.getStackInHand(hand).isOf(collector)) {
-                    world.playSound(null, pos, ModSounds.FERMENTATION_VESSEL_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
+                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
                     if (!player.isCreative()) {
                         player.getStackInHand(hand).decrement(1);
                     }

@@ -1,9 +1,9 @@
 package net.hecco.bountifulfares.world.tree.custom;
 
 import com.mojang.serialization.Codec;
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.block.custom.WildVineCropBlock;
-import net.hecco.bountifulfares.world.tree.ModTreeDecoratorTypes;
+import net.hecco.bountifulfares.world.tree.BFTreeDecoratorTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
@@ -23,7 +23,7 @@ public class PassionFruitTreeDecorator extends TreeDecorator {
     }
 
     protected TreeDecoratorType<?> getType() {
-        return ModTreeDecoratorTypes.PASSION_FRUIT;
+        return BFTreeDecoratorTypes.PASSION_FRUIT;
     }
 
     public void generate(TreeDecorator.Generator generator) {
@@ -37,7 +37,7 @@ public class PassionFruitTreeDecorator extends TreeDecorator {
                         Direction direction2 = direction.getOpposite();
                         BlockPos blockPos = pos.add(direction2.getOffsetX(), 0, direction2.getOffsetZ());
                         if (generator.isAir(blockPos)) {
-                            generator.replace(blockPos, (ModBlocks.WILD_PASSION_FRUIT_VINE.getDefaultState()).with(WildVineCropBlock.FACING, direction2));
+                            generator.replace(blockPos, (BFBlocks.WILD_PASSION_FRUIT_VINE.getDefaultState()).with(WildVineCropBlock.FACING, direction2));
                         }
                     }
                 }

@@ -1,11 +1,11 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.block.interfaces.DyeableCeramicBlockInterface;
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
-import net.hecco.bountifulfares.item.ModItems;
+import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
-import net.hecco.bountifulfares.sounds.ModSounds;
+import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -75,7 +75,7 @@ public class CeramicPressurePlateBlock extends AbstractPressurePlateBlock implem
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
-        if (itemStack.isOf(ModItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
+        if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
             int brushColor = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY).getInt(ArtisanBrushItem.COLOR_KEY);
             world.removeBlock(pos, false);
             world.setBlockState(pos, this.getStateWithProperties(state));
@@ -102,11 +102,11 @@ public class CeramicPressurePlateBlock extends AbstractPressurePlateBlock implem
         }
 
         if (!bl2 && bl) {
-            world.playSound(null, pos, ModSounds.CERAMIC_LEVER_OFF, SoundCategory.BLOCKS);
+            world.playSound(null, pos, BFSounds.CERAMIC_LEVER_OFF, SoundCategory.BLOCKS);
             world.emitGameEvent(entity, GameEvent.BLOCK_DEACTIVATE, pos);
             state.get(POWERED);
         } else if (bl2 && !bl) {
-            world.playSound(null, pos, ModSounds.CERAMIC_LEVER_ON, SoundCategory.BLOCKS);
+            world.playSound(null, pos, BFSounds.CERAMIC_LEVER_ON, SoundCategory.BLOCKS);
             world.emitGameEvent(entity, GameEvent.BLOCK_ACTIVATE, pos);
         }
 
@@ -127,7 +127,7 @@ public class CeramicPressurePlateBlock extends AbstractPressurePlateBlock implem
             ItemStack stack = super.getPickStack(world, pos, state);
             return pickBlock(world,pos,stack);
         } else {
-            return new ItemStack(ModBlocks.CERAMIC_PRESSURE_PLATE);
+            return new ItemStack(BFBlocks.CERAMIC_PRESSURE_PLATE);
         }
     }
 

@@ -1,8 +1,8 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.block.entity.GristmillBlockEntity;
-import net.hecco.bountifulfares.block.entity.ModBlockEntities;
-import net.hecco.bountifulfares.sounds.ModSounds;
+import net.hecco.bountifulfares.block.entity.BFBlockEntities;
+import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -98,7 +98,7 @@ public class GristmillBlock extends BlockWithEntity implements BlockEntityProvid
             double e = pos.getY();
             double f = (double)pos.getZ() + 0.5;
             if (random.nextDouble() < 0.1) {
-                world.playSound(d, e, f, ModSounds.GRISTMILL_GRIND, SoundCategory.BLOCKS, 0.8F, 0.6F + random.nextFloat()/2, false);
+                world.playSound(d, e, f, BFSounds.GRISTMILL_GRIND, SoundCategory.BLOCKS, 0.8F, 0.6F + random.nextFloat()/2, false);
             }
         }
     }
@@ -106,6 +106,6 @@ public class GristmillBlock extends BlockWithEntity implements BlockEntityProvid
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.GRISTMILL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return checkType(type, BFBlockEntities.GRISTMILL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

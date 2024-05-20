@@ -40,7 +40,7 @@ public class GristmillBlockEntity extends BlockEntity implements ExtendedScreenH
     private int progress = 0;
     private int maxProgress = 80;
     public GristmillBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.GRISTMILL_BLOCK_ENTITY, pos, state);
+        super(BFBlockEntities.GRISTMILL_BLOCK_ENTITY, pos, state);
         millingState = ((GristmillBlock)state.getBlock()).getMillingState();
         this.propertyDelegate = new PropertyDelegate() {
             @Override

@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.util.ModBlockTags;
+import net.hecco.bountifulfares.util.BFBlockTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -141,7 +141,7 @@ public class InfusedCandleBlock extends BlockWithEntity implements BlockEntityPr
     }
 
     public static boolean canBeLit(BlockState state) {
-        return state.isIn(ModBlockTags.INFUSED_CANDLES, statex -> statex.contains(LIT) && statex.contains(WATERLOGGED)) && !state.get(LIT) && !state.get(WATERLOGGED);
+        return state.isIn(BFBlockTags.INFUSED_CANDLES, statex -> statex.contains(LIT) && statex.contains(WATERLOGGED)) && !state.get(LIT) && !state.get(WATERLOGGED);
     }
 
     static void setLit(WorldAccess world, BlockState state, BlockPos pos, boolean lit) {

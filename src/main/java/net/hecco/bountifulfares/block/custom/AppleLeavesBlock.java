@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -23,6 +23,6 @@ public class AppleLeavesBlock extends LeavesBlock implements Fertilizable {
     }
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        world.setBlockState(pos.down(), ModBlocks.HANGING_APPLE.getDefaultState(), 2);
+        world.setBlockState(pos.down(), BFBlocks.HANGING_APPLE.getDefaultState(), 2);
     }
 }

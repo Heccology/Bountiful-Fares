@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.item.custom;
 
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.AliasedBlockItem;
 
@@ -11,6 +11,6 @@ public class TeaBerriesItem extends AliasedBlockItem {
 
     @Override
     public Block getBlock() {
-        return ModBlocks.TEA_SHRUB;
+        return BFBlocks.TEA_SHRUB;
     }
 }

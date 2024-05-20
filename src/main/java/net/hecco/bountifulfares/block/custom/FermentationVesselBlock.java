@@ -1,9 +1,8 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.block.entity.ModBlockEntities;
+import net.hecco.bountifulfares.block.entity.BFBlockEntities;
 import net.hecco.bountifulfares.block.enums.FermentationStage;
-import net.hecco.bountifulfares.particle.ModParticles;
-import net.hecco.bountifulfares.sounds.ModSounds;
+import net.hecco.bountifulfares.sounds.BFSounds;
 import net.hecco.bountifulfares.util.FermentationRecipes;
 import net.hecco.bountifulfares.block.entity.FermentationVesselBlockEntity;
 import net.minecraft.block.*;
@@ -17,11 +16,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
@@ -32,7 +29,6 @@ import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -79,7 +75,7 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.isOf(Items.POTION) && PotionUtil.getPotion(itemStack) == Potions.WATER && state.get(FERMENTATION_STAGE) == FermentationStage.EMPTY) {
             world.setBlockState(pos, state.with(FERMENTATION_STAGE, FermentationStage.WATER), 2);
-            world.playSound(null, pos, ModSounds.FERMENTATION_VESSEL_FILL, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
+            world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FILL, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
             if (!player.isCreative()) {
                 itemStack.decrement(1);
             }
@@ -107,7 +103,7 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
                             player.dropItem(new ItemStack(remainder), false);
                         }
                     }
-                    world.playSound(null, pos, ModSounds.FERMENTATION_VESSEL_SPLASH, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
+                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_SPLASH, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
                     return ActionResult.SUCCESS;
                 }
             } else if (!entity.canInsertItem()) {
@@ -155,7 +151,7 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return checkType(type, BFBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 
 //    @Override

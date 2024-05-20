@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.item.custom;
 
-import net.hecco.bountifulfares.util.ModBlockTags;
+import net.hecco.bountifulfares.util.BFBlockTags;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,7 +23,7 @@ public class GrassSeedsItem extends Item {
         BlockPos pos = context.getBlockPos();
         World world = context.getWorld();
         ItemStack stack = context.getStack();
-        if (world.getBlockState(pos).isIn(ModBlockTags.GRASS_SEEDS_PLANTABLE_ON) && !world.getBlockState(pos.up()).isSideSolidFullSquare(world, pos.up(), Direction.DOWN)) {
+        if (world.getBlockState(pos).isIn(BFBlockTags.GRASS_SEEDS_PLANTABLE_ON) && !world.getBlockState(pos.up()).isSideSolidFullSquare(world, pos.up(), Direction.DOWN)) {
             world.setBlockState(pos, Blocks.GRASS_BLOCK.getDefaultState());
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
             for (int i = 0; i < 16; i++) {

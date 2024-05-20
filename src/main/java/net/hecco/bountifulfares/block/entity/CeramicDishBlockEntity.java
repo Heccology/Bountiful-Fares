@@ -3,7 +3,7 @@ package net.hecco.bountifulfares.block.entity;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.hecco.bountifulfares.networking.ModMessages;
+import net.hecco.bountifulfares.networking.BFMessages;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.inventory.Inventories;
@@ -28,7 +28,7 @@ public class CeramicDishBlockEntity extends BlockEntity implements ImplementedIn
     public int color = DEFAULT_COLOR;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
     public CeramicDishBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, pos, state);
+        super(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, pos, state);
     }
 
     @Override
@@ -124,7 +124,7 @@ public class CeramicDishBlockEntity extends BlockEntity implements ImplementedIn
             }
             data.writeBlockPos(getPos());
             for (ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())) {
-                ServerPlayNetworking.send(player, ModMessages.CERAMIC_DISH_ITEM_SYNC, data);
+                ServerPlayNetworking.send(player, BFMessages.CERAMIC_DISH_ITEM_SYNC, data);
             }
         }
         super.markDirty();

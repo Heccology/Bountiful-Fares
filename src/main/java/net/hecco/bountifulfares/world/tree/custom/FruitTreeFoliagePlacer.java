@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.world.tree.custom;
 
-import net.hecco.bountifulfares.world.tree.ModFoliagePlacerTypes;
+import net.hecco.bountifulfares.world.tree.BFFoliagePlacerTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.registry.tag.BlockTags;
@@ -20,7 +20,7 @@ public class FruitTreeFoliagePlacer extends LargeOakFoliagePlacer {
 
     @Override
     protected FoliagePlacerType<?> getType() {
-        return ModFoliagePlacerTypes.FRUIT_TREE_FOLIAGE_PLACER;
+        return BFFoliagePlacerTypes.FRUIT_TREE_FOLIAGE_PLACER;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.trellis.trellis_parts;
 
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.item.Item;
 
 public class VineCrop {
@@ -14,7 +14,7 @@ public class VineCrop {
         this.CROP_ITEM = crop;
         this.SEEDS_ITEM = seeds;
 //        TrellisVariants.VineCrops.add(this);
-        ModBlocks.CROPS_TO_VINE_CROPS.put(seeds, this);
+        BFBlocks.CROPS_TO_VINE_CROPS.put(seeds, this);
     }
 
     public VineCrop(String modId, String id, Item crop) {
@@ -23,7 +23,7 @@ public class VineCrop {
         this.CROP_ITEM = crop;
         this.SEEDS_ITEM = crop;
 //        TrellisVariants.VineCrops.add(this);
-        ModBlocks.CROPS_TO_VINE_CROPS.put(crop, this);
+        BFBlocks.CROPS_TO_VINE_CROPS.put(crop, this);
     }
 
     public String getName() {

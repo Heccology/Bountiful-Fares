@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class DyeableCeramicBlockEntity extends BlockEntity {
     public DyeableCeramicBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.CERAMIC_TILES_BLOCK_ENTITY, pos, state);
+        super(BFBlockEntities.CERAMIC_TILES_BLOCK_ENTITY, pos, state);
     }
     public static final int DEFAULT_COLOR = 16777215;
     public int color = DEFAULT_COLOR;

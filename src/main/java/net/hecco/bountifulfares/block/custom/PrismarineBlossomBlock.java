@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.particle.ModParticles;
+import net.hecco.bountifulfares.particle.BFParticles;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -53,7 +53,7 @@ public class PrismarineBlossomBlock extends PlantBlock implements Waterloggable 
     }
 
     private static void spawnPrismarineBlossomParticles(World world, Vec3d vec3d) {
-        world.addParticle(ModParticles.PRISMARINE_BLOSSOM_PARTICLE, vec3d.x + world.random.nextGaussian()/8, vec3d.y + world.random.nextGaussian()/10, vec3d.z + world.random.nextGaussian()/8, world.random.nextGaussian()/60, world.random.nextFloat()/40, world.random.nextGaussian()/60);
+        world.addParticle(BFParticles.PRISMARINE_BLOSSOM_PARTICLE, vec3d.x + world.random.nextGaussian()/8, vec3d.y + world.random.nextGaussian()/10, vec3d.z + world.random.nextGaussian()/8, world.random.nextGaussian()/60, world.random.nextFloat()/40, world.random.nextGaussian()/60);
     }
 
     @Override

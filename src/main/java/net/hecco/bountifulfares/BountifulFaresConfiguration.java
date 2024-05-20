@@ -2,7 +2,6 @@ package net.hecco.bountifulfares;
 
 import com.google.gson.GsonBuilder;
 import net.fabricmc.loader.api.FabricLoader;
-import net.hecco.bountifulfares.util.ModLootTableModifiers;
 
 import java.io.File;
 import java.io.IOException;
