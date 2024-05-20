@@ -4,9 +4,9 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.TrellisUtil;
-import net.hecco.bountifulfares.block.TrellisVariants;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.trellis.TrellisUtil;
+import net.hecco.bountifulfares.trellis.TrellisVariants;
+import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.item.ModItems;
 import net.hecco.bountifulfares.potion.ModPotions;
 import net.minecraft.entity.decoration.painting.PaintingEntity;
@@ -263,7 +263,7 @@ public class ModItemGroups {
                         entries.add(ModItems.HOARY_SEEDS);
                         entries.add(ModItems.MAIZE);
                         entries.add(ModItems.LEEK);
-                        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+                        for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
                             if (Objects.equals(trellis.getModId(), BountifulFares.MOD_ID)) {
                                 if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
                                     entries.add(TrellisUtil.getTrellisFromVariant(trellis));

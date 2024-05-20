@@ -1,10 +1,10 @@
 package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.hecco.bountifulfares.block.ModTrellises;
-import net.hecco.bountifulfares.block.TrellisUtil;
-import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.trellis.ModTrellises;
+import net.hecco.bountifulfares.trellis.TrellisUtil;
+import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
+import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
@@ -23,7 +23,6 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 

@@ -2,21 +2,19 @@ package net.hecco.bountifulfares.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.ModTrellises;
-import net.hecco.bountifulfares.block.TrellisUtil;
-import net.hecco.bountifulfares.block.TrellisVariants;
-import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
-import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
+import net.hecco.bountifulfares.trellis.ModTrellises;
+import net.hecco.bountifulfares.trellis.TrellisUtil;
+import net.hecco.bountifulfares.trellis.TrellisVariants;
+import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
+import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.util.ModBlockTags;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 
-import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
@@ -422,12 +420,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                 .add(TrellisUtil.getTrellisFromVariant(trellis))
         ;
-        for (VineCrop crop : TrellisVariants.VineCrops) {
+        for (VineCrop crop : TrellisUtil.VineCrops) {
             getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                     .add(TrellisUtil.getCropTrellisFromVariant(trellis, crop))
             ;
         }
-        for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
+        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
             getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                     .add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine))
             ;
