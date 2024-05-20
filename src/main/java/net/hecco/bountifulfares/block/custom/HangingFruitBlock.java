@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.sounds.ModSounds;
+import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
@@ -10,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
@@ -64,7 +63,7 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
         }
         if (i == 4) {
             HangingFruitBlock.dropStack(world, pos, new ItemStack(Items.APPLE, 1));
-            world.playSound(null, pos, ModSounds.HANGING_FRUIT_PICK, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
+            world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
             if (!world.isClient()) {
                 if (BountifulFares.CONFIG.isFruitReplaceWhenPicked()) {
                     BlockState blockState = state.with(AGE, 0);

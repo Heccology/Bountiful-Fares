@@ -1,11 +1,11 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.block.interfaces.DyeableCeramicBlockInterface;
-import net.hecco.bountifulfares.item.ModItems;
+import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
-import net.hecco.bountifulfares.sounds.ModSounds;
+import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeverBlock;
@@ -37,7 +37,7 @@ public class CeramicLeverBlock extends LeverBlock implements DyeableCeramicBlock
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
-        if (itemStack.isOf(ModItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
+        if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
             int brushColor = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY).getInt(ArtisanBrushItem.COLOR_KEY);
             world.removeBlock(pos, false);
             world.setBlockState(pos, this.getStateWithProperties(state));
@@ -59,7 +59,7 @@ public class CeramicLeverBlock extends LeverBlock implements DyeableCeramicBlock
             return ActionResult.SUCCESS;
         } else {
             blockState = this.togglePower(state, world, pos);
-            SoundEvent f = blockState.get(POWERED) ? ModSounds.CERAMIC_LEVER_ON : ModSounds.CERAMIC_LEVER_OFF;
+            SoundEvent f = blockState.get(POWERED) ? BFSounds.CERAMIC_LEVER_ON : BFSounds.CERAMIC_LEVER_OFF;
             world.playSound(null, pos, f, SoundCategory.BLOCKS, 0.8F, 1);
             world.emitGameEvent(player, blockState.get(POWERED) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
             return ActionResult.CONSUME;
@@ -104,7 +104,7 @@ public class CeramicLeverBlock extends LeverBlock implements DyeableCeramicBlock
             ItemStack stack = super.getPickStack(world, pos, state);
             return pickBlock(world,pos,stack);
         } else {
-            return new ItemStack(ModBlocks.CERAMIC_LEVER);
+            return new ItemStack(BFBlocks.CERAMIC_LEVER);
         }
     }
 }

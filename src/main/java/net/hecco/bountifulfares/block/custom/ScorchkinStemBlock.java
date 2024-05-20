@@ -1,10 +1,8 @@
 package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.block.*;
-import net.minecraft.entity.ai.pathing.NavigationType;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
@@ -60,7 +58,7 @@ public class ScorchkinStemBlock extends PlantBlock implements Fertilizable {
             if (isFullyGrown(state) && !state.get(ATTACHED)) {
                 BlockPos SCORCHKINPos = pos.offset(Direction.DOWN);
                 if ((world.getBlockState(SCORCHKINPos).isAir() || world.getBlockState(SCORCHKINPos).isOf(Blocks.LAVA) && isFullyGrown(state))) {
-                    world.setBlockState(SCORCHKINPos, ModBlocks.SCORCHKIN.getDefaultState(), 2);
+                    world.setBlockState(SCORCHKINPos, BFBlocks.SCORCHKIN.getDefaultState(), 2);
                     world.setBlockState(pos, this.getStateWithProperties(state).with(ATTACHED, true));
 //                BlockPos prismarineBlossomPos = pos.offset(Direction.DOWN, 2);
 //                if (shouldPropagatePrismarine(world, pos)) {
@@ -122,7 +120,7 @@ public class ScorchkinStemBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        if (state.get(ATTACHED) && !world.getBlockState(pos.down()).isOf(ModBlocks.SCORCHKIN)) {
+        if (state.get(ATTACHED) && !world.getBlockState(pos.down()).isOf(BFBlocks.SCORCHKIN)) {
             if (state.get(AGE) == 3)
                 return state.with(ATTACHED, false);
         }

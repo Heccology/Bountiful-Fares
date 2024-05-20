@@ -1,22 +1,18 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.item.ModItems;
+import net.hecco.bountifulfares.item.BFItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -53,7 +49,7 @@ public class ArtisanCookiesBlock extends Block {
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
-        if (itemStack.isOf(ModItems.ARTISAN_COOKIE) && state.get(COUNT) < MAX_COUNT) {
+        if (itemStack.isOf(BFItems.ARTISAN_COOKIE) && state.get(COUNT) < MAX_COUNT) {
             return ActionResult.PASS;
         } else if (world.isClient) {
             if (tryEat(world, pos, state, player, hand).isAccepted()) {
@@ -87,7 +83,7 @@ public class ArtisanCookiesBlock extends Block {
             player.getHungerManager().add(3, 0.3F);
             int count = state.get(COUNT);
             world.emitGameEvent(player, GameEvent.EAT, pos);
-            if (!player.getStackInHand(hand).isOf(ModItems.ARTISAN_COOKIE)) {
+            if (!player.getStackInHand(hand).isOf(BFItems.ARTISAN_COOKIE)) {
                 if (count > 0) {
                     world.setBlockState(pos, state.with(COUNT, count - 1), 3);
                     world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 0.5f, 1.0f);

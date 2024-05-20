@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.trellis.ModTrellises;
+import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
@@ -33,7 +33,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.*;
 import net.minecraft.world.event.GameEvent;
 
-import static net.hecco.bountifulfares.block.ModBlocks.CROPS_TO_CROP_TRELLISES;
+import static net.hecco.bountifulfares.block.BFBlocks.CROPS_TO_CROP_TRELLISES;
 
 public class CropTrellisBlock extends Block implements Waterloggable, Fertilizable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -209,7 +209,7 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
         if (seedsItem != null && CROPS_TO_CROP_TRELLISES.containsKey(seedsItem)) {
             return (CROPS_TO_CROP_TRELLISES.get(seedsItem)).getDefaultState();
         } else {
-            return ModTrellises.TRELLISES.get("trellis").getDefaultState();
+            return BFTrellises.TRELLISES.get("trellis").getDefaultState();
         }
     }
 

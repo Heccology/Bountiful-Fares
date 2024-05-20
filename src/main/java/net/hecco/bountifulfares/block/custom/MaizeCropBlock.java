@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.Entity;
@@ -16,7 +16,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 
@@ -170,7 +169,7 @@ public class MaizeCropBlock extends TallPlantBlock implements Fertilizable {
 
     private static boolean canGrowAt(WorldView world, BlockPos pos) {
         BlockState blockState = world.getBlockState(pos);
-        return blockState.isAir() || blockState.isOf(ModBlocks.MAIZE_CROP);
+        return blockState.isAir() || blockState.isOf(BFBlocks.MAIZE_CROP);
     }
 
     private static boolean canPlaceAt(WorldView world, BlockPos pos) {
@@ -178,11 +177,11 @@ public class MaizeCropBlock extends TallPlantBlock implements Fertilizable {
     }
 
     private static boolean isLowerHalf(BlockState state) {
-        return state.isOf(ModBlocks.MAIZE_CROP) && state.get(HALF) == DoubleBlockHalf.LOWER;
+        return state.isOf(BFBlocks.MAIZE_CROP) && state.get(HALF) == DoubleBlockHalf.LOWER;
     }
 
     private static boolean isUpperHalf(BlockState state) {
-        return state.isOf(ModBlocks.MAIZE_CROP) && state.get(HALF) == DoubleBlockHalf.UPPER;
+        return state.isOf(BFBlocks.MAIZE_CROP) && state.get(HALF) == DoubleBlockHalf.UPPER;
     }
 
     private boolean canGrow(WorldView world, BlockPos pos, BlockState state, int age) {

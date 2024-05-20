@@ -1,13 +1,13 @@
 package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.datafixers.util.Pair;
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.block.interfaces.CeramicDishBlockInterface;
-import net.hecco.bountifulfares.item.ModItems;
+import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.item.custom.SpongekinSliceItem;
-import net.hecco.bountifulfares.util.ModItemTags;
+import net.hecco.bountifulfares.util.BFItemTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
@@ -62,7 +62,7 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
             ItemStack stack = super.getPickStack(world, pos, state);
             return pickBlock(world,pos,stack);
         } else {
-            return new ItemStack(ModBlocks.CERAMIC_DISH);
+            return new ItemStack(BFBlocks.CERAMIC_DISH);
         }
     }
 
@@ -82,7 +82,7 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
         if (world.getBlockEntity(pos) instanceof CeramicDishBlockEntity blockEntity) {
             ItemStack itemStack = player.getStackInHand(hand);
             ItemStack stack = blockEntity.getStack(0);
-            if (itemStack.isOf(ModItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
+            if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
                 int brushColor = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY).getInt(ArtisanBrushItem.COLOR_KEY);
                 world.removeBlock(pos, false);
                 world.setBlockState(pos, this.getStateWithProperties(state));
@@ -106,7 +106,7 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
                     blockEntity.removeItem();
                     blockEntity.markDirty();
                     return ActionResult.SUCCESS;
-                } else if (stack.isIn(ModItemTags.EATABLE_ON_DISH) && stack.isFood()) {
+                } else if (stack.isIn(BFItemTags.EATABLE_ON_DISH) && stack.isFood()) {
                     boolean shouldIgnore = stack.getItem().getFoodComponent().isAlwaysEdible();
                     if (player.canConsume(shouldIgnore)) {
                         int hunger = Objects.requireNonNull(stack.getItem().getFoodComponent()).getHunger();
@@ -115,7 +115,7 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
                         player.getHungerManager().add(hunger, sat);
                         world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 0.5f, 0.8f + world.random.nextFloat());
                         world.playSound(null, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.BLOCKS, 0.3f, 1.0f);
-                        if (stack.isOf(ModItems.SPONGEKIN_SLICE)) {
+                        if (stack.isOf(BFItems.SPONGEKIN_SLICE)) {
                             int air = player.getAir();
                             int maxAir = player.getMaxAir();
                             if (air < maxAir - SpongekinSliceItem.airTickIncrease){

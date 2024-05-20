@@ -1,8 +1,8 @@
 package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.trellis.ModTrellises;
+import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.minecraft.block.*;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -71,9 +71,9 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
         Direction facing = state.get(FACING);
         ItemStack itemStack = player.getStackInHand(hand);
         boolean isSurvival = !player.isCreative();
-        if (ModBlocks.CROPS_TO_CROP_TRELLISES.containsKey(itemStack.getItem())) {
+        if (BFBlocks.CROPS_TO_CROP_TRELLISES.containsKey(itemStack.getItem())) {
             if (!world.isClient()) {
-                world.setBlockState(pos, ModTrellises.CROP_TRELLISES.get(ModBlocks.CROPS_TO_VINE_CROPS.get(itemStack.getItem()).getName() + variant.getBlockName()).getDefaultState().with(FACING, facing), 2);
+                world.setBlockState(pos, BFTrellises.CROP_TRELLISES.get(BFBlocks.CROPS_TO_VINE_CROPS.get(itemStack.getItem()).getName() + variant.getBlockName()).getDefaultState().with(FACING, facing), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
@@ -82,9 +82,9 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
             }
             return ActionResult.SUCCESS;
         }
-        if (ModBlocks.PLANTS_TO_DECORATIVE_TRELLISES.containsKey(itemStack.getItem())) {
+        if (BFBlocks.PLANTS_TO_DECORATIVE_TRELLISES.containsKey(itemStack.getItem())) {
             if (!world.isClient()) {
-                world.setBlockState(pos, ModTrellises.DECORATIVE_TRELLISES.get(ModBlocks.PLANTS_TO_DECORATIVE_VINES.get(itemStack.getItem()).getName() + variant.getBlockName()).getDefaultState().with(FACING, facing), 2);
+                world.setBlockState(pos, BFTrellises.DECORATIVE_TRELLISES.get(BFBlocks.PLANTS_TO_DECORATIVE_VINES.get(itemStack.getItem()).getName() + variant.getBlockName()).getDefaultState().with(FACING, facing), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);

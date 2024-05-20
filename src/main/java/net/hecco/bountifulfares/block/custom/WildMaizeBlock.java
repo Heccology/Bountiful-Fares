@@ -1,28 +1,14 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.item.ModItems;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.nbt.NbtList;
-import net.minecraft.predicate.NbtPredicate;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Map;
-import java.util.function.Predicate;
 
 public class WildMaizeBlock extends TallPlantBlock {
     public WildMaizeBlock(Settings settings) {

@@ -1,11 +1,10 @@
 package net.hecco.bountifulfares.block.entity;
 
 import net.hecco.bountifulfares.block.custom.WalnutCandleBlock;
-import net.hecco.bountifulfares.effect.ModEffects;
+import net.hecco.bountifulfares.effect.BFEffects;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
@@ -17,7 +16,7 @@ import java.util.List;
 public class WalnutCandleBlockEntity extends BlockEntity {
     private static BooleanProperty isLit;
     public WalnutCandleBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.WALNUT_CANDLE_BLOCK_ENTITY, pos, state);
+        super(BFBlockEntities.WALNUT_CANDLE_BLOCK_ENTITY, pos, state);
         isLit = ((WalnutCandleBlock)state.getBlock()).getLit();
     }
     public static void tick(World world, BlockPos pos, BlockState state, WalnutCandleBlockEntity blockEntity) {
@@ -27,11 +26,11 @@ public class WalnutCandleBlockEntity extends BlockEntity {
             if (state.get(isLit)) {
                 if (!world.isClient() && !list.isEmpty()) {
                     for (PlayerEntity playerEntity : list) {
-                        StatusEffectInstance existingEffect = playerEntity.getStatusEffect(ModEffects.ENRICHMENT);
+                        StatusEffectInstance existingEffect = playerEntity.getStatusEffect(BFEffects.ENRICHMENT);
                         if (existingEffect == null) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.ENRICHMENT, 50, 0, true, false, true));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(BFEffects.ENRICHMENT, 50, 0, true, false, true));
                         } else if (existingEffect.isAmbient() || existingEffect.getAmplifier() < 0 || existingEffect.isDurationBelow(50)) {
-                            playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.ENRICHMENT, 50, 0, true, false, true));
+                            playerEntity.addStatusEffect(new StatusEffectInstance(BFEffects.ENRICHMENT, 50, 0, true, false, true));
                         }
                     }
                 }

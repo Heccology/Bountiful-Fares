@@ -2,8 +2,8 @@ package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.block.entity.GristmillBlockEntity;
-import net.hecco.bountifulfares.block.entity.ModBlockEntities;
-import net.hecco.bountifulfares.sounds.ModSounds;
+import net.hecco.bountifulfares.block.entity.BFBlockEntities;
+import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -12,7 +12,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -107,7 +106,7 @@ public class GristmillBlock extends BlockWithEntity implements BlockEntityProvid
             double e = pos.getY();
             double f = (double)pos.getZ() + 0.5;
             if (random.nextDouble() < 0.1) {
-                world.playSound(d, e, f, ModSounds.GRISTMILL_GRIND, SoundCategory.BLOCKS, 0.8F, 0.6F + random.nextFloat()/2, false);
+                world.playSound(d, e, f, BFSounds.GRISTMILL_GRIND, SoundCategory.BLOCKS, 0.8F, 0.6F + random.nextFloat()/2, false);
             }
         }
     }
@@ -115,6 +114,6 @@ public class GristmillBlock extends BlockWithEntity implements BlockEntityProvid
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.GRISTMILL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return validateTicker(type, BFBlockEntities.GRISTMILL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

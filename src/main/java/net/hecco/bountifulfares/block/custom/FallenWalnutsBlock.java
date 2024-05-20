@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.item.ModItems;
+import net.hecco.bountifulfares.item.BFItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -52,6 +52,6 @@ public class FallenWalnutsBlock extends Block {
 
     @Override
     public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
-        return ModItems.WALNUT.getDefaultStack();
+        return BFItems.WALNUT.getDefaultStack();
     }
 }

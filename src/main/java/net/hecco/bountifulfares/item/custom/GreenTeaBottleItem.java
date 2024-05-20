@@ -1,10 +1,8 @@
 package net.hecco.bountifulfares.item.custom;
 
-import net.hecco.bountifulfares.effect.ModEffects;
-import net.minecraft.entity.LivingEntity;
+import net.hecco.bountifulfares.effect.BFEffects;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.world.World;
 
 public class GreenTeaBottleItem extends TeaBottleItem{
     public GreenTeaBottleItem(Settings settings) {
@@ -13,6 +11,6 @@ public class GreenTeaBottleItem extends TeaBottleItem{
 
     @Override
     public StatusEffect[] getStatusEffectsToRemove() {
-        return new StatusEffect[] {ModEffects.STUPOR, StatusEffects.HUNGER, ModEffects.ACIDIC};
+        return new StatusEffect[] {BFEffects.STUPOR, StatusEffects.HUNGER, BFEffects.ACIDIC};
     }
 }

@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.item.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.item.ItemStack;

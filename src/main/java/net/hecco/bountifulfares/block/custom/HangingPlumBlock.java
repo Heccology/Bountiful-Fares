@@ -1,9 +1,9 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.item.ModItems;
-import net.hecco.bountifulfares.sounds.ModSounds;
+import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.item.BFItems;
+import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -11,7 +11,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.function.BooleanBiFunction;
@@ -60,8 +59,8 @@ public class HangingPlumBlock extends HangingFruitBlock {
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         return Block.sideCoversSmallSquare(world, pos.up(), Direction.DOWN) && !world.isWater(pos)
-                || world.getBlockState(pos.up()).isOf(ModBlocks.PLUM_LEAVES) && !world.isWater(pos)
-                || world.getBlockState(pos.up()).isOf(ModBlocks.FLOWERING_PLUM_LEAVES) && !world.isWater(pos);
+                || world.getBlockState(pos.up()).isOf(BFBlocks.PLUM_LEAVES) && !world.isWater(pos)
+                || world.getBlockState(pos.up()).isOf(BFBlocks.FLOWERING_PLUM_LEAVES) && !world.isWater(pos);
     }
 
     @Override
@@ -71,8 +70,8 @@ public class HangingPlumBlock extends HangingFruitBlock {
             return ActionResult.PASS;
         }
         if (i == 4) {
-            HangingFruitBlock.dropStack(world, pos, new ItemStack(ModItems.PLUM, 1));
-            world.playSound(null, pos, ModSounds.HANGING_FRUIT_PICK, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
+            HangingFruitBlock.dropStack(world, pos, new ItemStack(BFItems.PLUM, 1));
+            world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
             if (!world.isClient()) {
                 if (BountifulFares.CONFIG.isFruitReplaceWhenPicked()) {
                     BlockState blockState = state.with(AGE, 0);
@@ -89,6 +88,6 @@ public class HangingPlumBlock extends HangingFruitBlock {
 
     @Override
     public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
-        return new ItemStack(ModItems.PLUM);
+        return new ItemStack(BFItems.PLUM);
     }
 }

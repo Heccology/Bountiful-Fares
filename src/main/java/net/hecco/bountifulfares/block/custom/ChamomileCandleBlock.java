@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.block.entity.ChamomileCandleBlockEntity;
-import net.hecco.bountifulfares.block.entity.ModBlockEntities;
+import net.hecco.bountifulfares.block.entity.BFBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -22,6 +22,6 @@ public class ChamomileCandleBlock extends InfusedCandleBlock {
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return validateTicker(type, ModBlockEntities.CHAMOMILE_CANDLE_BLOCK_ENTITY, ChamomileCandleBlockEntity::tick);
+        return validateTicker(type, BFBlockEntities.CHAMOMILE_CANDLE_BLOCK_ENTITY, ChamomileCandleBlockEntity::tick);
     }
 }

@@ -14,7 +14,6 @@ import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -42,7 +41,7 @@ public class GristmillBlockEntity extends BlockEntity implements ExtendedScreenH
     private int progress = 0;
     private int maxProgress = 80;
     public GristmillBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.GRISTMILL_BLOCK_ENTITY, pos, state);
+        super(BFBlockEntities.GRISTMILL_BLOCK_ENTITY, pos, state);
         millingState = ((GristmillBlock)state.getBlock()).getMillingState();
         this.propertyDelegate = new PropertyDelegate() {
             @Override

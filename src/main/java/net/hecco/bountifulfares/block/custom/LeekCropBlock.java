@@ -1,17 +1,8 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.item.ModItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
+import net.hecco.bountifulfares.item.BFItems;
 import net.minecraft.block.CropBlock;
-import net.minecraft.block.ShapeContext;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
 
 public class LeekCropBlock extends CropBlock {
     public LeekCropBlock(Settings settings) {
@@ -21,6 +12,6 @@ public class LeekCropBlock extends CropBlock {
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return ModItems.LEEK_SEEDS;
+        return BFItems.LEEK_SEEDS;
     }
 }

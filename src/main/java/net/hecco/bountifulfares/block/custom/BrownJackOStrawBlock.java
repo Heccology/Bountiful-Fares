@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.sounds.ModSounds;
+import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.LivingEntity;
@@ -126,9 +126,9 @@ public class BrownJackOStrawBlock extends Block implements Waterloggable {
     @Override
     public BlockSoundGroup getSoundGroup(BlockState state) {
         if (state.get(HALF) == DoubleBlockHalf.LOWER) {
-            return ModSounds.JACK_O_STRAW;
+            return BFSounds.JACK_O_STRAW;
         } else {
-            return ModSounds.SILENT;
+            return BFSounds.SILENT;
         }
     }
 

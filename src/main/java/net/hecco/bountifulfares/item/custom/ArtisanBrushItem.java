@@ -1,13 +1,10 @@
 package net.hecco.bountifulfares.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
@@ -23,7 +20,6 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Objects;
 
 public class ArtisanBrushItem extends Item implements DyeableItem {
     public int DefColor = DyeableCeramicBlockEntity.DEFAULT_COLOR;
@@ -47,9 +43,9 @@ public class ArtisanBrushItem extends Item implements DyeableItem {
         PlayerEntity player = context.getPlayer();
         BlockState current = world.getBlockState(pos);
         int oldColor = DyeableCeramicBlockEntity.getColor(world, pos);
-        if (ModBlocks.CERAMIC_TO_CHECKERED_CERAMIC.containsKey(current.getBlock()) && DyeableCeramicBlockEntity.getColor(world, pos) != DyeableCeramicBlockEntity.DEFAULT_COLOR) {
+        if (BFBlocks.CERAMIC_TO_CHECKERED_CERAMIC.containsKey(current.getBlock()) && DyeableCeramicBlockEntity.getColor(world, pos) != DyeableCeramicBlockEntity.DEFAULT_COLOR) {
             if (this.getColor(context.getStack()) == DyeableCeramicBlockEntity.getColor(world, pos)) {
-                    world.setBlockState(pos, ModBlocks.CERAMIC_TO_CHECKERED_CERAMIC.get(current.getBlock()).getStateWithProperties(current));
+                    world.setBlockState(pos, BFBlocks.CERAMIC_TO_CHECKERED_CERAMIC.get(current.getBlock()).getStateWithProperties(current));
                     world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                     if (world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity ceramicTilesBlockEntity) {
                     ceramicTilesBlockEntity.color = oldColor;

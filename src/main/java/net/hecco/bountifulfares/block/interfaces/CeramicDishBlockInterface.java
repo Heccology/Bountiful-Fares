@@ -9,7 +9,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 
-import static net.hecco.bountifulfares.block.entity.ModBlockEntities.CERAMIC_DISH_BLOCK_ENTITY;
+import static net.hecco.bountifulfares.block.entity.BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY;
 
 public interface CeramicDishBlockInterface extends BlockEntityProvider {
     @Override

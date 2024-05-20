@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.trellis.trellis_parts;
 
-import net.hecco.bountifulfares.block.ModBlocks;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.item.Item;
 
 public class DecorativeVine {
@@ -15,7 +15,7 @@ public class DecorativeVine {
         this.CROP_ITEM = crop;
         this.CAN_DUPLICATE = canDuplicate;
 //        TrellisVariants.DecorativeVines.add(this);
-        ModBlocks.PLANTS_TO_DECORATIVE_VINES.put(crop, this);
+        BFBlocks.PLANTS_TO_DECORATIVE_VINES.put(crop, this);
     }
 
     public String getName() {

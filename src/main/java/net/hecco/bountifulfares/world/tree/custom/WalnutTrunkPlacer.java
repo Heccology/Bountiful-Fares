@@ -1,11 +1,10 @@
 package net.hecco.bountifulfares.world.tree.custom;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.world.tree.ModTrunkPlacerTypes;
+import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.world.tree.BFTrunkPlacerTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
@@ -30,7 +29,7 @@ public class WalnutTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> getType() {
-        return ModTrunkPlacerTypes.WALNUT_TRUNK_PLACER;
+        return BFTrunkPlacerTypes.WALNUT_TRUNK_PLACER;
     }
 
     @Override
@@ -47,25 +46,25 @@ public class WalnutTrunkPlacer extends TrunkPlacer {
         }
         for (int x = 1; x < 3; x++) {
             BlockPos branchPos = startPos.up(northBranchHeight).offset(Direction.NORTH, x);
-            BlockState branchState = ModBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
+            BlockState branchState = BFBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
             replacer.accept(branchPos, branchState);
             list.add(new FoliagePlacer.TreeNode(branchPos, 0,true));
         }
         for (int x = 1; x < 3; x++) {
             BlockPos branchPos = startPos.up(eastBranchHeight).offset(Direction.EAST, x);
-            BlockState branchState = ModBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
+            BlockState branchState = BFBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
             replacer.accept(branchPos, branchState);
             list.add(new FoliagePlacer.TreeNode(branchPos, 0,false));
         }
         for (int x = 1; x < 3; x++) {
             BlockPos branchPos = startPos.up(southBranchHeight).offset(Direction.SOUTH, x);
-            BlockState branchState = ModBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
+            BlockState branchState = BFBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
             replacer.accept(branchPos, branchState);
             list.add(new FoliagePlacer.TreeNode(branchPos, 0,false));
         }
         for (int x = 1; x < 3; x++) {
             BlockPos branchPos = startPos.up(westBranchHeight).offset(Direction.WEST, x);
-            BlockState branchState = ModBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
+            BlockState branchState = BFBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
             replacer.accept(branchPos, branchState);
             list.add(new FoliagePlacer.TreeNode(branchPos, 0,false));
         }
@@ -73,22 +72,22 @@ public class WalnutTrunkPlacer extends TrunkPlacer {
         int stubDirChance = random.nextBetween(1, 4);
         if (stubDirChance == 1) {
             BlockPos stubPos = startPos.up(random.nextBetween(2, 3)).offset(Direction.NORTH, 1);
-            BlockState branchState = ModBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
+            BlockState branchState = BFBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
             replacer.accept(stubPos, branchState);
         }
         if (stubDirChance == 2) {
             BlockPos stubPos = startPos.up(random.nextBetween(2, 3)).offset(Direction.EAST, 1);
-            BlockState stubState = ModBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
+            BlockState stubState = BFBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
             replacer.accept(stubPos, stubState);
         }
         if (stubDirChance == 3) {
             BlockPos stubPos = startPos.up(random.nextBetween(2, 3)).offset(Direction.SOUTH, 1);
-            BlockState branchState = ModBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
+            BlockState branchState = BFBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.Z);
             replacer.accept(stubPos, branchState);
         }
         if (stubDirChance == 4) {
             BlockPos stubPos = startPos.up(random.nextBetween(2, 3)).offset(Direction.WEST, 1);
-            BlockState stubState = ModBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
+            BlockState stubState = BFBlocks.WALNUT_LOG.getDefaultState().with(Properties.AXIS, Direction.Axis.X);
             replacer.accept(stubPos, stubState);
         }
         list.add(new FoliagePlacer.TreeNode(startPos.up(mainHeight), 0,false));

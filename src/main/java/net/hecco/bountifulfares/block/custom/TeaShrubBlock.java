@@ -1,9 +1,8 @@
 package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.hecco.bountifulfares.item.ModItems;
+import net.hecco.bountifulfares.item.BFItems;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -19,13 +18,11 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
 public class TeaShrubBlock extends PlantBlock implements Fertilizable {
@@ -89,9 +86,9 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
             itemStack.damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
             if (state.get(AGE) == 4) {
-                dropStack(world, pos, new ItemStack(ModItems.TEA_LEAVES, 2 + world.random.nextInt(3)));
+                dropStack(world, pos, new ItemStack(BFItems.TEA_LEAVES, 2 + world.random.nextInt(3)));
             } else {
-                dropStack(world, pos, new ItemStack(ModItems.TEA_LEAVES, 1 + world.random.nextInt(2)));
+                dropStack(world, pos, new ItemStack(BFItems.TEA_LEAVES, 1 + world.random.nextInt(2)));
             }
             world.setBlockState(pos, state.with(AGE, 2), Block.NOTIFY_LISTENERS);
             return ActionResult.SUCCESS;
@@ -105,7 +102,7 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
         } else if (state.get(BERRIES)) {
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0F, 1.0F);
             world.setBlockState(pos, state.with(BERRIES, false), Block.NOTIFY_LISTENERS);
-            dropStack(world, pos, new ItemStack(ModItems.TEA_BERRIES, 1 + world.random.nextInt(1)));
+            dropStack(world, pos, new ItemStack(BFItems.TEA_BERRIES, 1 + world.random.nextInt(1)));
             return ActionResult.SUCCESS;
         }
         return ActionResult.PASS;
@@ -113,7 +110,7 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
-        return new ItemStack(ModItems.TEA_BERRIES);
+        return new ItemStack(BFItems.TEA_BERRIES);
     }
 
     @Override

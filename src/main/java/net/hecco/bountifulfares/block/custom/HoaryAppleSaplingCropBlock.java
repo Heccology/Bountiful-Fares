@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.item.ModItems;
+import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.item.BFItems;
 import net.minecraft.block.*;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.world.ServerWorld;
@@ -44,13 +44,13 @@ public class HoaryAppleSaplingCropBlock extends CropBlock {
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return ModItems.HOARY_SEEDS;
+        return BFItems.HOARY_SEEDS;
     }
 
     @Override
     public BlockState withAge(int age) {
         if (age == 2) {
-            return ModBlocks.HOARY_APPLE_SAPLING.getDefaultState();
+            return BFBlocks.HOARY_APPLE_SAPLING.getDefaultState();
         }
         return super.withAge(age);
     }

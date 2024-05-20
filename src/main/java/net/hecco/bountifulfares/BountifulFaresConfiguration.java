@@ -1,12 +1,7 @@
 package net.hecco.bountifulfares;
 
 import com.google.gson.GsonBuilder;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.loader.api.FabricLoader;
-import net.hecco.bountifulfares.world.ModPlacedFeatures;
-import net.minecraft.world.biome.BiomeKeys;
-import net.minecraft.world.gen.GenerationStep;
 
 import java.io.File;
 import java.io.IOException;
