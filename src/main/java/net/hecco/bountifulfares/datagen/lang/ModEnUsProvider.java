@@ -2,22 +2,14 @@ package net.hecco.bountifulfares.datagen.lang;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.ModTrellises;
-import net.hecco.bountifulfares.block.TrellisUtil;
-import net.hecco.bountifulfares.block.TrellisVariants;
-import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
-import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
+import net.hecco.bountifulfares.trellis.ModTrellises;
 import net.hecco.bountifulfares.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 
-import java.util.Objects;
-
-import static net.hecco.bountifulfares.block.TrellisUtil.registerTrellisTranslations;
+import static net.hecco.bountifulfares.trellis.TrellisUtil.registerTrellisTranslations;
 
 public class ModEnUsProvider extends FabricLanguageProvider {
     public ModEnUsProvider(FabricDataOutput dataOutput) {

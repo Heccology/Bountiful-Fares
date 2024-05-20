@@ -1,9 +1,6 @@
-package net.hecco.bountifulfares.block.trellis_parts;
+package net.hecco.bountifulfares.trellis.trellis_parts;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.TrellisVariants;
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 public class VineCrop {

@@ -1,18 +1,10 @@
 package net.hecco.bountifulfares.util;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.ModTrellises;
-import net.hecco.bountifulfares.block.TrellisUtil;
-import net.hecco.bountifulfares.block.TrellisVariants;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.item.ModItems;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
-
-import java.util.Objects;
 
 public class ItemGroupAdditions {
     public static void registerItemGroupAdditions() {

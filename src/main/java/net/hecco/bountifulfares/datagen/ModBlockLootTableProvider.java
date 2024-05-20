@@ -3,13 +3,13 @@ package net.hecco.bountifulfares.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.ModTrellises;
-import net.hecco.bountifulfares.block.TrellisUtil;
-import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.trellis.ModTrellises;
+import net.hecco.bountifulfares.trellis.TrellisUtil;
+import net.hecco.bountifulfares.trellis.TrellisVariants;
 import net.hecco.bountifulfares.block.custom.*;
-import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
-import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
+import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
+import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.item.ModItems;
 import net.minecraft.block.BeetrootsBlock;
 import net.minecraft.block.Block;
@@ -327,12 +327,12 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
 
     public void registerTrellisLootTables(TrellisVariant trellis) {
         addDrop(TrellisUtil.getTrellisFromVariant(trellis));
-        for (VineCrop crop : TrellisVariants.VineCrops) {
+        for (VineCrop crop : TrellisUtil.VineCrops) {
             addDrop(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootTable.builder()
                     .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                             .with(this.applyExplosionDecay(TrellisUtil.getCropTrellisFromVariant(trellis, crop), ItemEntry.builder(TrellisUtil.getTrellisFromVariant(trellis))))));
         }
-        for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
+        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
             addDrop(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootTable.builder()
                     .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                             .with(this.applyExplosionDecay(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), ItemEntry.builder(TrellisUtil.getTrellisFromVariant(trellis))))));

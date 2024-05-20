@@ -1,31 +1,30 @@
-package net.hecco.bountifulfares.block;
+package net.hecco.bountifulfares.trellis;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
-import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
+import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.datagen.custom.ModTemplateModels;
 import net.hecco.bountifulfares.datagen.lang.ModEnUsProvider;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.util.Identifier;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
 
 import static net.minecraft.data.server.recipe.RecipeProvider.conditionsFromItem;
 
@@ -34,6 +33,39 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
 
     public TrellisUtil(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
+    }
+
+    public static List<TrellisVariant> TrellisVariants = new ArrayList<>();
+    public static List<VineCrop> VineCrops = new ArrayList<>(List.of(
+            ModTrellises.PASSION_FRUIT,
+            ModTrellises.ELDERBERRY,
+            ModTrellises.LAPISBERRY,
+            ModTrellises.GLOW_BERRY
+
+    ));
+    public static List<DecorativeVine> DecorativeVines = new ArrayList<>(List.of(
+            ModTrellises.ROSE,
+            ModTrellises.LILAC,
+            ModTrellises.PEONY,
+            ModTrellises.SUNFLOWER,
+            ModTrellises.VINE,
+            ModTrellises.WEEPING,
+            ModTrellises.TWISTING
+    ));
+
+    public static void registerTrellisParts() {}
+
+    public static Block registerBlockNoItem(String id, String name, Block block) {
+        return Registry.register(Registries.BLOCK, new Identifier(id, name), block);
+    }
+
+    public static Block registerBlock(String id, String name, Block block) {
+        registerBlockItem(id, name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(id, name), block);
+    }
+
+    private static Item registerBlockItem(String id, String name, Block block) {
+        return Registry.register(Registries.ITEM, new Identifier(id, name), new BlockItem(block, new FabricItemSettings()));
     }
 
     public static Block getTrellisFromVariant(TrellisVariant variant) {
@@ -121,20 +153,20 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
     public static void registerTrellisTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder, TrellisVariant trellis) {
         String temp = ModEnUsProvider.capitalizeString(Registries.ITEM.getId(TrellisUtil.getTrellisFromVariant(trellis).asItem()).getPath().replace("_", " "));
         translationBuilder.add(TrellisUtil.getTrellisFromVariant(trellis), temp);
-        for (VineCrop crop : TrellisVariants.VineCrops) {
+        for (VineCrop crop : TrellisUtil.VineCrops) {
             translationBuilder.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), temp);
         }
-        for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
+        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
             translationBuilder.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), temp);
         }
     }
 
     public static void registerTrellisTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder, TrellisVariant trellis, String display) {
         translationBuilder.add(TrellisUtil.getTrellisFromVariant(trellis), display);
-        for (VineCrop crop : TrellisVariants.VineCrops) {
+        for (VineCrop crop : TrellisUtil.VineCrops) {
             translationBuilder.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), display);
         }
-        for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
+        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
             translationBuilder.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), display);
         }
     }

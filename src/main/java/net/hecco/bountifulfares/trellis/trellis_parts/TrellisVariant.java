@@ -1,9 +1,10 @@
-package net.hecco.bountifulfares.block.trellis_parts;
+package net.hecco.bountifulfares.trellis.trellis_parts;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.ModTrellises;
-import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.trellis.ModTrellises;
+import net.hecco.bountifulfares.trellis.TrellisUtil;
+import net.hecco.bountifulfares.trellis.TrellisVariants;
 import net.hecco.bountifulfares.block.custom.CropTrellisBlock;
 import net.hecco.bountifulfares.block.custom.DecorativeTrellisBlock;
 import net.hecco.bountifulfares.block.custom.TrellisBlock;
@@ -11,14 +12,13 @@ import net.hecco.bountifulfares.sounds.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static net.hecco.bountifulfares.block.TrellisVariants.registerBlock;
-import static net.hecco.bountifulfares.block.TrellisVariants.registerBlockNoItem;
+import static net.hecco.bountifulfares.trellis.TrellisUtil.registerBlock;
+import static net.hecco.bountifulfares.trellis.TrellisUtil.registerBlockNoItem;
 
 public class TrellisVariant {
     private final String MOD_ID;
@@ -32,7 +32,7 @@ public class TrellisVariant {
         this.MOD_ID = modId;
         this.VARIANT_ID = id;
         this.PLANKS = planks;
-        TrellisVariants.TrellisVariants.add(this);
+        TrellisUtil.TrellisVariants.add(this);
         ModTrellises.TRELLISES.put(this.getBlockName(), registerBlock(this.getModId(), this.getBlockName(), new TrellisBlock(this, FabricBlockSettings.create().nonOpaque().strength(0.5F).sounds(ModSounds.LIGHT_WOOD).instrument(Instrument.BASS).nonOpaque())));
         renderCutoutList.add(ModTrellises.TRELLISES.get(this.getBlockName()));
         ModTrellises.CROP_TRELLISES.put(ModTrellises.PASSION_FRUIT.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), ModTrellises.PASSION_FRUIT.getName() + "_" + this.getBlockName(), new CropTrellisBlock(ModTrellises.PASSION_FRUIT.getSeedsItem(), ModTrellises.PASSION_FRUIT.getCropItem(), this, ModTrellises.PASSION_FRUIT, FabricBlockSettings.create().nonOpaque().strength(0.5F).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(ModSounds.PLANTED_TRELLIS))));
