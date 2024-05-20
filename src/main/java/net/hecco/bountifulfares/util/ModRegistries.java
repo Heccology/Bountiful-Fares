@@ -4,16 +4,15 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.TrellisUtil;
-import net.hecco.bountifulfares.block.TrellisVariants;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.trellis.TrellisUtil;
+import net.hecco.bountifulfares.trellis.TrellisVariants;
+import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.entity.FlourProjectileEntity;
 import net.hecco.bountifulfares.item.ModItems;
 import net.hecco.bountifulfares.potion.ModPotions;
 import net.minecraft.block.Block;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
@@ -65,7 +64,7 @@ public class ModRegistries {
         registry.add(ModItemTags.HOARY_LOGS, 300);
         registry.add(ModItemTags.WALNUT_LOGS, 300);
         registry.add(ModItemTags.PICKETS, 200);
-        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
+        for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
             registry.add(TrellisUtil.getTrellisFromVariant(trellis), 300);
         }
         registry.add(ModBlocks.GRISTMILL, 300);

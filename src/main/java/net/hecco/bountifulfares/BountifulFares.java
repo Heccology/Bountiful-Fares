@@ -1,14 +1,11 @@
 package net.hecco.bountifulfares;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.ModTrellises;
-import net.hecco.bountifulfares.block.TrellisVariants;
+import net.hecco.bountifulfares.trellis.ModTrellises;
+import net.hecco.bountifulfares.trellis.TrellisUtil;
+import net.hecco.bountifulfares.trellis.TrellisVariants;
 import net.hecco.bountifulfares.block.entity.ModBlockEntities;
-import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
-import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.compat.ModResourcePacks;
 import net.hecco.bountifulfares.effect.ModEffects;
 import net.hecco.bountifulfares.entity.ModBoats;
@@ -27,12 +24,8 @@ import net.hecco.bountifulfares.world.gen.ModWorldGeneration;
 import net.hecco.bountifulfares.world.tree.ModFoliagePlacerTypes;
 import net.hecco.bountifulfares.world.tree.ModTreeDecoratorTypes;
 import net.hecco.bountifulfares.world.tree.ModTrunkPlacerTypes;
-import net.minecraft.item.Items;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class BountifulFares implements ModInitializer {
@@ -59,7 +52,7 @@ public class BountifulFares implements ModInitializer {
 		ModBlocks.registerExcessiveBuildingBlocks();
 		ModBlocks.registerNaturesSpiritBlocks();
 		ModTrellises.registerTrellisParts();
-		TrellisVariants.registerTrellises();
+		TrellisUtil.registerTrellisParts();
 		ModItemGroups.registerItemGroups();
 		ItemGroupAdditions.registerItemGroupAdditions();
 		ModRecipes.registerRecipes();

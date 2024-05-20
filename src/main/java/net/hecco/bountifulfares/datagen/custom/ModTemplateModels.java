@@ -1,13 +1,10 @@
 package net.hecco.bountifulfares.datagen.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.block.ModTrellises;
-import net.hecco.bountifulfares.block.TrellisUtil;
+import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.block.custom.PicketsBlock;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.enums.Tilt;
 import net.minecraft.data.client.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.state.property.Properties;
@@ -15,8 +12,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 
 import java.util.Optional;
-
-import static net.minecraft.data.client.BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates;
 
 public class ModTemplateModels {
     //Pickets model generation by DigitalPear

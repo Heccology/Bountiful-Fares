@@ -3,12 +3,9 @@ package net.hecco.bountifulfares.datagen;
 import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.ModTrellises;
-import net.hecco.bountifulfares.block.TrellisUtil;
-import net.hecco.bountifulfares.block.TrellisVariants;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
+import net.hecco.bountifulfares.trellis.ModTrellises;
+import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.datagen.recipe.MillingRecipeBuilder;
 import net.hecco.bountifulfares.item.ModItems;
 import net.hecco.bountifulfares.util.ModItemTags;
@@ -22,7 +19,6 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
 
-import java.util.Objects;
 import java.util.function.Consumer;
 
 import static net.minecraft.data.family.BlockFamilies.register;

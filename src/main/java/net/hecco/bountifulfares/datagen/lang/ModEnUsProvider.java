@@ -2,22 +2,14 @@ package net.hecco.bountifulfares.datagen.lang;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.ModBlocks;
-import net.hecco.bountifulfares.block.ModTrellises;
-import net.hecco.bountifulfares.block.TrellisUtil;
-import net.hecco.bountifulfares.block.TrellisVariants;
-import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
-import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;
-import net.hecco.bountifulfares.block.trellis_parts.VineCrop;
+import net.hecco.bountifulfares.trellis.ModTrellises;
 import net.hecco.bountifulfares.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 
-import java.util.Objects;
-
-import static net.hecco.bountifulfares.block.TrellisUtil.registerTrellisTranslations;
+import static net.hecco.bountifulfares.trellis.TrellisUtil.registerTrellisTranslations;
 
 public class ModEnUsProvider extends FabricLanguageProvider {
     public ModEnUsProvider(FabricDataOutput dataOutput) {
@@ -205,6 +197,23 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         registerTrellisTranslations(translationBuilder, ModTrellises.HOARY);
         registerTrellisTranslations(translationBuilder, ModTrellises.CRIMSON);
         registerTrellisTranslations(translationBuilder, ModTrellises.WARPED);
+
+//        registerTrellisTranslations(translationBuilder, ModTrellises.ASPEN);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.CEDAR);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.COCONUT);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.CYPRESS);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.FIR);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.GHAF);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.JOSHUA);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.LARCH);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.MAHOGANY);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.MAPLE);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.OLIVE);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.PALO_VERDE);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.SAXAUL);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.SUGI);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.WILLOW);
+//        registerTrellisTranslations(translationBuilder, ModTrellises.WISTERIA);
 
         generate(translationBuilder, ModItems.PASSION_FRUIT);
         generate(translationBuilder, ModItems.ELDERBERRIES);
