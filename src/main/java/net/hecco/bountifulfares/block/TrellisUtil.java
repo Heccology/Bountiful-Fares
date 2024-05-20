@@ -16,8 +16,6 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
-
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
@@ -40,10 +38,6 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
 
     public static Block getDecorTrellisFromVariant(TrellisVariant variant, DecorativeVine vine) {
         return ModTrellises.DECORATIVE_TRELLISES.get(vine.getName() + variant.getBlockName());
-    }
-
-    public static Block getCompatDecorTrellisFromVariant(TrellisVariant variant, DecorativeVine vine) {
-        return ModTrellises.COMPAT_DECORATIVE_TRELLISES.get(vine.getName() + variant.getBlockName());
     }
 
     public static void registerTrellisModels(BlockStateModelGenerator blockStateModelGenerator, TrellisVariant variant) {

@@ -33,6 +33,10 @@ public class TrellisVariants {
             ModTrellises.WEEPING,
             ModTrellises.TWISTING,
             ModTrellises.NS_LAVENDER,
+            ModTrellises.NS_BLEEDING_HEART,
+            ModTrellises.NS_BLUE_BULB,
+            ModTrellises.NS_CARNATION,
+            ModTrellises.NS_GARDENIA,
             ModTrellises.NS_MARIGOLD,
             ModTrellises.NS_FOXGLOVE
     ));
