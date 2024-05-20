@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.block.trellis_parts;
 
 import net.hecco.bountifulfares.block.ModBlocks;
 import net.hecco.bountifulfares.block.TrellisVariants;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 public class DecorativeVine {
@@ -10,13 +11,13 @@ public class DecorativeVine {
     public final Item CROP_ITEM;
     public final boolean CAN_DUPLICATE;
 
-    public DecorativeVine(boolean canDuplicate, String modId, String id, Item crop) {
+    public DecorativeVine(boolean canDuplicate, String modId, String id, Block crop) {
         this.MOD_ID = modId;
         this.TYPE_ID = id;
-        this.CROP_ITEM = crop;
+        this.CROP_ITEM = crop.asItem();
         this.CAN_DUPLICATE = canDuplicate;
 //        TrellisVariants.DecorativeVines.add(this);
-        ModBlocks.PLANTS_TO_DECORATIVE_VINES.put(crop, this);
+        ModBlocks.PLANTS_TO_DECORATIVE_VINES.put(crop.asItem(), this);
     }
 
     public String getName() {

@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-19T13:38:38.763812	Bountiful Fares/Recipes
+// 1.20.1	2024-05-19T22:50:14.487116	Bountiful Fares/Recipes
 3b84688d918f5b6c2f9b2580886a18877cde0582 data/bountifulfares/advancements/recipes/redstone/hoary_fence_gate.json
 d7f685a5e919791115839448fb5200f8cab9ab31 data/bountifulfares/recipes/walnut_chest_boat.json
 7d19bb6ad4cdf6a68e4ab5cd7e455232b2f15bf4 data/bountifulfares/advancements/recipes/misc/ceramic_pressure_plate_undying.json
@@ -450,8 +450,8 @@ ab7aaf397ffba8be567f5ef7279f082c97bd502e data/bountifulfares/advancements/recipe
 a1ab0a2d50f7380054cc884db0aa7e1ffc11076e data/bountifulfares/advancements/recipes/building_blocks/plum_wood.json
 3a8d089c605d5cbe37e05d8de4264a0c90c9ee07 data/bountifulfares/recipes/cut_feldspar_block_from_feldspar_block_stonecutting.json
 3bbc6aa298fe1f16ab050daf6077fe2489ce80d2 data/bountifulfares/recipes/piquant_custard.json
-f45692bc559752eb1bd8e3001fbe414618b45fd4 data/bountifulfares/recipes/blue_jack_o_straw_with_carved_pumpkin.json
 b8dc4fbc49eb8d48b4d6f567df0a237d16f00ab0 data/bountifulfares/advancements/recipes/food/hoary_pie.json
+f45692bc559752eb1bd8e3001fbe414618b45fd4 data/bountifulfares/recipes/blue_jack_o_straw_with_carved_pumpkin.json
 fe36f1982763d24fc7ab8f70652c4a75331f893a data/bountifulfares/advancements/recipes/food/sweet_berry_tart.json
 712e6233773612af50b126e03c240bbabd38d827 data/bountifulfares/advancements/recipes/misc/ceramic_tile_slab_undying.json
 7e0e618dca3b1197b95078855280e902a4571d88 data/bountifulfares/advancements/recipes/decorations/warped_trellis.json

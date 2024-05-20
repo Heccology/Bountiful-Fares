@@ -1,7 +1,6 @@
 package net.hecco.bountifulfares.block;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.hecco.bountifulfares.block.trellis_parts.DecorativeVine;
@@ -14,14 +13,10 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Items;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -45,6 +40,10 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
 
     public static Block getDecorTrellisFromVariant(TrellisVariant variant, DecorativeVine vine) {
         return ModTrellises.DECORATIVE_TRELLISES.get(vine.getName() + variant.getBlockName());
+    }
+
+    public static Block getCompatDecorTrellisFromVariant(TrellisVariant variant, DecorativeVine vine) {
+        return ModTrellises.COMPAT_DECORATIVE_TRELLISES.get(vine.getName() + variant.getBlockName());
     }
 
     public static void registerTrellisModels(BlockStateModelGenerator blockStateModelGenerator, TrellisVariant variant) {
@@ -115,6 +114,54 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
                 ModTrellises.TWISTING.getName() + "_trellis_vines",
                 ModTrellises.TWISTING.getName() + "_trellis_foliage",
                 variant.getModId());
+//        ModTemplateModels.registerDecorTrellis(blockStateModelGenerator,
+//                new Identifier(variant.getModId(), ModTrellises.NS_LAVENDER.getName() + "_" + variant.getBlockName()),
+//                variant.getBlockName(),
+//                ModTrellises.NS_LAVENDER.getName() + "_trellis_vines",
+//                ModTrellises.NS_LAVENDER.getName() + "_trellis_foliage",
+//                variant.getModId());
+        ModTemplateModels.registerDecorTrellis(blockStateModelGenerator,
+                TrellisUtil.getDecorTrellisFromVariant(variant, ModTrellises.NS_LAVENDER),
+                variant.getBlockName(),
+                ModTrellises.NS_LAVENDER.getName() + "_trellis_vines",
+                ModTrellises.NS_LAVENDER.getName() + "_trellis_foliage",
+                variant.getModId());
+        ModTemplateModels.registerDecorTrellis(blockStateModelGenerator,
+                TrellisUtil.getDecorTrellisFromVariant(variant, ModTrellises.NS_BLEEDING_HEART),
+                variant.getBlockName(),
+                ModTrellises.NS_BLEEDING_HEART.getName() + "_trellis_vines",
+                ModTrellises.NS_BLEEDING_HEART.getName() + "_trellis_foliage",
+                variant.getModId());
+        ModTemplateModels.registerDecorTrellis(blockStateModelGenerator,
+                TrellisUtil.getDecorTrellisFromVariant(variant, ModTrellises.NS_BLUE_BULB),
+                variant.getBlockName(),
+                ModTrellises.NS_BLUE_BULB.getName() + "_trellis_vines",
+                ModTrellises.NS_BLUE_BULB.getName() + "_trellis_foliage",
+                variant.getModId());
+        ModTemplateModels.registerDecorTrellis(blockStateModelGenerator,
+                TrellisUtil.getDecorTrellisFromVariant(variant, ModTrellises.NS_CARNATION),
+                variant.getBlockName(),
+                ModTrellises.NS_CARNATION.getName() + "_trellis_vines",
+                ModTrellises.NS_CARNATION.getName() + "_trellis_foliage",
+                variant.getModId());
+        ModTemplateModels.registerDecorTrellis(blockStateModelGenerator,
+                TrellisUtil.getDecorTrellisFromVariant(variant, ModTrellises.NS_GARDENIA),
+                variant.getBlockName(),
+                ModTrellises.NS_GARDENIA.getName() + "_trellis_vines",
+                ModTrellises.NS_GARDENIA.getName() + "_trellis_foliage",
+                variant.getModId());
+        ModTemplateModels.registerDecorTrellis(blockStateModelGenerator,
+                TrellisUtil.getDecorTrellisFromVariant(variant, ModTrellises.NS_MARIGOLD),
+                variant.getBlockName(),
+                ModTrellises.NS_MARIGOLD.getName() + "_trellis_vines",
+                ModTrellises.NS_MARIGOLD.getName() + "_trellis_foliage",
+                variant.getModId());
+        ModTemplateModels.registerDecorTrellis(blockStateModelGenerator,
+                TrellisUtil.getDecorTrellisFromVariant(variant, ModTrellises.NS_FOXGLOVE),
+                variant.getBlockName(),
+                ModTrellises.NS_FOXGLOVE.getName() + "_trellis_vines",
+                ModTrellises.NS_FOXGLOVE.getName() + "_trellis_foliage",
+                variant.getModId());
     }
 
     public static void registerTrellisTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder, TrellisVariant trellis) {
@@ -126,6 +173,9 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
         for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
             translationBuilder.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), temp);
         }
+//        for (DecorativeVine vine : TrellisVariants.CompatDecorativeVines) {
+//            translationBuilder.add("block." + trellis.getModId() + "." + vine.getName() + "_" + trellis.getBlockName(), temp);
+//        }
     }
 
     public static void registerTrellisTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder, TrellisVariant trellis, String display) {

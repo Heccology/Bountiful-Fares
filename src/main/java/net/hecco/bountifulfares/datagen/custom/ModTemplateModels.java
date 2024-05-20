@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.datagen.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.block.ModTrellises;
 import net.hecco.bountifulfares.block.TrellisUtil;
 import net.hecco.bountifulfares.block.custom.PicketsBlock;
 import net.hecco.bountifulfares.block.trellis_parts.TrellisVariant;

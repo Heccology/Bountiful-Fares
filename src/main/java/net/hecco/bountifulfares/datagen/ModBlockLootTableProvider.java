@@ -142,23 +142,6 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
 //        picketsDrops(ModBlocks.SUGI_PICKETS);
 //        picketsDrops(ModBlocks.WILLOW_PICKETS);
 //        picketsDrops(ModBlocks.WISTERIA_PICKETS);
-//        for (TrellisVariant trellis: TrellisVariants.TrellisVariants) {
-////            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
-//                addDrop(TrellisUtil.getTrellisFromVariant(trellis));
-//                for (VineCrop crop : TrellisVariants.VineCrops) {
-//                    plantedTrellisDrops(
-//                                    TrellisUtil.getCropTrellisFromVariant(trellis, crop),
-//                                    crop.getSeedsItem(),
-//                                    TrellisUtil.getTrellisFromVariant(trellis));
-//                }
-//                for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
-//                    plantedTrellisDrops(
-//                                    TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
-//                                    vine.getPlantItem(),
-//                                    TrellisUtil.getTrellisFromVariant(trellis));
-//                }
-////            }
-//        }
 
         registerTrellisLootTables(ModTrellises.OAK);
         registerTrellisLootTables(ModTrellises.SPRUCE);
@@ -173,6 +156,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         registerTrellisLootTables(ModTrellises.HOARY);
         registerTrellisLootTables(ModTrellises.CRIMSON);
         registerTrellisLootTables(ModTrellises.WARPED);
+
 //        registerTrellisLootTables(ModTrellises.ASPEN);
 //        registerTrellisLootTables(ModTrellises.CEDAR);
 //        registerTrellisLootTables(ModTrellises.COCONUT);

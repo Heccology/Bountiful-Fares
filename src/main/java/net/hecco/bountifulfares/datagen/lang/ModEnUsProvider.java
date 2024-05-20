@@ -192,32 +192,6 @@ public class ModEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, ModItems.CANDIED_ORANGE);
         generate(translationBuilder, ModItems.CANDIED_LEMON);
 
-//        generate(translationBuilder, ModBlocks.TRELLIS);
-//        generate(translationBuilder, ModBlocks.PASSION_FRUIT_TRELLIS);
-//        generate(translationBuilder, ModBlocks.ELDERBERRY_TRELLIS);
-//        generate(translationBuilder, ModBlocks.GLOW_BERRY_TRELLIS);
-//        generate(translationBuilder, ModBlocks.LAPISBERRY_TRELLIS);
-//        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
-//            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
-//                String trellisName = trellis.getTrellisName();
-//                if (Objects.equals(trellis.getName(), "oak")) {
-//                    trellisName = "oak_trellis";
-//                    generate(translationBuilder, ModTrellises.TRELLISES.get("trellis"), "Oak Trellis");
-//                } else {
-//                    generate(translationBuilder, ModTrellises.TRELLISES.get(trellisName));
-//                }
-//                for (VineCrop crop : TrellisVariants.VineCrops) {
-//                    generate(translationBuilder,
-//                            TrellisUtil.getCropTrellisFromVariant(trellis, crop),
-//                            capitalizeString(Registries.BLOCK.getId(ModTrellises.TRELLISES.get(trellisName)).getPath().replace(crop.getId() + "_", "").replace("_", " ")));
-//                }
-//                for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
-//                    generate(translationBuilder,
-//                            TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
-//                            capitalizeString(Registries.BLOCK.getId(ModTrellises.TRELLISES.get(trellisName)).getPath().replace(vine.getId() + "_", "").replace("_", " ")));
-//                }
-//            }
-//        }
         registerTrellisTranslations(translationBuilder, ModTrellises.OAK, "Oak Trellis");
         registerTrellisTranslations(translationBuilder, ModTrellises.SPRUCE);
         registerTrellisTranslations(translationBuilder, ModTrellises.BIRCH);
