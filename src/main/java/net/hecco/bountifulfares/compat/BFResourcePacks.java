@@ -50,11 +50,11 @@ public class BFResourcePacks {
     public static void registerBuiltinResourcePacks() {
         Optional<ModContainer> modContainer = FabricLoader.getInstance().getModContainer(BountifulFares.MOD_ID);
         if (modContainer.isPresent()) {
-            if (FabricLoader.getInstance().isModLoaded(BountifulFares.AMENDMENTS_MOD_ID)) {
+            if (BountifulFares.isModLoaded(BountifulFares.AMENDMENTS_MOD_ID)) {
                 registerBuiltinResourcePack(modContainer.get(), BountifulFares.AMENDMENTS_MOD_ID);
                 registerBuiltinDataPack(modContainer.get(), BountifulFares.AMENDMENTS_MOD_ID);
             }
-            if (FabricLoader.getInstance().isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
+            if (BountifulFares.isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
                 if (BountifulFares.CONFIG.isRenameItemsToMatchDyes()) {
                     registerBuiltinResourcePack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID, "rename");
                 } else {
@@ -72,7 +72,7 @@ public class BFResourcePacks {
                     registerBuiltinDataPack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID);
                 }
             }
-            if (FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+            if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
                 registerBuiltinResourcePack(modContainer.get(), BountifulFares.ELS_AND_LS_DYES_MOD_ID);
                 if (BountifulFares.CONFIG.isHoneysuckleToBananaDye()) {
                     registerBuiltinDataPack(modContainer.get(), BountifulFares.ELS_AND_LS_DYES_MOD_ID, "htob");
@@ -81,13 +81,17 @@ public class BFResourcePacks {
 
                 }
             }
-            if (FabricLoader.getInstance().isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+            if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
                 registerBuiltinResourcePack(modContainer.get(), BountifulFares.EXCESSIVE_BUILDING_MOD_ID);
                 registerBuiltinDataPack(modContainer.get(), BountifulFares.EXCESSIVE_BUILDING_MOD_ID);
             }
-            if (FabricLoader.getInstance().isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+            if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
                 registerBuiltinResourcePack(modContainer.get(), BountifulFares.NATURES_SPIRIT_MOD_ID);
                 registerBuiltinDataPack(modContainer.get(), BountifulFares.NATURES_SPIRIT_MOD_ID);
+            }
+            if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
+                registerBuiltinResourcePack(modContainer.get(), BountifulFares.SPAWN_MOD_ID);
+                registerBuiltinDataPack(modContainer.get(), BountifulFares.SPAWN_MOD_ID);
             }
             ResourceManagerHelper.registerBuiltinResourcePack(
                     new Identifier(BountifulFares.MOD_ID, "vanilla_item_override"),

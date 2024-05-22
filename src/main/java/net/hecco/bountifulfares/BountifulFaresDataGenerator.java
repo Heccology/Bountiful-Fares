@@ -3,7 +3,7 @@ package net.hecco.bountifulfares;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.hecco.bountifulfares.datagen.*;
-import net.hecco.bountifulfares.datagen.BFEnUsProvider;
+import net.hecco.bountifulfares.datagen.BFLangProvider;
 import net.hecco.bountifulfares.world.BFConfiguredFeatures;
 import net.hecco.bountifulfares.world.BFPlacedFeatures;
 import net.minecraft.registry.RegistryBuilder;
@@ -19,7 +19,7 @@ public class BountifulFaresDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(BFItemTagProvider::new);
         pack.addProvider(BFAdvancementProvider::new);
         pack.addProvider(BFModelProvider::new);
-        pack.addProvider(BFEnUsProvider::new);
+        pack.addProvider(BFLangProvider::new);
     }
 
     @Override

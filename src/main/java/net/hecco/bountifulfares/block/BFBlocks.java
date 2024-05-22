@@ -276,7 +276,7 @@ public class BFBlocks {
     public static Block VERMILION_JACK_O_STRAW;
     public static Block WINTERGREEN_PICKETS;
     public static void registerElsAndLsDyesBlocks() {
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+        if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
             ACORN_JACK_O_STRAW = registerBlock("acorn_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             AMBER_JACK_O_STRAW = registerBlock("amber_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             ARTICHOKE_JACK_O_STRAW = registerBlock("artichoke_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
@@ -313,7 +313,7 @@ public class BFBlocks {
     public static Block SLATE_JACK_O_STRAW;
 
     public static void registerDyeDepotBlocks() {
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
+        if (BountifulFares.isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
             MAROON_JACK_O_STRAW = registerBlock("maroon_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             ROSE_JACK_O_STRAW = registerBlock("rose_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
             CORAL_JACK_O_STRAW = registerBlock("coral_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
@@ -350,7 +350,7 @@ public class BFBlocks {
     public static Block HOARY_MOSAIC_SLAB;
     public static Block HOARY_LADDER;
     public static void registerExcessiveBuildingBlocks() {
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
             ANCIENT_PICKETS = registerBlock("ancient_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(BFSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
             WALNUT_VERTICAL_STAIRS = registerBlock("walnut_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
             CHISELED_WALNUT_PLANKS = registerBlock("chiseled_walnut_planks", new Block(FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
@@ -390,7 +390,7 @@ public class BFBlocks {
     public static Block WISTERIA_PICKETS;
 
     public static void registerNaturesSpiritBlocks() {
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
             ASPEN_PICKETS = registerBlock("aspen_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
             CEDAR_PICKETS = registerBlock("cedar_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
             COCONUT_PICKETS = registerBlock("coconut_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
@@ -408,6 +408,14 @@ public class BFBlocks {
             SUGI_PICKETS = registerBlock("sugi_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
             WILLOW_PICKETS = registerBlock("willow_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
             WISTERIA_PICKETS = registerBlock("wisteria_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+        }
+    }
+
+    public static Block ROTTEN_PICKETS;
+
+    public static void registerSpawnBlocks() {
+        if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
+            ROTTEN_PICKETS = registerBlock("rotten_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
         }
     }
 
@@ -477,6 +485,10 @@ public class BFBlocks {
     }
 
     public static void registerModBlocks() {
-//        BountifulFares.LOGGER.debug("Registering Blocks for " + BountifulFares.MOD_ID);
+        registerElsAndLsDyesBlocks();
+        registerDyeDepotBlocks();
+        registerExcessiveBuildingBlocks();
+        registerNaturesSpiritBlocks();
+        registerSpawnBlocks();
     }
 }

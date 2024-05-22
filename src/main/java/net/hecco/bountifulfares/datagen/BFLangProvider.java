@@ -11,8 +11,8 @@ import net.minecraft.registry.Registries;
 
 import static net.hecco.bountifulfares.trellis.TrellisUtil.registerTrellisTranslations;
 
-public class BFEnUsProvider extends FabricLanguageProvider {
-    public BFEnUsProvider(FabricDataOutput dataOutput) {
+public class BFLangProvider extends FabricLanguageProvider {
+    public BFLangProvider(FabricDataOutput dataOutput) {
         super(dataOutput, "en_us");
     }
 
@@ -197,6 +197,10 @@ public class BFEnUsProvider extends FabricLanguageProvider {
         registerTrellisTranslations(translationBuilder, BFTrellises.HOARY);
         registerTrellisTranslations(translationBuilder, BFTrellises.CRIMSON);
         registerTrellisTranslations(translationBuilder, BFTrellises.WARPED);
+
+//        registerTrellisTranslations(translationBuilder, BFTrellises.ANCIENT);
+
+//        registerTrellisTranslations(translationBuilder, BFTrellises.WINTERGREEN);
 
 //        registerTrellisTranslations(translationBuilder, ModTrellises.ASPEN);
 //        registerTrellisTranslations(translationBuilder, ModTrellises.CEDAR);
@@ -600,5 +604,8 @@ public class BFEnUsProvider extends FabricLanguageProvider {
         generate(translationBuilder, "pack.bountifulfares.amendments", "Bountiful Fares X Amendments");
         generate(translationBuilder, "pack.bountifulfares.mint", "Bountiful Fares X El's and L's Dye Mod");
         generate(translationBuilder, "pack.bountifulfares.dye_depot", "Bountiful Fares X Dye Depot");
+        generate(translationBuilder, "pack.bountifulfares.natures_spirit", "Bountiful Fares X Nature's Spirit");
+        generate(translationBuilder, "pack.bountifulfares.excessive_building", "Bountiful Fares X Excessive Building");
+        generate(translationBuilder, "pack.bountifulfares.spawn", "Bountiful Fares X Spawn");
     }
 }

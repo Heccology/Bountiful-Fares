@@ -318,7 +318,7 @@ public class BFItemGroupAdditions {
             entries.add(BFBlocks.MAGENTA_JACK_O_STRAW);
             entries.add(BFBlocks.PINK_JACK_O_STRAW);
         });
-//        if (FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+//        if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
 //            ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
 //                entries.addAfter(ModBlocks.BLACK_JACK_O_STRAW, ModBlocks.ACORN_JACK_O_STRAW);
 //                entries.addAfter(ModBlocks.BROWN_JACK_O_STRAW,ModBlocks.MAROON_JACK_O_STRAW);

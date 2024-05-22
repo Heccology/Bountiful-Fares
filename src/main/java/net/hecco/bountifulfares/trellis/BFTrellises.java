@@ -21,10 +21,12 @@ public class BFTrellises {
     public static Map<String, Block> DECORATIVE_TRELLISES = new HashMap<>();
     public static final ArrayList<Block> TRELLIS_RENDER_CUTOUT = new ArrayList<>();
 
+
     public static final VineCrop PASSION_FRUIT = new VineCrop(BountifulFares.MOD_ID, "passion_fruit", BFItems.PASSION_FRUIT);
     public static final VineCrop ELDERBERRY = new VineCrop(BountifulFares.MOD_ID, "elderberry", BFItems.ELDERBERRIES);
     public static final VineCrop LAPISBERRY = new VineCrop(BountifulFares.MOD_ID, "lapisberry", BFItems.LAPISBERRIES, BFItems.LAPISBERRY_SEEDS);
     public static final VineCrop GLOW_BERRY = new VineCrop(BountifulFares.MOD_ID, "glow_berry", Items.GLOW_BERRIES);
+
     public static final DecorativeVine ROSE = new DecorativeVine(true, BountifulFares.MOD_ID, "rose", Items.ROSE_BUSH);
     public static final DecorativeVine LILAC = new DecorativeVine(true, BountifulFares.MOD_ID, "lilac", Items.LILAC);
     public static final DecorativeVine PEONY = new DecorativeVine(true, BountifulFares.MOD_ID, "peony", Items.PEONY);
@@ -33,7 +35,7 @@ public class BFTrellises {
     public static final DecorativeVine WEEPING = new DecorativeVine(false, BountifulFares.MOD_ID, "weeping", Items.WEEPING_VINES);
     public static final DecorativeVine TWISTING = new DecorativeVine(false, BountifulFares.MOD_ID, "twisting", Items.TWISTING_VINES);
 
-
+//    Nature's Spirit
     public static DecorativeVine NS_LAVENDER;
     public static DecorativeVine NS_BLEEDING_HEART;
     public static DecorativeVine NS_BLUE_BULB;
@@ -42,6 +44,7 @@ public class BFTrellises {
     public static DecorativeVine NS_MARIGOLD;
     public static DecorativeVine NS_FOXGLOVE;
 
+//    Base
     public static TrellisVariant OAK;
     public static TrellisVariant SPRUCE;
     public static TrellisVariant BIRCH;
@@ -56,6 +59,7 @@ public class BFTrellises {
     public static TrellisVariant HOARY;
     public static TrellisVariant CRIMSON;
     public static TrellisVariant WARPED;
+
 //    El's and L's Dyes
     public static TrellisVariant WINTERGREEN;
 
@@ -81,8 +85,12 @@ public class BFTrellises {
     public static TrellisVariant WILLOW;
     public static TrellisVariant WISTERIA;
 
+//    Spawn
+    public static TrellisVariant ROTTEN;
+
     public static void registerTrellisParts() {
-        if (System.getProperty("fabric-api.datagen") != null) {
+//        Compat Decorative Vines
+        if (BountifulFares.isDatagen()) {
             NS_LAVENDER = new DecorativeVine(true, BountifulFares.MOD_ID, "ns_lavender", Items.POPPY);
             NS_BLEEDING_HEART = new DecorativeVine(true, BountifulFares.MOD_ID, "ns_bleeding_heart", Items.POPPY);
             NS_BLUE_BULB = new DecorativeVine(true, BountifulFares.MOD_ID, "ns_blue_bulb", Items.POPPY);
@@ -90,8 +98,7 @@ public class BFTrellises {
             NS_GARDENIA = new DecorativeVine(true, BountifulFares.MOD_ID, "ns_gardenia", Items.POPPY);
             NS_MARIGOLD = new DecorativeVine(true, BountifulFares.MOD_ID, "ns_marigold", Items.POPPY);
             NS_FOXGLOVE = new DecorativeVine(true, BountifulFares.MOD_ID, "ns_foxglove", Items.POPPY);
-        }
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID) && System.getProperty("fabric-api.datagen") == null) {
+        } else if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
             NS_LAVENDER = new DecorativeVine(true, BountifulFares.MOD_ID, "ns_lavender", new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "lavender"));
             NS_BLEEDING_HEART = new DecorativeVine(true, BountifulFares.MOD_ID, "ns_bleeding_heart", new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "bleeding_heart"));
             NS_BLUE_BULB = new DecorativeVine(true, BountifulFares.MOD_ID, "ns_blue_bulb", new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "blue_bulbs"));
@@ -100,13 +107,32 @@ public class BFTrellises {
             NS_MARIGOLD = new DecorativeVine(true, BountifulFares.MOD_ID, "ns_marigold", new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "marigold"));
             NS_FOXGLOVE = new DecorativeVine(true, BountifulFares.MOD_ID, "ns_foxglove", new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "foxglove"));
         }
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+
+
+//        Trellis Variants
+        OAK = new TrellisVariant(BountifulFares.MOD_ID, "oak", Items.OAK_PLANKS, TRELLIS_RENDER_CUTOUT);
+        SPRUCE = new TrellisVariant(BountifulFares.MOD_ID, "spruce", Items.SPRUCE_PLANKS, TRELLIS_RENDER_CUTOUT);
+        BIRCH = new TrellisVariant(BountifulFares.MOD_ID, "birch", Items.BIRCH_PLANKS, TRELLIS_RENDER_CUTOUT);
+        JUNGLE = new TrellisVariant(BountifulFares.MOD_ID, "jungle", Items.JUNGLE_PLANKS, TRELLIS_RENDER_CUTOUT);
+        ACACIA = new TrellisVariant(BountifulFares.MOD_ID, "acacia", Items.ACACIA_PLANKS, TRELLIS_RENDER_CUTOUT);
+        DARK_OAK = new TrellisVariant(BountifulFares.MOD_ID, "dark_oak", Items.DARK_OAK_PLANKS, TRELLIS_RENDER_CUTOUT);
+        MANGROVE = new TrellisVariant(BountifulFares.MOD_ID, "mangrove", Items.MANGROVE_PLANKS, TRELLIS_RENDER_CUTOUT);
+        CHERRY = new TrellisVariant(BountifulFares.MOD_ID, "cherry", Items.CHERRY_PLANKS, TRELLIS_RENDER_CUTOUT);
+        BAMBOO = new TrellisVariant(BountifulFares.MOD_ID, "bamboo", Items.BAMBOO_PLANKS, TRELLIS_RENDER_CUTOUT);
+        WALNUT = new TrellisVariant(BountifulFares.MOD_ID, "walnut", BFBlocks.WALNUT_PLANKS.asItem(), TRELLIS_RENDER_CUTOUT);
+        HOARY = new TrellisVariant(BountifulFares.MOD_ID, "hoary", BFBlocks.HOARY_PLANKS.asItem(), TRELLIS_RENDER_CUTOUT);
+        CRIMSON = new TrellisVariant(BountifulFares.MOD_ID, "crimson", Items.CRIMSON_PLANKS, TRELLIS_RENDER_CUTOUT);
+        WARPED = new TrellisVariant(BountifulFares.MOD_ID, "warped", Items.WARPED_PLANKS, TRELLIS_RENDER_CUTOUT);
+
+        if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
             WINTERGREEN = new TrellisVariant(BountifulFares.ELS_AND_LS_DYES_MOD_ID, "wintergreen", null, TRELLIS_RENDER_CUTOUT);
         }
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+
+        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
             ANCIENT = new TrellisVariant(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "ancient", null, TRELLIS_RENDER_CUTOUT);
         }
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+
+        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
             REDWOOD = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "redwood", null, TRELLIS_RENDER_CUTOUT);
             SUGI = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "sugi", null, TRELLIS_RENDER_CUTOUT);
             WISTERIA = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "wisteria", null, TRELLIS_RENDER_CUTOUT);
@@ -125,18 +151,9 @@ public class BFTrellises {
             MAHOGANY = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "mahogany", null, TRELLIS_RENDER_CUTOUT);
             SAXAUL = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "saxaul", null, TRELLIS_RENDER_CUTOUT);
         }
-        OAK = new TrellisVariant(BountifulFares.MOD_ID, "oak", Items.OAK_PLANKS, TRELLIS_RENDER_CUTOUT);
-        SPRUCE = new TrellisVariant(BountifulFares.MOD_ID, "spruce", Items.SPRUCE_PLANKS, TRELLIS_RENDER_CUTOUT);
-        BIRCH = new TrellisVariant(BountifulFares.MOD_ID, "birch", Items.BIRCH_PLANKS, TRELLIS_RENDER_CUTOUT);
-        JUNGLE = new TrellisVariant(BountifulFares.MOD_ID, "jungle", Items.JUNGLE_PLANKS, TRELLIS_RENDER_CUTOUT);
-        ACACIA = new TrellisVariant(BountifulFares.MOD_ID, "acacia", Items.ACACIA_PLANKS, TRELLIS_RENDER_CUTOUT);
-        DARK_OAK = new TrellisVariant(BountifulFares.MOD_ID, "dark_oak", Items.DARK_OAK_PLANKS, TRELLIS_RENDER_CUTOUT);
-        MANGROVE = new TrellisVariant(BountifulFares.MOD_ID, "mangrove", Items.MANGROVE_PLANKS, TRELLIS_RENDER_CUTOUT);
-        CHERRY = new TrellisVariant(BountifulFares.MOD_ID, "cherry", Items.CHERRY_PLANKS, TRELLIS_RENDER_CUTOUT);
-        BAMBOO = new TrellisVariant(BountifulFares.MOD_ID, "bamboo", Items.BAMBOO_PLANKS, TRELLIS_RENDER_CUTOUT);
-        WALNUT = new TrellisVariant(BountifulFares.MOD_ID, "walnut", BFBlocks.WALNUT_PLANKS.asItem(), TRELLIS_RENDER_CUTOUT);
-        HOARY = new TrellisVariant(BountifulFares.MOD_ID, "hoary", BFBlocks.HOARY_PLANKS.asItem(), TRELLIS_RENDER_CUTOUT);
-        CRIMSON = new TrellisVariant(BountifulFares.MOD_ID, "crimson", Items.CRIMSON_PLANKS, TRELLIS_RENDER_CUTOUT);
-        WARPED = new TrellisVariant(BountifulFares.MOD_ID, "warped", Items.WARPED_PLANKS, TRELLIS_RENDER_CUTOUT);
+
+        if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
+            ROTTEN = new TrellisVariant(BountifulFares.SPAWN_MOD_ID, "rotten", null, TRELLIS_RENDER_CUTOUT);
+        }
     }
 }

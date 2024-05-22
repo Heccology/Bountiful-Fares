@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "mint:block/ns_foxglove_wintergreen_trellis",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "mint:block/ns_foxglove_wintergreen_trellis",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "mint:block/ns_foxglove_wintergreen_trellis",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mint:block/ns_foxglove_wintergreen_trellis",
+      "y": 270
+    }
+  }
+}

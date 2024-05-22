@@ -70,7 +70,7 @@ public class TrellisVariant {
         BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.TWISTING.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.TWISTING.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.TWISTING.canDuplicate(), BFTrellises.TWISTING.getPlantItem(), this, BFTrellises.TWISTING, FabricBlockSettings.create().nonOpaque().strength(0.5F).instrument(Instrument.BASS).nonOpaque().sounds(BFSounds.PLANTED_TRELLIS))));
         renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.TWISTING.getName() + this.getBlockName()));
 
-        if (System.getProperty("fabric-api.datagen") != null || FabricLoader.getInstance().isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+        if (BountifulFares.isDatagen() || BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
             BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.NS_LAVENDER.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.NS_LAVENDER.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.NS_LAVENDER.canDuplicate(), BFTrellises.NS_LAVENDER.getPlantItem(), this, BFTrellises.NS_LAVENDER, FabricBlockSettings.create().nonOpaque().strength(0.5F).instrument(Instrument.BASS).nonOpaque().sounds(BFSounds.PLANTED_TRELLIS))));
             renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.NS_LAVENDER.getName() + this.getBlockName()));
 

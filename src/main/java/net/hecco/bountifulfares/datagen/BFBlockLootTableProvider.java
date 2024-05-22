@@ -155,6 +155,9 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         registerTrellisLootTables(BFTrellises.HOARY);
         registerTrellisLootTables(BFTrellises.CRIMSON);
         registerTrellisLootTables(BFTrellises.WARPED);
+//        registerTrellisLootTables(BFTrellises.ANCIENT);
+//        registerTrellisLootTables(BFTrellises.WINTERGREEN);
+//        registerTrellisLootTables(BFTrellises.ROTTEN);
 
 //        registerTrellisLootTables(ModTrellises.ASPEN);
 //        registerTrellisLootTables(ModTrellises.CEDAR);

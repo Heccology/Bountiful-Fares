@@ -52,7 +52,7 @@ public class BountifulFaresClient implements ClientModInitializer {
         BFMessages.registerS2CPackets();
         BlockEntityRendererFactories.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, CeramicDishBlockEntityRenderer::new);
 //        ElsAndLsDyes compat
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+        if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.ACORN_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.ARTICHOKE_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.AMBER_JACK_O_STRAW, RenderLayer.getCutout());
@@ -76,7 +76,7 @@ public class BountifulFaresClient implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.WINTERGREEN_PICKETS, RenderLayer.getCutout());
         }
 //        DyeDepot compat
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
+        if (BountifulFares.isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.MAROON_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.ROSE_JACK_O_STRAW, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CORAL_JACK_O_STRAW, RenderLayer.getCutout());
@@ -95,14 +95,14 @@ public class BountifulFaresClient implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.INDIGO_JACK_O_STRAW, RenderLayer.getCutout());
         }
 //        ExcessiveBuilding compat
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.ANCIENT_PICKETS, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.WALNUT_LADDER, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.HOARY_LADDER, RenderLayer.getCutout());
         }
 
 //        NaturesSpirit compat
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.ASPEN_PICKETS, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CEDAR_PICKETS, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.COCONUT_PICKETS, RenderLayer.getCutout());
@@ -122,6 +122,12 @@ public class BountifulFaresClient implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.WILLOW_PICKETS, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.WISTERIA_PICKETS, RenderLayer.getCutout());
         }
+
+        //        Spawn compat
+        if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
+            BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.ROTTEN_PICKETS, RenderLayer.getCutout());
+        }
+
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.APPLE_LOG, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.APPLE_WOOD, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.HANGING_APPLE, RenderLayer.getCutout());

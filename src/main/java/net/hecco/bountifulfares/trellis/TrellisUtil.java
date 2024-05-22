@@ -10,7 +10,7 @@ import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.datagen.custom.BFTemplateModels;
-import net.hecco.bountifulfares.datagen.BFEnUsProvider;
+import net.hecco.bountifulfares.datagen.BFLangProvider;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
@@ -57,7 +57,7 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
     ));
 
     public static void registerTrellisParts() {
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID) || System.getProperty("fabric-api.datagen") != null) {
+        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID) || BountifulFares.isDatagen()) {
             DecorativeVines.add(BFTrellises.NS_LAVENDER);
             DecorativeVines.add(BFTrellises.NS_BLEEDING_HEART);
             DecorativeVines.add(BFTrellises.NS_BLUE_BULB);
@@ -212,7 +212,7 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
     }
 
     public static void registerTrellisTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder, TrellisVariant trellis) {
-        String temp = BFEnUsProvider.capitalizeString(Registries.ITEM.getId(TrellisUtil.getTrellisFromVariant(trellis).asItem()).getPath().replace("_", " "));
+        String temp = BFLangProvider.capitalizeString(Registries.ITEM.getId(TrellisUtil.getTrellisFromVariant(trellis).asItem()).getPath().replace("_", " "));
         translationBuilder.add(TrellisUtil.getTrellisFromVariant(trellis), temp);
         for (VineCrop crop : TrellisUtil.VineCrops) {
             translationBuilder.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), temp);

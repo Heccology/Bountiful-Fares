@@ -83,7 +83,7 @@ public class BFRegistries {
         registry.add(BFBlocks.PURPLE_JACK_O_STRAW, 400);
         registry.add(BFBlocks.MAGENTA_JACK_O_STRAW, 400);
         registry.add(BFBlocks.PINK_JACK_O_STRAW, 400);
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+        if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
             registry.add(BFBlocks.ACORN_JACK_O_STRAW, 400);
             registry.add(BFBlocks.AMBER_JACK_O_STRAW, 400);
             registry.add(BFBlocks.ARTICHOKE_JACK_O_STRAW, 400);
@@ -105,7 +105,7 @@ public class BFRegistries {
             registry.add(BFBlocks.VELVET_JACK_O_STRAW, 400);
             registry.add(BFBlocks.VERMILION_JACK_O_STRAW, 400);
         }
-        if (FabricLoader.getInstance().isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
+        if (BountifulFares.isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
             registry.add(BFBlocks.MAROON_JACK_O_STRAW, 400);
             registry.add(BFBlocks.ROSE_JACK_O_STRAW, 400);
             registry.add(BFBlocks.CORAL_JACK_O_STRAW, 400);

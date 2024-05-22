@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.trellis.BFTrellises;
@@ -36,20 +37,24 @@ public class BountifulFares implements ModInitializer {
 	public static final String AMENDMENTS_MOD_ID = "amendments";
 	public static final String EXCESSIVE_BUILDING_MOD_ID = "excessive_building";
 	public static final String NATURES_SPIRIT_MOD_ID = "natures_spirit";
+	public static final String SPAWN_MOD_ID = "spawn";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static BountifulFaresConfiguration CONFIG = new BountifulFaresConfiguration();
+
+	public static boolean isModLoaded(String modId) {
+		return FabricLoader.getInstance().isModLoaded(modId);
+	}
+	public static boolean isDatagen() {
+		return System.getProperty("fabric-api.datagen") != null;
+	}
 	@Override
 	public void onInitialize() {
 		BountifulFares.CONFIG = BountifulFaresConfiguration.load();
 		BFResourcePacks.registerBuiltinResourcePacks();
 		BFItems.registerModItems();
 		BFBlocks.registerModBlocks();
-		BFBlocks.registerElsAndLsDyesBlocks();
-		BFBlocks.registerDyeDepotBlocks();
-		BFBlocks.registerExcessiveBuildingBlocks();
-		BFBlocks.registerNaturesSpiritBlocks();
 		BFTrellises.registerTrellisParts();
 		TrellisUtil.registerTrellisParts();
 		BFItemGroups.registerItemGroups();

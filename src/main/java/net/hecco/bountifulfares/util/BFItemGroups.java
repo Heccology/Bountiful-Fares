@@ -34,8 +34,8 @@ public class BFItemGroups {
     public static ItemGroup BOUNTIFUL_FARES = Registry.register(Registries.ITEM_GROUP, new Identifier(BountifulFares.MOD_ID, "bountiful_fares"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.bountiful_fares"))
                     .icon(() -> new ItemStack(BFItems.PASSION_FRUIT)).entries((displayContext, entries) -> {
-                        boolean mint = FabricLoader.getInstance().isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID);
-                        boolean dye_depot = FabricLoader.getInstance().isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID);
+                        boolean mint = BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+                        boolean dye_depot = BountifulFares.isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID);
                         entries.add(BFBlocks.APPLE_LOG);
                         entries.add(BFBlocks.APPLE_WOOD);
                         entries.add(BFBlocks.STRIPPED_APPLE_LOG);
@@ -129,7 +129,7 @@ public class BFItemGroups {
                         if (mint) {
                             entries.add(BFBlocks.WINTERGREEN_PICKETS);
                         }
-                        if (FabricLoader.getInstance().isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+                        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
                             entries.add(BFBlocks.REDWOOD_PICKETS);
                             entries.add(BFBlocks.SUGI_PICKETS);
                             entries.add(BFBlocks.WISTERIA_PICKETS);
@@ -147,6 +147,12 @@ public class BFItemGroups {
                             entries.add(BFBlocks.LARCH_PICKETS);
                             entries.add(BFBlocks.MAHOGANY_PICKETS);
                             entries.add(BFBlocks.SAXAUL_PICKETS);
+                        }
+                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+                            entries.add(BFBlocks.ANCIENT_PICKETS);
+                        }
+                        if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
+                            entries.add(BFBlocks.ROTTEN_PICKETS);
                         }
                         entries.add(BFBlocks.HOARY_PICKETS);
                         entries.add(BFBlocks.CRIMSON_PICKETS);
@@ -307,6 +313,13 @@ public class BFItemGroups {
                         }
                         for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
                             if (Objects.equals(trellis.getModId(), BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+                                if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
+                                    entries.add(TrellisUtil.getTrellisFromVariant(trellis));
+                                }
+                            }
+                        }
+                        for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
+                            if (Objects.equals(trellis.getModId(), BountifulFares.SPAWN_MOD_ID)) {
                                 if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
                                     entries.add(TrellisUtil.getTrellisFromVariant(trellis));
                                 }
