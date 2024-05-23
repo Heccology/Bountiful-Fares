@@ -19,6 +19,20 @@
     "excessive_building:ns_carnation_ancient_trellis",
     "excessive_building:ns_gardenia_ancient_trellis",
     "excessive_building:ns_marigold_ancient_trellis",
-    "excessive_building:ns_foxglove_ancient_trellis"
+    "excessive_building:ns_foxglove_ancient_trellis",
+    "bountifulfares:walnut_vertical_stairs",
+    "bountifulfares:chiseled_walnut_planks",
+    "bountifulfares:walnut_mosaic",
+    "bountifulfares:walnut_mosaic_stairs",
+    "bountifulfares:walnut_mosaic_vertical_stairs",
+    "bountifulfares:walnut_mosaic_slab",
+    "bountifulfares:walnut_ladder",
+    "bountifulfares:hoary_vertical_stairs",
+    "bountifulfares:chiseled_hoary_planks",
+    "bountifulfares:hoary_mosaic",
+    "bountifulfares:hoary_mosaic_stairs",
+    "bountifulfares:hoary_mosaic_vertical_stairs",
+    "bountifulfares:hoary_mosaic_slab",
+    "bountifulfares:hoary_ladder"
   ]
 }

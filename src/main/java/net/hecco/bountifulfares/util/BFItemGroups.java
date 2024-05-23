@@ -80,6 +80,9 @@ public class BFItemGroups {
                         entries.add(BFBlocks.STRIPPED_HOARY_WOOD);
                         entries.add(BFBlocks.HOARY_PLANKS);
                         entries.add(BFBlocks.HOARY_STAIRS);
+                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+                            entries.add(BFBlocks.HOARY_VERTICAL_STAIRS);
+                        }
                         entries.add(BFBlocks.HOARY_SLAB);
                         entries.add(BFBlocks.HOARY_FENCE);
                         entries.add(BFBlocks.HOARY_FENCE_GATE);
@@ -91,6 +94,14 @@ public class BFItemGroups {
                         entries.add(BFItems.HOARY_HANGING_SIGN);
                         entries.add(BFItems.HOARY_BOAT);
                         entries.add(BFItems.HOARY_CHEST_BOAT);
+                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+                            entries.add(BFBlocks.CHISELED_HOARY_PLANKS);
+                            entries.add(BFBlocks.HOARY_MOSAIC);
+                            entries.add(BFBlocks.HOARY_MOSAIC_STAIRS);
+                            entries.add(BFBlocks.HOARY_MOSAIC_VERTICAL_STAIRS);
+                            entries.add(BFBlocks.HOARY_MOSAIC_SLAB);
+                            entries.add(BFBlocks.HOARY_LADDER);
+                        }
                         entries.add(BFBlocks.HOARY_LEAVES);
                         entries.add(BFItems.HOARY_APPLE);
                         entries.add(BFBlocks.HOARY_APPLE_BLOCK);
@@ -101,6 +112,9 @@ public class BFItemGroups {
                         entries.add(BFBlocks.STRIPPED_WALNUT_WOOD);
                         entries.add(BFBlocks.WALNUT_PLANKS);
                         entries.add(BFBlocks.WALNUT_STAIRS);
+                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+                            entries.add(BFBlocks.WALNUT_VERTICAL_STAIRS);
+                        }
                         entries.add(BFBlocks.WALNUT_SLAB);
                         entries.add(BFBlocks.WALNUT_FENCE);
                         entries.add(BFBlocks.WALNUT_FENCE_GATE);
@@ -112,6 +126,14 @@ public class BFItemGroups {
                         entries.add(BFItems.WALNUT_HANGING_SIGN);
                         entries.add(BFItems.WALNUT_BOAT);
                         entries.add(BFItems.WALNUT_CHEST_BOAT);
+                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+                            entries.add(BFBlocks.CHISELED_WALNUT_PLANKS);
+                            entries.add(BFBlocks.WALNUT_MOSAIC);
+                            entries.add(BFBlocks.WALNUT_MOSAIC_STAIRS);
+                            entries.add(BFBlocks.WALNUT_MOSAIC_VERTICAL_STAIRS);
+                            entries.add(BFBlocks.WALNUT_MOSAIC_SLAB);
+                            entries.add(BFBlocks.WALNUT_LADDER);
+                        }
                         entries.add(BFBlocks.WALNUT_LEAVES);
                         entries.add(BFItems.WALNUT);
                         entries.add(BFBlocks.WALNUT_MULCH);
@@ -162,6 +184,9 @@ public class BFItemGroups {
                         entries.add(BFBlocks.CUT_FELDSPAR_BLOCK);
                         entries.add(BFBlocks.FELDSPAR_BRICKS);
                         entries.add(BFBlocks.FELDSPAR_BRICK_STAIRS);
+                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+                            entries.add(BFBlocks.FELDSPAR_BRICK_VERTICAL_STAIRS);
+                        }
                         entries.add(BFBlocks.FELDSPAR_BRICK_SLAB);
                         entries.add(BFBlocks.FELDSPAR_LANTERN);
                         entries.add(BFBlocks.TINGED_GLASS);
@@ -170,11 +195,17 @@ public class BFItemGroups {
                         entries.add(BFItems.CERAMIC_TILE);
                         entries.add(BFBlocks.CERAMIC_TILES);
                         entries.add(BFBlocks.CERAMIC_TILE_STAIRS);
+                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+                            entries.add(BFBlocks.CERAMIC_TILE_VERTICAL_STAIRS);
+                        }
                         entries.add(BFBlocks.CERAMIC_TILE_SLAB);
                         entries.add(BFBlocks.CRACKED_CERAMIC_TILES);
                         entries.add(BFBlocks.CERAMIC_TILE_PILLAR);
                         entries.add(BFBlocks.CERAMIC_MOSAIC);
                         entries.add(BFBlocks.CERAMIC_MOSAIC_STAIRS);
+                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+                            entries.add(BFBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS);
+                        }
                         entries.add(BFBlocks.CERAMIC_MOSAIC_SLAB);
                         entries.add(BFBlocks.CERAMIC_DOOR);
                         entries.add(BFBlocks.CERAMIC_TRAPDOOR);

@@ -3,9 +3,10 @@ package net.hecco.bountifulfares.block;
 import com.google.common.collect.Maps;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.*;
+import net.hecco.bountifulfares.block.custom.compat.CeramicTileVerticalStairsBlock;
+import net.hecco.bountifulfares.block.custom.compat.VerticalStairsBlock;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.item.custom.BlockItemWithInfo;
@@ -349,6 +350,11 @@ public class BFBlocks {
     public static Block HOARY_MOSAIC_VERTICAL_STAIRS;
     public static Block HOARY_MOSAIC_SLAB;
     public static Block HOARY_LADDER;
+    public static Block FELDSPAR_BRICK_VERTICAL_STAIRS;
+    public static Block CERAMIC_TILE_VERTICAL_STAIRS;
+    public static Block CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS;
+    public static Block CERAMIC_MOSAIC_VERTICAL_STAIRS;
+    public static Block CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS;
     public static void registerExcessiveBuildingBlocks() {
         if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
             ANCIENT_PICKETS = registerBlock("ancient_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(BFSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
@@ -367,6 +373,12 @@ public class BFBlocks {
             HOARY_MOSAIC_SLAB = registerBlock("hoary_mosaic_slab", new SlabBlock(FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
             HOARY_MOSAIC_VERTICAL_STAIRS = registerBlock("hoary_mosaic_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
             HOARY_LADDER = registerBlock("hoary_ladder", new LadderBlock(FabricBlockSettings.copyOf(Blocks.LADDER)));
+
+            FELDSPAR_BRICK_VERTICAL_STAIRS = registerBlock("feldspar_brick_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.FELDSPAR_BRICKS)));
+            CERAMIC_TILE_VERTICAL_STAIRS = registerBlock("ceramic_tile_vertical_stairs", new CeramicTileVerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.CERAMIC_TILES)));
+            CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS = registerBlock("checkered_ceramic_tile_vertical_stairs", new CeramicTileVerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.CHECKERED_CERAMIC_TILES)));
+            CERAMIC_MOSAIC_VERTICAL_STAIRS = registerBlock("ceramic_mosaic_vertical_stairs", new CeramicTileVerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.CERAMIC_MOSAIC)));
+            CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS = registerBlock("checkered_ceramic_mosaic_vertical_stairs", new CeramicTileVerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.CHECKERED_CERAMIC_MOSAIC)));
         }
     }
 

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "bountifulfares:checkered_ceramic_mosaic"
+    }
+  },
+  "pattern": [
+    "###",
+    "## ",
+    "#  "
+  ],
+  "result": {
+    "item": "bountifulfares:checkered_ceramic_mosaic_vertical_stairs"
+  },
+  "show_notification": true
+}

@@ -20,8 +20,10 @@ public class StuporEffect extends StatusEffect {
 
         for (StatusEffectInstance effect : entity.getStatusEffects()) {
             // goes through each effect that shouldn't be affected, and adds it to a list to be removed
-            if (effect.getEffectType() != this || effect.getEffectType() != StatusEffects.BAD_OMEN || effect.getEffectType() != StatusEffects.HERO_OF_THE_VILLAGE) {
-                effectsToRemove.add(effect);
+            if (effect.getEffectType() != this) {
+                if (effect.getEffectType() != StatusEffects.HERO_OF_THE_VILLAGE && effect.getEffectType() != StatusEffects.BAD_OMEN) {
+                    effectsToRemove.add(effect);
+                }
             }
         }
         for (StatusEffectInstance effect : effectsToRemove) {

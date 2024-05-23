@@ -25,7 +25,7 @@ public class AcidicEffect extends StatusEffect {
             List<StatusEffectInstance> effectsToModify = new ArrayList<>();
             for (StatusEffectInstance effect : entity.getStatusEffects()) {
                 if (effect.getEffectType() != this) {
-                    if (effect.getEffectType() != StatusEffects.HERO_OF_THE_VILLAGE || effect.getEffectType() != StatusEffects.BAD_OMEN) {
+                    if (effect.getEffectType() != StatusEffects.HERO_OF_THE_VILLAGE && effect.getEffectType() != StatusEffects.BAD_OMEN) {
                         // goes through each effect on the entity that should be affected and increases the amplifier
                         int newAmplifier = effect.getAmplifier() + amplifier + 1;
                         if (newAmplifier > 255) {
@@ -58,7 +58,7 @@ public class AcidicEffect extends StatusEffect {
                 boolean alreadyAffected = affectedEffects.stream().anyMatch(prev -> prev.getEffectType() == effect.getEffectType());
 
                 if (!alreadyAffected && effect.getEffectType() != this) {
-                    if (effect.getEffectType() != StatusEffects.HERO_OF_THE_VILLAGE || effect.getEffectType() != StatusEffects.BAD_OMEN) {
+                    if (effect.getEffectType() != StatusEffects.HERO_OF_THE_VILLAGE && effect.getEffectType() != StatusEffects.BAD_OMEN) {
                         //increases amplifier and creates an instance
                         int newAmplifier = effect.getAmplifier() + amplifier + 1;
                         if (newAmplifier > 255) {

@@ -99,6 +99,12 @@ public class BountifulFaresClient implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.ANCIENT_PICKETS, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.WALNUT_LADDER, RenderLayer.getCutout());
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.HOARY_LADDER, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS, RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS, RenderLayer.getCutout());
+            registerBlockColor(BFBlocks.CERAMIC_TILE_VERTICAL_STAIRS);
+            registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS);
+            registerBlockColor(BFBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS);
+            registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS);
         }
 
 //        NaturesSpirit compat

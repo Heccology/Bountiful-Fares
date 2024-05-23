@@ -13,5 +13,10 @@
   "block.bountifulfares.hoary_mosaic_stairs": "Hoary Mosaic Stairs",
   "block.bountifulfares.hoary_mosaic_vertical_stairs": "Hoary Mosaic Vertical Stairs",
   "block.bountifulfares.hoary_mosaic_slab": "Hoary Mosaic Slab",
-  "block.bountifulfares.hoary_ladder": "Hoary Ladder"
+  "block.bountifulfares.hoary_ladder": "Hoary Ladder",
+  "block.bountifulfares.feldspar_brick_vertical_stairs": "Feldspar Brick Vertical Stairs",
+  "block.bountifulfares.ceramic_tile_vertical_stairs": "Ceramic Tile Vertical Stairs",
+  "block.bountifulfares.checkered_ceramic_tile_vertical_stairs": "Checkered Ceramic Tile Vertical Stairs",
+  "block.bountifulfares.ceramic_mosaic_vertical_stairs": "Ceramic Mosaic Vertical Stairs",
+  "block.bountifulfares.checkered_ceramic_mosaic_vertical_stairs": "Checkered Ceramic Mosaic Vertical Stairs"
 }
