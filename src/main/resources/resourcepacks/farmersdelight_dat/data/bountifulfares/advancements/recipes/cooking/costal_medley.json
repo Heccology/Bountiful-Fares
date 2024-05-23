@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_any_ingredient": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bountifulfares:spongekin_slice",
+              "minecraft:dried_kelp",
+              "minecraft:dried_kelp",
+              "#c:foods/cooked_fishes"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bountifulfares:cooking/coastal_medley"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_any_ingredient",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bountifulfares:cooking/coastal_medley"
+    ]
+  },
+  "sends_telemetry_event": true
+}

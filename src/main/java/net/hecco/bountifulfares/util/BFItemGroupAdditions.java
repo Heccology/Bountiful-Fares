@@ -278,8 +278,7 @@ public class BFItemGroupAdditions {
             entries.addAfter(BFItems.CUSTARD, BFItems.PIQUANT_CUSTARD);
             entries.addAfter(BFItems.PIQUANT_CUSTARD, BFItems.PASSION_CUSTARD);
             entries.addAfter(BFItems.PASSION_CUSTARD, BFItems.COCOA_CUSTARD);
-            entries.addAfter(BFItems.COCOA_CUSTARD, BFItems.GLOWING_CUSTARD);
-            entries.addAfter(BFItems.GLOWING_CUSTARD, BFItems.ANCIENT_CUSTARD);
+            entries.addAfter(BFItems.COCOA_CUSTARD, BFItems.ANCIENT_CUSTARD);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {

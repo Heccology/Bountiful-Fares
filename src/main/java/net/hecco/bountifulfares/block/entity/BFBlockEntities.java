@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.block.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.block.entity.compat.CabinetBlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -83,7 +84,15 @@ public class BFBlockEntities {
             FabricBlockEntityTypeBuilder.create(WalnutCandleBlockEntity::new, WALNUT_CANDLE).build()
     );
 
+    public static BlockEntityType<CabinetBlockEntity> CABINET_BLOCK_ENTITY;
+
     public static void registerBlockEntities() {
-//        BountifulFares.LOGGER.debug("Registering Block Entities for " + BountifulFares.MOD_ID);
+        if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID)) {
+            CABINET_BLOCK_ENTITY = Registry.register(
+                    Registries.BLOCK_ENTITY_TYPE,
+                    new Identifier(BountifulFares.MOD_ID, "cabinet_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(CabinetBlockEntity::new, WALNUT_CABINET).build()
+            );
+        }
     }
 }

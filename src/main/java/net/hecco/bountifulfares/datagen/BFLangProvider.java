@@ -448,7 +448,6 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFItems.PIQUANT_CUSTARD);
         generate(translationBuilder, BFItems.PASSION_CUSTARD);
         generate(translationBuilder, BFItems.COCOA_CUSTARD);
-        generate(translationBuilder, BFItems.GLOWING_CUSTARD);
         generate(translationBuilder, BFItems.ANCIENT_CUSTARD);
         generate(translationBuilder, BFItems.CRIMSON_CHOW);
         generate(translationBuilder, BFItems.WARPED_CHOW);

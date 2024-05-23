@@ -273,11 +273,11 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.FOREST_MEDLEY)
-                .input(Items.PORKCHOP)
+                .input(Items.COOKED_PORKCHOP)
                 .input(Items.CARROT)
                 .input(Items.SWEET_BERRIES)
                 .input(Items.BREAD)
-                .criterion(hasItem(Items.PORKCHOP), conditionsFromItem(Items.PORKCHOP))
+                .criterion(hasItem(Items.COOKED_PORKCHOP), conditionsFromItem(Items.COOKED_PORKCHOP))
                 .criterion(hasItem(Items.CARROT), conditionsFromItem(Items.CARROT))
                 .criterion(hasItem(Items.SWEET_BERRIES), conditionsFromItem(Items.SWEET_BERRIES))
                 .criterion(hasItem(Items.BREAD), conditionsFromItem(Items.BREAD))
@@ -429,15 +429,6 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(BFItems.WALNUT), conditionsFromItem(BFItems.WALNUT))
                 .offerTo(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.GLOWING_CUSTARD)
-                .input(Items.MILK_BUCKET, 1)
-                .input(Items.SUGAR, 2)
-                .input(Items.GLOW_BERRIES, 2)
-                .input(Items.BOWL)
-                .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .criterion(hasItem(Items.GLOW_BERRIES), conditionsFromItem(Items.GLOW_BERRIES))
-                .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.ANCIENT_CUSTARD)
                 .input(Items.MILK_BUCKET, 1)

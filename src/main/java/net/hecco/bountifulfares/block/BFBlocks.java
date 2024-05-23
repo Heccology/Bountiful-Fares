@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.*;
+import net.hecco.bountifulfares.block.custom.compat.CabinetBlock;
 import net.hecco.bountifulfares.block.custom.compat.CeramicTileVerticalStairsBlock;
 import net.hecco.bountifulfares.block.custom.compat.VerticalStairsBlock;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
@@ -432,6 +433,17 @@ public class BFBlocks {
     }
 
 
+    public static Block WALNUT_CABINET;
+    public static Block HOARY_CABINET;
+
+    public static void registerFarmersDelightBlocks() {
+        if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID)) {
+            WALNUT_CABINET = registerBlock("walnut_cabinet", new CabinetBlock(FabricBlockSettings.copyOf(Blocks.BARREL).mapColor(MapColor.BROWN)));
+            HOARY_CABINET = registerBlock("hoary_cabinet", new CabinetBlock(FabricBlockSettings.copyOf(Blocks.BARREL).mapColor(MapColor.TERRACOTTA_GRAY)));
+        }
+    }
+
+
 
     public static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
         return state -> state.get(Properties.LIT) ? litLevel : 0;
@@ -502,5 +514,6 @@ public class BFBlocks {
         registerExcessiveBuildingBlocks();
         registerNaturesSpiritBlocks();
         registerSpawnBlocks();
+        registerFarmersDelightBlocks();
     }
 }

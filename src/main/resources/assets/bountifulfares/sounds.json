@@ -255,5 +255,23 @@
       "bountifulfares:hanging_fruit/pick1",
       "bountifulfares:hanging_fruit/pick2"
     ]
+  },
+  "cabinet_open": {
+    "subtitle": "farmersdelight.subtitles.cabinet.open",
+    "sounds": [
+      {
+        "name": "block.barrel.open",
+        "type": "event"
+      }
+    ]
+  },
+  "cabinet_close": {
+    "subtitle": "farmersdelight.subtitles.cabinet.close",
+    "sounds": [
+      {
+        "name": "block.barrel.close",
+        "type": "event"
+      }
+    ]
   }
 }

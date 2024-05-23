@@ -93,6 +93,10 @@ public class BFResourcePacks {
                 registerBuiltinResourcePack(modContainer.get(), BountifulFares.SPAWN_MOD_ID);
                 registerBuiltinDataPack(modContainer.get(), BountifulFares.SPAWN_MOD_ID);
             }
+            if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID)) {
+                registerBuiltinResourcePack(modContainer.get(), BountifulFares.FARMERS_DELIGHT_MOD_ID);
+                registerBuiltinDataPack(modContainer.get(), BountifulFares.FARMERS_DELIGHT_MOD_ID);
+            }
             ResourceManagerHelper.registerBuiltinResourcePack(
                     new Identifier(BountifulFares.MOD_ID, "vanilla_item_override"),
                     modContainer.get(),

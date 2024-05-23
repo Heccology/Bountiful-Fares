@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "bountifulfares:hoary_apple"
+    },
+    {
+      "item": "bountifulfares:citrus_essence"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "bountifulfares:hoary_compote_jar"
+  }
+}

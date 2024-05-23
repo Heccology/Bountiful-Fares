@@ -71,7 +71,6 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("piquant_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.PIQUANT_CUSTARD).build()))
                 .criterion("passion_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.PASSION_CUSTARD).build()))
                 .criterion("cocoa_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.COCOA_CUSTARD).build()))
-                .criterion("glowing_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.GLOWING_CUSTARD).build()))
                 .criterion("ancient_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.ANCIENT_CUSTARD).build()))
                 .build(consumer, BountifulFares.MOD_ID + ":eat_all_food");
         Advancement place_gristmill = Advancement.Builder.create()

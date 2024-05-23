@@ -458,7 +458,6 @@ public class BFItemGroups {
                         entries.add(BFItems.PIQUANT_CUSTARD);
                         entries.add(BFItems.PASSION_CUSTARD);
                         entries.add(BFItems.COCOA_CUSTARD);
-                        entries.add(BFItems.GLOWING_CUSTARD);
                         entries.add(BFItems.ANCIENT_CUSTARD);
                         entries.add(BFItems.CANDY);
                         entries.add(BFItems.PIQUANT_CANDY);

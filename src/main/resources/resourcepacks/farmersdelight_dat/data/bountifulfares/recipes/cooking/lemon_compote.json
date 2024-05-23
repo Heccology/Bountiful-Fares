@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "bountifulfares:lemon"
+    },
+    {
+      "item": "bountifulfares:citrus_essence"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "bountifulfares:lemon_compote_jar"
+  }
+}

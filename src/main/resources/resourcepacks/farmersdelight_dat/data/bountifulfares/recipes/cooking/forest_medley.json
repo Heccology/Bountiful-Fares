@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_porkchop"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:sweet_berries"
+    },
+    {
+      "item": "minecraft:bread"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "bountifulfares:forest_medley"
+  }
+}

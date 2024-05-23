@@ -6,15 +6,17 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.StewItem;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
 
-public class StackableBowlFoodItem extends Item {
+public class StackableBowlFoodItem extends StewItem {
     public StackableBowlFoodItem(Settings settings) {
         super(settings);
     }
 
+    @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         super.finishUsing(stack, world, user);
         if (user instanceof ServerPlayerEntity serverPlayerEntity) {

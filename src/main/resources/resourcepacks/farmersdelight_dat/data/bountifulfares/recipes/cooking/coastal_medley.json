@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "bountifulfares:spongekin_slice"
+    },
+    {
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "tag": "c:foods/cooked_fishes"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "bountifulfares:coastal_medley"
+  }
+}

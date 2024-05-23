@@ -161,7 +161,6 @@ public class BFModelProvider extends FabricModelProvider {
         itemModelGenerator.register(BFItems.PIQUANT_CUSTARD, Models.GENERATED);
         itemModelGenerator.register(BFItems.PASSION_CUSTARD, Models.GENERATED);
         itemModelGenerator.register(BFItems.COCOA_CUSTARD, Models.GENERATED);
-        itemModelGenerator.register(BFItems.GLOWING_CUSTARD, Models.GENERATED);
         itemModelGenerator.register(BFItems.ANCIENT_CUSTARD, Models.GENERATED);
         itemModelGenerator.register(BFItems.CANDIED_APPLE, Models.GENERATED);
         itemModelGenerator.register(BFItems.CANDIED_PLUM, Models.GENERATED);
