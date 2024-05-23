@@ -123,6 +123,22 @@ public class BFRegistries {
             registry.add(BFBlocks.NAVY_JACK_O_STRAW, 400);
             registry.add(BFBlocks.INDIGO_JACK_O_STRAW, 400);
         }
+        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+            registry.add(BFBlocks.WALNUT_VERTICAL_STAIRS, 300);
+            registry.add(BFBlocks.CHISELED_WALNUT_PLANKS, 300);
+            registry.add(BFBlocks.WALNUT_MOSAIC, 300);
+            registry.add(BFBlocks.WALNUT_MOSAIC_SLAB, 300);
+            registry.add(BFBlocks.WALNUT_MOSAIC_STAIRS, 300);
+            registry.add(BFBlocks.WALNUT_MOSAIC_VERTICAL_STAIRS, 300);
+            registry.add(BFBlocks.WALNUT_LADDER, 300);
+            registry.add(BFBlocks.HOARY_VERTICAL_STAIRS, 300);
+            registry.add(BFBlocks.CHISELED_HOARY_PLANKS, 300);
+            registry.add(BFBlocks.HOARY_MOSAIC, 300);
+            registry.add(BFBlocks.HOARY_MOSAIC_SLAB, 300);
+            registry.add(BFBlocks.HOARY_MOSAIC_STAIRS, 300);
+            registry.add(BFBlocks.HOARY_MOSAIC_VERTICAL_STAIRS, 300);
+            registry.add(BFBlocks.HOARY_LADDER, 300);
+        }
 
         }
 
@@ -134,6 +150,10 @@ public class BFRegistries {
         registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC, BFBlocks.CHECKERED_CERAMIC_MOSAIC);
         registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS);
         registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB);
+        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+            registerCheckeredCeramic(BFBlocks.CERAMIC_TILE_VERTICAL_STAIRS, BFBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS);
+            registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS);
+        }
     }
 
     public static void registerCheckeredCeramic(Block normal, Block checkered) {
