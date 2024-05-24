@@ -121,16 +121,6 @@
       },
       "trigger": "minecraft:consume_item"
     },
-    "glowing_custard": {
-      "conditions": {
-        "item": {
-          "items": [
-            "bountifulfares:glowing_custard"
-          ]
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
     "leek_stew": {
       "conditions": {
         "item": {
@@ -295,9 +285,6 @@
     ],
     [
       "cocoa_custard"
-    ],
-    [
-      "glowing_custard"
     ],
     [
       "ancient_custard"
