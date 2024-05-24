@@ -236,7 +236,6 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFItems.PIQUANT_CUSTARD)
                 .add(BFItems.PASSION_CUSTARD)
                 .add(BFItems.COCOA_CUSTARD)
-                .add(BFItems.GLOWING_CUSTARD)
                 .add(BFItems.ANCIENT_CUSTARD)
         ;
         getOrCreateTagBuilder(ItemTags.SAPLINGS)
