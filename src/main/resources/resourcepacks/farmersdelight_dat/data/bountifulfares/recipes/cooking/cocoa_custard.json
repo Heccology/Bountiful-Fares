@@ -4,20 +4,20 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "item": "minecraft:cooked_mutton"
+      "item": "minecraft:milk_bucket"
     },
     {
-      "item": "minecraft:beetroot"
+      "item": "minecraft:sugar"
     },
     {
-      "item": "bountifulfares:violet_bellflower"
+      "item": "minecraft:cocoa_beans"
     },
     {
-      "item": "bountifulfares:leek"
+      "item": "bountifulfares:walnut"
     }
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:meadow_medley"
+    "item": "bountifulfares:cocoa_custard"
   }
 }

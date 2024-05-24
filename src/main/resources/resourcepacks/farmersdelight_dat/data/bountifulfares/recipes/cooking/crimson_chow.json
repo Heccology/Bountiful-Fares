@@ -7,17 +7,14 @@
       "item": "minecraft:cooked_porkchop"
     },
     {
-      "item": "minecraft:carrot"
+      "item": "minecraft:crimson_fungus"
     },
     {
-      "item": "minecraft:sweet_berries"
-    },
-    {
-      "item": "minecraft:bread"
+      "item": "minecraft:crimson_roots"
     }
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:forest_medley"
+    "item": "bountifulfares:crimson_chow"
   }
 }

@@ -4,20 +4,17 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "item": "bountifulfares:spongekin_slice"
-    },
-    {
-      "item": "minecraft:dried_kelp"
-    },
-    {
-      "item": "minecraft:dried_kelp"
-    },
-    {
       "tag": "c:foods/cooked_fishes"
+    },
+    {
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "item": "minecraft:dried_kelp"
     }
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:coastal_medley"
+    "item": "bountifulfares:fish_stew"
   }
 }

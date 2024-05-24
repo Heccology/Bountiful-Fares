@@ -6,10 +6,9 @@
         "items": [
           {
             "items": [
-              "minecraft:cactus",
-              "minecraft:potato",
-              "bountifulfares:maize",
-              "minecraft:bread"
+              "minecraft:milk_bucket",
+              "minecraft:sugar",
+              "minecraft:sweet_berries"
             ]
           }
         ]
@@ -18,7 +17,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:cooking/arid_medley"
+        "recipe": "bountifulfares:cooking/piquant_custard"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,7 +30,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:cooking/arid_medley"
+      "bountifulfares:cooking/piquant_custard"
     ]
   },
   "sends_telemetry_event": true

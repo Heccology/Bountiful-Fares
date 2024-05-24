@@ -4,20 +4,17 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "item": "minecraft:cactus"
+      "item": "minecraft:apple"
     },
     {
-      "item": "minecraft:potato"
+      "item": "bountifulfares:elderberries"
     },
     {
-      "item": "bountifulfares:maize"
-    },
-    {
-      "item": "minecraft:bread"
+      "item": "bountifulfares:elderberries"
     }
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:arid_medley"
+    "item": "bountifulfares:apple_stew"
   }
 }

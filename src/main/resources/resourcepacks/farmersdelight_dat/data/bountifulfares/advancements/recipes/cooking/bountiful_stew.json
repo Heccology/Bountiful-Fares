@@ -8,8 +8,7 @@
             "items": [
               "minecraft:cooked_porkchop",
               "minecraft:carrot",
-              "minecraft:sweet_berries",
-              "minecraft:bread"
+              "bountifulfares:maize"
             ]
           }
         ]
@@ -18,7 +17,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:cooking/forest_medley"
+        "recipe": "bountifulfares:cooking/bountiful_stew"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,7 +30,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:cooking/forest_medley"
+      "bountifulfares:cooking/bountiful_stew"
     ]
   },
   "sends_telemetry_event": true

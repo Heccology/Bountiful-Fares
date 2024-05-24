@@ -6,10 +6,8 @@
         "items": [
           {
             "items": [
-              "bountifulfares:spongekin_slice",
-              "minecraft:dried_kelp",
-              "minecraft:dried_kelp",
-              "#c:foods/cooked_fishes"
+              "minecraft:milk_bucket",
+              "minecraft:sugar"
             ]
           }
         ]
@@ -18,7 +16,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:cooking/coastal_medley"
+        "recipe": "bountifulfares:cooking/custard"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,7 +29,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:cooking/coastal_medley"
+      "bountifulfares:cooking/custard"
     ]
   },
   "sends_telemetry_event": true
