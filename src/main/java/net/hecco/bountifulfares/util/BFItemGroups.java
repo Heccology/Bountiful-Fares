@@ -5,6 +5,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.item.BFItems;
+import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.potion.BFPotions;
@@ -328,33 +329,33 @@ public class BFItemGroups {
                                 }
                             }
                         }
-                        for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
-                            if (Objects.equals(trellis.getModId(), BountifulFares.NATURES_SPIRIT_MOD_ID)) {
-                                if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
-                                    entries.add(TrellisUtil.getTrellisFromVariant(trellis));
-                                }
-                            }
+                        if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.WINTERGREEN));
                         }
-                        for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
-                            if (Objects.equals(trellis.getModId(), BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
-                                if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
-                                    entries.add(TrellisUtil.getTrellisFromVariant(trellis));
-                                }
-                            }
+                        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.REDWOOD));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.SUGI));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.WISTERIA));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.FIR));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.NS_WILLOW));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.ASPEN));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.MAPLE));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.CYPRESS));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.OLIVE));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.JOSHUA));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.GHAF));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.PALO_VERDE));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.COCONUT));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.CEDAR));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.LARCH));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.MAHOGANY));
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.SAXAUL));
                         }
-                        for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
-                            if (Objects.equals(trellis.getModId(), BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-                                if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
-                                    entries.add(TrellisUtil.getTrellisFromVariant(trellis));
-                                }
-                            }
+                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.ANCIENT));
                         }
-                        for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
-                            if (Objects.equals(trellis.getModId(), BountifulFares.SPAWN_MOD_ID)) {
-                                if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
-                                    entries.add(TrellisUtil.getTrellisFromVariant(trellis));
-                                }
-                            }
+                        if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.ROTTEN));
                         }
                         entries.add(BFItems.PASSION_FRUIT);
                         entries.add(BFItems.ELDERBERRIES);

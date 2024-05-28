@@ -1,10 +1,23 @@
 package net.hecco.bountifulfares.util;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.item.BFItems;
+import net.hecco.bountifulfares.trellis.BFTrellises;
+import net.hecco.bountifulfares.trellis.TrellisUtil;
+import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.util.Identifier;
+
+import java.util.Objects;
+
+import static net.hecco.bountifulfares.trellis.TrellisUtil.TrellisVariants;
 
 public class BFItemGroupAdditions {
     public static void registerItemGroupAdditions() {
@@ -158,19 +171,51 @@ public class BFItemGroupAdditions {
             entries.addAfter(BFBlocks.BELLFLOWER_CANDLE, BFBlocks.TORCHFLOWER_CANDLE);
             entries.addAfter(BFBlocks.TORCHFLOWER_CANDLE, BFBlocks.WALNUT_CANDLE);
             entries.addAfter(BFBlocks.WALNUT_CANDLE, BFBlocks.FERMENTATION_VESSEL);
-//            entries.addAfter(Blocks.COMPOSTER, TrellisUtil.getTrellisFromVariant(ModTrellises.OAK));
-//            TrellisVariant prevTrellis = ModTrellises.OAK;
-//            for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
-//                if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
-//                    if (trellis == ModTrellises.OAK) {
-//                        continue;
-//                    }
-//                    if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
-//                        entries.addAfter(TrellisUtil.getTrellisFromVariant(prevTrellis), TrellisUtil.getTrellisFromVariant(trellis));
-//                        prevTrellis = trellis;
-//                    }
-//                }
-//            }
+            entries.addAfter(Blocks.COMPOSTER, TrellisUtil.getTrellisFromVariant(BFTrellises.OAK));
+            TrellisVariant prevTrellis = BFTrellises.OAK;
+            for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
+                if (Objects.equals(trellis.getModId(), BountifulFares.MOD_ID)) {
+                    if (trellis == BFTrellises.OAK) {
+                        continue;
+                    }
+                    if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
+                        entries.addAfter(TrellisUtil.getTrellisFromVariant(prevTrellis), TrellisUtil.getTrellisFromVariant(trellis));
+                        prevTrellis = trellis;
+                    }
+                }
+            }
+            if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(prevTrellis), TrellisUtil.getTrellisFromVariant(BFTrellises.WINTERGREEN));
+                prevTrellis = BFTrellises.WINTERGREEN;
+            }
+            if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(prevTrellis), TrellisUtil.getTrellisFromVariant(BFTrellises.REDWOOD));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.REDWOOD), TrellisUtil.getTrellisFromVariant(BFTrellises.SUGI));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.SUGI), TrellisUtil.getTrellisFromVariant(BFTrellises.WISTERIA));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.WISTERIA), TrellisUtil.getTrellisFromVariant(BFTrellises.FIR));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.FIR), TrellisUtil.getTrellisFromVariant(BFTrellises.NS_WILLOW));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.NS_WILLOW), TrellisUtil.getTrellisFromVariant(BFTrellises.ASPEN));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.ASPEN), TrellisUtil.getTrellisFromVariant(BFTrellises.MAPLE));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.MAPLE), TrellisUtil.getTrellisFromVariant(BFTrellises.CYPRESS));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.CYPRESS), TrellisUtil.getTrellisFromVariant(BFTrellises.OLIVE));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.OLIVE), TrellisUtil.getTrellisFromVariant(BFTrellises.JOSHUA));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.JOSHUA), TrellisUtil.getTrellisFromVariant(BFTrellises.GHAF));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.GHAF), TrellisUtil.getTrellisFromVariant(BFTrellises.PALO_VERDE));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.PALO_VERDE), TrellisUtil.getTrellisFromVariant(BFTrellises.COCONUT));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.COCONUT), TrellisUtil.getTrellisFromVariant(BFTrellises.CEDAR));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.CEDAR), TrellisUtil.getTrellisFromVariant(BFTrellises.LARCH));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.LARCH), TrellisUtil.getTrellisFromVariant(BFTrellises.MAHOGANY));
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(BFTrellises.MAHOGANY), TrellisUtil.getTrellisFromVariant(BFTrellises.SAXAUL));
+                prevTrellis = BFTrellises.SAXAUL;
+            }
+            if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(prevTrellis), TrellisUtil.getTrellisFromVariant(BFTrellises.ANCIENT));
+                prevTrellis = BFTrellises.ANCIENT;
+            }
+            if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
+                entries.addAfter(TrellisUtil.getTrellisFromVariant(prevTrellis), TrellisUtil.getTrellisFromVariant(BFTrellises.ROTTEN));
+                prevTrellis = BFTrellises.ROTTEN;
+            }
             entries.addAfter(Items.TINTED_GLASS, BFBlocks.TINGED_GLASS);
             entries.addAfter(Items.BAMBOO_HANGING_SIGN, BFItems.WALNUT_SIGN);
             entries.addAfter(BFItems.WALNUT_SIGN, BFItems.WALNUT_HANGING_SIGN);
@@ -341,5 +386,49 @@ public class BFItemGroupAdditions {
 //                entries.addAfter(ModBlocks.VELVET_JACK_O_STRAW,ModBlocks.FUCHSIA_JACK_O_STRAW);
 //            });
 //        }
+        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+            ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "wood"))).register(entries -> {
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "redwood_fence")), BFBlocks.REDWOOD_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "redwood_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.REDWOOD));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "sugi_fence")), BFBlocks.SUGI_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "sugi_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.SUGI));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "wisteria_fence")), BFBlocks.WISTERIA_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "wisteria_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.WISTERIA));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "fir_fence")), BFBlocks.FIR_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "fir_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.FIR));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "willow_fence")), BFBlocks.WILLOW_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "willow_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.NS_WILLOW));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "aspen_fence")), BFBlocks.ASPEN_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "aspen_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.ASPEN));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "maple_fence")), BFBlocks.MAPLE_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "maple_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.MAPLE));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "cypress_fence")), BFBlocks.CYPRESS_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "cypress_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.CYPRESS));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "olive_fence")), BFBlocks.OLIVE_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "olive_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.OLIVE));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "joshua_fence")), BFBlocks.JOSHUA_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "joshua_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.JOSHUA));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "ghaf_fence")), BFBlocks.GHAF_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "ghaf_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.GHAF));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "palo_verde_fence")), BFBlocks.PALO_VERDE_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "palo_verde_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.PALO_VERDE));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "coconut_fence")), BFBlocks.COCONUT_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "coconut_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.COCONUT));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "cedar_fence")), BFBlocks.CEDAR_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "cedar_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.CEDAR));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "larch_fence")), BFBlocks.LARCH_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "larch_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.LARCH));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "mahogany_fence")), BFBlocks.MAHOGANY_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "mahogany_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.MAHOGANY));
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "saxaul_fence")), BFBlocks.SAXAUL_PICKETS.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "saxaul_hanging_sign")), TrellisUtil.getTrellisFromVariant(BFTrellises.SAXAUL));
+            });
+        }
+        if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID)) {
+            ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(BountifulFares.FARMERS_DELIGHT_MOD_ID, "farmersdelight"))).register(entries -> {
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.FARMERS_DELIGHT_MOD_ID, "bamboo_cabinet")), BFBlocks.WALNUT_CABINET.asItem());
+                entries.addAfter(BFBlocks.WALNUT_CABINET.asItem(), BFBlocks.HOARY_CABINET.asItem());
+            });
+        }
     }
 }

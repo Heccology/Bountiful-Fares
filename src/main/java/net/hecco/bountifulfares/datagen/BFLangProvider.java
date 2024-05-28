@@ -606,5 +606,6 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "pack.bountifulfares.natures_spirit", "Bountiful Fares X Nature's Spirit");
         generate(translationBuilder, "pack.bountifulfares.excessive_building", "Bountiful Fares X Excessive Building");
         generate(translationBuilder, "pack.bountifulfares.spawn", "Bountiful Fares X Spawn");
+        generate(translationBuilder, "pack.bountifulfares.spawn", "Bountiful Fares X Farmer's Delight");
     }
 }
