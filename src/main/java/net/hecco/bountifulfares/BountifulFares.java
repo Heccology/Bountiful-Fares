@@ -2,6 +2,8 @@ package net.hecco.bountifulfares;
 
 import net.fabricmc.api.ModInitializer;
 import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.entity.BFEntities;
+import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.block.entity.BFBlockEntities;
@@ -62,6 +64,7 @@ public class BountifulFares implements ModInitializer {
 		BFPaintings.registerPaintings();
 		BFRegistries.RegisterModStuffs();
 		BFBlockEntities.registerBlockEntities();
+		BFEntities.registerModEntities();
 		BFSounds.registerSounds();
 	}
 }
