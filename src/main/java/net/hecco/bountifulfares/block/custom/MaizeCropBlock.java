@@ -3,25 +3,30 @@ package net.hecco.bountifulfares.block.custom;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.item.BFItems;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.RavagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.*;
 import org.jetbrains.annotations.Nullable;
 
-public class MaizeCropBlock extends TallPlantBlock implements Fertilizable {
+public class MaizeCropBlock extends CropBlock implements Fertilizable {
+    public static final EnumProperty<DoubleBlockHalf> HALF;
     public static final IntProperty AGE;
     public static final VoxelShape[] LOWER_SHAPES = new VoxelShape[] {
             Block.createCuboidShape(0, 0, 0, 16, 2, 16),
@@ -56,6 +61,7 @@ public class MaizeCropBlock extends TallPlantBlock implements Fertilizable {
 
     public MaizeCropBlock(Settings settings) {
         super(settings);
+        this.setDefaultState(this.getStateManager().getDefaultState().with(HALF, DoubleBlockHalf.LOWER).with(AGE, 0));
     }
 
     private boolean isFullyGrown(BlockState state) {
@@ -71,99 +77,67 @@ public class MaizeCropBlock extends TallPlantBlock implements Fertilizable {
         return this.getDefaultState();
     }
 
+    @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         return !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : state;
     }
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         if (!isLowerHalf(state)) {
-            return super.canPlaceAt(state, world, pos);
+            return super.canPlaceAt(state, world, pos) || world.getBlockState(pos.down()).isOf(this);
         } else {
-            return this.canPlantOnTop(world.getBlockState(pos.down()), world, pos.down()) && canPlaceAt(world, pos) && (state.get(AGE) < 4 || isUpperHalf(world.getBlockState(pos.up())));
+            return super.canPlantOnTop(world.getBlockState(pos.down()), world, pos.down()) && canPlaceAt(world, pos) && (state.get(AGE) < 4 || isUpperHalf(world.getBlockState(pos.up())));
         }
     }
 
-    protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(Blocks.FARMLAND);
+    @Override
+    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+        return new ItemStack(BFItems.MAIZE_SEEDS);
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(AGE);
-        super.appendProperties(builder);
+        builder.add(AGE, HALF);
     }
-
-    public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        if (entity instanceof RavagerEntity && world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING)) {
-            world.breakBlock(pos, true, entity);
-        }
-
-        super.onEntityCollision(state, world, pos, entity);
-    }
-
-    public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        return false;
-    }
-
-    public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
-    }
-
     @Override
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         DoubleBlockHalf doubleBlockHalf = state.get(HALF);
         if (doubleBlockHalf == DoubleBlockHalf.LOWER && state.get(AGE) < 7) {
             dropStack(world, pos, BFItems.MAIZE_SEEDS.getDefaultStack());
         }
+        if (!world.isClient) {
+            if (player.isCreative()) {
+                onBreakInCreative(world, pos, state, player);
+            } else {
+                dropStacks(state, world, pos, null, player, player.getMainHandStack());
+            }
+        }
+
         super.onBreak(world, pos, state, player);
     }
 
-    protected static float getAvailableMoisture(Block block, BlockView world, BlockPos pos) {
-        float f = 1.0F;
-        BlockPos blockPos = pos.down();
-
-        for(int i = -1; i <= 1; ++i) {
-            for(int j = -1; j <= 1; ++j) {
-                float g = 0.0F;
-                BlockState blockState = world.getBlockState(blockPos.add(i, 0, j));
-                if (blockState.isOf(Blocks.FARMLAND)) {
-                    g = 1.0F;
-                    if (blockState.get(FarmlandBlock.MOISTURE) > 0) {
-                        g = 3.0F;
-                    }
-                }
-
-                if (i != 0 || j != 0) {
-                    g /= 4.0F;
-                }
-
-                f += g;
+    protected static void onBreakInCreative(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        DoubleBlockHalf doubleBlockHalf = state.get(HALF);
+        if (doubleBlockHalf == DoubleBlockHalf.UPPER) {
+            BlockPos blockPos = pos.down();
+            BlockState blockState = world.getBlockState(blockPos);
+            if (blockState.isOf(state.getBlock()) && blockState.get(HALF) == DoubleBlockHalf.LOWER) {
+                BlockState blockState2 = blockState.getFluidState().isOf(Fluids.WATER) ? Blocks.WATER.getDefaultState() : Blocks.AIR.getDefaultState();
+                world.setBlockState(blockPos, blockState2, 35);
+                world.syncWorldEvent(player, 2001, blockPos, Block.getRawIdFromState(blockState));
             }
         }
 
-        BlockPos blockPos2 = pos.north();
-        BlockPos blockPos3 = pos.south();
-        BlockPos blockPos4 = pos.west();
-        BlockPos blockPos5 = pos.east();
-        boolean bl = world.getBlockState(blockPos4).isOf(block) || world.getBlockState(blockPos5).isOf(block);
-        boolean bl2 = world.getBlockState(blockPos2).isOf(block) || world.getBlockState(blockPos3).isOf(block);
-        if (bl && bl2) {
-            f /= 2.0F;
-        } else {
-            boolean bl3 = world.getBlockState(blockPos4.north()).isOf(block) || world.getBlockState(blockPos5.north()).isOf(block) || world.getBlockState(blockPos5.south()).isOf(block) || world.getBlockState(blockPos4.south()).isOf(block);
-            if (bl3) {
-                f /= 2.0F;
-            }
-        }
-
-        return f;
     }
 
+    @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, net.minecraft.util.math.random.Random random) {
-        float f = MaizeCropBlock.getAvailableMoisture(this, world, pos);
-        boolean bl = random.nextInt((int)(25.0F / f) + 1) == 0;
-        if (bl) {
-            this.tryGrow(world, state, pos);
+        if (world.getBaseLightLevel(pos, 0) >= 9) {
+            float f = CropBlock.getAvailableMoisture(this, world, pos);
+            boolean bl = random.nextInt((int) (25.0F / f) + 1) == 0;
+            if (bl) {
+                this.tryGrow(world, state, pos);
+            }
         }
-
     }
 
     private void tryGrow(ServerWorld world, BlockState state, BlockPos pos) {
@@ -226,8 +200,21 @@ public class MaizeCropBlock extends TallPlantBlock implements Fertilizable {
         }
     }
 
+    public static BlockState withWaterloggedState(WorldView world, BlockPos pos, BlockState state) {
+        return state.contains(Properties.WATERLOGGED) ? state.with(Properties.WATERLOGGED, world.isWater(pos)) : state;
+    }
+
+    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity, ItemStack tool) {
+        super.afterBreak(world, player, pos, Blocks.AIR.getDefaultState(), blockEntity, tool);
+    }
+
+    public long getRenderingSeed(BlockState state, BlockPos pos) {
+        return MathHelper.hashCode(pos.getX(), pos.down(state.get(HALF) == DoubleBlockHalf.LOWER ? 0 : 1).getY(), pos.getZ());
+    }
+
     static {
         AGE = Properties.AGE_7;
+        HALF = Properties.DOUBLE_BLOCK_HALF;
     }
 
     private record LowerHalfContext(BlockPos pos, BlockState state) {
