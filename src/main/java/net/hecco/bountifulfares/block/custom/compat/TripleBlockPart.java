@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.block.enums;
+package net.hecco.bountifulfares.block.custom.compat;
 
 import net.minecraft.util.StringIdentifiable;
 

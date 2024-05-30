@@ -1,7 +1,6 @@
 package net.hecco.bountifulfares.block.custom.compat;
 
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
-import net.hecco.bountifulfares.block.enums.TripleBlockPart;
 import net.hecco.bountifulfares.block.interfaces.DyeableCeramicBlockInterface;
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
@@ -9,8 +8,6 @@ import net.hecco.bountifulfares.item.custom.DyeableCeramicBlockItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSetType;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.DoorBlock;
-import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

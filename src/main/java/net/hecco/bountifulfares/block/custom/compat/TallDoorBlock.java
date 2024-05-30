@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.block.custom.compat;
 
-import net.hecco.bountifulfares.block.enums.TripleBlockPart;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoorHinge;
 import net.minecraft.block.piston.PistonBehavior;
