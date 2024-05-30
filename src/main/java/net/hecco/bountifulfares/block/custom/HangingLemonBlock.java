@@ -44,16 +44,30 @@ public class HangingLemonBlock extends HangingFruitBlock {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        Vec3d vec3d = state.getModelOffset(world, pos);
         VoxelShape voxelShape = SHAPES[state.get(AGE)];
-        return voxelShape.offset(vec3d.x, vec3d.y, vec3d.z);
+        if (!BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !BountifulFares.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
+            Vec3d vec3d = state.getModelOffset(world, pos);
+            return voxelShape.offset(vec3d.x, vec3d.y, vec3d.z);
+        }
+        return voxelShape;
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        Vec3d vec3d = state.getModelOffset(world, pos);
         VoxelShape voxelShape = COLL_SHAPES[state.get(AGE)];
-        return voxelShape.offset(vec3d.x, vec3d.y, vec3d.z);
+        if (!BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !BountifulFares.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
+            Vec3d vec3d = state.getModelOffset(world, pos);
+            return voxelShape.offset(vec3d.x, vec3d.y, vec3d.z);
+        }
+        return voxelShape;
+    }
+
+    @Override
+    public float getMaxHorizontalModelOffset() {
+        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID) || BountifulFares.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
+            return 0;
+        }
+        return super.getMaxHorizontalModelOffset();
     }
 
     @Override

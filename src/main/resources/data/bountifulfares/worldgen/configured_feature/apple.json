@@ -44,7 +44,7 @@
       }
     },
     "foliage_placer": {
-      "type": "minecraft:fruit_tree_foliage_placer",
+      "type": "minecraft:fancy_foliage_placer",
       "height": 4,
       "offset": 1,
       "radius": 2
