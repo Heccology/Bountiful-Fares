@@ -85,6 +85,9 @@ public class BFItemGroups {
                             entries.add(BFBlocks.HOARY_VERTICAL_STAIRS);
                         }
                         entries.add(BFBlocks.HOARY_SLAB);
+                        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
+                            entries.add(BFBlocks.HOARY_TABLE);
+                        }
                         entries.add(BFBlocks.HOARY_FENCE);
                         entries.add(BFBlocks.HOARY_FENCE_GATE);
                         entries.add(BFBlocks.HOARY_DOOR);
@@ -117,6 +120,9 @@ public class BFItemGroups {
                             entries.add(BFBlocks.WALNUT_VERTICAL_STAIRS);
                         }
                         entries.add(BFBlocks.WALNUT_SLAB);
+                        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
+                            entries.add(BFBlocks.WALNUT_TABLE);
+                        }
                         entries.add(BFBlocks.WALNUT_FENCE);
                         entries.add(BFBlocks.WALNUT_FENCE_GATE);
                         entries.add(BFBlocks.WALNUT_DOOR);
@@ -190,6 +196,9 @@ public class BFItemGroups {
                         }
                         entries.add(BFBlocks.FELDSPAR_BRICK_SLAB);
                         entries.add(BFBlocks.FELDSPAR_LANTERN);
+                        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
+                            entries.add(BFBlocks.FELDSPAR_LAMP);
+                        }
                         entries.add(BFBlocks.TINGED_GLASS);
                         entries.add(BFItems.CERAMIC_CLAY);
                         entries.add(BFBlocks.CERAMIC_CLAY_BLOCK);

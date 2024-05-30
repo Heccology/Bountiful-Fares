@@ -21,7 +21,6 @@ import net.hecco.bountifulfares.util.BFItemGroups;
 import net.hecco.bountifulfares.util.BFLootTableModifiers;
 import net.hecco.bountifulfares.util.BFRegistries;
 import net.hecco.bountifulfares.world.gen.BFWorldGeneration;
-import net.hecco.bountifulfares.world.tree.BFFoliagePlacerTypes;
 import net.hecco.bountifulfares.world.tree.BFTreeDecoratorTypes;
 import net.hecco.bountifulfares.world.tree.BFTrunkPlacerTypes;
 import org.slf4j.Logger;
@@ -39,6 +38,9 @@ public class BountifulFares implements ModInitializer {
 	public static final String NATURES_SPIRIT_MOD_ID = "natures_spirit";
 	public static final String SPAWN_MOD_ID = "spawn";
 	public static final String FARMERS_DELIGHT_MOD_ID = "farmersdelight";
+	public static final String DRAMATIC_DOORS_MOD_ID = "dramaticdoors";
+	public static final String TWIGS_MOD_ID = "twigs";
+	public static final String ETCETERA_MOD_ID = "etcetera";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -62,7 +64,6 @@ public class BountifulFares implements ModInitializer {
 		BFItemGroupAdditions.registerItemGroupAdditions();
 		BFRecipes.registerRecipes();
 		BFWorldGeneration.generateModWorldGeneration();
-		BFFoliagePlacerTypes.register();
 		BFEffects.registerEffects();
 		BFBoats.registerBoats();
 		BFLootTableModifiers.modifyLootTables();

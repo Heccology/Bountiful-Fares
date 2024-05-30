@@ -1,0 +1,9 @@
+{
+  "parent": "twigs:block/template_table_top",
+  "textures": {
+    "side": "bountifulfares:block/walnut_table",
+    "bottom": "bountifulfares:block/walnut_table_bottom",
+    "top": "bountifulfares:block/walnut_table_top",
+    "particle": "bountifulfares:block/walnut_planks"
+  }
+}

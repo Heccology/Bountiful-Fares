@@ -273,5 +273,63 @@
         "type": "event"
       }
     ]
+  },
+  "lamp_break": {
+    "sounds": [
+      "twigs:block/lamp/break1",
+      "twigs:block/lamp/break2",
+      "twigs:block/lamp/break3",
+      "twigs:block/lamp/break4"
+    ],
+    "subtitle": "subtitles.block.generic.break"
+  },
+  "lamp_place": {
+    "sounds": [
+      "twigs:block/lamp/place1",
+      "twigs:block/lamp/place2",
+      "twigs:block/lamp/place3",
+      "twigs:block/lamp/place4"
+    ],
+    "subtitle": "subtitles.block.generic.place"
+  },
+  "lamp_fall": {
+    "sounds": [
+      {
+        "name": "twigs:block.lamp.break",
+        "type": "event"
+      }
+    ]
+  },
+  "lamp_step": {
+    "sounds": [
+      {
+        "name": "block.lantern.step",
+        "type": "event"
+      }
+    ]
+  },
+  "lamp_hit": {
+    "sounds": [
+      {
+        "name": "block.lantern.hit",
+        "type": "event"
+      }
+    ]
+  },
+  "lamp_on": {
+    "sounds": [
+      "twigs:block/lamp/on1",
+      "twigs:block/lamp/on2",
+      "twigs:block/lamp/on3"
+    ],
+    "subtitle": "subtitles.block.lamp.on"
+  },
+  "lamp_off": {
+    "sounds": [
+      "twigs:block/lamp/off1",
+      "twigs:block/lamp/off2",
+      "twigs:block/lamp/off3"
+    ],
+    "subtitle": "subtitles.block.lamp.off"
   }
 }

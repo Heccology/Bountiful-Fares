@@ -5,9 +5,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.*;
-import net.hecco.bountifulfares.block.custom.compat.CabinetBlock;
-import net.hecco.bountifulfares.block.custom.compat.CeramicTileVerticalStairsBlock;
-import net.hecco.bountifulfares.block.custom.compat.VerticalStairsBlock;
+import net.hecco.bountifulfares.block.custom.compat.*;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.item.custom.BlockItemWithInfo;
@@ -444,6 +442,38 @@ public class BFBlocks {
     }
 
 
+    public static Block TALL_WALNUT_DOOR;
+    public static Block SHORT_WALNUT_DOOR;
+    public static Block TALL_HOARY_DOOR;
+    public static Block SHORT_HOARY_DOOR;
+    public static Block TALL_CERAMIC_DOOR;
+    public static Block SHORT_CERAMIC_DOOR;
+
+    public static void registerDramaticDoorsBlocks() {
+        if (BountifulFares.isModLoaded(BountifulFares.DRAMATIC_DOORS_MOD_ID)) {
+            TALL_WALNUT_DOOR = registerBlock("tall_walnut_door", new TallDoorBlock(FabricBlockSettings.copyOf(WALNUT_DOOR), BFBlockSetTypes.WALNUT));
+            SHORT_WALNUT_DOOR = registerBlock("short_walnut_door", new ShortDoorBlock(FabricBlockSettings.copyOf(WALNUT_DOOR), BFBlockSetTypes.WALNUT));
+            TALL_HOARY_DOOR = registerBlock("tall_hoary_door", new TallDoorBlock(FabricBlockSettings.copyOf(HOARY_DOOR), BFBlockSetTypes.HOARY));
+            SHORT_HOARY_DOOR = registerBlock("short_hoary_door", new ShortDoorBlock(FabricBlockSettings.copyOf(HOARY_DOOR), BFBlockSetTypes.HOARY));
+            TALL_CERAMIC_DOOR = registerDyeableCeramicBlock("tall_ceramic_door", new TallCeramicDoorBlock(FabricBlockSettings.copyOf(CERAMIC_DOOR), BFBlockSetTypes.CERAMIC));
+            SHORT_CERAMIC_DOOR = registerDyeableCeramicBlock("short_ceramic_door", new ShortCeramicDoorBlock(FabricBlockSettings.copyOf(CERAMIC_DOOR), BFBlockSetTypes.CERAMIC));
+        }
+    }
+
+
+    public static Block WALNUT_TABLE;
+    public static Block HOARY_TABLE;
+    public static Block FELDSPAR_LAMP;
+
+    public static void registerTwigsBlocks() {
+        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
+            WALNUT_TABLE = registerBlock("walnut_table", new TwigsTableBlock(FabricBlockSettings.copyOf(WALNUT_PLANKS)));
+            HOARY_TABLE = registerBlock("hoary_table", new TwigsTableBlock(FabricBlockSettings.copyOf(HOARY_PLANKS)));
+            FELDSPAR_LAMP = registerBlock("feldspar_lamp", new TwigsLampBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).requiresTool().strength(4.5F).sounds(BFSounds.LAMP).luminance(createLightLevelFromLitBlockState(8))));
+        }
+    }
+
+
 
     public static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
         return state -> state.get(Properties.LIT) ? litLevel : 0;
@@ -515,5 +545,6 @@ public class BFBlocks {
         registerNaturesSpiritBlocks();
         registerSpawnBlocks();
         registerFarmersDelightBlocks();
+        registerTwigsBlocks();
     }
 }

@@ -97,6 +97,14 @@ public class BFResourcePacks {
                 registerBuiltinResourcePack(modContainer.get(), BountifulFares.FARMERS_DELIGHT_MOD_ID);
                 registerBuiltinDataPack(modContainer.get(), BountifulFares.FARMERS_DELIGHT_MOD_ID);
             }
+//            if (BountifulFares.isModLoaded(BountifulFares.DRAMATIC_DOORS_MOD_ID)) {
+//                registerBuiltinResourcePack(modContainer.get(), BountifulFares.DRAMATIC_DOORS_MOD_ID);
+////                registerBuiltinDataPack(modContainer.get(), BountifulFares.DRAMATIC_DOORS_MOD_ID);
+//            }
+            if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
+                registerBuiltinResourcePack(modContainer.get(), BountifulFares.TWIGS_MOD_ID);
+                registerBuiltinDataPack(modContainer.get(), BountifulFares.TWIGS_MOD_ID);
+            }
             ResourceManagerHelper.registerBuiltinResourcePack(
                     new Identifier(BountifulFares.MOD_ID, "vanilla_item_override"),
                     modContainer.get(),

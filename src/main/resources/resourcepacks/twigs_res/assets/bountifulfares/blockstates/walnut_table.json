@@ -1,0 +1,49 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "bountifulfares:block/walnut_table_top",
+        "uvlock": false
+      }
+    },
+    {
+      "when": {
+        "table_leg1": "true"
+      },
+      "apply": {
+        "model": "bountifulfares:block/walnut_table_leg",
+        "uvlock": false
+      }
+    },
+    {
+      "when": {
+        "table_leg2": "true"
+      },
+      "apply": {
+        "model": "bountifulfares:block/walnut_table_leg",
+        "y": 90,
+        "uvlock": false
+      }
+    },
+    {
+      "when": {
+        "table_leg3": "true"
+      },
+      "apply": {
+        "model": "bountifulfares:block/walnut_table_leg",
+        "y": 180,
+        "uvlock": false
+      }
+    },
+    {
+      "when": {
+        "table_leg4": "true"
+      },
+      "apply": {
+        "model": "bountifulfares:block/walnut_table_leg",
+        "y": 270,
+        "uvlock": false
+      }
+    }
+  ]
+}

@@ -49,6 +49,8 @@ dependencies {
 
 //	modCompileOnly files("run/mods/naturespirit-1.4.5-1.20.1.jar")
 //	modImplementation files("run/mods/TerraBlender-fabric-1.20.1-3.0.1.6.jar")
+//	modImplementation files("run/mods/dramaticdoors.jar")
+//	modImplementation files("run/mods/twigs-3.1.0-fabric.jar")
 
 //	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:12.0.648"
 	// Uncomment the      following line to enable the deprecated Fabric API modules.

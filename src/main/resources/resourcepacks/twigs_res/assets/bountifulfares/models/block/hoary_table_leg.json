@@ -1,0 +1,9 @@
+{
+  "parent": "twigs:block/template_table_leg",
+  "textures": {
+    "side": "bountifulfares:block/hoary_table",
+    "bottom": "bountifulfares:block/hoary_table_bottom",
+    "top": "bountifulfares:block/hoary_table_top",
+    "particle": "bountifulfares:block/hoary_planks"
+  }
+}

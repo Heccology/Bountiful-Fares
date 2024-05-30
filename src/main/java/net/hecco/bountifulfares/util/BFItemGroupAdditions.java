@@ -430,5 +430,12 @@ public class BFItemGroupAdditions {
                 entries.addAfter(BFBlocks.WALNUT_CABINET.asItem(), BFBlocks.HOARY_CABINET.asItem());
             });
         }
+        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
+            ItemGroupEvents.modifyEntriesEvent(RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(BountifulFares.TWIGS_MOD_ID, "item_group"))).register(entries -> {
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.TWIGS_MOD_ID, "lamp")), BFBlocks.FELDSPAR_LAMP.asItem());
+                entries.addAfter(Registries.ITEM.get(new Identifier(BountifulFares.TWIGS_MOD_ID, "bamboo_table")), BFBlocks.WALNUT_TABLE.asItem());
+                entries.addAfter(BFBlocks.WALNUT_TABLE.asItem(), BFBlocks.HOARY_TABLE.asItem());
+            });
+        }
     }
 }
