@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.entity.BFEntities;
 import net.hecco.bountifulfares.item.BFItems;
@@ -41,6 +42,10 @@ public class BountifulFares implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static BountifulFaresConfiguration CONFIG = new BountifulFaresConfiguration();
+
+	public static boolean isModLoaded(String modId) {
+		return FabricLoader.getInstance().isModLoaded(modId);
+	}
 	@Override
 	public void onInitialize() {
 		BountifulFares.CONFIG = BountifulFaresConfiguration.load();
