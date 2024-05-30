@@ -366,6 +366,11 @@ public class BFItemGroups {
                         if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
                             entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.ROTTEN));
                         }
+//                        if (BountifulFares.isModLoaded(BountifulFares.WILDER_WILD_MOD_ID)) {
+//                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.BAOBAB));
+//                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.WW_CYPRESS));
+//                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.PALM));
+//                        }
                         entries.add(BFItems.PASSION_FRUIT);
                         entries.add(BFItems.ELDERBERRIES);
                         entries.add(BFItems.LAPISBERRIES);

@@ -41,6 +41,7 @@ public class BountifulFares implements ModInitializer {
 	public static final String DRAMATIC_DOORS_MOD_ID = "dramaticdoors";
 	public static final String TWIGS_MOD_ID = "twigs";
 	public static final String ETCETERA_MOD_ID = "etcetera";
+	public static final String WILDER_WILD_MOD_ID = "wilderwild";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 

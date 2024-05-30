@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-22T23:56:13.634275	Bountiful Fares/Tags for minecraft:item
+// 1.20.1	2024-05-30T15:14:15.260889	Bountiful Fares/Tags for minecraft:item
 8c0aea99e90355c56fb9a179a07e869583119205 data/minecraft/tags/items/leaves.json
 25c0bdfc49c4b64586c883b9793a7f97ee1ce481 data/minecraft/tags/items/wooden_trapdoors.json
 3ddd70224576e8981437ff9380707d648aef8c04 data/minecraft/tags/items/wooden_buttons.json
@@ -14,7 +14,7 @@ ca934bad45f2e493d0d1a2eff52b6422af6a6d4e data/bountifulfares/tags/items/hoary_lo
 37800093849075e124ab6c686675a85a411b1d34 data/bountifulfares/tags/items/plum_leaves.json
 d2ab9bb952253f5a15c4ec2feb61bfa7d246e43c data/minecraft/tags/items/buttons.json
 16a85e465f06d97df606ee432e7fb522d74b0f60 data/bountifulfares/tags/items/lemon_logs.json
-01e3b0bc503a36b4ef5698df4c924fddf61ecd46 data/bountifulfares/tags/items/meals.json
+828875a714fbfe9e97e8e555585a4f64d550b676 data/bountifulfares/tags/items/meals.json
 491c16568754e85de8983f2660885e26edfb506a data/bountifulfares/tags/items/cooked_fishes.json
 2a2b0b7088d8b4d019618e217aac6c96a4cf0017 data/minecraft/tags/items/wooden_slabs.json
 e74d0bb0f2db11bf291b60bc8d91f965cb540f4a data/minecraft/tags/items/wooden_doors.json

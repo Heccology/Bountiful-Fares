@@ -198,26 +198,30 @@ public class BFLangProvider extends FabricLanguageProvider {
         registerTrellisTranslations(translationBuilder, BFTrellises.CRIMSON);
         registerTrellisTranslations(translationBuilder, BFTrellises.WARPED);
 
+//        registerTrellisTranslations(translationBuilder, BFTrellises.BAOBAB);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.WW_CYPRESS);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.PALM);
+
 //        registerTrellisTranslations(translationBuilder, BFTrellises.ANCIENT);
 
 //        registerTrellisTranslations(translationBuilder, BFTrellises.WINTERGREEN);
 
-//        registerTrellisTranslations(translationBuilder, ModTrellises.ASPEN);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.CEDAR);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.COCONUT);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.CYPRESS);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.FIR);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.GHAF);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.JOSHUA);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.LARCH);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.MAHOGANY);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.MAPLE);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.OLIVE);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.PALO_VERDE);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.SAXAUL);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.SUGI);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.WILLOW);
-//        registerTrellisTranslations(translationBuilder, ModTrellises.WISTERIA);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.ASPEN);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.CEDAR);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.COCONUT);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.CYPRESS);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.FIR);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.GHAF);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.JOSHUA);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.LARCH);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.MAHOGANY);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.MAPLE);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.OLIVE);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.PALO_VERDE);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.SAXAUL);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.SUGI);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.NS_WILLOW);
+//        registerTrellisTranslations(translationBuilder, BFTrellises.WISTERIA);
 
         generate(translationBuilder, BFItems.PASSION_FRUIT);
         generate(translationBuilder, BFItems.ELDERBERRIES);
@@ -606,6 +610,8 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "pack.bountifulfares.natures_spirit", "Bountiful Fares X Nature's Spirit");
         generate(translationBuilder, "pack.bountifulfares.excessive_building", "Bountiful Fares X Excessive Building");
         generate(translationBuilder, "pack.bountifulfares.spawn", "Bountiful Fares X Spawn");
-        generate(translationBuilder, "pack.bountifulfares.spawn", "Bountiful Fares X Farmer's Delight");
+        generate(translationBuilder, "pack.bountifulfares.farmersdelight", "Bountiful Fares X Farmer's Delight");
+        generate(translationBuilder, "pack.bountifulfares.twigs", "Bountiful Fares X Twigs");
+        generate(translationBuilder, "pack.bountifulfares.wilderwild", "Bountiful Fares X Wilder Wild");
     }
 }

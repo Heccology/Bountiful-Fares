@@ -1,10 +1,13 @@
 package net.hecco.bountifulfares.block.custom;
 
+import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.minecraft.block.*;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
@@ -13,6 +16,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -21,10 +25,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -32,6 +33,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.*;
 import net.minecraft.world.event.GameEvent;
+import org.jetbrains.annotations.Nullable;
 
 import static net.hecco.bountifulfares.block.BFBlocks.CROPS_TO_CROP_TRELLISES;
 
@@ -46,15 +48,26 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     protected static final VoxelShape EAST_SHAPE = Block.createCuboidShape(0, 0, 0, 1, 16, 16);
     public static BooleanProperty SNIPPED = BooleanProperty.of("snipped");
 
-    public TrellisVariant variant;
-    public VineCrop crop;
-
+    private final TrellisVariant variant;
+    private final VineCrop crop;
+    private String berryItemID;
+    private int harvestResetAge;
     public CropTrellisBlock(Item berryItem, TrellisVariant variant, VineCrop crop, Settings settings) {
         super(settings);
         this.berryItem = berryItem;
         CROPS_TO_CROP_TRELLISES.put(berryItem, this);
         this.variant = variant;
         this.crop = crop;
+        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(AGE, 0).with(SNIPPED, false));
+    }
+
+    public CropTrellisBlock(int harvestResetAge, String berryItemID, TrellisVariant variant, VineCrop crop, Settings settings) {
+        super(settings);
+        this.berryItem = null;
+        this.berryItemID = berryItemID;
+        this.variant = variant;
+        this.crop = crop;
+        this.harvestResetAge = harvestResetAge;
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(AGE, 0).with(SNIPPED, false));
     }
     public CropTrellisBlock(Item seedsItem, Item berryItem, TrellisVariant variant, VineCrop crop, Settings settings) {
@@ -115,8 +128,11 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
             if (this.berryItem != null) {
                 dropStack(world, pos, new ItemStack(this.berryItem, world.random.nextBetween(1, 2)));
                 world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
+            } else if (this.berryItemID != null) {
+                dropStack(world, pos, new ItemStack(Registries.ITEM.get(new Identifier(crop.getId(), this.berryItemID)), world.random.nextBetween(1, 2)));
+                world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
             }
-            BlockState blockState = state.with(AGE, 1);
+            BlockState blockState = state.with(AGE, harvestResetAge);
             world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
             return ActionResult.SUCCESS;

@@ -66,6 +66,9 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
             DecorativeVines.add(BFTrellises.NS_MARIGOLD);
             DecorativeVines.add(BFTrellises.NS_FOXGLOVE);
         }
+        if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID) || BountifulFares.isDatagen()) {
+            VineCrops.add(BFTrellises.SPAWN_SUNFLOWER);
+        }
     }
 
     public static Block registerBlockNoItem(String id, String name, Block block) {
@@ -208,6 +211,12 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
                 variant.getBlockName(),
                 BFTrellises.NS_FOXGLOVE.getName() + "_trellis_vines",
                 BFTrellises.NS_FOXGLOVE.getName() + "_trellis_foliage",
+                variant.getModId());
+        BFTemplateModels.registerCropTrellis(blockStateModelGenerator,
+                TrellisUtil.getCropTrellisFromVariant(variant, BFTrellises.SPAWN_SUNFLOWER),
+                variant.getBlockName(),
+                BFTrellises.SPAWN_SUNFLOWER.getName() + "_trellis_vines",
+                BFTrellises.SPAWN_SUNFLOWER.getName() + "_trellis_foliage",
                 variant.getModId());
     }
 

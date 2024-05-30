@@ -93,6 +93,11 @@ public class TrellisVariant {
             renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.NS_FOXGLOVE.getName() + this.getBlockName()));
         }
 
+        if (BountifulFares.isDatagen() || BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
+            BFTrellises.CROP_TRELLISES.put(BFTrellises.SPAWN_SUNFLOWER.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.SPAWN_SUNFLOWER.getName() + "_" + this.getBlockName(), new CropTrellisBlock(2, "sunflower_seeds", this, BFTrellises.SPAWN_SUNFLOWER, FabricBlockSettings.create().nonOpaque().strength(0.5F).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(BFSounds.PLANTED_TRELLIS))));
+            renderCutoutList.add(BFTrellises.CROP_TRELLISES.get(BFTrellises.SPAWN_SUNFLOWER.getName() + this.getBlockName()));
+        }
+
     }
 
     public String getVariantName() {

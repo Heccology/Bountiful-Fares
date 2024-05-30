@@ -105,6 +105,10 @@ public class BFResourcePacks {
                 registerBuiltinResourcePack(modContainer.get(), BountifulFares.TWIGS_MOD_ID);
                 registerBuiltinDataPack(modContainer.get(), BountifulFares.TWIGS_MOD_ID);
             }
+            if (BountifulFares.isModLoaded(BountifulFares.WILDER_WILD_MOD_ID)) {
+                registerBuiltinResourcePack(modContainer.get(), BountifulFares.WILDER_WILD_MOD_ID);
+//                registerBuiltinDataPack(modContainer.get(), BountifulFares.WILDER_WILD_MOD_ID);
+            }
             ResourceManagerHelper.registerBuiltinResourcePack(
                     new Identifier(BountifulFares.MOD_ID, "vanilla_item_override"),
                     modContainer.get(),

@@ -160,25 +160,28 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         registerTrellisBlockTags(BFTrellises.HOARY);
         registerTrellisBlockTags(BFTrellises.CRIMSON);
         registerTrellisBlockTags(BFTrellises.WARPED);
+//        registerTrellisBlockTags(BFTrellises.BAOBAB);
+//        registerTrellisBlockTags(BFTrellises.WW_CYPRESS);
+//        registerTrellisBlockTags(BFTrellises.PALM);
 //        registerTrellisBlockTags(BFTrellises.ANCIENT);
 //        registerTrellisBlockTags(BFTrellises.WINTERGREEN);
 //        registerTrellisBlockTags(BFTrellises.ROTTEN);
-//        registerTrellisBlockTags(ModTrellises.ASPEN);
-//        registerTrellisBlockTags(ModTrellises.CEDAR);
-//        registerTrellisBlockTags(ModTrellises.COCONUT);
-//        registerTrellisBlockTags(ModTrellises.CYPRESS);
-//        registerTrellisBlockTags(ModTrellises.FIR);
-//        registerTrellisBlockTags(ModTrellises.GHAF);
-//        registerTrellisBlockTags(ModTrellises.JOSHUA);
-//        registerTrellisBlockTags(ModTrellises.LARCH);
-//        registerTrellisBlockTags(ModTrellises.MAHOGANY);
-//        registerTrellisBlockTags(ModTrellises.MAPLE);
-//        registerTrellisBlockTags(ModTrellises.OLIVE);
-//        registerTrellisBlockTags(ModTrellises.PALO_VERDE);
-//        registerTrellisBlockTags(ModTrellises.SAXAUL);
-//        registerTrellisBlockTags(ModTrellises.SUGI);
-//        registerTrellisBlockTags(ModTrellises.WILLOW);
-//        registerTrellisBlockTags(ModTrellises.WISTERIA);
+//        registerTrellisBlockTags(BFTrellises.ASPEN);
+//        registerTrellisBlockTags(BFTrellises.CEDAR);
+//        registerTrellisBlockTags(BFTrellises.COCONUT);
+//        registerTrellisBlockTags(BFTrellises.CYPRESS);
+//        registerTrellisBlockTags(BFTrellises.FIR);
+//        registerTrellisBlockTags(BFTrellises.GHAF);
+//        registerTrellisBlockTags(BFTrellises.JOSHUA);
+//        registerTrellisBlockTags(BFTrellises.LARCH);
+//        registerTrellisBlockTags(BFTrellises.MAHOGANY);
+//        registerTrellisBlockTags(BFTrellises.MAPLE);
+//        registerTrellisBlockTags(BFTrellises.OLIVE);
+//        registerTrellisBlockTags(BFTrellises.PALO_VERDE);
+//        registerTrellisBlockTags(BFTrellises.SAXAUL);
+//        registerTrellisBlockTags(BFTrellises.SUGI);
+//        registerTrellisBlockTags(BFTrellises.NS_WILLOW);
+//        registerTrellisBlockTags(BFTrellises.WISTERIA);
 
         getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
                 .add(BFBlocks.APPLE_LEAVES)

@@ -155,27 +155,30 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         registerTrellisLootTables(BFTrellises.HOARY);
         registerTrellisLootTables(BFTrellises.CRIMSON);
         registerTrellisLootTables(BFTrellises.WARPED);
+//        registerTrellisLootTables(BFTrellises.BAOBAB);
+//        registerTrellisLootTables(BFTrellises.WW_CYPRESS);
+//        registerTrellisLootTables(BFTrellises.PALM);
 //        registerTrellisLootTables(BFTrellises.ANCIENT);
 //        registerTrellisLootTables(BFTrellises.WINTERGREEN);
 //        registerTrellisLootTables(BFTrellises.ROTTEN);
 
-//        registerTrellisLootTables(ModTrellises.ASPEN);
-//        registerTrellisLootTables(ModTrellises.CEDAR);
-//        registerTrellisLootTables(ModTrellises.COCONUT);
-//        registerTrellisLootTables(ModTrellises.CYPRESS);
-//        registerTrellisLootTables(ModTrellises.FIR);
-//        registerTrellisLootTables(ModTrellises.GHAF);
-//        registerTrellisLootTables(ModTrellises.JOSHUA);
-//        registerTrellisLootTables(ModTrellises.LARCH);
-//        registerTrellisLootTables(ModTrellises.MAHOGANY);
-//        registerTrellisLootTables(ModTrellises.MAPLE);
-//        registerTrellisLootTables(ModTrellises.OLIVE);
-//        registerTrellisLootTables(ModTrellises.PALO_VERDE);
-//        registerTrellisLootTables(ModTrellises.REDWOOD);
-//        registerTrellisLootTables(ModTrellises.SAXAUL);
-//        registerTrellisLootTables(ModTrellises.SUGI);
-//        registerTrellisLootTables(ModTrellises.WILLOW);
-//        registerTrellisLootTables(ModTrellises.WISTERIA);
+//        registerTrellisLootTables(BFTrellises.ASPEN);
+//        registerTrellisLootTables(BFTrellises.CEDAR);
+//        registerTrellisLootTables(BFTrellises.COCONUT);
+//        registerTrellisLootTables(BFTrellises.CYPRESS);
+//        registerTrellisLootTables(BFTrellises.FIR);
+//        registerTrellisLootTables(BFTrellises.GHAF);
+//        registerTrellisLootTables(BFTrellises.JOSHUA);
+//        registerTrellisLootTables(BFTrellises.LARCH);
+//        registerTrellisLootTables(BFTrellises.MAHOGANY);
+//        registerTrellisLootTables(BFTrellises.MAPLE);
+//        registerTrellisLootTables(BFTrellises.OLIVE);
+//        registerTrellisLootTables(BFTrellises.PALO_VERDE);
+//        registerTrellisLootTables(BFTrellises.REDWOOD);
+//        registerTrellisLootTables(BFTrellises.SAXAUL);
+//        registerTrellisLootTables(BFTrellises.SUGI);
+//        registerTrellisLootTables(BFTrellises.NS_WILLOW);
+//        registerTrellisLootTables(BFTrellises.WISTERIA);
 
 
 //        addDrop(ModBlocks.TRELLIS);

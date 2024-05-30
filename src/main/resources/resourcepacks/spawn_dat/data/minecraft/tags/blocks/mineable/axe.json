@@ -19,6 +19,7 @@
     "spawn:ns_carnation_rotten_trellis",
     "spawn:ns_gardenia_rotten_trellis",
     "spawn:ns_marigold_rotten_trellis",
-    "spawn:ns_foxglove_rotten_trellis"
+    "spawn:ns_foxglove_rotten_trellis",
+    "spawn:spawn_sunflower_rotten_trellis"
   ]
 }

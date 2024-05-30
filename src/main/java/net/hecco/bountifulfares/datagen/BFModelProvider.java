@@ -109,29 +109,33 @@ public class BFModelProvider extends FabricModelProvider {
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.CRIMSON);
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.WARPED);
 
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.BAOBAB);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.WW_CYPRESS);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.PALM);
+
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.ANCIENT);
 
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.WINTERGREEN);
 
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.ROTTEN);
 
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.ASPEN);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.CEDAR);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.COCONUT);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.CYPRESS);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.FIR);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.GHAF);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.JOSHUA);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.LARCH);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.MAHOGANY);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.MAPLE);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.OLIVE);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.PALO_VERDE);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.REDWOOD);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.SAXAUL);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.SUGI);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.WILLOW);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ModTrellises.WISTERIA);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.ASPEN);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.CEDAR);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.COCONUT);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.CYPRESS);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.FIR);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.GHAF);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.JOSHUA);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.LARCH);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.MAHOGANY);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.MAPLE);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.OLIVE);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.PALO_VERDE);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.REDWOOD);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.SAXAUL);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.SUGI);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.NS_WILLOW);
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.WISTERIA);
 
     }
 

@@ -25,12 +25,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_porkchop": {
+    "has_cooked_porkchop": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:porkchop"
+              "minecraft:cooked_porkchop"
             ]
           }
         ]
@@ -58,7 +58,7 @@
   },
   "requirements": [
     [
-      "has_porkchop",
+      "has_cooked_porkchop",
       "has_carrot",
       "has_sweet_berries",
       "has_bread",
