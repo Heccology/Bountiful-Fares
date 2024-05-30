@@ -13,7 +13,7 @@ public class BFEntities {
     public static final EntityType<FlourProjectileEntity> THROWN_FLOUR_PROJECTILE = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(BountifulFares.MOD_ID, "flour"),
             FabricEntityTypeBuilder.<FlourProjectileEntity>create(SpawnGroup.CREATURE, FlourProjectileEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build());
+                    .dimensions(EntityDimensions.fixed(0.25f, 0.25f)).trackRangeBlocks(4).trackedUpdateRate(10).build());
 
     public static void registerModEntities() {
 //        BountifulFares.LOGGER.info("Registering Mod Entities for " + BountifulFares.MOD_ID);
