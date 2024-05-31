@@ -12,6 +12,7 @@ import net.hecco.bountifulfares.util.BFBlockTags;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -182,6 +183,24 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 //        registerTrellisBlockTags(BFTrellises.SUGI);
 //        registerTrellisBlockTags(BFTrellises.NS_WILLOW);
 //        registerTrellisBlockTags(BFTrellises.WISTERIA);
+//                getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+//                        .add(BFBlocks.ASPEN_PICKETS)
+//                        .add(BFBlocks.CEDAR_PICKETS)
+//                        .add(BFBlocks.COCONUT_PICKETS)
+//                        .add(BFBlocks.CYPRESS_PICKETS)
+//                        .add(BFBlocks.FIR_PICKETS)
+//                        .add(BFBlocks.GHAF_PICKETS)
+//                        .add(BFBlocks.JOSHUA_PICKETS)
+//                        .add(BFBlocks.LARCH_PICKETS)
+//                        .add(BFBlocks.MAHOGANY_PICKETS)
+//                        .add(BFBlocks.MAPLE_PICKETS)
+//                        .add(BFBlocks.OLIVE_PICKETS)
+//                        .add(BFBlocks.PALO_VERDE_PICKETS)
+//                        .add(BFBlocks.SAXAUL_PICKETS)
+//                        .add(BFBlocks.SUGI_PICKETS)
+//                        .add(BFBlocks.WILLOW_PICKETS)
+//                        .add(BFBlocks.WISTERIA_PICKETS);
+
 
         getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
                 .add(BFBlocks.APPLE_LEAVES)
@@ -418,16 +437,16 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     public void registerTrellisBlockTags(TrellisVariant trellis) {
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                .add(TrellisUtil.getTrellisFromVariant(trellis))
+                .addOptional(new Identifier(trellis.getModId(), trellis.getBlockName()))
         ;
         for (VineCrop crop : TrellisUtil.VineCrops) {
             getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                    .add(TrellisUtil.getCropTrellisFromVariant(trellis, crop))
+                    .addOptional(new Identifier(trellis.getModId(), crop.getName() + "_" + trellis.getBlockName()))
             ;
         }
         for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
             getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                    .add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine))
+                    .addOptional(new Identifier(trellis.getModId(), vine.getName() + "_" + trellis.getBlockName()))
             ;
         }
     }

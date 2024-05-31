@@ -22,25 +22,85 @@
     "bountifulfares:velvet_jack_o_straw",
     "bountifulfares:vermilion_jack_o_straw",
     "bountifulfares:wintergreen_pickets",
-    "mint:wintergreen_trellis",
-    "mint:passion_fruit_wintergreen_trellis",
-    "mint:elderberry_wintergreen_trellis",
-    "mint:lapisberry_wintergreen_trellis",
-    "mint:glow_berry_wintergreen_trellis",
-    "mint:rose_wintergreen_trellis",
-    "mint:lilac_wintergreen_trellis",
-    "mint:peony_wintergreen_trellis",
-    "mint:sunflower_wintergreen_trellis",
-    "mint:vine_wintergreen_trellis",
-    "mint:weeping_wintergreen_trellis",
-    "mint:twisting_wintergreen_trellis",
-    "mint:ns_lavender_wintergreen_trellis",
-    "mint:ns_bleeding_heart_wintergreen_trellis",
-    "mint:ns_blue_bulb_wintergreen_trellis",
-    "mint:ns_carnation_wintergreen_trellis",
-    "mint:ns_gardenia_wintergreen_trellis",
-    "mint:ns_marigold_wintergreen_trellis",
-    "mint:ns_foxglove_wintergreen_trellis",
-    "mint:spawn_sunflower_wintergreen_trellis"
+    {
+      "id": "mint:wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:passion_fruit_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:elderberry_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:lapisberry_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:glow_berry_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:spawn_sunflower_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:rose_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:lilac_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:peony_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:sunflower_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:vine_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:weeping_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:twisting_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_lavender_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_bleeding_heart_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_blue_bulb_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_carnation_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_gardenia_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_marigold_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_foxglove_wintergreen_trellis",
+      "required": false
+    }
   ]
 }
