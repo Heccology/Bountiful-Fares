@@ -3,25 +3,23 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "bountifulfares:hoary_door",
+              "block": "bountifulfares:ceramic_door",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "bountifulfares:hoary_door",
+          "name": "bountifulfares:ceramic_door",
           "functions": [
+            {
+              "function": "minecraft:explosion_decay"
+            },
             {
               "function": "minecraft:copy_name",
               "source": "block_entity"

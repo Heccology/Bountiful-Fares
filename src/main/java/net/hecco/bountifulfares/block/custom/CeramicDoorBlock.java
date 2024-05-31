@@ -5,10 +5,8 @@ import net.hecco.bountifulfares.block.interfaces.DyeableCeramicBlockInterface;
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.item.custom.DyeableCeramicBlockItem;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSetType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.DoorBlock;
+import net.minecraft.block.*;
+import net.minecraft.block.enums.DoorHinge;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -98,7 +96,16 @@ public class CeramicDoorBlock extends DoorBlock implements DyeableCeramicBlockIn
         DyeableCeramicBlockEntity topentity = (DyeableCeramicBlockEntity) world.getBlockEntity(pos.up());
         DyeableCeramicBlockEntity bottomentity = (DyeableCeramicBlockEntity) world.getBlockEntity(pos.down());
         if (doubleBlockHalf == DoubleBlockHalf.LOWER && world.getBlockState(pos.up()).isOf(this) && entity.color == topentity.color) {
-            return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+            if (direction.getAxis() == Direction.Axis.Y && doubleBlockHalf == DoubleBlockHalf.LOWER == (direction == Direction.UP)) {
+                return neighborState.isOf(this) && neighborState.get(HALF) != doubleBlockHalf ? state.with(FACING, neighborState.get(FACING)).with(OPEN, neighborState.get(OPEN)).with(HINGE, neighborState.get(HINGE)).with(POWERED, neighborState.get(POWERED)) : Blocks.AIR.getDefaultState();
+            } else {
+                if (direction == Direction.DOWN && !state.canPlaceAt(world, pos)) {
+                    world.scheduleBlockTick(pos.up(), this, 1);
+                    return Blocks.AIR.getDefaultState();
+                } else {
+                    return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+                }
+            }
         }
         if (doubleBlockHalf == DoubleBlockHalf.UPPER && world.getBlockState(pos.down()).isOf(this) && entity.color == bottomentity.color) {
             return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
