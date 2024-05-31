@@ -401,7 +401,7 @@ public class BFBlocks {
     public static Block WISTERIA_PICKETS;
 
     public static void registerNaturesSpiritBlocks() {
-        if (!BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
             ASPEN_PICKETS = registerBlock("aspen_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
             CEDAR_PICKETS = registerBlock("cedar_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
             COCONUT_PICKETS = registerBlock("coconut_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
