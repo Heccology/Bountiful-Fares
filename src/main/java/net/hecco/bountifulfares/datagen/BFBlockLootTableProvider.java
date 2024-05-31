@@ -12,6 +12,7 @@ import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.minecraft.block.BeetrootsBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
@@ -84,7 +85,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BFBlocks.STRIPPED_HOARY_WOOD);
         addDrop(BFBlocks.HOARY_PLANKS);
         addDrop(BFBlocks.HOARY_STAIRS);
-        addDrop(BFBlocks.HOARY_SLAB);
+        addDrop(BFBlocks.HOARY_SLAB, slabDrops(BFBlocks.HOARY_SLAB));
         addDrop(BFBlocks.HOARY_FENCE);
         addDrop(BFBlocks.HOARY_FENCE_GATE);
         addDrop(BFBlocks.HOARY_DOOR, doorDrops(BFBlocks.HOARY_DOOR));
@@ -113,7 +114,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BFBlocks.STRIPPED_WALNUT_WOOD);
         addDrop(BFBlocks.WALNUT_PLANKS);
         addDrop(BFBlocks.WALNUT_STAIRS);
-        addDrop(BFBlocks.WALNUT_SLAB);
+        addDrop(BFBlocks.WALNUT_SLAB, slabDrops(BFBlocks.WALNUT_SLAB));
         addDrop(BFBlocks.WALNUT_FENCE);
         addDrop(BFBlocks.WALNUT_FENCE_GATE);
         addDrop(BFBlocks.WALNUT_DOOR, doorDrops(BFBlocks.WALNUT_DOOR));
@@ -220,7 +221,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BFBlocks.CUT_FELDSPAR_BLOCK);
         addDrop(BFBlocks.FELDSPAR_BRICKS);
         addDrop(BFBlocks.FELDSPAR_BRICK_STAIRS);
-        addDrop(BFBlocks.FELDSPAR_BRICK_SLAB);
+        addDrop(BFBlocks.FELDSPAR_BRICK_SLAB, slabDrops(BFBlocks.FELDSPAR_BRICK_SLAB));
         addDrop(BFBlocks.FELDSPAR_LANTERN);
         addDrop(BFBlocks.TINGED_GLASS, dropsWithSilkTouch(BFBlocks.TINGED_GLASS));
         addDrop(BFBlocks.CERAMIC_CLAY_BLOCK);
@@ -383,7 +384,13 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         hangingFruitDrops(BFBlocks.HANGING_LEMON, BFItems.LEMON);
         hangingFruitDrops(BFBlocks.HANGING_PLUM, BFItems.PLUM);
         hangingFruitDrops(BFBlocks.HANGING_HOARY_APPLE, BFItems.HOARY_APPLE);
-
+        addDrop(BFBlocks.GRASSY_DIRT, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(WITHOUT_SILK_TOUCH)
+                        .with(this.applyExplosionDecay(BFBlocks.GRASSY_DIRT, ItemEntry.builder(Blocks.DIRT))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(WITH_SILK_TOUCH)
+                        .with(this.applyExplosionDecay(BFBlocks.GRASSY_DIRT, ItemEntry.builder(BFBlocks.GRASSY_DIRT)))));
     }
 
     public void registerTrellisLootTables(TrellisVariant trellis) {
