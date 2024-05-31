@@ -3,16 +3,27 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bountifulfares:ceramic_tile_slab",
           "functions": [
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "bountifulfares:ceramic_tile_slab",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "type": "double"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            },
             {
               "function": "minecraft:copy_name",
               "source": "block_entity"
@@ -28,7 +39,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "name": "bountifulfares:ceramic_tile_slab"
         }
       ],
       "rolls": 1.0
