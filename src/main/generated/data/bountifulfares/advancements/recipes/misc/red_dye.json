@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_tea_berries",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_tea_berries"
     ]
   ],
   "rewards": {

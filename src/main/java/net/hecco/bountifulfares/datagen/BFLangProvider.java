@@ -168,6 +168,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "item.minecraft.tipped_arrow.effect.bountifulfares.acidic", "Arrow of Acidity");
         generate(translationBuilder, "item.minecraft.tipped_arrow.effect.bountifulfares.long_acidic", "Arrow of Acidity");
         generate(translationBuilder, "item.minecraft.tipped_arrow.effect.bountifulfares.strong_acidic", "Arrow of Acidity");
+        generate(translationBuilder, "effect.bountifulfares.acidic.description", "Increases the amplifier of all other effects applied. Reverts after Acidic is removed.");
         generate(translationBuilder, "effect.bountifulfares.stupor", "Stupor");
         generate(translationBuilder, "item.minecraft.potion.effect.bountifulfares.stupor", "Potion of Stupor");
         generate(translationBuilder, "item.minecraft.potion.effect.bountifulfares.long_stupor", "Potion of Stupor");
@@ -177,9 +178,13 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "item.minecraft.lingering_potion.effect.bountifulfares.long_stupor", "Lingering Potion of Stupor");
         generate(translationBuilder, "item.minecraft.tipped_arrow.effect.bountifulfares.stupor", "Arrow of Stupor");
         generate(translationBuilder, "item.minecraft.tipped_arrow.effect.bountifulfares.long_stupor", "Arrow of Stupor");
+        generate(translationBuilder, "effect.bountifulfares.stupor.description", "Removes all effects and stops effects from applying for its duration.");
+
 
         generate(translationBuilder, "effect.bountifulfares.restoration", "Restoration");
+        generate(translationBuilder, "effect.bountifulfares.restoration.description", "Regenerates health up to the health when it was applied.");
         generate(translationBuilder, "effect.bountifulfares.enrichment", "Enrichment");
+        generate(translationBuilder, "effect.bountifulfares.enrichment.description", "Minor buffs to most stats.");
 
         generate(translationBuilder, BFItems.CANDIED_ORANGE);
         generate(translationBuilder, BFItems.CANDIED_LEMON);
