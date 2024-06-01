@@ -1,17 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stick": {
+    "has_walnut_trapdoor": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:stick"
-            ]
-          },
-          {
-            "items": [
-              "spawn:rotten_planks"
+              "bountifulfares:walnut_trapdoor"
             ]
           }
         ]
@@ -20,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spawn:rotten_trellis"
+        "recipe": "bountifulfares:walnut_cabinet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_stick",
+      "has_walnut_trapdoor",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "spawn:rotten_trellis"
+      "bountifulfares:walnut_cabinet"
     ]
   },
   "sends_telemetry_event": false

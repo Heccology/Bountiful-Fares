@@ -1,24 +1,7 @@
 {
   "replace": false,
   "values": [
-    "spawn:rotten_trellis",
-    "spawn:passion_fruit_rotten_trellis",
-    "spawn:elderberry_rotten_trellis",
-    "spawn:lapisberry_rotten_trellis",
-    "spawn:glow_berry_rotten_trellis",
-    "spawn:rose_rotten_trellis",
-    "spawn:lilac_rotten_trellis",
-    "spawn:peony_rotten_trellis",
-    "spawn:sunflower_rotten_trellis",
-    "spawn:vine_rotten_trellis",
-    "spawn:weeping_rotten_trellis",
-    "spawn:twisting_rotten_trellis",
-    "spawn:ns_lavender_rotten_trellis",
-    "spawn:ns_bleeding_heart_rotten_trellis",
-    "spawn:ns_blue_bulb_rotten_trellis",
-    "spawn:ns_carnation_rotten_trellis",
-    "spawn:ns_gardenia_rotten_trellis",
-    "spawn:ns_marigold_rotten_trellis",
-    "spawn:ns_foxglove_rotten_trellis"
+    "bountifulfares:walnut_cabinet",
+    "bountifulfares:hoary_cabinet"
   ]
 }

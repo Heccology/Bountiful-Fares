@@ -449,16 +449,16 @@ public class BFBlocks {
     public static Block TALL_CERAMIC_DOOR;
     public static Block SHORT_CERAMIC_DOOR;
 
-    public static void registerDramaticDoorsBlocks() {
-        if (BountifulFares.isModLoaded(BountifulFares.DRAMATIC_DOORS_MOD_ID)) {
-            TALL_WALNUT_DOOR = registerBlock("tall_walnut_door", new TallDoorBlock(FabricBlockSettings.copyOf(WALNUT_DOOR), BFBlockSetTypes.WALNUT));
-            SHORT_WALNUT_DOOR = registerBlock("short_walnut_door", new ShortDoorBlock(FabricBlockSettings.copyOf(WALNUT_DOOR), BFBlockSetTypes.WALNUT));
-            TALL_HOARY_DOOR = registerBlock("tall_hoary_door", new TallDoorBlock(FabricBlockSettings.copyOf(HOARY_DOOR), BFBlockSetTypes.HOARY));
-            SHORT_HOARY_DOOR = registerBlock("short_hoary_door", new ShortDoorBlock(FabricBlockSettings.copyOf(HOARY_DOOR), BFBlockSetTypes.HOARY));
-            TALL_CERAMIC_DOOR = registerDyeableCeramicBlock("tall_ceramic_door", new TallCeramicDoorBlock(FabricBlockSettings.copyOf(CERAMIC_DOOR), BFBlockSetTypes.CERAMIC));
-            SHORT_CERAMIC_DOOR = registerDyeableCeramicBlock("short_ceramic_door", new ShortCeramicDoorBlock(FabricBlockSettings.copyOf(CERAMIC_DOOR), BFBlockSetTypes.CERAMIC));
-        }
-    }
+//    public static void registerDramaticDoorsBlocks() {
+//        if (BountifulFares.isModLoaded(BountifulFares.DRAMATIC_DOORS_MOD_ID)) {
+//            TALL_WALNUT_DOOR = registerBlock("tall_walnut_door", new TallDoorBlock(FabricBlockSettings.copyOf(WALNUT_DOOR), BFBlockSetTypes.WALNUT));
+//            SHORT_WALNUT_DOOR = registerBlock("short_walnut_door", new ShortDoorBlock(FabricBlockSettings.copyOf(WALNUT_DOOR), BFBlockSetTypes.WALNUT));
+//            TALL_HOARY_DOOR = registerBlock("tall_hoary_door", new TallDoorBlock(FabricBlockSettings.copyOf(HOARY_DOOR), BFBlockSetTypes.HOARY));
+//            SHORT_HOARY_DOOR = registerBlock("short_hoary_door", new ShortDoorBlock(FabricBlockSettings.copyOf(HOARY_DOOR), BFBlockSetTypes.HOARY));
+//            TALL_CERAMIC_DOOR = registerDyeableCeramicBlock("tall_ceramic_door", new TallCeramicDoorBlock(FabricBlockSettings.copyOf(CERAMIC_DOOR), BFBlockSetTypes.CERAMIC));
+//            SHORT_CERAMIC_DOOR = registerDyeableCeramicBlock("short_ceramic_door", new ShortCeramicDoorBlock(FabricBlockSettings.copyOf(CERAMIC_DOOR), BFBlockSetTypes.CERAMIC));
+//        }
+//    }
 
 
     public static Block WALNUT_TABLE;

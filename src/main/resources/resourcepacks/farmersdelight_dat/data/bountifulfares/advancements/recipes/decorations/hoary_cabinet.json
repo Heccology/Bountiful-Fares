@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_planks": {
+    "has_hoary_trapdoor": {
       "conditions": {
         "items": [
           {
             "items": [
-              "spawn:rotten_planks"
+              "bountifulfares:hoary_trapdoor"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:rotten_pickets"
+        "recipe": "bountifulfares:hoary_cabinet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_planks",
+      "has_hoary_trapdoor",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:rotten_pickets"
+      "bountifulfares:hoary_cabinet"
     ]
   },
   "sends_telemetry_event": false

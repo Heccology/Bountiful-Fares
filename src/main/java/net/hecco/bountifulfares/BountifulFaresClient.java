@@ -134,15 +134,15 @@ public class BountifulFaresClient implements ClientModInitializer {
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.ROTTEN_PICKETS, RenderLayer.getCutout());
         }
 
-        //        DramaticDoors compat
-        if (BountifulFares.isModLoaded(BountifulFares.DRAMATIC_DOORS_MOD_ID)) {
-            BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.TALL_WALNUT_DOOR, RenderLayer.getCutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.SHORT_WALNUT_DOOR, RenderLayer.getCutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.TALL_CERAMIC_DOOR, RenderLayer.getCutout());
-            BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.SHORT_CERAMIC_DOOR, RenderLayer.getCutout());
-            registerBlockColor(BFBlocks.TALL_CERAMIC_DOOR);
-            registerBlockColor(BFBlocks.SHORT_CERAMIC_DOOR);
-        }
+//        //        DramaticDoors compat
+//        if (BountifulFares.isModLoaded(BountifulFares.DRAMATIC_DOORS_MOD_ID)) {
+//            BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.TALL_WALNUT_DOOR, RenderLayer.getCutout());
+//            BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.SHORT_WALNUT_DOOR, RenderLayer.getCutout());
+//            BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.TALL_CERAMIC_DOOR, RenderLayer.getCutout());
+//            BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.SHORT_CERAMIC_DOOR, RenderLayer.getCutout());
+//            registerBlockColor(BFBlocks.TALL_CERAMIC_DOOR);
+//            registerBlockColor(BFBlocks.SHORT_CERAMIC_DOOR);
+//        }
 
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.APPLE_LOG, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.APPLE_WOOD, RenderLayer.getCutout());

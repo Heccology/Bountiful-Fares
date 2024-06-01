@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "bountifulfares:walnut_trapdoor"
+    },
+    "_": {
+      "item": "bountifulfares:walnut_slab"
+    }
+  },
+  "pattern": [
+    "___",
+    "D D",
+    "___"
+  ],
+  "result": {
+    "item": "bountifulfares:walnut_cabinet"
+  },
+  "show_notification": true
+}
