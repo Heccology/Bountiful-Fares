@@ -512,6 +512,11 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_mulch", conditionsFromItem(BFBlocks.WALNUT_MULCH_BLOCK))
                 .offerTo(exporter);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.RED_DYE)
+                .input(BFItems.TEA_BERRIES)
+                .criterion(hasItem(BFItems.TEA_BERRIES), conditionsFromItem(BFItems.TEA_BERRIES))
+                .offerTo(exporter);
+
         offerBarkBlockRecipe(exporter, BFBlocks.APPLE_WOOD, BFBlocks.APPLE_LOG);
         offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_APPLE_WOOD, BFBlocks.STRIPPED_APPLE_LOG);
         offerBarkBlockRecipe(exporter, BFBlocks.ORANGE_WOOD, BFBlocks.ORANGE_LOG);

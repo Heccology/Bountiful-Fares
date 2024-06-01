@@ -1,4 +1,4 @@
-// 1.20.1	2024-05-31T00:15:18.41868	Bountiful Fares/Block Loot Tables
+// 1.20.1	2024-06-01T01:00:57.961341	Bountiful Fares/Block Loot Tables
 b07fb4e3db04ac20e4bed3f14fe93b12eb81a17d data/bountifulfares/loot_tables/blocks/ns_marigold_trellis.json
 b07fb4e3db04ac20e4bed3f14fe93b12eb81a17d data/bountifulfares/loot_tables/blocks/passion_fruit_trellis.json
 e25d928e8e821f1f75b657ed06434a534793e35f data/bountifulfares/loot_tables/blocks/lilac_crimson_trellis.json
@@ -216,8 +216,8 @@ aac2c1e4b451448ab6d09c8919c9d5f03b112014 data/bountifulfares/loot_tables/blocks/
 659cf7f4283e7bbe1f2f0efa03d81cbffd37cfb9 data/bountifulfares/loot_tables/blocks/vine_acacia_trellis.json
 b769facb24624b3183b40a369558f9881c2100c6 data/bountifulfares/loot_tables/blocks/flowering_apple_leaves.json
 659cf7f4283e7bbe1f2f0efa03d81cbffd37cfb9 data/bountifulfares/loot_tables/blocks/glow_berry_acacia_trellis.json
-1ca16bb578cecde929955170a0583598279602c7 data/bountifulfares/loot_tables/blocks/fallen_walnuts.json
 cca05be4cd20998a87656f0aafe456117b565f8b data/bountifulfares/loot_tables/blocks/sunflower_jungle_trellis.json
+1ca16bb578cecde929955170a0583598279602c7 data/bountifulfares/loot_tables/blocks/fallen_walnuts.json
 4ae76c2599e994a793deb1e0cd7c9724b4020bc1 data/bountifulfares/loot_tables/blocks/ns_carnation_hoary_trellis.json
 4ae76c2599e994a793deb1e0cd7c9724b4020bc1 data/bountifulfares/loot_tables/blocks/weeping_hoary_trellis.json
 957b62823e7c6a26b6a6ba225acdefb70425605a data/bountifulfares/loot_tables/blocks/hanging_apple.json

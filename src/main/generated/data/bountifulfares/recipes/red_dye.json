@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:tea_berries"
+    }
+  ],
+  "result": {
+    "item": "minecraft:red_dye"
+  }
+}
