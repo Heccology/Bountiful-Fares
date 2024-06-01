@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-01T17:05:37.596803	Bountiful Fares/Recipes
+// 1.20.1	2024-06-01T18:06:06.206505	Bountiful Fares/Recipes
 3b84688d918f5b6c2f9b2580886a18877cde0582 data/bountifulfares/advancements/recipes/redstone/hoary_fence_gate.json
 d7f685a5e919791115839448fb5200f8cab9ab31 data/bountifulfares/recipes/walnut_chest_boat.json
 7d19bb6ad4cdf6a68e4ab5cd7e455232b2f15bf4 data/bountifulfares/advancements/recipes/misc/ceramic_pressure_plate_undying.json
@@ -169,8 +169,8 @@ a0e3bc2bf3d3f845cf63c25907768f6711771970 data/bountifulfares/advancements/recipe
 3ef3d6dc3b0d4d3b9301bcfa2a0ac3949288199a data/bountifulfares/advancements/recipes/building_blocks/bamboo_pickets.json
 8ddf13827f52cf2785261914ef3e515ad2184ee1 data/bountifulfares/recipes/glow_berry_tart.json
 3927e6697d710e9b810ebe56773989d6e8743ad7 data/bountifulfares/advancements/recipes/decorations/pink_jack_o_straw_with_carved_pumpkin.json
-81414681c03041f7b5fe67cce4374a3bbd9b8a26 data/bountifulfares/recipes/artisan_cookie.json
 d23c098068f1290aa45acf32da4b72c4b23adc53 data/bountifulfares/recipes/mushroom_stuffed_potato.json
+81414681c03041f7b5fe67cce4374a3bbd9b8a26 data/bountifulfares/recipes/artisan_cookie.json
 0b0580f1f9eb315c35a06408e12cb622d286e9fe data/bountifulfares/recipes/red_dye.json
 4556bd719344f69e76bc408a913e53110661452d data/bountifulfares/advancements/recipes/decorations/light_blue_jack_o_straw_with_pumpkin.json
 1e8ffb83564b597c477abf7731396a181b060686 data/bountifulfares/advancements/recipes/misc/maize_seeds_from_maize.json
