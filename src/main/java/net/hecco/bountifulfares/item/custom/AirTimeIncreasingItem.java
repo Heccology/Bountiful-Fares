@@ -8,11 +8,11 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
 
-public class SpongekinSliceItem extends Item {
+public class AirTimeIncreasingItem extends Item {
     public static int airTickIncrease;
-    public SpongekinSliceItem(int airTickIncrease, Settings settings) {
+    public AirTimeIncreasingItem(int airTickIncrease, Settings settings) {
         super(settings);
-        SpongekinSliceItem.airTickIncrease = airTickIncrease;
+        AirTimeIncreasingItem.airTickIncrease = airTickIncrease;
     }
 
 
