@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-01T01:00:57.99346	Bountiful Fares/Recipes
+// 1.20.1	2024-06-01T17:05:37.596803	Bountiful Fares/Recipes
 3b84688d918f5b6c2f9b2580886a18877cde0582 data/bountifulfares/advancements/recipes/redstone/hoary_fence_gate.json
 d7f685a5e919791115839448fb5200f8cab9ab31 data/bountifulfares/recipes/walnut_chest_boat.json
 7d19bb6ad4cdf6a68e4ab5cd7e455232b2f15bf4 data/bountifulfares/advancements/recipes/misc/ceramic_pressure_plate_undying.json
@@ -436,8 +436,8 @@ e719b12344c6b209587fec9dd2206729a2a71e06 data/bountifulfares/advancements/recipe
 e911cae6b66fa408ec62286a6d8d737906629657 data/bountifulfares/recipes/cracked_checkered_ceramic_tiles_undying.json
 0c306ce3f2e9fc8a44ecca48f6ff1afd2a3d90ca data/bountifulfares/recipes/ceramic_mosaic_stairs_from_ceramic_tiles_stonecutting.json
 69e95b2dd81412a9e93a55205f2a329ffcf77924 data/bountifulfares/recipes/feldspar.json
-985df7100f8371129f99ba3a63c8e0817481dc16 data/bountifulfares/recipes/hoary_compote_jar.json
 900cb9b9480114dc33cb81ab8cc0ac97422b93a8 data/bountifulfares/advancements/recipes/food/apple_compote_jar.json
+985df7100f8371129f99ba3a63c8e0817481dc16 data/bountifulfares/recipes/hoary_compote_jar.json
 0b785810dbd93b23f29092c87cdb48b5298ba76a data/bountifulfares/recipes/ceramic_mosaic_slab.json
 25ed2faffdb059be058e8bb1009def01b217e852 data/bountifulfares/recipes/stick.json
 ab7aaf397ffba8be567f5ef7279f082c97bd502e data/bountifulfares/advancements/recipes/decorations/trellis.json
