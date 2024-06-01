@@ -6,7 +6,8 @@
         "items": [
           {
             "items": [
-              "#c:foods/cooked_fishes",
+              "minecraft:cooked_cod",
+              "minecraft:cooked_salmon",
               "minecraft:dried_kelp"
             ]
           }

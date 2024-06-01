@@ -4,7 +4,7 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "item": "bountifulfares:apple"
+      "item": "minecraft:apple"
     },
     {
       "item": "bountifulfares:citrus_essence"
