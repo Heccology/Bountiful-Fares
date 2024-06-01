@@ -329,6 +329,15 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .conditionally(WITH_SILK_TOUCH)
                         .with(this.applyExplosionDecay(BFBlocks.GRASSY_DIRT, ItemEntry.builder(BFBlocks.GRASSY_DIRT)))));
+
+
+        addDrop(BFBlocks.GREEN_TEA_CANDLE);
+        addDrop(BFBlocks.BLACK_TEA_CANDLE);
+        addDrop(BFBlocks.CHAMOMILE_CANDLE);
+        addDrop(BFBlocks.HONEYSUCKLE_CANDLE);
+        addDrop(BFBlocks.BELLFLOWER_CANDLE);
+        addDrop(BFBlocks.TORCHFLOWER_CANDLE);
+        addDrop(BFBlocks.WALNUT_CANDLE);
     }
 
     public void registerTrellisLootTables(TrellisVariant trellis) {
