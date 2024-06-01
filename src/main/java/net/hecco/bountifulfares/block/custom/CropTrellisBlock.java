@@ -51,13 +51,14 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     private final TrellisVariant variant;
     private final VineCrop crop;
     private String berryItemID;
-    private int harvestResetAge;
+    private final int harvestResetAge;
     public CropTrellisBlock(Item berryItem, TrellisVariant variant, VineCrop crop, Settings settings) {
         super(settings);
         this.berryItem = berryItem;
         CROPS_TO_CROP_TRELLISES.put(berryItem, this);
         this.variant = variant;
         this.crop = crop;
+        this.harvestResetAge = 1;
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(AGE, 0).with(SNIPPED, false));
     }
 
@@ -76,6 +77,7 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
         CROPS_TO_CROP_TRELLISES.put(seedsItem, this);
         this.variant = variant;
         this.crop = crop;
+        this.harvestResetAge = 1;
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(AGE, 0).with(SNIPPED, false));
     }
 
