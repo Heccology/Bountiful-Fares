@@ -336,7 +336,8 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFBlocks.WALNUT_CANDLE);
 
         generate(translationBuilder, "effect.bountifulfares.ebullience", "Ebullience");
-        generate(translationBuilder, "effect.bountifulfares.gorging", "Gorging");
+        generate(translationBuilder, "effect.bountifulfares.ebullience.description", "Negates exhaustion from actions like mining or walking.");
+//        generate(translationBuilder, "effect.bountifulfares.gorging", "Gorging");
 
         generate(translationBuilder, BFItems.SUN_HAT);
 
