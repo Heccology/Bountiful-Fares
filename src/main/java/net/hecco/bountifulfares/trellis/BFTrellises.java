@@ -91,6 +91,9 @@ public class BFTrellises {
 //    Spawn
     public static TrellisVariant ROTTEN;
 
+//    Arts and crafts
+    public static TrellisVariant CORK;
+
 //    Wilder Wild
 //    public static TrellisVariant BAOBAB;
 //    public static TrellisVariant WW_CYPRESS;
@@ -169,6 +172,10 @@ public class BFTrellises {
 
         if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
             ROTTEN = new TrellisVariant(BountifulFares.SPAWN_MOD_ID, "rotten", null, TRELLIS_RENDER_CUTOUT);
+        }
+
+        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+            CORK = new TrellisVariant(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, "cork", null, TRELLIS_RENDER_CUTOUT);
         }
 
 //        if (BountifulFares.isModLoaded(BountifulFares.WILDER_WILD_MOD_ID)) {

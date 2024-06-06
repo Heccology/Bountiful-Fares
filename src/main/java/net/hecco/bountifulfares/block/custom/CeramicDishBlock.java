@@ -1,9 +1,12 @@
 package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.datafixers.util.Pair;
+import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.block.interfaces.CeramicDishBlockInterface;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
+import net.hecco.bountifulfares.compat.CompatUtil;
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.item.custom.AirTimeIncreasingItem;
@@ -16,6 +19,7 @@ import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -93,6 +97,21 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
                     ceramicDishBlockEntity.markDirty();
                     return ActionResult.SUCCESS;
 
+                }
+            } else if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+                if (CompatUtil.isItemPaintbrush(item.getItem())) {
+                    int brushColor = CompatUtil.getIntColorFromPaintbrush(item.getItem());
+                    if (brushColor != 1) {
+                        world.removeBlock(pos, false);
+                        world.setBlockState(pos, this.getStateWithProperties(state));
+                        world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+                        if (world.getBlockEntity(pos) instanceof CeramicDishBlockEntity ceramicDishBlockEntity && ceramicDishBlockEntity.color != brushColor) {
+                            ceramicDishBlockEntity.color = brushColor;
+                            ceramicDishBlockEntity.markDirty();
+                            return ActionResult.SUCCESS;
+
+                        }
+                    }
                 }
             } else if (!item.isEmpty() && blockEntity.canInsertItem()) {
                 blockEntity.insertItem(item);

@@ -1,8 +1,10 @@
 package net.hecco.bountifulfares.block.custom;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.block.interfaces.DyeableCeramicBlockInterface;
+import net.hecco.bountifulfares.compat.CompatUtil;
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.sounds.BFSounds;
@@ -11,6 +13,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.LeverBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.sound.SoundCategory;
@@ -46,6 +49,23 @@ public class CeramicLeverBlock extends LeverBlock implements DyeableCeramicBlock
                 ceramicTilesBlockEntity.markDirty();
                 return ActionResult.SUCCESS;
 
+            }
+        }
+        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+            Item item = player.getStackInHand(hand).getItem();
+            if (CompatUtil.isItemPaintbrush(item)) {
+                int brushColor = CompatUtil.getIntColorFromPaintbrush(item);
+                if (brushColor != 1) {
+                    world.removeBlock(pos, false);
+                    world.setBlockState(pos, this.getStateWithProperties(state));
+                    world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+                    if (world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity && dyeableCeramicBlockEntity.color != brushColor) {
+                        dyeableCeramicBlockEntity.color = brushColor;
+                        dyeableCeramicBlockEntity.markDirty();
+                        return ActionResult.SUCCESS;
+
+                    }
+                }
             }
         }
         BlockState blockState;

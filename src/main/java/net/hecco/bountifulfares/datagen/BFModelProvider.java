@@ -109,6 +109,8 @@ public class BFModelProvider extends FabricModelProvider {
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.CRIMSON);
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.WARPED);
 
+//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.CORK);
+
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.BAOBAB);
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.WW_CYPRESS);
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.PALM);

@@ -133,6 +133,10 @@ public class BountifulFaresClient implements ClientModInitializer {
         if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
             BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.ROTTEN_PICKETS, RenderLayer.getCutout());
         }
+        //        ArtsAndCrafts compat
+        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+            BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CORK_PICKETS, RenderLayer.getCutout());
+        }
 
 //        //        DramaticDoors compat
 //        if (BountifulFares.isModLoaded(BountifulFares.DRAMATIC_DOORS_MOD_ID)) {

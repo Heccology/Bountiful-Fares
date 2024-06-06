@@ -161,6 +161,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         registerTrellisBlockTags(BFTrellises.HOARY);
         registerTrellisBlockTags(BFTrellises.CRIMSON);
         registerTrellisBlockTags(BFTrellises.WARPED);
+//        registerTrellisBlockTags(BFTrellises.CORK);
 //        registerTrellisBlockTags(BFTrellises.BAOBAB);
 //        registerTrellisBlockTags(BFTrellises.WW_CYPRESS);
 //        registerTrellisBlockTags(BFTrellises.PALM);

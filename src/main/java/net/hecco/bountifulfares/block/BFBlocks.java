@@ -473,6 +473,14 @@ public class BFBlocks {
         }
     }
 
+    public static Block CORK_PICKETS;
+
+    public static void registerArtsAndCraftsBlocks() {
+        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+            CORK_PICKETS = registerBlock("cork_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+        }
+    }
+
 
 
     public static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
@@ -546,5 +554,6 @@ public class BFBlocks {
         registerSpawnBlocks();
         registerFarmersDelightBlocks();
         registerTwigsBlocks();
+        registerArtsAndCraftsBlocks();
     }
 }
