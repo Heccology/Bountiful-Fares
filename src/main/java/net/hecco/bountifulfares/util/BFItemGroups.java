@@ -183,6 +183,9 @@ public class BFItemGroups {
                         if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
                             entries.add(BFBlocks.ROTTEN_PICKETS);
                         }
+                        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+                            entries.add(BFBlocks.CORK_PICKETS);
+                        }
                         entries.add(BFBlocks.HOARY_PICKETS);
                         entries.add(BFBlocks.CRIMSON_PICKETS);
                         entries.add(BFBlocks.WARPED_PICKETS);
@@ -365,6 +368,9 @@ public class BFItemGroups {
                         }
                         if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
                             entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.ROTTEN));
+                        }
+                        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.CORK));
                         }
 //                        if (BountifulFares.isModLoaded(BountifulFares.WILDER_WILD_MOD_ID)) {
 //                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.BAOBAB));
