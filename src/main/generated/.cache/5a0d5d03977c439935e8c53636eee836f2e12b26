@@ -1,4 +1,4 @@
-// 1.20.1	2024-06-08T17:49:51.151778	Bountiful Fares/Tags for minecraft:item
+// 1.20.1	2024-06-09T01:44:59.583591	Bountiful Fares/Tags for minecraft:item
 8c0aea99e90355c56fb9a179a07e869583119205 data/minecraft/tags/items/leaves.json
 25c0bdfc49c4b64586c883b9793a7f97ee1ce481 data/minecraft/tags/items/wooden_trapdoors.json
 3ddd70224576e8981437ff9380707d648aef8c04 data/minecraft/tags/items/wooden_buttons.json
@@ -32,8 +32,9 @@ d71f8ecc25b95c84cfc29766c6da9ccf3fb83c23 data/minecraft/tags/items/flowers.json
 d46ceb0e72602f19adfd6a38117267e54eb30c13 data/bountifulfares/tags/items/apple_logs.json
 b9ff9eebb39b851ee10507b82b1689ca4712aa3f data/bountifulfares/tags/items/orange_leaves.json
 bbf276faa3ad0b6fa6cd8006cb73b40b1e3b6e17 data/minecraft/tags/items/wooden_pressure_plates.json
+b369d62dcb87d8fdb66b64600bf4296c254ef7f5 data/bountifulfares/tags/items/mulch.json
 71fbee8722a7b35a41e221016e7bea62277ff80c data/bountifulfares/tags/items/jack_o_straw_lightable.json
 1472a544a1b7e3a4108c09e259476248cd7b075b data/minecraft/tags/items/planks.json
 2246434a7d8676bcb0825d0d7f4227c95b8a8f8e data/bountifulfares/tags/items/apple_leaves.json
-445572c020a9bbd91f8171bc74cf8539c1510e5f data/bountifulfares/tags/items/lemon_leaves.json
 b556befd79463dc0487637cbc42a783e4d160f83 data/bountifulfares/tags/items/dyeable_ceramic_blocks.json
+445572c020a9bbd91f8171bc74cf8539c1510e5f data/bountifulfares/tags/items/lemon_leaves.json
