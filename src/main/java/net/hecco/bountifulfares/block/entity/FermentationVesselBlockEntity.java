@@ -76,7 +76,7 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     @Override
     public void readNbt(NbtCompound nbt) {
         Inventories.readNbt(nbt, this.inventory);
-        nbt.getInt("fermenting.progress");
+        this.progress = nbt.getInt("fermenting.progress");
         super.readNbt(nbt);
     }
 
@@ -124,9 +124,8 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
                 markDirty(world, pos, state);
             }
             if (!this.fermented && this.progress >= this.maxProgress && !this.inventory.get(0).isEmpty()) {
+                this.fermented = true;
                 if (state.get(FermentationVesselBlock.FERMENTATION_STAGE) != FermentationStage.FERMENTED) {
-                    this.fermented = true;
-                    BountifulFares.LOGGER.info("changed" + progress + " " + maxProgress);
                     world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FERMENT, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
                     markDirty(world, pos, state);
                 }
@@ -191,3 +190,6 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
         return ActionResult.PASS;
     }
 }
+
+
+
