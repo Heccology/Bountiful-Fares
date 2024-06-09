@@ -18,10 +18,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class GuiMixin {
     @Inject(method = "drawHeart", at = @At("HEAD"), cancellable = true)
     private void bountifulfares_renderHeart(DrawContext context, InGameHud.HeartType type, int x, int y, boolean hardcore, boolean blinking, boolean half, CallbackInfo ci) {
-        if (!blinking && type == InGameHud.HeartType.NORMAL && MinecraftClient.getInstance().cameraEntity instanceof PlayerEntity player
-                && (player.hasStatusEffect(BFEffects.RESTORATION))) {
-            context.drawGuiTexture(getTexture(hardcore, half), x, y, 9, 9);
-            ci.cancel();
+        if (BountifulFares.CONFIG.isRestorationHeartOverlay()) {
+            if (!blinking && type == InGameHud.HeartType.NORMAL && MinecraftClient.getInstance().cameraEntity instanceof PlayerEntity player
+                    && (player.hasStatusEffect(BFEffects.RESTORATION))) {
+                context.drawGuiTexture(getTexture(hardcore, half), x, y, 9, 9);
+                ci.cancel();
+            }
         }
     }
 
