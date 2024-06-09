@@ -75,7 +75,9 @@ sourceSets {
 }
 
 loom {
-
+	if (file("src/main/resources/bountifulfares.accesswidener").exists()) {
+		accessWidenerPath.set(file("src/main/resources/bountifulfares.accesswidener"))
+	}
 	// ... (Whatever exists here)
 
 	runs {

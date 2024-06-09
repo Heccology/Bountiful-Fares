@@ -12,5 +12,6 @@
     "defaultRequire": 1
   },
   "client": [
+    "GuiMixin"
   ]
 }
