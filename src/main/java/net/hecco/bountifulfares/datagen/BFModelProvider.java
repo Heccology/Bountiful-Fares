@@ -34,6 +34,12 @@ public class BFModelProvider extends FabricModelProvider {
         feldsparTexturePool.stairs(BFBlocks.FELDSPAR_BRICK_STAIRS);
         feldsparTexturePool.slab(BFBlocks.FELDSPAR_BRICK_SLAB);
 
+        blockStateModelGenerator.registerSimpleCubeAll(BFBlocks.PACKED_COCONUT_COIR);
+        BlockStateModelGenerator.BlockTexturePool coirBrickTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(BFBlocks.COIR_BRICKS);
+        coirBrickTexturePool.stairs(BFBlocks.COIR_BRICK_STAIRS);
+        coirBrickTexturePool.slab(BFBlocks.COIR_BRICK_SLAB);
+        coirBrickTexturePool.wall(BFBlocks.COIR_BRICK_WALL);
+
         registerPicketsModels(blockStateModelGenerator, BFBlocks.OAK_PICKETS);
         registerPicketsModels(blockStateModelGenerator, BFBlocks.SPRUCE_PICKETS);
         registerPicketsModels(blockStateModelGenerator, BFBlocks.BIRCH_PICKETS);
@@ -138,6 +144,7 @@ public class BFModelProvider extends FabricModelProvider {
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.SUGI);
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.NS_WILLOW);
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.WISTERIA);
+        blockStateModelGenerator.registerSimpleCubeAll(BFBlocks.PALM_CROWN);
 
     }
 
@@ -172,5 +179,12 @@ public class BFModelProvider extends FabricModelProvider {
         itemModelGenerator.register(BFItems.CANDIED_PLUM, Models.GENERATED);
         itemModelGenerator.register(BFItems.GRASS_SEEDS, Models.GENERATED);
         itemModelGenerator.register(BFItems.SCORCHKIN_SEEDS, Models.GENERATED);
+        itemModelGenerator.register(BFItems.PALM_FROND, Models.GENERATED);
+        itemModelGenerator.register(BFItems.COCONUT, Models.GENERATED);
+        itemModelGenerator.register(BFItems.COCONUT_COIR, Models.GENERATED);
+        itemModelGenerator.register(BFItems.COCONUT_HALF, Models.GENERATED);
+        itemModelGenerator.register(BFItems.COCONUT_STEW, Models.GENERATED);
+        itemModelGenerator.register(BFItems.COCONUT_CRUSTED_COD, Models.GENERATED);
+        itemModelGenerator.register(BFBlocks.COCONUT_CANDLE.asItem(), Models.GENERATED);
     }
 }

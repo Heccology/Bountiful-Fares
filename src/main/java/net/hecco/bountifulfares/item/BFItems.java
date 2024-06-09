@@ -12,6 +12,8 @@ import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
+
 public class BFItems {
     public static final Item PASSION_FRUIT = registerItem("passion_fruit", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().build())));
     public static final Item ELDERBERRIES = registerItem("elderberries", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.1f).snack().statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1), 0.3f).build())));
@@ -33,6 +35,10 @@ public class BFItems {
     public static final Item WALNUT_HANGING_SIGN = registerItem("walnut_hanging_sign", new HangingSignItem(BFBlocks.WALNUT_HANGING_SIGN, BFBlocks.WALNUT_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)));
     public static final Item WALNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(BFBoats.WALNUT_BOAT_ID, BFBoats.WALNUT_BOAT_KEY, false);
     public static final Item WALNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(BFBoats.WALNUT_CHEST_BOAT_ID, BFBoats.WALNUT_BOAT_KEY, true);
+    public static final Item PALM_FROND = registerItem("palm_frond", new VerticallyAttachableBlockItem(BFBlocks.PALM_FROND, BFBlocks.WALL_PALM_FROND, new FabricItemSettings(), Direction.DOWN));
+    public static final Item COCONUT = registerItem("coconut", new AliasedBlockItem(BFBlocks.PALM_SAPLING, new FabricItemSettings()));
+    public static final Item COCONUT_COIR = registerItem("coconut_coir", new Item(new FabricItemSettings()));
+    public static final Item COCONUT_HALF = registerItem("coconut_half", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.1f).build())));
     public static final Item CITRUS_ESSENCE = registerItem("citrus_essence", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(1).saturationModifier(1).snack().alwaysEdible().statusEffect(new StatusEffectInstance(BFEffects.ACIDIC, 300, 0),1).build())));
     public static final Item CANDIED_ORANGE = registerItem("candied_orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).snack().build())));
     public static final Item CANDIED_LEMON = registerItem("candied_lemon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).snack().build())));
@@ -91,12 +97,14 @@ public class BFItems {
 
 
     public static final Item PASSION_GLAZED_SALMON = registerItem("passion_glazed_salmon", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.7F).statusEffect(new StatusEffectInstance(BFEffects.ENRICHMENT, 2400, 0, true, true), 1).build()).recipeRemainder(Items.BOWL)));
+    public static final Item COCONUT_CRUSTED_COD = registerItem("coconut_crusted_cod", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.7F).statusEffect(new StatusEffectInstance(BFEffects.ENRICHMENT, 2400, 0, true, true), 1).build()).recipeRemainder(Items.BOWL)));
     public static final Item BOUNTIFUL_STEW = registerItem("bountiful_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food((new FoodComponent.Builder()).hunger(16).saturationModifier(0.7F).statusEffect(new StatusEffectInstance(BFEffects.RESTORATION, 2400, 0, true, true), 1).build()).recipeRemainder(Items.BOWL)));
     public static final Item CRUSTED_BEEF = registerItem("crusted_beef", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(18).saturationModifier(0.7F).statusEffect(new StatusEffectInstance(BFEffects.ENRICHMENT, 2400, 0, true, true), 1).build()).recipeRemainder(Items.BOWL)));
     public static final Item LEEK_STEW = registerItem("leek_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(12).saturationModifier(0.7F).statusEffect(new StatusEffectInstance(BFEffects.ENRICHMENT, 1800, 0, true, true), 1).build()).recipeRemainder(Items.BOWL)));
     public static final Item FISH_STEW = registerItem("fish_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(14).saturationModifier(0.7F).statusEffect(new StatusEffectInstance(BFEffects.RESTORATION, 1800, 0, true, true), 1).build()).recipeRemainder(Items.BOWL)));
     public static final Item STONE_STEW = registerItem("stone_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(12).saturationModifier(0.5F).build()).recipeRemainder(Items.BOWL)));
     public static final Item APPLE_STEW = registerItem("apple_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(14).saturationModifier(0.7F).statusEffect(new StatusEffectInstance(BFEffects.RESTORATION, 1800, 0, true, true), 1).build()).recipeRemainder(Items.BOWL)));
+    public static final Item COCONUT_STEW = registerItem("coconut_stew", new StackableBowlFoodItem(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(14).saturationModifier(0.7F).statusEffect(new StatusEffectInstance(BFEffects.RESTORATION, 1800, 0, true, true), 1).build()).recipeRemainder(Items.BOWL)));
     public static final Item FOREST_MEDLEY = registerItem("forest_medley", new Item(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(12).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(BFEffects.ENRICHMENT, 1200, 0, true, true), 1).build())));
     public static final Item ARID_MEDLEY = registerItem("arid_medley", new Item(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(12).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(BFEffects.ENRICHMENT, 1200, 0, true, true), 1).build())));
     public static final Item MEADOW_MEDLEY = registerItem("meadow_medley", new Item(new FabricItemSettings().maxCount(16).food(new FoodComponent.Builder().hunger(12).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(BFEffects.ENRICHMENT, 1200, 0, true, true), 1).build())));

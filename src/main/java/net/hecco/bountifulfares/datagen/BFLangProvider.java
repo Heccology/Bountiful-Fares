@@ -153,6 +153,29 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFBlocks.WALNUT_MULCH_BLOCK);
         generate(translationBuilder, BFBlocks.HANGING_WALNUTS, "Walnuts");
 
+        generate(translationBuilder, BFBlocks.PALM_LOG);
+        generate(translationBuilder, BFBlocks.STRIPPED_PALM_LOG);
+        generate(translationBuilder, BFBlocks.PALM_WOOD);
+        generate(translationBuilder, BFBlocks.STRIPPED_PALM_WOOD);
+        generate(translationBuilder, BFBlocks.PALM_CROWN);
+        generate(translationBuilder, BFBlocks.PALM_FROND);
+        generate(translationBuilder, BFBlocks.WALL_PALM_FROND, "Palm Frond");
+        generate(translationBuilder, BFBlocks.COCONUT);
+        generate(translationBuilder, BFItems.COCONUT);
+        generate(translationBuilder, BFBlocks.COCONUT_MULCH);
+        generate(translationBuilder, BFBlocks.COCONUT_MULCH_BLOCK);
+        generate(translationBuilder, BFItems.COCONUT_COIR);
+        generate(translationBuilder, BFItems.COCONUT_HALF);
+        generate(translationBuilder, BFItems.COCONUT_STEW);
+        generate(translationBuilder, BFItems.COCONUT_CRUSTED_COD);
+        generate(translationBuilder, BFBlocks.COCONUT_CAKE);
+        generate(translationBuilder, BFBlocks.PACKED_COCONUT_COIR);
+        generate(translationBuilder, BFBlocks.COIR_BRICKS);
+        generate(translationBuilder, BFBlocks.COIR_BRICK_SLAB);
+        generate(translationBuilder, BFBlocks.COIR_BRICK_STAIRS);
+        generate(translationBuilder, BFBlocks.COIR_BRICK_WALL);
+        generate(translationBuilder, BFBlocks.COCONUT_CANDLE);
+
 
         generate(translationBuilder, BFItems.CITRUS_ESSENCE);
         generate(translationBuilder, "effect.bountifulfares.acidic", "Acidic");
@@ -560,6 +583,9 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "subtitles.block.fermentation_vessel.empty", "Fermentation Vessel empties");
         generate(translationBuilder, "subtitles.block.fermentation_vessel.ferment", "Fermentation Vessel ferments");
         generate(translationBuilder, "subtitles.block.hanging_fruit.pick", "Fruit pops");
+
+        generate(translationBuilder, "subtitles.block.coconut.land", "Coconut thuds");
+        generate(translationBuilder, "subtitles.block.coconut.bonk", "Coconut bonks");
 
 
 

@@ -50,6 +50,8 @@ public class BFSounds {
     public static final SoundEvent FLOUR_THROW = registerSoundEvent("flour_throw");
     public static final SoundEvent FLOUR_LAND = registerSoundEvent("flour_land");
     public static final SoundEvent HANGING_FRUIT_PICK = registerSoundEvent("hanging_fruit_pick");
+    public static final SoundEvent COCONUT_LAND = registerSoundEvent("coconut_land");
+    public static final SoundEvent COCONUT_BONK = registerSoundEvent("coconut_bonk");
     public static final SoundEvent CABINET_OPEN = registerSoundEvent("cabinet_open");
     public static final SoundEvent CABINET_CLOSE = registerSoundEvent("cabinet_close");
 

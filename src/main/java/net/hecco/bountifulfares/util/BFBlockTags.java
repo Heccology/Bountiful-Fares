@@ -19,11 +19,11 @@ public class BFBlockTags {
     public static final TagKey<Block> PLUM_LOGS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "plum_logs"));
     public static final TagKey<Block> WALNUT_LOGS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "walnut_logs"));
     public static final TagKey<Block> HOARY_LOGS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "hoary_logs"));
+    public static final TagKey<Block> PALM_LOGS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "palm_logs"));
     public static final TagKey<Block> JACK_O_STRAWS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "jack_o_straws"));
 
     public static final TagKey<Block> CERAMIC_TILES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "ceramic_tiles"));
     public static final TagKey<Block> DYEABLE_CERAMIC_BLOCKS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "dyeable_ceramic_blocks"));
-    public static final TagKey<Block> TRELLISES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "trellises"));
     public static final TagKey<Block> FELSIC_STONES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "felsic_stones"));
     public static final TagKey<Block> PICKETS = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "pickets"));
     public static final TagKey<Block> GRASS_SEEDS_PLANTABLE_ON = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "grass_seeds_plantable_on"));

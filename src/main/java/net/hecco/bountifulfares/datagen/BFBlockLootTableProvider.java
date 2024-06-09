@@ -341,35 +341,35 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BFBlocks.WALNUT_MULCH, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.WALNUT_MULCH)
-                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 1)))
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 1)))
                         .with(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, ItemEntry.builder(BFBlocks.WALNUT_MULCH))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(2.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.WALNUT_MULCH)
-                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 2)))
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 2)))
                         .with(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, ItemEntry.builder(BFBlocks.WALNUT_MULCH))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(3.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.WALNUT_MULCH)
-                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 3)))
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 3)))
                         .with(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, ItemEntry.builder(BFBlocks.WALNUT_MULCH))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(4.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.WALNUT_MULCH)
-                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 4)))
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 4)))
                         .with(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, ItemEntry.builder(BFBlocks.WALNUT_MULCH))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(5.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.WALNUT_MULCH)
-                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 5)))
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 5)))
                         .with(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, ItemEntry.builder(BFBlocks.WALNUT_MULCH))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(6.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.WALNUT_MULCH)
-                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 6)))
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 6)))
                         .with(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, ItemEntry.builder(BFBlocks.WALNUT_MULCH))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(7.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.WALNUT_MULCH)
-                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 7)))
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 7)))
                         .with(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, ItemEntry.builder(BFBlocks.WALNUT_MULCH))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(8.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.WALNUT_MULCH)
-                                .properties(StatePredicate.Builder.create().exactMatch(WalnutMulchBlock.LAYERS, 8)))
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 8)))
                         .with(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, ItemEntry.builder(BFBlocks.WALNUT_MULCH)))));
 
 
@@ -401,6 +401,52 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BFBlocks.BELLFLOWER_CANDLE);
         addDrop(BFBlocks.TORCHFLOWER_CANDLE);
         addDrop(BFBlocks.WALNUT_CANDLE);
+
+        addDrop(BFBlocks.PALM_LOG);
+        addDrop(BFBlocks.PALM_WOOD);
+        addDrop(BFBlocks.STRIPPED_PALM_LOG);
+        addDrop(BFBlocks.STRIPPED_PALM_WOOD);
+        addDrop(BFBlocks.PALM_CROWN);
+        addDrop(BFBlocks.COCONUT_MULCH_BLOCK);
+        addDrop(BFBlocks.COCONUT_MULCH, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.COCONUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 1)))
+                        .with(this.applyExplosionDecay(BFBlocks.COCONUT_MULCH, ItemEntry.builder(BFBlocks.COCONUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(2.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.COCONUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 2)))
+                        .with(this.applyExplosionDecay(BFBlocks.COCONUT_MULCH, ItemEntry.builder(BFBlocks.COCONUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(3.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.COCONUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 3)))
+                        .with(this.applyExplosionDecay(BFBlocks.COCONUT_MULCH, ItemEntry.builder(BFBlocks.COCONUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(4.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.COCONUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 4)))
+                        .with(this.applyExplosionDecay(BFBlocks.COCONUT_MULCH, ItemEntry.builder(BFBlocks.COCONUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(5.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.COCONUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 5)))
+                        .with(this.applyExplosionDecay(BFBlocks.COCONUT_MULCH, ItemEntry.builder(BFBlocks.COCONUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(6.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.COCONUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 6)))
+                        .with(this.applyExplosionDecay(BFBlocks.COCONUT_MULCH, ItemEntry.builder(BFBlocks.COCONUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(7.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.COCONUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 7)))
+                        .with(this.applyExplosionDecay(BFBlocks.COCONUT_MULCH, ItemEntry.builder(BFBlocks.COCONUT_MULCH))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(8.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.COCONUT_MULCH)
+                                .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 8)))
+                        .with(this.applyExplosionDecay(BFBlocks.COCONUT_MULCH, ItemEntry.builder(BFBlocks.COCONUT_MULCH)))));
+        addDrop(BFBlocks.PACKED_COCONUT_COIR);
+        addDrop(BFBlocks.COIR_BRICKS);
+        addDrop(BFBlocks.COIR_BRICK_SLAB, slabDrops(BFBlocks.COIR_BRICK_SLAB));
+        addDrop(BFBlocks.COIR_BRICK_STAIRS);
+        addDrop(BFBlocks.COIR_BRICK_WALL);
+        addDrop(BFBlocks.COCONUT_CANDLE);
     }
 
     public void registerTrellisLootTables(TrellisVariant trellis) {

@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.recipe;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
@@ -65,6 +66,11 @@ public class MillingRecipe implements Recipe<SimpleInventory> {
     @Override
     public DefaultedList<Ingredient> getIngredients() {
         return this.recipeItems;
+    }
+
+    @Override
+    public ItemStack createIcon() {
+        return new ItemStack(BFBlocks.GRISTMILL);
     }
 
     public static class Type implements RecipeType<MillingRecipe> {
