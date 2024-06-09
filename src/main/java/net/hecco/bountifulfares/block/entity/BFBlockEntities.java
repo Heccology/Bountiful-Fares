@@ -84,6 +84,12 @@ public class BFBlockEntities {
             FabricBlockEntityTypeBuilder.create(WalnutCandleBlockEntity::new, WALNUT_CANDLE).build()
     );
 
+    public static final BlockEntityType<CoirBedBlockEntity> COIR_BED_BLOCK_ENTITY = Registry.register(
+            Registries.BLOCK_ENTITY_TYPE,
+            new Identifier(BountifulFares.MOD_ID, "coir_bed_block_entity"),
+            FabricBlockEntityTypeBuilder.create(CoirBedBlockEntity::new, COIR_BED).build()
+    );
+
     public static BlockEntityType<CabinetBlockEntity> CABINET_BLOCK_ENTITY;
 
     public static void registerBlockEntities() {
