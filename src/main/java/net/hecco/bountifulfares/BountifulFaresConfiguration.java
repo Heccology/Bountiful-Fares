@@ -15,6 +15,7 @@ public class BountifulFaresConfiguration {
 
 //    private boolean enableItemGuideTooltips = true;
     private boolean fruitReplaceWhenPicked = true;
+    private boolean restorationHeartOverlay = true;
     private boolean enableLapisberrySeeds = true;
     private boolean enableHoarySeeds = true;
     private boolean enableElderGuardianSpongekinSeeds = true;
@@ -91,6 +92,14 @@ public class BountifulFaresConfiguration {
 
     public void setFruitReplaceWhenPicked(boolean bool) {
         fruitReplaceWhenPicked = bool;
+    }
+
+    public boolean isRestorationHeartOverlay() {
+        return restorationHeartOverlay;
+    }
+
+    public void setRestorationHeartOverlay(boolean bool) {
+        restorationHeartOverlay = bool;
     }
 
     public boolean isEnableLapisberrySeeds() {
