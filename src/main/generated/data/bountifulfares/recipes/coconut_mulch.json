@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "coconut_mulch",
+  "ingredients": [
+    {
+      "item": "bountifulfares:coconut_mulch_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "bountifulfares:coconut_mulch"
+  }
+}

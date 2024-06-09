@@ -40,7 +40,8 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(BFItemTags.LEMON_LOGS)
                 .addTag(BFItemTags.PLUM_LOGS)
                 .addTag(BFItemTags.HOARY_LOGS)
-                .addTag(BFItemTags.WALNUT_LOGS);
+                .addTag(BFItemTags.WALNUT_LOGS)
+                .addTag(BFItemTags.PALM_LOGS);
         getOrCreateTagBuilder(ItemTags.PLANKS).add(BFBlocks.HOARY_PLANKS.asItem(), BFBlocks.WALNUT_PLANKS.asItem());
         getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS).add(BFBlocks.HOARY_BUTTON.asItem(), BFBlocks.WALNUT_BUTTON.asItem());
         getOrCreateTagBuilder(ItemTags.WOODEN_DOORS).add(BFBlocks.HOARY_DOOR.asItem(), BFBlocks.WALNUT_DOOR.asItem());
@@ -59,7 +60,8 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFBlocks.HONEYSUCKLE_CANDLE.asItem())
                 .add(BFBlocks.BELLFLOWER_CANDLE.asItem())
                 .add(BFBlocks.TORCHFLOWER_CANDLE.asItem())
-                .add(BFBlocks.WALNUT_CANDLE.asItem());
+                .add(BFBlocks.WALNUT_CANDLE.asItem())
+                .add(BFBlocks.COCONUT_CANDLE.asItem());
 
         getOrCreateTagBuilder(BFItemTags.APPLE_LEAVES).add(BFBlocks.APPLE_LEAVES.asItem(), BFBlocks.FLOWERING_APPLE_LEAVES.asItem());
         getOrCreateTagBuilder(BFItemTags.ORANGE_LEAVES).add(BFBlocks.ORANGE_LEAVES.asItem(), BFBlocks.FLOWERING_ORANGE_LEAVES.asItem());
@@ -95,6 +97,12 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFBlocks.HOARY_WOOD.asItem())
                 .add(BFBlocks.STRIPPED_HOARY_WOOD.asItem())
         ;
+        getOrCreateTagBuilder(BFItemTags.PALM_LOGS)
+                .add(BFBlocks.PALM_LOG.asItem())
+                .add(BFBlocks.STRIPPED_PALM_LOG.asItem())
+                .add(BFBlocks.PALM_WOOD.asItem())
+                .add(BFBlocks.STRIPPED_PALM_WOOD.asItem())
+        ;
         getOrCreateTagBuilder(BFItemTags.WALNUT_LOGS)
                 .add(BFBlocks.WALNUT_LOG.asItem())
                 .add(BFBlocks.STRIPPED_WALNUT_LOG.asItem())
@@ -106,6 +114,7 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(BFItemTags.ORANGE_LOGS)
                 .addTag(BFItemTags.LEMON_LOGS)
                 .addTag(BFItemTags.PLUM_LOGS)
+                .addTag(BFItemTags.PALM_LOGS)
         ;
         getOrCreateTagBuilder(BFItemTags.DYEABLE_CERAMIC_BLOCKS)
                 .add(BFBlocks.CERAMIC_TILES.asItem())

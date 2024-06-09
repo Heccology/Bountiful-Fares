@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=east,size=0": {
+      "model": "bountifulfares:block/wall_palm_frond_0",
+      "y": 90
+    },
+    "facing=north,size=0": {
+      "model": "bountifulfares:block/wall_palm_frond_0"
+    },
+    "facing=south,size=0": {
+      "model": "bountifulfares:block/wall_palm_frond_0",
+      "y": 180
+    },
+    "facing=west,size=0": {
+      "model": "bountifulfares:block/wall_palm_frond_0",
+      "y": 270
+    },
+    "facing=east,size=1": {
+      "model": "bountifulfares:block/wall_palm_frond_1",
+      "y": 90
+    },
+    "facing=north,size=1": {
+      "model": "bountifulfares:block/wall_palm_frond_1"
+    },
+    "facing=south,size=1": {
+      "model": "bountifulfares:block/wall_palm_frond_1",
+      "y": 180
+    },
+    "facing=west,size=1": {
+      "model": "bountifulfares:block/wall_palm_frond_1",
+      "y": 270
+    },
+    "facing=east,size=2": {
+      "model": "bountifulfares:block/wall_palm_frond_2",
+      "y": 90
+    },
+    "facing=north,size=2": {
+      "model": "bountifulfares:block/wall_palm_frond_2"
+    },
+    "facing=south,size=2": {
+      "model": "bountifulfares:block/wall_palm_frond_2",
+      "y": 180
+    },
+    "facing=west,size=2": {
+      "model": "bountifulfares:block/wall_palm_frond_2",
+      "y": 270
+    }
+  }
+}

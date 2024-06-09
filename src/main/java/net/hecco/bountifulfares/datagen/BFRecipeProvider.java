@@ -256,6 +256,19 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.COCOA_BEANS), conditionsFromItem(Items.COCOA_BEANS))
                 .offerTo(exporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFBlocks.COCONUT_CAKE)
+                .pattern("CCC")
+                .pattern("SES")
+                .pattern("FFF")
+                .input('C', BFItems.COCONUT_HALF)
+                .input('E', Items.EGG)
+                .input('F', BFItems.FLOUR)
+                .input('S', Items.SUGAR)
+                .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
+                .criterion(hasItem(BFItems.FLOUR), conditionsFromItem(BFItems.FLOUR))
+                .criterion(hasItem(BFItems.COCONUT_HALF), conditionsFromItem(BFItems.COCONUT_HALF))
+                .offerTo(exporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.MAIZE_BREAD)
                 .pattern("###")
                 .input('#', BFItems.MAIZE)
@@ -345,6 +358,14 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.COOKED_SALMON), conditionsFromItem(Items.COOKED_SALMON))
                 .offerTo(exporter);
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.COCONUT_CRUSTED_COD)
+                .input(BFItems.COCONUT_HALF, 2)
+                .input(Items.COOKED_COD)
+                .input(Items.BOWL)
+                .criterion(hasItem(BFItems.COCONUT_HALF), conditionsFromItem(BFItems.COCONUT_HALF))
+                .criterion(hasItem(Items.COOKED_COD), conditionsFromItem(Items.COOKED_COD))
+                .offerTo(exporter);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.BOUNTIFUL_STEW)
                 .input(Items.COOKED_PORKCHOP)
                 .input(Items.CARROT)
@@ -367,6 +388,14 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .input(Items.BOWL)
                 .criterion(hasItem(Items.APPLE), conditionsFromItem(Items.APPLE))
                 .criterion(hasItem(BFItems.ELDERBERRIES), conditionsFromItem(BFItems.ELDERBERRIES))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.COCONUT_STEW)
+                .input(BFItems.COCONUT_HALF, 2)
+                .input(BFItems.LEEK, 1)
+                .input(Items.BOWL)
+                .criterion(hasItem(BFItems.COCONUT_HALF), conditionsFromItem(BFItems.COCONUT_HALF))
+                .criterion(hasItem(BFItems.LEEK), conditionsFromItem(BFItems.LEEK))
                 .offerTo(exporter);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.STONE_STEW)
@@ -522,6 +551,8 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_LEMON_WOOD, BFBlocks.STRIPPED_LEMON_LOG);
         offerBarkBlockRecipe(exporter, BFBlocks.PLUM_WOOD, BFBlocks.PLUM_LOG);
         offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_PLUM_WOOD, BFBlocks.STRIPPED_PLUM_LOG);
+        offerBarkBlockRecipe(exporter, BFBlocks.PALM_WOOD, BFBlocks.PALM_LOG);
+        offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_PALM_WOOD, BFBlocks.STRIPPED_PALM_LOG);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, Items.BROWN_DYE)
                 .input(BFBlocks.WALNUT_MULCH)
@@ -529,6 +560,43 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter);
 
         offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.WALNUT_MULCH_BLOCK, BFBlocks.WALNUT_MULCH);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.COCONUT_MULCH, 4)
+                .group("coconut_mulch")
+                .input(BFBlocks.COCONUT_MULCH_BLOCK)
+                .criterion("has_mulch", conditionsFromItem(BFBlocks.COCONUT_MULCH_BLOCK))
+                .offerTo(exporter);
+        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.COCONUT_MULCH_BLOCK, BFBlocks.COCONUT_MULCH);
+
+        offerShapelessRecipe(exporter, BFItems.COCONUT_HALF, BFItems.COCONUT, "coconut_half", 2);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.PACKED_MUD)
+                .input(Items.MUD)
+                .input(BFItems.COCONUT_COIR)
+                .group("packed_mud")
+                .criterion(hasItem(Items.MUD), conditionsFromItem(Items.MUD))
+                .offerTo(exporter);
+
+        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.PACKED_COCONUT_COIR, BFItems.COCONUT_COIR);
+        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.COIR_BRICKS, BFBlocks.PACKED_COCONUT_COIR);
+        BlockFamily coirBricksFamily = register(BFBlocks.COIR_BRICKS)
+                .stairs(BFBlocks.COIR_BRICK_STAIRS)
+                .slab(BFBlocks.COIR_BRICK_SLAB)
+                .wall(BFBlocks.COIR_BRICK_WALL)
+                .unlockCriterionName("has_coir_bricks")
+                .build();
+        generateFamily(exporter, coirBricksFamily);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.COCONUT_CANDLE, 1)
+                .input('S', Items.STRING)
+                .input('H', Items.HONEYCOMB)
+                .input('#', BFItems.COCONUT_HALF)
+                .pattern("S")
+                .pattern("H")
+                .pattern("#")
+                .criterion(hasItem(Items.HONEYCOMB), conditionsFromItem(Items.HONEYCOMB))
+                .criterion("has_coconut", conditionsFromItem(BFItems.COCONUT_HALF))
+                .offerTo(exporter);
 
         offerBarkBlockRecipe(exporter, BFBlocks.HOARY_WOOD, BFBlocks.HOARY_LOG);
         offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_HOARY_WOOD, BFBlocks.STRIPPED_HOARY_LOG);
@@ -608,7 +676,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .input('#', BFItems.FELDSPAR)
                 .criterion(hasItem(BFItems.FELDSPAR), conditionsFromItem(BFItems.FELDSPAR))
                 .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BFItems.FELDSPAR)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BFItems.FELDSPAR, 4)
                 .input(BFBlocks.FELDSPAR_BLOCK)
                 .criterion(hasItem(BFBlocks.FELDSPAR_BLOCK), conditionsFromItem(BFBlocks.FELDSPAR_BLOCK))
                 .offerTo(exporter);

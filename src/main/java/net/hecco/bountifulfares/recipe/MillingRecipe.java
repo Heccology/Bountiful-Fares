@@ -3,6 +3,7 @@ package net.hecco.bountifulfares.recipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
@@ -62,6 +63,11 @@ public class MillingRecipe implements Recipe<SimpleInventory> {
         DefaultedList list = DefaultedList.ofSize(this.recipeItems.size());
         list.addAll(recipeItems);
         return list;
+    }
+
+    @Override
+    public ItemStack createIcon() {
+        return new ItemStack(BFBlocks.GRISTMILL);
     }
 
     public static class Type implements RecipeType<MillingRecipe> {

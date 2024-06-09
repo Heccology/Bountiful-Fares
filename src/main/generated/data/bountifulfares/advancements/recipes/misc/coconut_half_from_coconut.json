@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_coconut": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bountifulfares:coconut"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:coconut_half_from_coconut"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_coconut"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:coconut_half_from_coconut"
+    ]
+  },
+  "sends_telemetry_event": false
+}

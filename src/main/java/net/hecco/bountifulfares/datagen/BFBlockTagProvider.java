@@ -52,6 +52,11 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.CERAMIC_DISH)
                 .add(BFBlocks.FERMENTATION_VESSEL)
                 .add(BFBlocks.GOLDEN_APPLE_BLOCK)
+                .add(BFBlocks.PACKED_COCONUT_COIR)
+                .add(BFBlocks.COIR_BRICKS)
+                .add(BFBlocks.COIR_BRICK_SLAB)
+                .add(BFBlocks.COIR_BRICK_STAIRS)
+                .add(BFBlocks.COIR_BRICK_WALL)
         ;
 
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
@@ -109,6 +114,11 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.WALNUT_WALL_SIGN)
                 .add(BFBlocks.WALNUT_HANGING_SIGN)
                 .add(BFBlocks.WALNUT_WALL_HANGING_SIGN)
+                .add(BFBlocks.PALM_LOG)
+                .add(BFBlocks.PALM_WOOD)
+                .add(BFBlocks.STRIPPED_PALM_LOG)
+                .add(BFBlocks.STRIPPED_PALM_WOOD)
+                .add(BFBlocks.PALM_CROWN)
                 .add(BFBlocks.OAK_PICKETS)
                 .add(BFBlocks.SPRUCE_PICKETS)
                 .add(BFBlocks.BIRCH_PICKETS)
@@ -197,6 +207,8 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(BFBlocks.WALNUT_MULCH)
                 .add(BFBlocks.WALNUT_MULCH_BLOCK)
+                .add(BFBlocks.COCONUT_MULCH)
+                .add(BFBlocks.COCONUT_MULCH_BLOCK)
                 .add(BFBlocks.CERAMIC_CLAY_BLOCK)
         ;
 
@@ -231,6 +243,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addTag(BFBlockTags.ORANGE_LOGS)
                 .addTag(BFBlockTags.LEMON_LOGS)
                 .addTag(BFBlockTags.PLUM_LOGS)
+                .addTag(BFBlockTags.PALM_LOGS)
                 .addTag(BFBlockTags.WALNUT_LOGS)
                 .addTag(BFBlockTags.HOARY_LOGS);
         getOrCreateTagBuilder(BlockTags.OVERWORLD_NATURAL_LOGS)
@@ -238,6 +251,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.ORANGE_LOG)
                 .add(BFBlocks.LEMON_LOG)
                 .add(BFBlocks.PLUM_LOG)
+                .add(BFBlocks.PALM_LOG)
                 .add(BFBlocks.WALNUT_LOG)
                 .add(BFBlocks.HOARY_LOG);
         getOrCreateTagBuilder(BlockTags.PLANKS).add(BFBlocks.WALNUT_PLANKS, BFBlocks.HOARY_PLANKS);
@@ -245,6 +259,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS).add(BFBlocks.WALNUT_HANGING_SIGN, BFBlocks.HOARY_HANGING_SIGN);
         getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS).add(BFBlocks.WALNUT_WALL_HANGING_SIGN, BFBlocks.HOARY_WALL_HANGING_SIGN);
         getOrCreateTagBuilder(BlockTags.WALL_SIGNS).add(BFBlocks.WALNUT_WALL_SIGN, BFBlocks.HOARY_WALL_SIGN);
+        getOrCreateTagBuilder(BlockTags.WALLS).add(BFBlocks.COIR_BRICK_WALL);
         getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).add(BFBlocks.WALNUT_BUTTON, BFBlocks.HOARY_BUTTON);
         getOrCreateTagBuilder(BlockTags.WOODEN_DOORS).add(BFBlocks.WALNUT_DOOR, BFBlocks.HOARY_DOOR);
         getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(BFBlocks.WALNUT_FENCE, BFBlocks.HOARY_FENCE);
@@ -295,6 +310,12 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.STRIPPED_PLUM_LOG)
                 .add(BFBlocks.PLUM_WOOD)
                 .add(BFBlocks.STRIPPED_PLUM_WOOD)
+        ;
+        getOrCreateTagBuilder(BFBlockTags.PALM_LOGS)
+                .add(BFBlocks.PALM_LOG)
+                .add(BFBlocks.STRIPPED_PALM_LOG)
+                .add(BFBlocks.PALM_WOOD)
+                .add(BFBlocks.STRIPPED_PALM_WOOD)
         ;
         getOrCreateTagBuilder(BFBlockTags.WALNUT_LOGS)
                 .add(BFBlocks.WALNUT_LOG)

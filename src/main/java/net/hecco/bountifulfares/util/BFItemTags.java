@@ -13,6 +13,7 @@ public class BFItemTags {
     public static final TagKey<Item> PLUM_LOGS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulFares.MOD_ID, "plum_logs"));
     public static final TagKey<Item> HOARY_LOGS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulFares.MOD_ID, "hoary_logs"));
     public static final TagKey<Item> WALNUT_LOGS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulFares.MOD_ID, "walnut_logs"));
+    public static final TagKey<Item> PALM_LOGS = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulFares.MOD_ID, "palm_logs"));
     public static final TagKey<Item> APPLE_LEAVES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulFares.MOD_ID, "apple_leaves"));
     public static final TagKey<Item> ORANGE_LEAVES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulFares.MOD_ID, "orange_leaves"));
     public static final TagKey<Item> LEMON_LEAVES = TagKey.of(RegistryKeys.ITEM, new Identifier(BountifulFares.MOD_ID, "lemon_leaves"));

@@ -35,6 +35,13 @@ public class BFModelProvider extends FabricModelProvider {
         BlockStateModelGenerator.BlockTexturePool feldsparTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(BFBlocks.FELDSPAR_BRICKS);
         feldsparTexturePool.stairs(BFBlocks.FELDSPAR_BRICK_STAIRS);
         feldsparTexturePool.slab(BFBlocks.FELDSPAR_BRICK_SLAB);
+
+        blockStateModelGenerator.registerSimpleCubeAll(BFBlocks.PACKED_COCONUT_COIR);
+        BlockStateModelGenerator.BlockTexturePool coirBrickTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(BFBlocks.COIR_BRICKS);
+        coirBrickTexturePool.stairs(BFBlocks.COIR_BRICK_STAIRS);
+        coirBrickTexturePool.slab(BFBlocks.COIR_BRICK_SLAB);
+        coirBrickTexturePool.wall(BFBlocks.COIR_BRICK_WALL);
+
         registerPicketsModels(blockStateModelGenerator, BFBlocks.OAK_PICKETS);
         registerPicketsModels(blockStateModelGenerator, BFBlocks.SPRUCE_PICKETS);
         registerPicketsModels(blockStateModelGenerator, BFBlocks.BIRCH_PICKETS);
@@ -48,54 +55,6 @@ public class BFModelProvider extends FabricModelProvider {
         registerPicketsModels(blockStateModelGenerator, BFBlocks.WALNUT_PICKETS);
         registerPicketsModels(blockStateModelGenerator, BFBlocks.CRIMSON_PICKETS);
         registerPicketsModels(blockStateModelGenerator, BFBlocks.WARPED_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.ASPEN_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.CEDAR_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.COCONUT_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.CYPRESS_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.FIR_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.GHAF_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.JOSHUA_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.LARCH_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.MAHOGANY_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.MAPLE_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.OLIVE_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.PALO_VERDE_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.REDWOOD_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.SAXAUL_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.SUGI_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.WILLOW_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.WISTERIA_PICKETS);
-
-//        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
-//            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
-//                ModTemplateModels.registerTrellis(blockStateModelGenerator, TrellisUtil.getTrellisFromVariant(trellis));
-//                for (VineCrop crop : TrellisVariants.VineCrops) {
-//                    ModTemplateModels.registerCropTrellis(blockStateModelGenerator,
-//                            TrellisUtil.getCropTrellisFromVariant(trellis, crop),
-//                            trellis.getTrellisName(),
-//                            crop.getName() + "_trellis_vines",
-//                            crop.getName() + "_trellis_foliage",
-//                            trellis.getId());
-//                }
-//                for (DecorativeVine vine : TrellisVariants.DecorativeVines) {
-//                    if (vine != ModTrellises.TWISTING) {
-//                        ModTemplateModels.registerDecorTrellis(blockStateModelGenerator,
-//                                TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
-//                                trellis.getTrellisName(),
-//                                vine.getName() + "_trellis_vines",
-//                                vine.getName() + "_trellis_foliage",
-//                                trellis.getId());
-//                    } else {
-//                        ModTemplateModels.registerUpsideDownDecorTrellis(blockStateModelGenerator,
-//                                TrellisUtil.getDecorTrellisFromVariant(trellis, vine),
-//                                trellis.getTrellisName(),
-//                                vine.getName() + "_trellis_vines",
-//                                vine.getName() + "_trellis_foliage",
-//                                trellis.getId());
-//                    }
-//                }
-//            }
-//        }
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.OAK);
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.SPRUCE);
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.BIRCH);
@@ -109,7 +68,7 @@ public class BFModelProvider extends FabricModelProvider {
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.HOARY);
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.CRIMSON);
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.WARPED);
-
+        blockStateModelGenerator.registerSimpleCubeAll(BFBlocks.PALM_CROWN);
     }
 
     @Override
@@ -143,5 +102,12 @@ public class BFModelProvider extends FabricModelProvider {
         itemModelGenerator.register(BFItems.CANDIED_PLUM, Models.GENERATED);
         itemModelGenerator.register(BFItems.GRASS_SEEDS, Models.GENERATED);
         itemModelGenerator.register(BFItems.SCORCHKIN_SEEDS, Models.GENERATED);
+        itemModelGenerator.register(BFItems.PALM_FROND, Models.GENERATED);
+        itemModelGenerator.register(BFItems.COCONUT, Models.GENERATED);
+        itemModelGenerator.register(BFItems.COCONUT_COIR, Models.GENERATED);
+        itemModelGenerator.register(BFItems.COCONUT_HALF, Models.GENERATED);
+        itemModelGenerator.register(BFItems.COCONUT_STEW, Models.GENERATED);
+        itemModelGenerator.register(BFItems.COCONUT_CRUSTED_COD, Models.GENERATED);
+        itemModelGenerator.register(BFBlocks.COCONUT_CANDLE.asItem(), Models.GENERATED);
     }
 }

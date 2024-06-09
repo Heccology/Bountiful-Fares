@@ -1,0 +1,13 @@
+{
+  "type": "bountifulfares:milling",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:coconut_coir"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "item": "bountifulfares:coconut_mulch"
+  }
+}
