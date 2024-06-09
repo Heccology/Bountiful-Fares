@@ -281,5 +281,12 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFBlocks.WALNUT_PICKETS.asItem())
                 .add(BFBlocks.WARPED_PICKETS.asItem())
         ;
+
+        getOrCreateTagBuilder(BFItemTags.MULCH)
+                .add(BFBlocks.WALNUT_MULCH.asItem())
+                .add(BFBlocks.WALNUT_MULCH_BLOCK.asItem())
+                .add(BFBlocks.COCONUT_MULCH.asItem())
+                .add(BFBlocks.COCONUT_MULCH_BLOCK.asItem())
+                ;
     }
 }
