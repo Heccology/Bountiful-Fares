@@ -20,10 +20,12 @@ public class GuiMixin {
     private static final Identifier RESTORATION = new Identifier(BountifulFares.MOD_ID, "textures/gui/restoration_hearts.png");
     @Inject(method = "drawHeart", at = @At("HEAD"), cancellable = true)
     private void bountifulfares_renderHeart(DrawContext context, InGameHud.HeartType type, int x, int y, int v, boolean blinking, boolean halfHeart, CallbackInfo ci) {
-        if (!blinking && type == InGameHud.HeartType.NORMAL && MinecraftClient.getInstance().cameraEntity instanceof PlayerEntity player
-                && (player.hasStatusEffect(BFEffects.RESTORATION))) {
-            context.drawTexture(RESTORATION, x, y, halfHeart ? 9 : 0, v, 9, 9);
-            ci.cancel();
+        if (BountifulFares.CONFIG.isRestorationHeartOverlay()) {
+            if (!blinking && type == InGameHud.HeartType.NORMAL && MinecraftClient.getInstance().cameraEntity instanceof PlayerEntity player
+                    && (player.hasStatusEffect(BFEffects.RESTORATION))) {
+                context.drawTexture(RESTORATION, x, y, halfHeart ? 9 : 0, v, 9, 9);
+                ci.cancel();
+            }
         }
     }
 }

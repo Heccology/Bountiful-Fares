@@ -21,6 +21,9 @@ public enum Category {
             Entry.booleanEntry("config.bountifulfares.fruit_replace_when_picked", () -> BountifulFares.CONFIG.isFruitReplaceWhenPicked(),
                     newValue -> BountifulFares.CONFIG.setFruitReplaceWhenPicked(newValue), true),
 
+            Entry.booleanEntry("config.bountifulfares.restoration_overlay", () -> BountifulFares.CONFIG.isRestorationHeartOverlay(),
+                    newValue -> BountifulFares.CONFIG.setRestorationHeartOverlay(newValue), true),
+
             Entry.booleanEntry("config.bountifulfares.lapisberry_seeds", () -> BountifulFares.CONFIG.isEnableLapisberrySeeds(),
                     newValue -> BountifulFares.CONFIG.setEnableLapisberrySeeds(newValue), true, "config.bountifulfares.restart_warning"),
 
