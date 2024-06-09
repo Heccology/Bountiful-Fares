@@ -50,6 +50,8 @@ public class BFSounds {
     public static final SoundEvent FLOUR_THROW = registerSoundEvent("flour_throw");
     public static final SoundEvent FLOUR_LAND = registerSoundEvent("flour_land");
     public static final SoundEvent HANGING_FRUIT_PICK = registerSoundEvent("hanging_fruit_pick");
+    public static final SoundEvent COCONUT_LAND = registerSoundEvent("coconut_land");
+    public static final SoundEvent COCONUT_BONK = registerSoundEvent("coconut_bonk");
 
 
     public static final BlockSoundGroup CERAMIC_TILES = new BlockSoundGroup(1f, 1f, CERAMIC_TILES_BREAK, CERAMIC_TILES_STEP, CERAMIC_TILES_PLACE, CERAMIC_TILES_HIT, CERAMIC_TILES_FALL);

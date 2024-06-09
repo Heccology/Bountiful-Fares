@@ -23,6 +23,7 @@ public class BFConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> PLUM_KEY = registerKey("plum");
     public static final RegistryKey<ConfiguredFeature<?, ?>> HOARY_KEY = registerKey("hoary");
     public static final RegistryKey<ConfiguredFeature<?, ?>> WALNUT_KEY = registerKey("walnut");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PALM_KEY = registerKey("palm");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         register(context, WALNUT_KEY, Feature.TREE, new TreeFeatureConfig.Builder(BlockStateProvider.of(BFBlocks.WALNUT_LOG),

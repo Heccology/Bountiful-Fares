@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "bountifulfares:palm_log",
+    "bountifulfares:stripped_palm_log",
+    "bountifulfares:palm_wood",
+    "bountifulfares:stripped_palm_wood"
+  ]
+}

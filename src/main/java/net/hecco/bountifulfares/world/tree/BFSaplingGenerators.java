@@ -48,4 +48,11 @@ public class BFSaplingGenerators {
             Optional.empty(),
             Optional.empty(),
             Optional.empty());
+    public static final SaplingGenerator PALM = new SaplingGenerator("hoary", 0f,
+            Optional.empty(),
+            Optional.empty(),
+            Optional.of(BFConfiguredFeatures.PALM_KEY),
+            Optional.empty(),
+            Optional.empty(),
+            Optional.empty());
 }

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model":  "bountifulfares:block/coconut_candle"
+    },
+    "lit=true": {
+      "model":  "bountifulfares:block/coconut_candle_lit"
+    }
+  }
+}

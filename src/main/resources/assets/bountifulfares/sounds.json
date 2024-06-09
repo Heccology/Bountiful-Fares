@@ -255,5 +255,19 @@
       "bountifulfares:hanging_fruit/pick1",
       "bountifulfares:hanging_fruit/pick2"
     ]
+  },
+  "coconut_land": {
+    "subtitle": "subtitles.block.coconut.land",
+    "sounds": [
+      "bountifulfares:coconut/land1",
+      "bountifulfares:coconut/land2"
+    ]
+  },
+  "coconut_bonk": {
+    "subtitle": "subtitles.block.coconut.bonk",
+    "sounds": [
+      "bountifulfares:coconut/bonk1",
+      "bountifulfares:coconut/bonk2"
+    ]
   }
 }
