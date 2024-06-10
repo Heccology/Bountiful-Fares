@@ -161,6 +161,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFBlocks.PALM_FROND);
         generate(translationBuilder, BFBlocks.WALL_PALM_FROND, "Palm Frond");
         generate(translationBuilder, BFBlocks.COCONUT);
+        generate(translationBuilder, BFBlocks.PALM_SAPLING);
         generate(translationBuilder, BFItems.COCONUT);
         generate(translationBuilder, BFBlocks.COCONUT_MULCH);
         generate(translationBuilder, BFBlocks.COCONUT_MULCH_BLOCK);
@@ -170,6 +171,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFItems.COCONUT_CRUSTED_COD);
         generate(translationBuilder, BFBlocks.COCONUT_CAKE);
         generate(translationBuilder, BFBlocks.PACKED_COCONUT_COIR);
+        generate(translationBuilder, BFBlocks.COIR_CARPET);
         generate(translationBuilder, BFBlocks.COIR_BRICKS);
         generate(translationBuilder, BFBlocks.COIR_BRICK_SLAB);
         generate(translationBuilder, BFBlocks.COIR_BRICK_STAIRS);
@@ -603,6 +605,7 @@ public class BFLangProvider extends FabricLanguageProvider {
 
 //        generate(translationBuilder, "config.bountifulfares.item_guide_tooltips", "Show information in some items' tooltip");
         generate(translationBuilder, "config.bountifulfares.fruit_replace_when_picked", "Fruits on trees replant when picked");
+        generate(translationBuilder, "config.bountifulfares.restoration_overlay", "Restoration effect changes health icons");
         generate(translationBuilder, "config.bountifulfares.lapisberry_seeds", "Sniffers can dig up Lapisberry Seeds");
         generate(translationBuilder, "config.bountifulfares.hoary_seeds", "Sniffers can dig up Hoary Seeds");
         generate(translationBuilder, "config.bountifulfares.spongekin_seeds_elder_guardian", "Elder Guardians drop Spongekin Seeds");
@@ -627,6 +630,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "config.bountifulfares.orange_trees", "Generate Orange Trees");
         generate(translationBuilder, "config.bountifulfares.lemon_trees", "Generate Lemon Trees");
         generate(translationBuilder, "config.bountifulfares.plum_trees", "Generate Plum Trees");
+        generate(translationBuilder, "config.bountifulfares.palm_trees", "Generate Palm Trees");
         generate(translationBuilder, "config.bountifulfares.flower_forest_fruit_trees", "Generate fruit trees in Flower Forests");
         generate(translationBuilder, "config.bountifulfares.forest_tea_shrubs", "Generate Tea Shrubs in Forests");
         generate(translationBuilder, "config.bountifulfares.forest_walnut_trees", "Generate Walnut Trees in Forests");

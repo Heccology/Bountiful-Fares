@@ -34,11 +34,11 @@ public class BFModelProvider extends FabricModelProvider {
         feldsparTexturePool.stairs(BFBlocks.FELDSPAR_BRICK_STAIRS);
         feldsparTexturePool.slab(BFBlocks.FELDSPAR_BRICK_SLAB);
 
-        blockStateModelGenerator.registerSimpleCubeAll(BFBlocks.PACKED_COCONUT_COIR);
         BlockStateModelGenerator.BlockTexturePool coirBrickTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(BFBlocks.COIR_BRICKS);
         coirBrickTexturePool.stairs(BFBlocks.COIR_BRICK_STAIRS);
         coirBrickTexturePool.slab(BFBlocks.COIR_BRICK_SLAB);
         coirBrickTexturePool.wall(BFBlocks.COIR_BRICK_WALL);
+        blockStateModelGenerator.registerWoolAndCarpet(BFBlocks.PACKED_COCONUT_COIR, BFBlocks.COIR_CARPET);
 
         registerPicketsModels(blockStateModelGenerator, BFBlocks.OAK_PICKETS);
         registerPicketsModels(blockStateModelGenerator, BFBlocks.SPRUCE_PICKETS);

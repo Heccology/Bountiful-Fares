@@ -38,6 +38,7 @@ public class BountifulFaresConfiguration {
     private boolean generateOrangeTrees = true;
     private boolean generateLemonTrees = true;
     private boolean generatePlumTrees = true;
+    private boolean generatePalmTrees = true;
     private boolean generateAllFruitTreesInFlowerForest = false;
     private boolean generateForestTeaShrubs = false;
     private boolean generateForestWalnutTrees = false;
@@ -282,6 +283,14 @@ public class BountifulFaresConfiguration {
 
     public void setGeneratePlumTrees(boolean bool) {
         generatePlumTrees = bool;
+    }
+
+    public boolean isGeneratePalmTrees() {
+        return generatePalmTrees;
+    }
+
+    public void setGeneratePalmTrees(boolean bool) {
+        generatePalmTrees = bool;
     }
 
     public boolean isGenerateAllFruitTreesInFlowerForest() {

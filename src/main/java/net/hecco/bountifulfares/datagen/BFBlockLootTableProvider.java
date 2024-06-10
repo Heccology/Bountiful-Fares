@@ -442,11 +442,40 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                                 .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 8)))
                         .with(this.applyExplosionDecay(BFBlocks.COCONUT_MULCH, ItemEntry.builder(BFBlocks.COCONUT_MULCH)))));
         addDrop(BFBlocks.PACKED_COCONUT_COIR);
+        addDrop(BFBlocks.COIR_CARPET);
         addDrop(BFBlocks.COIR_BRICKS);
         addDrop(BFBlocks.COIR_BRICK_SLAB, slabDrops(BFBlocks.COIR_BRICK_SLAB));
         addDrop(BFBlocks.COIR_BRICK_STAIRS);
         addDrop(BFBlocks.COIR_BRICK_WALL);
         addDrop(BFBlocks.COCONUT_CANDLE);
+        addDrop(BFBlocks.PALM_FROND, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.PALM_FROND)
+                                .properties(StatePredicate.Builder.create().exactMatch(PalmFrondBlock.SIZE, 0)))
+                        .with(this.applyExplosionDecay(BFBlocks.PALM_FROND, ItemEntry.builder(BFItems.PALM_FROND))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(2.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.PALM_FROND)
+                                .properties(StatePredicate.Builder.create().exactMatch(PalmFrondBlock.SIZE, 1)))
+                        .with(this.applyExplosionDecay(BFBlocks.PALM_FROND, ItemEntry.builder(BFItems.PALM_FROND))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(3.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.PALM_FROND)
+                                .properties(StatePredicate.Builder.create().exactMatch(PalmFrondBlock.SIZE, 2)))
+                        .with(this.applyExplosionDecay(BFBlocks.PALM_FROND, ItemEntry.builder(BFItems.PALM_FROND))))
+        );
+        addDrop(BFBlocks.WALL_PALM_FROND, LootTable.builder()
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.WALL_PALM_FROND)
+                                .properties(StatePredicate.Builder.create().exactMatch(WallPalmFrondBlock.SIZE, 0)))
+                        .with(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND, ItemEntry.builder(BFItems.PALM_FROND))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(2.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.WALL_PALM_FROND)
+                                .properties(StatePredicate.Builder.create().exactMatch(WallPalmFrondBlock.SIZE, 1)))
+                        .with(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND, ItemEntry.builder(BFItems.PALM_FROND))))
+                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(3.0F))
+                        .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.WALL_PALM_FROND)
+                                .properties(StatePredicate.Builder.create().exactMatch(WallPalmFrondBlock.SIZE, 2)))
+                        .with(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND, ItemEntry.builder(BFItems.PALM_FROND))))
+        );
     }
 
     public void registerTrellisLootTables(TrellisVariant trellis) {

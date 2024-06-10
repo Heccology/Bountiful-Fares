@@ -18,9 +18,7 @@ public class RestorationEffect extends StatusEffect {
     public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
         float health = entity.getHealth();
         float maxHealth = entity.getMaxHealth();
-        if (health > regenMax && health <= maxHealth && prevRegenMax < health) {
-            regenMax = health;
-        }
+        regenMax = health;
         super.onApplied(entity, attributes, amplifier);
     }
 
@@ -37,7 +35,6 @@ public class RestorationEffect extends StatusEffect {
     @Override
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
         regenMax = 0;
-        prevRegenMax = regenMax;
     }
 
     @Override

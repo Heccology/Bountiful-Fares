@@ -38,7 +38,6 @@ public class BFItems {
     public static final Item PALM_FROND = registerItem("palm_frond", new VerticallyAttachableBlockItem(BFBlocks.PALM_FROND, BFBlocks.WALL_PALM_FROND, new FabricItemSettings(), Direction.DOWN));
     public static final Item COCONUT = registerItem("coconut", new AliasedBlockItem(BFBlocks.PALM_SAPLING, new FabricItemSettings()));
     public static final Item COCONUT_COIR = registerItem("coconut_coir", new Item(new FabricItemSettings()));
-    public static final Item COIR_BED = registerItem("coir_bed", new BedItem(BFBlocks.COIR_BED, new FabricItemSettings().maxCount(1)));
     public static final Item COCONUT_HALF = registerItem("coconut_half", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.1f).build())));
     public static final Item CITRUS_ESSENCE = registerItem("citrus_essence", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(1).saturationModifier(1).snack().alwaysEdible().statusEffect(new StatusEffectInstance(BFEffects.ACIDIC, 300, 0),1).build())));
     public static final Item CANDIED_ORANGE = registerItem("candied_orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).snack().build())));

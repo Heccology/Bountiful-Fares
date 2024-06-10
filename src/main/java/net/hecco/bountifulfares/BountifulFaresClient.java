@@ -4,35 +4,27 @@ import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.impl.client.rendering.BlockEntityRendererRegistryImpl;
-import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.block.BFBlocks;
-import net.hecco.bountifulfares.block.entity.renderer.CoirBedBlockEntityRenderer;
-import net.hecco.bountifulfares.block.entity.renderer.ItemModelRenderer;
-import net.hecco.bountifulfares.item.BFItems;
-import net.hecco.bountifulfares.trellis.BFTrellises;
+import net.hecco.bountifulfares.block.entity.BFBlockEntities;
 import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
-import net.hecco.bountifulfares.block.entity.BFBlockEntities;
 import net.hecco.bountifulfares.block.entity.renderer.CeramicDishBlockEntityRenderer;
 import net.hecco.bountifulfares.entity.BFBoats;
 import net.hecco.bountifulfares.entity.BFEntities;
+import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.item.custom.DyeableCeramicBlockItem;
 import net.hecco.bountifulfares.networking.BFMessages;
-import net.hecco.bountifulfares.particle.FlourCloudParticle;
 import net.hecco.bountifulfares.particle.BFParticles;
+import net.hecco.bountifulfares.particle.FlourCloudParticle;
 import net.hecco.bountifulfares.particle.PrismarineBlossomParticle;
-import net.hecco.bountifulfares.screen.GristmillScreen;
 import net.hecco.bountifulfares.screen.BFScreenHandlers;
+import net.hecco.bountifulfares.screen.GristmillScreen;
+import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.util.BFWoodTypes;
 import net.minecraft.block.Block;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.client.color.world.GrassColors;
@@ -40,7 +32,6 @@ import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
-import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
@@ -50,8 +41,6 @@ import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.util.Identifier;
-
-import java.util.Objects;
 
 import static net.hecco.bountifulfares.item.BFItems.ARTISAN_BRUSH;
 import static net.hecco.bountifulfares.item.BFItems.SUN_HAT;
@@ -276,6 +265,7 @@ public class BountifulFaresClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.PALM_FROND, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.WALL_PALM_FROND, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.COCONUT, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.PALM_SAPLING, RenderLayer.getCutout());
         registerItemColor(BFItems.ARTISAN_BRUSH);
         registerBlockColor(BFBlocks.CERAMIC_TILES);
         registerBlockColor(BFBlocks.CERAMIC_TILE_STAIRS);
@@ -304,12 +294,6 @@ public class BountifulFaresClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(BFBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignBlockEntityRenderer::new);
         TerraformBoatClientHelper.registerModelLayers(BFBoats.HOARY_BOAT_ID, false);
         TerraformBoatClientHelper.registerModelLayers(BFBoats.WALNUT_BOAT_ID, false);
-
-        BlockEntityRendererRegistry.register(BFBlockEntities.COIR_BED_BLOCK_ENTITY, CoirBedBlockEntityRenderer::new);
-
-        ItemModelRenderer var10002 = new ItemModelRenderer();
-        Objects.requireNonNull(var10002);
-        BuiltinItemRendererRegistry.INSTANCE.register(BFBlocks.COIR_BED.asItem(), var10002::render);
 
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos)
                 : GrassColors.getDefaultColor(), BFBlocks.CHAMOMILE_FLOWERS, BFBlocks.GRASSY_DIRT);
