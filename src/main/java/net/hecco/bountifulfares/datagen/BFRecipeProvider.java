@@ -588,6 +588,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .unlockCriterionName("has_coir_bricks")
                 .build();
         generateFamily(exporter, coirBricksFamily, FeatureSet.of(FeatureFlags.VANILLA));
+        offerCarpetRecipe(exporter, BFBlocks.COIR_CARPET, BFBlocks.PACKED_COCONUT_COIR);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.COCONUT_CANDLE, 1)
                 .input('S', Items.STRING)

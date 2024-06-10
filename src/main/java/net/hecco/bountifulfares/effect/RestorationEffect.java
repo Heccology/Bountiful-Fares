@@ -7,20 +7,16 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 
 public class RestorationEffect extends StatusEffect {
     private float regenMax;
-    private float prevRegenMax;
     protected RestorationEffect(StatusEffectCategory category, int color) {
         super(category, color);
         this.regenMax = 0;
-        this.prevRegenMax = 0;
     }
 
     @Override
     public void onApplied(LivingEntity entity, int amplifier) {
         float health = entity.getHealth();
         float maxHealth = entity.getMaxHealth();
-        if (health > regenMax && health <= maxHealth && prevRegenMax < health) {
-            regenMax = health;
-        }
+        regenMax = health;
         super.onApplied(entity, amplifier);
     }
 
@@ -37,7 +33,6 @@ public class RestorationEffect extends StatusEffect {
     @Override
     public void onRemoved(AttributeContainer attributes) {
         regenMax = 0;
-        prevRegenMax = regenMax;
     }
 
     @Override

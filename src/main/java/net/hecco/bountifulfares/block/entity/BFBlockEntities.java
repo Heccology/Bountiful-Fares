@@ -82,7 +82,6 @@ public class BFBlockEntities {
             new Identifier(BountifulFares.MOD_ID, "walnut_candle_entity"),
             FabricBlockEntityTypeBuilder.create(WalnutCandleBlockEntity::new, WALNUT_CANDLE).build()
     );
-
     public static void registerBlockEntities() {
 //        BountifulFares.LOGGER.debug("Registering Block Entities for " + BountifulFares.MOD_ID);
     }

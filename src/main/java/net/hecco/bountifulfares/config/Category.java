@@ -91,6 +91,9 @@ public enum Category {
             Entry.booleanEntry("config.bountifulfares.plum_trees", () -> BountifulFares.CONFIG.isGeneratePlumTrees(),
                     newValue -> BountifulFares.CONFIG.setGeneratePlumTrees(newValue), true, "config.bountifulfares.restart_warning"),
 
+            Entry.booleanEntry("config.bountifulfares.palm", () -> BountifulFares.CONFIG.isGeneratePalmTrees(),
+                    newValue -> BountifulFares.CONFIG.setGeneratePalmTrees(newValue), true, "config.bountifulfares.restart_warning"),
+
             Entry.booleanEntry("config.bountifulfares.flower_forest_fruit_trees", () -> BountifulFares.CONFIG.isGenerateAllFruitTreesInFlowerForest(),
                     newValue -> BountifulFares.CONFIG.setGenerateAllFruitTreesInFlowerForest(newValue), false, "config.bountifulfares.restart_warning"),
 

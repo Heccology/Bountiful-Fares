@@ -12,6 +12,7 @@ public class BFBiomeTags {
     public static final TagKey<Biome> HAS_LEMON_TREES = TagKey.of(RegistryKeys.BIOME, new Identifier(BountifulFares.MOD_ID, "has_lemon_trees"));
     public static final TagKey<Biome> HAS_PLUM_TREES = TagKey.of(RegistryKeys.BIOME, new Identifier(BountifulFares.MOD_ID, "has_plum_trees"));
     public static final TagKey<Biome> HAS_WALNUT_TREES = TagKey.of(RegistryKeys.BIOME, new Identifier(BountifulFares.MOD_ID, "has_walnut_trees"));
+    public static final TagKey<Biome> HAS_PALM_TREES = TagKey.of(RegistryKeys.BIOME, new Identifier(BountifulFares.MOD_ID, "has_palm_trees"));
     public static final TagKey<Biome> HAS_WILD_PASSION_FRUIT = TagKey.of(RegistryKeys.BIOME, new Identifier(BountifulFares.MOD_ID, "has_wild_passion_fruit"));
     public static final TagKey<Biome> HAS_WILD_ELDERBERRIES = TagKey.of(RegistryKeys.BIOME, new Identifier(BountifulFares.MOD_ID, "has_wild_elderberries"));
     public static final TagKey<Biome> HAS_HONEYSUCKLE = TagKey.of(RegistryKeys.BIOME, new Identifier(BountifulFares.MOD_ID, "has_honeysuckle"));

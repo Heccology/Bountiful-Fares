@@ -53,5 +53,9 @@ public class BFTreeGeneration {
             BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.FOREST),
                     GenerationStep.Feature.VEGETAL_DECORATION, BFPlacedFeatures.WALNUT_PLACED_KEY);
         }
+        if (BountifulFares.CONFIG.isGeneratePalmTrees()) {
+            BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_PALM_TREES),
+                    GenerationStep.Feature.VEGETAL_DECORATION, BFPlacedFeatures.PALM_PLACED_KEY);
+        }
     }
 }

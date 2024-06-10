@@ -125,6 +125,7 @@ public class BFItemGroups {
                         entries.add(BFBlocks.COCONUT_CANDLE);
                         entries.add(BFItems.COCONUT_COIR);
                         entries.add(BFBlocks.PACKED_COCONUT_COIR);
+                        entries.add(BFBlocks.COIR_CARPET);
                         entries.add(BFBlocks.COIR_BRICKS);
                         entries.add(BFBlocks.COIR_BRICK_STAIRS);
                         entries.add(BFBlocks.COIR_BRICK_SLAB);
