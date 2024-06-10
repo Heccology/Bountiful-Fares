@@ -124,7 +124,7 @@ public class BFBlocks {
 
     public static final Block WALNUT_CANDLE = registerBlock("walnut_candle", new WalnutCandleBlock(FabricBlockSettings.create().nonOpaque().strength(0.1f).sounds(BlockSoundGroup.CANDLE).luminance(createLightLevelFromLitBlockState(12)).pistonBehavior(PistonBehavior.DESTROY)));
 
-    public static final Block PALM_SAPLING = registerBlockNoItem("palm_sapling", new SaplingBlock(new PalmSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING)));
+    public static final Block PALM_SAPLING = registerBlockNoItem("palm_sapling", new PalmSaplingBlock(new PalmSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).sounds(BlockSoundGroup.CROP)));
     public static final Block PALM_LOG = registerBlock("palm_log", new StrippedFruitLogBlock(FabricBlockSettings.copyOf(BFBlocks.APPLE_LOG)));
     public static final Block PALM_WOOD = registerBlock("palm_wood", new StrippedFruitLogBlock(FabricBlockSettings.copyOf(BFBlocks.APPLE_WOOD)));
     public static final Block STRIPPED_PALM_LOG = registerBlock("stripped_palm_log", new StrippedFruitLogBlock(FabricBlockSettings.copyOf(BFBlocks.STRIPPED_APPLE_LOG)));
@@ -137,6 +137,7 @@ public class BFBlocks {
     public static final Block COCONUT_MULCH_BLOCK = registerBlock("coconut_mulch_block", new Block(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(0.4f).sounds(BlockSoundGroup.ROOTED_DIRT).burnable()));
     public static final Block COCONUT_CAKE = registerBlockUnstackableItem("coconut_cake", new NoCandleCakeBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block PACKED_COCONUT_COIR = registerBlock("packed_coconut_coir", new Block(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASEDRUM).strength(0.5F, 1.0F).sounds(BlockSoundGroup.PACKED_MUD)));
+    public static final Block COIR_CARPET = registerBlock("coir_carpet", new CarpetBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(MapColor.OAK_TAN).sounds(BlockSoundGroup.PACKED_MUD)));
     public static final Block COIR_BRICKS = registerBlock("coir_bricks", new Block(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASEDRUM).requiresTool().strength(0.5F, 1.0F).sounds(BlockSoundGroup.MUD_BRICKS)));
     public static final Block COIR_BRICK_SLAB = registerBlock("coir_brick_slab", new SlabBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASEDRUM).requiresTool().strength(0.5F, 1.0F).sounds(BlockSoundGroup.MUD_BRICKS)));
     public static final Block COIR_BRICK_STAIRS = registerBlock("coir_brick_stairs", new ModStairsBlock(COIR_BRICKS.getDefaultState(), FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASEDRUM).requiresTool().strength(0.5F, 1.0F).sounds(BlockSoundGroup.MUD_BRICKS)));

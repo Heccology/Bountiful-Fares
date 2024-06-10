@@ -212,7 +212,6 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.CERAMIC_CLAY_BLOCK)
         ;
 
-
         getOrCreateTagBuilder(BlockTags.FLOWERS)
                 .add(BFBlocks.FLOWERING_APPLE_LEAVES)
                 .add(BFBlocks.FLOWERING_ORANGE_LEAVES)
@@ -432,6 +431,13 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
         getOrCreateTagBuilder(BlockTags.DIRT)
                 .add(BFBlocks.GRASSY_DIRT)
+        ;
+
+        getOrCreateTagBuilder(BFBlockTags.PALM_SAPLINGS_PLANTABLE_ON)
+                .addTag(BlockTags.DIRT)
+                .add(Blocks.SAND)
+                .add(Blocks.RED_SAND)
+                .add(Blocks.GRAVEL)
         ;
     }
 

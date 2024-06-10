@@ -81,6 +81,14 @@ public class BFRegistries {
         registry.add(BFBlocks.PURPLE_JACK_O_STRAW, 400);
         registry.add(BFBlocks.MAGENTA_JACK_O_STRAW, 400);
         registry.add(BFBlocks.PINK_JACK_O_STRAW, 400);
+        registry.add(BFBlocks.PALM_FROND, 100);
+        registry.add(BFItems.COCONUT_COIR, 100);
+        registry.add(BFBlocks.PACKED_COCONUT_COIR, 400);
+        registry.add(BFBlocks.COIR_CARPET, 200);
+        registry.add(BFBlocks.COIR_BRICKS, 400);
+        registry.add(BFBlocks.COIR_BRICK_SLAB, 400);
+        registry.add(BFBlocks.COIR_BRICK_STAIRS, 400);
+        registry.add(BFBlocks.COIR_BRICK_WALL, 400);
         }
 
     public static void registerCeramicCheckeredConversions() {
@@ -111,6 +119,8 @@ public class BFRegistries {
         register(BFBlocks.HOARY_WOOD, BFBlocks.STRIPPED_HOARY_WOOD);
         register(BFBlocks.WALNUT_LOG, BFBlocks.STRIPPED_WALNUT_LOG);
         register(BFBlocks.WALNUT_WOOD, BFBlocks.STRIPPED_WALNUT_WOOD);
+        register(BFBlocks.PALM_LOG, BFBlocks.STRIPPED_PALM_LOG);
+        register(BFBlocks.PALM_WOOD, BFBlocks.STRIPPED_PALM_WOOD);
     }
 
     private static void registerModCompostables() {
@@ -143,6 +153,14 @@ public class BFRegistries {
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.WALNUT, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.WALNUT_MULCH.asItem(), 0.65f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.WALNUT_MULCH_BLOCK.asItem(), 1f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.COCONUT, 0.5f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.COCONUT_HALF, 0.3f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.PALM_FROND, 0.5f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.COCONUT_COIR, 0.5f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.PACKED_COCONUT_COIR, 0.85f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.COIR_CARPET, 0.5f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.COCONUT_MULCH.asItem(), 0.65f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.COCONUT_MULCH_BLOCK.asItem(), 1f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.PASSION_FRUIT, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.ELDERBERRIES, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.LAPISBERRY_SEEDS, 0.3f);
