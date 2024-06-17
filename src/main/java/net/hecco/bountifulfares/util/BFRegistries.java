@@ -200,7 +200,7 @@ public class BFRegistries {
     private static void registerPotionRecipes() {
         invokeRegisterPotionRecipe(Potions.AWKWARD, BFItems.CITRUS_ESSENCE, BFPotions.ACIDIC);
         invokeRegisterPotionRecipe(BFPotions.ACIDIC, Items.REDSTONE, BFPotions.LONG_ACIDIC);
-        invokeRegisterPotionRecipe(Potions.AWKWARD, Items.GLOWSTONE_DUST, BFPotions.STRONG_ACIDIC);
+        invokeRegisterPotionRecipe(BFPotions.ACIDIC, Items.GLOWSTONE_DUST, BFPotions.STRONG_ACIDIC);
         invokeRegisterPotionRecipe(BFPotions.ACIDIC, Items.FERMENTED_SPIDER_EYE, BFPotions.STUPOR);
         invokeRegisterPotionRecipe(BFPotions.LONG_ACIDIC, Items.FERMENTED_SPIDER_EYE, BFPotions.LONG_STUPOR);
         invokeRegisterPotionRecipe(BFPotions.STUPOR, Items.REDSTONE, BFPotions.LONG_STUPOR);
