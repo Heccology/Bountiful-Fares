@@ -461,6 +461,17 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.RED_SAND)
                 .add(Blocks.GRAVEL)
         ;
+        getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
+                .add(BFBlocks.POTTED_APPLE_SAPLING)
+                .add(BFBlocks.POTTED_HONEYSUCKLE)
+                .add(BFBlocks.POTTED_HOARY_APPLE_SAPLING)
+                .add(BFBlocks.POTTED_LEMON_SAPLING)
+                .add(BFBlocks.POTTED_ORANGE_SAPLING)
+                .add(BFBlocks.POTTED_PLUM_SAPLING)
+                .add(BFBlocks.POTTED_VIOLET_BELLFLOWER)
+                .add(BFBlocks.POTTED_WALNUT_SAPLING)
+                .add(BFBlocks.POTTED_PALM_FROND)
+        ;
     }
 
     public void registerTrellisBlockTags(TrellisVariant trellis) {

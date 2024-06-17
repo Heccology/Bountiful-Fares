@@ -264,6 +264,7 @@ public class BountifulFaresClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.GRASSY_DIRT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.PALM_FROND, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.WALL_PALM_FROND, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.POTTED_PALM_FROND, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.COCONUT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.PALM_SAPLING, RenderLayer.getCutout());
         registerItemColor(BFItems.ARTISAN_BRUSH);

@@ -160,6 +160,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFBlocks.PALM_CROWN);
         generate(translationBuilder, BFBlocks.PALM_FROND);
         generate(translationBuilder, BFBlocks.WALL_PALM_FROND, "Palm Frond");
+        generate(translationBuilder, BFBlocks.POTTED_PALM_FROND);
         generate(translationBuilder, BFBlocks.COCONUT);
         generate(translationBuilder, BFBlocks.PALM_SAPLING);
         generate(translationBuilder, BFItems.COCONUT);

@@ -476,6 +476,15 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                                 .properties(StatePredicate.Builder.create().exactMatch(WallPalmFrondBlock.SIZE, 2)))
                         .with(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND, ItemEntry.builder(BFItems.PALM_FROND))))
         );
+        addPottedPlantDrops(BFBlocks.POTTED_HONEYSUCKLE);
+        addPottedPlantDrops(BFBlocks.POTTED_APPLE_SAPLING);
+        addPottedPlantDrops(BFBlocks.POTTED_ORANGE_SAPLING);
+        addPottedPlantDrops(BFBlocks.POTTED_LEMON_SAPLING);
+        addPottedPlantDrops(BFBlocks.POTTED_PLUM_SAPLING);
+        addPottedPlantDrops(BFBlocks.POTTED_HOARY_APPLE_SAPLING);
+        addPottedPlantDrops(BFBlocks.POTTED_WALNUT_SAPLING);
+        addPottedPlantDrops(BFBlocks.POTTED_VIOLET_BELLFLOWER);
+        addPottedPlantDrops(BFBlocks.POTTED_PALM_FROND);
     }
 
     public void registerTrellisLootTables(TrellisVariant trellis) {
