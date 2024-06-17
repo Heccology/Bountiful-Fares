@@ -38,7 +38,7 @@
         "state": {
           "Name": "bountifulfares:palm_sapling",
           "Properties": {
-            "stage": "0"
+            "natural": true
           }
         }
       }
