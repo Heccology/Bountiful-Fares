@@ -10,7 +10,8 @@
     "###"
   ],
   "result": {
-    "item": "bountifulfares:walnut_mosaic_slab"
+    "item": "bountifulfares:walnut_mosaic_slab",
+    "count": 6
   },
   "show_notification": true
 }

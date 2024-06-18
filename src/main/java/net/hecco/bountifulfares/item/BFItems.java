@@ -40,8 +40,8 @@ public class BFItems {
     public static final Item COCONUT_COIR = registerItem("coconut_coir", new Item(new FabricItemSettings()));
     public static final Item COCONUT_HALF = registerItem("coconut_half", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.1f).build())));
     public static final Item CITRUS_ESSENCE = registerItem("citrus_essence", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(1).saturationModifier(1).snack().alwaysEdible().statusEffect(new StatusEffectInstance(BFEffects.ACIDIC, 300, 0),1).build())));
-    public static final Item CANDIED_ORANGE = registerItem("candied_orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).snack().build())));
-    public static final Item CANDIED_LEMON = registerItem("candied_lemon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).snack().build())));
+    public static final Item CANDIED_ORANGE = registerItem("candied_orange", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.2f).snack().build())));
+    public static final Item CANDIED_LEMON = registerItem("candied_lemon", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.2f).snack().build())));
     public static final Item ELDERBERRY_WINE_BOTTLE = registerItem("elderberry_wine_bottle", new LiquidBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1, true, false), 1).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 0), 0.3f).alwaysEdible().build()).maxCount(16)));
     public static final Item LAPISBERRY_WINE_BOTTLE = registerItem("lapisberry_wine_bottle", new LiquidBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 600, 0), 1).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 0), 0.3f).alwaysEdible().build()).maxCount(16)));
     public static final Item MEAD_BOTTLE = registerItem("mead_bottle", new MeadBottleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.2f).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 200, 0), 1).statusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 600, 0), 0.3f).alwaysEdible().build()).maxCount(16)));
@@ -122,8 +122,8 @@ public class BFItems {
     public static final Item MAIZE_STUFFED_POTATO = registerItem("maize_stuffed_potato", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(7).saturationModifier(0.8F).statusEffect(new StatusEffectInstance(BFEffects.ENRICHMENT, 1200, 0, true, true), 1).build())));
     public static final Item MAIZE_BREAD = registerItem("maize_bread", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(0.6F).build())));
     public static final Item WALNUT_COOKIE = registerItem("walnut_cookie", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.2F).build())));
-    public static final Item CANDIED_APPLE = registerItem("candied_apple", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(7).saturationModifier(0.5F).build())));
-    public static final Item CANDIED_PLUM = registerItem("candied_plum", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(0.6F).build())));
+    public static final Item CANDIED_APPLE = registerItem("candied_apple", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.2F).build())));
+    public static final Item CANDIED_PLUM = registerItem("candied_plum", new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.3F).build())));
 
 
 

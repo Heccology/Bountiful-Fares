@@ -6,12 +6,8 @@
         "items": [
           {
             "items": [
+              "bountifulfares:spongekin_slice",
               "bountifulfares:spongekin"
-            ]
-          },
-          {
-            "items": [
-              "bountifulfares:spongekin_slice"
             ]
           }
         ]

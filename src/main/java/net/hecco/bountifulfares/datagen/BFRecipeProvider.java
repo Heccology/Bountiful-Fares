@@ -19,6 +19,7 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
 
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
 import static net.minecraft.data.family.BlockFamilies.register;
@@ -277,7 +278,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(BFItems.MAIZE), conditionsFromItem(BFItems.MAIZE))
                 .offerTo(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.WALNUT_COOKIE, 8)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.WALNUT_COOKIE, 4)
                 .pattern("#W#")
                 .input('#', BFItems.FLOUR)
                 .input('W', BFItems.WALNUT)
@@ -913,6 +914,20 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STRING), conditionsFromItem(Items.STRING))
                 .offerTo(exporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.DIORITE)
+                .pattern("CF")
+                .pattern("FC")
+                .input('C', Items.COBBLESTONE)
+                .input('F', BFItems.FELDSPAR)
+                .criterion(hasItem(BFItems.FELDSPAR), conditionsFromItem(BFItems.FELDSPAR))
+                .offerTo(exporter);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.GRANITE)
+                .input(Items.DIORITE)
+                .input(BFItems.FELDSPAR)
+                .criterion(hasItem(BFItems.FELDSPAR), conditionsFromItem(BFItems.FELDSPAR))
+                .offerTo(exporter);
+
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TILES);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TILE_STAIRS);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TILE_SLAB);
@@ -925,6 +940,8 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_PRESSURE_PLATE);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_BUTTON);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_DISH);
+        offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_DOOR);
+        offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TRAPDOOR);
         offerCeramicUndyingRecipe(exporter, BFItems.ARTISAN_BRUSH);
 
         offerHangingSignRecipe(exporter, BFItems.HOARY_HANGING_SIGN, BFBlocks.STRIPPED_HOARY_LOG);

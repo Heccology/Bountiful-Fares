@@ -509,6 +509,7 @@
   "config.bountifulfares.citrus_dish_painting": "Allow \"Citrus Dish\" painting to be placed",
   "config.bountifulfares.escalade_painting": "Allow \"Escalade\" painting to be placed",
   "config.bountifulfares.fermentation_time": "Fermentation time, in seconds",
+  "config.bountifulfares.flour_throwing": "Flour can be thrown",
   "config.bountifulfares.flower_forest_fruit_trees": "Generate fruit trees in Flower Forests",
   "config.bountifulfares.forest_tea_shrubs": "Generate Tea Shrubs in Forests",
   "config.bountifulfares.forest_walnut_trees": "Generate Walnut Trees in Forests",

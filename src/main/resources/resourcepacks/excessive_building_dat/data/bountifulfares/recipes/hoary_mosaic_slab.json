@@ -10,7 +10,8 @@
     "###"
   ],
   "result": {
-    "item": "bountifulfares:hoary_mosaic_slab"
+    "item": "bountifulfares:hoary_mosaic_slab",
+    "count": 6
   },
   "show_notification": true
 }

@@ -12,7 +12,8 @@
     "###"
   ],
   "result": {
-    "item": "bountifulfares:hoary_mosaic_stairs"
+    "item": "bountifulfares:hoary_mosaic_stairs",
+    "count": 4
   },
   "show_notification": true
 }

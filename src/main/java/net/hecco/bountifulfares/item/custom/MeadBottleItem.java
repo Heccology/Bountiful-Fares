@@ -3,6 +3,8 @@ package net.hecco.bountifulfares.item.custom;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
 public class MeadBottleItem extends LiquidBottleItem {
@@ -15,5 +17,10 @@ public class MeadBottleItem extends LiquidBottleItem {
             user.removeStatusEffect(StatusEffects.POISON);
         }
         return stack;
+    }
+
+    @Override
+    public SoundEvent getEatSound() {
+        return SoundEvents.ENTITY_GENERIC_DRINK;
     }
 }
