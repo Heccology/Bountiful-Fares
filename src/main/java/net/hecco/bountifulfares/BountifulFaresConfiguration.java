@@ -15,6 +15,7 @@ public class BountifulFaresConfiguration {
 
 //    private boolean enableItemGuideTooltips = true;
     private boolean fruitReplaceWhenPicked = true;
+    private boolean enableFlourThrowing = true;
     private boolean restorationHeartOverlay = true;
     private boolean enableLapisberrySeeds = true;
     private boolean enableHoarySeeds = true;
@@ -101,6 +102,14 @@ public class BountifulFaresConfiguration {
 
     public void setRestorationHeartOverlay(boolean bool) {
         restorationHeartOverlay = bool;
+    }
+
+    public boolean isEnableFlourThrowing() {
+        return enableFlourThrowing;
+    }
+
+    public void setEnableFlourThrowing(boolean bool) {
+        enableFlourThrowing = bool;
     }
 
     public boolean isEnableLapisberrySeeds() {

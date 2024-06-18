@@ -21,6 +21,9 @@ public enum Category {
             Entry.booleanEntry("config.bountifulfares.fruit_replace_when_picked", () -> BountifulFares.CONFIG.isFruitReplaceWhenPicked(),
                     newValue -> BountifulFares.CONFIG.setFruitReplaceWhenPicked(newValue), true),
 
+            Entry.booleanEntry("config.bountifulfares.flour_throwing", () -> BountifulFares.CONFIG.isEnableFlourThrowing(),
+                    newValue -> BountifulFares.CONFIG.setEnableFlourThrowing(newValue), true),
+
             Entry.booleanEntry("config.bountifulfares.restoration_overlay", () -> BountifulFares.CONFIG.isRestorationHeartOverlay(),
                     newValue -> BountifulFares.CONFIG.setRestorationHeartOverlay(newValue), true),
 

@@ -67,7 +67,7 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
         if (!isFullyGrown(state) && !state.get(ATTACHED) && random.nextFloat() < 0.1f) {
             world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
         }
-        if (isFullyGrown(state) && !state.get(ATTACHED)) {
+        if (isFullyGrown(state) && !state.get(ATTACHED) && random.nextFloat() < 0.1f) {
             BlockPos spongekinPos = pos.offset(Direction.UP);
             if ((world.getBlockState(spongekinPos).isAir() || world.getBlockState(spongekinPos).isOf(Blocks.WATER) && isFullyGrown(state))) {
                 world.setBlockState(spongekinPos, BFBlocks.SPONGEKIN.getDefaultState(), 2);

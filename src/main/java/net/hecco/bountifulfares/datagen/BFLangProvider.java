@@ -609,6 +609,7 @@ public class BFLangProvider extends FabricLanguageProvider {
 
 //        generate(translationBuilder, "config.bountifulfares.item_guide_tooltips", "Show information in some items' tooltip");
         generate(translationBuilder, "config.bountifulfares.fruit_replace_when_picked", "Fruits on trees replant when picked");
+        generate(translationBuilder, "config.bountifulfares.flour_throwing", "Flour can be thrown");
         generate(translationBuilder, "config.bountifulfares.restoration_overlay", "Restoration effect changes health icons");
         generate(translationBuilder, "config.bountifulfares.lapisberry_seeds", "Sniffers can dig up Lapisberry Seeds");
         generate(translationBuilder, "config.bountifulfares.hoary_seeds", "Sniffers can dig up Hoary Seeds");
