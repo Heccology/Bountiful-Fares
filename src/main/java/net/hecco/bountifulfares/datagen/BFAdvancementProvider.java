@@ -264,7 +264,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         false))
                 .parent(obtain_spongekin_seeds)
-                .criterion("obtain_spongekin", InventoryChangedCriterion.Conditions.items(BFBlocks.SPONGEKIN, BFItems.SPONGEKIN_SLICE))
+                .criterion("obtain_spongekin", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create().items(BFItems.SPONGEKIN_SLICE, BFBlocks.SPONGEKIN).build()))
                 .build(consumer, BountifulFares.MOD_ID + ":obtain_spongekin");
 //        AdvancementEntry breedWolvesWithMulch = Advancement.Builder.create()
 //                .display(new AdvancementDisplay(new ItemStack(ModBlocks.WALNUT_MULCH),

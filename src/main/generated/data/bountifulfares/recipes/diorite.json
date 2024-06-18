@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "item": "minecraft:cobblestone"
+    },
+    "F": {
+      "item": "bountifulfares:feldspar"
+    }
+  },
+  "pattern": [
+    "CF",
+    "FC"
+  ],
+  "result": {
+    "item": "minecraft:diorite"
+  },
+  "show_notification": true
+}

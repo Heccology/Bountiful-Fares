@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.item.custom;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.entity.FlourProjectileEntity;
 import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,18 +20,21 @@ public class FlourItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
-        world.playSound(null, user.getX(), user.getY(), user.getZ(), BFSounds.FLOUR_THROW, SoundCategory.NEUTRAL, 0.6f, 0.9f + world.random.nextFloat()/4);
-        if (!world.isClient) {
-            FlourProjectileEntity flourProjectileEntity = new FlourProjectileEntity(user, world);
-            flourProjectileEntity.setItem(itemStack);
-            flourProjectileEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 0.35f, 7.5f);
-            world.spawnEntity(flourProjectileEntity);
+        if (BountifulFares.CONFIG.isEnableFlourThrowing()) {
+            ItemStack itemStack = user.getStackInHand(hand);
+            world.playSound(null, user.getX(), user.getY(), user.getZ(), BFSounds.FLOUR_THROW, SoundCategory.NEUTRAL, 0.6f, 0.9f + world.random.nextFloat() / 4);
+            if (!world.isClient) {
+                FlourProjectileEntity flourProjectileEntity = new FlourProjectileEntity(user, world);
+                flourProjectileEntity.setItem(itemStack);
+                flourProjectileEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 0.35f, 7.5f);
+                world.spawnEntity(flourProjectileEntity);
+            }
+            user.incrementStat(Stats.USED.getOrCreateStat(this));
+            if (!user.isCreative()) {
+                itemStack.decrement(1);
+            }
+            return TypedActionResult.success(itemStack, world.isClient());
         }
-        user.incrementStat(Stats.USED.getOrCreateStat(this));
-        if (!user.isCreative()) {
-            itemStack.decrement(1);
-        }
-        return TypedActionResult.success(itemStack, world.isClient());
+        return super.use(world, user, hand);
     }
 }
