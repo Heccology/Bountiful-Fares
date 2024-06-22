@@ -52,6 +52,12 @@ public class BFSounds {
     public static final SoundEvent HANGING_FRUIT_PICK = registerSoundEvent("hanging_fruit_pick");
     public static final SoundEvent COCONUT_LAND = registerSoundEvent("coconut_land");
     public static final SoundEvent COCONUT_BONK = registerSoundEvent("coconut_bonk");
+    public static final SoundEvent COIR_PLACE = registerSoundEvent("coir_place");
+    public static final SoundEvent COIR_BREAK = registerSoundEvent("coir_break");
+    public static final SoundEvent COIR_HIT = registerSoundEvent("coir_hit");
+    public static final SoundEvent COIR_STEP = registerSoundEvent("coir_step");
+    public static final SoundEvent COIR_FALL = registerSoundEvent("coir_fall");
+
     public static final SoundEvent CABINET_OPEN = registerSoundEvent("cabinet_open");
     public static final SoundEvent CABINET_CLOSE = registerSoundEvent("cabinet_close");
 
@@ -63,6 +69,7 @@ public class BFSounds {
     public static final BlockSoundGroup SILENT = new BlockSoundGroup(1f, 1f, SoundEvents.INTENTIONALLY_EMPTY, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
     public static final BlockSoundGroup PLANTED_TRELLIS = new BlockSoundGroup(1f, 1.1f, PLANTED_TRELLIS_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
     public static final BlockSoundGroup SPONGEKIN = new BlockSoundGroup(1f, 1.1f, SPONGEKIN_BREAK, SPONGEKIN_STEP, SPONGEKIN_PLACE, SoundEvents.BLOCK_WOOD_HIT, SoundEvents.BLOCK_WOOD_FALL);
+    public static final BlockSoundGroup COIR = new BlockSoundGroup(1f, 1f, COIR_BREAK, COIR_STEP, COIR_PLACE, COIR_HIT, COIR_FALL);
 
 //    BlockSoundGroup LAMP = register("lamp", 1.0F, 0.7F);
 
