@@ -12,6 +12,9 @@
     "defaultRequire": 1
   },
   "client": [
-    "GuiMixin"
+    "GuiMixin",
+    "ItemRendererAccessor",
+    "ItemRendererMixin",
+    "ModelLoaderMixin"
   ]
 }
