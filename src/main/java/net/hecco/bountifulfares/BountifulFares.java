@@ -17,10 +17,7 @@ import net.hecco.bountifulfares.potion.BFPotions;
 import net.hecco.bountifulfares.recipe.BFRecipes;
 import net.hecco.bountifulfares.screen.BFScreenHandlers;
 import net.hecco.bountifulfares.sounds.BFSounds;
-import net.hecco.bountifulfares.util.BFItemGroupAdditions;
-import net.hecco.bountifulfares.util.BFItemGroups;
-import net.hecco.bountifulfares.util.BFLootTableModifiers;
-import net.hecco.bountifulfares.util.BFRegistries;
+import net.hecco.bountifulfares.util.*;
 import net.hecco.bountifulfares.world.gen.BFWorldGeneration;
 import net.hecco.bountifulfares.world.tree.BFTreeDecoratorTypes;
 import net.hecco.bountifulfares.world.tree.BFTrunkPlacerTypes;
@@ -80,5 +77,6 @@ public class BountifulFares implements ModInitializer {
 		BFBlockEntities.registerBlockEntities();
 		BFEntities.registerModEntities();
 		BFSounds.registerSounds();
+		BFDamageTypes.registerDamageTypes();
 	}
 }

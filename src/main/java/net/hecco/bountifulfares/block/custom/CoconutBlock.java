@@ -2,9 +2,11 @@ package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.sounds.BFSounds;
+import net.hecco.bountifulfares.util.BFDamageTypes;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.FallingBlockEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.damage.DamageType;
 import net.minecraft.entity.damage.DamageTypes;
@@ -14,6 +16,7 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.entity.DamageSourcePredicate;
 import net.minecraft.predicate.entity.EntityPredicates;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -186,12 +189,18 @@ public class CoconutBlock extends FallingBlock implements Fertilizable {
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
     }
 
+
+
     @Override
     public void onDestroyedOnLanding(World world, BlockPos pos, FallingBlockEntity fallingBlockEntity) {
+        DamageSource damageSource = new DamageSource(
+                world.getRegistryManager()
+                        .get(RegistryKeys.DAMAGE_TYPE)
+                        .entryOf(BFDamageTypes.FALLING_COCONUT));
         dropStack(world, pos, new ItemStack(BFItems.COCONUT));
         if (!world.getOtherEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.and(EntityPredicates.VALID_LIVING_ENTITY)).isEmpty()) {
             world.getOtherEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.and(EntityPredicates.VALID_LIVING_ENTITY)).forEach((entity) ->
-                    entity.damage(fallingBlockEntity.getDamageSources().fallingBlock(fallingBlockEntity), 2));
+                    entity.damage(damageSource, 2));
             world.playSound(null, pos, BFSounds.COCONUT_BONK, SoundCategory.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
         } else {
             world.playSound(null, pos, BFSounds.COCONUT_LAND, SoundCategory.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
@@ -202,10 +211,14 @@ public class CoconutBlock extends FallingBlock implements Fertilizable {
 
     @Override
     public void onLanding(World world, BlockPos pos, BlockState fallingBlockState, BlockState currentStateInPos, FallingBlockEntity fallingBlockEntity) {
+        DamageSource damageSource = new DamageSource(
+                world.getRegistryManager()
+                        .get(RegistryKeys.DAMAGE_TYPE)
+                        .entryOf(BFDamageTypes.FALLING_COCONUT));
         dropStack(world, pos, new ItemStack(BFItems.COCONUT));
         if (!world.getOtherEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.and(EntityPredicates.VALID_LIVING_ENTITY)).isEmpty()) {
             world.getOtherEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.and(EntityPredicates.VALID_LIVING_ENTITY)).forEach((entity) ->
-                    entity.damage(fallingBlockEntity.getDamageSources().fallingBlock(fallingBlockEntity), 2));
+                    entity.damage(damageSource, 2));
             world.playSound(null, pos, BFSounds.COCONUT_BONK, SoundCategory.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
         } else {
             world.playSound(null, pos, BFSounds.COCONUT_LAND, SoundCategory.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);

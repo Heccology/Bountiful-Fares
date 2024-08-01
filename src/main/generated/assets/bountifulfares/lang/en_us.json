@@ -539,6 +539,7 @@
   "config.bountifulfares.wild_carrots": "Generate Wild Carrots",
   "config.bountifulfares.wild_potatoes": "Generate Wild Potatoes",
   "config.bountifulfares.wild_wheat": "Generate Wild Wheat",
+  "death.attack.falling_coconut": "%1$s was bonked too hard",
   "effect.bountifulfares.acidic": "Acidic",
   "effect.bountifulfares.acidic.description": "Increases the amplifier of all other effects applied. Reverts after Acidic is removed.",
   "effect.bountifulfares.ebullience": "Ebullience",
