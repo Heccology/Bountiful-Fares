@@ -20,7 +20,7 @@ import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 public class WallPalmFrondBlock extends PalmFrondParentBlock {
-    public static final DirectionProperty FACING = Properties.FACING;
+    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
     public WallPalmFrondBlock(Settings settings) {
         super(settings);
