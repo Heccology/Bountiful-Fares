@@ -1,7 +1,6 @@
 {
 	"parent": "bountifulfares:block/template_fruit_log_leafy",
 	"textures": {
-		"all": "bountifulfares:block/lemon_log",
-		"leaves": "bountifulfares:block/lemon_leaves"
+		"texture": "bountifulfares:block/lemon_leaves"
 	}
 }

@@ -306,6 +306,42 @@
         "west": false,
         "down": false
       }
+    },
+
+
+
+    {
+      "apply": {
+        "model": "bountifulfares:block/apple_log_leafy",
+        "uvlock": true
+      },
+      "when": {
+        "axis": "y",
+        "leafy": true
+      }
+    },
+    {
+      "apply": {
+        "model": "bountifulfares:block/apple_log_leafy",
+        "uvlock": true,
+        "x": 90,
+        "y": 90
+      },
+      "when": {
+        "axis": "x",
+        "leafy": true
+      }
+    },
+    {
+      "apply": {
+        "model": "bountifulfares:block/apple_log_leafy",
+        "uvlock": true,
+        "x": 90
+      },
+      "when": {
+        "axis": "z",
+        "leafy": true
+      }
     }
   ]
 }

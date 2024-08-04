@@ -7,6 +7,7 @@ import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class FruitLogBlock extends PillarBlock implements Waterloggable {
+public class FruitLogBlock extends PillarBlock implements Waterloggable {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     protected static final VoxelShape BASE_SHAPE = Block.createCuboidShape(4, 4, 4, 12, 12, 12);
@@ -131,8 +132,7 @@ public abstract class FruitLogBlock extends PillarBlock implements Waterloggable
         if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
-        BountifulFares.LOGGER.info("update");
-        world.setBlockState(pos, updateState(world, pos, state), 2);
+        world.setBlockState(pos, updateState(world, pos, state).with(LEAFY, shouldBeLeafy(world, pos, state)), 2);
         return super.getStateForNeighborUpdate(state, unusedDir, neighborState, world, pos, neighborPos);
     }
 
@@ -159,7 +159,7 @@ public abstract class FruitLogBlock extends PillarBlock implements Waterloggable
 
 
     protected boolean shouldBeLeafy(WorldView world, BlockPos pos, BlockState blockState) {
-        Direction.Axis axis = blockState.get(AppleLogBlock.AXIS);
+        Direction.Axis axis = blockState.get(AXIS);
         Direction[] directions;
         if (axis == Direction.Axis.X) {
             directions = new Direction[]{Direction.UP, Direction.DOWN, Direction.NORTH, Direction.SOUTH};
@@ -171,20 +171,12 @@ public abstract class FruitLogBlock extends PillarBlock implements Waterloggable
 
         for (Direction direction : directions) {
             BlockState neighborState = world.getBlockState(pos.offset(direction));
-            if (neighborState.getBlock() != getLeavesBlock() && neighborState.getBlock() != getFloweringLeavesBlock()) {
+            if (!neighborState.isIn(BlockTags.LEAVES)) {
                 return false;
             }
         }
 
         return true;
-    }
-
-    public Block getLeavesBlock() {
-        return Blocks.OAK_LEAVES;
-    }
-
-    public Block getFloweringLeavesBlock() {
-        return Blocks.OAK_LEAVES;
     }
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {

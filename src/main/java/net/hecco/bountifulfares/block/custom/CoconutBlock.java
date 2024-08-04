@@ -116,6 +116,11 @@ public class CoconutBlock extends FallingBlock implements Fertilizable {
     }
 
     @Override
+    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+        return new ItemStack(BFItems.COCONUT);
+    }
+
+    @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (!isFullyGrown(state) && random.nextFloat() < 0.2) {
             world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);

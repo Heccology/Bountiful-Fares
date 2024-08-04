@@ -1,46 +1,6 @@
 {
-	"credit": "Made with Blockbench by Hecco",
-	"parent": "block/block",
+	"parent": "bountifulfares:block/template_fruit_log_noside",
 	"textures": {
-		"particle": "bountifulfares:block/apple_log",
-		"all": "bountifulfares:block/apple_log"
-	},
-	"elements": [
-		{
-			"from": [4, 12, 4],
-			"to": [12, 12, 12],
-			"faces": {
-				"up": {"uv": [0, 4, 8, 12], "texture": "#all", "cullface": "up"}
-			}
-		}
-	],
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 1.5, 0],
-			"scale": [0.375, 0.375, 0.375]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, 45, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, -135, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"ground": {
-			"translation": [0, 3, 0],
-			"scale": [0.25, 0.25, 0.25]
-		},
-		"gui": {
-			"rotation": [30, -135, 0],
-			"scale": [0.8, 0.8, 0.8]
-		},
-		"head": {
-			"translation": [0, 14.25, 0]
-		},
-		"fixed": {
-			"scale": [0.5, 0.5, 0.5]
-		}
+		"texture": "bountifulfares:block/apple_log"
 	}
 }
