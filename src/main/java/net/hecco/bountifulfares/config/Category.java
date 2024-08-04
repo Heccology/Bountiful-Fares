@@ -11,35 +11,8 @@ public enum Category {
 //            Entry.booleanEntry("config.bountifulfares.item_guide_tooltips", () -> BountifulFares.CONFIG.isEnableItemGuideTooltips(),
 //                    newValue -> BountifulFares.CONFIG.setEnableItemGuideTooltips(newValue), true)),
 
-    GAMEPLAY("config.bountifulfares.category.gameplay", false,
-            Entry.integerEntry("config.bountifulfares.milling_time", () -> BountifulFares.CONFIG.getMillingTime(),
-                    newValue -> BountifulFares.CONFIG.setMillingTime(newValue), 4, 1, 10),
 
-            Entry.integerEntry("config.bountifulfares.fermentation_time", () -> BountifulFares.CONFIG.getFermentationTime(),
-                    newValue -> BountifulFares.CONFIG.setFermentationTime(newValue), 300, 1, 600),
-
-            Entry.booleanEntry("config.bountifulfares.fruit_replace_when_picked", () -> BountifulFares.CONFIG.isFruitReplaceWhenPicked(),
-                    newValue -> BountifulFares.CONFIG.setFruitReplaceWhenPicked(newValue), true),
-
-            Entry.booleanEntry("config.bountifulfares.flour_throwing", () -> BountifulFares.CONFIG.isEnableFlourThrowing(),
-                    newValue -> BountifulFares.CONFIG.setEnableFlourThrowing(newValue), true),
-
-            Entry.booleanEntry("config.bountifulfares.restoration_overlay", () -> BountifulFares.CONFIG.isRestorationHeartOverlay(),
-                    newValue -> BountifulFares.CONFIG.setRestorationHeartOverlay(newValue), true),
-
-            Entry.booleanEntry("config.bountifulfares.lapisberry_seeds", () -> BountifulFares.CONFIG.isEnableLapisberrySeeds(),
-                    newValue -> BountifulFares.CONFIG.setEnableLapisberrySeeds(newValue), true, "config.bountifulfares.restart_warning"),
-
-            Entry.booleanEntry("config.bountifulfares.hoary_seeds", () -> BountifulFares.CONFIG.isEnableHoarySeeds(),
-                    newValue -> BountifulFares.CONFIG.setEnableHoarySeeds(newValue), true, "config.bountifulfares.restart_warning"),
-
-            Entry.booleanEntry("config.bountifulfares.spongekin_seeds_elder_guardian", () -> BountifulFares.CONFIG.isEnableElderGuardianSpongekinSeeds(),
-                    newValue -> BountifulFares.CONFIG.setEnableElderGuardianSpongekinSeeds(newValue), true, "config.bountifulfares.restart_warning"),
-
-            Entry.booleanEntry("config.bountifulfares.spongekin_seeds_guardian", () -> BountifulFares.CONFIG.isEnableGuardianSpongekinSeeds(),
-                    newValue -> BountifulFares.CONFIG.setEnableGuardianSpongekinSeeds(newValue), true, "config.bountifulfares.restart_warning")),
-
-    PAINTINGS("config.bountifulfares.category.paintings", false,
+    PAINTINGS("config.bountifulfares.category.paintings", true,
             Entry.booleanEntry("config.bountifulfares.bountiful_painting", () -> BountifulFares.CONFIG.isEnableBountifulPainting(),
                     newValue -> BountifulFares.CONFIG.setEnableBountifulPainting(newValue), true, "config.bountifulfares.restart_warning"),
 
@@ -69,6 +42,31 @@ public enum Category {
 
             Entry.booleanEntry("config.bountifulfares.unpleasant_tiles_painting", () -> BountifulFares.CONFIG.isEnableUnpleasantTilesPainting(),
                     newValue -> BountifulFares.CONFIG.setEnableUnpleasantTilesPainting(newValue), true, "config.bountifulfares.restart_warning")),
+    GAMEPLAY("config.bountifulfares.category.gameplay", false, new Category[]{PAINTINGS},
+            Entry.integerEntry("config.bountifulfares.milling_time", () -> BountifulFares.CONFIG.getMillingTime(),
+                    newValue -> BountifulFares.CONFIG.setMillingTime(newValue), 4, 1, 10),
+
+            Entry.integerEntry("config.bountifulfares.fermentation_time", () -> BountifulFares.CONFIG.getFermentationTime(),
+                    newValue -> BountifulFares.CONFIG.setFermentationTime(newValue), 300, 1, 600),
+
+            Entry.booleanEntry("config.bountifulfares.fruit_replace_when_picked", () -> BountifulFares.CONFIG.isFruitReplaceWhenPicked(),
+                    newValue -> BountifulFares.CONFIG.setFruitReplaceWhenPicked(newValue), true),
+
+            Entry.booleanEntry("config.bountifulfares.flour_throwing", () -> BountifulFares.CONFIG.isEnableFlourThrowing(),
+                    newValue -> BountifulFares.CONFIG.setEnableFlourThrowing(newValue), true),
+
+            Entry.booleanEntry("config.bountifulfares.lapisberry_seeds", () -> BountifulFares.CONFIG.isEnableLapisberrySeeds(),
+                    newValue -> BountifulFares.CONFIG.setEnableLapisberrySeeds(newValue), true, "config.bountifulfares.restart_warning"),
+
+            Entry.booleanEntry("config.bountifulfares.hoary_seeds", () -> BountifulFares.CONFIG.isEnableHoarySeeds(),
+                    newValue -> BountifulFares.CONFIG.setEnableHoarySeeds(newValue), true, "config.bountifulfares.restart_warning"),
+
+            Entry.booleanEntry("config.bountifulfares.spongekin_seeds_elder_guardian", () -> BountifulFares.CONFIG.isEnableElderGuardianSpongekinSeeds(),
+                    newValue -> BountifulFares.CONFIG.setEnableElderGuardianSpongekinSeeds(newValue), true, "config.bountifulfares.restart_warning"),
+
+            Entry.booleanEntry("config.bountifulfares.spongekin_seeds_guardian", () -> BountifulFares.CONFIG.isEnableGuardianSpongekinSeeds(),
+                    newValue -> BountifulFares.CONFIG.setEnableGuardianSpongekinSeeds(newValue), true, "config.bountifulfares.restart_warning")),
+
     WORLD("config.bountifulfares.category.world", false,
             Entry.booleanEntry("config.bountifulfares.wild_wheat", () -> BountifulFares.CONFIG.isGenerateWildWheat(),
                     newValue -> BountifulFares.CONFIG.setGenerateWildWheat(newValue), true, "config.bountifulfares.restart_warning"),
@@ -105,6 +103,10 @@ public enum Category {
 
             Entry.booleanEntry("config.bountifulfares.forest_walnut_trees", () -> BountifulFares.CONFIG.isGenerateForestWalnutTrees(),
                     newValue -> BountifulFares.CONFIG.setGenerateForestWalnutTrees(newValue), false, "config.bountifulfares.restart_warning")),
+
+    CLIENT("config.bountifulfares.category.client", false,
+            Entry.booleanEntry("config.bountifulfares.restoration_overlay", () -> BountifulFares.CONFIG.isRestorationHeartOverlay(),
+                    newValue -> BountifulFares.CONFIG.setRestorationHeartOverlay(newValue), true)),
     MINT("config.bountifulfares.category.mint", true,
             Entry.booleanEntry("config.bountifulfares.honeysuckle_to_banana_dye", () -> BountifulFares.CONFIG.isHoneysuckleToBananaDye(),
                     newValue -> BountifulFares.CONFIG.setHoneysuckleToBananaDye(newValue), true, "config.bountifulfares.restart_warning")),

@@ -499,6 +499,7 @@
   "config.bountifulfares.apple_trees": "Generate Apple Trees",
   "config.bountifulfares.aquaculture_painting": "Allow \"Aquaculture\" painting to be placed",
   "config.bountifulfares.bountiful_painting": "Allow \"Bountiful\" painting to be placed",
+  "config.bountifulfares.category.client": "Client",
   "config.bountifulfares.category.compat": "Compatibility",
   "config.bountifulfares.category.dye_depot": "Dye Depot",
   "config.bountifulfares.category.gameplay": "Gameplay",

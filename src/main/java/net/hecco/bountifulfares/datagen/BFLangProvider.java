@@ -598,6 +598,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "config.bountifulfares.category.gameplay", "Gameplay");
         generate(translationBuilder, "config.bountifulfares.category.paintings", "Paintings");
         generate(translationBuilder, "config.bountifulfares.category.world", "World");
+        generate(translationBuilder, "config.bountifulfares.category.client", "Client");
         generate(translationBuilder, "config.bountifulfares.category.compat", "Compatibility");
         generate(translationBuilder, "config.bountifulfares.category.mint", "El's and L's Dye Mod");
         generate(translationBuilder, "config.bountifulfares.category.dye_depot", "Dye Depot");
