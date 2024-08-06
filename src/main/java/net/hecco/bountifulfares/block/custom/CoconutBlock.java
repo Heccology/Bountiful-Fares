@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.sounds.BFSounds;
+import net.hecco.bountifulfares.util.BFBlockTags;
 import net.hecco.bountifulfares.util.BFDamageTypes;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
@@ -202,10 +203,14 @@ public class CoconutBlock extends FallingBlock implements Fertilizable {
                 world.getRegistryManager()
                         .get(RegistryKeys.DAMAGE_TYPE)
                         .entryOf(BFDamageTypes.FALLING_COCONUT));
-        dropStack(world, pos, new ItemStack(BFItems.COCONUT));
+        if (world.getBlockState(pos).isIn(BFBlockTags.BREAKS_COCONUT) || world.getBlockState(pos.down()).isIn(BFBlockTags.BREAKS_COCONUT)) {
+            dropStack(world, pos, new ItemStack(BFItems.COCONUT_HALF, 2));
+        } else {
+            dropStack(world, pos, new ItemStack(BFItems.COCONUT));
+        }
         if (!world.getOtherEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.and(EntityPredicates.VALID_LIVING_ENTITY)).isEmpty()) {
             world.getOtherEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.and(EntityPredicates.VALID_LIVING_ENTITY)).forEach((entity) ->
-                    entity.damage(damageSource, 2));
+                    entity.damage(damageSource, 4));
             world.playSound(null, pos, BFSounds.COCONUT_BONK, SoundCategory.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
         } else {
             world.playSound(null, pos, BFSounds.COCONUT_LAND, SoundCategory.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
@@ -220,10 +225,14 @@ public class CoconutBlock extends FallingBlock implements Fertilizable {
                 world.getRegistryManager()
                         .get(RegistryKeys.DAMAGE_TYPE)
                         .entryOf(BFDamageTypes.FALLING_COCONUT));
-        dropStack(world, pos, new ItemStack(BFItems.COCONUT));
+        if (world.getBlockState(pos).isIn(BFBlockTags.BREAKS_COCONUT) || world.getBlockState(pos.down()).isIn(BFBlockTags.BREAKS_COCONUT)) {
+            dropStack(world, pos, new ItemStack(BFItems.COCONUT_HALF, 2));
+        } else {
+            dropStack(world, pos, new ItemStack(BFItems.COCONUT));
+        }
         if (!world.getOtherEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.and(EntityPredicates.VALID_LIVING_ENTITY)).isEmpty()) {
             world.getOtherEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.and(EntityPredicates.VALID_LIVING_ENTITY)).forEach((entity) ->
-                    entity.damage(damageSource, 2));
+                    entity.damage(damageSource, 4));
             world.playSound(null, pos, BFSounds.COCONUT_BONK, SoundCategory.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
         } else {
             world.playSound(null, pos, BFSounds.COCONUT_LAND, SoundCategory.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);

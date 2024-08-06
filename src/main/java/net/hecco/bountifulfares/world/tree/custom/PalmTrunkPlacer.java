@@ -37,26 +37,40 @@ public class PalmTrunkPlacer extends TrunkPlacer {
 
     @Override
     public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, int height, BlockPos startPos, TreeFeatureConfig config) {
-        int trunkHeight = random.nextBetween(4, 6);
-        for (int i = 0; i < trunkHeight; i++) {
+        int firstHeight = random.nextBetween(2, 3);
+        int secondHeight = random.nextBetween(2, 3);
+        int thirdHeight = random.nextBetween(3, 5);
+        Direction direction = Direction.Type.HORIZONTAL.random(random);
+        BlockPos secondPos = startPos;
+        for (int i = 0; i < firstHeight; i++) {
             getAndSetState(world, replacer, random, startPos.up(i), config);
+            secondPos = startPos.up(i).offset(direction);
         }
-        BlockPos topPos = startPos;
+        BlockPos thridPos = startPos;
+        for (int i = 0; i < secondHeight; i++) {
+            getAndSetState(world, replacer, random, secondPos.up(i), config);
+            thridPos = secondPos.up(i).offset(direction);
+        }
+        BlockPos crownPos = startPos;
+        for (int i = 0; i < thirdHeight; i++) {
+            getAndSetState(world, replacer, random, thridPos.up(i), config);
+            crownPos = thridPos.up(i);
+        }
+        BlockPos frondPos = crownPos;
         for (int i = 0; i < 2; i++) {
-            BlockPos crownPos = startPos.up(trunkHeight).up(i);
             BlockState crownState = BFBlocks.PALM_CROWN.getDefaultState();
-            replacer.accept(crownPos, crownState);
-            topPos = startPos.up(trunkHeight).up(i);
+            replacer.accept(crownPos.up(i), crownState);
+            frondPos = crownPos.up(i);
         }
-        replacer.accept(topPos.up(), BFBlocks.PALM_FROND.getDefaultState().with(PalmFrondParentBlock.SIZE, 2));
-        replacer.accept(topPos.north(), BFBlocks.WALL_PALM_FROND.getDefaultState().with(WallPalmFrondBlock.FACING, Direction.NORTH).with(PalmFrondParentBlock.SIZE, 2));
-        replacer.accept(topPos.east(), BFBlocks.WALL_PALM_FROND.getDefaultState().with(WallPalmFrondBlock.FACING, Direction.EAST).with(PalmFrondParentBlock.SIZE, 2));
-        replacer.accept(topPos.south(), BFBlocks.WALL_PALM_FROND.getDefaultState().with(WallPalmFrondBlock.FACING, Direction.SOUTH).with(PalmFrondParentBlock.SIZE, 2));
-        replacer.accept(topPos.west(), BFBlocks.WALL_PALM_FROND.getDefaultState().with(WallPalmFrondBlock.FACING, Direction.WEST).with(PalmFrondParentBlock.SIZE, 2));
-        replacer.accept(topPos.north().down(), BFBlocks.COCONUT.getDefaultState().with(CoconutBlock.FACING, Direction.NORTH).with(CoconutBlock.AGE, random.nextBetween(1, 5)));
-        replacer.accept(topPos.east().down(), BFBlocks.COCONUT.getDefaultState().with(CoconutBlock.FACING, Direction.EAST).with(CoconutBlock.AGE, random.nextBetween(1, 5)));
-        replacer.accept(topPos.south().down(), BFBlocks.COCONUT.getDefaultState().with(CoconutBlock.FACING, Direction.SOUTH).with(CoconutBlock.AGE, random.nextBetween(1, 5)));
-        replacer.accept(topPos.west().down(), BFBlocks.COCONUT.getDefaultState().with(CoconutBlock.FACING, Direction.WEST).with(CoconutBlock.AGE, random.nextBetween(1, 5)));
+        replacer.accept(frondPos.up(), BFBlocks.PALM_FROND.getDefaultState().with(PalmFrondParentBlock.SIZE, random.nextBetween(1, 2)));
+        replacer.accept(frondPos.north(), BFBlocks.WALL_PALM_FROND.getDefaultState().with(WallPalmFrondBlock.FACING, Direction.NORTH).with(PalmFrondParentBlock.SIZE, 2));
+        replacer.accept(frondPos.east(), BFBlocks.WALL_PALM_FROND.getDefaultState().with(WallPalmFrondBlock.FACING, Direction.EAST).with(PalmFrondParentBlock.SIZE, 2));
+        replacer.accept(frondPos.south(), BFBlocks.WALL_PALM_FROND.getDefaultState().with(WallPalmFrondBlock.FACING, Direction.SOUTH).with(PalmFrondParentBlock.SIZE, 2));
+        replacer.accept(frondPos.west(), BFBlocks.WALL_PALM_FROND.getDefaultState().with(WallPalmFrondBlock.FACING, Direction.WEST).with(PalmFrondParentBlock.SIZE, 2));
+        replacer.accept(frondPos.north().down(), BFBlocks.COCONUT.getDefaultState().with(CoconutBlock.FACING, Direction.NORTH).with(CoconutBlock.AGE, random.nextBetween(1, 5)));
+        replacer.accept(frondPos.east().down(), BFBlocks.COCONUT.getDefaultState().with(CoconutBlock.FACING, Direction.EAST).with(CoconutBlock.AGE, random.nextBetween(1, 5)));
+        replacer.accept(frondPos.south().down(), BFBlocks.COCONUT.getDefaultState().with(CoconutBlock.FACING, Direction.SOUTH).with(CoconutBlock.AGE, random.nextBetween(1, 5)));
+        replacer.accept(frondPos.west().down(), BFBlocks.COCONUT.getDefaultState().with(CoconutBlock.FACING, Direction.WEST).with(CoconutBlock.AGE, random.nextBetween(1, 5)));
         return ImmutableList.of();
     }
 }

@@ -472,6 +472,8 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.POTTED_WALNUT_SAPLING)
                 .add(BFBlocks.POTTED_PALM_FROND)
         ;
+        getOrCreateTagBuilder(BFBlockTags.BREAKS_COCONUT)
+                .add(Blocks.POINTED_DRIPSTONE);
     }
 
     public void registerTrellisBlockTags(TrellisVariant trellis) {
