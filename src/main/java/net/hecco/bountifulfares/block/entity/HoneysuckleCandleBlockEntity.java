@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.entity;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.HoneysuckleCandleBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -21,7 +22,7 @@ public class HoneysuckleCandleBlockEntity extends BlockEntity {
     }
     public static void tick(World world, BlockPos pos, BlockState state, HoneysuckleCandleBlockEntity blockEntity) {
         if (world.getTime() % 25L == 0L) {
-            Box box = new Box(pos).expand(3);
+            Box box = new Box(pos).expand(BountifulFares.CONFIG.getInfusedCandleRadius());
             List<PlayerEntity> list = world.getNonSpectatingEntities(PlayerEntity.class, box);
             if (state.get(isLit)) {
                 if (!world.isClient() && !list.isEmpty()) {

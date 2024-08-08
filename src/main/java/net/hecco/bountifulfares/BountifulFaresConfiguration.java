@@ -45,6 +45,7 @@ public class BountifulFaresConfiguration {
     private boolean generateForestWalnutTrees = false;
     private int fermentationTime = 300;
     private int millingTime = 4;
+    private int infusedCandleRadius = 3;
 //  mint
     private boolean honeysuckleToBananaDye = true;
 //  dye_depot
@@ -340,6 +341,14 @@ public class BountifulFaresConfiguration {
 
     public void setMillingTime(int value) {
         millingTime = limit(1, 10, value);
+    }
+
+    public int getInfusedCandleRadius() {
+        return infusedCandleRadius;
+    }
+
+    public void setInfusedCandleRadius(int value) {
+        infusedCandleRadius = limit(0, 16, value);
     }
 
 

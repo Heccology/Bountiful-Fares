@@ -49,6 +49,9 @@ public enum Category {
             Entry.integerEntry("config.bountifulfares.fermentation_time", () -> BountifulFares.CONFIG.getFermentationTime(),
                     newValue -> BountifulFares.CONFIG.setFermentationTime(newValue), 300, 1, 600),
 
+            Entry.integerEntry("config.bountifulfares.infused_candle_radius", () -> BountifulFares.CONFIG.getInfusedCandleRadius(),
+                    newValue -> BountifulFares.CONFIG.setInfusedCandleRadius(newValue), 3, 0, 16),
+
             Entry.booleanEntry("config.bountifulfares.fruit_replace_when_picked", () -> BountifulFares.CONFIG.isFruitReplaceWhenPicked(),
                     newValue -> BountifulFares.CONFIG.setFruitReplaceWhenPicked(newValue), true),
 
