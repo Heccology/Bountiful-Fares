@@ -1,7 +1,7 @@
 {   "parent": "block/thin_block",
     "textures": {
-        "particle": "bountifulfares:block/coconut_mulch",
-        "texture": "bountifulfares:block/coconut_mulch"
+        "particle": "bountifulfares:block/palm_mulch",
+        "texture": "bountifulfares:block/palm_mulch"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

@@ -1,6 +1,6 @@
 {
 	"parent": "block/cube_all",
 	"textures": {
-		"all": "bountifulfares:block/coconut_mulch"
+		"all": "bountifulfares:block/palm_mulch"
 	}
 }

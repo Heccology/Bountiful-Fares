@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "bountifulfares:coconut_mulch"
+      "item": "bountifulfares:palm_mulch"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
     "##"
   ],
   "result": {
-    "item": "bountifulfares:coconut_mulch_block"
+    "item": "bountifulfares:palm_mulch_block"
   },
   "show_notification": true
 }

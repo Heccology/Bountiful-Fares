@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_coconut_mulch": {
+    "has_mulch": {
       "conditions": {
         "items": [
           {
             "items": [
-              "bountifulfares:coconut_mulch"
+              "bountifulfares:palm_mulch_block"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:coconut_mulch_block"
+        "recipe": "bountifulfares:palm_mulch"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_coconut_mulch",
+      "has_mulch",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:coconut_mulch_block"
+      "bountifulfares:palm_mulch"
     ]
   },
   "sends_telemetry_event": false

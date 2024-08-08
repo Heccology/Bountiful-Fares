@@ -12,7 +12,6 @@ import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
 import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
 import net.hecco.bountifulfares.compat.twigs.TwigsBlocks;
 import net.hecco.bountifulfares.item.BFItems;
-import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.potion.BFPotions;
@@ -158,8 +157,8 @@ public class BFItemGroups {
                         entries.add(BFBlocks.COIR_BRICK_STAIRS);
                         entries.add(BFBlocks.COIR_BRICK_SLAB);
                         entries.add(BFBlocks.COIR_BRICK_WALL);
-                        entries.add(BFBlocks.COCONUT_MULCH);
-                        entries.add(BFBlocks.COCONUT_MULCH_BLOCK);
+                        entries.add(BFBlocks.PALM_MULCH);
+                        entries.add(BFBlocks.PALM_MULCH_BLOCK);
                         entries.add(BFBlocks.OAK_PICKETS);
                         entries.add(BFBlocks.SPRUCE_PICKETS);
                         entries.add(BFBlocks.BIRCH_PICKETS);

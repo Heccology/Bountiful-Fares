@@ -1,4 +1,4 @@
-// 1.20.1	2024-08-08T00:38:21.564366	Bountiful Fares/Tags for minecraft:block
+// 1.20.1	2024-08-08T17:33:22.794434	Bountiful Fares/Tags for minecraft:block
 5864451ac894150675e1a892958cdbc81528067f data/bountifulfares/tags/blocks/ceramic_tiles.json
 37800093849075e124ab6c686675a85a411b1d34 data/bountifulfares/tags/blocks/plum_leaves.json
 2d914c87157c1678259aae5b264c25d87c5bc3fd data/minecraft/tags/blocks/dirt.json
@@ -30,7 +30,7 @@ a88ff196b03e573f4691fcd9ffe70c6967e6f300 data/minecraft/tags/blocks/planks.json
 c68289a18099b330ccfb665067c1ade47f433e45 data/minecraft/tags/blocks/wooden_buttons.json
 36673705e2df61737ce31e2f078d6d79b86649de data/minecraft/tags/blocks/fence_gates.json
 d0ce03317598de63ef96112e95f9a6af53b15035 data/twigs/tags/blocks/tables.json
-119ee0a0f5b49b3f44a2899f7324e8fd0708d02e data/minecraft/tags/blocks/mineable/shovel.json
+20447420c1859ea7b1b013a6e9b2a395cc48b3af data/minecraft/tags/blocks/mineable/shovel.json
 5e9035d6eb38800c35f41295d4256bc15a30866f data/minecraft/tags/blocks/flower_pots.json
 1d2f2ffa595eb46837ce54d1557bdedf553b3de9 data/bountifulfares/tags/blocks/orange_logs.json
 821f0a85146f45fabbc0bb5789996aa16584316e data/minecraft/tags/blocks/crops.json

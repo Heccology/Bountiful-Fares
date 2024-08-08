@@ -10,7 +10,6 @@ import java.util.Objects;
 import java.util.Set;
 
 public class BountifulFaresUtil {
-    public static final List<String> VANILLA_COLORS = List.of("red", "orange", "yellow", "lime", "green", "cyan", "light_blue", "blue", "purple", "magenta", "pink", "brown", "white", "light_gray", "gray", "black");
     public static Set<Identifier> allBlockIdsInNamespace(String namespace) {
         Set<Identifier> set = Registries.BLOCK.getIds();
         Set<Identifier> a = new HashSet<>();

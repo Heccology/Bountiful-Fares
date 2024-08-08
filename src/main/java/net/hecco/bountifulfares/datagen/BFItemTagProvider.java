@@ -373,8 +373,8 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(BFItemTags.MULCH)
                 .add(BFBlocks.WALNUT_MULCH.asItem())
                 .add(BFBlocks.WALNUT_MULCH_BLOCK.asItem())
-                .add(BFBlocks.COCONUT_MULCH.asItem())
-                .add(BFBlocks.COCONUT_MULCH_BLOCK.asItem())
+                .add(BFBlocks.PALM_MULCH.asItem())
+                .add(BFBlocks.PALM_MULCH_BLOCK.asItem())
                 ;
     }
 }

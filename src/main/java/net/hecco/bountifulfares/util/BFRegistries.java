@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.util;
 
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.BFBlocks;
@@ -33,6 +34,7 @@ public class BFRegistries {
         registerModCompostables();
         registerPotionRecipes();
         registerFermentationRecipes();
+        registerFlammables();
         DispenserBlock.registerBehavior(BFItems.FLOUR, new FlourDispenserBehavior() {
             @Override
             protected ProjectileEntity createProjectile(World world, Position position, ItemStack stack) {
@@ -144,7 +146,40 @@ public class BFRegistries {
             registry.add(ExcessiveBuildingBlocks.HOARY_MOSAIC_VERTICAL_STAIRS, 300);
             registry.add(ExcessiveBuildingBlocks.HOARY_LADDER, 300);
 
-        }
+    }
+
+    public static void registerFlammables() {
+        FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
+        registry.add(BFBlockTags.APPLE_LEAVES, 60, 30);
+        registry.add(BFBlockTags.ORANGE_LEAVES, 60, 30);
+        registry.add(BFBlockTags.LEMON_LEAVES, 60, 30);
+        registry.add(BFBlockTags.PLUM_LEAVES, 60, 30);
+        registry.add(BFBlocks.HOARY_LEAVES, 60, 30);
+        registry.add(BFBlocks.PALM_FROND, 60, 30);
+        registry.add(BFBlocks.WALL_PALM_FROND, 60, 30);
+        registry.add(BFBlockTags.APPLE_LOGS, 10, 5);
+        registry.add(BFBlockTags.ORANGE_LOGS, 10, 5);
+        registry.add(BFBlockTags.LEMON_LOGS, 10, 5);
+        registry.add(BFBlockTags.PLUM_LOGS, 10, 5);
+        registry.add(BFBlockTags.PALM_LOGS, 10, 5);
+        registry.add(BFBlockTags.HOARY_LOGS, 10, 5);
+        registry.add(BFBlockTags.WALNUT_LOGS, 10, 5);
+        registry.add(BFBlocks.HOARY_PLANKS, 10, 5);
+        registry.add(BFBlocks.HOARY_STAIRS, 10, 5);
+        registry.add(BFBlocks.HOARY_SLAB, 20, 5);
+        registry.add(BFBlocks.HOARY_FENCE, 20, 5);
+        registry.add(BFBlocks.HOARY_FENCE_GATE, 20, 5);
+        registry.add(BFBlocks.HOARY_DOOR, 20, 5);
+        registry.add(BFBlocks.HOARY_TRAPDOOR, 20, 5);
+        registry.add(BFBlocks.WALNUT_PLANKS, 10, 5);
+        registry.add(BFBlocks.WALNUT_STAIRS, 10, 5);
+        registry.add(BFBlocks.WALNUT_SLAB, 20, 5);
+        registry.add(BFBlocks.WALNUT_FENCE, 20, 5);
+        registry.add(BFBlocks.WALNUT_FENCE_GATE, 20, 5);
+        registry.add(BFBlocks.WALNUT_DOOR, 20, 5);
+        registry.add(BFBlocks.WALNUT_TRAPDOOR, 20, 5);
+        registry.add(BFBlockTags.PICKETS, 20, 5);
+    }
 
     public static void registerCeramicCheckeredConversions() {
         registerCheckeredCeramic(BFBlocks.CERAMIC_TILES, BFBlocks.CHECKERED_CERAMIC_TILES);
@@ -218,8 +253,8 @@ public class BFRegistries {
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.COCONUT_COIR, 0.5f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.PACKED_COCONUT_COIR, 0.85f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.COIR_CARPET, 0.5f);
-        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.COCONUT_MULCH.asItem(), 0.65f);
-        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.COCONUT_MULCH_BLOCK.asItem(), 1f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.PALM_MULCH.asItem(), 0.65f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.PALM_MULCH_BLOCK.asItem(), 1f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.PASSION_FRUIT, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.ELDERBERRIES, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.LAPISBERRY_SEEDS, 0.3f);

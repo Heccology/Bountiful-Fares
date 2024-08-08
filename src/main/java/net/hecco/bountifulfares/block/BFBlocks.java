@@ -5,8 +5,6 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.*;
-import net.hecco.bountifulfares.compat.twigs.TwigsLampBlock;
-import net.hecco.bountifulfares.compat.twigs.TwigsTableBlock;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.item.custom.BlockItemWithInfo;
@@ -119,7 +117,7 @@ public class BFBlocks {
     public static final Block WALNUT_WALL_HANGING_SIGN = registerBlockNoItem("walnut_wall_hanging_sign", new ModWallHangingSignBlock(AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).strength(1.0f, 5.0f).mapColor(MapColor.BROWN), BFWoodTypes.WALNUT));
     public static final Block WALNUT_LEAVES = registerBlock("walnut_leaves", new WalnutLeavesBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).strength(0.2f).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(Blocks::canSpawnOnLeaves).suffocates(Blocks::never).blockVision(Blocks::never).burnable().pistonBehavior(PistonBehavior.DESTROY).solidBlock(Blocks::never)));
     public static final Block WALNUT_MULCH = registerBlock("walnut_mulch", new MulchBlock(FabricBlockSettings.create().notSolid().mapColor(MapColor.BROWN).notSolid().strength(0.4f).sounds(BlockSoundGroup.ROOTED_DIRT).burnable()));
-    public static final Block WALNUT_MULCH_BLOCK = registerBlock("walnut_mulch_block", new Block(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(0.4f).sounds(BlockSoundGroup.ROOTED_DIRT).burnable()));
+    public static final Block WALNUT_MULCH_BLOCK = registerBlock("walnut_mulch_block", new MulchBlockBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(0.4f).sounds(BlockSoundGroup.ROOTED_DIRT).burnable()));
 
     public static final Block HANGING_WALNUTS = registerBlockNoItem("hanging_walnuts", new HangingWalnutsBlock(FabricBlockSettings.copyOf(BFBlocks.HANGING_APPLE)));
     public static final Block FALLEN_WALNUTS = registerBlockNoItem("fallen_walnuts", new FallenWalnutsBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).noCollision().sounds(BlockSoundGroup.AZALEA).pistonBehavior(PistonBehavior.DESTROY).breakInstantly().noBlockBreakParticles()));
@@ -136,8 +134,8 @@ public class BFBlocks {
     public static final Block POTTED_PALM_FROND = registerBlockNoItem("potted_palm_frond", new FlowerPotBlock(PALM_FROND, FabricBlockSettings.copyOf(Blocks.POTTED_POPPY)));
     public static final Block WALL_PALM_FROND = registerBlockNoItem("wall_palm_frond", new WallPalmFrondBlock(FabricBlockSettings.create().noCollision().mapColor(MapColor.LIME).strength(0.2F).sounds(BlockSoundGroup.AZALEA_LEAVES).nonOpaque().burnable().pistonBehavior(PistonBehavior.DESTROY).notSolid()));
     public static final Block COCONUT = registerBlockNoItem("coconut", new CoconutBlock(FabricBlockSettings.create().strength(0.2f).mapColor(MapColor.BROWN).dynamicBounds().sounds(BlockSoundGroup.AZALEA).pistonBehavior(PistonBehavior.DESTROY).ticksRandomly().nonOpaque()));
-    public static final Block COCONUT_MULCH = registerBlock("coconut_mulch", new MulchBlock(FabricBlockSettings.create().notSolid().mapColor(MapColor.BROWN).notSolid().strength(0.4f).sounds(BlockSoundGroup.ROOTED_DIRT).burnable()));
-    public static final Block COCONUT_MULCH_BLOCK = registerBlock("coconut_mulch_block", new Block(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(0.4f).sounds(BlockSoundGroup.ROOTED_DIRT).burnable()));
+    public static final Block PALM_MULCH = registerBlock("palm_mulch", new MulchBlock(FabricBlockSettings.create().notSolid().mapColor(MapColor.BROWN).notSolid().strength(0.4f).sounds(BlockSoundGroup.ROOTED_DIRT).burnable()));
+    public static final Block PALM_MULCH_BLOCK = registerBlock("palm_mulch_block", new MulchBlockBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(0.4f).sounds(BlockSoundGroup.ROOTED_DIRT).burnable()));
     public static final Block COCONUT_CAKE = registerBlockUnstackableItem("coconut_cake", new NoCandleCakeBlock(FabricBlockSettings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block PACKED_COCONUT_COIR = registerBlock("packed_coconut_coir", new Block(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASEDRUM).strength(0.5F, 1.0F).sounds(BFSounds.COIR)));
     public static final Block COIR_CARPET = registerBlock("coir_carpet", new CarpetBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CARPET).mapColor(MapColor.OAK_TAN).sounds(BFSounds.COIR)));

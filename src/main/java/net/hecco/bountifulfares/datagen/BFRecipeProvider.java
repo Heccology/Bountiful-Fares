@@ -600,12 +600,12 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 
         offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.WALNUT_MULCH_BLOCK, BFBlocks.WALNUT_MULCH);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.COCONUT_MULCH, 4)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.PALM_MULCH, 4)
                 .group("coconut_mulch")
-                .input(BFBlocks.COCONUT_MULCH_BLOCK)
-                .criterion("has_mulch", conditionsFromItem(BFBlocks.COCONUT_MULCH_BLOCK))
+                .input(BFBlocks.PALM_MULCH_BLOCK)
+                .criterion("has_mulch", conditionsFromItem(BFBlocks.PALM_MULCH_BLOCK))
                 .offerTo(exporter);
-        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.COCONUT_MULCH_BLOCK, BFBlocks.COCONUT_MULCH);
+        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.PALM_MULCH_BLOCK, BFBlocks.PALM_MULCH);
 
         offerShapelessRecipe(exporter, BFItems.COCONUT_HALF, BFItems.COCONUT, "coconut_half", 2);
 

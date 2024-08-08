@@ -296,8 +296,8 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(BFBlocks.WALNUT_MULCH)
                 .add(BFBlocks.WALNUT_MULCH_BLOCK)
-                .add(BFBlocks.COCONUT_MULCH)
-                .add(BFBlocks.COCONUT_MULCH_BLOCK)
+                .add(BFBlocks.PALM_MULCH)
+                .add(BFBlocks.PALM_MULCH_BLOCK)
                 .add(BFBlocks.CERAMIC_CLAY_BLOCK)
         ;
 
