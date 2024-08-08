@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "excessive_building:block/checkered_ceramic_mosaic_vertical_stairs",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "excessive_building:block/checkered_ceramic_mosaic_vertical_stairs",
+      "uvlock": true
+    },
+    "facing=south": {
+      "model": "excessive_building:block/checkered_ceramic_mosaic_vertical_stairs",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "excessive_building:block/checkered_ceramic_mosaic_vertical_stairs",
+      "uvlock": true,
+      "y": 270
+    }
+  }
+}

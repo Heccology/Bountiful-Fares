@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "bountifulfares:block/walnut_cabinet_front_open",
-    "side": "bountifulfares:block/walnut_cabinet_side",
-    "top": "bountifulfares:block/walnut_cabinet_top"
-  }
-}

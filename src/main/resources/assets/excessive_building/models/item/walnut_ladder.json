@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "excessive_building:block/walnut_ladder"
+  }
+}

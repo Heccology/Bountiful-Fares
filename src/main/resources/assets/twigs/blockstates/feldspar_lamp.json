@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=true": {
+      "model": "twigs:block/feldspar_lamp"
+    },
+    "lit=false": {
+      "model": "twigs:block/feldspar_lamp_off"
+    }
+  }
+}

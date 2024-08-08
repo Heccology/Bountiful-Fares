@@ -63,36 +63,9 @@ public class BFTrellises {
     public static TrellisVariant CRIMSON;
     public static TrellisVariant WARPED;
 
-//    El's and L's Dyes
-    public static TrellisVariant WINTERGREEN;
 
-//    Excessive Building
-    public static TrellisVariant ANCIENT;
-
-//    Nature's Spirit
-    public static TrellisVariant ASPEN;
-    public static TrellisVariant CEDAR;
-    public static TrellisVariant COCONUT;
-    public static TrellisVariant CYPRESS;
-    public static TrellisVariant FIR;
-    public static TrellisVariant GHAF;
-    public static TrellisVariant JOSHUA;
-    public static TrellisVariant LARCH;
-    public static TrellisVariant MAHOGANY;
-    public static TrellisVariant MAPLE;
-    public static TrellisVariant OLIVE;
-    public static TrellisVariant PALO_VERDE;
-    public static TrellisVariant REDWOOD;
-    public static TrellisVariant SAXAUL;
-    public static TrellisVariant SUGI;
-    public static TrellisVariant NS_WILLOW;
-    public static TrellisVariant WISTERIA;
-
-//    Spawn
-    public static TrellisVariant ROTTEN;
 
 //    Arts and crafts
-    public static TrellisVariant CORK;
 
 //    Wilder Wild
 //    public static TrellisVariant BAOBAB;
@@ -141,42 +114,6 @@ public class BFTrellises {
         HOARY = new TrellisVariant(BountifulFares.MOD_ID, "hoary", BFBlocks.HOARY_PLANKS.asItem(), TRELLIS_RENDER_CUTOUT);
         CRIMSON = new TrellisVariant(BountifulFares.MOD_ID, "crimson", Items.CRIMSON_PLANKS, TRELLIS_RENDER_CUTOUT);
         WARPED = new TrellisVariant(BountifulFares.MOD_ID, "warped", Items.WARPED_PLANKS, TRELLIS_RENDER_CUTOUT);
-
-        if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
-            WINTERGREEN = new TrellisVariant(BountifulFares.ELS_AND_LS_DYES_MOD_ID, "wintergreen", null, TRELLIS_RENDER_CUTOUT);
-        }
-
-        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-            ANCIENT = new TrellisVariant(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "ancient", null, TRELLIS_RENDER_CUTOUT);
-        }
-
-        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
-            REDWOOD = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "redwood", null, TRELLIS_RENDER_CUTOUT);
-            SUGI = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "sugi", null, TRELLIS_RENDER_CUTOUT);
-            WISTERIA = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "wisteria", null, TRELLIS_RENDER_CUTOUT);
-            FIR = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "fir", null, TRELLIS_RENDER_CUTOUT);
-            NS_WILLOW = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "willow", null, TRELLIS_RENDER_CUTOUT);
-            ASPEN = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "aspen", null, TRELLIS_RENDER_CUTOUT);
-            MAPLE = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "maple", null, TRELLIS_RENDER_CUTOUT);
-            CYPRESS = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "cypress", null, TRELLIS_RENDER_CUTOUT);
-            OLIVE = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "olive", null, TRELLIS_RENDER_CUTOUT);
-            JOSHUA = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "joshua", null, TRELLIS_RENDER_CUTOUT);
-            GHAF = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "ghaf", null, TRELLIS_RENDER_CUTOUT);
-            PALO_VERDE = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "palo_verde", null, TRELLIS_RENDER_CUTOUT);
-            COCONUT = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "coconut", null, TRELLIS_RENDER_CUTOUT);
-            CEDAR = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "cedar", null, TRELLIS_RENDER_CUTOUT);
-            LARCH = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "larch", null, TRELLIS_RENDER_CUTOUT);
-            MAHOGANY = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "mahogany", null, TRELLIS_RENDER_CUTOUT);
-            SAXAUL = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "saxaul", null, TRELLIS_RENDER_CUTOUT);
-        }
-
-        if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
-            ROTTEN = new TrellisVariant(BountifulFares.SPAWN_MOD_ID, "rotten", null, TRELLIS_RENDER_CUTOUT);
-        }
-
-        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
-            CORK = new TrellisVariant(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, "cork", null, TRELLIS_RENDER_CUTOUT);
-        }
 
 //        if (BountifulFares.isModLoaded(BountifulFares.WILDER_WILD_MOD_ID)) {
 //            BAOBAB = new TrellisVariant(BountifulFares.WILDER_WILD_MOD_ID, "baobab", null, TRELLIS_RENDER_CUTOUT);

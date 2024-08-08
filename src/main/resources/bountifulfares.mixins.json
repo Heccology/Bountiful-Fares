@@ -12,9 +12,11 @@
     "defaultRequire": 1
   },
   "client": [
+    "BlockDustParticleMixin",
     "GuiMixin",
     "ItemRendererAccessor",
     "ItemRendererMixin",
-    "ModelLoaderMixin"
+    "ModelLoaderMixin",
+    "ParticleColorAccessor"
   ]
 }

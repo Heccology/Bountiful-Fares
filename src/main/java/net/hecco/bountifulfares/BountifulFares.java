@@ -3,6 +3,7 @@ package net.hecco.bountifulfares;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.compat.BFCompat;
 import net.hecco.bountifulfares.entity.BFEntities;
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.trellis.BFTrellises;
@@ -78,5 +79,6 @@ public class BountifulFares implements ModInitializer {
 		BFEntities.registerModEntities();
 		BFSounds.registerSounds();
 		BFDamageTypes.registerDamageTypes();
+		BFCompat.registerCompatContent();
 	}
 }

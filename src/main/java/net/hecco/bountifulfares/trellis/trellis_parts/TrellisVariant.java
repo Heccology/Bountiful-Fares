@@ -1,9 +1,14 @@
 package net.hecco.bountifulfares.trellis.trellis_parts;
 
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.compat.block.CompatBlockItem;
+import net.hecco.bountifulfares.compat.block.CompatCropTrellisBlock;
+import net.hecco.bountifulfares.compat.block.CompatDecorativeTrellisBlock;
+import net.hecco.bountifulfares.compat.block.CompatTrellisBlock;
 import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.block.custom.CropTrellisBlock;
@@ -13,7 +18,10 @@ import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -56,69 +64,83 @@ public class TrellisVariant {
     }
     
     private void registerTrellisBlocks(ArrayList<Block> renderCutoutList) {
-        BFTrellises.TRELLISES.put(this.getBlockName(), registerBlock(this.getModId(), this.getBlockName(), new TrellisBlock(this, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).sounds(this.SOUND_GROUP).instrument(Instrument.BASS).nonOpaque())));
-        renderCutoutList.add(BFTrellises.TRELLISES.get(this.getBlockName()));
+        registerTrellis(renderCutoutList);
 
-        BFTrellises.CROP_TRELLISES.put(BFTrellises.PASSION_FRUIT.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.PASSION_FRUIT.getName() + "_" + this.getBlockName(), new CropTrellisBlock(BFTrellises.PASSION_FRUIT.getSeedsItem(), BFTrellises.PASSION_FRUIT.getCropItem(), this, BFTrellises.PASSION_FRUIT, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(this.PLANTED_SOUND_GROUP))));
-        renderCutoutList.add(BFTrellises.CROP_TRELLISES.get(BFTrellises.PASSION_FRUIT.getName() + this.getBlockName()));
+        registerCropTrellis(renderCutoutList, BFTrellises.PASSION_FRUIT);
 
-        BFTrellises.CROP_TRELLISES.put(BFTrellises.ELDERBERRY.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.ELDERBERRY.getName() + "_" + this.getBlockName(), new CropTrellisBlock(BFTrellises.ELDERBERRY.getSeedsItem(), BFTrellises.ELDERBERRY.getCropItem(), this, BFTrellises.ELDERBERRY, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(this.PLANTED_SOUND_GROUP))));
-        renderCutoutList.add(BFTrellises.CROP_TRELLISES.get(BFTrellises.ELDERBERRY.getName() + this.getBlockName()));
+        registerCropTrellis(renderCutoutList, BFTrellises.ELDERBERRY);
 
-        BFTrellises.CROP_TRELLISES.put(BFTrellises.LAPISBERRY.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.LAPISBERRY.getName() + "_" + this.getBlockName(), new CropTrellisBlock(BFTrellises.LAPISBERRY.getSeedsItem(), BFTrellises.LAPISBERRY.getCropItem(), this, BFTrellises.LAPISBERRY, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(this.PLANTED_SOUND_GROUP))));
-        renderCutoutList.add(BFTrellises.CROP_TRELLISES.get(BFTrellises.LAPISBERRY.getName() + this.getBlockName()));
+        registerCropTrellis(renderCutoutList, BFTrellises.LAPISBERRY);
 
-        BFTrellises.CROP_TRELLISES.put(BFTrellises.GLOW_BERRY.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.GLOW_BERRY.getName() + "_" + this.getBlockName(), new CropTrellisBlock(BFTrellises.GLOW_BERRY.getSeedsItem(), BFTrellises.GLOW_BERRY.getCropItem(), this, BFTrellises.GLOW_BERRY, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(this.PLANTED_SOUND_GROUP).luminance(BFBlocks.createLightLevelFromAgeBlockState(0, 6, 12)))));
-        renderCutoutList.add(BFTrellises.CROP_TRELLISES.get(BFTrellises.GLOW_BERRY.getName() + this.getBlockName()));
+        registerCropTrellis(renderCutoutList, BFTrellises.GLOW_BERRY);
 
-        BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.ROSE.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.ROSE.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.ROSE.canDuplicate(), BFTrellises.ROSE.getPlantItem(), this, BFTrellises.ROSE, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-        renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.ROSE.getName() + this.getBlockName()));
 
-        BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.LILAC.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.LILAC.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.LILAC.canDuplicate(), BFTrellises.LILAC.getPlantItem(), this, BFTrellises.LILAC, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-        renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.LILAC.getName() + this.getBlockName()));
+        registerDecorativeTrellis(renderCutoutList, BFTrellises.ROSE);
 
-        BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.PEONY.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.PEONY.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.PEONY.canDuplicate(), BFTrellises.PEONY.getPlantItem(), this, BFTrellises.PEONY, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-        renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.PEONY.getName() + this.getBlockName()));
+        registerDecorativeTrellis(renderCutoutList, BFTrellises.LILAC);
 
-        BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.SUNFLOWER.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.SUNFLOWER.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.SUNFLOWER.canDuplicate(), BFTrellises.SUNFLOWER.getPlantItem(), this, BFTrellises.SUNFLOWER, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-        renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.SUNFLOWER.getName() + this.getBlockName()));
+        registerDecorativeTrellis(renderCutoutList, BFTrellises.PEONY);
 
-        BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.VINE.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.VINE.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.VINE.canDuplicate(), BFTrellises.VINE.getPlantItem(), this, BFTrellises.VINE, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-        renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.VINE.getName() + this.getBlockName()));
+        registerDecorativeTrellis(renderCutoutList, BFTrellises.SUNFLOWER);
 
-        BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.WEEPING.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.WEEPING.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.WEEPING.canDuplicate(), BFTrellises.WEEPING.getPlantItem(), this, BFTrellises.WEEPING, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-        renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.WEEPING.getName() + this.getBlockName()));
+        registerDecorativeTrellis(renderCutoutList, BFTrellises.VINE);
 
-        BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.TWISTING.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.TWISTING.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.TWISTING.canDuplicate(), BFTrellises.TWISTING.getPlantItem(), this, BFTrellises.TWISTING, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-        renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.TWISTING.getName() + this.getBlockName()));
+        registerDecorativeTrellis(renderCutoutList, BFTrellises.WEEPING);
+
+        registerDecorativeTrellis(renderCutoutList, BFTrellises.TWISTING);
+
 
         if (BountifulFares.isDatagen() || BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
-            BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.NS_LAVENDER.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.NS_LAVENDER.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.NS_LAVENDER.canDuplicate(), BFTrellises.NS_LAVENDER.getPlantItem(), this, BFTrellises.NS_LAVENDER, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-            renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.NS_LAVENDER.getName() + this.getBlockName()));
+            registerDecorativeTrellis(renderCutoutList, BFTrellises.NS_LAVENDER);
 
-            BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.NS_BLEEDING_HEART.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.NS_BLEEDING_HEART.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.NS_BLEEDING_HEART.canDuplicate(), BFTrellises.NS_BLEEDING_HEART.getPlantItem(), this, BFTrellises.NS_BLEEDING_HEART, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-            renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.NS_BLEEDING_HEART.getName() + this.getBlockName()));
+            registerDecorativeTrellis(renderCutoutList, BFTrellises.NS_BLEEDING_HEART);
 
-            BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.NS_BLUE_BULB.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.NS_BLUE_BULB.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.NS_BLUE_BULB.canDuplicate(), BFTrellises.NS_BLUE_BULB.getPlantItem(), this, BFTrellises.NS_BLUE_BULB, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-            renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.NS_BLUE_BULB.getName() + this.getBlockName()));
+            registerDecorativeTrellis(renderCutoutList, BFTrellises.NS_BLUE_BULB);
 
-            BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.NS_CARNATION.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.NS_CARNATION.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.NS_CARNATION.canDuplicate(), BFTrellises.NS_CARNATION.getPlantItem(), this, BFTrellises.NS_CARNATION, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-            renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.NS_CARNATION.getName() + this.getBlockName()));
+            registerDecorativeTrellis(renderCutoutList, BFTrellises.NS_CARNATION);
 
-            BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.NS_GARDENIA.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.NS_GARDENIA.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.NS_GARDENIA.canDuplicate(), BFTrellises.NS_GARDENIA.getPlantItem(), this, BFTrellises.NS_GARDENIA, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-            renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.NS_GARDENIA.getName() + this.getBlockName()));
+            registerDecorativeTrellis(renderCutoutList, BFTrellises.NS_GARDENIA);
 
-            BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.NS_MARIGOLD.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.NS_MARIGOLD.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.NS_MARIGOLD.canDuplicate(), BFTrellises.NS_MARIGOLD.getPlantItem(), this, BFTrellises.NS_MARIGOLD, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-            renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.NS_MARIGOLD.getName() + this.getBlockName()));
+            registerDecorativeTrellis(renderCutoutList, BFTrellises.NS_MARIGOLD);
 
-            BFTrellises.DECORATIVE_TRELLISES.put(BFTrellises.NS_FOXGLOVE.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.NS_FOXGLOVE.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(BFTrellises.NS_FOXGLOVE.canDuplicate(), BFTrellises.NS_FOXGLOVE.getPlantItem(), this, BFTrellises.NS_FOXGLOVE, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
-            renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(BFTrellises.NS_FOXGLOVE.getName() + this.getBlockName()));
+            registerDecorativeTrellis(renderCutoutList, BFTrellises.NS_FOXGLOVE);
         }
 
         if (BountifulFares.isDatagen() || BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
-            BFTrellises.CROP_TRELLISES.put(BFTrellises.SPAWN_SUNFLOWER.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), BFTrellises.SPAWN_SUNFLOWER.getName() + "_" + this.getBlockName(), new CropTrellisBlock(2, "sunflower_seeds", this, BFTrellises.SPAWN_SUNFLOWER, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(this.PLANTED_SOUND_GROUP))));
-            renderCutoutList.add(BFTrellises.CROP_TRELLISES.get(BFTrellises.SPAWN_SUNFLOWER.getName() + this.getBlockName()));
+            registerCropTrellis(renderCutoutList, BFTrellises.SPAWN_SUNFLOWER);
         }
+    }
+
+    private void registerTrellis(ArrayList<Block> renderCutoutList) {
+        if (Objects.equals(this.MOD_ID, BountifulFares.MOD_ID)) {
+            BFTrellises.TRELLISES.put(this.getBlockName(), registerBlock(this.getModId(), this.getBlockName(), new TrellisBlock(this, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).sounds(this.SOUND_GROUP).instrument(Instrument.BASS).nonOpaque())));
+        } else {
+            BFTrellises.TRELLISES.put(this.getBlockName(), registerCompatBlock(this.getModId(), this.getBlockName(), new CompatTrellisBlock(this.MOD_ID, this, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).sounds(this.SOUND_GROUP).instrument(Instrument.BASS).nonOpaque())));
+        }
+        renderCutoutList.add(BFTrellises.TRELLISES.get(this.getBlockName()));
+    }
+
+    private void registerCropTrellis(ArrayList<Block> renderCutoutList, VineCrop crop) {
+        if (Objects.equals(this.MOD_ID, BountifulFares.MOD_ID)) {
+            BFTrellises.CROP_TRELLISES.put(crop.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), crop.getName() + "_" + this.getBlockName(), new CropTrellisBlock(crop.getSeedsItem(), crop.getCropItem(), this, crop, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(this.PLANTED_SOUND_GROUP))));
+        } else {
+            BFTrellises.CROP_TRELLISES.put(crop.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), crop.getName() + "_" + this.getBlockName(), new CompatCropTrellisBlock(this.MOD_ID, crop.getSeedsItem(), crop.getCropItem(), this, crop, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().ticksRandomly().sounds(this.PLANTED_SOUND_GROUP))));
+        }
+        renderCutoutList.add(BFTrellises.CROP_TRELLISES.get(crop.getName() + this.getBlockName()));
+    }
+
+    private void registerDecorativeTrellis(ArrayList<Block> renderCutoutList, DecorativeVine vine) {
+        if (Objects.equals(this.MOD_ID, BountifulFares.MOD_ID)) {
+            BFTrellises.DECORATIVE_TRELLISES.put(vine.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), vine.getName() + "_" + this.getBlockName(), new DecorativeTrellisBlock(vine.canDuplicate(), vine.getPlantItem(), this, vine, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
+        } else {
+            BFTrellises.DECORATIVE_TRELLISES.put(vine.getName() + this.getBlockName(), registerBlockNoItem(this.getModId(), vine.getName() + "_" + this.getBlockName(), new CompatDecorativeTrellisBlock(this.MOD_ID, vine.canDuplicate(), vine.getPlantItem(), this, vine, FabricBlockSettings.create().nonOpaque().strength(this.HARDNESS).instrument(Instrument.BASS).nonOpaque().sounds(this.PLANTED_SOUND_GROUP))));
+        }
+        renderCutoutList.add(BFTrellises.DECORATIVE_TRELLISES.get(vine.getName() + this.getBlockName()));
+    }
+
+    public Block registerCompatBlock(String id, String name, Block block) {
+        Registry.register(Registries.ITEM, new Identifier(this.MOD_ID, name), new CompatBlockItem(this.MOD_ID, block, new FabricItemSettings()));
+        return Registry.register(Registries.BLOCK, new Identifier(this.MOD_ID, name), block);
     }
 
     public String getVariantName() {

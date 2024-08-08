@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "excessive_building:block/walnut_mosaic_slab"
+    },
+    "type=double": {
+      "model": "excessive_building:block/walnut_mosaic"
+    },
+    "type=top": {
+      "model": "excessive_building:block/walnut_mosaic_slab_top"
+    }
+  }
+}

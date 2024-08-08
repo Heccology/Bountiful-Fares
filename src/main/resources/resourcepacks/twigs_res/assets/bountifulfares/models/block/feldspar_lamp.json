@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "top": "twigs:block/lamp_top",
-    "side": "bountifulfares:block/feldspar_lamp_side",
-    "bottom": "twigs:block/lamp_bottom"
-  }
-}

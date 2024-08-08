@@ -123,8 +123,12 @@ public class CeramicDishBlockEntity extends BlockEntity implements ImplementedIn
                 data.writeItemStack(inventory.get(i));
             }
             data.writeBlockPos(getPos());
+            PacketByteBuf colorData = PacketByteBufs.create();
+            colorData.writeInt(color);
+            colorData.writeBlockPos(getPos());
             for (ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())) {
                 ServerPlayNetworking.send(player, BFMessages.CERAMIC_DISH_ITEM_SYNC, data);
+                ServerPlayNetworking.send(player, BFMessages.CERAMIC_COLOR_SYNC, colorData);
             }
         }
         super.markDirty();

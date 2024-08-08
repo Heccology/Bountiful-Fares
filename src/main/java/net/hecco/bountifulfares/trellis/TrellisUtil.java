@@ -4,13 +4,11 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.datagen.custom.BFTemplateModels;
-import net.hecco.bountifulfares.datagen.BFLangProvider;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
@@ -29,6 +27,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
+import static net.hecco.bountifulfares.BountifulFaresUtil.toSentenceCase;
 import static net.minecraft.data.server.recipe.RecipeProvider.conditionsFromItem;
 
 public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
@@ -221,7 +220,7 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
     }
 
     public static void registerTrellisTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder, TrellisVariant trellis) {
-        String temp = BFLangProvider.capitalizeString(Registries.ITEM.getId(TrellisUtil.getTrellisFromVariant(trellis).asItem()).getPath().replace("_", " "));
+        String temp = toSentenceCase(Registries.ITEM.getId(TrellisUtil.getTrellisFromVariant(trellis).asItem()).getPath());
         translationBuilder.add(TrellisUtil.getTrellisFromVariant(trellis), temp);
         for (VineCrop crop : TrellisUtil.VineCrops) {
             translationBuilder.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), temp);
@@ -251,6 +250,21 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
                     .input('P', trellis.getCraftingItem())
                     .criterion("has_stick", conditionsFromItem(Items.STICK))
                     .criterion("has_planks", conditionsFromItem(trellis.getCraftingItem()))
+                    .group("trellis")
+                    .offerTo(exporter);
+        }
+    }
+
+    public static void registerTrellisRecipe(Consumer<RecipeJsonProvider> exporter, TrellisVariant trellis, Identifier craftingItem) {
+        if (trellis.getCraftingItem() != null) {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
+                    .pattern("# #")
+                    .pattern(" P ")
+                    .pattern("# #")
+                    .input('#', Items.STICK)
+                    .input('P', trellis.getCraftingItem())
+                    .criterion("has_stick", conditionsFromItem(Items.STICK))
+                    .criterion("has_planks", conditionsFromItem(Registries.ITEM.get(craftingItem)))
                     .group("trellis")
                     .offerTo(exporter);
         }

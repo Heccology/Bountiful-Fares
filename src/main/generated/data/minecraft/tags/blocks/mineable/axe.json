@@ -96,6 +96,45 @@
     "bountifulfares:purple_jack_o_straw",
     "bountifulfares:magenta_jack_o_straw",
     "bountifulfares:pink_jack_o_straw",
+    "mint:acorn_jack_o_straw",
+    "mint:amber_jack_o_straw",
+    "mint:artichoke_jack_o_straw",
+    "mint:banana_jack_o_straw",
+    "mint:cerulean_jack_o_straw",
+    "mint:fuchsia_jack_o_straw",
+    "mint:grape_jack_o_straw",
+    "mint:indigo_jack_o_straw",
+    "mint:maroon_jack_o_straw",
+    "mint:mauve_jack_o_straw",
+    "mint:mint_jack_o_straw",
+    "mint:mold_jack_o_straw",
+    "mint:navy_jack_o_straw",
+    "mint:peach_jack_o_straw",
+    "mint:periwinkle_jack_o_straw",
+    "mint:sage_jack_o_straw",
+    "mint:sap_jack_o_straw",
+    "mint:shamrock_jack_o_straw",
+    "mint:velvet_jack_o_straw",
+    "mint:vermilion_jack_o_straw",
+    "mint:wintergreen_pickets",
+    "dye_depot:maroon_jack_o_straw",
+    "dye_depot:rose_jack_o_straw",
+    "dye_depot:coral_jack_o_straw",
+    "dye_depot:ginger_jack_o_straw",
+    "dye_depot:tan_jack_o_straw",
+    "dye_depot:beige_jack_o_straw",
+    "dye_depot:amber_jack_o_straw",
+    "dye_depot:olive_jack_o_straw",
+    "dye_depot:forest_jack_o_straw",
+    "dye_depot:verdant_jack_o_straw",
+    "dye_depot:teal_jack_o_straw",
+    "dye_depot:mint_jack_o_straw",
+    "dye_depot:aqua_jack_o_straw",
+    "dye_depot:slate_jack_o_straw",
+    "dye_depot:navy_jack_o_straw",
+    "dye_depot:indigo_jack_o_straw",
+    "farmersdelight:walnut_cabinet",
+    "farmersdelight:hoary_cabinet",
     {
       "id": "bountifulfares:trellis",
       "required": false
@@ -1135,6 +1174,1626 @@
     {
       "id": "bountifulfares:ns_foxglove_warped_trellis",
       "required": false
-    }
+    },
+    {
+      "id": "excessive_building:ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:passion_fruit_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:elderberry_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:lapisberry_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:glow_berry_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:spawn_sunflower_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:rose_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:lilac_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:peony_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:sunflower_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:vine_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:weeping_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:twisting_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_lavender_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_bleeding_heart_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_blue_bulb_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_carnation_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_gardenia_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_marigold_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_foxglove_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:passion_fruit_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:elderberry_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:lapisberry_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:glow_berry_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:spawn_sunflower_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:rose_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:lilac_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:peony_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:sunflower_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:vine_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:weeping_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:twisting_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_lavender_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_bleeding_heart_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_blue_bulb_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_carnation_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_gardenia_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_marigold_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:ns_foxglove_wintergreen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_cedar_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_fir_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_ghaf_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_joshua_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_larch_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_maple_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_palo_verde_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_saxaul_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_willow_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:passion_fruit_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:elderberry_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lapisberry_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:glow_berry_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:spawn_sunflower_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:rose_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:lilac_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:peony_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sunflower_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:vine_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:weeping_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:twisting_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_lavender_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_bleeding_heart_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_blue_bulb_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_carnation_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_gardenia_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_marigold_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:ns_foxglove_wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:passion_fruit_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:elderberry_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:lapisberry_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:glow_berry_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:spawn_sunflower_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:rose_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:lilac_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:peony_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:sunflower_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:vine_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:weeping_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:twisting_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_lavender_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_bleeding_heart_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_blue_bulb_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_carnation_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_gardenia_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_marigold_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_foxglove_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:passion_fruit_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:elderberry_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:lapisberry_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:glow_berry_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:spawn_sunflower_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:rose_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:lilac_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:peony_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:sunflower_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:vine_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:weeping_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:twisting_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_lavender_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_bleeding_heart_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_blue_bulb_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_carnation_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_gardenia_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_marigold_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_foxglove_cork_trellis",
+      "required": false
+    },
+    "natures_spirit:aspen_pickets",
+    "natures_spirit:cedar_pickets",
+    "natures_spirit:coconut_pickets",
+    "natures_spirit:cypress_pickets",
+    "natures_spirit:fir_pickets",
+    "natures_spirit:ghaf_pickets",
+    "natures_spirit:joshua_pickets",
+    "natures_spirit:larch_pickets",
+    "natures_spirit:mahogany_pickets",
+    "natures_spirit:maple_pickets",
+    "natures_spirit:olive_pickets",
+    "natures_spirit:palo_verde_pickets",
+    "natures_spirit:saxaul_pickets",
+    "natures_spirit:sugi_pickets",
+    "natures_spirit:willow_pickets",
+    "natures_spirit:wisteria_pickets",
+    "twigs:walnut_table",
+    "twigs:hoary_table",
+    "spawn:rotten_pickets",
+    "arts_and_crafts:cork_pickets"
   ]
 }

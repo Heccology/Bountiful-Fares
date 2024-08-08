@@ -5,7 +5,8 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.*;
-import net.hecco.bountifulfares.block.custom.compat.*;
+import net.hecco.bountifulfares.compat.twigs.TwigsLampBlock;
+import net.hecco.bountifulfares.compat.twigs.TwigsTableBlock;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.item.custom.BlockItemWithInfo;
@@ -16,7 +17,6 @@ import net.hecco.bountifulfares.util.BFBlockSetTypes;
 import net.hecco.bountifulfares.util.BFWoodTypes;
 import net.hecco.bountifulfares.world.tree.*;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.BedPart;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
@@ -26,7 +26,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
 import java.util.Map;
@@ -265,200 +264,189 @@ public class BFBlocks {
     public static Block GRASSY_DIRT = registerBlock("grassy_dirt", new GrassyDirtBlock(FabricBlockSettings.copyOf(Blocks.DIRT).ticksRandomly()));
 
 
-    public static Block ACORN_JACK_O_STRAW;
-    public static Block AMBER_JACK_O_STRAW;
-    public static Block ARTICHOKE_JACK_O_STRAW;
-    public static Block BANANA_JACK_O_STRAW;
-    public static Block CERULEAN_JACK_O_STRAW;
-    public static Block FUCHSIA_JACK_O_STRAW;
-    public static Block GRAPE_JACK_O_STRAW;
-    public static Block INDIGO_JACK_O_STRAW;
-    public static Block MAROON_JACK_O_STRAW;
-    public static Block MAUVE_JACK_O_STRAW;
-    public static Block MINT_JACK_O_STRAW;
-    public static Block MOLD_JACK_O_STRAW;
-    public static Block NAVY_JACK_O_STRAW;
-    public static Block PEACH_JACK_O_STRAW;
-    public static Block PERIWINKLE_JACK_O_STRAW;
-    public static Block SAGE_JACK_O_STRAW;
-    public static Block SAP_JACK_O_STRAW;
-    public static Block SHAMROCK_JACK_O_STRAW;
-    public static Block VELVET_JACK_O_STRAW;
-    public static Block VERMILION_JACK_O_STRAW;
-    public static Block WINTERGREEN_PICKETS;
-    public static void registerElsAndLsDyesBlocks() {
-        if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
-            ACORN_JACK_O_STRAW = registerBlock("acorn_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            AMBER_JACK_O_STRAW = registerBlock("amber_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            ARTICHOKE_JACK_O_STRAW = registerBlock("artichoke_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            BANANA_JACK_O_STRAW = registerBlock("banana_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            CERULEAN_JACK_O_STRAW = registerBlock("cerulean_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            FUCHSIA_JACK_O_STRAW = registerBlock("fuchsia_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            GRAPE_JACK_O_STRAW = registerBlock("grape_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            INDIGO_JACK_O_STRAW = registerBlock("indigo_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            MAROON_JACK_O_STRAW = registerBlock("maroon_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            MAUVE_JACK_O_STRAW = registerBlock("mauve_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            MINT_JACK_O_STRAW = registerBlock("mint_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            MOLD_JACK_O_STRAW = registerBlock("mold_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            NAVY_JACK_O_STRAW = registerBlock("navy_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            PEACH_JACK_O_STRAW = registerBlock("peach_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            PERIWINKLE_JACK_O_STRAW = registerBlock("periwinkle_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            SAGE_JACK_O_STRAW = registerBlock("sage_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            SAP_JACK_O_STRAW = registerBlock("sap_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            SHAMROCK_JACK_O_STRAW = registerBlock("shamrock_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            VELVET_JACK_O_STRAW = registerBlock("velvet_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            VERMILION_JACK_O_STRAW = registerBlock("vermilion_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            WINTERGREEN_PICKETS = registerBlock("wintergreen_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(BFSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-        }
-    }
-    public static Block ROSE_JACK_O_STRAW;
-    public static Block CORAL_JACK_O_STRAW;
-    public static Block GINGER_JACK_O_STRAW;
-    public static Block TAN_JACK_O_STRAW;
-    public static Block BEIGE_JACK_O_STRAW;
-    public static Block OLIVE_JACK_O_STRAW;
-    public static Block FOREST_JACK_O_STRAW;
-    public static Block VERDANT_JACK_O_STRAW;
-    public static Block TEAL_JACK_O_STRAW;
-    public static Block AQUA_JACK_O_STRAW;
-    public static Block SLATE_JACK_O_STRAW;
-
-    public static void registerDyeDepotBlocks() {
-        if (BountifulFares.isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
-            MAROON_JACK_O_STRAW = registerBlock("maroon_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            ROSE_JACK_O_STRAW = registerBlock("rose_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            CORAL_JACK_O_STRAW = registerBlock("coral_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            GINGER_JACK_O_STRAW = registerBlock("ginger_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            TAN_JACK_O_STRAW = registerBlock("tan_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            BEIGE_JACK_O_STRAW = registerBlock("beige_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            AMBER_JACK_O_STRAW = registerBlock("amber_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            OLIVE_JACK_O_STRAW = registerBlock("olive_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            FOREST_JACK_O_STRAW = registerBlock("forest_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            VERDANT_JACK_O_STRAW = registerBlock("verdant_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            TEAL_JACK_O_STRAW = registerBlock("teal_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            MINT_JACK_O_STRAW = registerBlock("mint_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            AQUA_JACK_O_STRAW = registerBlock("aqua_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            SLATE_JACK_O_STRAW = registerBlock("slate_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            NAVY_JACK_O_STRAW = registerBlock("navy_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-            INDIGO_JACK_O_STRAW = registerBlock("indigo_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-        }
-    }
-
-
-    public static Block ANCIENT_PICKETS;
-    public static Block WALNUT_VERTICAL_STAIRS;
-    public static Block CHISELED_WALNUT_PLANKS;
-    public static Block WALNUT_MOSAIC;
-    public static Block WALNUT_MOSAIC_STAIRS;
-    public static Block WALNUT_MOSAIC_VERTICAL_STAIRS;
-    public static Block WALNUT_MOSAIC_SLAB;
-    public static Block WALNUT_LADDER;
-    public static Block HOARY_VERTICAL_STAIRS;
-    public static Block CHISELED_HOARY_PLANKS;
-    public static Block HOARY_MOSAIC;
-    public static Block HOARY_MOSAIC_STAIRS;
-    public static Block HOARY_MOSAIC_VERTICAL_STAIRS;
-    public static Block HOARY_MOSAIC_SLAB;
-    public static Block HOARY_LADDER;
-    public static Block FELDSPAR_BRICK_VERTICAL_STAIRS;
-    public static Block CERAMIC_TILE_VERTICAL_STAIRS;
-    public static Block CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS;
-    public static Block CERAMIC_MOSAIC_VERTICAL_STAIRS;
-    public static Block CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS;
-    public static void registerExcessiveBuildingBlocks() {
-        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-            ANCIENT_PICKETS = registerBlock("ancient_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(BFSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
-            WALNUT_VERTICAL_STAIRS = registerBlock("walnut_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
-            CHISELED_WALNUT_PLANKS = registerBlock("chiseled_walnut_planks", new Block(FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
-            WALNUT_MOSAIC = registerBlock("walnut_mosaic", new Block(FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
-            WALNUT_MOSAIC_STAIRS = registerBlock("walnut_mosaic_stairs", new ModStairsBlock(BFBlocks.WALNUT_MOSAIC.getDefaultState(), FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
-            WALNUT_MOSAIC_SLAB = registerBlock("walnut_mosaic_slab", new SlabBlock(FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
-            WALNUT_MOSAIC_VERTICAL_STAIRS = registerBlock("walnut_mosaic_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
-            WALNUT_LADDER = registerBlock("walnut_ladder", new LadderBlock(FabricBlockSettings.copyOf(Blocks.LADDER)));
-
-            HOARY_VERTICAL_STAIRS = registerBlock("hoary_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
-            CHISELED_HOARY_PLANKS = registerBlock("chiseled_hoary_planks", new Block(FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
-            HOARY_MOSAIC = registerBlock("hoary_mosaic", new Block(FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
-            HOARY_MOSAIC_STAIRS = registerBlock("hoary_mosaic_stairs", new ModStairsBlock(BFBlocks.HOARY_MOSAIC.getDefaultState(), FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
-            HOARY_MOSAIC_SLAB = registerBlock("hoary_mosaic_slab", new SlabBlock(FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
-            HOARY_MOSAIC_VERTICAL_STAIRS = registerBlock("hoary_mosaic_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
-            HOARY_LADDER = registerBlock("hoary_ladder", new LadderBlock(FabricBlockSettings.copyOf(Blocks.LADDER)));
-
-            FELDSPAR_BRICK_VERTICAL_STAIRS = registerBlock("feldspar_brick_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.FELDSPAR_BRICKS)));
-            CERAMIC_TILE_VERTICAL_STAIRS = registerBlock("ceramic_tile_vertical_stairs", new CeramicTileVerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.CERAMIC_TILES)));
-            CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS = registerBlock("checkered_ceramic_tile_vertical_stairs", new CeramicTileVerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.CHECKERED_CERAMIC_TILES)));
-            CERAMIC_MOSAIC_VERTICAL_STAIRS = registerBlock("ceramic_mosaic_vertical_stairs", new CeramicTileVerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.CERAMIC_MOSAIC)));
-            CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS = registerBlock("checkered_ceramic_mosaic_vertical_stairs", new CeramicTileVerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.CHECKERED_CERAMIC_MOSAIC)));
-        }
-    }
+//    public static Block ACORN_JACK_O_STRAW;
+//    public static Block AMBER_JACK_O_STRAW;
+//    public static Block ARTICHOKE_JACK_O_STRAW;
+//    public static Block BANANA_JACK_O_STRAW;
+//    public static Block CERULEAN_JACK_O_STRAW;
+//    public static Block FUCHSIA_JACK_O_STRAW;
+//    public static Block GRAPE_JACK_O_STRAW;
+//    public static Block INDIGO_JACK_O_STRAW;
+//    public static Block MAROON_JACK_O_STRAW;
+//    public static Block MAUVE_JACK_O_STRAW;
+//    public static Block MINT_JACK_O_STRAW;
+//    public static Block MOLD_JACK_O_STRAW;
+//    public static Block NAVY_JACK_O_STRAW;
+//    public static Block PEACH_JACK_O_STRAW;
+//    public static Block PERIWINKLE_JACK_O_STRAW;
+//    public static Block SAGE_JACK_O_STRAW;
+//    public static Block SAP_JACK_O_STRAW;
+//    public static Block SHAMROCK_JACK_O_STRAW;
+//    public static Block VELVET_JACK_O_STRAW;
+//    public static Block VERMILION_JACK_O_STRAW;
+//    public static Block WINTERGREEN_PICKETS;
+//    public static void registerElsAndLsDyesBlocks() {
+////        if (!BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+////            ACORN_JACK_O_STRAW = registerBlock("acorn_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            AMBER_JACK_O_STRAW = registerBlock("amber_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            ARTICHOKE_JACK_O_STRAW = registerBlock("artichoke_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            BANANA_JACK_O_STRAW = registerBlock("banana_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            CERULEAN_JACK_O_STRAW = registerBlock("cerulean_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            FUCHSIA_JACK_O_STRAW = registerBlock("fuchsia_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            GRAPE_JACK_O_STRAW = registerBlock("grape_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            INDIGO_JACK_O_STRAW = registerBlock("indigo_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            MAROON_JACK_O_STRAW = registerBlock("maroon_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            MAUVE_JACK_O_STRAW = registerBlock("mauve_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            MINT_JACK_O_STRAW = registerBlock("mint_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            MOLD_JACK_O_STRAW = registerBlock("mold_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            NAVY_JACK_O_STRAW = registerBlock("navy_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            PEACH_JACK_O_STRAW = registerBlock("peach_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            PERIWINKLE_JACK_O_STRAW = registerBlock("periwinkle_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            SAGE_JACK_O_STRAW = registerBlock("sage_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            SAP_JACK_O_STRAW = registerBlock("sap_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            SHAMROCK_JACK_O_STRAW = registerBlock("shamrock_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            VELVET_JACK_O_STRAW = registerBlock("velvet_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            VERMILION_JACK_O_STRAW = registerBlock("vermilion_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+////            WINTERGREEN_PICKETS = registerBlock("wintergreen_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(BFSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+////        }
+//    }
+//    public static Block ROSE_JACK_O_STRAW;
+//    public static Block CORAL_JACK_O_STRAW;
+//    public static Block GINGER_JACK_O_STRAW;
+//    public static Block TAN_JACK_O_STRAW;
+//    public static Block BEIGE_JACK_O_STRAW;
+//    public static Block OLIVE_JACK_O_STRAW;
+//    public static Block FOREST_JACK_O_STRAW;
+//    public static Block VERDANT_JACK_O_STRAW;
+//    public static Block TEAL_JACK_O_STRAW;
+//    public static Block AQUA_JACK_O_STRAW;
+//    public static Block SLATE_JACK_O_STRAW;
+//
+//    public static void registerDyeDepotBlocks() {
+//        if (BountifulFares.isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
+//            MAROON_JACK_O_STRAW = registerBlock("maroon_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            ROSE_JACK_O_STRAW = registerBlock("rose_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            CORAL_JACK_O_STRAW = registerBlock("coral_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            GINGER_JACK_O_STRAW = registerBlock("ginger_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            TAN_JACK_O_STRAW = registerBlock("tan_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            BEIGE_JACK_O_STRAW = registerBlock("beige_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            AMBER_JACK_O_STRAW = registerBlock("amber_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            OLIVE_JACK_O_STRAW = registerBlock("olive_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            FOREST_JACK_O_STRAW = registerBlock("forest_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            VERDANT_JACK_O_STRAW = registerBlock("verdant_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            TEAL_JACK_O_STRAW = registerBlock("teal_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            MINT_JACK_O_STRAW = registerBlock("mint_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            AQUA_JACK_O_STRAW = registerBlock("aqua_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            SLATE_JACK_O_STRAW = registerBlock("slate_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            NAVY_JACK_O_STRAW = registerBlock("navy_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//            INDIGO_JACK_O_STRAW = registerBlock("indigo_jack_o_straw", new JackOStrawBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.YELLOW).strength(0.5F).luminance(createLightLevelFromLitBlockState(12)).instrument(Instrument.BASS).notSolid().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+//        }
+//    }
 
 
-    public static Block ASPEN_PICKETS;
-    public static Block CEDAR_PICKETS;
-    public static Block COCONUT_PICKETS;
-    public static Block CYPRESS_PICKETS;
-    public static Block FIR_PICKETS;
-    public static Block GHAF_PICKETS;
-    public static Block JOSHUA_PICKETS;
-    public static Block LARCH_PICKETS;
-    public static Block MAHOGANY_PICKETS;
-    public static Block MAPLE_PICKETS;
-    public static Block OLIVE_PICKETS;
-    public static Block PALO_VERDE_PICKETS;
-    public static Block REDWOOD_PICKETS;
-    public static Block SAXAUL_PICKETS;
-    public static Block SUGI_PICKETS;
-    public static Block WILLOW_PICKETS;
-    public static Block WISTERIA_PICKETS;
-
-    public static void registerNaturesSpiritBlocks() {
-        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
-            ASPEN_PICKETS = registerBlock("aspen_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            CEDAR_PICKETS = registerBlock("cedar_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            COCONUT_PICKETS = registerBlock("coconut_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            CYPRESS_PICKETS = registerBlock("cypress_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            FIR_PICKETS = registerBlock("fir_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            GHAF_PICKETS = registerBlock("ghaf_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            JOSHUA_PICKETS = registerBlock("joshua_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            LARCH_PICKETS = registerBlock("larch_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            MAHOGANY_PICKETS = registerBlock("mahogany_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            MAPLE_PICKETS = registerBlock("maple_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            OLIVE_PICKETS = registerBlock("olive_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            PALO_VERDE_PICKETS = registerBlock("palo_verde_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            REDWOOD_PICKETS = registerBlock("redwood_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            SAXAUL_PICKETS = registerBlock("saxaul_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            SUGI_PICKETS = registerBlock("sugi_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            WILLOW_PICKETS = registerBlock("willow_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-            WISTERIA_PICKETS = registerBlock("wisteria_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-        }
-    }
-
-    public static Block ROTTEN_PICKETS;
-
-    public static void registerSpawnBlocks() {
-        if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
-            ROTTEN_PICKETS = registerBlock("rotten_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-        }
-    }
-
-
-    public static Block WALNUT_CABINET;
-    public static Block HOARY_CABINET;
-
-    public static void registerFarmersDelightBlocks() {
-        if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID)) {
-            WALNUT_CABINET = registerBlock("walnut_cabinet", new CabinetBlock(FabricBlockSettings.copyOf(Blocks.BARREL).mapColor(MapColor.BROWN)));
-            HOARY_CABINET = registerBlock("hoary_cabinet", new CabinetBlock(FabricBlockSettings.copyOf(Blocks.BARREL).mapColor(MapColor.TERRACOTTA_GRAY)));
-        }
-    }
+//    public static Block ANCIENT_PICKETS;
+//    public static Block WALNUT_VERTICAL_STAIRS;
+//    public static Block CHISELED_WALNUT_PLANKS;
+//    public static Block WALNUT_MOSAIC;
+//    public static Block WALNUT_MOSAIC_STAIRS;
+//    public static Block WALNUT_MOSAIC_VERTICAL_STAIRS;
+//    public static Block WALNUT_MOSAIC_SLAB;
+//    public static Block WALNUT_LADDER;
+//    public static Block HOARY_VERTICAL_STAIRS;
+//    public static Block CHISELED_HOARY_PLANKS;
+//    public static Block HOARY_MOSAIC;
+//    public static Block HOARY_MOSAIC_STAIRS;
+//    public static Block HOARY_MOSAIC_VERTICAL_STAIRS;
+//    public static Block HOARY_MOSAIC_SLAB;
+//    public static Block HOARY_LADDER;
+//    public static Block FELDSPAR_BRICK_VERTICAL_STAIRS;
+//    public static Block CERAMIC_TILE_VERTICAL_STAIRS;
+//    public static Block CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS;
+//    public static Block CERAMIC_MOSAIC_VERTICAL_STAIRS;
+//    public static Block CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS;
+//    public static void registerExcessiveBuildingBlocks() {
+//        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+//            ANCIENT_PICKETS = registerBlock("ancient_pickets", new PicketsBlock(FabricBlockSettings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(BFSounds.LIGHT_WOOD).instrument(Instrument.BASS).notSolid().nonOpaque()));
+//            WALNUT_VERTICAL_STAIRS = registerBlock("walnut_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
+//            CHISELED_WALNUT_PLANKS = registerBlock("chiseled_walnut_planks", new Block(FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
+//            WALNUT_MOSAIC = registerBlock("walnut_mosaic", new Block(FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
+//            WALNUT_MOSAIC_STAIRS = registerBlock("walnut_mosaic_stairs", new ModStairsBlock(BFBlocks.WALNUT_MOSAIC.getDefaultState(), FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
+//            WALNUT_MOSAIC_SLAB = registerBlock("walnut_mosaic_slab", new SlabBlock(FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
+//            WALNUT_MOSAIC_VERTICAL_STAIRS = registerBlock("walnut_mosaic_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.WALNUT_PLANKS)));
+//            WALNUT_LADDER = registerBlock("walnut_ladder", new LadderBlock(FabricBlockSettings.copyOf(Blocks.LADDER)));
+//
+//            HOARY_VERTICAL_STAIRS = registerBlock("hoary_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
+//            CHISELED_HOARY_PLANKS = registerBlock("chiseled_hoary_planks", new Block(FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
+//            HOARY_MOSAIC = registerBlock("hoary_mosaic", new Block(FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
+//            HOARY_MOSAIC_STAIRS = registerBlock("hoary_mosaic_stairs", new ModStairsBlock(BFBlocks.HOARY_MOSAIC.getDefaultState(), FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
+//            HOARY_MOSAIC_SLAB = registerBlock("hoary_mosaic_slab", new SlabBlock(FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
+//            HOARY_MOSAIC_VERTICAL_STAIRS = registerBlock("hoary_mosaic_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.HOARY_PLANKS)));
+//            HOARY_LADDER = registerBlock("hoary_ladder", new LadderBlock(FabricBlockSettings.copyOf(Blocks.LADDER)));
+//
+//            FELDSPAR_BRICK_VERTICAL_STAIRS = registerBlock("feldspar_brick_vertical_stairs", new VerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.FELDSPAR_BRICKS)));
+//            CERAMIC_TILE_VERTICAL_STAIRS = registerBlock("ceramic_tile_vertical_stairs", new CeramicTileVerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.CERAMIC_TILES)));
+//            CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS = registerBlock("checkered_ceramic_tile_vertical_stairs", new CeramicTileVerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.CHECKERED_CERAMIC_TILES)));
+//            CERAMIC_MOSAIC_VERTICAL_STAIRS = registerBlock("ceramic_mosaic_vertical_stairs", new CeramicTileVerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.CERAMIC_MOSAIC)));
+//            CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS = registerBlock("checkered_ceramic_mosaic_vertical_stairs", new CeramicTileVerticalStairsBlock(FabricBlockSettings.copyOf(BFBlocks.CHECKERED_CERAMIC_MOSAIC)));
+//        }
+//    }
 
 
-    public static Block TALL_WALNUT_DOOR;
-    public static Block SHORT_WALNUT_DOOR;
-    public static Block TALL_HOARY_DOOR;
-    public static Block SHORT_HOARY_DOOR;
-    public static Block TALL_CERAMIC_DOOR;
-    public static Block SHORT_CERAMIC_DOOR;
+//    public static Block ASPEN_PICKETS;
+//    public static Block CEDAR_PICKETS;
+//    public static Block COCONUT_PICKETS;
+//    public static Block CYPRESS_PICKETS;
+//    public static Block FIR_PICKETS;
+//    public static Block GHAF_PICKETS;
+//    public static Block JOSHUA_PICKETS;
+//    public static Block LARCH_PICKETS;
+//    public static Block MAHOGANY_PICKETS;
+//    public static Block MAPLE_PICKETS;
+//    public static Block OLIVE_PICKETS;
+//    public static Block PALO_VERDE_PICKETS;
+//    public static Block REDWOOD_PICKETS;
+//    public static Block SAXAUL_PICKETS;
+//    public static Block SUGI_PICKETS;
+//    public static Block WILLOW_PICKETS;
+//    public static Block WISTERIA_PICKETS;
+//
+//    public static void registerNaturesSpiritBlocks() {
+//        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+//            ASPEN_PICKETS = registerBlock("aspen_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            CEDAR_PICKETS = registerBlock("cedar_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            COCONUT_PICKETS = registerBlock("coconut_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            CYPRESS_PICKETS = registerBlock("cypress_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            FIR_PICKETS = registerBlock("fir_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            GHAF_PICKETS = registerBlock("ghaf_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            JOSHUA_PICKETS = registerBlock("joshua_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            LARCH_PICKETS = registerBlock("larch_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            MAHOGANY_PICKETS = registerBlock("mahogany_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            MAPLE_PICKETS = registerBlock("maple_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            OLIVE_PICKETS = registerBlock("olive_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            PALO_VERDE_PICKETS = registerBlock("palo_verde_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            REDWOOD_PICKETS = registerBlock("redwood_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            SAXAUL_PICKETS = registerBlock("saxaul_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            SUGI_PICKETS = registerBlock("sugi_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            WILLOW_PICKETS = registerBlock("willow_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//            WISTERIA_PICKETS = registerBlock("wisteria_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//        }
+//    }
+
+//    public static Block ROTTEN_PICKETS;
+//
+//    public static void registerSpawnBlocks() {
+//        if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
+//            ROTTEN_PICKETS = registerBlock("rotten_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//        }
+//    }
+
+
+//    public static Block TALL_WALNUT_DOOR;
+//    public static Block SHORT_WALNUT_DOOR;
+//    public static Block TALL_HOARY_DOOR;
+//    public static Block SHORT_HOARY_DOOR;
+//    public static Block TALL_CERAMIC_DOOR;
+//    public static Block SHORT_CERAMIC_DOOR;
 
 //    public static void registerDramaticDoorsBlocks() {
 //        if (BountifulFares.isModLoaded(BountifulFares.DRAMATIC_DOORS_MOD_ID)) {
@@ -472,25 +460,26 @@ public class BFBlocks {
 //    }
 
 
-    public static Block WALNUT_TABLE;
-    public static Block HOARY_TABLE;
-    public static Block FELDSPAR_LAMP;
+//    public static Block WALNUT_TABLE;
+//    public static Block HOARY_TABLE;
+//    public static Block FELDSPAR_LAMP;
+//
+//    public static void registerTwigsBlocks() {
+//        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
+//            WALNUT_TABLE = registerBlock("walnut_table", new TwigsTableBlock(FabricBlockSettings.copyOf(WALNUT_PLANKS)));
+//            HOARY_TABLE = registerBlock("hoary_table", new TwigsTableBlock(FabricBlockSettings.copyOf(HOARY_PLANKS)));
+//            FELDSPAR_LAMP = registerBlock("feldspar_lamp", new TwigsLampBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).requiresTool().strength(4.5F).sounds(BFSounds.LAMP).luminance(createLightLevelFromLitBlockState(8))));
+//
+//        }
+//    }
 
-    public static void registerTwigsBlocks() {
-        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
-            WALNUT_TABLE = registerBlock("walnut_table", new TwigsTableBlock(FabricBlockSettings.copyOf(WALNUT_PLANKS)));
-            HOARY_TABLE = registerBlock("hoary_table", new TwigsTableBlock(FabricBlockSettings.copyOf(HOARY_PLANKS)));
-            FELDSPAR_LAMP = registerBlock("feldspar_lamp", new TwigsLampBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).requiresTool().strength(4.5F).sounds(BFSounds.LAMP).luminance(createLightLevelFromLitBlockState(8))));
-        }
-    }
-
-    public static Block CORK_PICKETS;
-
-    public static void registerArtsAndCraftsBlocks() {
-        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
-            CORK_PICKETS = registerBlock("cork_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
-        }
-    }
+//    public static Block CORK_PICKETS;
+//
+//    public static void registerArtsAndCraftsBlocks() {
+//        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+//            CORK_PICKETS = registerBlock("cork_pickets", new PicketsBlock(FabricBlockSettings.copyOf(OAK_PICKETS)));
+//        }
+//    }
 
 
 
@@ -502,7 +491,7 @@ public class BFBlocks {
         return state -> state.get(CropTrellisBlock.AGE) == 1 ? lit1 : state.get(CropTrellisBlock.AGE) == 2 ? lit2 : state.get(CropTrellisBlock.AGE) == 3 ? lit3 : 0;
     }
 
-    private static Block registerBlock(String name, Block block) {
+    public static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(BountifulFares.MOD_ID, name), block);
     }
@@ -558,13 +547,5 @@ public class BFBlocks {
     }
 
     public static void registerModBlocks() {
-        registerElsAndLsDyesBlocks();
-        registerDyeDepotBlocks();
-        registerExcessiveBuildingBlocks();
-        registerNaturesSpiritBlocks();
-        registerSpawnBlocks();
-        registerFarmersDelightBlocks();
-        registerTwigsBlocks();
-        registerArtsAndCraftsBlocks();
     }
 }

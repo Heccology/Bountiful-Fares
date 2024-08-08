@@ -38,8 +38,8 @@ public class PalmTrunkPlacer extends TrunkPlacer {
     @Override
     public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, int height, BlockPos startPos, TreeFeatureConfig config) {
         int firstHeight = random.nextBetween(2, 3);
-        int secondHeight = random.nextBetween(2, 3);
-        int thirdHeight = random.nextBetween(3, 5);
+        int secondHeight = random.nextBetween(2, 4);
+        int thirdHeight = random.nextBetween(4, 5);
         Direction direction = Direction.Type.HORIZONTAL.random(random);
         BlockPos secondPos = startPos;
         for (int i = 0; i < firstHeight; i++) {

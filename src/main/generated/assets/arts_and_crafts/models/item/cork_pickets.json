@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "arts_and_crafts:item/cork_pickets"
+  }
+}

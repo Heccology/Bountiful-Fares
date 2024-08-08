@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "bountifulfares:block/walnut_planks",
-    "side": "bountifulfares:block/chiseled_walnut_planks",
-    "top": "bountifulfares:block/walnut_planks"
-  }
-}

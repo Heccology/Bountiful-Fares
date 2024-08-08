@@ -3,6 +3,11 @@ package net.hecco.bountifulfares.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
+import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
+import net.hecco.bountifulfares.compat.mint.MintBlocks;
+import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
+import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
@@ -53,23 +58,25 @@ public class BFModelProvider extends FabricModelProvider {
         registerPicketsModels(blockStateModelGenerator, BFBlocks.WALNUT_PICKETS);
         registerPicketsModels(blockStateModelGenerator, BFBlocks.CRIMSON_PICKETS);
         registerPicketsModels(blockStateModelGenerator, BFBlocks.WARPED_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.ASPEN_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.CEDAR_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.COCONUT_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.CYPRESS_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.FIR_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.GHAF_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.JOSHUA_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.LARCH_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.MAHOGANY_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.MAPLE_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.OLIVE_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.PALO_VERDE_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.REDWOOD_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.SAXAUL_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.SUGI_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.WILLOW_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, ModBlocks.WISTERIA_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.ASPEN_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.CEDAR_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.COCONUT_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.CYPRESS_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.FIR_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.GHAF_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.JOSHUA_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.LARCH_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.MAHOGANY_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.MAPLE_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.OLIVE_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.PALO_VERDE_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.REDWOOD_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.SAXAUL_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.SUGI_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.WILLOW_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.WISTERIA_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, SpawnBlocks.ROTTEN_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, ArtsAndCraftsBlocks.CORK_PICKETS);
 
 //        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
 //            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
@@ -121,29 +128,31 @@ public class BFModelProvider extends FabricModelProvider {
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.WW_CYPRESS);
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.PALM);
 
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.ANCIENT);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ExcessiveBuildingBlocks.ANCIENT);
 
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.WINTERGREEN);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, MintBlocks.WINTERGREEN);
 
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.ROTTEN);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, SpawnBlocks.ROTTEN);
 
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.ASPEN);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.CEDAR);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.COCONUT);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.CYPRESS);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.FIR);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.GHAF);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.JOSHUA);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.LARCH);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.MAHOGANY);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.MAPLE);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.OLIVE);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.PALO_VERDE);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.REDWOOD);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.SAXAUL);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.SUGI);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.NS_WILLOW);
-//        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.WISTERIA);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.ASPEN);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.CEDAR);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.COCONUT);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.CYPRESS);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.FIR);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.GHAF);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.JOSHUA);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.LARCH);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.MAHOGANY);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.MAPLE);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.OLIVE);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.PALO_VERDE);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.REDWOOD);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.SAXAUL);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.SUGI);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.WILLOW);
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.WISTERIA);
+
+        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ArtsAndCraftsBlocks.CORK);
         blockStateModelGenerator.registerSimpleCubeAll(BFBlocks.PALM_CROWN);
 
     }

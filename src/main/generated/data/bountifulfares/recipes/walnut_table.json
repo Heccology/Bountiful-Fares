@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "0": {
+      "item": "bountifulfares:walnut_fence"
+    },
+    "_": {
+      "item": "bountifulfares:walnut_slab"
+    }
+  },
+  "pattern": [
+    "___",
+    "0 0",
+    "0 0"
+  ],
+  "result": {
+    "item": "twigs:walnut_table"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:sun_hat"
+    },
+    {
+      "item": "minecraft:pumpkin"
+    },
+    {
+      "item": "mint:grape_wool"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "item": "mint:grape_jack_o_straw"
+  }
+}

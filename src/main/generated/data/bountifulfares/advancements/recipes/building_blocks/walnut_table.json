@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "twigs:walnut_table"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_walnut_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "bountifulfares:walnut_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_walnut_planks",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "twigs:walnut_table"
+    ]
+  },
+  "sends_telemetry_event": false
+}

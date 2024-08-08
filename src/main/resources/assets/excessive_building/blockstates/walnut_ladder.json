@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "excessive_building:block/walnut_ladder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "excessive_building:block/walnut_ladder"
+    },
+    "facing=south": {
+      "model": "excessive_building:block/walnut_ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "excessive_building:block/walnut_ladder",
+      "y": 270
+    }
+  }
+}

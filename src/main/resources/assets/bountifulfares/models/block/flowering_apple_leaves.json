@@ -1,6 +1,7 @@
 {
-	"parent": "block/cube_all",
+	"parent": "bountifulfares:block/leaves_with_overlay",
 	"textures": {
-		"all": "bountifulfares:block/flowering_apple_leaves"
+		"all": "bountifulfares:block/apple_leaves",
+		"overlay": "bountifulfares:block/flowering_apple_leaves"
 	}
 }

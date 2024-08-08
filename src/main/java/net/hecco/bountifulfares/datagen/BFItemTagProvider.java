@@ -8,8 +8,11 @@ import net.hecco.bountifulfares.util.BFItemTags;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
+
+import static net.hecco.bountifulfares.BountifulFares.*;
 
 public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
@@ -215,6 +218,91 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFItems.CANDIED_APPLE)
                 .add(BFItems.CANDIED_PLUM)
         ;
+        getOrCreateTagBuilder(BFItemTags.EATABLE_ON_DISH)
+                .addOptional(new Identifier(EXCESSIVE_BUILDING_MOD_ID, "ancient_fruit"));
+
+//        Mint
+        getOrCreateTagBuilder(BFItemTags.EATABLE_ON_DISH)
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "mint_sprig"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "mint_cookie"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "wintergreen_berries"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "winter_medley"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "wintergreen_candy_cane"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "peppermint_candy_cane"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "lavender_bread"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "peach"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "peach_slice"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "golden_peach"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "peach_cobbler"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "cooked_anemone"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "artichoke"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "artichoke_heart"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "artichoke_lamb"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "breakfast_porkchop"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "pineapple_slices"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "pineapple_tart"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "pineapple_kebab"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "strawberry"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "chocolate_strawberry"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "golden_strawberry"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "strawberry_shortcake"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "strawberry_cheesecake"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "angel_food_cake"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "cherries"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "cherry_pie"))
+            .addOptional(new Identifier(ELS_AND_LS_DYES_MOD_ID, "pokeberries"))
+        ;
+
+        //        Farmersdelight
+        getOrCreateTagBuilder(BFItemTags.EATABLE_ON_DISH)
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "cabbage"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "tomato"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "onion"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "fried_egg"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "pumpkin_slice"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "cabbage_leaf"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "minced_beef"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "beef_patty"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "chicken_cuts"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "cooked_chicken_cuts"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "bacon"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "cooked_bacon"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "cod_slice"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "cooked_cod_slice"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "salmon_slice"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "cooked_salmon_slice"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "mutton_chops"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "cooked_mutton_chops"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "ham"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "smoked_ham"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "pie_crust"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "apple_pie"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "sweet_berry_cheesecake_slice"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "chocolate_pie_slice"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "sweet_berry_cookie"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "honey_cookie"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "melon_popsicle"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "egg_sandwich"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "chicken_sandwich"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "hamburger"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "bacon_sandwich"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "mutton_wrap"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "dumplings"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "stuffed_potato"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "cabbage_rolls"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "salmon_roll"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "cod_roll"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "kelp_roll"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "kelp_roll_slice"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "wheat_dough"))
+                .addOptional(new Identifier(FARMERS_DELIGHT_MOD_ID, "raw_pasta"))
+        ;
+
+
+
+
+
+
         getOrCreateTagBuilder(BFItemTags.VINE_CROP_SEEDS)
                 .add(BFItems.PASSION_FRUIT)
                 .add(BFItems.ELDERBERRIES)

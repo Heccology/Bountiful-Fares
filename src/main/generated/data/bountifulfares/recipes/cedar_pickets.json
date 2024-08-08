@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "natures_spirit:cedar_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "#S#"
+  ],
+  "result": {
+    "count": 4,
+    "item": "natures_spirit:cedar_pickets"
+  },
+  "show_notification": true
+}

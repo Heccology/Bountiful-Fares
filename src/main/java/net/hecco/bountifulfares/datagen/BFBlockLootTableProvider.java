@@ -2,7 +2,16 @@ package net.hecco.bountifulfares.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
+import net.hecco.bountifulfares.compat.dye_depot.DyeDepotBlocks;
+import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
+import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks;
+import net.hecco.bountifulfares.compat.mint.MintBlocks;
+import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
+import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
@@ -31,9 +40,16 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.NumberRange;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.predicate.item.EnchantmentPredicate;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.Identifier;
+
+import java.util.ArrayList;
+
+import static net.hecco.bountifulfares.compat.BFCompat.compatBlocks;
 
 
 public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
+    public static final ArrayList<Block> usedBlocks = new ArrayList<>();
 
     public static final LootCondition.Builder WITH_FORTUNE = MatchToolLootCondition.builder(net.minecraft.predicate.item.ItemPredicate.Builder.create().enchantment(new EnchantmentPredicate(Enchantments.FORTUNE, NumberRange.IntRange.atLeast(1))));
     public static final float[] PRISMARINE_DROP_CHANCE = new float[]{0.0F, 0.12F, 0.15F, 0.2F};
@@ -44,58 +60,27 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
     }
 
     @Override
+    public void addDrop(Block block, LootTable.Builder lootTable) {
+        if(usedBlocks.contains(block)) {
+            return;
+        }
+        super.addDrop(block, lootTable);
+        usedBlocks.add(block);
+    }
+
+    @Override
     public void generate() {
-        addDrop(BFBlocks.APPLE_LOG);
-        addDrop(BFBlocks.APPLE_WOOD);
-        addDrop(BFBlocks.STRIPPED_APPLE_LOG);
-        addDrop(BFBlocks.STRIPPED_APPLE_WOOD);
         addDrop(BFBlocks.APPLE_LEAVES, leavesDrops(BFBlocks.APPLE_LEAVES, BFBlocks.APPLE_SAPLING, FRUIT_SAPLING_DROP_CHANCE));
         addDrop(BFBlocks.FLOWERING_APPLE_LEAVES, leavesDrops(BFBlocks.FLOWERING_APPLE_LEAVES, BFBlocks.APPLE_SAPLING, FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
-        addDrop(BFBlocks.APPLE_BLOCK);
-        addDrop(BFBlocks.APPLE_SAPLING);
-        addDrop(BFBlocks.ORANGE_LOG);
-        addDrop(BFBlocks.ORANGE_WOOD);
-        addDrop(BFBlocks.STRIPPED_ORANGE_LOG);
-        addDrop(BFBlocks.STRIPPED_ORANGE_WOOD);
         addDrop(BFBlocks.ORANGE_LEAVES, leavesDrops(BFBlocks.ORANGE_LEAVES, BFBlocks.ORANGE_SAPLING, FRUIT_SAPLING_DROP_CHANCE));
         addDrop(BFBlocks.FLOWERING_ORANGE_LEAVES, leavesDrops(BFBlocks.FLOWERING_ORANGE_LEAVES, BFBlocks.ORANGE_SAPLING, FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
-        addDrop(BFBlocks.ORANGE_BLOCK);
-        addDrop(BFBlocks.ORANGE_SAPLING);
-        addDrop(BFBlocks.LEMON_LOG);
-        addDrop(BFBlocks.LEMON_WOOD);
-        addDrop(BFBlocks.STRIPPED_LEMON_LOG);
-        addDrop(BFBlocks.STRIPPED_LEMON_WOOD);
         addDrop(BFBlocks.LEMON_LEAVES, leavesDrops(BFBlocks.LEMON_LEAVES, BFBlocks.LEMON_SAPLING, FRUIT_SAPLING_DROP_CHANCE));
         addDrop(BFBlocks.FLOWERING_LEMON_LEAVES, leavesDrops(BFBlocks.FLOWERING_LEMON_LEAVES, BFBlocks.LEMON_SAPLING, FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
-        addDrop(BFBlocks.LEMON_BLOCK);
-        addDrop(BFBlocks.LEMON_SAPLING);
-        addDrop(BFBlocks.PLUM_LOG);
-        addDrop(BFBlocks.PLUM_WOOD);
-        addDrop(BFBlocks.STRIPPED_PLUM_LOG);
-        addDrop(BFBlocks.STRIPPED_PLUM_WOOD);
         addDrop(BFBlocks.PLUM_LEAVES, leavesDrops(BFBlocks.PLUM_LEAVES, BFBlocks.PLUM_SAPLING, FRUIT_SAPLING_DROP_CHANCE));
         addDrop(BFBlocks.FLOWERING_PLUM_LEAVES, leavesDrops(BFBlocks.FLOWERING_PLUM_LEAVES, BFBlocks.PLUM_SAPLING, FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
-        addDrop(BFBlocks.PLUM_BLOCK);
-        addDrop(BFBlocks.PLUM_SAPLING);
         addDrop(BFBlocks.HOARY_APPLE_SAPLING_CROP, BFItems.HOARY_SEEDS);
-        addDrop(BFBlocks.HOARY_APPLE_SAPLING);
-        addDrop(BFBlocks.HOARY_LOG);
-        addDrop(BFBlocks.HOARY_WOOD);
-        addDrop(BFBlocks.STRIPPED_HOARY_LOG);
-        addDrop(BFBlocks.STRIPPED_HOARY_WOOD);
-        addDrop(BFBlocks.HOARY_PLANKS);
-        addDrop(BFBlocks.HOARY_STAIRS);
         addDrop(BFBlocks.HOARY_SLAB, slabDrops(BFBlocks.HOARY_SLAB));
-        addDrop(BFBlocks.HOARY_FENCE);
-        addDrop(BFBlocks.HOARY_FENCE_GATE);
         addDrop(BFBlocks.HOARY_DOOR, doorDrops(BFBlocks.HOARY_DOOR));
-        addDrop(BFBlocks.HOARY_TRAPDOOR);
-        addDrop(BFBlocks.HOARY_PRESSURE_PLATE);
-        addDrop(BFBlocks.HOARY_BUTTON);
-        addDrop(BFBlocks.HOARY_SIGN);
-        addDrop(BFBlocks.HOARY_WALL_SIGN);
-        addDrop(BFBlocks.HOARY_HANGING_SIGN);
-        addDrop(BFBlocks.HOARY_WALL_HANGING_SIGN);
         addDrop(BFBlocks.HOARY_LEAVES, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
@@ -105,43 +90,28 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .conditionally(WITH_SILK_TOUCH_OR_SHEARS)
                         .with(ItemEntry.builder(BFBlocks.HOARY_LEAVES))));
-        addDrop(BFBlocks.HOARY_APPLE_BLOCK);
-        addDrop(BFBlocks.GOLDEN_APPLE_BLOCK);
-        addDrop(BFBlocks.WALNUT_SAPLING);
-        addDrop(BFBlocks.WALNUT_LOG);
-        addDrop(BFBlocks.WALNUT_WOOD);
-        addDrop(BFBlocks.STRIPPED_WALNUT_LOG);
-        addDrop(BFBlocks.STRIPPED_WALNUT_WOOD);
-        addDrop(BFBlocks.WALNUT_PLANKS);
-        addDrop(BFBlocks.WALNUT_STAIRS);
         addDrop(BFBlocks.WALNUT_SLAB, slabDrops(BFBlocks.WALNUT_SLAB));
-        addDrop(BFBlocks.WALNUT_FENCE);
-        addDrop(BFBlocks.WALNUT_FENCE_GATE);
         addDrop(BFBlocks.WALNUT_DOOR, doorDrops(BFBlocks.WALNUT_DOOR));
-        addDrop(BFBlocks.WALNUT_TRAPDOOR);
-        addDrop(BFBlocks.WALNUT_PRESSURE_PLATE);
-        addDrop(BFBlocks.WALNUT_BUTTON);
-        addDrop(BFBlocks.WALNUT_SIGN);
-        addDrop(BFBlocks.WALNUT_WALL_SIGN);
-        addDrop(BFBlocks.WALNUT_HANGING_SIGN);
-        addDrop(BFBlocks.WALNUT_WALL_HANGING_SIGN);
         addDrop(BFBlocks.WALNUT_LEAVES, leavesDrops(BFBlocks.WALNUT_LEAVES, BFBlocks.WALNUT_SAPLING, SAPLING_DROP_CHANCE));
-//        picketsDrops(ModBlocks.ASPEN_PICKETS);
-//        picketsDrops(ModBlocks.CEDAR_PICKETS);
-//        picketsDrops(ModBlocks.COCONUT_PICKETS);
-//        picketsDrops(ModBlocks.CYPRESS_PICKETS);
-//        picketsDrops(ModBlocks.FIR_PICKETS);
-//        picketsDrops(ModBlocks.GHAF_PICKETS);
-//        picketsDrops(ModBlocks.JOSHUA_PICKETS);
-//        picketsDrops(ModBlocks.LARCH_PICKETS);
-//        picketsDrops(ModBlocks.MAHOGANY_PICKETS);
-//        picketsDrops(ModBlocks.MAPLE_PICKETS);
-//        picketsDrops(ModBlocks.PALO_VERDE_PICKETS);
-//        picketsDrops(ModBlocks.MAHOGANY_PICKETS);
-//        picketsDrops(ModBlocks.SAXAUL_PICKETS);
-//        picketsDrops(ModBlocks.SUGI_PICKETS);
-//        picketsDrops(ModBlocks.WILLOW_PICKETS);
-//        picketsDrops(ModBlocks.WISTERIA_PICKETS);
+
+        picketsDrops(NaturesSpiritBlocks.ASPEN_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.CEDAR_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.COCONUT_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.CYPRESS_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.FIR_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.GHAF_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.JOSHUA_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.LARCH_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.MAHOGANY_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.MAPLE_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.OLIVE_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.PALO_VERDE_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.REDWOOD_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.MAHOGANY_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.SAXAUL_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.SUGI_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.WILLOW_PICKETS);
+        picketsDrops(NaturesSpiritBlocks.WISTERIA_PICKETS);
 
         registerTrellisLootTables(BFTrellises.OAK);
         registerTrellisLootTables(BFTrellises.SPRUCE);
@@ -160,41 +130,29 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
 //        registerTrellisLootTables(BFTrellises.BAOBAB);
 //        registerTrellisLootTables(BFTrellises.WW_CYPRESS);
 //        registerTrellisLootTables(BFTrellises.PALM);
-//        registerTrellisLootTables(BFTrellises.ANCIENT);
-//        registerTrellisLootTables(BFTrellises.WINTERGREEN);
-//        registerTrellisLootTables(BFTrellises.ROTTEN);
+        registerTrellisLootTables(ExcessiveBuildingBlocks.ANCIENT);
+        registerTrellisLootTables(MintBlocks.WINTERGREEN);
+        registerTrellisLootTables(SpawnBlocks.ROTTEN);
+        registerTrellisLootTables(ArtsAndCraftsBlocks.CORK);
 
-//        registerTrellisLootTables(BFTrellises.ASPEN);
-//        registerTrellisLootTables(BFTrellises.CEDAR);
-//        registerTrellisLootTables(BFTrellises.COCONUT);
-//        registerTrellisLootTables(BFTrellises.CYPRESS);
-//        registerTrellisLootTables(BFTrellises.FIR);
-//        registerTrellisLootTables(BFTrellises.GHAF);
-//        registerTrellisLootTables(BFTrellises.JOSHUA);
-//        registerTrellisLootTables(BFTrellises.LARCH);
-//        registerTrellisLootTables(BFTrellises.MAHOGANY);
-//        registerTrellisLootTables(BFTrellises.MAPLE);
-//        registerTrellisLootTables(BFTrellises.OLIVE);
-//        registerTrellisLootTables(BFTrellises.PALO_VERDE);
-//        registerTrellisLootTables(BFTrellises.REDWOOD);
-//        registerTrellisLootTables(BFTrellises.SAXAUL);
-//        registerTrellisLootTables(BFTrellises.SUGI);
-//        registerTrellisLootTables(BFTrellises.NS_WILLOW);
-//        registerTrellisLootTables(BFTrellises.WISTERIA);
+        registerTrellisLootTables(NaturesSpiritBlocks.ASPEN);
+        registerTrellisLootTables(NaturesSpiritBlocks.CEDAR);
+        registerTrellisLootTables(NaturesSpiritBlocks.COCONUT);
+        registerTrellisLootTables(NaturesSpiritBlocks.CYPRESS);
+        registerTrellisLootTables(NaturesSpiritBlocks.FIR);
+        registerTrellisLootTables(NaturesSpiritBlocks.GHAF);
+        registerTrellisLootTables(NaturesSpiritBlocks.JOSHUA);
+        registerTrellisLootTables(NaturesSpiritBlocks.LARCH);
+        registerTrellisLootTables(NaturesSpiritBlocks.MAHOGANY);
+        registerTrellisLootTables(NaturesSpiritBlocks.MAPLE);
+        registerTrellisLootTables(NaturesSpiritBlocks.OLIVE);
+        registerTrellisLootTables(NaturesSpiritBlocks.PALO_VERDE);
+        registerTrellisLootTables(NaturesSpiritBlocks.REDWOOD);
+        registerTrellisLootTables(NaturesSpiritBlocks.SAXAUL);
+        registerTrellisLootTables(NaturesSpiritBlocks.SUGI);
+        registerTrellisLootTables(NaturesSpiritBlocks.WILLOW);
+        registerTrellisLootTables(NaturesSpiritBlocks.WISTERIA);
 
-
-//        addDrop(ModBlocks.TRELLIS);
-//        addDrop(ModBlocks.PASSION_FRUIT_TRELLIS, plantedTrellisDrops(ModBlocks.PASSION_FRUIT_TRELLIS, ModItems.PASSION_FRUIT));
-//        addDrop(ModBlocks.ELDERBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.ELDERBERRY_TRELLIS, ModItems.ELDERBERRIES));
-//        addDrop(ModBlocks.GLOW_BERRY_TRELLIS, plantedTrellisDrops(ModBlocks.GLOW_BERRY_TRELLIS, Items.GLOW_BERRIES));
-//        addDrop(ModBlocks.LAPISBERRY_TRELLIS, plantedTrellisDrops(ModBlocks.LAPISBERRY_TRELLIS, ModItems.LAPISBERRIES));
-//        addDrop(ModBlocks.ROSE_TRELLIS, plantedTrellisDrops(ModBlocks.ROSE_TRELLIS, Items.ROSE_BUSH));
-//        addDrop(ModBlocks.LILAC_TRELLIS, plantedTrellisDrops(ModBlocks.LILAC_TRELLIS, Items.LILAC));
-//        addDrop(ModBlocks.PEONY_TRELLIS, plantedTrellisDrops(ModBlocks.PEONY_TRELLIS, Items.PEONY));
-//        addDrop(ModBlocks.SUNFLOWER_TRELLIS, plantedTrellisDrops(ModBlocks.SUNFLOWER_TRELLIS, Items.SUNFLOWER));
-//        addDrop(ModBlocks.VINE_TRELLIS, plantedTrellisDrops(ModBlocks.VINE_TRELLIS, Items.VINE));
-//        addDrop(ModBlocks.WEEPING_TRELLIS, plantedTrellisDrops(ModBlocks.WEEPING_TRELLIS, Items.WEEPING_VINES));
-//        addDrop(ModBlocks.TWISTING_TRELLIS, plantedTrellisDrops(ModBlocks.TWISTING_TRELLIS, Items.TWISTING_VINES));
         addDrop(BFBlocks.WILD_WHEAT, WildCropDrops(Items.WHEAT_SEEDS, BFBlocks.WILD_WHEAT));
         addDrop(BFBlocks.WILD_CARROTS, WildCropDrops(Items.CARROT, BFBlocks.WILD_CARROTS));
         addDrop(BFBlocks.WILD_POTATOES, WildCropDrops(Items.POTATO, BFBlocks.WILD_POTATOES));
@@ -218,18 +176,8 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.MAIZE_CROP)
                                 .properties(StatePredicate.Builder.create().exactMatch(MaizeCropBlock.AGE, 7)))
                         .with(this.applyExplosionDecay(BFBlocks.MAIZE_CROP, ItemEntry.builder(BFItems.MAIZE)))));
-        addDrop(BFBlocks.FELDSPAR_BLOCK);
-        addDrop(BFBlocks.CUT_FELDSPAR_BLOCK);
-        addDrop(BFBlocks.FELDSPAR_BRICKS);
-        addDrop(BFBlocks.FELDSPAR_BRICK_STAIRS);
         addDrop(BFBlocks.FELDSPAR_BRICK_SLAB, slabDrops(BFBlocks.FELDSPAR_BRICK_SLAB));
-        addDrop(BFBlocks.FELDSPAR_LANTERN);
         addDrop(BFBlocks.TINGED_GLASS, dropsWithSilkTouch(BFBlocks.TINGED_GLASS));
-        addDrop(BFBlocks.CERAMIC_CLAY_BLOCK);
-        addDrop(BFBlocks.FERMENTATION_VESSEL);
-        addDrop(BFBlocks.GRISTMILL);
-        addDrop(BFBlocks.HONEYSUCKLE);
-        addDrop(BFBlocks.VIOLET_BELLFLOWER);
         addDrop(BFBlocks.SPONGEKIN_SPROUT, BFItems.SPONGEKIN_SEEDS);
         addDrop(BFBlocks.PRISMARINE_BLOSSOM, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(3.0F))
@@ -283,45 +231,44 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         jackOStrawDrops(BFBlocks.BLACK_JACK_O_STRAW);
         jackOStrawDrops(BFBlocks.BROWN_JACK_O_STRAW);
 
-//        jackOStrawDrops(ModBlocks.MAROON_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.ROSE_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.CORAL_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.GINGER_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.TAN_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.BEIGE_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.AMBER_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.OLIVE_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.FOREST_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.VERDANT_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.TEAL_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.MINT_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.AQUA_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.SLATE_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.NAVY_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.INDIGO_JACK_O_STRAW);
-//
-//        jackOStrawDrops(ModBlocks.ACORN_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.ARTICHOKE_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.AMBER_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.BANANA_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.CERULEAN_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.FUCHSIA_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.GRAPE_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.INDIGO_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.MAROON_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.MAUVE_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.MOLD_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.MINT_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.NAVY_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.PEACH_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.PERIWINKLE_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.SAGE_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.SAP_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.SHAMROCK_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.VELVET_JACK_O_STRAW);
-//        jackOStrawDrops(ModBlocks.VERMILION_JACK_O_STRAW);
-//
-//        picketsDrops(ModBlocks.WINTERGREEN_PICKETS);
+        jackOStrawDrops(DyeDepotBlocks.MAROON_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.ROSE_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.CORAL_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.GINGER_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.TAN_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.BEIGE_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.AMBER_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.OLIVE_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.FOREST_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.VERDANT_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.TEAL_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.MINT_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.AQUA_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.SLATE_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.NAVY_JACK_O_STRAW);
+        jackOStrawDrops(DyeDepotBlocks.INDIGO_JACK_O_STRAW);
+
+        jackOStrawDrops(MintBlocks.ACORN_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.ARTICHOKE_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.AMBER_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.BANANA_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.CERULEAN_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.FUCHSIA_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.GRAPE_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.INDIGO_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.MAROON_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.MAUVE_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.MOLD_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.MINT_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.NAVY_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.PEACH_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.PERIWINKLE_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.SAGE_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.SAP_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.SHAMROCK_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.VELVET_JACK_O_STRAW);
+        jackOStrawDrops(MintBlocks.VERMILION_JACK_O_STRAW);
+        picketsDrops(MintBlocks.WINTERGREEN_PICKETS);
 
         picketsDrops(BFBlocks.OAK_PICKETS);
         picketsDrops(BFBlocks.BIRCH_PICKETS);
@@ -336,8 +283,11 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         picketsDrops(BFBlocks.HOARY_PICKETS);
         picketsDrops(BFBlocks.CRIMSON_PICKETS);
         picketsDrops(BFBlocks.WARPED_PICKETS);
+        picketsDrops(ExcessiveBuildingBlocks.ANCIENT_PICKETS);
+        picketsDrops(SpawnBlocks.ROTTEN_PICKETS);
+        picketsDrops(ArtsAndCraftsBlocks.CORK_PICKETS);
 
-        addDrop(BFBlocks.WALNUT_MULCH_BLOCK);
+
         addDrop(BFBlocks.WALNUT_MULCH, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.WALNUT_MULCH)
@@ -394,20 +344,6 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .with(this.applyExplosionDecay(BFBlocks.GRASSY_DIRT, ItemEntry.builder(BFBlocks.GRASSY_DIRT)))));
 
 
-        addDrop(BFBlocks.GREEN_TEA_CANDLE);
-        addDrop(BFBlocks.BLACK_TEA_CANDLE);
-        addDrop(BFBlocks.CHAMOMILE_CANDLE);
-        addDrop(BFBlocks.HONEYSUCKLE_CANDLE);
-        addDrop(BFBlocks.BELLFLOWER_CANDLE);
-        addDrop(BFBlocks.TORCHFLOWER_CANDLE);
-        addDrop(BFBlocks.WALNUT_CANDLE);
-
-        addDrop(BFBlocks.PALM_LOG);
-        addDrop(BFBlocks.PALM_WOOD);
-        addDrop(BFBlocks.STRIPPED_PALM_LOG);
-        addDrop(BFBlocks.STRIPPED_PALM_WOOD);
-        addDrop(BFBlocks.PALM_CROWN);
-        addDrop(BFBlocks.COCONUT_MULCH_BLOCK);
         addDrop(BFBlocks.COCONUT_MULCH, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.COCONUT_MULCH)
@@ -441,13 +377,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.COCONUT_MULCH)
                                 .properties(StatePredicate.Builder.create().exactMatch(MulchBlock.LAYERS, 8)))
                         .with(this.applyExplosionDecay(BFBlocks.COCONUT_MULCH, ItemEntry.builder(BFBlocks.COCONUT_MULCH)))));
-        addDrop(BFBlocks.PACKED_COCONUT_COIR);
-        addDrop(BFBlocks.COIR_CARPET);
-        addDrop(BFBlocks.COIR_BRICKS);
         addDrop(BFBlocks.COIR_BRICK_SLAB, slabDrops(BFBlocks.COIR_BRICK_SLAB));
-        addDrop(BFBlocks.COIR_BRICK_STAIRS);
-        addDrop(BFBlocks.COIR_BRICK_WALL);
-        addDrop(BFBlocks.COCONUT_CANDLE);
         addDrop(BFBlocks.PALM_FROND, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.PALM_FROND)
@@ -485,17 +415,85 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         addPottedPlantDrops(BFBlocks.POTTED_WALNUT_SAPLING);
         addPottedPlantDrops(BFBlocks.POTTED_VIOLET_BELLFLOWER);
         addPottedPlantDrops(BFBlocks.POTTED_PALM_FROND);
+        addDrop(BFBlocks.PALM_SAPLING, BFItems.COCONUT);
+
+
+        usedBlocks.add(BFBlocks.APPLE_PIE);
+        usedBlocks.add(BFBlocks.ARTISAN_BREAD);
+        usedBlocks.add(BFBlocks.ARTISAN_COOKIES);
+        usedBlocks.add(BFBlocks.CERAMIC_BUTTON);
+        usedBlocks.add(BFBlocks.CERAMIC_DISH);
+        usedBlocks.add(BFBlocks.CERAMIC_DOOR);
+        usedBlocks.add(BFBlocks.CERAMIC_LEVER);
+        usedBlocks.add(BFBlocks.CERAMIC_MOSAIC);
+        usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_SLAB);
+        usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_STAIRS);
+        usedBlocks.add(BFBlocks.CERAMIC_PRESSURE_PLATE);
+        usedBlocks.add(BFBlocks.CERAMIC_TILE_PILLAR);
+        usedBlocks.add(BFBlocks.CERAMIC_TILE_SLAB);
+        usedBlocks.add(BFBlocks.CERAMIC_TILE_STAIRS);
+        usedBlocks.add(BFBlocks.CERAMIC_TILES);
+        usedBlocks.add(BFBlocks.CERAMIC_TRAPDOOR);
+        usedBlocks.add(BFBlocks.CHAMOMILE_FLOWERS);
+        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC);
+        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB);
+        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS);
+        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB);
+        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
+        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILES);
+        usedBlocks.add(BFBlocks.COCONUT_CAKE);
+        usedBlocks.add(BFBlocks.COCONUT);
+        usedBlocks.add(BFBlocks.COCOA_CAKE);
+        usedBlocks.add(BFBlocks.CRACKED_CERAMIC_TILES);
+        usedBlocks.add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES);
+        usedBlocks.add(BFBlocks.ELDERBERRY_TART);
+        usedBlocks.add(BFBlocks.GLOW_BERRY_TART);
+        usedBlocks.add(BFBlocks.HANGING_WALNUTS);
+        usedBlocks.add(BFBlocks.HOARY_PIE);
+        usedBlocks.add(BFBlocks.LAPISBERRY_TART);
+        usedBlocks.add(BFBlocks.LEMON_PIE);
+        usedBlocks.add(BFBlocks.ORANGE_PIE);
+        usedBlocks.add(BFBlocks.PASSION_FRUIT_TART);
+        usedBlocks.add(BFBlocks.PLUM_PIE);
+        usedBlocks.add(BFBlocks.SWEET_BERRY_TART);
+        usedBlocks.add(BFBlocks.TEA_SHRUB);
+        usedBlocks.add(BFBlocks.SPONGEKIN);
+
+
+
+
+
+
+        addDrop(FarmersDelightBlocks.WALNUT_CABINET);
+        addDrop(FarmersDelightBlocks.HOARY_CABINET);
+
+        addDrop(ExcessiveBuildingBlocks.HOARY_MOSAIC_SLAB, slabDrops(ExcessiveBuildingBlocks.HOARY_MOSAIC_SLAB));
+        addDrop(ExcessiveBuildingBlocks.WALNUT_MOSAIC_SLAB, slabDrops(ExcessiveBuildingBlocks.WALNUT_MOSAIC_SLAB));
+        picketsDrops(ExcessiveBuildingBlocks.ANCIENT_PICKETS);
+
+
+        for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
+            Block block = Registries.BLOCK.get(id);
+            if(usedBlocks.contains(block)) { continue; }
+            this.addDrop(block);
+        }
+
+        for(Identifier id : BountifulFaresUtil.allCompatBlockIds()) {
+            Block block = Registries.BLOCK.get(id);
+            if(usedBlocks.contains(block) || !compatBlocks.contains(block)) { continue; }
+            this.addDrop(block);
+        }
     }
 
     public void registerTrellisLootTables(TrellisVariant trellis) {
-        addDrop(TrellisUtil.getTrellisFromVariant(trellis));
+        this.addDrop(TrellisUtil.getTrellisFromVariant(trellis));
         for (VineCrop crop : TrellisUtil.VineCrops) {
-            addDrop(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootTable.builder()
+            this.addDrop(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootTable.builder()
                     .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                             .with(this.applyExplosionDecay(TrellisUtil.getCropTrellisFromVariant(trellis, crop), ItemEntry.builder(TrellisUtil.getTrellisFromVariant(trellis))))));
         }
         for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
-            addDrop(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootTable.builder()
+            this.addDrop(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootTable.builder()
                     .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                             .with(this.applyExplosionDecay(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), ItemEntry.builder(TrellisUtil.getTrellisFromVariant(trellis))))));
         }
@@ -512,7 +510,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
     }
 
     public void hangingFruitDrops(Block block, Item drop) {
-        addDrop(block, LootTable.builder()
+        this.addDrop(block, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(BlockStatePropertyLootCondition.builder(block)
                                 .properties(StatePredicate.Builder.create().exactMatch(HangingFruitBlock.AGE, 4)))
@@ -522,7 +520,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
 
 
     public void fruitBlockDrops(Block block, Item fruitItem) {
-        addDrop(block, LootTable.builder()
+        this.addDrop(block, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(block)
                                 .properties(StatePredicate.Builder.create().exactMatch(FruitBlock.SLICES, 0)))
@@ -542,10 +540,11 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .conditionally(BlockStatePropertyLootCondition.builder(block)
                                 .properties(StatePredicate.Builder.create().exactMatch(FruitBlock.SLICES, 3)))
                         .with(this.applyExplosionDecay(block, ItemEntry.builder(fruitItem)))));
+        usedBlocks.add(block);
     }
 
     public void picketsDrops(Block block) {
-        addDrop(block, LootTable.builder()
+        this.addDrop(block, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
                         .conditionally(BlockStatePropertyLootCondition.builder(block)
                                 .properties(StatePredicate.Builder.create().exactMatch(PicketsBlock.NORTH, true)))
@@ -565,6 +564,6 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
     }
 
     public void jackOStrawDrops(Block block) {
-        addDrop(block, this.dropsWithProperty(block, JackOStrawBlock.HALF, DoubleBlockHalf.LOWER));
+        this.addDrop(block, this.dropsWithProperty(block, JackOStrawBlock.HALF, DoubleBlockHalf.LOWER));
     }
 }

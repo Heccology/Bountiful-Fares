@@ -8,6 +8,7 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 public class BFBlockTags {
+    public static final TagKey<Block> IGNORE_PARTICLE_TINT = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "ignore_particle_tint"));
     public static final TagKey<Block> INFUSED_CANDLES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "infused_candles"));
     public static final TagKey<Block> APPLE_LEAVES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "apple_leaves"));
     public static final TagKey<Block> ORANGE_LEAVES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "orange_leaves"));
@@ -30,7 +31,5 @@ public class BFBlockTags {
     public static final TagKey<Block> PALM_SAPLINGS_PLANTABLE_ON = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "palm_saplings_plantable_on"));
     public static final TagKey<Block> BREAKS_COCONUT = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.MOD_ID, "breaks_coconut"));
     public static final TagKey<PaintingVariant> PAINTINGS = TagKey.of(RegistryKeys.PAINTING_VARIANT, new Identifier(BountifulFares.MOD_ID, "bf_paintings"));
-
-    public static final TagKey<Block> TABLES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.TWIGS_MOD_ID, "tables"));
 
 }

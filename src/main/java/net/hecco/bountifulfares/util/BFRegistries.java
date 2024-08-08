@@ -1,9 +1,11 @@
 package net.hecco.bountifulfares.util;
 
 import net.fabricmc.fabric.api.registry.FuelRegistry;
-import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.compat.dye_depot.DyeDepotBlocks;
+import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
+import net.hecco.bountifulfares.compat.mint.MintBlocks;
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
@@ -91,62 +93,56 @@ public class BFRegistries {
         registry.add(BFBlocks.COIR_BRICK_SLAB, 400);
         registry.add(BFBlocks.COIR_BRICK_STAIRS, 400);
         registry.add(BFBlocks.COIR_BRICK_WALL, 400);
-        if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
-            registry.add(BFBlocks.ACORN_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.AMBER_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.ARTICHOKE_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.BANANA_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.CERULEAN_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.FUCHSIA_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.GRAPE_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.INDIGO_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.MAROON_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.MAUVE_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.MINT_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.MOLD_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.NAVY_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.PEACH_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.PERIWINKLE_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.SAGE_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.SAP_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.SHAMROCK_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.VELVET_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.VERMILION_JACK_O_STRAW, 400);
-        }
-        if (BountifulFares.isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
-            registry.add(BFBlocks.MAROON_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.ROSE_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.CORAL_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.GINGER_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.TAN_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.BEIGE_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.AMBER_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.OLIVE_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.FOREST_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.VERDANT_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.TEAL_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.MINT_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.AQUA_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.SLATE_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.NAVY_JACK_O_STRAW, 400);
-            registry.add(BFBlocks.INDIGO_JACK_O_STRAW, 400);
-        }
-        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-            registry.add(BFBlocks.WALNUT_VERTICAL_STAIRS, 300);
-            registry.add(BFBlocks.CHISELED_WALNUT_PLANKS, 300);
-            registry.add(BFBlocks.WALNUT_MOSAIC, 300);
-            registry.add(BFBlocks.WALNUT_MOSAIC_SLAB, 300);
-            registry.add(BFBlocks.WALNUT_MOSAIC_STAIRS, 300);
-            registry.add(BFBlocks.WALNUT_MOSAIC_VERTICAL_STAIRS, 300);
-            registry.add(BFBlocks.WALNUT_LADDER, 300);
-            registry.add(BFBlocks.HOARY_VERTICAL_STAIRS, 300);
-            registry.add(BFBlocks.CHISELED_HOARY_PLANKS, 300);
-            registry.add(BFBlocks.HOARY_MOSAIC, 300);
-            registry.add(BFBlocks.HOARY_MOSAIC_SLAB, 300);
-            registry.add(BFBlocks.HOARY_MOSAIC_STAIRS, 300);
-            registry.add(BFBlocks.HOARY_MOSAIC_VERTICAL_STAIRS, 300);
-            registry.add(BFBlocks.HOARY_LADDER, 300);
-        }
+            registry.add(MintBlocks.ACORN_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.AMBER_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.ARTICHOKE_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.BANANA_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.CERULEAN_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.FUCHSIA_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.GRAPE_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.INDIGO_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.MAROON_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.MAUVE_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.MINT_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.MOLD_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.NAVY_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.PEACH_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.PERIWINKLE_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.SAGE_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.SAP_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.SHAMROCK_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.VELVET_JACK_O_STRAW, 400);
+            registry.add(MintBlocks.VERMILION_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.MAROON_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.ROSE_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.CORAL_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.GINGER_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.TAN_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.BEIGE_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.AMBER_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.OLIVE_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.FOREST_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.VERDANT_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.TEAL_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.MINT_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.AQUA_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.SLATE_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.NAVY_JACK_O_STRAW, 400);
+            registry.add(DyeDepotBlocks.INDIGO_JACK_O_STRAW, 400);
+            registry.add(ExcessiveBuildingBlocks.WALNUT_VERTICAL_STAIRS, 300);
+            registry.add(ExcessiveBuildingBlocks.CHISELED_WALNUT_PLANKS, 300);
+            registry.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC, 300);
+            registry.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC_SLAB, 300);
+            registry.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC_STAIRS, 300);
+            registry.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC_VERTICAL_STAIRS, 300);
+            registry.add(ExcessiveBuildingBlocks.WALNUT_LADDER, 300);
+            registry.add(ExcessiveBuildingBlocks.HOARY_VERTICAL_STAIRS, 300);
+            registry.add(ExcessiveBuildingBlocks.CHISELED_HOARY_PLANKS, 300);
+            registry.add(ExcessiveBuildingBlocks.HOARY_MOSAIC, 300);
+            registry.add(ExcessiveBuildingBlocks.HOARY_MOSAIC_SLAB, 300);
+            registry.add(ExcessiveBuildingBlocks.HOARY_MOSAIC_STAIRS, 300);
+            registry.add(ExcessiveBuildingBlocks.HOARY_MOSAIC_VERTICAL_STAIRS, 300);
+            registry.add(ExcessiveBuildingBlocks.HOARY_LADDER, 300);
 
         }
 
@@ -159,8 +155,8 @@ public class BFRegistries {
         registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS);
         registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB);
         if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-            registerCheckeredCeramic(BFBlocks.CERAMIC_TILE_VERTICAL_STAIRS, BFBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS);
-            registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS);
+            registerCheckeredCeramic(ExcessiveBuildingBlocks.CERAMIC_TILE_VERTICAL_STAIRS, ExcessiveBuildingBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS);
+            registerCheckeredCeramic(ExcessiveBuildingBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS, ExcessiveBuildingBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS);
         }
     }
 

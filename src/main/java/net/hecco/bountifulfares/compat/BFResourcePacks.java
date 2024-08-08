@@ -54,65 +54,65 @@ public class BFResourcePacks {
                 registerBuiltinResourcePack(modContainer.get(), BountifulFares.AMENDMENTS_MOD_ID);
                 registerBuiltinDataPack(modContainer.get(), BountifulFares.AMENDMENTS_MOD_ID);
             }
-            if (BountifulFares.isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
-                if (BountifulFares.CONFIG.isRenameItemsToMatchDyes()) {
-                    registerBuiltinResourcePack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID, "rename");
-                } else {
-                    registerBuiltinResourcePack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID);
-                }
-                boolean amber = BountifulFares.CONFIG.isHoneysuckleToAmberDye();
-                boolean beige = BountifulFares.CONFIG.isChamomileToBeigeDye();
-                if (amber && beige) {
-                    registerBuiltinDataPack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID, "htoa_ctob");
-                } else if (amber) {
-                    registerBuiltinDataPack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID, "htoa");
-                } else if (beige) {
-                    registerBuiltinDataPack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID, "ctob");
-                } else {
-                    registerBuiltinDataPack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID);
-                }
-            }
-            if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
-                registerBuiltinResourcePack(modContainer.get(), BountifulFares.ELS_AND_LS_DYES_MOD_ID);
-                if (BountifulFares.CONFIG.isHoneysuckleToBananaDye()) {
-                    registerBuiltinDataPack(modContainer.get(), BountifulFares.ELS_AND_LS_DYES_MOD_ID, "htob");
-                } else {
-                    registerBuiltinDataPack(modContainer.get(), BountifulFares.ELS_AND_LS_DYES_MOD_ID);
-
-                }
-            }
-            if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-                registerBuiltinResourcePack(modContainer.get(), BountifulFares.EXCESSIVE_BUILDING_MOD_ID);
-                registerBuiltinDataPack(modContainer.get(), BountifulFares.EXCESSIVE_BUILDING_MOD_ID);
-            }
-            if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
-                registerBuiltinResourcePack(modContainer.get(), BountifulFares.NATURES_SPIRIT_MOD_ID);
-                registerBuiltinDataPack(modContainer.get(), BountifulFares.NATURES_SPIRIT_MOD_ID);
-            }
-            if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
-                registerBuiltinResourcePack(modContainer.get(), BountifulFares.SPAWN_MOD_ID);
-                registerBuiltinDataPack(modContainer.get(), BountifulFares.SPAWN_MOD_ID);
-            }
-            if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID)) {
-                registerBuiltinResourcePack(modContainer.get(), BountifulFares.FARMERS_DELIGHT_MOD_ID);
-                registerBuiltinDataPack(modContainer.get(), BountifulFares.FARMERS_DELIGHT_MOD_ID);
-            }
-//            if (BountifulFares.isModLoaded(BountifulFares.DRAMATIC_DOORS_MOD_ID)) {
-//                registerBuiltinResourcePack(modContainer.get(), BountifulFares.DRAMATIC_DOORS_MOD_ID);
-////                registerBuiltinDataPack(modContainer.get(), BountifulFares.DRAMATIC_DOORS_MOD_ID);
+//            if (BountifulFares.isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID)) {
+//                if (BountifulFares.CONFIG.isRenameItemsToMatchDyes()) {
+//                    registerBuiltinResourcePack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID, "rename");
+//                } else {
+//                    registerBuiltinResourcePack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID);
+//                }
+//                boolean amber = BountifulFares.CONFIG.isHoneysuckleToAmberDye();
+//                boolean beige = BountifulFares.CONFIG.isChamomileToBeigeDye();
+//                if (amber && beige) {
+//                    registerBuiltinDataPack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID, "htoa_ctob");
+//                } else if (amber) {
+//                    registerBuiltinDataPack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID, "htoa");
+//                } else if (beige) {
+//                    registerBuiltinDataPack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID, "ctob");
+//                } else {
+//                    registerBuiltinDataPack(modContainer.get(), BountifulFares.DYE_DEPOT_MOD_ID);
+//                }
 //            }
-            if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
-                registerBuiltinResourcePack(modContainer.get(), BountifulFares.TWIGS_MOD_ID);
-                registerBuiltinDataPack(modContainer.get(), BountifulFares.TWIGS_MOD_ID);
-            }
-//            if (BountifulFares.isModLoaded(BountifulFares.WILDER_WILD_MOD_ID)) {
-//                registerBuiltinResourcePack(modContainer.get(), BountifulFares.WILDER_WILD_MOD_ID);
-////                registerBuiltinDataPack(modContainer.get(), BountifulFares.WILDER_WILD_MOD_ID);
+//            if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+//                registerBuiltinResourcePack(modContainer.get(), BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//                if (BountifulFares.CONFIG.isHoneysuckleToBananaDye()) {
+//                    registerBuiltinDataPack(modContainer.get(), BountifulFares.ELS_AND_LS_DYES_MOD_ID, "htob");
+//                } else {
+//                    registerBuiltinDataPack(modContainer.get(), BountifulFares.ELS_AND_LS_DYES_MOD_ID);
+//
+//                }
 //            }
-            if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
-                registerBuiltinResourcePack(modContainer.get(), BountifulFares.ARTS_AND_CRAFTS_MOD_ID);
-//                registerBuiltinDataPack(modContainer.get(), BountifulFares.ARTS_AND_CRAFTS_MOD_ID);
-            }
+//            if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
+//                registerBuiltinResourcePack(modContainer.get(), BountifulFares.EXCESSIVE_BUILDING_MOD_ID);
+//                registerBuiltinDataPack(modContainer.get(), BountifulFares.EXCESSIVE_BUILDING_MOD_ID);
+//            }
+//            if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+//                registerBuiltinResourcePack(modContainer.get(), BountifulFares.NATURES_SPIRIT_MOD_ID);
+//                registerBuiltinDataPack(modContainer.get(), BountifulFares.NATURES_SPIRIT_MOD_ID);
+//            }
+//            if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
+//                registerBuiltinResourcePack(modContainer.get(), BountifulFares.SPAWN_MOD_ID);
+//                registerBuiltinDataPack(modContainer.get(), BountifulFares.SPAWN_MOD_ID);
+//            }
+//            if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID)) {
+//                registerBuiltinResourcePack(modContainer.get(), BountifulFares.FARMERS_DELIGHT_MOD_ID);
+//                registerBuiltinDataPack(modContainer.get(), BountifulFares.FARMERS_DELIGHT_MOD_ID);
+//            }
+////            if (BountifulFares.isModLoaded(BountifulFares.DRAMATIC_DOORS_MOD_ID)) {
+////                registerBuiltinResourcePack(modContainer.get(), BountifulFares.DRAMATIC_DOORS_MOD_ID);
+//////                registerBuiltinDataPack(modContainer.get(), BountifulFares.DRAMATIC_DOORS_MOD_ID);
+////            }
+//            if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
+//                registerBuiltinResourcePack(modContainer.get(), BountifulFares.TWIGS_MOD_ID);
+//                registerBuiltinDataPack(modContainer.get(), BountifulFares.TWIGS_MOD_ID);
+//            }
+////            if (BountifulFares.isModLoaded(BountifulFares.WILDER_WILD_MOD_ID)) {
+////                registerBuiltinResourcePack(modContainer.get(), BountifulFares.WILDER_WILD_MOD_ID);
+//////                registerBuiltinDataPack(modContainer.get(), BountifulFares.WILDER_WILD_MOD_ID);
+////            }
+//            if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+//                registerBuiltinResourcePack(modContainer.get(), BountifulFares.ARTS_AND_CRAFTS_MOD_ID);
+////                registerBuiltinDataPack(modContainer.get(), BountifulFares.ARTS_AND_CRAFTS_MOD_ID);
+//            }
             ResourceManagerHelper.registerBuiltinResourcePack(
                     new Identifier(BountifulFares.MOD_ID, "vanilla_item_override"),
                     modContainer.get(),

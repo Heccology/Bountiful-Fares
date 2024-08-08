@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "bountifulfares:block/hoary_cabinet_front",
-    "side": "bountifulfares:block/hoary_cabinet_side",
-    "top": "bountifulfares:block/hoary_cabinet_top"
-  }
-}

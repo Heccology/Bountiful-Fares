@@ -9,6 +9,8 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 import static net.hecco.bountifulfares.block.BFBlocks.*;
+import static net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks.HOARY_CABINET;
+import static net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks.WALNUT_CABINET;
 
 public class BFBlockEntities {
     public static final BlockEntityType<DyeableCeramicBlockEntity> CERAMIC_TILES_BLOCK_ENTITY = Registry.register(
@@ -91,7 +93,7 @@ public class BFBlockEntities {
             CABINET_BLOCK_ENTITY = Registry.register(
                     Registries.BLOCK_ENTITY_TYPE,
                     new Identifier(BountifulFares.MOD_ID, "cabinet_block_entity"),
-                    FabricBlockEntityTypeBuilder.create(CabinetBlockEntity::new, WALNUT_CABINET).build()
+                    FabricBlockEntityTypeBuilder.create(CabinetBlockEntity::new, WALNUT_CABINET, HOARY_CABINET).build()
             );
         }
     }

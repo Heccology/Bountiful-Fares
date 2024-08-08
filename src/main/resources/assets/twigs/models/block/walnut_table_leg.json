@@ -1,0 +1,9 @@
+{
+  "parent": "twigs:block/template_table_leg",
+  "textures": {
+    "side": "twigs:block/walnut_table",
+    "bottom": "twigs:block/walnut_table_bottom",
+    "top": "twigs:block/walnut_table_top",
+    "particle": "bountifulfares:block/walnut_planks"
+  }
+}

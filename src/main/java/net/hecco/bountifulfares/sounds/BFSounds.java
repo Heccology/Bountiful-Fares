@@ -71,19 +71,11 @@ public class BFSounds {
     public static final BlockSoundGroup SPONGEKIN = new BlockSoundGroup(1f, 1.1f, SPONGEKIN_BREAK, SPONGEKIN_STEP, SPONGEKIN_PLACE, SoundEvents.BLOCK_WOOD_HIT, SoundEvents.BLOCK_WOOD_FALL);
     public static final BlockSoundGroup COIR = new BlockSoundGroup(1f, 1f, COIR_BREAK, COIR_STEP, COIR_PLACE, COIR_HIT, COIR_FALL);
 
-//    BlockSoundGroup LAMP = register("lamp", 1.0F, 0.7F);
 
 
-    public static SoundEvent LAMP_PLACE = registerSoundEvent("lamp_place");
-    public static SoundEvent LAMP_BREAK = registerSoundEvent("lamp_break");
-    public static SoundEvent LAMP_HIT = registerSoundEvent("lamp_hit");
-    public static SoundEvent LAMP_STEP = registerSoundEvent("lamp_step");
-    public static SoundEvent LAMP_FALL = registerSoundEvent("lamp_fall");
-    public static SoundEvent LAMP_ON = registerSoundEvent("lamp_on");
-    public static SoundEvent LAMP_OFF = registerSoundEvent("lamp_off");
-    public static BlockSoundGroup LAMP = new BlockSoundGroup(1, 0.7f, LAMP_BREAK, LAMP_STEP, LAMP_PLACE, LAMP_HIT, LAMP_FALL);
 
-    private static SoundEvent registerSoundEvent(String name) {
+
+    public static SoundEvent registerSoundEvent(String name) {
         Identifier identifier = new Identifier(BountifulFares.MOD_ID, name);
         return Registry.register(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
     }

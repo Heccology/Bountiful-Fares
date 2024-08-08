@@ -1,9 +1,16 @@
 package net.hecco.bountifulfares.util;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.BFBlocks;
+import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
+import net.hecco.bountifulfares.compat.dye_depot.DyeDepotBlocks;
+import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
+import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks;
+import net.hecco.bountifulfares.compat.mint.MintBlocks;
+import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
+import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
+import net.hecco.bountifulfares.compat.twigs.TwigsBlocks;
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
@@ -81,13 +88,9 @@ public class BFItemGroups {
                         entries.add(BFBlocks.STRIPPED_HOARY_WOOD);
                         entries.add(BFBlocks.HOARY_PLANKS);
                         entries.add(BFBlocks.HOARY_STAIRS);
-                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-                            entries.add(BFBlocks.HOARY_VERTICAL_STAIRS);
-                        }
+                        entries.add(ExcessiveBuildingBlocks.HOARY_VERTICAL_STAIRS);
                         entries.add(BFBlocks.HOARY_SLAB);
-                        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
-                            entries.add(BFBlocks.HOARY_TABLE);
-                        }
+                        entries.add(TwigsBlocks.HOARY_TABLE);
                         entries.add(BFBlocks.HOARY_FENCE);
                         entries.add(BFBlocks.HOARY_FENCE_GATE);
                         entries.add(BFBlocks.HOARY_DOOR);
@@ -98,14 +101,13 @@ public class BFItemGroups {
                         entries.add(BFItems.HOARY_HANGING_SIGN);
                         entries.add(BFItems.HOARY_BOAT);
                         entries.add(BFItems.HOARY_CHEST_BOAT);
-                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-                            entries.add(BFBlocks.CHISELED_HOARY_PLANKS);
-                            entries.add(BFBlocks.HOARY_MOSAIC);
-                            entries.add(BFBlocks.HOARY_MOSAIC_STAIRS);
-                            entries.add(BFBlocks.HOARY_MOSAIC_VERTICAL_STAIRS);
-                            entries.add(BFBlocks.HOARY_MOSAIC_SLAB);
-                            entries.add(BFBlocks.HOARY_LADDER);
-                        }
+                        entries.add(FarmersDelightBlocks.HOARY_CABINET);
+                        entries.add(ExcessiveBuildingBlocks.CHISELED_HOARY_PLANKS);
+                        entries.add(ExcessiveBuildingBlocks.HOARY_MOSAIC);
+                        entries.add(ExcessiveBuildingBlocks.HOARY_MOSAIC_STAIRS);
+                        entries.add(ExcessiveBuildingBlocks.HOARY_MOSAIC_VERTICAL_STAIRS);
+                        entries.add(ExcessiveBuildingBlocks.HOARY_MOSAIC_SLAB);
+                        entries.add(ExcessiveBuildingBlocks.HOARY_LADDER);
                         entries.add(BFBlocks.HOARY_LEAVES);
                         entries.add(BFItems.HOARY_APPLE);
                         entries.add(BFBlocks.HOARY_APPLE_BLOCK);
@@ -116,13 +118,9 @@ public class BFItemGroups {
                         entries.add(BFBlocks.STRIPPED_WALNUT_WOOD);
                         entries.add(BFBlocks.WALNUT_PLANKS);
                         entries.add(BFBlocks.WALNUT_STAIRS);
-                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-                            entries.add(BFBlocks.WALNUT_VERTICAL_STAIRS);
-                        }
+                        entries.add(ExcessiveBuildingBlocks.WALNUT_VERTICAL_STAIRS);
                         entries.add(BFBlocks.WALNUT_SLAB);
-                        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
-                            entries.add(BFBlocks.WALNUT_TABLE);
-                        }
+                        entries.add(TwigsBlocks.WALNUT_TABLE);
                         entries.add(BFBlocks.WALNUT_FENCE);
                         entries.add(BFBlocks.WALNUT_FENCE_GATE);
                         entries.add(BFBlocks.WALNUT_DOOR);
@@ -133,14 +131,13 @@ public class BFItemGroups {
                         entries.add(BFItems.WALNUT_HANGING_SIGN);
                         entries.add(BFItems.WALNUT_BOAT);
                         entries.add(BFItems.WALNUT_CHEST_BOAT);
-                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-                            entries.add(BFBlocks.CHISELED_WALNUT_PLANKS);
-                            entries.add(BFBlocks.WALNUT_MOSAIC);
-                            entries.add(BFBlocks.WALNUT_MOSAIC_STAIRS);
-                            entries.add(BFBlocks.WALNUT_MOSAIC_VERTICAL_STAIRS);
-                            entries.add(BFBlocks.WALNUT_MOSAIC_SLAB);
-                            entries.add(BFBlocks.WALNUT_LADDER);
-                        }
+                        entries.add(FarmersDelightBlocks.WALNUT_CABINET);
+                        entries.add(ExcessiveBuildingBlocks.CHISELED_WALNUT_PLANKS);
+                        entries.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC);
+                        entries.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC_STAIRS);
+                        entries.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC_VERTICAL_STAIRS);
+                        entries.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC_SLAB);
+                        entries.add(ExcessiveBuildingBlocks.WALNUT_LADDER);
                         entries.add(BFBlocks.WALNUT_LEAVES);
                         entries.add(BFItems.WALNUT);
                         entries.add(BFBlocks.WALNUT_MULCH);
@@ -173,37 +170,27 @@ public class BFItemGroups {
                         entries.add(BFBlocks.CHERRY_PICKETS);
                         entries.add(BFBlocks.BAMBOO_PICKETS);
                         entries.add(BFBlocks.WALNUT_PICKETS);
-                        if (mint) {
-                            entries.add(BFBlocks.WINTERGREEN_PICKETS);
-                        }
-                        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
-                            entries.add(BFBlocks.REDWOOD_PICKETS);
-                            entries.add(BFBlocks.SUGI_PICKETS);
-                            entries.add(BFBlocks.WISTERIA_PICKETS);
-                            entries.add(BFBlocks.FIR_PICKETS);
-                            entries.add(BFBlocks.WILLOW_PICKETS);
-                            entries.add(BFBlocks.ASPEN_PICKETS);
-                            entries.add(BFBlocks.MAPLE_PICKETS);
-                            entries.add(BFBlocks.CYPRESS_PICKETS);
-                            entries.add(BFBlocks.OLIVE_PICKETS);
-                            entries.add(BFBlocks.JOSHUA_PICKETS);
-                            entries.add(BFBlocks.GHAF_PICKETS);
-                            entries.add(BFBlocks.PALO_VERDE_PICKETS);
-                            entries.add(BFBlocks.COCONUT_PICKETS);
-                            entries.add(BFBlocks.CEDAR_PICKETS);
-                            entries.add(BFBlocks.LARCH_PICKETS);
-                            entries.add(BFBlocks.MAHOGANY_PICKETS);
-                            entries.add(BFBlocks.SAXAUL_PICKETS);
-                        }
-                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-                            entries.add(BFBlocks.ANCIENT_PICKETS);
-                        }
-                        if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
-                            entries.add(BFBlocks.ROTTEN_PICKETS);
-                        }
-                        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
-                            entries.add(BFBlocks.CORK_PICKETS);
-                        }
+                        entries.add(MintBlocks.WINTERGREEN_PICKETS);
+                            entries.add(NaturesSpiritBlocks.REDWOOD_PICKETS);
+                            entries.add(NaturesSpiritBlocks.SUGI_PICKETS);
+                            entries.add(NaturesSpiritBlocks.WISTERIA_PICKETS);
+                            entries.add(NaturesSpiritBlocks.FIR_PICKETS);
+                            entries.add(NaturesSpiritBlocks.WILLOW_PICKETS);
+                            entries.add(NaturesSpiritBlocks.ASPEN_PICKETS);
+                            entries.add(NaturesSpiritBlocks.MAPLE_PICKETS);
+                            entries.add(NaturesSpiritBlocks.CYPRESS_PICKETS);
+                            entries.add(NaturesSpiritBlocks.OLIVE_PICKETS);
+                            entries.add(NaturesSpiritBlocks.JOSHUA_PICKETS);
+                            entries.add(NaturesSpiritBlocks.GHAF_PICKETS);
+                            entries.add(NaturesSpiritBlocks.PALO_VERDE_PICKETS);
+                            entries.add(NaturesSpiritBlocks.COCONUT_PICKETS);
+                            entries.add(NaturesSpiritBlocks.CEDAR_PICKETS);
+                            entries.add(NaturesSpiritBlocks.LARCH_PICKETS);
+                            entries.add(NaturesSpiritBlocks.MAHOGANY_PICKETS);
+                            entries.add(NaturesSpiritBlocks.SAXAUL_PICKETS);
+                        entries.add(ExcessiveBuildingBlocks.ANCIENT_PICKETS);
+                        entries.add(SpawnBlocks.ROTTEN_PICKETS);
+                        entries.add(ArtsAndCraftsBlocks.CORK_PICKETS);
                         entries.add(BFBlocks.HOARY_PICKETS);
                         entries.add(BFBlocks.CRIMSON_PICKETS);
                         entries.add(BFBlocks.WARPED_PICKETS);
@@ -212,31 +199,23 @@ public class BFItemGroups {
                         entries.add(BFBlocks.CUT_FELDSPAR_BLOCK);
                         entries.add(BFBlocks.FELDSPAR_BRICKS);
                         entries.add(BFBlocks.FELDSPAR_BRICK_STAIRS);
-                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-                            entries.add(BFBlocks.FELDSPAR_BRICK_VERTICAL_STAIRS);
-                        }
+                        entries.add(ExcessiveBuildingBlocks.FELDSPAR_BRICK_VERTICAL_STAIRS);
                         entries.add(BFBlocks.FELDSPAR_BRICK_SLAB);
                         entries.add(BFBlocks.FELDSPAR_LANTERN);
-                        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID)) {
-                            entries.add(BFBlocks.FELDSPAR_LAMP);
-                        }
+                        entries.add(TwigsBlocks.FELDSPAR_LAMP);
                         entries.add(BFBlocks.TINGED_GLASS);
                         entries.add(BFItems.CERAMIC_CLAY);
                         entries.add(BFBlocks.CERAMIC_CLAY_BLOCK);
                         entries.add(BFItems.CERAMIC_TILE);
                         entries.add(BFBlocks.CERAMIC_TILES);
                         entries.add(BFBlocks.CERAMIC_TILE_STAIRS);
-                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-                            entries.add(BFBlocks.CERAMIC_TILE_VERTICAL_STAIRS);
-                        }
+                        entries.add(ExcessiveBuildingBlocks.CERAMIC_TILE_VERTICAL_STAIRS);
                         entries.add(BFBlocks.CERAMIC_TILE_SLAB);
                         entries.add(BFBlocks.CRACKED_CERAMIC_TILES);
                         entries.add(BFBlocks.CERAMIC_TILE_PILLAR);
                         entries.add(BFBlocks.CERAMIC_MOSAIC);
                         entries.add(BFBlocks.CERAMIC_MOSAIC_STAIRS);
-                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-                            entries.add(BFBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS);
-                        }
+                        entries.add(ExcessiveBuildingBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS);
                         entries.add(BFBlocks.CERAMIC_MOSAIC_SLAB);
                         entries.add(BFBlocks.CERAMIC_DOOR);
                         entries.add(BFBlocks.CERAMIC_TRAPDOOR);
@@ -246,95 +225,59 @@ public class BFItemGroups {
                         entries.add(BFBlocks.CERAMIC_DISH);
                         entries.add(BFItems.ARTISAN_BRUSH);
                         entries.add(BFItems.SUN_HAT);
-                        if (mint && !dye_depot) {
-                            entries.add(BFBlocks.WHITE_JACK_O_STRAW);
-                            entries.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW);
-                            entries.add(BFBlocks.GRAY_JACK_O_STRAW);
-                            entries.add(BFBlocks.BLACK_JACK_O_STRAW);
-                            entries.add(BFBlocks.ACORN_JACK_O_STRAW);
-                            entries.add(BFBlocks.BROWN_JACK_O_STRAW);
-                            entries.add(BFBlocks.MAROON_JACK_O_STRAW);
-                            entries.add(BFBlocks.RED_JACK_O_STRAW);
-                            entries.add(BFBlocks.PEACH_JACK_O_STRAW);
-                            entries.add(BFBlocks.VERMILION_JACK_O_STRAW);
-                            entries.add(BFBlocks.ORANGE_JACK_O_STRAW);
-                            entries.add(BFBlocks.AMBER_JACK_O_STRAW);
-                            entries.add(BFBlocks.YELLOW_JACK_O_STRAW);
-                            entries.add(BFBlocks.BANANA_JACK_O_STRAW);
-                            entries.add(BFBlocks.ARTICHOKE_JACK_O_STRAW);
-                            entries.add(BFBlocks.MOLD_JACK_O_STRAW);
-                            entries.add(BFBlocks.LIME_JACK_O_STRAW);
-                            entries.add(BFBlocks.SAGE_JACK_O_STRAW);
-                            entries.add(BFBlocks.SAP_JACK_O_STRAW);
-                            entries.add(BFBlocks.GREEN_JACK_O_STRAW);
-                            entries.add(BFBlocks.SHAMROCK_JACK_O_STRAW);
-                            entries.add(BFBlocks.MINT_JACK_O_STRAW);
-                            entries.add(BFBlocks.CYAN_JACK_O_STRAW);
-                            entries.add(BFBlocks.CERULEAN_JACK_O_STRAW);
-                            entries.add(BFBlocks.LIGHT_BLUE_JACK_O_STRAW);
-                            entries.add(BFBlocks.NAVY_JACK_O_STRAW);
-                            entries.add(BFBlocks.BLUE_JACK_O_STRAW);
-                            entries.add(BFBlocks.PERIWINKLE_JACK_O_STRAW);
-                            entries.add(BFBlocks.GRAPE_JACK_O_STRAW);
-                            entries.add(BFBlocks.PURPLE_JACK_O_STRAW);
-                            entries.add(BFBlocks.INDIGO_JACK_O_STRAW);
-                            entries.add(BFBlocks.MAGENTA_JACK_O_STRAW);
-                            entries.add(BFBlocks.MAUVE_JACK_O_STRAW);
-                            entries.add(BFBlocks.VELVET_JACK_O_STRAW);
-                            entries.add(BFBlocks.FUCHSIA_JACK_O_STRAW);
-                            entries.add(BFBlocks.PINK_JACK_O_STRAW);
-                        }
-                        if (dye_depot && !mint) {
-                            entries.add(BFBlocks.WHITE_JACK_O_STRAW);
-                            entries.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW);
-                            entries.add(BFBlocks.GRAY_JACK_O_STRAW);
-                            entries.add(BFBlocks.BLACK_JACK_O_STRAW);
-                            entries.add(BFBlocks.MAROON_JACK_O_STRAW);
-                            entries.add(BFBlocks.ROSE_JACK_O_STRAW);
-                            entries.add(BFBlocks.RED_JACK_O_STRAW);
-                            entries.add(BFBlocks.CORAL_JACK_O_STRAW);
-                            entries.add(BFBlocks.GINGER_JACK_O_STRAW);
-                            entries.add(BFBlocks.ORANGE_JACK_O_STRAW);
-                            entries.add(BFBlocks.TAN_JACK_O_STRAW);
-                            entries.add(BFBlocks.BEIGE_JACK_O_STRAW);
-                            entries.add(BFBlocks.YELLOW_JACK_O_STRAW);
-                            entries.add(BFBlocks.AMBER_JACK_O_STRAW);
-                            entries.add(BFBlocks.OLIVE_JACK_O_STRAW);
-                            entries.add(BFBlocks.LIME_JACK_O_STRAW);
-                            entries.add(BFBlocks.FOREST_JACK_O_STRAW);
-                            entries.add(BFBlocks.GREEN_JACK_O_STRAW);
-                            entries.add(BFBlocks.VERDANT_JACK_O_STRAW);
-                            entries.add(BFBlocks.TEAL_JACK_O_STRAW);
-                            entries.add(BFBlocks.CYAN_JACK_O_STRAW);
-                            entries.add(BFBlocks.MINT_JACK_O_STRAW);
-                            entries.add(BFBlocks.AQUA_JACK_O_STRAW);
-                            entries.add(BFBlocks.LIGHT_BLUE_JACK_O_STRAW);
-                            entries.add(BFBlocks.BLUE_JACK_O_STRAW);
-                            entries.add(BFBlocks.SLATE_JACK_O_STRAW);
-                            entries.add(BFBlocks.NAVY_JACK_O_STRAW);
-                            entries.add(BFBlocks.INDIGO_JACK_O_STRAW);
-                            entries.add(BFBlocks.PURPLE_JACK_O_STRAW);
-                            entries.add(BFBlocks.MAGENTA_JACK_O_STRAW);
-                            entries.add(BFBlocks.PINK_JACK_O_STRAW);
-                        }
-                        if (!mint && !dye_depot){
-                            entries.add(BFBlocks.WHITE_JACK_O_STRAW);
-                            entries.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW);
-                            entries.add(BFBlocks.GRAY_JACK_O_STRAW);
-                            entries.add(BFBlocks.BLACK_JACK_O_STRAW);
-                            entries.add(BFBlocks.BROWN_JACK_O_STRAW);
-                            entries.add(BFBlocks.RED_JACK_O_STRAW);
-                            entries.add(BFBlocks.ORANGE_JACK_O_STRAW);
-                            entries.add(BFBlocks.YELLOW_JACK_O_STRAW);
-                            entries.add(BFBlocks.LIME_JACK_O_STRAW);
-                            entries.add(BFBlocks.GREEN_JACK_O_STRAW);
-                            entries.add(BFBlocks.CYAN_JACK_O_STRAW);
-                            entries.add(BFBlocks.LIGHT_BLUE_JACK_O_STRAW);
-                            entries.add(BFBlocks.BLUE_JACK_O_STRAW);
-                            entries.add(BFBlocks.PURPLE_JACK_O_STRAW);
-                            entries.add(BFBlocks.MAGENTA_JACK_O_STRAW);
-                            entries.add(BFBlocks.PINK_JACK_O_STRAW);
-                        }
+
+                        entries.add(BFBlocks.WHITE_JACK_O_STRAW);
+                        entries.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW);
+                        entries.add(BFBlocks.GRAY_JACK_O_STRAW);
+                        entries.add(BFBlocks.BLACK_JACK_O_STRAW);
+                        entries.add(MintBlocks.ACORN_JACK_O_STRAW);
+                        entries.add(BFBlocks.BROWN_JACK_O_STRAW);
+                        entries.add(MintBlocks.MAROON_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.MAROON_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.ROSE_JACK_O_STRAW);
+                        entries.add(BFBlocks.RED_JACK_O_STRAW);
+                        entries.add(MintBlocks.PEACH_JACK_O_STRAW);
+                        entries.add(MintBlocks.VERMILION_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.CORAL_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.GINGER_JACK_O_STRAW);
+                        entries.add(BFBlocks.ORANGE_JACK_O_STRAW);
+                        entries.add(MintBlocks.AMBER_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.TAN_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.BEIGE_JACK_O_STRAW);
+                        entries.add(BFBlocks.YELLOW_JACK_O_STRAW);
+                        entries.add(MintBlocks.BANANA_JACK_O_STRAW);
+                        entries.add(MintBlocks.ARTICHOKE_JACK_O_STRAW);
+                        entries.add(MintBlocks.MOLD_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.AMBER_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.OLIVE_JACK_O_STRAW);
+                        entries.add(BFBlocks.LIME_JACK_O_STRAW);
+                        entries.add(MintBlocks.SAGE_JACK_O_STRAW);
+                        entries.add(MintBlocks.SAP_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.FOREST_JACK_O_STRAW);
+                        entries.add(BFBlocks.GREEN_JACK_O_STRAW);
+                        entries.add(MintBlocks.SHAMROCK_JACK_O_STRAW);
+                        entries.add(MintBlocks.MINT_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.VERDANT_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.TEAL_JACK_O_STRAW);
+                        entries.add(BFBlocks.CYAN_JACK_O_STRAW);
+                        entries.add(MintBlocks.CERULEAN_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.MINT_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.AQUA_JACK_O_STRAW);
+                        entries.add(BFBlocks.LIGHT_BLUE_JACK_O_STRAW);
+                        entries.add(MintBlocks.NAVY_JACK_O_STRAW);
+                        entries.add(BFBlocks.BLUE_JACK_O_STRAW);
+                        entries.add(MintBlocks.PERIWINKLE_JACK_O_STRAW);
+                        entries.add(MintBlocks.GRAPE_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.SLATE_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.NAVY_JACK_O_STRAW);
+                        entries.add(DyeDepotBlocks.INDIGO_JACK_O_STRAW);
+                        entries.add(BFBlocks.PURPLE_JACK_O_STRAW);
+                        entries.add(MintBlocks.INDIGO_JACK_O_STRAW);
+                        entries.add(BFBlocks.MAGENTA_JACK_O_STRAW);
+                        entries.add(MintBlocks.MAUVE_JACK_O_STRAW);
+                        entries.add(MintBlocks.VELVET_JACK_O_STRAW);
+                        entries.add(MintBlocks.FUCHSIA_JACK_O_STRAW);
+                        entries.add(BFBlocks.PINK_JACK_O_STRAW);
                         entries.add(BFBlocks.GRASSY_DIRT);
                         entries.add(BFBlocks.WILD_WHEAT);
                         entries.add(BFBlocks.WILD_CARROTS);
@@ -359,37 +302,29 @@ public class BFItemGroups {
                                 }
                             }
                         }
-                        if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.WINTERGREEN));
-                        }
+                        entries.add(TrellisUtil.getTrellisFromVariant(MintBlocks.WINTERGREEN));
                         if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.REDWOOD));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.SUGI));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.WISTERIA));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.FIR));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.NS_WILLOW));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.ASPEN));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.MAPLE));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.CYPRESS));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.OLIVE));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.JOSHUA));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.GHAF));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.PALO_VERDE));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.COCONUT));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.CEDAR));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.LARCH));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.MAHOGANY));
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.SAXAUL));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.REDWOOD));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.SUGI));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.WISTERIA));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.FIR));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.WILLOW));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.ASPEN));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.MAPLE));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.CYPRESS));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.OLIVE));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.JOSHUA));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.GHAF));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.PALO_VERDE));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.COCONUT));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.CEDAR));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.LARCH));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.MAHOGANY));
+                            entries.add(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.SAXAUL));
                         }
-                        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.ANCIENT));
-                        }
-                        if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.ROTTEN));
-                        }
-                        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
-                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.CORK));
-                        }
+                        entries.add(TrellisUtil.getTrellisFromVariant(ExcessiveBuildingBlocks.ANCIENT));
+                        entries.add(TrellisUtil.getTrellisFromVariant(SpawnBlocks.ROTTEN));
+                        entries.add(TrellisUtil.getTrellisFromVariant(ArtsAndCraftsBlocks.CORK));
 //                        if (BountifulFares.isModLoaded(BountifulFares.WILDER_WILD_MOD_ID)) {
 //                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.BAOBAB));
 //                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.WW_CYPRESS));

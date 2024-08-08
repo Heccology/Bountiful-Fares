@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.entity.compat;
 
-import net.hecco.bountifulfares.block.custom.compat.CabinetBlock;
+import net.hecco.bountifulfares.compat.farmersdelight.CabinetBlock;
 import net.hecco.bountifulfares.block.entity.BFBlockEntities;
 import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.block.BlockState;
