@@ -23,9 +23,6 @@ public class StackableBowlFoodItem extends StewItem {
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
         }
-        if (stack.isEmpty()) {
-            return new ItemStack(Items.BOWL);
-        } else {
             if (user instanceof PlayerEntity && !((PlayerEntity)user).getAbilities().creativeMode) {
                 ItemStack itemStack = new ItemStack(Items.BOWL);
                 PlayerEntity playerEntity = (PlayerEntity)user;
@@ -35,6 +32,5 @@ public class StackableBowlFoodItem extends StewItem {
             }
 
             return stack;
-        }
     }
 }

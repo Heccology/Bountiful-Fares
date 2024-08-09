@@ -1,17 +1,20 @@
 package net.hecco.bountifulfares.effect;
 
+import com.mojang.serialization.Codec;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentRegistry;
+import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
+import net.hecco.bountifulfares.BountifulFares;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.util.Identifier;
 
 public class RestorationEffect extends StatusEffect {
     private float regenMax;
-    private float prevRegenMax;
     protected RestorationEffect(StatusEffectCategory category, int color) {
         super(category, color);
         this.regenMax = 0;
-        this.prevRegenMax = 0;
     }
 
     @Override
