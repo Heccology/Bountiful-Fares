@@ -153,8 +153,6 @@ public class BFModelProvider extends FabricModelProvider {
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, NaturesSpiritBlocks.WISTERIA);
 
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, ArtsAndCraftsBlocks.CORK);
-        blockStateModelGenerator.registerSimpleCubeAll(BFBlocks.PALM_CROWN);
-
     }
 
     @Override

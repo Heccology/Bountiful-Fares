@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "bountifulfares:block/palm_crown_top",
+    "side": "bountifulfares:block/palm_crown"
+  }
+}

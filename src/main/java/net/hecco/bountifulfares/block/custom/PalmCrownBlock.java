@@ -4,6 +4,7 @@ import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
+import net.minecraft.block.PillarBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.server.world.ServerWorld;
@@ -17,7 +18,7 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
-public class PalmCrownBlock extends Block {
+public class PalmCrownBlock extends PillarBlock {
     public PalmCrownBlock(Settings settings) {
         super(settings);
     }

@@ -161,6 +161,7 @@ public class BFRegistries {
         registry.add(BFBlockTags.ORANGE_LOGS, 10, 5);
         registry.add(BFBlockTags.LEMON_LOGS, 10, 5);
         registry.add(BFBlockTags.PLUM_LOGS, 10, 5);
+        registry.add(BFBlocks.PALM_CROWN, 10, 5);
         registry.add(BFBlockTags.PALM_LOGS, 10, 5);
         registry.add(BFBlockTags.HOARY_LOGS, 10, 5);
         registry.add(BFBlockTags.WALNUT_LOGS, 10, 5);
