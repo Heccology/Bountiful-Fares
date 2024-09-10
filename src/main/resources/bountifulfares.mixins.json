@@ -5,6 +5,9 @@
   "mixins": [
     "BrewingRecipeRegistryMixin",
     "ChickenEntityMixin",
+    "ItemRendererAccessor",
+    "ItemRendererMixin",
+    "ModelLoaderMixin",
     "WolfEntityMixin"
   ],
   "injectors": {
@@ -12,10 +15,10 @@
   },
   "client": [
     "BlockDustParticleMixin",
-//    "GuiMixin",
-//    "ItemRendererAccessor",
-//    "ItemRendererMixin",
-//    "ModelLoaderMixin",
+    //    "GuiMixin",
+    //    "ItemRendererAccessor",
+    //    "ItemRendererMixin",
+    //    "ModelLoaderMixin",
     "ParticleColorAccessor"
   ]
 }
