@@ -13,6 +13,8 @@ import net.hecco.bountifulfares.item.custom.AirTimeIncreasingItem;
 import net.hecco.bountifulfares.util.BFItemTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.passive.FoxEntity;
@@ -61,7 +63,7 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         if (CeramicDishBlockEntity.getColor(world, pos) != CeramicDishBlockEntity.DEFAULT_COLOR) {
             ItemStack stack = super.getPickStack(world, pos, state);
             return pickBlock(world,pos,stack);
@@ -81,13 +83,13 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack item = player.getStackInHand(hand);
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        ItemStack item = player.getStackInHand(player.getActiveHand());
         if (world.getBlockEntity(pos) instanceof CeramicDishBlockEntity blockEntity) {
-            ItemStack itemStack = player.getStackInHand(hand);
+            ItemStack itemStack = player.getStackInHand(player.getActiveHand());
             ItemStack stack = blockEntity.getStack(0);
-            if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
-                int brushColor = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY).getInt(ArtisanBrushItem.COLOR_KEY);
+            if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && itemStack.getComponents().contains(DataComponentTypes.DYED_COLOR)) {
+                int brushColor = itemStack.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
                 world.removeBlock(pos, false);
                 world.setBlockState(pos, this.getStateWithProperties(state));
                 blockEntity.insertItem(stack);
@@ -121,16 +123,16 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
                 return ActionResult.SUCCESS;
             } else if (!stack.isEmpty()) {
                 if (player.isSneaking() && item.isEmpty()) {
-                    player.setStackInHand(hand, stack);
+                    player.setStackInHand(player.getActiveHand(), stack);
                     blockEntity.removeItem();
                     blockEntity.markDirty();
                     return ActionResult.SUCCESS;
-                } else if (stack.isIn(BFItemTags.EATABLE_ON_DISH) && stack.isFood()) {
-                    boolean shouldIgnore = stack.getItem().getFoodComponent().isAlwaysEdible();
+                } else if (stack.isIn(BFItemTags.EATABLE_ON_DISH) && stack.getComponents().contains(DataComponentTypes.FOOD)) {
+                    boolean shouldIgnore = Objects.requireNonNull(stack.getComponents().get(DataComponentTypes.FOOD)).canAlwaysEat();
                     if (player.canConsume(shouldIgnore)) {
-                        int hunger = Objects.requireNonNull(stack.getItem().getFoodComponent()).getHunger();
-                        float sat = stack.getItem().getFoodComponent().getSaturationModifier();
-                        List<Pair<StatusEffectInstance, Float>> effects = stack.getItem().getFoodComponent().getStatusEffects();
+                        int hunger = Objects.requireNonNull(stack.getComponents().get(DataComponentTypes.FOOD)).nutrition();
+                        float sat = Objects.requireNonNull(stack.getComponents().get(DataComponentTypes.FOOD)).saturation();
+                        List<FoodComponent.StatusEffectEntry> effects = Objects.requireNonNull(stack.getComponents().get(DataComponentTypes.FOOD)).effects();
                         player.getHungerManager().add(hunger, sat);
                         world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 0.5f, 0.8f + world.random.nextFloat());
                         world.playSound(null, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.BLOCKS, 0.3f, 1.0f);
@@ -146,8 +148,8 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
                         if (stack.isOf(Items.CHORUS_FRUIT)) {
                             chorusTeleport(world, player);
                         }
-                        for (int i = 0; i < effects.size(); i++) {
-                            StatusEffectInstance effect = effects.get(i).getFirst();
+                        for (FoodComponent.StatusEffectEntry statusEffectEntry : effects) {
+                            StatusEffectInstance effect = statusEffectEntry.effect();
                             int length = effect.getDuration();
                             int amplifier = effect.getAmplifier();
                             StatusEffectInstance newEffect = new StatusEffectInstance(effect.getEffectType(), length, amplifier);

@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.world.tree.custom;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.block.custom.CoconutBlock;
@@ -24,8 +25,8 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 public class PalmTrunkPlacer extends TrunkPlacer {
-    public static final Codec<PalmTrunkPlacer> CODEC = RecordCodecBuilder.create(palmTrunkPlacerInstance ->
-            fillTrunkPlacerFields(palmTrunkPlacerInstance).apply(palmTrunkPlacerInstance, PalmTrunkPlacer::new));
+    public static final MapCodec<PalmTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec((instance) -> fillTrunkPlacerFields(instance).apply(instance, PalmTrunkPlacer::new));
+
     public PalmTrunkPlacer(int baseHeight, int firstRandomHeight, int secondRandomHeight) {
         super(baseHeight, firstRandomHeight, secondRandomHeight);
     }

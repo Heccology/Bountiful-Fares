@@ -15,7 +15,7 @@ public class StuporEffect extends StatusEffect {
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         List<StatusEffectInstance> effectsToRemove = new ArrayList<>();
 
         for (StatusEffectInstance effect : entity.getStatusEffects()) {
@@ -31,6 +31,7 @@ public class StuporEffect extends StatusEffect {
             entity.removeStatusEffect(effect.getEffectType());
         }
         super.applyUpdateEffect(entity, amplifier);
+        return true;
     }
 
     @Override

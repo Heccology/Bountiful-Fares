@@ -77,7 +77,7 @@ public class BFTrellises {
         if (BountifulFares.isDatagen()) {
             SPAWN_SUNFLOWER = new VineCrop(BountifulFares.SPAWN_MOD_ID, "spawn_sunflower", Items.WHEAT_SEEDS);
         } else if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
-            SPAWN_SUNFLOWER = new VineCrop(BountifulFares.SPAWN_MOD_ID, "spawn_sunflower", new Identifier(BountifulFares.SPAWN_MOD_ID, "sunflower_seeds"));
+            SPAWN_SUNFLOWER = new VineCrop(BountifulFares.SPAWN_MOD_ID, "spawn_sunflower", Identifier.of(BountifulFares.SPAWN_MOD_ID, "sunflower_seeds"));
 
         }
 //        Compat Decorative Vines
@@ -90,13 +90,13 @@ public class BFTrellises {
             NS_MARIGOLD = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_marigold", Items.POPPY);
             NS_FOXGLOVE = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_foxglove", Items.POPPY);
         } else if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
-            NS_LAVENDER = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_lavender", new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "lavender"));
-            NS_BLEEDING_HEART = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_bleeding_heart", new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "bleeding_heart"));
-            NS_BLUE_BULB = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_blue_bulb", new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "blue_bulbs"));
-            NS_CARNATION = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_carnation", new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "carnation"));
-            NS_GARDENIA = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_gardenia", new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "gardenia"));
-            NS_MARIGOLD = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_marigold", new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "marigold"));
-            NS_FOXGLOVE = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_foxglove", new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "foxglove"));
+            NS_LAVENDER = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_lavender", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "lavender"));
+            NS_BLEEDING_HEART = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_bleeding_heart", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "bleeding_heart"));
+            NS_BLUE_BULB = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_blue_bulb", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "blue_bulbs"));
+            NS_CARNATION = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_carnation", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "carnation"));
+            NS_GARDENIA = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_gardenia", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "gardenia"));
+            NS_MARIGOLD = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_marigold", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "marigold"));
+            NS_FOXGLOVE = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_foxglove", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "foxglove"));
         }
 
 

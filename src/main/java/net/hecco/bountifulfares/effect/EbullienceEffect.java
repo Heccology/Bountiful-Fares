@@ -11,11 +11,12 @@ public class EbullienceEffect extends StatusEffect {
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         super.applyUpdateEffect(entity, amplifier);
         if (entity instanceof PlayerEntity) {
             ((PlayerEntity) entity).getHungerManager().setExhaustion(0f);
         }
+        return true;
     }
 
     @Override

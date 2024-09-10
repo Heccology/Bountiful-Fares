@@ -16,9 +16,9 @@ public abstract class GrassSeedsDispenserBehavior extends ItemDispenserBehavior 
     }
 
     public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-        World world = pointer.getWorld();
+        World world = pointer.world();
         Position position = DispenserBlock.getOutputLocation(pointer);
-        Direction direction = pointer.getBlockState().get(DispenserBlock.FACING);
+        Direction direction = pointer.state().get(DispenserBlock.FACING);
         BlockPos pos = new BlockPos((int)position.getX(), (int)position.getY(), (int)position.getZ()).offset(direction);
         if (world.getBlockState(pos).isIn(BFBlockTags.GRASS_SEEDS_PLANTABLE_ON)) {
             world.setBlockState(pos, Blocks.GRASS_BLOCK.getDefaultState());
@@ -28,6 +28,6 @@ public abstract class GrassSeedsDispenserBehavior extends ItemDispenserBehavior 
         return stack;
     }
     protected void playSound(BlockPointer pointer) {
-        pointer.getWorld().syncWorldEvent(1002, pointer.getPos(), 0);
+        pointer.world().syncWorldEvent(1002, pointer.pos(), 0);
     }
 }

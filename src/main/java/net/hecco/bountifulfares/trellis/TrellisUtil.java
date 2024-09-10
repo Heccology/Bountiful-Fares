@@ -3,7 +3,6 @@ package net.hecco.bountifulfares.trellis;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
@@ -11,7 +10,8 @@ import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.hecco.bountifulfares.datagen.custom.BFTemplateModels;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -25,7 +25,6 @@ import net.minecraft.util.Identifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Consumer;
 
 import static net.hecco.bountifulfares.BountifulFaresUtil.toSentenceCase;
 import static net.minecraft.data.server.recipe.RecipeProvider.conditionsFromItem;
@@ -71,16 +70,16 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
     }
 
     public static Block registerBlockNoItem(String id, String name, Block block) {
-        return Registry.register(Registries.BLOCK, new Identifier(id, name), block);
+        return Registry.register(Registries.BLOCK, Identifier.of(id, name), block);
     }
 
     public static Block registerBlock(String id, String name, Block block) {
         registerBlockItem(id, name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(id, name), block);
+        return Registry.register(Registries.BLOCK, Identifier.of(id, name), block);
     }
 
     private static Item registerBlockItem(String id, String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(id, name), new BlockItem(block, new FabricItemSettings()));
+        return Registry.register(Registries.ITEM, Identifier.of(id, name), new BlockItem(block, new Item.Settings()));
     }
 
     public static Block getTrellisFromVariant(TrellisVariant variant) {
@@ -240,7 +239,7 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
         }
     }
 
-    public static void registerTrellisRecipe(Consumer<RecipeJsonProvider> exporter, TrellisVariant trellis) {
+    public static void registerTrellisRecipe(RecipeExporter exporter, TrellisVariant trellis) {
         if (trellis.getCraftingItem() != null) {
             ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
                     .pattern("# #")
@@ -250,12 +249,11 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
                     .input('P', trellis.getCraftingItem())
                     .criterion("has_stick", conditionsFromItem(Items.STICK))
                     .criterion("has_planks", conditionsFromItem(trellis.getCraftingItem()))
-                    .group("trellis")
-                    .offerTo(exporter);
+                    .group("trellis");
         }
     }
 
-    public static void registerTrellisRecipe(Consumer<RecipeJsonProvider> exporter, TrellisVariant trellis, Identifier craftingItem) {
+    public static void registerTrellisRecipe(RecipeExporter exporter, TrellisVariant trellis, Identifier craftingItem) {
         if (trellis.getCraftingItem() != null) {
             ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
                     .pattern("# #")
@@ -265,8 +263,7 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
                     .input('P', trellis.getCraftingItem())
                     .criterion("has_stick", conditionsFromItem(Items.STICK))
                     .criterion("has_planks", conditionsFromItem(Registries.ITEM.get(craftingItem)))
-                    .group("trellis")
-                    .offerTo(exporter);
+                    .group("trellis");
         }
     }
 

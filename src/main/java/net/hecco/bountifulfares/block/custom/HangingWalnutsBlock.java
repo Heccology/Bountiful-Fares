@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.item.BFItems;
 import net.minecraft.block.*;
@@ -28,6 +29,11 @@ public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
     public HangingWalnutsBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0));
+    }
+
+    @Override
+    protected MapCodec<? extends FallingBlock> getCodec() {
+        return null;
     }
 
     @Override
@@ -105,6 +111,11 @@ public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
 
     }
 
+    @Override
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
+        return false;
+    }
+
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
@@ -132,12 +143,13 @@ public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
         return state.getFluidState().isEmpty();
     }
 
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
-        return type == NavigationType.AIR && !this.collidable || super.canPathfindThrough(state, world, pos, type);
+    @Override
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
+        return type == NavigationType.AIR && !this.collidable || super.canPathfindThrough(state, type);
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return BFItems.WALNUT.getDefaultStack();
     }
 }

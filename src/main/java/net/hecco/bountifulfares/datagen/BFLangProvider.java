@@ -21,10 +21,12 @@ import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 
 import static net.hecco.bountifulfares.BountifulFaresUtil.toSentenceCase;
 import static net.hecco.bountifulfares.trellis.TrellisUtil.registerTrellisTranslations;
@@ -32,8 +34,8 @@ import static net.hecco.bountifulfares.trellis.TrellisUtil.registerTrellisTransl
 public class BFLangProvider extends FabricLanguageProvider {
     Set<String> usedTranslationKeys = new HashSet<>();
 
-    public BFLangProvider(FabricDataOutput dataOutput) {
-        super(dataOutput, "en_us");
+    public BFLangProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, registryLookup);
     }
 
     private void generate(TranslationBuilder translationBuilder, String key, String translation) {
@@ -55,7 +57,7 @@ public class BFLangProvider extends FabricLanguageProvider {
     }
 
     @Override
-    public void generateTranslations(TranslationBuilder translationBuilder) {
+    public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         generate(translationBuilder, "itemgroup.bountiful_fares", "Bountiful Fares");
         generate(translationBuilder, BFBlocks.HANGING_APPLE, "Apple");
         generate(translationBuilder, BFBlocks.HANGING_ORANGE, "Orange");
@@ -65,11 +67,11 @@ public class BFLangProvider extends FabricLanguageProvider {
 
 
         generate(translationBuilder, BFBlocks.HOARY_APPLE_SAPLING_CROP, "Hoary Apple Sapling");
-        generate(translationBuilder, BFItems.HOARY_CHEST_BOAT, "Hoary Boat with Chest");
+//        generate(translationBuilder, BFItems.HOARY_CHEST_BOAT, "Hoary Boat with Chest");
         generate(translationBuilder, BFBlocks.HANGING_HOARY_APPLE, "Hoary Apple");
 
 
-        generate(translationBuilder, BFItems.WALNUT_CHEST_BOAT, "Walnut Boat with Chest");
+//        generate(translationBuilder, BFItems.WALNUT_CHEST_BOAT, "Walnut Boat with Chest");
 
         generate(translationBuilder, BFBlocks.HANGING_WALNUTS, "Walnuts");
 

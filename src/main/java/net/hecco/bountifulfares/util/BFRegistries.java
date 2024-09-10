@@ -23,7 +23,6 @@ import net.minecraft.util.math.Position;
 import net.minecraft.world.World;
 
 import static net.fabricmc.fabric.api.registry.StrippableBlockRegistry.register;
-import static net.hecco.bountifulfares.mixin.BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe;
 import static net.minecraft.block.ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE;
 
 public class BFRegistries {
@@ -32,7 +31,6 @@ public class BFRegistries {
         registerCeramicCheckeredConversions();
         registerFuels();
         registerModCompostables();
-        registerPotionRecipes();
         registerFermentationRecipes();
         registerFlammables();
         DispenserBlock.registerBehavior(BFItems.FLOUR, new FlourDispenserBehavior() {
@@ -289,15 +287,5 @@ public class BFRegistries {
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.TORCHFLOWER_TEA_BLEND, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.MAIZE_BREAD, 0.85f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.WALNUT_COOKIE, 0.85f);
-    }
-
-
-    private static void registerPotionRecipes() {
-        invokeRegisterPotionRecipe(Potions.AWKWARD, BFItems.CITRUS_ESSENCE, BFPotions.ACIDIC);
-        invokeRegisterPotionRecipe(BFPotions.ACIDIC, Items.REDSTONE, BFPotions.LONG_ACIDIC);
-        invokeRegisterPotionRecipe(BFPotions.ACIDIC, Items.GLOWSTONE_DUST, BFPotions.STRONG_ACIDIC);
-        invokeRegisterPotionRecipe(BFPotions.ACIDIC, Items.FERMENTED_SPIDER_EYE, BFPotions.STUPOR);
-        invokeRegisterPotionRecipe(BFPotions.LONG_ACIDIC, Items.FERMENTED_SPIDER_EYE, BFPotions.LONG_STUPOR);
-        invokeRegisterPotionRecipe(BFPotions.STUPOR, Items.REDSTONE, BFPotions.LONG_STUPOR);
     }
 }

@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.sounds.BFSounds;
 import net.minecraft.block.*;
@@ -31,6 +32,11 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return null;
+    }
+
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(AGE);
     }
@@ -48,9 +54,9 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         int i = state.get(AGE);
-        if (i != 4 && player.getStackInHand(hand).isOf(Items.BONE_MEAL)) {
+        if (i != 4 && player.getStackInHand(player.getActiveHand()).isOf(Items.BONE_MEAL)) {
             return ActionResult.PASS;
         }
         if (i == 4) {
@@ -67,7 +73,12 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
             }
             return ActionResult.SUCCESS;
         }
-        return super.onUse(state, world, pos, player, hand, hit);
+        return super.onUse(state, world, pos, player, hit);
+    }
+
+    @Override
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
+        return state.get(AGE) < 4;
     }
 
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
@@ -79,10 +90,6 @@ public class HangingFruitBlock extends PlantBlock implements Fertilizable {
         if (!isFullyGrown(state)) {
             world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
         }
-    }
-
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
-        return state.get(AGE) < 4;
     }
 
     private static boolean isFullyGrown(BlockState state) {

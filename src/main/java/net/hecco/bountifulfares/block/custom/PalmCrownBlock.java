@@ -24,8 +24,8 @@ public class PalmCrownBlock extends PillarBlock {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getStackInHand(hand).getItem() instanceof BoneMealItem) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if (player.getStackInHand(player.getActiveHand()).getItem() instanceof BoneMealItem) {
             if (hit.getSide() != Direction.DOWN && hit.getSide() != Direction.UP) {
                 if (world.getBlockState(pos.offset(hit.getSide(), 1)).isAir()) {
                     world.setBlockState(pos.offset(hit.getSide(), 1), BFBlocks.COCONUT.getDefaultState().with(Properties.HORIZONTAL_FACING, hit.getSide()));
@@ -34,7 +34,7 @@ public class PalmCrownBlock extends PillarBlock {
                     }
                     BoneMealItem.createParticles(world, pos.down(), 2);
                     if (!player.isCreative()) {
-                        player.getStackInHand(hand).decrement(1);
+                        player.getStackInHand(player.getActiveHand()).decrement(1);
                     }
                     return ActionResult.SUCCESS;
                 }
@@ -48,13 +48,13 @@ public class PalmCrownBlock extends PillarBlock {
                         }
                         BoneMealItem.createParticles(world, pos.down(), 2);
                         if (!player.isCreative()) {
-                            player.getStackInHand(hand).decrement(1);
+                            player.getStackInHand(player.getActiveHand()).decrement(1);
                         }
                         return ActionResult.SUCCESS;
                     }
                 }
             }
         }
-        return super.onUse(state, world, pos, player, hand, hit);
+        return super.onUse(state, world, pos, player, hit);
     }
 }

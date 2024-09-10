@@ -1,9 +1,7 @@
 package net.hecco.bountifulfares;
 
-import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -18,24 +16,16 @@ import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlock
 import net.hecco.bountifulfares.compat.mint.MintBlocks;
 import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
 import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
-import net.hecco.bountifulfares.entity.BFBoats;
 import net.hecco.bountifulfares.entity.BFEntities;
 import net.hecco.bountifulfares.item.BFItems;
-import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
-import net.hecco.bountifulfares.item.custom.DyeableCeramicBlockItem;
 import net.hecco.bountifulfares.networking.BFMessages;
 import net.hecco.bountifulfares.particle.BFParticles;
 import net.hecco.bountifulfares.particle.FlourCloudParticle;
 import net.hecco.bountifulfares.particle.PrismarineBlossomParticle;
-import net.hecco.bountifulfares.screen.BFScreenHandlers;
-import net.hecco.bountifulfares.screen.GristmillScreen;
 import net.hecco.bountifulfares.trellis.BFTrellises;
 import net.hecco.bountifulfares.util.BFWoodTypes;
 import net.minecraft.block.Block;
 import net.minecraft.client.color.world.BiomeColors;
-import net.minecraft.client.color.world.FoliageColors;
-import net.minecraft.client.color.world.GrassColors;
-import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
@@ -44,10 +34,13 @@ import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.util.ModelIdentifier;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.Item;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.biome.FoliageColors;
+import net.minecraft.world.biome.GrassColors;
+
+import java.util.Objects;
 
 import static net.hecco.bountifulfares.item.BFItems.ARTISAN_BRUSH;
 
@@ -288,8 +281,8 @@ public class BountifulFaresClient implements ClientModInitializer {
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(BFWoodTypes.WALNUT, TexturedRenderLayers.getSignTextureId(BFWoodTypes.WALNUT));
         BlockEntityRendererFactories.register(BFBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);
         BlockEntityRendererFactories.register(BFBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignBlockEntityRenderer::new);
-        TerraformBoatClientHelper.registerModelLayers(BFBoats.HOARY_BOAT_ID, false);
-        TerraformBoatClientHelper.registerModelLayers(BFBoats.WALNUT_BOAT_ID, false);
+//        TerraformBoatClientHelper.registerModelLayers(BFBoats.HOARY_BOAT_ID, false);
+//        TerraformBoatClientHelper.registerModelLayers(BFBoats.WALNUT_BOAT_ID, false);
 
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos)
                 : GrassColors.getDefaultColor(), BFBlocks.CHAMOMILE_FLOWERS, BFBlocks.GRASSY_DIRT);
@@ -308,22 +301,21 @@ public class BountifulFaresClient implements ClientModInitializer {
         ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getFoliageColor(world, pos)
                 : FoliageColors.getDefaultColor(), BFBlocks.HANGING_WALNUTS);
 
-        HandledScreens.register(BFScreenHandlers.GRISTMILL_SCREEN_HANDLER, GristmillScreen::new);
+//        HandledScreens.register(BFScreenHandlers.GRISTMILL_SCREEN_HANDLER, GristmillScreen::new);
         EntityRendererRegistry.register(BFEntities.THROWN_FLOUR_PROJECTILE, FlyingItemEntityRenderer::new);
         ParticleFactoryRegistry.getInstance().register(BFParticles.FLOUR_CLOUD_PARTICLE, FlourCloudParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM_PARTICLE, PrismarineBlossomParticle.Factory::new);
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : FoliageColors.getDefaultColor()), BFBlocks.WILD_POTATOES, BFBlocks.WILD_CARROTS, BFBlocks.WILD_BEETROOTS, BFBlocks.WILD_LEEKS, BFBlocks.WILD_MAIZE, BFBlocks.WILD_PASSION_FRUIT_VINE, BFBlocks.WILD_ELDERBERRY_VINE);
-        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> new ModelIdentifier(BountifulFares.MOD_ID, "sun_hat_head", "inventory"));
+//        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> new ModelIdentifier(Identifier.of(BountifulFares.MOD_ID, "sun_hat_head"), "inventory"));
 //        ModelPredicateProviderRegistry.register(SUN_HAT, new Identifier("head"), (itemStack, clientWorld, livingEntity, seed) -> {
 //            if (livingEntity == null) {
 //                return 0.0F;
 //            }
 //            return livingEntity.getEquippedStack(EquipmentSlot.HEAD) == itemStack ? 1.0F : 0.0F;
 //        });
-        ModelPredicateProviderRegistry.register(ARTISAN_BRUSH, new Identifier("dyed"), (itemStack, clientWorld, livingEntity, seed) -> {
-            NbtCompound nbtCompound = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY);
-            if (nbtCompound == null) {
+        ModelPredicateProviderRegistry.register(ARTISAN_BRUSH, Identifier.of("dyed"), (itemStack, clientWorld, livingEntity, seed) -> {
+            if (itemStack.getComponents().contains(DataComponentTypes.DYED_COLOR)) {
                 return 0.0F;
             }
             return 1.0F;
@@ -344,9 +336,8 @@ public class BountifulFaresClient implements ClientModInitializer {
     private void registerItemColor(Item item) {
 //        Registers tint for ceramic items
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-            NbtCompound nbtCompound = stack.getSubNbt(DyeableCeramicBlockItem.DISPLAY_KEY);
-            if (nbtCompound != null && nbtCompound.contains(DyeableCeramicBlockItem.COLOR_KEY, NbtElement.NUMBER_TYPE) && tintIndex == 0) {
-                return nbtCompound.getInt(DyeableCeramicBlockItem.COLOR_KEY);
+            if (stack.getComponents().contains(DataComponentTypes.DYED_COLOR) && tintIndex == 0) {
+                return Objects.requireNonNull(stack.getComponents().get(DataComponentTypes.DYED_COLOR)).rgb();
             }
             return DyeableCeramicBlockEntity.DEFAULT_COLOR;
         },item);
@@ -361,9 +352,8 @@ public class BountifulFaresClient implements ClientModInitializer {
     private void registerDishItemColor() {
 //        Registers tint for ceramic items
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-            NbtCompound nbtCompound = stack.getSubNbt(DyeableCeramicBlockItem.DISPLAY_KEY);
-            if (nbtCompound != null && nbtCompound.contains(DyeableCeramicBlockItem.COLOR_KEY, NbtElement.NUMBER_TYPE)) {
-                return nbtCompound.getInt(DyeableCeramicBlockItem.COLOR_KEY);
+            if (stack.getComponents().contains(DataComponentTypes.DYED_COLOR) && tintIndex == 0) {
+                return Objects.requireNonNull(stack.getComponents().get(DataComponentTypes.DYED_COLOR)).rgb();
             }
             return CeramicDishBlockEntity.DEFAULT_COLOR;
         }, BFBlocks.CERAMIC_DISH);

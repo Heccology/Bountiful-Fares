@@ -7,7 +7,7 @@
         "probability": 0.25
       },
       {
-        "type": "minecraft:elderberries",
+        "type": "bountifulfares:elderberries",
         "probability": 0.8
       }
     ],

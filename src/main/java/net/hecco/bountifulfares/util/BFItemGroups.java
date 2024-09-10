@@ -15,18 +15,20 @@ import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.potion.BFPotions;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
+import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.decoration.painting.PaintingEntity;
 import net.minecraft.entity.decoration.painting.PaintingVariant;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.potion.PotionUtil;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtOps;
+import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.PaintingVariantTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -38,7 +40,7 @@ public class BFItemGroups {
 
     private static final Comparator<RegistryEntry<PaintingVariant>> PAINTING_VARIANT_COMPARATOR = Comparator.comparing(RegistryEntry::value, Comparator.comparingInt((paintingVariant) -> 16 * 16));
 
-    public static ItemGroup BOUNTIFUL_FARES = Registry.register(Registries.ITEM_GROUP, new Identifier(BountifulFares.MOD_ID, "bountiful_fares"),
+    public static ItemGroup BOUNTIFUL_FARES = Registry.register(Registries.ITEM_GROUP, Identifier.of(BountifulFares.MOD_ID, "bountiful_fares"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.bountiful_fares"))
                     .icon(() -> new ItemStack(BFItems.PASSION_FRUIT)).entries((displayContext, entries) -> {
                         boolean mint = BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID);
@@ -98,8 +100,8 @@ public class BFItemGroups {
                         entries.add(BFBlocks.HOARY_BUTTON);
                         entries.add(BFItems.HOARY_SIGN);
                         entries.add(BFItems.HOARY_HANGING_SIGN);
-                        entries.add(BFItems.HOARY_BOAT);
-                        entries.add(BFItems.HOARY_CHEST_BOAT);
+//                        entries.add(BFItems.HOARY_BOAT);
+//                        entries.add(BFItems.HOARY_CHEST_BOAT);
                         entries.add(FarmersDelightBlocks.HOARY_CABINET);
                         entries.add(ExcessiveBuildingBlocks.CHISELED_HOARY_PLANKS);
                         entries.add(ExcessiveBuildingBlocks.HOARY_MOSAIC);
@@ -128,8 +130,8 @@ public class BFItemGroups {
                         entries.add(BFBlocks.WALNUT_BUTTON);
                         entries.add(BFItems.WALNUT_SIGN);
                         entries.add(BFItems.WALNUT_HANGING_SIGN);
-                        entries.add(BFItems.WALNUT_BOAT);
-                        entries.add(BFItems.WALNUT_CHEST_BOAT);
+//                        entries.add(BFItems.WALNUT_BOAT);
+//                        entries.add(BFItems.WALNUT_CHEST_BOAT);
                         entries.add(FarmersDelightBlocks.WALNUT_CABINET);
                         entries.add(ExcessiveBuildingBlocks.CHISELED_WALNUT_PLANKS);
                         entries.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC);
@@ -376,26 +378,26 @@ public class BFItemGroups {
                         entries.add(BFItems.PLUM_COMPOTE_JAR);
                         entries.add(BFItems.HOARY_COMPOTE_JAR);
                         entries.add(BFItems.CITRUS_ESSENCE);
-                        entries.add(PotionUtil.setPotion(Items.POTION.getDefaultStack(), BFPotions.ACIDIC));
-                        entries.add(PotionUtil.setPotion(Items.POTION.getDefaultStack(), BFPotions.LONG_ACIDIC));
-                        entries.add(PotionUtil.setPotion(Items.POTION.getDefaultStack(), BFPotions.STRONG_ACIDIC));
-                        entries.add(PotionUtil.setPotion(Items.SPLASH_POTION.getDefaultStack(), BFPotions.ACIDIC));
-                        entries.add(PotionUtil.setPotion(Items.SPLASH_POTION.getDefaultStack(), BFPotions.LONG_ACIDIC));
-                        entries.add(PotionUtil.setPotion(Items.SPLASH_POTION.getDefaultStack(), BFPotions.STRONG_ACIDIC));
-                        entries.add(PotionUtil.setPotion(Items.LINGERING_POTION.getDefaultStack(), BFPotions.ACIDIC));
-                        entries.add(PotionUtil.setPotion(Items.LINGERING_POTION.getDefaultStack(), BFPotions.LONG_ACIDIC));
-                        entries.add(PotionUtil.setPotion(Items.LINGERING_POTION.getDefaultStack(), BFPotions.STRONG_ACIDIC));
-                        entries.add(PotionUtil.setPotion(Items.TIPPED_ARROW.getDefaultStack(), BFPotions.ACIDIC));
-                        entries.add(PotionUtil.setPotion(Items.TIPPED_ARROW.getDefaultStack(), BFPotions.LONG_ACIDIC));
-                        entries.add(PotionUtil.setPotion(Items.TIPPED_ARROW.getDefaultStack(), BFPotions.STRONG_ACIDIC));
-                        entries.add(PotionUtil.setPotion(Items.POTION.getDefaultStack(), BFPotions.STUPOR));
-                        entries.add(PotionUtil.setPotion(Items.POTION.getDefaultStack(), BFPotions.LONG_STUPOR));
-                        entries.add(PotionUtil.setPotion(Items.SPLASH_POTION.getDefaultStack(), BFPotions.STUPOR));
-                        entries.add(PotionUtil.setPotion(Items.SPLASH_POTION.getDefaultStack(), BFPotions.LONG_STUPOR));
-                        entries.add(PotionUtil.setPotion(Items.LINGERING_POTION.getDefaultStack(), BFPotions.STUPOR));
-                        entries.add(PotionUtil.setPotion(Items.LINGERING_POTION.getDefaultStack(), BFPotions.LONG_STUPOR));
-                        entries.add(PotionUtil.setPotion(Items.TIPPED_ARROW.getDefaultStack(), BFPotions.STUPOR));
-                        entries.add(PotionUtil.setPotion(Items.TIPPED_ARROW.getDefaultStack(), BFPotions.LONG_STUPOR));
+                        entries.add(PotionContentsComponent.createStack(Items.POTION, BFPotions.ACIDIC));
+                        entries.add(PotionContentsComponent.createStack(Items.POTION, BFPotions.LONG_ACIDIC));
+                        entries.add(PotionContentsComponent.createStack(Items.POTION, BFPotions.STRONG_ACIDIC));
+                        entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, BFPotions.ACIDIC));
+                        entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, BFPotions.LONG_ACIDIC));
+                        entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, BFPotions.STRONG_ACIDIC));
+                        entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, BFPotions.ACIDIC));
+                        entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, BFPotions.LONG_ACIDIC));
+                        entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, BFPotions.STRONG_ACIDIC));
+                        entries.add(PotionContentsComponent.createStack(Items.TIPPED_ARROW, BFPotions.ACIDIC));
+                        entries.add(PotionContentsComponent.createStack(Items.TIPPED_ARROW, BFPotions.LONG_ACIDIC));
+                        entries.add(PotionContentsComponent.createStack(Items.TIPPED_ARROW, BFPotions.STRONG_ACIDIC));
+                        entries.add(PotionContentsComponent.createStack(Items.POTION, BFPotions.STUPOR));
+                        entries.add(PotionContentsComponent.createStack(Items.POTION, BFPotions.LONG_STUPOR));
+                        entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, BFPotions.STUPOR));
+                        entries.add(PotionContentsComponent.createStack(Items.SPLASH_POTION, BFPotions.LONG_STUPOR));
+                        entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, BFPotions.STUPOR));
+                        entries.add(PotionContentsComponent.createStack(Items.LINGERING_POTION, BFPotions.LONG_STUPOR));
+                        entries.add(PotionContentsComponent.createStack(Items.TIPPED_ARROW, BFPotions.STUPOR));
+                        entries.add(PotionContentsComponent.createStack(Items.TIPPED_ARROW, BFPotions.LONG_STUPOR));
                         entries.add(BFBlocks.ARTISAN_BREAD);
                         entries.add(BFItems.ARTISAN_COOKIE);
                         entries.add(BFBlocks.APPLE_PIE);
@@ -443,17 +445,23 @@ public class BFItemGroups {
                         entries.add(BFItems.CANDIED_PLUM);
                         entries.add(BFItems.CANDIED_ORANGE);
                         entries.add(BFItems.CANDIED_LEMON);
-                        displayContext.lookup().getOptionalWrapper(RegistryKeys.PAINTING_VARIANT).ifPresent((wrapper) -> {
-                            addPaintings(entries, wrapper, (registryEntry) -> registryEntry.isIn(BFBlockTags.PAINTINGS), ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS);
+//                        displayContext.lookup().getOptionalWrapper(RegistryKeys.PAINTING_VARIANT).ifPresent((wrapper) -> {
+//                            addPaintings(entries, wrapper, (registryEntry) -> registryEntry.isIn(BFBlockTags.PAINTINGS), ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS);
+//                        });
+                        displayContext.lookup().getOptionalWrapper(RegistryKeys.PAINTING_VARIANT).ifPresent((registryWrapper) -> {
+                            addPaintings(entries, displayContext.lookup(), registryWrapper, (registryEntry) -> registryEntry.isIn(BFBlockTags.PAINTINGS), ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS);
                         });
                     }).build());
 
-    private static void addPaintings(ItemGroup.Entries entries, RegistryWrapper.Impl<PaintingVariant> registryWrapper, Predicate<RegistryEntry<PaintingVariant>> predicate, ItemGroup.StackVisibility visibility) {
-        registryWrapper.streamEntries().filter(predicate).sorted(PAINTING_VARIANT_COMPARATOR).forEach((variant) -> {
+    private static void addPaintings(ItemGroup.Entries entries, RegistryWrapper.WrapperLookup registryLookup, RegistryWrapper.Impl<PaintingVariant> registryWrapper, Predicate<RegistryEntry<PaintingVariant>> filter, ItemGroup.StackVisibility stackVisibility) {
+        RegistryOps<NbtElement> registryOps = registryLookup.getOps(NbtOps.INSTANCE);
+        registryWrapper.streamEntries().filter(filter).sorted(PAINTING_VARIANT_COMPARATOR).forEach((paintingVariantEntry) -> {
+            NbtComponent nbtComponent = NbtComponent.DEFAULT.with(registryOps, PaintingEntity.VARIANT_MAP_CODEC, paintingVariantEntry).getOrThrow().apply((nbt) -> {
+                nbt.putString("id", "minecraft:painting");
+            });
             ItemStack itemStack = new ItemStack(Items.PAINTING);
-            NbtCompound nbtCompound = itemStack.getOrCreateSubNbt("EntityTag");
-            PaintingEntity.writeVariantToNbt(nbtCompound, variant);
-            entries.add(itemStack, visibility);
+            itemStack.set(DataComponentTypes.ENTITY_DATA, nbtComponent);
+            entries.add(itemStack, stackVisibility);
         });
     }
     public static void registerItemGroups() {

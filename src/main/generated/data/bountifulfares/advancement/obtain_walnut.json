@@ -1,0 +1,34 @@
+{
+  "parent": "bountifulfares:bountiful_fares",
+  "criteria": {
+    "obtain_walnut": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:walnut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.obtain_walnut.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "bountifulfares:walnut"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.obtain_walnut"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_walnut"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

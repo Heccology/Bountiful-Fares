@@ -1,14 +1,16 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.block.entity.BFBlockEntities;
+import net.hecco.bountifulfares.block.entity.FermentationVesselBlockEntity;
 import net.hecco.bountifulfares.block.enums.FermentationStage;
 import net.hecco.bountifulfares.sounds.BFSounds;
 import net.hecco.bountifulfares.util.FermentationRecipes;
-import net.hecco.bountifulfares.block.entity.FermentationVesselBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -16,7 +18,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
@@ -24,7 +25,6 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -46,6 +46,11 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
     public FermentationVesselBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(FERMENTATION_STAGE, FermentationStage.EMPTY).with(WATERLOGGED, false));
+    }
+    public static final MapCodec<FermentationVesselBlock> CODEC = FermentationVesselBlock.createCodec(FermentationVesselBlock::new);
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -71,23 +76,23 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack itemStack = player.getStackInHand(hand);
-        if (itemStack.isOf(Items.POTION) && PotionUtil.getPotion(itemStack) == Potions.WATER && state.get(FERMENTATION_STAGE) == FermentationStage.EMPTY) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        ItemStack itemStack = player.getStackInHand(player.getActiveHand());
+        if (itemStack.isOf(PotionContentsComponent.createStack(Items.POTION, Potions.WATER).getItem()) && state.get(FERMENTATION_STAGE) == FermentationStage.EMPTY) {
             world.setBlockState(pos, state.with(FERMENTATION_STAGE, FermentationStage.WATER), 2);
             world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FILL, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
             if (!player.isCreative()) {
                 itemStack.decrement(1);
             }
             if (itemStack.isEmpty() && !player.isCreative()) {
-                player.setStackInHand(hand, new ItemStack(Items.GLASS_BOTTLE));
+                player.setStackInHand(player.getActiveHand(), new ItemStack(Items.GLASS_BOTTLE));
             } else if (!player.getInventory().insertStack(new ItemStack(Items.GLASS_BOTTLE))) {
                 player.dropItem(new ItemStack(Items.GLASS_BOTTLE), false);
             }
             return ActionResult.SUCCESS;
 
         } else if (world.getBlockEntity(pos) instanceof FermentationVesselBlockEntity entity) {
-            if (FermentationRecipes.isItemInput(player, hand) && state.get(FERMENTATION_STAGE) == FermentationStage.WATER) {
+            if (FermentationRecipes.isItemInput(player, player.getActiveHand()) && state.get(FERMENTATION_STAGE) == FermentationStage.WATER) {
                 if (entity.canInsertItem()) {
                     entity.insertItem(itemStack.getItem().getDefaultStack());
                     world.setBlockState(pos, state.with(FERMENTATION_STAGE, FermentationStage.FERMENTING));
@@ -95,10 +100,10 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
                     if (!player.isCreative()) {
                         itemStack.decrement(1);
                     }
-                    Item remainder = FermentationRecipes.getRemainderFromInput(player.getStackInHand(hand).getItem());
+                    Item remainder = FermentationRecipes.getRemainderFromInput(player.getStackInHand(player.getActiveHand()).getItem());
                     if (remainder != null) {
                         if (itemStack.isEmpty() && !player.isCreative()) {
-                            player.setStackInHand(hand, new ItemStack(remainder));
+                            player.setStackInHand(player.getActiveHand(), new ItemStack(remainder));
                         } else if (!player.getInventory().insertStack(new ItemStack(remainder))) {
                             player.dropItem(new ItemStack(remainder), false);
                         }
@@ -107,11 +112,11 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
                     return ActionResult.SUCCESS;
                 }
             } else if (!entity.canInsertItem()) {
-                return entity.tryExtractItem(world, pos, state, player, hand);
+                return entity.tryExtractItem(world, pos, state, player, player.getActiveHand());
             }
             return ActionResult.PASS;
         }
-        return super.onUse(state, world, pos, player, hand, hit);
+        return super.onUse(state, world, pos, player, hit);
     }
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -151,7 +156,7 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, BFBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return validateTicker(type, BFBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 
 //    @Override

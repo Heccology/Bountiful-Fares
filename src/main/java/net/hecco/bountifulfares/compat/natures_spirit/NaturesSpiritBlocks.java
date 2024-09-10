@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.compat.natures_spirit;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.BFBlocks;
@@ -8,6 +7,7 @@ import net.hecco.bountifulfares.block.custom.PicketsBlock;
 import net.hecco.bountifulfares.compat.block.CompatBlockItem;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -57,10 +57,10 @@ public class NaturesSpiritBlocks {
     public static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         compatBlocks.add(block);
-        return Registry.register(Registries.BLOCK, new Identifier(NATURES_SPIRIT_MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, Identifier.of(NATURES_SPIRIT_MOD_ID, name), block);
     }
     private static void registerBlockItem(String name, Block block) {
-        Registry.register(Registries.ITEM, new Identifier(NATURES_SPIRIT_MOD_ID, name), new CompatBlockItem(NATURES_SPIRIT_MOD_ID, block, new FabricItemSettings()));
+        Registry.register(Registries.ITEM, Identifier.of(NATURES_SPIRIT_MOD_ID, name), new CompatBlockItem(NATURES_SPIRIT_MOD_ID, block, new Item.Settings()));
     }
     public static void registerNaturesSpiritBlocks() {
 

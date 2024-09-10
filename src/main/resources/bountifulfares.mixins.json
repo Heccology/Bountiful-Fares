@@ -1,12 +1,10 @@
 {
   "required": true,
   "package": "net.hecco.bountifulfares.mixin",
-  "compatibilityLevel": "JAVA_17",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
     "BrewingRecipeRegistryMixin",
     "ChickenEntityMixin",
-    "TreeDecoratorTypeMixin",
-    "TrunkPlacerTypeMixin",
     "WolfEntityMixin"
   ],
   "injectors": {
@@ -14,10 +12,10 @@
   },
   "client": [
     "BlockDustParticleMixin",
-    "GuiMixin",
-    "ItemRendererAccessor",
-    "ItemRendererMixin",
-    "ModelLoaderMixin",
+//    "GuiMixin",
+//    "ItemRendererAccessor",
+//    "ItemRendererMixin",
+//    "ModelLoaderMixin",
     "ParticleColorAccessor"
   ]
 }

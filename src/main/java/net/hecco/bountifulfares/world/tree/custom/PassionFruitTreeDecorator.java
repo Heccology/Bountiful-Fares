@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.world.tree.custom;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.block.custom.WildVineCropBlock;
 import net.hecco.bountifulfares.world.tree.BFTreeDecoratorTypes;
@@ -13,9 +14,8 @@ import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import java.util.List;
 
 public class PassionFruitTreeDecorator extends TreeDecorator {
-    public static final Codec<PassionFruitTreeDecorator> CODEC = Codec.floatRange(0.0F, 1.0F).fieldOf("probability").xmap(PassionFruitTreeDecorator::new, (decorator) -> {
-        return decorator.probability;
-    }).codec();
+    public static final MapCodec<PassionFruitTreeDecorator> CODEC = Codec.floatRange(0.0F, 1.0F).fieldOf("probability").xmap(PassionFruitTreeDecorator::new, (decorator) -> decorator.probability);
+
     private final float probability;
 
     public PassionFruitTreeDecorator(float probability) {

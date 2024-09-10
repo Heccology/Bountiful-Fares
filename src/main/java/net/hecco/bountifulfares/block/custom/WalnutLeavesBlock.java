@@ -15,10 +15,12 @@ public class WalnutLeavesBlock extends LeavesBlock implements Fertilizable {
     public WalnutLeavesBlock(Settings settings) {
         super(settings);
     }
+
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return world.getBlockState(pos.down()).isAir();
     }
+
     @Override
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
         return true;

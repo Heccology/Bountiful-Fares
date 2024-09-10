@@ -1,7 +1,9 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.item.BFItems;
 import net.minecraft.block.*;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -60,6 +62,11 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return null;
+    }
+
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(AGE, BERRIES);
     }
@@ -73,10 +80,10 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
 
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack itemStack = player.getStackInHand(hand);
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        ItemStack itemStack = player.getStackInHand(player.getActiveHand());
         if (itemStack.isOf(Items.SHEARS) && canHarvestLeaves(state)) {
-            itemStack.damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
+            itemStack.damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
             if (state.get(AGE) == 4) {
                 dropStack(world, pos, new ItemStack(BFItems.TEA_LEAVES, 2 + world.random.nextInt(3)));
@@ -102,12 +109,12 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return new ItemStack(BFItems.TEA_BERRIES);
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return true;
     }
 

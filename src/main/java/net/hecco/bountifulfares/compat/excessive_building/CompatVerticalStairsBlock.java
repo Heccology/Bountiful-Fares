@@ -1,7 +1,9 @@
 package net.hecco.bountifulfares.compat.excessive_building;
 
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.block.custom.FermentationVesselBlock;
 import net.minecraft.block.*;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -18,6 +20,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.function.Function;
+
 public class CompatVerticalStairsBlock extends HorizontalFacingBlock implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
@@ -28,6 +32,11 @@ public class CompatVerticalStairsBlock extends HorizontalFacingBlock implements 
     public CompatVerticalStairsBlock(String modId, Settings settings) {
         super(settings);
         this.modId = modId;
+    }
+
+    public CompatVerticalStairsBlock(Settings settings) {
+        super(settings);
+        this.modId = BountifulFares.EXCESSIVE_BUILDING_MOD_ID;
     }
 
     @Override
@@ -67,5 +76,11 @@ public class CompatVerticalStairsBlock extends HorizontalFacingBlock implements 
         BlockPos pos = ctx.getBlockPos();
         return this.getDefaultState().with(WATERLOGGED, world.getFluidState(pos).getFluid() == Fluids.WATER)
                 .with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+    }
+    public static final MapCodec<CompatVerticalStairsBlock> CODEC = CompatVerticalStairsBlock.createCodec(CompatVerticalStairsBlock::new);
+
+    @Override
+    protected MapCodec<? extends HorizontalFacingBlock> getCodec() {
+        return CODEC;
     }
 }

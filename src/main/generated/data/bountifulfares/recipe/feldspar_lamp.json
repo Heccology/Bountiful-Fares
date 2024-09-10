@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "item": "minecraft:coal"
+    },
+    "F": {
+      "item": "bountifulfares:feldspar"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:torch"
+    }
+  },
+  "pattern": [
+    "III",
+    "FSF",
+    "ICI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "twigs:feldspar_lamp"
+  }
+}

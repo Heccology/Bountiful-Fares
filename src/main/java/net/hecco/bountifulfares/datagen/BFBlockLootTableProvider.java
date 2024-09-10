@@ -23,6 +23,7 @@ import net.minecraft.block.BeetrootsBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.DoubleBlockHalf;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -34,6 +35,7 @@ import net.minecraft.loot.condition.MatchToolLootCondition;
 import net.minecraft.loot.condition.TableBonusLootCondition;
 import net.minecraft.loot.entry.EmptyEntry;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
@@ -41,9 +43,12 @@ import net.minecraft.predicate.NumberRange;
 import net.minecraft.predicate.StatePredicate;
 import net.minecraft.predicate.item.EnchantmentPredicate;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
+import java.util.concurrent.CompletableFuture;
 
 import static net.hecco.bountifulfares.compat.BFCompat.compatBlocks;
 
@@ -51,13 +56,15 @@ import static net.hecco.bountifulfares.compat.BFCompat.compatBlocks;
 public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
     public static final ArrayList<Block> usedBlocks = new ArrayList<>();
 
-    public static final LootCondition.Builder WITH_FORTUNE = MatchToolLootCondition.builder(net.minecraft.predicate.item.ItemPredicate.Builder.create().enchantment(new EnchantmentPredicate(Enchantments.FORTUNE, NumberRange.IntRange.atLeast(1))));
+//    public static final LootCondition.Builder WITH_FORTUNE = MatchToolLootCondition.builder(net.minecraft.predicate.item.ItemPredicate.Builder.create().enchantment(new EnchantmentPredicate(Enchantments.FORTUNE, NumberRange.IntRange.atLeast(1))));
     public static final float[] PRISMARINE_DROP_CHANCE = new float[]{0.0F, 0.12F, 0.15F, 0.2F};
     public static final float[] FRUIT_SAPLING_DROP_CHANCE = new float[]{0.01F, 0.05F, 0.08F, 0.1F};
     public static final float[] FLOWERING_FRUIT_SAPLING_DROP_CHANCE = new float[]{0.1F, 0.12F, 0.15F, 0.2F};
-    public BFBlockLootTableProvider(FabricDataOutput dataOutput) {
-        super(dataOutput);
+
+    public BFBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, registryLookup);
     }
+
 
     @Override
     public void addDrop(Block block, LootTable.Builder lootTable) {
@@ -67,9 +74,13 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         super.addDrop(block, lootTable);
         usedBlocks.add(block);
     }
+    public static final float[] LEAVES_STICK_DROP_CHANCE = new float[]{0.02F, 0.022222223F, 0.025F, 0.033333335F, 0.1F};
+
 
     @Override
     public void generate() {
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+
         addDrop(BFBlocks.APPLE_LEAVES, leavesDrops(BFBlocks.APPLE_LEAVES, BFBlocks.APPLE_SAPLING, FRUIT_SAPLING_DROP_CHANCE));
         addDrop(BFBlocks.FLOWERING_APPLE_LEAVES, leavesDrops(BFBlocks.FLOWERING_APPLE_LEAVES, BFBlocks.APPLE_SAPLING, FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
         addDrop(BFBlocks.ORANGE_LEAVES, leavesDrops(BFBlocks.ORANGE_LEAVES, BFBlocks.ORANGE_SAPLING, FRUIT_SAPLING_DROP_CHANCE));
@@ -83,12 +94,11 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BFBlocks.HOARY_DOOR, doorDrops(BFBlocks.HOARY_DOOR));
         addDrop(BFBlocks.HOARY_LEAVES, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
+                        .conditionally(this.createWithoutShearsOrSilkTouchCondition())
                         .with((this.applyExplosionDecay(BFBlocks.HOARY_LEAVES, ItemEntry.builder(Items.STICK)
-                                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F)))))
-                                .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, LEAVES_STICK_DROP_CHANCE))))
+                                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F)))))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(WITH_SILK_TOUCH_OR_SHEARS)
+                        .conditionally(this.createWithShearsOrSilkTouchCondition())
                         .with(ItemEntry.builder(BFBlocks.HOARY_LEAVES))));
         addDrop(BFBlocks.WALNUT_SLAB, slabDrops(BFBlocks.WALNUT_SLAB));
         addDrop(BFBlocks.WALNUT_DOOR, doorDrops(BFBlocks.WALNUT_DOOR));
@@ -164,12 +174,12 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
 //                                .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WILD_MAIZE)
 //                                        .properties(StatePredicate.Builder.create().exactMatch(WildMaizeBlock.HALF, DoubleBlockHalf.LOWER)))
-                                .conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
+                                .conditionally(this.createWithoutShearsOrSilkTouchCondition())
                                 .with(this.applyExplosionDecay(BFBlocks.WILD_MAIZE, ItemEntry.builder(BFItems.MAIZE_SEEDS))))
                         .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
 //                                .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WILD_MAIZE)
 //                                        .properties(StatePredicate.Builder.create().exactMatch(WildMaizeBlock.HALF, DoubleBlockHalf.LOWER)))
-                                .conditionally(WITH_SILK_TOUCH_OR_SHEARS)
+                                .conditionally(this.createWithShearsOrSilkTouchCondition())
                                 .with(this.applyExplosionDecay(BFBlocks.WILD_MAIZE, ItemEntry.builder(BFBlocks.WILD_MAIZE)))));
         addDrop(BFBlocks.MAIZE_CROP, LootTable.builder()
                         .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1))
@@ -181,18 +191,19 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(BFBlocks.SPONGEKIN_SPROUT, BFItems.SPONGEKIN_SEEDS);
         addDrop(BFBlocks.PRISMARINE_BLOSSOM, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(3.0F))
-                        .conditionally(WITHOUT_SILK_TOUCH)
+                        .conditionally(this.createWithoutSilkTouchCondition())
                         .with(this.applyExplosionDecay(BFBlocks.PRISMARINE_BLOSSOM, ItemEntry.builder(Items.PRISMARINE_CRYSTALS)).weight(4))
                         .with(this.applyExplosionDecay(BFBlocks.PRISMARINE_BLOSSOM, ItemEntry.builder(Items.PRISMARINE_SHARD)).weight(2))
                         .with(EmptyEntry.builder().weight(2)))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(2.0F))
-                        .conditionally(WITH_FORTUNE)
-                        .with(this.applyExplosionDecay(BFBlocks.PRISMARINE_BLOSSOM, ItemEntry.builder(Items.PRISMARINE_CRYSTALS)).weight(4))
-                            .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, PRISMARINE_DROP_CHANCE))
-                        .with(this.applyExplosionDecay(BFBlocks.PRISMARINE_BLOSSOM, ItemEntry.builder(Items.PRISMARINE_SHARD)).weight(2))
-                            .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, PRISMARINE_DROP_CHANCE)))
+//                        .conditionally(WITH_FORTUNE)
+//                        .with(this.applyExplosionDecay(BFBlocks.PRISMARINE_BLOSSOM, ItemEntry.builder(Items.PRISMARINE_CRYSTALS)).weight(4))
+//                            .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, PRISMARINE_DROP_CHANCE))
+//                        .with(this.applyExplosionDecay(BFBlocks.PRISMARINE_BLOSSOM, ItemEntry.builder(Items.PRISMARINE_SHARD)).weight(2))
+//                            .conditionally(TableBonusLootCondition.builder(Enchantments.FORTUNE, PRISMARINE_DROP_CHANCE)))
+                )
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(WITH_SILK_TOUCH)
+                        .conditionally(this.createSilkTouchCondition())
                         .with(ItemEntry.builder(BFBlocks.PRISMARINE_BLOSSOM))));
         addDrop(BFBlocks.FALLEN_WALNUTS, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(2.0F))
@@ -337,10 +348,10 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         hangingFruitDrops(BFBlocks.HANGING_HOARY_APPLE, BFItems.HOARY_APPLE);
         addDrop(BFBlocks.GRASSY_DIRT, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(WITHOUT_SILK_TOUCH)
+                        .conditionally(this.createWithoutSilkTouchCondition())
                         .with(this.applyExplosionDecay(BFBlocks.GRASSY_DIRT, ItemEntry.builder(Blocks.DIRT))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(WITH_SILK_TOUCH)
+                        .conditionally(this.createSilkTouchCondition())
                         .with(this.applyExplosionDecay(BFBlocks.GRASSY_DIRT, ItemEntry.builder(BFBlocks.GRASSY_DIRT)))));
 
 
@@ -502,10 +513,10 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
     public LootTable.Builder WildCropDrops(Item seed, Block block) {
         return LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(WITHOUT_SILK_TOUCH_NOR_SHEARS)
+                        .conditionally(this.createWithoutShearsOrSilkTouchCondition())
                         .with(this.applyExplosionDecay(block, ItemEntry.builder(seed))))
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(WITH_SILK_TOUCH_OR_SHEARS)
+                        .conditionally(this.createWithShearsOrSilkTouchCondition())
                         .with(this.applyExplosionDecay(block, ItemEntry.builder(block))));
     }
 

@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -38,6 +39,11 @@ public class MulchBlock extends FallingBlock {
     public MulchBlock(AbstractBlock.Settings settings) {
         super(settings);
         this.setDefaultState((this.stateManager.getDefaultState()).with(LAYERS, 1));
+    }
+
+    @Override
+    protected MapCodec<? extends FallingBlock> getCodec() {
+        return null;
     }
 
     public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {

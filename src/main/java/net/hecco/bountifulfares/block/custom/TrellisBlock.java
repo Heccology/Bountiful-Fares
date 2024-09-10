@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.trellis.BFTrellises;
@@ -30,6 +31,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
 
+import java.util.function.Function;
+
 public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable {
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     protected static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0, 0, 15, 16, 16, 16);
@@ -42,6 +45,10 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
         super(settings);
         this.variant = variant;
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH));
+    }
+
+    public TrellisBlock(Settings settings) {
+        super(settings);
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -59,9 +66,9 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         Direction facing = state.get(FACING);
-        ItemStack itemStack = player.getStackInHand(hand);
+        ItemStack itemStack = player.getStackInHand(player.getActiveHand());
         boolean isSurvival = !player.isCreative();
         if (BFBlocks.CROPS_TO_CROP_TRELLISES.containsKey(itemStack.getItem())) {
             if (!world.isClient()) {
@@ -86,7 +93,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
             return ActionResult.SUCCESS;
         }
         if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
-            if (itemStack.isOf(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "lavender")))) {
+            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "lavender")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_LAVENDER).getDefaultState().with(FACING, facing), 2);
                 }
@@ -97,7 +104,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
                 }
                 return ActionResult.SUCCESS;
             }
-            if (itemStack.isOf(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "bleeding_heart")))) {
+            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "bleeding_heart")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_BLEEDING_HEART).getDefaultState().with(FACING, facing), 2);
                 }
@@ -108,7 +115,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
                 }
                 return ActionResult.SUCCESS;
             }
-            if (itemStack.isOf(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "blue_bulbs")))) {
+            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "blue_bulbs")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_BLUE_BULB).getDefaultState().with(FACING, facing), 2);
                 }
@@ -119,7 +126,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
                 }
                 return ActionResult.SUCCESS;
             }
-            if (itemStack.isOf(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "carnation")))) {
+            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "carnation")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_CARNATION).getDefaultState().with(FACING, facing), 2);
                 }
@@ -130,7 +137,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
                 }
                 return ActionResult.SUCCESS;
             }
-            if (itemStack.isOf(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "gardenia")))) {
+            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "gardenia")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_GARDENIA).getDefaultState().with(FACING, facing), 2);
                 }
@@ -141,7 +148,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
                 }
                 return ActionResult.SUCCESS;
             }
-            if (itemStack.isOf(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "marigold")))) {
+            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "marigold")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_MARIGOLD).getDefaultState().with(FACING, facing), 2);
                 }
@@ -152,7 +159,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
                 }
                 return ActionResult.SUCCESS;
             }
-            if (itemStack.isOf(Registries.ITEM.get(new Identifier(BountifulFares.NATURES_SPIRIT_MOD_ID, "foxglove")))) {
+            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "foxglove")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_FOXGLOVE).getDefaultState().with(FACING, facing), 2);
                 }
@@ -165,7 +172,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
             }
         }
         if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
-            if (itemStack.isOf(Registries.ITEM.get(new Identifier(BountifulFares.SPAWN_MOD_ID, "sunflower_seeds")))) {
+            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.SPAWN_MOD_ID, "sunflower_seeds")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getCropTrellisFromVariant(variant, BFTrellises.SPAWN_SUNFLOWER).getDefaultState().with(FACING, facing), 2);
                 }
@@ -177,7 +184,7 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
                 return ActionResult.SUCCESS;
             }
         }
-        return super.onUse(state, world, pos, player, hand, hit);
+        return super.onUse(state, world, pos, player, hit);
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -206,7 +213,14 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    public boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
+    }
+
+    public static final MapCodec<TrellisBlock> CODEC = TrellisBlock.createCodec(TrellisBlock::new);
+
+    @Override
+    protected MapCodec<? extends HorizontalFacingBlock> getCodec() {
+        return CODEC;
     }
 }

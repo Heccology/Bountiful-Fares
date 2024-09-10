@@ -35,7 +35,7 @@ public class WildMaizeBlock extends TallPlantBlock {
         }
     }
     @Override
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         DoubleBlockHalf doubleBlockHalf = state.get(HALF);
         if (doubleBlockHalf == DoubleBlockHalf.UPPER) {
             BlockPos blockPos = pos.down();
@@ -56,5 +56,6 @@ public class WildMaizeBlock extends TallPlantBlock {
                 world.breakBlock(blockPos, false);
             }
         }
+        return super.onBreak(world, pos, state, player);
     }
 }

@@ -18,7 +18,7 @@ public class TwigsSounds {
     public static SoundEvent LAMP_OFF = registerSoundEvent("lamp_off");
     public static BlockSoundGroup LAMP = new BlockSoundGroup(1, 0.7f, LAMP_BREAK, LAMP_STEP, LAMP_PLACE, LAMP_HIT, LAMP_FALL);
     public static SoundEvent registerSoundEvent(String name) {
-        Identifier identifier = new Identifier(BountifulFares.MOD_ID, name);
+        Identifier identifier = Identifier.of(BountifulFares.MOD_ID, name);
         return Registry.register(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
     }
     public static void registerSounds() {

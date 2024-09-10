@@ -19,10 +19,10 @@ import java.util.Map;
 @Mixin(ModelLoader.class)
 public abstract class ModelLoaderMixin {
     @Shadow
-    protected abstract void addModel(ModelIdentifier modelId);
+    protected abstract void loadItemModel(ModelIdentifier id);
 
-    @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/model/ModelLoader;addModel(Lnet/minecraft/client/util/ModelIdentifier;)V", ordinal = 3, shift = At.Shift.AFTER))
-    public void addModel(BlockColors blockColors, Profiler profiler, Map<Identifier, JsonUnbakedModel> jsonUnbakedModels, Map<Identifier, List<ModelLoader.SourceTrackedData>> blockStates, CallbackInfo ci) {
-        this.addModel(new ModelIdentifier(BountifulFares.MOD_ID, "sun_hat_head", "inventory"));
+    @Inject(method = {"<init>"}, at = {@At(value = "invoke", ordinal = 0, target = "Lnet/minecraft/client/render/model/ModelLoader;loadItemModel(Lnet/minecraft/client/util/ModelIdentifier;)V")})
+    private void addModels(CallbackInfo info) {
+        this.loadItemModel(ModelIdentifier.ofInventoryVariant(Identifier.of(BountifulFares.MOD_ID, "sun_hat_head")));
     }
 }

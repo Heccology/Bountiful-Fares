@@ -5,9 +5,6 @@ import net.hecco.bountifulfares.item.BFItems;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.mob.RavagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -91,7 +88,7 @@ public class MaizeCropBlock extends CropBlock implements Fertilizable {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return new ItemStack(BFItems.MAIZE_SEEDS);
     }
 
@@ -99,7 +96,7 @@ public class MaizeCropBlock extends CropBlock implements Fertilizable {
         builder.add(AGE, HALF);
     }
     @Override
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         DoubleBlockHalf doubleBlockHalf = state.get(HALF);
         if (doubleBlockHalf == DoubleBlockHalf.LOWER && state.get(AGE) < 7) {
             dropStack(world, pos, BFItems.MAIZE_SEEDS.getDefaultStack());
@@ -111,8 +108,7 @@ public class MaizeCropBlock extends CropBlock implements Fertilizable {
                 dropStacks(state, world, pos, null, player, player.getMainHandStack());
             }
         }
-
-        super.onBreak(world, pos, state, player);
+        return super.onBreak(world, pos, state, player);
     }
 
     protected static void onBreakInCreative(World world, BlockPos pos, BlockState state, PlayerEntity player) {

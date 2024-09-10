@@ -1,10 +1,12 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.util.BFBlockTags;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.fluid.FluidState;
@@ -44,28 +46,33 @@ public class InfusedCandleBlock extends BlockWithEntity implements BlockEntityPr
     }
 
     @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return null;
+    }
+
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return Block.createCuboidShape(6, 0, 6, 10, 6, 10);
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getStackInHand(hand).isEmpty() && state.get(LIT)) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if (player.getStackInHand(player.getActiveHand()).isEmpty() && state.get(LIT)) {
             extinguish(player, state, world, pos);
             return ActionResult.SUCCESS;
         }
-        if ((player.getStackInHand(hand).isOf(Items.FLINT_AND_STEEL) || player.getStackInHand(hand).isOf(Items.FIRE_CHARGE)) && !canBeLit(state)) {
+        if ((player.getStackInHand(player.getActiveHand()).isOf(Items.FLINT_AND_STEEL) || player.getStackInHand(player.getActiveHand()).isOf(Items.FIRE_CHARGE)) && !canBeLit(state)) {
             return ActionResult.FAIL;
-        } else if (player.getStackInHand(hand).isOf(Items.FLINT_AND_STEEL)) {
+        } else if (player.getStackInHand(player.getActiveHand()).isOf(Items.FLINT_AND_STEEL)) {
             setLit(world, state, pos, true);
             world.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, world.getRandom().nextFloat() * 0.4F + 0.8F);
-            player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
+            player.getStackInHand(player.getActiveHand()).damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
             return ActionResult.SUCCESS;
-        } else if (player.getStackInHand(hand).isOf(Items.FIRE_CHARGE)) {
+        } else if (player.getStackInHand(player.getActiveHand()).isOf(Items.FIRE_CHARGE)) {
             setLit(world, state, pos, true);
             world.playSound(null, pos, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1.0F, (world.random.nextFloat() - world.random.nextFloat()) * 0.2F + 1.0F);
             if (!player.isCreative()) {
-                player.getStackInHand(hand).decrement(1);
+                player.getStackInHand(player.getActiveHand()).decrement(1);
             }
             return ActionResult.SUCCESS;
         }

@@ -7,6 +7,6 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 public class TwigsBlockTags {
-    public static final TagKey<Block> TABLES = TagKey.of(RegistryKeys.BLOCK, new Identifier(BountifulFares.TWIGS_MOD_ID, "tables"));
+    public static final TagKey<Block> TABLES = TagKey.of(RegistryKeys.BLOCK, Identifier.of(BountifulFares.TWIGS_MOD_ID, "tables"));
 
 }

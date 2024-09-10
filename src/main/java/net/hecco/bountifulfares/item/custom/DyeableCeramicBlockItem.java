@@ -4,34 +4,21 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.DyeableItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class DyeableCeramicBlockItem extends BlockItem implements DyeableItem {
+public class DyeableCeramicBlockItem extends BlockItem {
     public int DefColor = DyeableCeramicBlockEntity.DEFAULT_COLOR;
     public DyeableCeramicBlockItem(Block block, Settings settings) {
         super(block, settings);
-    }
-
-    @Override
-    public int getColor(ItemStack stack) {
-        NbtCompound nbtCompound = stack.getSubNbt(DISPLAY_KEY);
-        if (nbtCompound != null && nbtCompound.contains(COLOR_KEY, NbtElement.NUMBER_TYPE)) {
-            return nbtCompound.getInt(COLOR_KEY);
-        }
-        return DefColor;
     }
 
     @Override
@@ -39,17 +26,14 @@ public class DyeableCeramicBlockItem extends BlockItem implements DyeableItem {
         ActionResult result = super.place(context);
         BlockEntity blockEntity = context.getWorld().getBlockEntity(context.getBlockPos());
         if(blockEntity instanceof DyeableCeramicBlockEntity ceramicTilesBlockEntity){
-            ceramicTilesBlockEntity.color = getColor(context.getStack());
+            ceramicTilesBlockEntity.color = DyedColorComponent.getColor(context.getStack(), DefColor);
         }
         return result;
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-//        NbtCompound nbtCompound = stack.getSubNbt(DISPLAY_KEY);
-//        if (nbtCompound != null && nbtCompound.contains(COLOR_KEY)) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.translatable("tooltip." + BountifulFares.MOD_ID + ".dyeable").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
-//        }
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

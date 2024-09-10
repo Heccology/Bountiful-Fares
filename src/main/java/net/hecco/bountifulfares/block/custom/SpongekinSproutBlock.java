@@ -1,9 +1,11 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidFillable;
 import net.minecraft.block.PlantBlock;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -18,6 +20,11 @@ import org.jetbrains.annotations.Nullable;
 public class SpongekinSproutBlock extends PlantBlock implements FluidFillable {
     public SpongekinSproutBlock(Settings settings) {
         super(settings);
+    }
+
+    @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return null;
     }
 
     @Override
@@ -47,9 +54,8 @@ public class SpongekinSproutBlock extends PlantBlock implements FluidFillable {
     public FluidState getFluidState(BlockState state) {
         return Fluids.WATER.getStill(false);
     }
-
     @Override
-    public boolean canFillWithFluid(BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
+    public boolean canFillWithFluid(@Nullable PlayerEntity player, BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
         return false;
     }
 

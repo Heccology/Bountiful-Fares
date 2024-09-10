@@ -16,8 +16,8 @@ public class NoCandleCakeBlock extends CakeBlock {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack itemStack = player.getStackInHand(hand);
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        ItemStack itemStack = player.getStackInHand(player.getActiveHand());
 
         if (world.isClient) {
             if (tryEat(world, pos, state, player).isAccepted()) {

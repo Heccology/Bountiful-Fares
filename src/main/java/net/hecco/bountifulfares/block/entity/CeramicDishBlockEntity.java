@@ -14,6 +14,7 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
@@ -37,23 +38,22 @@ public class CeramicDishBlockEntity extends BlockEntity implements ImplementedIn
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
-        Inventories.writeNbt(nbt, inventory);
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        Inventories.writeNbt(nbt, inventory, registryLookup);
         if (color != DEFAULT_COLOR) {
             nbt.putInt("color", color);
-            super.writeNbt(nbt);
+            super.writeNbt(nbt, registryLookup);
         }
     }
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        Inventories.readNbt(nbt, inventory);
-        super.readNbt(nbt);
+    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        Inventories.readNbt(nbt, inventory, registryLookup);
+        super.readNbt(nbt, registryLookup);
         if (nbt.getInt("color") == 0) {
             color = DEFAULT_COLOR;
         } else {
-            super.writeNbt(nbt);
+            super.readNbt(nbt, registryLookup);
             color = nbt.getInt("color");
         }
     }
@@ -65,8 +65,8 @@ public class CeramicDishBlockEntity extends BlockEntity implements ImplementedIn
     }
 
     @Override
-    public NbtCompound toInitialChunkDataNbt() {
-        return createNbt();
+    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
+        return createNbt(registryLookup);
     }
 
     public boolean canInsertItem() {
@@ -114,23 +114,23 @@ public class CeramicDishBlockEntity extends BlockEntity implements ImplementedIn
         return this.getStack(0);
     }
 
-    @Override
-    public void markDirty() {
-        if (!world.isClient()) {
-            PacketByteBuf data = PacketByteBufs.create();
-            data.writeInt(inventory.size());
-            for (int i = 0; i < inventory.size(); i++) {
-                data.writeItemStack(inventory.get(i));
-            }
-            data.writeBlockPos(getPos());
-            PacketByteBuf colorData = PacketByteBufs.create();
-            colorData.writeInt(color);
-            colorData.writeBlockPos(getPos());
-            for (ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())) {
-                ServerPlayNetworking.send(player, BFMessages.CERAMIC_DISH_ITEM_SYNC, data);
-                ServerPlayNetworking.send(player, BFMessages.CERAMIC_COLOR_SYNC, colorData);
-            }
-        }
-        super.markDirty();
-    }
+//    @Override
+//    public void markDirty() {
+//        if (!world.isClient()) {
+//            PacketByteBuf data = PacketByteBufs.create();
+//            data.writeInt(inventory.size());
+//            for (int i = 0; i < inventory.size(); i++) {
+//                data.writeItemStack(inventory.get(i));
+//            }
+//            data.writeBlockPos(getPos());
+//            PacketByteBuf colorData = PacketByteBufs.create();
+//            colorData.writeInt(color);
+//            colorData.writeBlockPos(getPos());
+//            for (ServerPlayerEntity player : PlayerLookup.tracking((ServerWorld) world, getPos())) {
+//                ServerPlayNetworking.send(player, BFMessages.CERAMIC_DISH_ITEM_SYNC, data);
+//                ServerPlayNetworking.send(player, BFMessages.CERAMIC_COLOR_SYNC, colorData);
+//            }
+//        }
+//        super.markDirty();
+//    }
 }

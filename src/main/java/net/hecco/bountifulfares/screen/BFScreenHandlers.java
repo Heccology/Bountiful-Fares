@@ -8,9 +8,9 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
 public class BFScreenHandlers {
-    public static final ScreenHandlerType<GristmillScreenHandler> GRISTMILL_SCREEN_HANDLER =
-            Registry.register(Registries.SCREEN_HANDLER, new Identifier(BountifulFares.MOD_ID, "gristmill_screen_handler"), new ExtendedScreenHandlerType<>(GristmillScreenHandler::new));
-    public static void registerScreenHandlers() {
-//        BountifulFares.LOGGER.info("Registering Screen Handlers for" + BountifulFares.MOD_ID);
-    }
+//    public static final ScreenHandlerType<GristmillScreenHandler> GRISTMILL_SCREEN_HANDLER =
+//            Registry.register(Registries.SCREEN_HANDLER, Identifier.of(BountifulFares.MOD_ID, "gristmill_screen_handler"), new ExtendedScreenHandlerType<>(GristmillScreenHandler::new));
+//    public static void registerScreenHandlers() {
+////        BountifulFares.LOGGER.info("Registering Screen Handlers for" + BountifulFares.MOD_ID);
+//    }
 }

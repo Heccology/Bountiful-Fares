@@ -10,7 +10,7 @@
         "probability": 0.25
       },
       {
-        "type": "minecraft:passion_fruit",
+        "type": "bountifulfares:passion_fruit",
         "probability": 1.0
       }
     ],

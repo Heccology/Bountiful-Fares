@@ -8,75 +8,82 @@ import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.util.BFItemTags;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementDisplay;
+import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.AdvancementFrame;
 import net.minecraft.advancement.criterion.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.item.ItemPredicate;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 public class BFAdvancementProvider extends FabricAdvancementProvider {
-    public BFAdvancementProvider(FabricDataOutput output) {
-        super(output);
+
+
+    public BFAdvancementProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(output, registryLookup);
     }
 
     @Override
-    public void generateAdvancement(Consumer<Advancement> consumer) {
-        Advancement root_advancement = Advancement.Builder.create()
+    public void generateAdvancement(RegistryWrapper.WrapperLookup registryLookup, Consumer<AdvancementEntry> consumer) {
+        AdvancementEntry root_advancement = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFItems.PASSION_FRUIT),
                         Text.translatable("advancement.bountifulfares.bountiful_fares"),
-                        Text.translatable("advancement.bountifulfares.bountiful_fares.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.bountiful_fares.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         false,
                         false,
-                        false)).criterion("consume_item", ConsumeItemCriterion.Conditions.any())
+                        false))
+                .criterion("consume_item", ConsumeItemCriterion.Conditions.any())
                 .build(consumer, BountifulFares.MOD_ID + ":bountiful_fares");
-        Advancement make_first_food = Advancement.Builder.create()
+        AdvancementEntry make_first_food = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFItems.BOUNTIFUL_STEW),
                         Text.translatable("advancement.bountifulfares.make_first_food"),
-                        Text.translatable("advancement.bountifulfares.make_first_food.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.make_first_food.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false))
                 .parent(root_advancement)
-                .criterion("make_first_food", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().tag(BFItemTags.MEALS).build()))
+                .criterion("make_first_food", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().tag(BFItemTags.MEALS)))
                 .build(consumer, BountifulFares.MOD_ID + ":make_first_food");
-        Advancement eat_all_food = Advancement.Builder.create()
+        AdvancementEntry eat_all_food = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFItems.CRUSTED_BEEF),
                         Text.translatable("advancement.bountifulfares.eat_all_food"),
-                        Text.translatable("advancement.bountifulfares.eat_all_food.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.GOAL,
+                        Text.translatable("advancement.bountifulfares.eat_all_food.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.GOAL,
                         true,
                         true,
                         false))
                 .parent(make_first_food)
-                .criterion("mushroom_stuffed_potato", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.MUSHROOM_STUFFED_POTATO).build()))
-                .criterion("berry_stuffed_potato", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.BERRY_STUFFED_POTATO).build()))
-                .criterion("maize_stuffed_potato", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.MAIZE_STUFFED_POTATO).build()))
-                .criterion("passion_glazed_salmon", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.PASSION_GLAZED_SALMON).build()))
-                .criterion("leek_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.LEEK_STEW).build()))
-                .criterion("fish_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.FISH_STEW).build()))
-                .criterion("apple_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.APPLE_STEW).build()))
-                .criterion("stone_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.STONE_STEW).build()))
-                .criterion("bountiful_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.BOUNTIFUL_STEW).build()))
-                .criterion("forest_medley", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.FOREST_MEDLEY).build()))
-                .criterion("arid_medley", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.ARID_MEDLEY).build()))
-                .criterion("meadow_medley", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.MEADOW_MEDLEY).build()))
-                .criterion("coastal_medley", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.COASTAL_MEDLEY).build()))
-                .criterion("crusted_beef", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.CRUSTED_BEEF).build()))
-                .criterion("crimson_chow", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.CRIMSON_CHOW).build()))
-                .criterion("warped_chow", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.WARPED_CHOW).build()))
-                .criterion("custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.CUSTARD).build()))
-                .criterion("piquant_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.PIQUANT_CUSTARD).build()))
-                .criterion("passion_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.PASSION_CUSTARD).build()))
-                .criterion("cocoa_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.COCOA_CUSTARD).build()))
-                .criterion("ancient_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.ANCIENT_CUSTARD).build()))
+                .criterion("mushroom_stuffed_potato", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.MUSHROOM_STUFFED_POTATO)))
+                .criterion("berry_stuffed_potato", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.BERRY_STUFFED_POTATO)))
+                .criterion("maize_stuffed_potato", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.MAIZE_STUFFED_POTATO)))
+                .criterion("passion_glazed_salmon", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.PASSION_GLAZED_SALMON)))
+                .criterion("leek_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.LEEK_STEW)))
+                .criterion("fish_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.FISH_STEW)))
+                .criterion("apple_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.APPLE_STEW)))
+                .criterion("stone_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.STONE_STEW)))
+                .criterion("bountiful_stew", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.BOUNTIFUL_STEW)))
+                .criterion("forest_medley", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.FOREST_MEDLEY)))
+                .criterion("arid_medley", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.ARID_MEDLEY)))
+                .criterion("meadow_medley", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.MEADOW_MEDLEY)))
+                .criterion("coastal_medley", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.COASTAL_MEDLEY)))
+                .criterion("crusted_beef", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.CRUSTED_BEEF)))
+                .criterion("crimson_chow", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.CRIMSON_CHOW)))
+                .criterion("warped_chow", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.WARPED_CHOW)))
+                .criterion("custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.CUSTARD)))
+                .criterion("piquant_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.PIQUANT_CUSTARD)))
+                .criterion("passion_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.PASSION_CUSTARD)))
+                .criterion("cocoa_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.COCOA_CUSTARD)))
+                .criterion("ancient_custard", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.ANCIENT_CUSTARD)))
                 .build(consumer, BountifulFares.MOD_ID + ":eat_all_food");
-        Advancement place_gristmill = Advancement.Builder.create()
+        AdvancementEntry place_gristmill = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFBlocks.GRISTMILL),
                         Text.translatable("advancement.bountifulfares.place_gristmill"),
-                        Text.translatable("advancement.bountifulfares.place_gristmill.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.place_gristmill.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false))
@@ -84,10 +91,10 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("place_gristmill", ItemCriterion.Conditions.createPlacedBlock(BFBlocks.GRISTMILL))
                 .build(consumer, BountifulFares.MOD_ID + ":place_gristmill");
 
-        Advancement obtain_feldspar = Advancement.Builder.create()
+        AdvancementEntry obtain_feldspar = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFItems.FELDSPAR),
                         Text.translatable("advancement.bountifulfares.obtain_feldspar"),
-                        Text.translatable("advancement.bountifulfares.obtain_feldspar.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.obtain_feldspar.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false))
@@ -95,40 +102,40 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("obtain_feldspar", InventoryChangedCriterion.Conditions.items(BFItems.FELDSPAR))
                 .build(consumer, BountifulFares.MOD_ID + ":obtain_feldspar");
 
-        Advancement obtain_ceramic_tiles = Advancement.Builder.create()
+        AdvancementEntry obtain_ceramic_tiles = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFBlocks.CERAMIC_TILES),
                         Text.translatable("advancement.bountifulfares.obtain_ceramic_tiles"),
-                        Text.translatable("advancement.bountifulfares.obtain_ceramic_tiles.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.obtain_ceramic_tiles.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false))
                 .parent(obtain_feldspar)
                 .criterion("obtain_ceramic_tiles", InventoryChangedCriterion.Conditions.items(BFBlocks.CERAMIC_TILES))
                 .build(consumer, BountifulFares.MOD_ID + ":obtain_ceramic_tiles");
-        Advancement obtain_fermentation_vessel = Advancement.Builder.create()
+        AdvancementEntry obtain_fermentation_vessel = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFBlocks.FERMENTATION_VESSEL),
                         Text.translatable("advancement.bountifulfares.obtain_fermentation_vessel"),
-                        Text.translatable("advancement.bountifulfares.obtain_fermentation_vessel.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.obtain_fermentation_vessel.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false))
                 .parent(obtain_feldspar)
                 .criterion("obtain_fermentation_vessel", InventoryChangedCriterion.Conditions.items(BFBlocks.FERMENTATION_VESSEL))
                 .build(consumer, BountifulFares.MOD_ID + ":obtain_fermentation_vessel");
-        Advancement eat_ancient_fruit = Advancement.Builder.create()
+        AdvancementEntry eat_ancient_fruit = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFItems.HOARY_APPLE),
                         Text.translatable("advancement.bountifulfares.eat_ancient_fruit"),
-                        Text.translatable("advancement.bountifulfares.eat_ancient_fruit.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.eat_ancient_fruit.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false))
                 .parent(root_advancement)
-                .criterion("eat_ancient_fruit", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.HOARY_APPLE, BFItems.LAPISBERRIES).build()))
+                .criterion("eat_ancient_fruit", ConsumeItemCriterion.Conditions.predicate(ItemPredicate.Builder.create().items(BFItems.HOARY_APPLE, BFItems.LAPISBERRIES)))
                 .build(consumer, BountifulFares.MOD_ID + ":eat_ancient_fruit");
-        Advancement place_all_baked_goods = Advancement.Builder.create()
+        AdvancementEntry place_all_baked_goods = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFBlocks.ARTISAN_BREAD),
                         Text.translatable("advancement.bountifulfares.place_all_baked_goods"),
-                        Text.translatable("advancement.bountifulfares.place_all_baked_goods.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.CHALLENGE,
+                        Text.translatable("advancement.bountifulfares.place_all_baked_goods.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.CHALLENGE,
                         true,
                         true,
                         false))
@@ -148,10 +155,10 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("sweet_berry_tart", ItemCriterion.Conditions.createPlacedBlock(BFBlocks.SWEET_BERRY_TART))
                 .criterion("lapisberry_tart", ItemCriterion.Conditions.createPlacedBlock(BFBlocks.LAPISBERRY_TART))
                 .build(consumer, BountifulFares.MOD_ID + ":place_all_baked_goods");
-        Advancement eat_citrus_essence = Advancement.Builder.create()
+        AdvancementEntry eat_citrus_essence = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFItems.CITRUS_ESSENCE),
                         Text.translatable("advancement.bountifulfares.eat_citrus_essence"),
-                        Text.translatable("advancement.bountifulfares.eat_citrus_essence.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.eat_citrus_essence.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false
@@ -159,10 +166,10 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .parent(obtain_fermentation_vessel)
                 .criterion("eat_citrus_essence", ConsumeItemCriterion.Conditions.item(BFItems.CITRUS_ESSENCE))
                 .build(consumer, BountifulFares.MOD_ID + ":eat_citrus_essence");
-//        Advancement throw_flour = Advancement.Builder.create()
+//        AdvancementEntry throw_flour = Advancement.Builder.create()
 //                .display(new AdvancementDisplay(new ItemStack(ModItems.FLOUR),
 //                        Text.translatable("advancement.bountifulfares.throw_flour"),
-//                        Text.translatable("advancement.bountifulfares.throw_flour.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+//                        Text.translatable("advancement.bountifulfares.throw_flour.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
 //                        true,
 //                        true,
 //                        false))
@@ -170,20 +177,20 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
 ////                .criterion("throw_flour", ItemCriterion.Conditions.createItemUsedOnBlock(LocationPredicate.Builder.create().block(BlockPredicate.ANY), ItemPredicate.Builder.create().items(ModItems.FLOUR)))
 ////                .criterion("throw_flour", SummonedEntityCriterion.Conditions.create(EntityPredicate.Builder.create().type(ModEntities.THROWN_FLOUR_PROJECTILE)))
 //                .build(consumer, BountifulFares.MOD_ID + ":throw_flour");
-        Advancement obtain_sun_hat = Advancement.Builder.create()
+        AdvancementEntry obtain_sun_hat = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFItems.SUN_HAT),
                         Text.translatable("advancement.bountifulfares.obtain_sun_hat"),
-                        Text.translatable("advancement.bountifulfares.obtain_sun_hat.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.obtain_sun_hat.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false))
                 .parent(root_advancement)
                 .criterion("obtain_sun_hat", InventoryChangedCriterion.Conditions.items(BFItems.SUN_HAT))
                 .build(consumer, BountifulFares.MOD_ID + ":obtain_sun_hat");
-        Advancement eat_all_candy = Advancement.Builder.create()
+        AdvancementEntry eat_all_candy = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFItems.CANDY),
                         Text.translatable("advancement.bountifulfares.eat_all_candy"),
-                        Text.translatable("advancement.bountifulfares.eat_all_candy.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.eat_all_candy.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false))
@@ -193,20 +200,20 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("sour", ConsumeItemCriterion.Conditions.item(BFItems.SOUR_CANDY))
                 .criterion("bitter", ConsumeItemCriterion.Conditions.item(BFItems.BITTER_CANDY))
                 .build(consumer, BountifulFares.MOD_ID + ":eat_all_candy");
-//        Advancement gorge = Advancement.Builder.create()
+//        AdvancementEntry gorge = Advancement.Builder.create()
 //                .display(new AdvancementDisplay(new ItemStack(ModItems.SOUR_CANDY),
 //                        Text.translatable("advancement.bountifulfares.gorge"),
-//                        Text.translatable("advancement.bountifulfares.gorge.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+//                        Text.translatable("advancement.bountifulfares.gorge.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
 //                        true,
 //                        true,
 //                        false))
 //                .parent(eat_all_candy)
 //                .criterion("gorge", EffectsChangedCriterion.Conditions.create(EntityEffectPredicate.create().withEffect(ModEffects.GORGING)))
 //                .build(consumer, BountifulFares.MOD_ID + ":gorge");
-        Advancement obtain_tea_blends = Advancement.Builder.create()
+        AdvancementEntry obtain_tea_blends = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFItems.TEA_LEAVES),
                         Text.translatable("advancement.bountifulfares.obtain_tea_blends"),
-                        Text.translatable("advancement.bountifulfares.obtain_tea_blends.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.CHALLENGE,
+                        Text.translatable("advancement.bountifulfares.obtain_tea_blends.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.CHALLENGE,
                         true,
                         true,
                         false))
@@ -218,10 +225,10 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("bellflower", InventoryChangedCriterion.Conditions.items(BFItems.BELLFLOWER_TEA_BLEND))
                 .criterion("torchflower", InventoryChangedCriterion.Conditions.items(BFItems.TORCHFLOWER_TEA_BLEND))
                 .build(consumer, BountifulFares.MOD_ID + ":obtain_tea_blends");
-        Advancement place_all_tea_candles = Advancement.Builder.create()
+        AdvancementEntry place_all_tea_candles = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFBlocks.GREEN_TEA_CANDLE),
                         Text.translatable("advancement.bountifulfares.place_all_tea_candles"),
-                        Text.translatable("advancement.bountifulfares.place_all_tea_candles.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.CHALLENGE,
+                        Text.translatable("advancement.bountifulfares.place_all_tea_candles.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.CHALLENGE,
                         true,
                         true,
                         false))
@@ -234,40 +241,40 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("torchflower", ItemCriterion.Conditions.createPlacedBlock(BFBlocks.TORCHFLOWER_CANDLE))
                 .criterion("walnut", ItemCriterion.Conditions.createPlacedBlock(BFBlocks.WALNUT_CANDLE))
                 .build(consumer, BountifulFares.MOD_ID + ":place_all_tea_candles");
-        Advancement obtain_walnut = Advancement.Builder.create()
+        AdvancementEntry obtain_walnut = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFItems.WALNUT),
                         Text.translatable("advancement.bountifulfares.obtain_walnut"),
-                        Text.translatable("advancement.bountifulfares.obtain_walnut.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.obtain_walnut.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false))
                 .parent(root_advancement)
                 .criterion("obtain_walnut", InventoryChangedCriterion.Conditions.items(BFItems.WALNUT))
                 .build(consumer, BountifulFares.MOD_ID + ":obtain_walnut");
-        Advancement obtain_spongekin_seeds = Advancement.Builder.create()
+        AdvancementEntry obtain_spongekin_seeds = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFItems.SPONGEKIN_SEEDS),
                         Text.translatable("advancement.bountifulfares.obtain_spongekin_seeds"),
-                        Text.translatable("advancement.bountifulfares.obtain_spongekin_seeds.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.obtain_spongekin_seeds.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false))
                 .parent(root_advancement)
                 .criterion("obtain_spongekin_seeds", InventoryChangedCriterion.Conditions.items(BFItems.SPONGEKIN_SEEDS))
                 .build(consumer, BountifulFares.MOD_ID + ":obtain_spongekin_seeds");
-        Advancement obtain_spongekin = Advancement.Builder.create()
+        AdvancementEntry obtain_spongekin = Advancement.Builder.create()
                 .display(new AdvancementDisplay(new ItemStack(BFBlocks.SPONGEKIN),
                         Text.translatable("advancement.bountifulfares.obtain_spongekin"),
-                        Text.translatable("advancement.bountifulfares.obtain_spongekin.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.TASK,
+                        Text.translatable("advancement.bountifulfares.obtain_spongekin.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
                         true,
                         true,
                         false))
                 .parent(obtain_spongekin_seeds)
                 .criterion("obtain_spongekin", InventoryChangedCriterion.Conditions.items(ItemPredicate.Builder.create().items(BFItems.SPONGEKIN_SLICE, BFBlocks.SPONGEKIN).build()))
                 .build(consumer, BountifulFares.MOD_ID + ":obtain_spongekin");
-//        Advancement breedWolvesWithMulch = Advancement.Builder.create()
+//        AdvancementEntry breedWolvesWithMulch = Advancement.Builder.create()
 //                .display(new AdvancementDisplay(new ItemStack(ModBlocks.WALNUT_MULCH),
 //                        Text.translatable("advancement.bountifulfares.breed_wolves_with_mulch"),
-//                        Text.translatable("advancement.bountifulfares.breed_wolves_with_mulch.description"), new Identifier("minecraft:textures/block/farmland_moist.png"), AdvancementFrame.CHALLENGE,
+//                        Text.translatable("advancement.bountifulfares.breed_wolves_with_mulch.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.CHALLENGE,
 //                        true,
 //                        true,
 //                        false))
@@ -276,4 +283,5 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
 //                .build(consumer, BountifulFares.MOD_ID + ":breed_wolves_with_mulch");
     }
 }
+
 //EntityPredicate.Builder.create().type(EntityType.WOLF

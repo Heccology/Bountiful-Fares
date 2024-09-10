@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.particle;
 
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particle.DefaultParticleType;
+import net.minecraft.particle.SimpleParticleType;
 
 public class PrismarineBlossomParticle extends SpriteBillboardParticle {
     public PrismarineBlossomParticle(ClientWorld world, double xCoord, double yCoord, double zCoord, SpriteProvider spriteSet, double xd, double yd, double zd) {
@@ -24,13 +24,13 @@ public class PrismarineBlossomParticle extends SpriteBillboardParticle {
         return ParticleTextureSheet.PARTICLE_SHEET_LIT;
     }
 
-    public static class Factory implements ParticleFactory<DefaultParticleType> {
+    public static class Factory implements ParticleFactory<SimpleParticleType> {
         private final SpriteProvider sprites;
         public Factory(SpriteProvider spriteProvider) {
             this.sprites = spriteProvider;
         }
 
-        public Particle createParticle(DefaultParticleType particleType, ClientWorld clientWorld, double x, double y, double z, double xd, double yd, double zd) {
+        public Particle createParticle(SimpleParticleType particleType, ClientWorld clientWorld, double x, double y, double z, double xd, double yd, double zd) {
             return new PrismarineBlossomParticle(clientWorld, x, y, z, this.sprites, xd, yd, zd);
         }
     }

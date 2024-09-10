@@ -1,17 +1,16 @@
 package net.hecco.bountifulfares.compat.farmersdelight;
 
-import dev.architectury.event.events.common.TickEvent;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.entity.BFBlockEntities;
-import net.hecco.bountifulfares.block.entity.compat.CabinetBlockEntity;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
 import net.minecraft.resource.featuretoggle.FeatureSet;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.world.ServerWorld;
@@ -19,7 +18,10 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.BlockMirror;
+import net.minecraft.util.BlockRotation;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -41,15 +43,26 @@ public class CabinetBlock extends BlockWithEntity {
         this.modId = modId;
     }
 
+    public CabinetBlock(Settings settings) {
+        super(settings);
+        this.modId = BountifulFares.FARMERS_DELIGHT_MOD_ID;
+    }
+
     @Override
     public boolean isEnabled(FeatureSet enabledFeatures) {
         return BountifulFares.isModLoaded(modId) || BountifulFares.isDatagen();
     }
 
-    @Nullable
+//    @Nullable
+//    @Override
+//    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+//        return BFBlockEntities.CABINET_BLOCK_ENTITY.instantiate(pos, state);
+//    }
+
+    public static final MapCodec<CabinetBlock> CODEC = CabinetBlock.createCodec(CabinetBlock::new);
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return BFBlockEntities.CABINET_BLOCK_ENTITY.instantiate(pos, state);
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -69,19 +82,12 @@ public class CabinetBlock extends BlockWithEntity {
         }
     }
 
-    @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (world.getBlockEntity(pos) instanceof CabinetBlockEntity cabinetBlockEntity) {
-            cabinetBlockEntity.tick();
-        }
-    }
-
-    @Override
-    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
-        if (itemStack.hasCustomName() && world.getBlockEntity(pos) instanceof CabinetBlockEntity cabinetBlockEntity) {
-            cabinetBlockEntity.setCustomName(itemStack.getName());
-        }
-    }
+//    @Override
+//    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+//        if (world.getBlockEntity(pos) instanceof CabinetBlockEntity cabinetBlockEntity) {
+//            cabinetBlockEntity.tick();
+//        }
+//    }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
@@ -95,15 +101,19 @@ public class CabinetBlock extends BlockWithEntity {
         return getDefaultState().with(FACING, context.getHorizontalPlayerFacing().getOpposite());
     }
 
+//    @Override
+//    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+//        if (!world.isClient() && world.getBlockEntity(pos) instanceof CabinetBlockEntity cabinetBlockEntity) {
+//            player.openHandledScreen(cabinetBlockEntity);
+//        }
+//
+//        return ActionResult.SUCCESS;
+//    }
+    @Nullable
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient() && world.getBlockEntity(pos) instanceof CabinetBlockEntity cabinetBlockEntity) {
-            player.openHandledScreen(cabinetBlockEntity);
-        }
-
-        return ActionResult.SUCCESS;
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return null;
     }
-
     @Override
     public boolean hasComparatorOutput(BlockState state) {
         return true;
@@ -123,5 +133,4 @@ public class CabinetBlock extends BlockWithEntity {
     public BlockState mirror(BlockState state, BlockMirror mirror) {
         return state.rotate(mirror.getRotation(state.get(FACING)));
     }
-
 }

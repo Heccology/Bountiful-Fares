@@ -117,7 +117,7 @@ public class JackOStrawBlock extends Block implements Waterloggable {
     }
 
     @Override
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!world.isClient && player.isCreative()) {
             onBreakInCreative(world, pos, state, player);
         } else if (world.getBlockState(pos.up()).isOf(this) && state.get(HALF) == DoubleBlockHalf.LOWER) {
@@ -127,7 +127,10 @@ public class JackOStrawBlock extends Block implements Waterloggable {
             world.breakBlock(pos, true);
             world.breakBlock(pos.down(), false);
         }
+        return super.onBreak(world, pos, state, player);
     }
+
+
 
     @Override
     public BlockSoundGroup getSoundGroup(BlockState state) {
@@ -139,10 +142,10 @@ public class JackOStrawBlock extends Block implements Waterloggable {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (state.get(HALF) == DoubleBlockHalf.UPPER & !state.get(LIT) & player.getStackInHand(hand).isIn(BFItemTags.JACK_O_STRAW_LIGHTABLE)) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if (state.get(HALF) == DoubleBlockHalf.UPPER & !state.get(LIT) & player.getStackInHand(player.getActiveHand()).isIn(BFItemTags.JACK_O_STRAW_LIGHTABLE)) {
             if (!player.isCreative()) {
-                player.getStackInHand(hand).decrement(1);
+                player.getStackInHand(player.getActiveHand()).decrement(1);
             }
             world.setBlockState(pos, this.getStateWithProperties(state).with(LIT, true), 2);
             world.playSound(null, pos, SoundEvents.BLOCK_CANDLE_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);

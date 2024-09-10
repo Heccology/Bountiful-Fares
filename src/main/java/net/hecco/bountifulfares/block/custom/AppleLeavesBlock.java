@@ -10,11 +10,11 @@ import net.minecraft.world.WorldView;
 
 public class AppleLeavesBlock extends LeavesBlock implements Fertilizable {
 
-    public AppleLeavesBlock(Block fruit, Settings settings) {
+    public AppleLeavesBlock(Settings settings) {
         super(settings);
     }
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return world.getBlockState(pos.down()).isAir();
     }
     @Override

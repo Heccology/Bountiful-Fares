@@ -96,13 +96,10 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     }
 
     @Override
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (!player.isCreative()) {
-            dropStack(world, pos, new ItemStack(crop.getSeedsItem()));
-        }
-        super.onBreak(world, pos, state, player);
+    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
+        dropStack((World) world, pos, new ItemStack(crop.getSeedsItem()));
+        super.onBroken(world, pos, state);
     }
-
     @Override
     public String getTranslationKey() {
         return "block." + variant.getModId() + "." + crop.getName() + "_" + variant.getBlockName();
@@ -113,15 +110,13 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         int i = state.get(AGE);
-        if (player.getStackInHand(hand).isOf(Items.SHEARS) && !state.get(SNIPPED)) {
-            player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
+        if (player.getStackInHand(player.getActiveHand()).isOf(Items.SHEARS) && !state.get(SNIPPED)) {
+            player.getStackInHand(player.getActiveHand()).damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
             world.setBlockState(pos, state.with(SNIPPED, true));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            player.getStackInHand(hand).damage(1, player, (playerx) -> {
-                playerx.sendToolBreakStatus(hand);
-            });
+            player.getStackInHand(player.getActiveHand()).damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
             return ActionResult.SUCCESS;
         } else if(i != 3) {
             return ActionResult.PASS;
@@ -131,7 +126,7 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
                 dropStack(world, pos, new ItemStack(this.berryItem, world.random.nextBetween(1, 2)));
                 world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
             } else if (this.berryItemID != null) {
-                dropStack(world, pos, new ItemStack(Registries.ITEM.get(new Identifier(crop.getId(), this.berryItemID)), world.random.nextBetween(1, 2)));
+                dropStack(world, pos, new ItemStack(Registries.ITEM.get(Identifier.of(crop.getId(), this.berryItemID)), world.random.nextBetween(1, 2)));
                 world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
             }
             BlockState blockState = state.with(AGE, harvestResetAge);
@@ -139,7 +134,7 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
             return ActionResult.SUCCESS;
         }
-        return super.onUse(state, world, pos, player, hand, hit);
+        return super.onUse(state, world, pos, player, hit);
     }
 
     @Override
@@ -175,7 +170,7 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return new ItemStack(TrellisUtil.getTrellisFromVariant(variant));
     }
 
@@ -188,12 +183,12 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    protected boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         if(isFullyGrown(state)) {
             return false;
         }

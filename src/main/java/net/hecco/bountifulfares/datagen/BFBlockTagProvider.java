@@ -595,16 +595,16 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     public void registerTrellisBlockTags(TrellisVariant trellis) {
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                .addOptional(new Identifier(trellis.getModId(), trellis.getBlockName()))
+                .addOptional(Identifier.of(trellis.getModId(), trellis.getBlockName()))
         ;
         for (VineCrop crop : TrellisUtil.VineCrops) {
             getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                    .addOptional(new Identifier(trellis.getModId(), crop.getName() + "_" + trellis.getBlockName()))
+                    .addOptional(Identifier.of(trellis.getModId(), crop.getName() + "_" + trellis.getBlockName()))
             ;
         }
         for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
             getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                    .addOptional(new Identifier(trellis.getModId(), vine.getName() + "_" + trellis.getBlockName()))
+                    .addOptional(Identifier.of(trellis.getModId(), vine.getName() + "_" + trellis.getBlockName()))
             ;
         }
     }

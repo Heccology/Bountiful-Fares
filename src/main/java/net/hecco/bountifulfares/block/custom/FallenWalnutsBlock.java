@@ -46,12 +46,13 @@ public class FallenWalnutsBlock extends Block {
         return state.getFluidState().isEmpty();
     }
 
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
-        return type == NavigationType.AIR && !this.collidable || super.canPathfindThrough(state, world, pos, type);
+    @Override
+    protected boolean canPathfindThrough(BlockState state, NavigationType type) {
+        return type == NavigationType.AIR && !this.collidable || super.canPathfindThrough(state, type);
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return BFItems.WALNUT.getDefaultStack();
     }
 }

@@ -1,24 +1,19 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.item.BFItems;
 import net.hecco.bountifulfares.sounds.BFSounds;
 import net.hecco.bountifulfares.util.BFBlockTags;
 import net.hecco.bountifulfares.util.BFDamageTypes;
 import net.minecraft.block.*;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageSources;
-import net.minecraft.entity.damage.DamageType;
-import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.predicate.entity.DamageSourcePredicate;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
@@ -30,7 +25,6 @@ import net.minecraft.util.BlockRotation;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
@@ -81,6 +75,11 @@ public class CoconutBlock extends FallingBlock implements Fertilizable {
     }
 
     @Override
+    protected MapCodec<? extends FallingBlock> getCodec() {
+        return null;
+    }
+
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         if (state.get(FACING) == Direction.NORTH) {
             return NORTH_SHAPES[state.get(AGE)];
@@ -117,7 +116,7 @@ public class CoconutBlock extends FallingBlock implements Fertilizable {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return new ItemStack(BFItems.COCONUT);
     }
 
@@ -162,13 +161,14 @@ public class CoconutBlock extends FallingBlock implements Fertilizable {
     }
 
     @Override
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!player.isCreative() && state.get(AGE) == 5) {
             FallingBlockEntity fallingBlockEntity = FallingBlockEntity.spawnFromBlock(world, pos, state);
             this.configureFallingBlockEntity(fallingBlockEntity);
             world.removeBlock(pos, false);
+            return Blocks.AIR.getDefaultState();
         } else {
-            super.onBreak(world, pos, state, player);
+            return super.onBreak(world, pos, state, player);
         }
     }
 
@@ -255,7 +255,7 @@ public class CoconutBlock extends FallingBlock implements Fertilizable {
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
 

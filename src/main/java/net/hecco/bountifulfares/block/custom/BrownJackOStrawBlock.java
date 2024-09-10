@@ -110,7 +110,7 @@ public class BrownJackOStrawBlock extends Block implements Waterloggable {
     }
 
     @Override
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!world.isClient && player.isCreative()) {
             onBreakInCreative(world, pos, state, player);
         } else if (world.getBlockState(pos.up()).isOf(this) && state.get(HALF) == DoubleBlockHalf.LOWER) {
@@ -120,6 +120,7 @@ public class BrownJackOStrawBlock extends Block implements Waterloggable {
             world.breakBlock(pos, true);
             world.breakBlock(pos.down(), false);
         }
+        return super.onBreak(world, pos, state, player);
     }
 
     @Override

@@ -16,6 +16,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
@@ -67,17 +68,18 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
-        Inventories.writeNbt(nbt, this.inventory);
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        super.writeNbt(nbt, registryLookup);
+        Inventories.writeNbt(nbt, this.inventory, registryLookup);
         nbt.putInt("fermenting.progress", this.progress);
     }
 
+
     @Override
-    public void readNbt(NbtCompound nbt) {
-        Inventories.readNbt(nbt, this.inventory);
+    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        Inventories.readNbt(nbt, this.inventory, registryLookup);
         this.progress = nbt.getInt("fermenting.progress");
-        super.readNbt(nbt);
+        super.readNbt(nbt, registryLookup);
     }
 
     @Nullable
@@ -87,8 +89,8 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     }
 
     @Override
-    public NbtCompound toInitialChunkDataNbt() {
-        return createNbt();
+    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
+        return createNbt(registryLookup);
     }
 
     public boolean canInsertItem() {

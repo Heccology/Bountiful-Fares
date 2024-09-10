@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.compat;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.hecco.bountifulfares.BountifulFares;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -13,7 +12,7 @@ import static net.hecco.bountifulfares.BountifulFares.*;
 public class DatagenOnlyItems {
     private static void registerDatagenOnlyItem(String modId, String name) {
         if (BountifulFares.isDatagen()) {
-            Registry.register(Registries.ITEM, new Identifier(modId, name), new Item(new FabricItemSettings()));
+            Registry.register(Registries.ITEM, Identifier.of(modId, name), new Item(new Item.Settings()));
         }
     }
 

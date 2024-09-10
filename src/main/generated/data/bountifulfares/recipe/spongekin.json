@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "bountifulfares:spongekin_slice"
+    },
+    {
+      "item": "bountifulfares:spongekin_slice"
+    },
+    {
+      "item": "bountifulfares:spongekin_slice"
+    },
+    {
+      "item": "bountifulfares:spongekin_slice"
+    },
+    {
+      "item": "bountifulfares:spongekin_slice"
+    },
+    {
+      "item": "bountifulfares:spongekin_slice"
+    },
+    {
+      "item": "bountifulfares:spongekin_slice"
+    },
+    {
+      "item": "bountifulfares:spongekin_slice"
+    },
+    {
+      "item": "bountifulfares:spongekin_slice"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:spongekin"
+  }
+}

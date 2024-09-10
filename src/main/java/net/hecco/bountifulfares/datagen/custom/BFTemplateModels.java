@@ -15,11 +15,11 @@ import java.util.Optional;
 
 public class BFTemplateModels {
     //Pickets model generation by DigitalPear
-    public static final Model TEMPLATE_PICKETS = new Model(Optional.of(new Identifier(BountifulFares.MOD_ID, "template_pickets").withPrefixedPath("block/")), Optional.empty(), TextureKey.TEXTURE);
-    public static final Model TEMPLATE_TRELLIS = new Model(Optional.of(new Identifier(BountifulFares.MOD_ID, "template_trellis").withPrefixedPath("block/")), Optional.empty(), TextureKey.TEXTURE);
-    public static final Model TEMPLATE_TRELLIS_0 = new Model(Optional.of(new Identifier(BountifulFares.MOD_ID, "template_planted_trellis_0").withPrefixedPath("block/")), Optional.empty(), TextureKey.TEXTURE, TextureKey.CROP);
-    public static final Model TEMPLATE_TRELLIS_1 = new Model(Optional.of(new Identifier(BountifulFares.MOD_ID, "template_planted_trellis").withPrefixedPath("block/")), Optional.empty(), TextureKey.TEXTURE, TextureKey.CROP, TextureKey.FRONT);
-    public static final Model TEMPLATE_TRELLIS_UPSIDE_DOWN = new Model(Optional.of(new Identifier(BountifulFares.MOD_ID, "template_planted_trellis_upside_down").withPrefixedPath("block/")), Optional.empty(), TextureKey.TEXTURE, TextureKey.CROP, TextureKey.FRONT);
+    public static final Model TEMPLATE_PICKETS = new Model(Optional.of(Identifier.of(BountifulFares.MOD_ID, "template_pickets").withPrefixedPath("block/")), Optional.empty(), TextureKey.TEXTURE);
+    public static final Model TEMPLATE_TRELLIS = new Model(Optional.of(Identifier.of(BountifulFares.MOD_ID, "template_trellis").withPrefixedPath("block/")), Optional.empty(), TextureKey.TEXTURE);
+    public static final Model TEMPLATE_TRELLIS_0 = new Model(Optional.of(Identifier.of(BountifulFares.MOD_ID, "template_planted_trellis_0").withPrefixedPath("block/")), Optional.empty(), TextureKey.TEXTURE, TextureKey.CROP);
+    public static final Model TEMPLATE_TRELLIS_1 = new Model(Optional.of(Identifier.of(BountifulFares.MOD_ID, "template_planted_trellis").withPrefixedPath("block/")), Optional.empty(), TextureKey.TEXTURE, TextureKey.CROP, TextureKey.FRONT);
+    public static final Model TEMPLATE_TRELLIS_UPSIDE_DOWN = new Model(Optional.of(Identifier.of(BountifulFares.MOD_ID, "template_planted_trellis_upside_down").withPrefixedPath("block/")), Optional.empty(), TextureKey.TEXTURE, TextureKey.CROP, TextureKey.FRONT);
     public static void registerPicketsModels(BlockStateModelGenerator blockStateModelGenerator, Block picket){
         Identifier modelID = TEMPLATE_PICKETS.upload(picket, TextureMap.texture(picket), blockStateModelGenerator.modelCollector);
         blockStateModelGenerator.blockStateCollector.accept(MultipartBlockStateSupplier.create(picket)
@@ -83,10 +83,10 @@ public class BFTemplateModels {
         );
     }
     public static void registerCropTrellis(BlockStateModelGenerator blockStateModelGenerator, Block trellis, String trellisId, String vinesId, String foliageId, String modId){
-        Identifier modelID1 = TEMPLATE_TRELLIS_0.upload(trellis, TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(BountifulFares.MOD_ID, "block/" + vinesId + "_0")), blockStateModelGenerator.modelCollector);
-        Identifier modelID2 = TEMPLATE_TRELLIS_1.upload(trellis, "_1", TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(BountifulFares.MOD_ID, "block/" + vinesId + "_1")).put(TextureKey.FRONT, new Identifier(BountifulFares.MOD_ID, "block/" + foliageId + "_1")), blockStateModelGenerator.modelCollector);
-        Identifier modelID3 = TEMPLATE_TRELLIS_1.upload(trellis, "_2", TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(BountifulFares.MOD_ID, "block/" + vinesId + "_1")).put(TextureKey.FRONT, new Identifier(BountifulFares.MOD_ID, "block/" + foliageId + "_2")), blockStateModelGenerator.modelCollector);
-        Identifier modelID4 = TEMPLATE_TRELLIS_1.upload(trellis, "_3", TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(BountifulFares.MOD_ID, "block/" + vinesId + "_1")).put(TextureKey.FRONT, new Identifier(BountifulFares.MOD_ID, "block/" + foliageId + "_3")), blockStateModelGenerator.modelCollector);
+        Identifier modelID1 = TEMPLATE_TRELLIS_0.upload(trellis, TextureMap.texture(trellis).put(TextureKey.TEXTURE, Identifier.of(modId, "block/" + trellisId)).put(TextureKey.CROP, Identifier.of(BountifulFares.MOD_ID, "block/" + vinesId + "_0")), blockStateModelGenerator.modelCollector);
+        Identifier modelID2 = TEMPLATE_TRELLIS_1.upload(trellis, "_1", TextureMap.texture(trellis).put(TextureKey.TEXTURE, Identifier.of(modId, "block/" + trellisId)).put(TextureKey.CROP, Identifier.of(BountifulFares.MOD_ID, "block/" + vinesId + "_1")).put(TextureKey.FRONT, Identifier.of(BountifulFares.MOD_ID, "block/" + foliageId + "_1")), blockStateModelGenerator.modelCollector);
+        Identifier modelID3 = TEMPLATE_TRELLIS_1.upload(trellis, "_2", TextureMap.texture(trellis).put(TextureKey.TEXTURE, Identifier.of(modId, "block/" + trellisId)).put(TextureKey.CROP, Identifier.of(BountifulFares.MOD_ID, "block/" + vinesId + "_1")).put(TextureKey.FRONT, Identifier.of(BountifulFares.MOD_ID, "block/" + foliageId + "_2")), blockStateModelGenerator.modelCollector);
+        Identifier modelID4 = TEMPLATE_TRELLIS_1.upload(trellis, "_3", TextureMap.texture(trellis).put(TextureKey.TEXTURE, Identifier.of(modId, "block/" + trellisId)).put(TextureKey.CROP, Identifier.of(BountifulFares.MOD_ID, "block/" + vinesId + "_1")).put(TextureKey.FRONT, Identifier.of(BountifulFares.MOD_ID, "block/" + foliageId + "_3")), blockStateModelGenerator.modelCollector);
 
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(trellis)
                 .coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_FACING)
@@ -111,7 +111,7 @@ public class BFTemplateModels {
     }
 
     public static void registerDecorTrellis(BlockStateModelGenerator blockStateModelGenerator, Block trellis, String trellisId, String vinesId, String foliageId, String modId){
-        Identifier modelID4 = TEMPLATE_TRELLIS_1.upload(trellis, TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(BountifulFares.MOD_ID, "block/" + vinesId)).put(TextureKey.FRONT, new Identifier(BountifulFares.MOD_ID, "block/" + foliageId)), blockStateModelGenerator.modelCollector);
+        Identifier modelID4 = TEMPLATE_TRELLIS_1.upload(trellis, TextureMap.texture(trellis).put(TextureKey.TEXTURE, Identifier.of(modId, "block/" + trellisId)).put(TextureKey.CROP, Identifier.of(BountifulFares.MOD_ID, "block/" + vinesId)).put(TextureKey.FRONT, Identifier.of(BountifulFares.MOD_ID, "block/" + foliageId)), blockStateModelGenerator.modelCollector);
 
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(trellis)
                 .coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_FACING)
@@ -127,7 +127,7 @@ public class BFTemplateModels {
     }
 
     public static void registerUpsideDownDecorTrellis(BlockStateModelGenerator blockStateModelGenerator, Block trellis, String trellisId, String vinesId, String foliageId, String modId){
-        Identifier modelID4 = TEMPLATE_TRELLIS_UPSIDE_DOWN.upload(trellis, TextureMap.texture(trellis).put(TextureKey.TEXTURE, new Identifier(modId, "block/" + trellisId)).put(TextureKey.CROP, new Identifier(BountifulFares.MOD_ID, "block/" + vinesId)).put(TextureKey.FRONT, new Identifier(BountifulFares.MOD_ID, "block/" + foliageId)), blockStateModelGenerator.modelCollector);
+        Identifier modelID4 = TEMPLATE_TRELLIS_UPSIDE_DOWN.upload(trellis, TextureMap.texture(trellis).put(TextureKey.TEXTURE, Identifier.of(modId, "block/" + trellisId)).put(TextureKey.CROP, Identifier.of(BountifulFares.MOD_ID, "block/" + vinesId)).put(TextureKey.FRONT, Identifier.of(BountifulFares.MOD_ID, "block/" + foliageId)), blockStateModelGenerator.modelCollector);
 
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(trellis)
                 .coordinate(BlockStateVariantMap.create(Properties.HORIZONTAL_FACING)

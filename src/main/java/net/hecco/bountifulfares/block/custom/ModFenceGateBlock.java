@@ -5,6 +5,6 @@ import net.minecraft.block.WoodType;
 
 public class ModFenceGateBlock extends FenceGateBlock {
     public ModFenceGateBlock(Settings settings, WoodType type) {
-        super(settings, type);
+        super(type, settings);
     }
 }

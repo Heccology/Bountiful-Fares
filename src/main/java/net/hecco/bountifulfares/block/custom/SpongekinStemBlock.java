@@ -1,7 +1,9 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.block.*;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -30,6 +32,11 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
     public SpongekinStemBlock(Settings settings) {
         super(settings);
         this.setDefaultState((this.stateManager.getDefaultState()).with(AGE, 0).with(ATTACHED, false));
+    }
+
+    @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return null;
     }
 
     @Override
@@ -77,7 +84,7 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
 
@@ -135,7 +142,7 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
     }
 
     @Override
-    public boolean canFillWithFluid(BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
+    public boolean canFillWithFluid(@Nullable PlayerEntity player, BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
         return false;
     }
 

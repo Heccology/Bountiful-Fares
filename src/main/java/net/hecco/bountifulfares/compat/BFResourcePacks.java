@@ -13,7 +13,7 @@ import java.util.Optional;
 public class BFResourcePacks {
     private static void registerBuiltinResourcePack(ModContainer modContainer, String forModID) {
             ResourceManagerHelper.registerBuiltinResourcePack(
-                    new Identifier(BountifulFares.MOD_ID, forModID + "_res"),
+                    Identifier.of(BountifulFares.MOD_ID, forModID + "_res"),
                     modContainer,
                     Text.translatable("pack." + BountifulFares.MOD_ID + "." + forModID),
                     ResourcePackActivationType.ALWAYS_ENABLED
@@ -22,7 +22,7 @@ public class BFResourcePacks {
 
     private static void registerBuiltinResourcePack(ModContainer modContainer, String forModID, String additional) {
         ResourceManagerHelper.registerBuiltinResourcePack(
-                new Identifier(BountifulFares.MOD_ID, forModID + "_res_" + additional),
+                Identifier.of(BountifulFares.MOD_ID, forModID + "_res_" + additional),
                 modContainer,
                 Text.translatable("pack." + BountifulFares.MOD_ID + "." + forModID),
                 ResourcePackActivationType.ALWAYS_ENABLED
@@ -31,7 +31,7 @@ public class BFResourcePacks {
 
     private static void registerBuiltinDataPack(ModContainer modContainer, String packId) {
             ResourceManagerHelper.registerBuiltinResourcePack(
-                    new Identifier(BountifulFares.MOD_ID, packId + "_dat"),
+                    Identifier.of(BountifulFares.MOD_ID, packId + "_dat"),
                     modContainer,
                     Text.translatable("pack." + BountifulFares.MOD_ID + "." + packId),
                     ResourcePackActivationType.ALWAYS_ENABLED
@@ -40,7 +40,7 @@ public class BFResourcePacks {
 
     private static void registerBuiltinDataPack(ModContainer modContainer, String packId, String additional) {
         ResourceManagerHelper.registerBuiltinResourcePack(
-                new Identifier(BountifulFares.MOD_ID, packId + "_dat_" + additional),
+                Identifier.of(BountifulFares.MOD_ID, packId + "_dat_" + additional),
                 modContainer,
                 Text.translatable("pack." + BountifulFares.MOD_ID + "." + packId),
                 ResourcePackActivationType.ALWAYS_ENABLED
@@ -114,7 +114,7 @@ public class BFResourcePacks {
 ////                registerBuiltinDataPack(modContainer.get(), BountifulFares.ARTS_AND_CRAFTS_MOD_ID);
 //            }
             ResourceManagerHelper.registerBuiltinResourcePack(
-                    new Identifier(BountifulFares.MOD_ID, "vanilla_item_override"),
+                    Identifier.of(BountifulFares.MOD_ID, "vanilla_item_override"),
                     modContainer.get(),
                     Text.translatable("pack." + BountifulFares.MOD_ID + "." + "vanilla_item_override"),
                     ResourcePackActivationType.DEFAULT_ENABLED);

@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.ItemEntity;
@@ -34,6 +35,11 @@ public class FruitBlock extends FallingBlock {
     }
 
     @Override
+    protected MapCodec<? extends FallingBlock> getCodec() {
+        return null;
+    }
+
+    @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(SLICES, FACING);
     }
@@ -52,7 +58,7 @@ public class FruitBlock extends FallingBlock {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (state.get(SLICES) != 3 && player.canConsume(false)) {
             world.setBlockState(pos, state.cycle(SLICES), Block.NOTIFY_LISTENERS);
             player.getHungerManager().add(4, 0.1f);

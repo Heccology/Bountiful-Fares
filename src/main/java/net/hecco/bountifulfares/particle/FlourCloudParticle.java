@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.particle;
 
 import net.minecraft.client.particle.*;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particle.DefaultParticleType;
+import net.minecraft.particle.SimpleParticleType;
 import net.minecraft.util.math.random.Random;
 
 public class FlourCloudParticle extends SpriteBillboardParticle {
@@ -48,13 +48,13 @@ public class FlourCloudParticle extends SpriteBillboardParticle {
         return ParticleTextureSheet.PARTICLE_SHEET_TRANSLUCENT;
     }
 
-    public static class Factory implements ParticleFactory<DefaultParticleType> {
+    public static class Factory implements ParticleFactory<SimpleParticleType> {
         private final SpriteProvider sprites;
         public Factory(SpriteProvider spriteProvider) {
             this.sprites = spriteProvider;
         }
 
-        public Particle createParticle(DefaultParticleType particleType, ClientWorld clientWorld, double x, double y, double z, double xd, double yd, double zd) {
+        public Particle createParticle(SimpleParticleType particleType, ClientWorld clientWorld, double x, double y, double z, double xd, double yd, double zd) {
             return new FlourCloudParticle(clientWorld, x, y, z, this.sprites, xd, yd, zd, Random.create().nextBetween(0, 180));
         }
     }

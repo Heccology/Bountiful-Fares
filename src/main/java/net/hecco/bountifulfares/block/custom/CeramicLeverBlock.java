@@ -12,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LeverBlock;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -28,6 +29,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 import net.minecraft.world.event.GameEvent;
 
 public class CeramicLeverBlock extends LeverBlock implements DyeableCeramicBlockInterface {
@@ -37,10 +39,10 @@ public class CeramicLeverBlock extends LeverBlock implements DyeableCeramicBlock
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack itemStack = player.getStackInHand(hand);
-        if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
-            int brushColor = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY).getInt(ArtisanBrushItem.COLOR_KEY);
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        ItemStack itemStack = player.getStackInHand(player.getActiveHand());
+        if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && itemStack.getComponents().contains(DataComponentTypes.DYED_COLOR)) {
+            int brushColor = itemStack.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
             world.removeBlock(pos, false);
             world.setBlockState(pos, this.getStateWithProperties(state));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
@@ -52,7 +54,7 @@ public class CeramicLeverBlock extends LeverBlock implements DyeableCeramicBlock
             }
         }
         if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
-            Item item = player.getStackInHand(hand).getItem();
+            Item item = player.getStackInHand(player.getActiveHand()).getItem();
             if (CompatUtil.isItemPaintbrush(item)) {
                 int brushColor = CompatUtil.getIntColorFromPaintbrush(item);
                 if (brushColor != 1) {
@@ -77,10 +79,10 @@ public class CeramicLeverBlock extends LeverBlock implements DyeableCeramicBlock
 
             return ActionResult.SUCCESS;
         } else {
-            blockState = this.togglePower(state, world, pos);
-            SoundEvent f = blockState.get(POWERED) ? BFSounds.CERAMIC_LEVER_ON : BFSounds.CERAMIC_LEVER_OFF;
+            this.togglePower(state, world, pos, player);
+            SoundEvent f = state.get(POWERED) ? BFSounds.CERAMIC_LEVER_ON : BFSounds.CERAMIC_LEVER_OFF;
             world.playSound(null, pos, f, SoundCategory.BLOCKS, 0.8F, 1);
-            world.emitGameEvent(player, blockState.get(POWERED) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
+            world.emitGameEvent(player, state.get(POWERED) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
             return ActionResult.CONSUME;
         }
     }
@@ -118,7 +120,7 @@ public class CeramicLeverBlock extends LeverBlock implements DyeableCeramicBlock
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         if (DyeableCeramicBlockEntity.getColor(world, pos) != DyeableCeramicBlockEntity.DEFAULT_COLOR) {
             ItemStack stack = super.getPickStack(world, pos, state);
             return pickBlock(world,pos,stack);

@@ -12,30 +12,30 @@ public class GorgingEffect extends StatusEffect {
         super(category, color);
     }
 
-
     @Override
-    public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
+    public void onApplied(LivingEntity entity, int amplifier) {
         if (entity instanceof  PlayerEntity) {
             ((PlayerEntity) entity).getHungerManager().setFoodLevel(20);
         }
-        super.onApplied(entity, attributes, amplifier);
+        super.onApplied(entity, amplifier);
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         super.applyUpdateEffect(entity, amplifier);
         if (entity instanceof PlayerEntity) {
             ((PlayerEntity) entity).getHungerManager().setExhaustion(0f);
         }
+        return true;
     }
 
-    @Override
-    public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        if (entity instanceof  PlayerEntity) {
-            ((PlayerEntity) entity).getHungerManager().setFoodLevel(1 + Random.create().nextBetween(0, 5));
-        }
-        super.onRemoved(entity, attributes, amplifier);
-    }
+//    @Override
+//    public void onRemoved(AttributeContainer attributeContainer) {
+//        if (entity instanceof  PlayerEntity) {
+//            ((PlayerEntity) entity).getHungerManager().setFoodLevel(1 + Random.create().nextBetween(0, 5));
+//        }
+//        super.onRemoved(attributeContainer);
+//    }
 
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier) {

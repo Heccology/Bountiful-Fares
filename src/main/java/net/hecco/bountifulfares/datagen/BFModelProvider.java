@@ -162,8 +162,8 @@ public class BFModelProvider extends FabricModelProvider {
         itemModelGenerator.register(BFItems.LEEK_STEW, Models.GENERATED);
         itemModelGenerator.register(BFItems.CRUSTED_BEEF, Models.GENERATED);
         itemModelGenerator.register(BFItems.WALNUT, Models.GENERATED);
-        itemModelGenerator.register(BFItems.WALNUT_BOAT, Models.GENERATED);
-        itemModelGenerator.register(BFItems.WALNUT_CHEST_BOAT, Models.GENERATED);
+//        itemModelGenerator.register(BFItems.WALNUT_BOAT, Models.GENERATED);
+//        itemModelGenerator.register(BFItems.WALNUT_CHEST_BOAT, Models.GENERATED);
         itemModelGenerator.register(BFBlocks.WILD_PASSION_FRUIT_VINE.asItem(), Models.GENERATED);
         itemModelGenerator.register(BFBlocks.WILD_ELDERBERRY_VINE.asItem(), Models.GENERATED);
         itemModelGenerator.register(BFItems.FISH_STEW, Models.GENERATED);

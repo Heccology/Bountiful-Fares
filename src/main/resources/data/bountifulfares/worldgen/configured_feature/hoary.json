@@ -18,10 +18,8 @@
           },
           "values": {
             "type": "minecraft:uniform",
-            "value": {
-              "max_inclusive": 4,
-              "min_inclusive": 0
-            }
+            "max_inclusive": 4,
+            "min_inclusive": 0
           }
         },
         "directions": [
@@ -65,7 +63,7 @@
       "upper_size": 1
     },
     "trunk_placer": {
-      "type": "minecraft:hoary_trunk_placer",
+      "type": "bountifulfares:hoary_trunk_placer",
       "base_height": 1,
       "height_rand_a": 1,
       "height_rand_b": 1

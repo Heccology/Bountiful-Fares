@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.minecraft.block.*;
 import net.minecraft.registry.tag.FluidTags;
@@ -25,6 +26,11 @@ public class ScorchkinStemBlock extends PlantBlock implements Fertilizable {
     public ScorchkinStemBlock(Settings settings) {
         super(settings);
         this.setDefaultState((this.stateManager.getDefaultState()).with(AGE, 0).with(ATTACHED, false));
+    }
+
+    @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return null;
     }
 
     @Override
@@ -77,7 +83,7 @@ public class ScorchkinStemBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
 

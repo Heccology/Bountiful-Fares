@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.particle.BFParticles;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FluidState;
@@ -24,6 +25,11 @@ public class PrismarineBlossomBlock extends PlantBlock implements Waterloggable 
     public PrismarineBlossomBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getStateManager().getDefaultState().with(WATERLOGGED, false));
+    }
+
+    @Override
+    protected MapCodec<? extends PlantBlock> getCodec() {
+        return null;
     }
 
     @Override

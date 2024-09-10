@@ -13,13 +13,14 @@ import net.minecraft.world.WorldView;
 
 public class LemonLeavesBlock extends LeavesBlock implements Fertilizable {
 
-    public LemonLeavesBlock(Block fruit, Settings settings) {
+    public LemonLeavesBlock(Settings settings) {
         super(settings);
     }
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
         return world.getBlockState(pos.down()).isAir();
     }
+
     @Override
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
         return true;

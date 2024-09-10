@@ -22,6 +22,6 @@ public class ChamomileCandleBlock extends InfusedCandleBlock {
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, BFBlockEntities.CHAMOMILE_CANDLE_BLOCK_ENTITY, ChamomileCandleBlockEntity::tick);
+        return validateTicker(type, BFBlockEntities.CHAMOMILE_CANDLE_BLOCK_ENTITY, ChamomileCandleBlockEntity::tick);
     }
 }

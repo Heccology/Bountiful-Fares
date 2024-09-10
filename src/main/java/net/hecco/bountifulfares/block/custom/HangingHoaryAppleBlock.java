@@ -79,9 +79,9 @@ public class HangingHoaryAppleBlock extends HangingFruitBlock {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         int i = state.get(AGE);
-        if (i != 4 && player.getStackInHand(hand).isOf(Items.BONE_MEAL)) {
+        if (i != 4 && player.getStackInHand(player.getActiveHand()).isOf(Items.BONE_MEAL)) {
             return ActionResult.PASS;
         }
         if (i == 4) {
@@ -98,11 +98,11 @@ public class HangingHoaryAppleBlock extends HangingFruitBlock {
             }
             return ActionResult.SUCCESS;
         }
-        return super.onUse(state, world, pos, player, hand, hit);
+        return super.onUse(state, world, pos, player, hit);
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return new ItemStack(BFItems.HOARY_APPLE);
     }
 }
