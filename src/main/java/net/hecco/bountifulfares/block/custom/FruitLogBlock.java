@@ -48,7 +48,7 @@ public class FruitLogBlock extends PillarBlock implements Waterloggable {
     public static Map<Direction, VoxelShape> DIRECTION_TO_SHAPE = new HashMap<>();
 
     public FruitLogBlock(Settings settings) {
-        super(settings);
+        super(settings.nonOpaque());
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(AXIS, Direction.Axis.Y).with(NORTH, false).with(EAST, false).with(SOUTH, false).with(WEST, false).with(UP, false).with(DOWN, false).with(LEAFY, false));
         DIRECTION_TO_PROPERTY.put(Direction.NORTH, NORTH);
         DIRECTION_TO_PROPERTY.put(Direction.EAST, EAST);
