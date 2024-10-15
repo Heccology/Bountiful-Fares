@@ -587,6 +587,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 
         offerBarkBlockRecipe(exporter, BFBlocks.APPLE_WOOD, BFBlocks.APPLE_LOG);
         offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_APPLE_WOOD, BFBlocks.STRIPPED_APPLE_LOG);
+        offerBarkBlockRecipe(exporter, BFBlocks.GOLDEN_APPLE_WOOD, BFBlocks.GOLDEN_APPLE_LOG);
         offerBarkBlockRecipe(exporter, BFBlocks.ORANGE_WOOD, BFBlocks.ORANGE_LOG);
         offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_ORANGE_WOOD, BFBlocks.STRIPPED_ORANGE_LOG);
         offerBarkBlockRecipe(exporter, BFBlocks.LEMON_WOOD, BFBlocks.LEMON_LOG);
@@ -643,6 +644,8 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 
         offerBarkBlockRecipe(exporter, BFBlocks.HOARY_WOOD, BFBlocks.HOARY_LOG);
         offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_HOARY_WOOD, BFBlocks.STRIPPED_HOARY_LOG);
+        offerBarkBlockRecipe(exporter, BFBlocks.WALNUT_WOOD, BFBlocks.WALNUT_LOG);
+        offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_WALNUT_WOOD, BFBlocks.STRIPPED_WALNUT_LOG);
 //        offerBoatRecipe(exporter, BFItems.HOARY_BOAT, BFBlocks.HOARY_PLANKS);
 //        offerBoatRecipe(exporter, BFItems.WALNUT_BOAT, BFBlocks.WALNUT_PLANKS);
 //        offerChestBoatRecipe(exporter, BFItems.HOARY_CHEST_BOAT, BFItems.HOARY_BOAT);
@@ -661,6 +664,8 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerPicketsRecipe(exporter, BFBlocks.HOARY_PICKETS, BFBlocks.HOARY_PLANKS);
         offerPicketsRecipe(exporter, BFBlocks.CRIMSON_PICKETS, Items.CRIMSON_PLANKS);
         offerPicketsRecipe(exporter, BFBlocks.WARPED_PICKETS, Items.WARPED_PLANKS);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BFBlocks.IRON_RAILING, 8).input('#', Items.IRON_INGOT).input('S', Items.IRON_NUGGET)
+                .pattern("#S#").criterion("has_iron", conditionsFromItem(Items.IRON_INGOT)).offerTo(exporter);
 
         offerPicketsRecipe(exporter, MintBlocks.WINTERGREEN_PICKETS, Identifier.of(ELS_AND_LS_DYES_MOD_ID, "wintergreen_planks"));
         offerPicketsRecipe(exporter, ExcessiveBuildingBlocks.ANCIENT_PICKETS, Identifier.of(EXCESSIVE_BUILDING_MOD_ID, "ancient_planks"));

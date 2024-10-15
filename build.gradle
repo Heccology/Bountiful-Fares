@@ -32,7 +32,7 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-
+	modImplementation files("run/mods/jei-1.21.1-fabric-19.21.0.246.jar")
 //	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:10.0.0"
 //	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:10.0.0"
 

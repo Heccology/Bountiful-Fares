@@ -47,16 +47,16 @@ public class ArtisanCookiesBlock extends Block {
         return SHAPES[state.get(COUNT)];
     }
 
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack itemStack = player.getStackInHand(hand);
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        ItemStack itemStack = player.getStackInHand(player.getActiveHand());
         if (itemStack.isOf(BFItems.ARTISAN_COOKIE) && state.get(COUNT) < MAX_COUNT) {
             return ActionResult.PASS;
         } else if (world.isClient) {
-            if (tryEat(world, pos, state, player, hand).isAccepted()) {
+            if (tryEat(world, pos, state, player, player.getActiveHand()).isAccepted()) {
                 return ActionResult.SUCCESS;
             }
         }
-        return tryEat(world, pos, state, player, hand);
+        return tryEat(world, pos, state, player, player.getActiveHand());
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {

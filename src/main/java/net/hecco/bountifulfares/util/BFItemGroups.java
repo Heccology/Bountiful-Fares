@@ -43,8 +43,6 @@ public class BFItemGroups {
     public static ItemGroup BOUNTIFUL_FARES = Registry.register(Registries.ITEM_GROUP, Identifier.of(BountifulFares.MOD_ID, "bountiful_fares"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.bountiful_fares"))
                     .icon(() -> new ItemStack(BFItems.PASSION_FRUIT)).entries((displayContext, entries) -> {
-                        boolean mint = BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID);
-                        boolean dye_depot = BountifulFares.isModLoaded(BountifulFares.DYE_DEPOT_MOD_ID);
                         entries.add(BFBlocks.APPLE_LOG);
                         entries.add(BFBlocks.APPLE_WOOD);
                         entries.add(BFBlocks.STRIPPED_APPLE_LOG);
@@ -81,6 +79,11 @@ public class BFItemGroups {
                         entries.add(BFItems.PLUM);
                         entries.add(BFBlocks.PLUM_BLOCK);
                         entries.add(BFBlocks.PLUM_SAPLING);
+                        entries.add(BFBlocks.GOLDEN_APPLE_LOG);
+                        entries.add(BFBlocks.GOLDEN_APPLE_WOOD);
+                        entries.add(BFBlocks.GOLDEN_APPLE_LEAVES);
+                        entries.add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES);
+                        entries.add(Items.GOLDEN_APPLE);
                         entries.add(BFBlocks.GOLDEN_APPLE_BLOCK);
                         entries.add(BFBlocks.HOARY_APPLE_SAPLING);
                         entries.add(BFBlocks.HOARY_LOG);
@@ -171,30 +174,37 @@ public class BFItemGroups {
                         entries.add(BFBlocks.CHERRY_PICKETS);
                         entries.add(BFBlocks.BAMBOO_PICKETS);
                         entries.add(BFBlocks.WALNUT_PICKETS);
+
                         entries.add(MintBlocks.WINTERGREEN_PICKETS);
-                            entries.add(NaturesSpiritBlocks.REDWOOD_PICKETS);
-                            entries.add(NaturesSpiritBlocks.SUGI_PICKETS);
-                            entries.add(NaturesSpiritBlocks.WISTERIA_PICKETS);
-                            entries.add(NaturesSpiritBlocks.FIR_PICKETS);
-                            entries.add(NaturesSpiritBlocks.WILLOW_PICKETS);
-                            entries.add(NaturesSpiritBlocks.ASPEN_PICKETS);
-                            entries.add(NaturesSpiritBlocks.MAPLE_PICKETS);
-                            entries.add(NaturesSpiritBlocks.CYPRESS_PICKETS);
-                            entries.add(NaturesSpiritBlocks.OLIVE_PICKETS);
-                            entries.add(NaturesSpiritBlocks.JOSHUA_PICKETS);
-                            entries.add(NaturesSpiritBlocks.GHAF_PICKETS);
-                            entries.add(NaturesSpiritBlocks.PALO_VERDE_PICKETS);
-                            entries.add(NaturesSpiritBlocks.COCONUT_PICKETS);
-                            entries.add(NaturesSpiritBlocks.CEDAR_PICKETS);
-                            entries.add(NaturesSpiritBlocks.LARCH_PICKETS);
-                            entries.add(NaturesSpiritBlocks.MAHOGANY_PICKETS);
-                            entries.add(NaturesSpiritBlocks.SAXAUL_PICKETS);
+
+                        entries.add(NaturesSpiritBlocks.REDWOOD_PICKETS);
+                        entries.add(NaturesSpiritBlocks.SUGI_PICKETS);
+                        entries.add(NaturesSpiritBlocks.WISTERIA_PICKETS);
+                        entries.add(NaturesSpiritBlocks.FIR_PICKETS);
+                        entries.add(NaturesSpiritBlocks.WILLOW_PICKETS);
+                        entries.add(NaturesSpiritBlocks.ASPEN_PICKETS);
+                        entries.add(NaturesSpiritBlocks.MAPLE_PICKETS);
+                        entries.add(NaturesSpiritBlocks.CYPRESS_PICKETS);
+                        entries.add(NaturesSpiritBlocks.OLIVE_PICKETS);
+                        entries.add(NaturesSpiritBlocks.JOSHUA_PICKETS);
+                        entries.add(NaturesSpiritBlocks.GHAF_PICKETS);
+                        entries.add(NaturesSpiritBlocks.PALO_VERDE_PICKETS);
+                        entries.add(NaturesSpiritBlocks.COCONUT_PICKETS);
+                        entries.add(NaturesSpiritBlocks.CEDAR_PICKETS);
+                        entries.add(NaturesSpiritBlocks.LARCH_PICKETS);
+                        entries.add(NaturesSpiritBlocks.MAHOGANY_PICKETS);
+                        entries.add(NaturesSpiritBlocks.SAXAUL_PICKETS);
+
                         entries.add(ExcessiveBuildingBlocks.ANCIENT_PICKETS);
+
                         entries.add(SpawnBlocks.ROTTEN_PICKETS);
+
                         entries.add(ArtsAndCraftsBlocks.CORK_PICKETS);
+
                         entries.add(BFBlocks.HOARY_PICKETS);
                         entries.add(BFBlocks.CRIMSON_PICKETS);
                         entries.add(BFBlocks.WARPED_PICKETS);
+                        entries.add(BFBlocks.IRON_RAILING);
                         entries.add(BFItems.FELDSPAR);
                         entries.add(BFBlocks.FELDSPAR_BLOCK);
                         entries.add(BFBlocks.CUT_FELDSPAR_BLOCK);

@@ -15,14 +15,13 @@ import net.hecco.bountifulfares.world.tree.*;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 
@@ -258,8 +257,18 @@ public class BFBlocks {
     public static Block HOARY_PICKETS = registerBlock("hoary_pickets", new PicketsBlock(AbstractBlock.Settings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(BFSounds.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).notSolid().nonOpaque()));
     public static Block CRIMSON_PICKETS = registerBlock("crimson_pickets", new PicketsBlock(AbstractBlock.Settings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(BFSounds.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).notSolid().nonOpaque()));
     public static Block WARPED_PICKETS = registerBlock("warped_pickets", new PicketsBlock(AbstractBlock.Settings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(BFSounds.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).notSolid().nonOpaque()));
+    public static Block IRON_RAILING = registerBlock("iron_railing", new PicketsBlock(AbstractBlock.Settings.create().mapColor(MapColor.CLEAR).strength(1.0F, 2.0f).sounds(BlockSoundGroup.METAL).notSolid().nonOpaque()));
 
     public static Block GRASSY_DIRT = registerBlock("grassy_dirt", new GrassyDirtBlock(AbstractBlock.Settings.copy(Blocks.DIRT).ticksRandomly()));
+
+
+    public static final Block GOLDEN_APPLE_LOG = registerBlock("golden_apple_log", new FruitLogBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).nonOpaque().notSolid()));
+    public static final Block GOLDEN_APPLE_WOOD = registerBlock("golden_apple_wood", new FruitLogBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).nonOpaque().notSolid()));
+    public static final Block GOLDEN_APPLE_LEAVES = registerBlock("golden_apple_leaves", new AppleLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).mapColor(MapColor.GOLD)));
+    public static final Block FLOWERING_GOLDEN_APPLE_LEAVES = registerBlock("flowering_golden_apple_leaves", new AppleLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).mapColor(MapColor.GOLD).luminance(state -> 4)));
+    public static final Block GOLDEN_APPLE_SAPLING = registerBlock("golden_apple_sapling", new SaplingBlock(BFSaplingGenerators.APPLE_SAPLING_GENERATOR, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).luminance(state -> 4)));
+    public static final Block POTTED_GOLDEN_APPLE_SAPLING = registerBlockNoItem("potted_golden_apple_sapling", new FlowerPotBlock(BFBlocks.GOLDEN_APPLE_SAPLING, AbstractBlock.Settings.copy(Blocks.POTTED_OAK_SAPLING)));
+
 
 
     public static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {

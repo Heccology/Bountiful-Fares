@@ -56,6 +56,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, block, color + " Jack O' Straw");
     }
 
+
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         generate(translationBuilder, "itemgroup.bountiful_fares", "Bountiful Fares");
@@ -299,8 +300,8 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.eat_citrus_essence", "Pass the Antacid");
         generate(translationBuilder, "advancement.bountifulfares.eat_citrus_essence.description", "Eat Citric Essence");
 
-        generate(translationBuilder, "advancement.bountifulfares.throw_flour", "Great Escape");
-        generate(translationBuilder, "advancement.bountifulfares.throw_flour.description", "Throw Flour");
+//        generate(translationBuilder, "advancement.bountifulfares.throw_flour", "Great Escape");
+//        generate(translationBuilder, "advancement.bountifulfares.throw_flour.description", "Throw Flour");
 
         generate(translationBuilder, "advancement.bountifulfares.obtain_sun_hat", "Who's the Farmer Now?");
         generate(translationBuilder, "advancement.bountifulfares.obtain_sun_hat.description", "Obtain a Sun Hat");
@@ -363,6 +364,7 @@ public class BFLangProvider extends FabricLanguageProvider {
 //        generate(translationBuilder, "config.bountifulfares.item_guide_tooltips", "Show information in some items' tooltip");
         generate(translationBuilder, "config.bountifulfares.fruit_replace_when_picked", "Fruits on trees replant when picked");
         generate(translationBuilder, "config.bountifulfares.flour_throwing", "Flour can be thrown");
+        generate(translationBuilder, "config.bountifulfares.flour_throwing_cooldown", "Flour throwing cooldown, in ticks");
         generate(translationBuilder, "config.bountifulfares.restoration_overlay", "Restoration effect changes health icons");
         generate(translationBuilder, "config.bountifulfares.lapisberry_seeds", "Sniffers can dig up Lapisberry Seeds");
         generate(translationBuilder, "config.bountifulfares.hoary_seeds", "Sniffers can dig up Hoary Seeds");
@@ -371,16 +373,16 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "config.bountifulfares.milling_time", "Gristmill milling time, in seconds");
         generate(translationBuilder, "config.bountifulfares.fermentation_time", "Fermentation time, in seconds");
         generate(translationBuilder, "config.bountifulfares.infused_candle_radius", "Size of area where Infused Candles give effects");
-        generate(translationBuilder, "config.bountifulfares.bountiful_painting", "Allow \"Bountiful\" painting to be placed");
-        generate(translationBuilder, "config.bountifulfares.citrus_dish_painting", "Allow \"Citrus Dish\" painting to be placed");
-        generate(translationBuilder, "config.bountifulfares.hazel_floret_painting", "Allow \"Hazel Floret\" painting to be placed");
-        generate(translationBuilder, "config.bountifulfares.violet_floret_painting", "Allow \"Violet Floret\" painting to be placed");
-        generate(translationBuilder, "config.bountifulfares.why_blue_painting", "Allow \"Why Blue\" painting to be placed");
-        generate(translationBuilder, "config.bountifulfares.ruminer_painting", "Allow \"Ruminer\" painting to be placed");
-        generate(translationBuilder, "config.bountifulfares.phylogenesis_painting", "Allow \"Phylogenesis\" painting to be placed");
-        generate(translationBuilder, "config.bountifulfares.escalade_painting", "Allow \"Escalade\" painting to be placed");
-        generate(translationBuilder, "config.bountifulfares.aquaculture_painting", "Allow \"Aquaculture\" painting to be placed");
-        generate(translationBuilder, "config.bountifulfares.unpleasant_tiles_painting", "Allow \"Unpleasant Tiles\" painting to be placed");
+//        generate(translationBuilder, "config.bountifulfares.bountiful_painting", "Allow \"Bountiful\" painting to be placed");
+//        generate(translationBuilder, "config.bountifulfares.citrus_dish_painting", "Allow \"Citrus Dish\" painting to be placed");
+//        generate(translationBuilder, "config.bountifulfares.hazel_floret_painting", "Allow \"Hazel Floret\" painting to be placed");
+//        generate(translationBuilder, "config.bountifulfares.violet_floret_painting", "Allow \"Violet Floret\" painting to be placed");
+//        generate(translationBuilder, "config.bountifulfares.why_blue_painting", "Allow \"Why Blue\" painting to be placed");
+//        generate(translationBuilder, "config.bountifulfares.ruminer_painting", "Allow \"Ruminer\" painting to be placed");
+//        generate(translationBuilder, "config.bountifulfares.phylogenesis_painting", "Allow \"Phylogenesis\" painting to be placed");
+//        generate(translationBuilder, "config.bountifulfares.escalade_painting", "Allow \"Escalade\" painting to be placed");
+//        generate(translationBuilder, "config.bountifulfares.aquaculture_painting", "Allow \"Aquaculture\" painting to be placed");
+//        generate(translationBuilder, "config.bountifulfares.unpleasant_tiles_painting", "Allow \"Unpleasant Tiles\" painting to be placed");
         generate(translationBuilder, "config.bountifulfares.wild_wheat", "Generate Wild Wheat");
         generate(translationBuilder, "config.bountifulfares.wild_carrots", "Generate Wild Carrots");
         generate(translationBuilder, "config.bountifulfares.wild_potatoes", "Generate Wild Potatoes");
@@ -410,6 +412,9 @@ public class BFLangProvider extends FabricLanguageProvider {
 //        generate(translationBuilder, "pack.bountifulfares.wilderwild", "Bountiful Fares X Wilder Wild");
 
         generate(translationBuilder, "death.attack.falling_coconut", "%1$s was bonked too hard");
+
+
+        generate(translationBuilder, "bountifulfares.milling", "Milling");
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             String key = Registries.BLOCK.get(id).getTranslationKey();

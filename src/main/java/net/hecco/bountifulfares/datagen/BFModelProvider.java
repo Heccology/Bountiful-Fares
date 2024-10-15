@@ -25,6 +25,8 @@ public class BFModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerLog(BFBlocks.WALNUT_LOG).log(BFBlocks.WALNUT_LOG).wood(BFBlocks.WALNUT_WOOD);
         blockStateModelGenerator.registerLog(BFBlocks.STRIPPED_WALNUT_LOG).log(BFBlocks.STRIPPED_WALNUT_LOG).wood(BFBlocks.STRIPPED_WALNUT_WOOD);
         blockStateModelGenerator.registerSingleton(BFBlocks.WALNUT_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerSingleton(BFBlocks.GOLDEN_APPLE_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerSingleton(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES, TexturedModel.LEAVES);
         BlockStateModelGenerator.BlockTexturePool walnutTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(BFBlocks.WALNUT_PLANKS);
         walnutTexturePool.stairs(BFBlocks.WALNUT_STAIRS);
         walnutTexturePool.slab(BFBlocks.WALNUT_SLAB);
@@ -58,6 +60,7 @@ public class BFModelProvider extends FabricModelProvider {
         registerPicketsModels(blockStateModelGenerator, BFBlocks.WALNUT_PICKETS);
         registerPicketsModels(blockStateModelGenerator, BFBlocks.CRIMSON_PICKETS);
         registerPicketsModels(blockStateModelGenerator, BFBlocks.WARPED_PICKETS);
+        registerPicketsModels(blockStateModelGenerator, BFBlocks.IRON_RAILING);
         registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.ASPEN_PICKETS);
         registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.CEDAR_PICKETS);
         registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.COCONUT_PICKETS);

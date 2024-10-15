@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "bountifulfares:block/golden_apple_leaves"
+  }
+}

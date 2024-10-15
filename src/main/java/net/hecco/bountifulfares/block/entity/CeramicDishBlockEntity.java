@@ -23,10 +23,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import org.jetbrains.annotations.Nullable;
 
-public class CeramicDishBlockEntity extends BlockEntity implements ImplementedInventory {
-
-    public static final int DEFAULT_COLOR = 16777215;
-    public int color = DEFAULT_COLOR;
+public class CeramicDishBlockEntity extends DyeableBlockEntity implements ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
     public CeramicDishBlockEntity(BlockPos pos, BlockState state) {
         super(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, pos, state);
@@ -35,38 +32,6 @@ public class CeramicDishBlockEntity extends BlockEntity implements ImplementedIn
     @Override
     public DefaultedList<ItemStack> getItems() {
         return this.inventory;
-    }
-
-    @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        Inventories.writeNbt(nbt, inventory, registryLookup);
-        if (color != DEFAULT_COLOR) {
-            nbt.putInt("color", color);
-            super.writeNbt(nbt, registryLookup);
-        }
-    }
-
-    @Override
-    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        Inventories.readNbt(nbt, inventory, registryLookup);
-        super.readNbt(nbt, registryLookup);
-        if (nbt.getInt("color") == 0) {
-            color = DEFAULT_COLOR;
-        } else {
-            super.readNbt(nbt, registryLookup);
-            color = nbt.getInt("color");
-        }
-    }
-
-    @Nullable
-    @Override
-    public Packet<ClientPlayPacketListener> toUpdatePacket() {
-        return BlockEntityUpdateS2CPacket.create(this);
-    }
-
-    @Override
-    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
-        return createNbt(registryLookup);
     }
 
     public boolean canInsertItem() {

@@ -24,6 +24,7 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(ItemTags.FLOWERS)
                 .add(BFBlocks.FLOWERING_APPLE_LEAVES.asItem())
+                .add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.asItem())
                 .add(BFBlocks.FLOWERING_ORANGE_LEAVES.asItem())
                 .add(BFBlocks.FLOWERING_LEMON_LEAVES.asItem())
                 .add(BFBlocks.FLOWERING_PLUM_LEAVES.asItem())
@@ -32,6 +33,8 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS).add(BFBlocks.HONEYSUCKLE.asItem(), BFBlocks.VIOLET_BELLFLOWER.asItem());
         getOrCreateTagBuilder(ItemTags.LEAVES)
                 .addTag(BFItemTags.APPLE_LEAVES)
+                .add(BFBlocks.GOLDEN_APPLE_LEAVES.asItem())
+                .add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.asItem())
                 .addTag(BFItemTags.ORANGE_LEAVES)
                 .addTag(BFItemTags.LEMON_LEAVES)
                 .addTag(BFItemTags.PLUM_LEAVES)
@@ -65,6 +68,34 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFBlocks.TORCHFLOWER_CANDLE.asItem())
                 .add(BFBlocks.WALNUT_CANDLE.asItem())
                 .add(BFBlocks.COCONUT_CANDLE.asItem());
+
+        getOrCreateTagBuilder(ItemTags.PIGLIN_LOVED)
+                .add(BFBlocks.GOLDEN_APPLE_BLOCK.asItem());
+
+        getOrCreateTagBuilder(ItemTags.DYEABLE)
+                .add(BFBlocks.CERAMIC_TILES.asItem())
+                .add(BFBlocks.CERAMIC_TILE_STAIRS.asItem())
+                .add(BFBlocks.CERAMIC_TILE_SLAB.asItem())
+                .add(BFBlocks.CRACKED_CERAMIC_TILES.asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILES.asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.asItem())
+                .add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.asItem())
+                .add(BFBlocks.CERAMIC_TILE_PILLAR.asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC.asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC_STAIRS.asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC_SLAB.asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC.asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.asItem())
+                .add(BFBlocks.CERAMIC_DOOR.asItem())
+                .add(BFBlocks.CERAMIC_TRAPDOOR.asItem())
+                .add(BFBlocks.CERAMIC_BUTTON.asItem())
+                .add(BFBlocks.CERAMIC_PRESSURE_PLATE.asItem())
+                .add(BFBlocks.CERAMIC_LEVER.asItem())
+                .add(BFBlocks.CERAMIC_DISH.asItem())
+                .add(BFItems.ARTISAN_BRUSH.asItem())
+        ;
 
         getOrCreateTagBuilder(BFItemTags.APPLE_LEAVES).add(BFBlocks.APPLE_LEAVES.asItem(), BFBlocks.FLOWERING_APPLE_LEAVES.asItem());
         getOrCreateTagBuilder(BFItemTags.ORANGE_LEAVES).add(BFBlocks.ORANGE_LEAVES.asItem(), BFBlocks.FLOWERING_ORANGE_LEAVES.asItem());
@@ -114,6 +145,8 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
         getOrCreateTagBuilder(BFItemTags.FRUIT_LOGS)
                 .addTag(BFItemTags.APPLE_LOGS)
+                .add(BFBlocks.GOLDEN_APPLE_LOG.asItem())
+                .add(BFBlocks.GOLDEN_APPLE_WOOD.asItem())
                 .addTag(BFItemTags.ORANGE_LOGS)
                 .addTag(BFItemTags.LEMON_LOGS)
                 .addTag(BFItemTags.PLUM_LOGS)
@@ -337,6 +370,7 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
         getOrCreateTagBuilder(ItemTags.SAPLINGS)
                 .add(BFBlocks.APPLE_SAPLING.asItem())
+                .add(BFBlocks.GOLDEN_APPLE_SAPLING.asItem())
                 .add(BFBlocks.ORANGE_SAPLING.asItem())
                 .add(BFBlocks.LEMON_SAPLING.asItem())
                 .add(BFBlocks.PLUM_SAPLING.asItem())

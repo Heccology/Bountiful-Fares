@@ -5,6 +5,7 @@
   "mixins": [
     "BrewingRecipeRegistryMixin",
     "ChickenEntityMixin",
+    "GuiMixin",
     "ItemRendererAccessor",
     "ItemRendererMixin",
     "ModelLoaderMixin",

@@ -16,21 +16,12 @@ public class BountifulFaresConfiguration {
 //    private boolean enableItemGuideTooltips = true;
     private boolean fruitReplaceWhenPicked = true;
     private boolean enableFlourThrowing = true;
+    private int flourThrowingCooldown = 0;
     private boolean restorationHeartOverlay = true;
     private boolean enableLapisberrySeeds = true;
     private boolean enableHoarySeeds = true;
     private boolean enableElderGuardianSpongekinSeeds = true;
     private boolean enableGuardianSpongekinSeeds = true;
-    private boolean enableBountifulPainting = true;
-    private boolean enableCitrusDishPainting = true;
-    private boolean enableHazelFloretPainting = true;
-    private boolean enableVioletFloretPainting = true;
-    private boolean enableWhyBluePainting = true;
-    private boolean enableRuminerPainting = true;
-    private boolean enablePhylogenesisPainting = true;
-    private boolean enableEscaladePainting = true;
-    private boolean enableAquaculturePainting = true;
-    private boolean enableUnpleasantTilesPainting = true;
     private boolean generateWildWheat = true;
     private boolean generateWildCarrots = true;
     private boolean generateWildPotatoes = true;
@@ -119,6 +110,14 @@ public class BountifulFaresConfiguration {
         enableFlourThrowing = bool;
     }
 
+    public int getFlourThrowingCooldown() {
+        return flourThrowingCooldown;
+    }
+
+    public void setFlourThrowingCooldown(int value) {
+        flourThrowingCooldown = limit(0, 20, value);
+    }
+
     public boolean isEnableLapisberrySeeds() {
         return enableLapisberrySeeds;
     }
@@ -149,86 +148,6 @@ public class BountifulFaresConfiguration {
 
     public void setEnableGuardianSpongekinSeeds(boolean bool) {
         enableGuardianSpongekinSeeds = bool;
-    }
-
-    public boolean isEnableBountifulPainting() {
-        return enableBountifulPainting;
-    }
-
-    public void setEnableBountifulPainting(boolean bool) {
-        enableBountifulPainting = bool;
-    }
-
-    public boolean isEnableCitrusDishPainting() {
-        return enableCitrusDishPainting;
-    }
-
-    public void setEnableCitrusDishPainting(boolean bool) {
-        enableCitrusDishPainting = bool;
-    }
-
-    public boolean isEnableHazelFloretPainting() {
-        return enableHazelFloretPainting;
-    }
-
-    public void setEnableHazelFloretPainting(boolean bool) {
-        enableHazelFloretPainting = bool;
-    }
-
-    public boolean isEnableVioletFloretPainting() {
-        return enableVioletFloretPainting;
-    }
-
-    public void setEnableVioletFloretPainting(boolean bool) {
-        enableVioletFloretPainting = bool;
-    }
-
-    public boolean isEnableWhyBluePainting() {
-        return enableWhyBluePainting;
-    }
-
-    public void setEnableWhyBluePainting(boolean bool) {
-        enableWhyBluePainting = bool;
-    }
-
-    public boolean isEnableRuminerPainting() {
-        return enableRuminerPainting;
-    }
-
-    public void setEnableRuminerPainting(boolean bool) {
-        enableRuminerPainting = bool;
-    }
-
-    public boolean isEnablePhylogenesisPainting() {
-        return enablePhylogenesisPainting;
-    }
-
-    public void setEnablePhylogenesisPainting(boolean bool) {
-        enablePhylogenesisPainting = bool;
-    }
-
-    public boolean isEnableEscaladePainting() {
-        return enableEscaladePainting;
-    }
-
-    public void setEnableEscaladePainting(boolean bool) {
-        enableEscaladePainting = bool;
-    }
-
-    public boolean isEnableAquaculturePainting() {
-        return enableAquaculturePainting;
-    }
-
-    public void setEnableAquaculturePainting(boolean bool) {
-        enableAquaculturePainting = bool;
-    }
-
-    public boolean isEnableUnpleasantTilesPainting() {
-        return enableUnpleasantTilesPainting;
-    }
-
-    public void setEnableUnpleasantTilesPainting(boolean bool) {
-        enableUnpleasantTilesPainting = bool;
     }
 
     public boolean isGenerateWildWheat() {

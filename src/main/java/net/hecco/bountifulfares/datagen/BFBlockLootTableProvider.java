@@ -294,6 +294,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         picketsDrops(BFBlocks.HOARY_PICKETS);
         picketsDrops(BFBlocks.CRIMSON_PICKETS);
         picketsDrops(BFBlocks.WARPED_PICKETS);
+        picketsDrops(BFBlocks.IRON_RAILING);
         picketsDrops(ExcessiveBuildingBlocks.ANCIENT_PICKETS);
         picketsDrops(SpawnBlocks.ROTTEN_PICKETS);
         picketsDrops(ArtsAndCraftsBlocks.CORK_PICKETS);

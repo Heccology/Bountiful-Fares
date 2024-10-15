@@ -35,8 +35,10 @@ public class QuarterPastryBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(BITES, 0).with(FACING, Direction.NORTH));
     }
 
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack itemStack = player.getStackInHand(hand);
+
+    @Override
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        ItemStack itemStack = player.getStackInHand(player.getActiveHand());
         if (world.isClient) {
             if (tryEat(world, pos, state, player).isAccepted()) {
                 return ActionResult.SUCCESS;

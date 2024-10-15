@@ -29,6 +29,9 @@ public class FlourItem extends Item {
                 flourProjectileEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 0.35f, 7.5f);
                 world.spawnEntity(flourProjectileEntity);
             }
+            if (BountifulFares.CONFIG.getFlourThrowingCooldown() != 0) {
+                user.getItemCooldownManager().set(this, BountifulFares.CONFIG.getFlourThrowingCooldown());
+            }
             user.incrementStat(Stats.USED.getOrCreateStat(this));
             if (!user.isCreative()) {
                 itemStack.decrement(1);

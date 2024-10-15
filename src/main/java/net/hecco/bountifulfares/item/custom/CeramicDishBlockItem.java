@@ -4,6 +4,7 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
@@ -33,7 +34,9 @@ public class CeramicDishBlockItem extends BlockItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip." + BountifulFares.MOD_ID + ".dyeable").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
+        if (!stack.getComponents().contains(DataComponentTypes.DYED_COLOR)) {
+            tooltip.add(Text.translatable("tooltip." + BountifulFares.MOD_ID + ".dyeable").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
+        }
         super.appendTooltip(stack, context, tooltip, type);
     }
 }

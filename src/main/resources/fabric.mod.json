@@ -27,6 +27,9 @@
 		],
 		"modmenu": [
 			"net.hecco.bountifulfares.config.BountifulFaresModMenu"
+		],
+		"jei_mod_plugin": [
+			"net.hecco.bountifulfares.compat.jei.BountifulFaresJEIPlugin"
 		]
 	},
 	"mixins": [

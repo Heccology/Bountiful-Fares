@@ -4,6 +4,7 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
@@ -16,7 +17,7 @@ import net.minecraft.util.Formatting;
 import java.util.List;
 
 public class DyeableCeramicBlockItem extends BlockItem {
-    public int DefColor = DyeableCeramicBlockEntity.DEFAULT_COLOR;
+    public int DEFAULT_COLOR = DyeableCeramicBlockEntity.DEFAULT_COLOR;
     public DyeableCeramicBlockItem(Block block, Settings settings) {
         super(block, settings);
     }
@@ -26,14 +27,16 @@ public class DyeableCeramicBlockItem extends BlockItem {
         ActionResult result = super.place(context);
         BlockEntity blockEntity = context.getWorld().getBlockEntity(context.getBlockPos());
         if(blockEntity instanceof DyeableCeramicBlockEntity ceramicTilesBlockEntity){
-            ceramicTilesBlockEntity.color = DyedColorComponent.getColor(context.getStack(), DefColor);
+            ceramicTilesBlockEntity.color = DyedColorComponent.getColor(context.getStack(), DEFAULT_COLOR);
         }
         return result;
     }
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable("tooltip." + BountifulFares.MOD_ID + ".dyeable").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
+        if (!stack.getComponents().contains(DataComponentTypes.DYED_COLOR)) {
+            tooltip.add(Text.translatable("tooltip." + BountifulFares.MOD_ID + ".dyeable").formatted(Formatting.GRAY).formatted(Formatting.ITALIC));
+        }
         super.appendTooltip(stack, context, tooltip, type);
     }
 }

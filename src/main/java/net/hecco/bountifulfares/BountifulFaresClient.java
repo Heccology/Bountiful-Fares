@@ -7,8 +7,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hecco.bountifulfares.block.BFBlocks;
 import net.hecco.bountifulfares.block.entity.BFBlockEntities;
-import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
-import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
+import net.hecco.bountifulfares.block.entity.DyeableBlockEntity;
 import net.hecco.bountifulfares.block.entity.renderer.CeramicDishBlockEntityRenderer;
 import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
 import net.hecco.bountifulfares.compat.dye_depot.DyeDepotBlocks;
@@ -17,7 +16,7 @@ import net.hecco.bountifulfares.compat.mint.MintBlocks;
 import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
 import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
 import net.hecco.bountifulfares.entity.BFEntities;
-import net.hecco.bountifulfares.item.BFItems;
+import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.networking.BFMessages;
 import net.hecco.bountifulfares.particle.BFParticles;
 import net.hecco.bountifulfares.particle.FlourCloudParticle;
@@ -33,7 +32,6 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
-import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -249,13 +247,19 @@ public class BountifulFaresClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.HOARY_PICKETS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CRIMSON_PICKETS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.WARPED_PICKETS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.IRON_RAILING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.GRASSY_DIRT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.PALM_FROND, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.WALL_PALM_FROND, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.POTTED_PALM_FROND, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.COCONUT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.PALM_SAPLING, RenderLayer.getCutout());
-        registerItemColor(BFItems.ARTISAN_BRUSH);
+//        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
+//            if (stack.getComponents().contains(DataComponentTypes.DYED_COLOR) && tintIndex == 0) {
+//                return Objects.requireNonNull(stack.getComponents().get(DataComponentTypes.DYED_COLOR)).rgb();
+//            }
+//            return ArtisanBrushItem.DEFAULT_COLOR;
+//        }, ARTISAN_BRUSH);
         registerBlockColor(BFBlocks.CERAMIC_TILES);
         registerBlockColor(BFBlocks.CERAMIC_TILE_STAIRS);
         registerBlockColor(BFBlocks.CERAMIC_TILE_SLAB);
@@ -276,7 +280,7 @@ public class BountifulFaresClient implements ClientModInitializer {
         registerBlockColor(BFBlocks.CERAMIC_LEVER);
         registerBlockColor(BFBlocks.CERAMIC_DOOR);
         registerBlockColor(BFBlocks.CERAMIC_TRAPDOOR);
-        registerDishColor();
+        registerBlockColor(BFBlocks.CERAMIC_DISH);
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(BFWoodTypes.HOARY, TexturedRenderLayers.getSignTextureId(BFWoodTypes.HOARY));
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(BFWoodTypes.WALNUT, TexturedRenderLayers.getSignTextureId(BFWoodTypes.WALNUT));
         BlockEntityRendererFactories.register(BFBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);
@@ -307,18 +311,9 @@ public class BountifulFaresClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM_PARTICLE, PrismarineBlossomParticle.Factory::new);
 
         ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : FoliageColors.getDefaultColor()), BFBlocks.WILD_POTATOES, BFBlocks.WILD_CARROTS, BFBlocks.WILD_BEETROOTS, BFBlocks.WILD_LEEKS, BFBlocks.WILD_MAIZE, BFBlocks.WILD_PASSION_FRUIT_VINE, BFBlocks.WILD_ELDERBERRY_VINE);
-//        ModelPredicateProviderRegistry.register(SUN_HAT, new Identifier("head"), (itemStack, clientWorld, livingEntity, seed) -> {
-//            if (livingEntity == null) {
-//                return 0.0F;
-//            }
-//            return livingEntity.getEquippedStack(EquipmentSlot.HEAD) == itemStack ? 1.0F : 0.0F;
-//        });
-        ModelPredicateProviderRegistry.register(ARTISAN_BRUSH, Identifier.of("dyed"), (itemStack, clientWorld, livingEntity, seed) -> {
-            if (itemStack.getComponents().contains(DataComponentTypes.DYED_COLOR)) {
-                return 0.0F;
-            }
-            return 1.0F;
-        });
+
+//        ModelPredicateProviderRegistry.register(ARTISAN_BRUSH, Identifier.ofVanilla("dyed"), (itemStack, clientWorld, livingEntity, seed) -> itemStack.getComponents().contains(DataComponentTypes.DYED_COLOR) ? 0.0F : 1.0F);
+
         for (Block block : BFTrellises.TRELLIS_RENDER_CUTOUT) {
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         }
@@ -329,7 +324,7 @@ public class BountifulFaresClient implements ClientModInitializer {
     private void registerBlockColor(Block ModCeramicBlocksItems) {
 //        Registers tint for ceramic blocks
         registerItemColor(ModCeramicBlocksItems.asItem());
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> DyeableCeramicBlockEntity.getColor(world,pos),ModCeramicBlocksItems);
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> DyeableBlockEntity.getColor(world,pos),ModCeramicBlocksItems);
     }
 
     private void registerItemColor(Item item) {
@@ -338,23 +333,7 @@ public class BountifulFaresClient implements ClientModInitializer {
             if (stack.getComponents().contains(DataComponentTypes.DYED_COLOR) && tintIndex == 0) {
                 return Objects.requireNonNull(stack.getComponents().get(DataComponentTypes.DYED_COLOR)).rgb();
             }
-            return DyeableCeramicBlockEntity.DEFAULT_COLOR;
+            return DyeableBlockEntity.DEFAULT_COLOR;
         },item);
-    }
-
-    private void registerDishColor() {
-//        Registers tint for ceramic blocks
-        registerDishItemColor();
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> CeramicDishBlockEntity.getColor(world,pos), BFBlocks.CERAMIC_DISH);
-    }
-
-    private void registerDishItemColor() {
-//        Registers tint for ceramic items
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-            if (stack.getComponents().contains(DataComponentTypes.DYED_COLOR) && tintIndex == 0) {
-                return Objects.requireNonNull(stack.getComponents().get(DataComponentTypes.DYED_COLOR)).rgb();
-            }
-            return CeramicDishBlockEntity.DEFAULT_COLOR;
-        }, BFBlocks.CERAMIC_DISH);
     }
 }

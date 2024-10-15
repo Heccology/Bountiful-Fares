@@ -23,8 +23,19 @@ public class GrassSeedsItem extends Item {
         BlockPos pos = context.getBlockPos();
         World world = context.getWorld();
         ItemStack stack = context.getStack();
-        if (world.getBlockState(pos).isIn(BFBlockTags.GRASS_SEEDS_PLANTABLE_ON) && !world.getBlockState(pos.up()).isSideSolidFullSquare(world, pos.up(), Direction.DOWN)) {
+        if (world.getBlockState(pos).isIn(BFBlockTags.GRASS_SEEDS_PLANTABLE_ON) && !world.getBlockState(pos.up()).isSideSolidFullSquare(world, pos.up(), Direction.UP)) {
             world.setBlockState(pos, Blocks.GRASS_BLOCK.getDefaultState());
+            world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
+            for (int i = 0; i < 16; i++) {
+                world.addParticle(ParticleTypes.HAPPY_VILLAGER, (pos.getX() - 0.2) + (world.random.nextFloat() * 1.4), pos.getY() + (world.random.nextFloat() * 0.5) + 0.8, (pos.getZ() - 0.2) + (world.random.nextFloat() * 1.4), (world.random.nextFloat() - 0.5) / 8, (world.random.nextFloat() - 0.5) / 8, (world.random.nextFloat() - 0.5) / 8);
+            }
+            if (context.getPlayer() != null && !context.getPlayer().isCreative()) {
+                stack.decrement(1);
+            }
+            return ActionResult.success(true);
+        }  else if (world.getBlockState(pos).isOf(Blocks.GRASS_BLOCK) && context.getSide() == Direction.UP && world.getBlockState(pos.up()).isAir()) {
+            pos = pos.up();
+            world.setBlockState(pos, Blocks.SHORT_GRASS.getDefaultState());
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
             for (int i = 0; i < 16; i++) {
                 world.addParticle(ParticleTypes.HAPPY_VILLAGER, (pos.getX() - 0.2) + (world.random.nextFloat() * 1.4), pos.getY() + (world.random.nextFloat() * 0.5) + 0.8, (pos.getZ() - 0.2) + (world.random.nextFloat() * 1.4), (world.random.nextFloat() - 0.5) / 8, (world.random.nextFloat() - 0.5) / 8, (world.random.nextFloat() - 0.5) / 8);
