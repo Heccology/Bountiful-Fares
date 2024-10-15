@@ -44,7 +44,7 @@ public class ExcessiveBuildingBlocks {
     public static final Block CERAMIC_MOSAIC_VERTICAL_STAIRS = registerBlock("ceramic_mosaic_vertical_stairs", new CeramicTileVerticalStairsBlock(EXCESSIVE_BUILDING_MOD_ID, AbstractBlock.Settings.copy(BFBlocks.CERAMIC_MOSAIC)));
     public static final Block CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS = registerBlock("checkered_ceramic_mosaic_vertical_stairs", new CeramicTileVerticalStairsBlock(EXCESSIVE_BUILDING_MOD_ID, AbstractBlock.Settings.copy(BFBlocks.CHECKERED_CERAMIC_MOSAIC)));
 
-    public static final TrellisVariant ANCIENT = new TrellisVariant(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "ancient", null, TRELLIS_RENDER_CUTOUT);
+    public static final TrellisVariant ANCIENT = new TrellisVariant(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "ancient", Identifier.of(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "ancient_planks"), TRELLIS_RENDER_CUTOUT);
 
     public static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

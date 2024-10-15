@@ -14,13 +14,14 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 import static net.hecco.bountifulfares.BountifulFares.ARTS_AND_CRAFTS_MOD_ID;
+import static net.hecco.bountifulfares.BountifulFares.ELS_AND_LS_DYES_MOD_ID;
 import static net.hecco.bountifulfares.compat.BFCompat.compatBlocks;
 import static net.hecco.bountifulfares.trellis.BFTrellises.TRELLIS_RENDER_CUTOUT;
 
 public class ArtsAndCraftsBlocks {
     public static Block CORK_PICKETS = registerBlock("cork_pickets", new PicketsBlock(AbstractBlock.Settings.copy(BFBlocks.OAK_PICKETS)));
 
-    public static final TrellisVariant CORK = new TrellisVariant(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, "cork", null, TRELLIS_RENDER_CUTOUT);
+    public static final TrellisVariant CORK = new TrellisVariant(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, "cork", Identifier.of(ARTS_AND_CRAFTS_MOD_ID, "cork_planks"), TRELLIS_RENDER_CUTOUT);
 
 
     public static Block registerBlock(String name, Block block) {

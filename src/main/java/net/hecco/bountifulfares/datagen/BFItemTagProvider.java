@@ -409,6 +409,11 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFBlocks.WALNUT_MULCH_BLOCK.asItem())
                 .add(BFBlocks.PALM_MULCH.asItem())
                 .add(BFBlocks.PALM_MULCH_BLOCK.asItem())
-                ;
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.SUGAR_INGREDIENTS)
+                .add(Items.SUGAR)
+                .add(Items.HONEY_BOTTLE)
+        ;
     }
 }

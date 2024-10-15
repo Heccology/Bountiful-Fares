@@ -249,22 +249,22 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
                     .input('P', trellis.getCraftingItem())
                     .criterion("has_stick", conditionsFromItem(Items.STICK))
                     .criterion("has_planks", conditionsFromItem(trellis.getCraftingItem()))
-                    .group("trellis");
+                    .group("trellis")
+                    .offerTo(exporter);
         }
     }
 
-    public static void registerTrellisRecipe(RecipeExporter exporter, TrellisVariant trellis, Identifier craftingItem) {
-        if (trellis.getCraftingItem() != null) {
-            ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
+    public static void registerCompatTrellisRecipe(RecipeExporter exporter, TrellisVariant trellis) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
                     .pattern("# #")
                     .pattern(" P ")
                     .pattern("# #")
                     .input('#', Items.STICK)
-                    .input('P', trellis.getCraftingItem())
+                    .input('P', Registries.ITEM.get(trellis.getCraftingItemIdentifier()))
                     .criterion("has_stick", conditionsFromItem(Items.STICK))
-                    .criterion("has_planks", conditionsFromItem(Registries.ITEM.get(craftingItem)))
-                    .group("trellis");
-        }
+                    .criterion("has_planks", conditionsFromItem(Registries.ITEM.get(trellis.getCraftingItemIdentifier())))
+                    .group("trellis")
+                    .offerTo(exporter);
     }
 
     @Override

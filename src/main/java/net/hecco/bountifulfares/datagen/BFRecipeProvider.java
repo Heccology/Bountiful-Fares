@@ -101,31 +101,32 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         TrellisUtil.registerTrellisRecipe(exporter, BFTrellises.HOARY);
         TrellisUtil.registerTrellisRecipe(exporter, BFTrellises.CRIMSON);
         TrellisUtil.registerTrellisRecipe(exporter, BFTrellises.WARPED);
-        TrellisUtil.registerTrellisRecipe(exporter, MintBlocks.WINTERGREEN, Identifier.of(ELS_AND_LS_DYES_MOD_ID, "wintergreen_planks"));
 
-        TrellisUtil.registerTrellisRecipe(exporter, ExcessiveBuildingBlocks.ANCIENT, Identifier.of(EXCESSIVE_BUILDING_MOD_ID, "ancient_planks"));
+        TrellisUtil.registerCompatTrellisRecipe(exporter, MintBlocks.WINTERGREEN);
 
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.REDWOOD, Identifier.of(NATURES_SPIRIT_MOD_ID, "redwood_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.SUGI, Identifier.of(NATURES_SPIRIT_MOD_ID, "sugi_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.WISTERIA, Identifier.of(NATURES_SPIRIT_MOD_ID, "wisteria_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.FIR, Identifier.of(NATURES_SPIRIT_MOD_ID, "fir_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.WILLOW, Identifier.of(NATURES_SPIRIT_MOD_ID, "willow_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.ASPEN, Identifier.of(NATURES_SPIRIT_MOD_ID, "aspen_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.MAPLE, Identifier.of(NATURES_SPIRIT_MOD_ID, "maple_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.CYPRESS, Identifier.of(NATURES_SPIRIT_MOD_ID, "cypress_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.OLIVE, Identifier.of(NATURES_SPIRIT_MOD_ID, "olive_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.JOSHUA, Identifier.of(NATURES_SPIRIT_MOD_ID, "joshua_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.GHAF, Identifier.of(NATURES_SPIRIT_MOD_ID, "ghaf_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.PALO_VERDE, Identifier.of(NATURES_SPIRIT_MOD_ID, "palo_verde_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.COCONUT, Identifier.of(NATURES_SPIRIT_MOD_ID, "coconut_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.CEDAR, Identifier.of(NATURES_SPIRIT_MOD_ID, "cedar_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.LARCH, Identifier.of(NATURES_SPIRIT_MOD_ID, "larch_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.MAHOGANY, Identifier.of(NATURES_SPIRIT_MOD_ID, "mahogany_planks"));
-        TrellisUtil.registerTrellisRecipe(exporter, NaturesSpiritBlocks.SAXAUL, Identifier.of(NATURES_SPIRIT_MOD_ID, "saxaul_planks"));
+        TrellisUtil.registerCompatTrellisRecipe(exporter, ExcessiveBuildingBlocks.ANCIENT);
 
-        TrellisUtil.registerTrellisRecipe(exporter, SpawnBlocks.ROTTEN, Identifier.of(SPAWN_MOD_ID, "rotten_planks"));
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.REDWOOD);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.SUGI);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.WISTERIA);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.FIR);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.WILLOW);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.ASPEN);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.MAPLE);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.CYPRESS);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.OLIVE);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.JOSHUA);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.GHAF);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.PALO_VERDE);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.COCONUT);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.CEDAR);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.LARCH);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.MAHOGANY);
+        TrellisUtil.registerCompatTrellisRecipe(exporter, NaturesSpiritBlocks.SAXAUL);
 
-        TrellisUtil.registerTrellisRecipe(exporter, ArtsAndCraftsBlocks.CORK, Identifier.of(ARTS_AND_CRAFTS_MOD_ID, "cork_planks"));
+        TrellisUtil.registerCompatTrellisRecipe(exporter, SpawnBlocks.ROTTEN);
+
+        TrellisUtil.registerCompatTrellisRecipe(exporter, ArtsAndCraftsBlocks.CORK);
 
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.FELDSPAR_LANTERN)
@@ -510,33 +511,10 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(BFItems.LAPISBERRIES), conditionsFromItem(BFItems.LAPISBERRIES))
                 .offerTo(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.CANDIED_APPLE)
-                .input(Items.APPLE, 1)
-                .input(Items.SUGAR, 1)
-                .criterion(hasItem(Items.APPLE), conditionsFromItem(Items.APPLE))
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .offerTo(exporter);
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.CANDIED_PLUM)
-                .input(BFItems.PLUM, 1)
-                .input(Items.SUGAR, 1)
-                .criterion(hasItem(BFItems.PLUM), conditionsFromItem(BFItems.PLUM))
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .offerTo(exporter);
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.CANDIED_ORANGE, 4)
-                .input(BFItems.ORANGE, 1)
-                .input(Items.SUGAR, 1)
-                .criterion(hasItem(BFItems.ORANGE), conditionsFromItem(BFItems.ORANGE))
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .offerTo(exporter);
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.CANDIED_LEMON, 4)
-                .input(BFItems.LEMON, 1)
-                .input(Items.SUGAR, 1)
-                .criterion(hasItem(BFItems.LEMON), conditionsFromItem(BFItems.LEMON))
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .offerTo(exporter);
+        offerCandiedFruitRecipe(exporter, Items.APPLE, BFItems.CANDIED_APPLE, 1);
+        offerCandiedFruitRecipe(exporter, BFItems.PLUM, BFItems.CANDIED_PLUM, 1);
+        offerCandiedFruitRecipe(exporter, BFItems.ORANGE, BFItems.CANDIED_ORANGE, 4);
+        offerCandiedFruitRecipe(exporter, BFItems.LEMON, BFItems.CANDIED_LEMON, 4);
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.CRUSTED_BEEF)
                 .input(Items.COOKED_BEEF)
@@ -1057,7 +1035,16 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 
 
 
-
+    public static void offerCandiedFruitRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible output, int count) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, output, count)
+                .pattern(" S ")
+                .pattern("S#S")
+                .pattern(" S ")
+                .input('S', BFItemTags.SUGAR_INGREDIENTS)
+                .input('#', input)
+                .criterion(hasItem(input), conditionsFromItem(input))
+                .offerTo(exporter);
+    }
 
     public static void offerCeramicUndyingRecipe(RecipeExporter exporter, ItemConvertible item) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, item, 1).input(item)

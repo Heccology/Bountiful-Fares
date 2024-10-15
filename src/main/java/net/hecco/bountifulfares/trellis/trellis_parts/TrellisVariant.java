@@ -33,6 +33,7 @@ public class TrellisVariant {
 
 //    Used for crafting recipes, can be ignored if there is no planks to craft it with
     private final Item PLANKS;
+    private final Identifier CRAFTING_ITEM;
     private final BlockSoundGroup SOUND_GROUP;
     private final BlockSoundGroup PLANTED_SOUND_GROUP;
     private final float HARDNESS;
@@ -42,6 +43,7 @@ public class TrellisVariant {
         this.MOD_ID = modId;
         this.VARIANT_ID = id;
         this.PLANKS = planks;
+        this.CRAFTING_ITEM = null;
         this.SOUND_GROUP = BFSounds.LIGHT_WOOD;
         this.PLANTED_SOUND_GROUP = BFSounds.PLANTED_TRELLIS;
         this.HARDNESS = 0.5F;
@@ -53,6 +55,31 @@ public class TrellisVariant {
         this.MOD_ID = modId;
         this.VARIANT_ID = id;
         this.PLANKS = planks;
+        this.CRAFTING_ITEM = null;
+        this.SOUND_GROUP = soundGroup;
+        this.PLANTED_SOUND_GROUP = plantedSoundGroup;
+        this.HARDNESS = hardness;
+        TrellisUtil.TrellisVariants.add(this);
+        registerTrellisBlocks(renderCutoutList);
+    }
+
+    public TrellisVariant(String modId, String id, Identifier craftingItem, ArrayList<Block> renderCutoutList) {
+        this.MOD_ID = modId;
+        this.VARIANT_ID = id;
+        this.PLANKS = null;
+        this.CRAFTING_ITEM = craftingItem;
+        this.SOUND_GROUP = BFSounds.LIGHT_WOOD;
+        this.PLANTED_SOUND_GROUP = BFSounds.PLANTED_TRELLIS;
+        this.HARDNESS = 0.5F;
+        TrellisUtil.TrellisVariants.add(this);
+        registerTrellisBlocks(renderCutoutList);
+    }
+
+    public TrellisVariant(String modId, String id, Identifier craftingItem, BlockSoundGroup soundGroup, BlockSoundGroup plantedSoundGroup, float hardness, ArrayList<Block> renderCutoutList) {
+        this.MOD_ID = modId;
+        this.VARIANT_ID = id;
+        this.PLANKS = null;
+        this.CRAFTING_ITEM = craftingItem;
         this.SOUND_GROUP = soundGroup;
         this.PLANTED_SOUND_GROUP = plantedSoundGroup;
         this.HARDNESS = hardness;
@@ -157,6 +184,9 @@ public class TrellisVariant {
 
     public Item getCraftingItem() {
         return this.PLANKS;
+    }
+    public Identifier getCraftingItemIdentifier() {
+        return this.CRAFTING_ITEM;
     }
 
     @Override

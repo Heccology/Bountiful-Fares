@@ -20,7 +20,7 @@ import static net.hecco.bountifulfares.trellis.BFTrellises.TRELLIS_RENDER_CUTOUT
 public class SpawnBlocks {
     public static Block ROTTEN_PICKETS = registerBlock("rotten_pickets", new PicketsBlock(AbstractBlock.Settings.copy(BFBlocks.OAK_PICKETS)));
 
-    public static final TrellisVariant ROTTEN = new TrellisVariant(BountifulFares.SPAWN_MOD_ID, "rotten", null, TRELLIS_RENDER_CUTOUT);
+    public static final TrellisVariant ROTTEN = new TrellisVariant(BountifulFares.SPAWN_MOD_ID, "rotten", Identifier.of(SPAWN_MOD_ID, "rotten_planks"), TRELLIS_RENDER_CUTOUT);
 
     public static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

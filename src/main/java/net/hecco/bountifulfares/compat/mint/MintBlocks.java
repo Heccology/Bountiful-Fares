@@ -49,7 +49,7 @@ public class MintBlocks {
 
     public static Block WINTERGREEN_PICKETS = registerBlock("wintergreen_pickets", new CompatPicketsBlock(ELS_AND_LS_DYES_MOD_ID, AbstractBlock.Settings.create().burnable().mapColor(MapColor.CLEAR).strength(0.5F).sounds(BFSounds.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).notSolid().nonOpaque()));
 
-    public static final TrellisVariant WINTERGREEN = new TrellisVariant(BountifulFares.ELS_AND_LS_DYES_MOD_ID, "wintergreen", null, TRELLIS_RENDER_CUTOUT);
+    public static final TrellisVariant WINTERGREEN = new TrellisVariant(BountifulFares.ELS_AND_LS_DYES_MOD_ID, "wintergreen", Identifier.of(ELS_AND_LS_DYES_MOD_ID, "wintergreen_planks"), TRELLIS_RENDER_CUTOUT);
 
 
     public static Block registerBlock(String name, Block block) {

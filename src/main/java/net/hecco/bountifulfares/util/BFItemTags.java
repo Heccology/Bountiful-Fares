@@ -31,4 +31,5 @@ public class BFItemTags {
     public static final TagKey<Item> GRASS_SEEDS_PLANTABLE_ON = TagKey.of(RegistryKeys.ITEM, Identifier.of(BountifulFares.MOD_ID, "grass_seeds_plantable_on"));
     public static final TagKey<Item> PICKETS = TagKey.of(RegistryKeys.ITEM, Identifier.of(BountifulFares.MOD_ID, "pickets"));
     public static final TagKey<Item> MULCH = TagKey.of(RegistryKeys.ITEM, Identifier.of(BountifulFares.MOD_ID, "mulch"));
+    public static final TagKey<Item> SUGAR_INGREDIENTS = TagKey.of(RegistryKeys.ITEM, Identifier.of(BountifulFares.MOD_ID, "sugar_ingredients"));
 }

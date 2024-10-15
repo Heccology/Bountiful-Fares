@@ -22,7 +22,7 @@ import java.util.function.BiConsumer;
 
 public class WalnutTrunkPlacer extends TrunkPlacer {
 
-    public static final MapCodec<HoaryTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec((instance) -> fillTrunkPlacerFields(instance).apply(instance, HoaryTrunkPlacer::new));
+    public static final MapCodec<WalnutTrunkPlacer> CODEC = RecordCodecBuilder.mapCodec((instance) -> fillTrunkPlacerFields(instance).apply(instance, WalnutTrunkPlacer::new));
 
     public WalnutTrunkPlacer(int baseHeight, int firstRandomHeight, int secondRandomHeight) {
         super(baseHeight, firstRandomHeight, secondRandomHeight);
