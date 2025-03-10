@@ -170,6 +170,14 @@ public class BountifulFaresConfiguration {
         enableHoarySeeds = bool;
     }
 
+    public boolean isGrassLootTableOverride() {
+        return grassLootTableOverride;
+    }
+
+    public void setGrassLootTableOverride(boolean bool) {
+        grassLootTableOverride = bool;
+    }
+
     public boolean isEnableElderGuardianSpongekinSeeds() {
         return enableElderGuardianSpongekinSeeds;
     }

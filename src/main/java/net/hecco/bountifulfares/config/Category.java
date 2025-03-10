@@ -37,8 +37,8 @@ public enum Category {
             Entry.booleanEntry("config.bountifulfares.lapisberry_seeds", () -> BountifulFares.CONFIG.isEnableLapisberrySeeds(),
                     newValue -> BountifulFares.CONFIG.setEnableLapisberrySeeds(newValue), true, "config.bountifulfares.restart_warning"),
 
-            Entry.booleanEntry("config.bountifulfares.grass_loot_table_override", () -> BountifulFares.CONFIG.grassLootTableOverride,
-                    newValue -> BountifulFares.CONFIG.grassLootTableOverride = newValue, true, "config.bountifulfares.restart_warning"),
+            Entry.booleanEntry("config.bountifulfares.grass_loot_table_override", () -> BountifulFares.CONFIG.isGrassLootTableOverride(),
+                    newValue -> BountifulFares.CONFIG.setGrassLootTableOverride(newValue), true, "config.bountifulfares.restart_warning"),
 
             Entry.booleanEntry("config.bountifulfares.spongekin_seeds_elder_guardian", () -> BountifulFares.CONFIG.isEnableElderGuardianSpongekinSeeds(),
                     newValue -> BountifulFares.CONFIG.setEnableElderGuardianSpongekinSeeds(newValue), true, "config.bountifulfares.restart_warning"),

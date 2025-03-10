@@ -150,14 +150,14 @@ public class BFResourcePacks {
                     modContainer.get(),
                     Text.translatable("pack." + BountifulFares.MOD_ID + "." + "vanilla_item_override"),
                     ResourcePackActivationType.DEFAULT_ENABLED);
-            if (BountifulFares.CONFIG.grassLootTableOverride) {
-                ResourceManagerHelper.registerBuiltinResourcePack(
-                        Identifier.of(BountifulFares.MOD_ID, "grass_loot_table_override"),
-                        modContainer.get(),
-                        Text.translatable("pack." + BountifulFares.MOD_ID + "." + "grass_loot_table_override"),
-                        ResourcePackActivationType.ALWAYS_ENABLED
-                );
-            }
+            //if (BountifulFares.CONFIG.grassLootTableOverride) {
+            //    ResourceManagerHelper.registerBuiltinResourcePack(
+            //            Identifier.of(BountifulFares.MOD_ID, "grass_loot_table_override"),
+            //            modContainer.get(),
+            //            Text.translatable("pack." + BountifulFares.MOD_ID + "." + "grass_loot_table_override"),
+            //            ResourcePackActivationType.ALWAYS_ENABLED
+            //    );
+            //}
         }
     }
 }
