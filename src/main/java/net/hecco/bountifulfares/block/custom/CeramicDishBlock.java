@@ -135,7 +135,6 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
 //                        if (stack.isOf(Items.CHORUS_FRUIT)) {
 //                            chorusTeleport(world, player);
 //                        }
-                        stack.getItem().finishUsing(stack, world, player);
 //                        for (FoodComponent.StatusEffectEntry statusEffectEntry : effects) {
 //                            StatusEffectInstance effect = statusEffectEntry.effect();
 //                            int length = effect.getDuration();
@@ -146,6 +145,9 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
                         for (int i = 0; i < 4 + world.random.nextBetween(0, 4); i++) {
                             world.addParticle(new ItemStackParticleEffect(ParticleTypes.ITEM, stack), pos.getX() + world.random.nextGaussian() / 12 + 0.5, pos.getY() + 0.2, pos.getZ() + world.random.nextGaussian() / 12 + 0.5, (world.random.nextFloat() - 0.5) / 8, (world.random.nextFloat() - 0.5) / 8, (world.random.nextFloat() - 0.5) / 8);
                         }
+
+                        stack.getItem().finishUsing(stack, world, player);
+
                         if (stack.getRecipeRemainder().getItem() != Items.AIR) {
                             blockEntity.insertItem(stack.getRecipeRemainder());
                         } else {
