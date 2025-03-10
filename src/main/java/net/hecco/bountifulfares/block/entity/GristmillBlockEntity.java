@@ -97,7 +97,7 @@ public class GristmillBlockEntity extends BlockEntity implements SidedInventory,
         if (BountifulFares.CONFIG.getMillingTime() * 20 != this.maxProgress) {
             this.maxProgress = BountifulFares.CONFIG.getMillingTime() * 20;
         }
-        BountifulFares.LOGGER.info(state.get(millingState) + "" + !blockEntity.hasRecipe() + (blockEntity.progress != 0));
+        //BountifulFares.LOGGER.info(state.get(millingState) + "" + !blockEntity.hasRecipe() + (blockEntity.progress != 0));
         if (!state.get(millingState) && !blockEntity.inventory.get(0).isEmpty() && blockEntity.hasRecipe() && blockEntity.canInsertOutputSlot()) {
             world.setBlockState(pos, state.with(millingState, true));
         }

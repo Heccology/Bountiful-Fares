@@ -22,5 +22,6 @@
     "defaultRequire": 1
   },
   "client": [
+    "GuiHeartsMixin"
   ]
 }

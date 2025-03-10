@@ -40,38 +40,39 @@ public class GuiMixin {
 
     @Shadow @Final private static Identifier EFFECT_BACKGROUND_TEXTURE;
 
-    @Inject(method = "drawHeart", at = @At("HEAD"), cancellable = true)
-    private void bountifulfares_renderHeart(DrawContext context, InGameHud.HeartType type, int x, int y, boolean hardcore, boolean blinking, boolean half, CallbackInfo ci) {
-        if (BountifulFares.CONFIG.isRestorationHeartOverlay()) {
-            if (type == InGameHud.HeartType.NORMAL && MinecraftClient.getInstance().cameraEntity instanceof PlayerEntity player
-                    && (player.hasStatusEffect(BFEffects.RESTORATION))) {
-                RenderSystem.enableBlend();
-                Identifier texture;
-                Identifier halfBlinkingTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_half_blinking");
-                Identifier halfTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_half");
-                Identifier fullBlinkingTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_full_blinking");
-                Identifier fullTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_full");
-                Identifier hardcoreHalfBlinkingTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_half_blinking");
-                Identifier hardcoreHalfTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_half");
-                Identifier hardcoreFullBlinkingTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_full_blinking");
-                Identifier hardcoreFullTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_full");
-                if (!hardcore) {
-                    if (half) {
-                        texture = blinking ? halfBlinkingTexture : halfTexture;
-                    } else {
-                        texture = blinking ? fullBlinkingTexture : fullTexture;
-                    }
-                } else if (half) {
-                    texture = blinking ? hardcoreHalfBlinkingTexture : hardcoreHalfTexture;
-                } else {
-                    texture = blinking ? hardcoreFullBlinkingTexture : hardcoreFullTexture;
-                }
-                context.drawGuiTexture(texture, x, y, 9, 9);
-                RenderSystem.disableBlend();
-                ci.cancel();
-            }
-        }
-    }
+    // Replaced via mixin into heart enum directly - >> see mixin/GuiHeartsMixin <<
+    //@Inject(method = "drawHeart", at = @At("HEAD"), cancellable = true)
+    //private void bountifulfares_renderHeart(DrawContext context, InGameHud.HeartType type, int x, int y, boolean hardcore, boolean blinking, boolean half, CallbackInfo ci) {
+    //    if (BountifulFares.CONFIG.isRestorationHeartOverlay()) {
+    //        if (type == InGameHud.HeartType.NORMAL && MinecraftClient.getInstance().cameraEntity instanceof PlayerEntity player
+    //                && (player.hasStatusEffect(BFEffects.RESTORATION))) {
+    //            RenderSystem.enableBlend();
+    //            Identifier texture;
+    //            Identifier halfBlinkingTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_half_blinking");
+    //            Identifier halfTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_half");
+    //            Identifier fullBlinkingTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_full_blinking");
+    //            Identifier fullTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_full");
+    //            Identifier hardcoreHalfBlinkingTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_half_blinking");
+    //            Identifier hardcoreHalfTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_half");
+    //            Identifier hardcoreFullBlinkingTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_full_blinking");
+    //            Identifier hardcoreFullTexture = Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_full");
+    //            if (!hardcore) {
+    //                if (half) {
+    //                    texture = blinking ? halfBlinkingTexture : halfTexture;
+    //                } else {
+    //                    texture = blinking ? fullBlinkingTexture : fullTexture;
+    //                }
+    //            } else if (half) {
+    //                texture = blinking ? hardcoreHalfBlinkingTexture : hardcoreHalfTexture;
+    //            } else {
+    //                texture = blinking ? hardcoreFullBlinkingTexture : hardcoreFullTexture;
+    //            }
+    //            context.drawGuiTexture(texture, x, y, 9, 9);
+    //            RenderSystem.disableBlend();
+    //            ci.cancel();
+    //        }
+    //    }
+    //}
 
     @Unique
     private static final Identifier ACIDFIED_EFFECT_BACKGROUND_TEXTURE = Identifier.of(BountifulFares.MOD_ID, "hud/acidified_effect_background");
