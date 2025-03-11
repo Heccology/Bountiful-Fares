@@ -1,6 +1,0 @@
-{
-  "parent": "bountifulfares:block/template_pickets",
-  "textures": {
-    "texture": "arts_and_crafts:block/cork_pickets"
-  }
-}

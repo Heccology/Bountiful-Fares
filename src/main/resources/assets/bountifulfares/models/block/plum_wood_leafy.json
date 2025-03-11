@@ -1,7 +1,0 @@
-{
-	"parent": "bountifulfares:block/template_fruit_wood_leafy",
-	"textures": {
-		"all": "bountifulfares:block/plum_log",
-		"leaves": "bountifulfares:block/plum_leaves"
-	}
-}

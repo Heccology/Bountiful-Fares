@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "bountifulfares:cut_feldspar_block"
-  },
-  "result": "bountifulfares:feldspar_brick_slab"
-}

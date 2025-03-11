@@ -1,6 +1,0 @@
-{
-  "parent": "bountifulfares:block/template_trellis",
-  "textures": {
-    "texture": "excessive_building:block/ancient_trellis"
-  }
-}

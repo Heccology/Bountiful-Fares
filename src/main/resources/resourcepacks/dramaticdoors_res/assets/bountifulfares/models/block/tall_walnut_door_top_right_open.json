@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/door_top_right_open",
-  "textures": {
-    "bottom": "bountifulfares:block/tall_walnut_door_bottom",
-    "middle": "bountifulfares:block/tall_walnut_door_middle",
-    "top": "bountifulfares:block/tall_walnut_door_top"
-  }
-}

@@ -1,9 +1,0 @@
-{
-	"parent": "bountifulfares:block/tart_2",
-	"textures": {
-		"top": "bountifulfares:block/lapisberry_tart_top",
-		"side": "bountifulfares:block/tart_side",
-		"bottom": "bountifulfares:block/tart_bottom",
-		"inside": "bountifulfares:block/lapisberry_tart_inside"
-	}
-}

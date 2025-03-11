@@ -1,7 +1,0 @@
-{
-	"parent": "bountifulfares:block/leaves_with_overlay",
-	"textures": {
-		"all": "bountifulfares:block/plum_leaves",
-		"overlay": "bountifulfares:block/flowering_plum_leaves"
-	}
-}

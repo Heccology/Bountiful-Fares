@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "bountifulfares:block/hoary_planks",
-    "side": "bountifulfares:block/hoary_planks",
-    "top": "bountifulfares:block/hoary_planks"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_right",
-  "textures": {
-    "bottom": "bountifulfares:block/tall_hoary_door_bottom",
-    "middle": "bountifulfares:block/tall_hoary_door_middle",
-    "top": "bountifulfares:block/tall_hoary_door_top"
-  }
-}

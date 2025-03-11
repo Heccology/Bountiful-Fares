@@ -1,6 +1,0 @@
-{
-	"parent": "bountifulfares:item/template_fruit_wood",
-	"textures": {
-		"texture": "bountifulfares:block/palm_log"
-	}
-}

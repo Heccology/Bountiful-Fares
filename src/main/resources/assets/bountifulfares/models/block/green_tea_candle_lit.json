@@ -1,6 +1,0 @@
-{
-	"parent": "bountifulfares:block/template_infused_candle",
-	"textures": {
-		"texture": "bountifulfares:block/green_tea_candle_lit"
-	}
-}

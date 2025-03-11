@@ -1,8 +1,0 @@
-{
-  "parent": "dramaticdoors:block/door_middle_left_open",
-  "textures": {
-    "bottom": "bountifulfares:block/tall_hoary_door_middle",
-    "middle": "bountifulfares:block/tall_hoary_door_middle",
-    "top": "bountifulfares:block/tall_hoary_door_middle"
-  }
-}

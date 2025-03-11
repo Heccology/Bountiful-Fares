@@ -1,6 +1,0 @@
-{
-  "parent": "bountifulfares:block/template_pickets",
-  "textures": {
-    "texture": "bountifulfares:block/saxaul_pickets"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "bountifulfares:checkered_ceramic_tiles"
-  },
-  "result": "bountifulfares:checkered_ceramic_tile_slab"
-}

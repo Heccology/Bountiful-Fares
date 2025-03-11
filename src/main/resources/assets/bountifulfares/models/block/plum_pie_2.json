@@ -1,9 +1,0 @@
-{
-	"parent": "bountifulfares:block/pie_2",
-	"textures": {
-		"side": "bountifulfares:block/pie_side",
-		"top": "bountifulfares:block/plum_pie_top",
-		"bottom": "bountifulfares:block/pie_bottom",
-		"inside": "bountifulfares:block/plum_pie_inside"
-	}
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "bountifulfares:block/tintable_inner_stairs",
-  "textures": {
-    "bottom": "bountifulfares:block/ceramic_mosaic",
-    "side": "bountifulfares:block/ceramic_mosaic",
-    "top": "bountifulfares:block/ceramic_mosaic"
-  }
-}

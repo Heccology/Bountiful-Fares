@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "bountifulfares:block/coir_bricks",
-    "side": "bountifulfares:block/coir_bricks",
-    "top": "bountifulfares:block/coir_bricks"
-  }
-}

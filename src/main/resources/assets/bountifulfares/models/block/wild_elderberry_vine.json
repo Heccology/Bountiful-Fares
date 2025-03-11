@@ -1,7 +1,0 @@
-{
-	"parent": "bountifulfares:block/wild_vine_crop",
-	"textures": {
-		"tint": "bountifulfares:block/wild_elderberry_vine_tint",
-		"texture": "bountifulfares:block/wild_elderberry_vine"
-	}
-}
