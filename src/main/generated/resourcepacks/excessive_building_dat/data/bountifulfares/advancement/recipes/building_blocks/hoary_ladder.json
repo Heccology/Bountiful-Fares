@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hoary_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:hoary_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "excessive_building:hoary_ladder"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hoary_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "excessive_building:hoary_ladder"
+    ]
+  }
+}

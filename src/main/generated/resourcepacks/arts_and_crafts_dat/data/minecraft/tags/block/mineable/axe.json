@@ -1,0 +1,85 @@
+{
+  "values": [
+    "arts_and_crafts:cork_pickets",
+    {
+      "id": "arts_and_crafts:cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:passion_fruit_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:elderberry_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:lapisberry_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:glow_berry_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:spawn_sunflower_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:rose_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:lilac_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:peony_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:sunflower_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:vine_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:weeping_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:twisting_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_lavender_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_bleeding_heart_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_blue_bulb_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_carnation_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_gardenia_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_marigold_cork_trellis",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:ns_foxglove_cork_trellis",
+      "required": false
+    }
+  ]
+}

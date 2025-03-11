@@ -1,0 +1,85 @@
+{
+  "values": [
+    "spawn:rotten_pickets",
+    {
+      "id": "spawn:rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:passion_fruit_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:elderberry_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:lapisberry_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:glow_berry_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:spawn_sunflower_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:rose_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:lilac_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:peony_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:sunflower_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:vine_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:weeping_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:twisting_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_lavender_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_bleeding_heart_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_blue_bulb_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_carnation_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_gardenia_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_marigold_rotten_trellis",
+      "required": false
+    },
+    {
+      "id": "spawn:ns_foxglove_rotten_trellis",
+      "required": false
+    }
+  ]
+}

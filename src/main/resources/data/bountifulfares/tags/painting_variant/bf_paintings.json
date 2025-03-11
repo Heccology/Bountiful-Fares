@@ -1,0 +1,44 @@
+{
+  "values": [
+    {
+      "id": "bountifulfares:bountiful",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:citrus_dish",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:hazel_floret",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:violet_floret",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:why_blue",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:ruminer",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:escalade",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:phylogenesis",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:aquaculture",
+      "required": false
+    },
+    {
+      "id": "bountifulfares:unpleasant_tiles",
+      "required": false
+    }
+  ]
+}

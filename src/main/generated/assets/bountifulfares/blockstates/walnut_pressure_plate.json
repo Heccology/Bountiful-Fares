@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "bountifulfares:block/walnut_pressure_plate"
+    },
+    "powered=true": {
+      "model": "bountifulfares:block/walnut_pressure_plate_down"
+    }
+  }
+}

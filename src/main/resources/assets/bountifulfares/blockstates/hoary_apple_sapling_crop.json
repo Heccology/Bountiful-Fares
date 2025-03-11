@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "bountifulfares:block/hoary_apple_sapling_crop_0"
+    },
+    "age=1": {
+      "model": "bountifulfares:block/hoary_apple_sapling_crop_1"
+    }
+  }
+}

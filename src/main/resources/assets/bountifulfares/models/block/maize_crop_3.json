@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/crop",
+	"textures": {
+		"crop": "bountifulfares:block/maize_crop_3"
+	}
+}

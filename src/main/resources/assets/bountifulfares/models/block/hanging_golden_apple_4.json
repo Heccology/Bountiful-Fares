@@ -1,0 +1,50 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"ambientocclusion": false,
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "bountifulfares:block/hanging_golden_apple",
+		"particle": "item/golden_apple"
+	},
+	"elements": [
+		{
+			"from": [5, 8, 5],
+			"to": [11, 14, 11],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, 16, 8]},
+			"faces": {
+				"north": {"uv": [6.5, 0, 9.5, 3], "texture": "#0"},
+				"east": {"uv": [9.5, 3, 12.5, 6], "texture": "#0"},
+				"south": {"uv": [6.5, 0, 9.5, 3], "texture": "#0"},
+				"west": {"uv": [9.5, 3, 12.5, 6], "texture": "#0"},
+				"up": {"uv": [6.5, 3, 9.5, 6], "texture": "#0"},
+				"down": {"uv": [12.5, 0, 9.5, 3], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7, 14, 8],
+			"to": [9, 16, 8],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 14, 8]},
+			"faces": {
+				"north": {"uv": [2.5, 4, 3.5, 5], "texture": "#0"},
+				"east": {"uv": [2.5, 4, 3.5, 5], "texture": "#0"},
+				"south": {"uv": [2.5, 4, 3.5, 5], "texture": "#0"},
+				"west": {"uv": [2.5, 4, 3.5, 5], "texture": "#0"},
+				"up": {"uv": [2.5, 4, 3.5, 5], "texture": "#0"},
+				"down": {"uv": [2.5, 4, 3.5, 5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7, 14, 8],
+			"to": [9, 16, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 14, 8]},
+			"faces": {
+				"north": {"uv": [2.5, 4, 3.5, 5], "texture": "#0"},
+				"east": {"uv": [2.5, 4, 3.5, 5], "texture": "#0"},
+				"south": {"uv": [2.5, 4, 3.5, 5], "texture": "#0"},
+				"west": {"uv": [2.5, 4, 3.5, 5], "texture": "#0"},
+				"up": {"uv": [2.5, 4, 3.5, 5], "texture": "#0"},
+				"down": {"uv": [2.5, 4, 3.5, 5], "texture": "#0"}
+			}
+		}
+	]
+}

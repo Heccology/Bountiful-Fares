@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "bountifulfares:block/walnut_door_bottom",
+    "top": "bountifulfares:block/walnut_door_top"
+  }
+}

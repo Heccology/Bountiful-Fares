@@ -1,0 +1,10 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:iron_ore"
+  },
+  "result": {
+    "id": "minecraft:raw_iron"
+  },
+  "result_count": 2
+}

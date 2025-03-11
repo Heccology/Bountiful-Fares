@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "textures": {
+    "bottom": "bountifulfares:block/hoary_door_bottom",
+    "top": "bountifulfares:block/hoary_door_top"
+  }
+}

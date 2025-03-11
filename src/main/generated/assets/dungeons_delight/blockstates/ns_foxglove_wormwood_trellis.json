@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "dungeons_delight:block/ns_foxglove_wormwood_trellis",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dungeons_delight:block/ns_foxglove_wormwood_trellis",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "dungeons_delight:block/ns_foxglove_wormwood_trellis",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "dungeons_delight:block/ns_foxglove_wormwood_trellis",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "bountifulfares:hoary_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "S S",
+    "S#S",
+    "S S"
+  ],
+  "result": {
+    "count": 8,
+    "id": "excessive_building:hoary_ladder"
+  }
+}

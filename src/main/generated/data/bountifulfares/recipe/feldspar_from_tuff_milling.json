@@ -1,0 +1,10 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:tuff"
+  },
+  "result": {
+    "id": "bountifulfares:feldspar"
+  },
+  "result_count": 2
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "bountifulfares:block/template_planted_trellis_0",
+  "textures": {
+    "crop": "bountifulfares:block/passion_fruit_trellis_vines_0",
+    "texture": "dungeons_delight:block/wormwood_trellis"
+  }
+}

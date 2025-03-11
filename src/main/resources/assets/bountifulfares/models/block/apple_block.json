@@ -1,0 +1,9 @@
+{
+	"parent": "bountifulfares:block/fruit_block",
+	"textures": {
+		"side": "bountifulfares:block/apple_block_side",
+		"top": "bountifulfares:block/apple_block_top",
+		"bottom": "bountifulfares:block/apple_block_bottom",
+		"stem": "bountifulfares:block/apple_block_stem"
+	}
+}

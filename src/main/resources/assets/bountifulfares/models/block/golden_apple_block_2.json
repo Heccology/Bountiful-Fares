@@ -1,0 +1,9 @@
+{
+	"parent": "bountifulfares:block/fruit_block_2",
+	"textures": {
+		"side": "bountifulfares:block/golden_apple_block_side",
+		"top": "bountifulfares:block/golden_apple_block_top",
+		"bottom": "bountifulfares:block/golden_apple_block_bottom",
+		"inside": "bountifulfares:block/golden_apple_block_inside"
+	}
+}

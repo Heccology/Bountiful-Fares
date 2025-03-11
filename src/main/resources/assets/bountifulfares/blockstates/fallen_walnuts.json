@@ -1,0 +1,72 @@
+{
+  "variants": {
+    "count=0": [
+      {
+        "model": "bountifulfares:block/fallen_walnuts_0"
+      },
+      {
+        "model": "bountifulfares:block/fallen_walnuts_0",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/fallen_walnuts_0",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/fallen_walnuts_0",
+        "y": 270
+      }
+    ],
+    "count=1": [
+      {
+        "model": "bountifulfares:block/fallen_walnuts_1"
+      },
+      {
+        "model": "bountifulfares:block/fallen_walnuts_1",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/fallen_walnuts_1",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/fallen_walnuts_1",
+        "y": 270
+      }
+    ],
+    "count=2": [
+      {
+        "model": "bountifulfares:block/fallen_walnuts_2"
+      },
+      {
+        "model": "bountifulfares:block/fallen_walnuts_2",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/fallen_walnuts_2",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/fallen_walnuts_2",
+        "y": 270
+      }
+    ],
+    "count=3": [
+      {
+        "model": "bountifulfares:block/fallen_walnuts_3"
+      },
+      {
+        "model": "bountifulfares:block/fallen_walnuts_3",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/fallen_walnuts_3",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/fallen_walnuts_3",
+        "y": 270
+      }
+    ]
+  }
+}

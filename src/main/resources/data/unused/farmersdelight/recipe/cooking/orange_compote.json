@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "bountifulfares:orange"
+    },
+    {
+      "item": "bountifulfares:citrus_essence"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "bountifulfares:orange_compote_jar"
+  }
+}

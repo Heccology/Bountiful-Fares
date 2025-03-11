@@ -1,0 +1,65 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cocoa_beans": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:cocoa_beans"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_coconut_half": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:coconut_half"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_orange": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:orange"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_passion_fruit": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:passion_fruit"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bountifulfares:tropical_medley"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_orange",
+      "has_cocoa_beans",
+      "has_passion_fruit",
+      "has_coconut_half"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bountifulfares:tropical_medley"
+    ]
+  }
+}

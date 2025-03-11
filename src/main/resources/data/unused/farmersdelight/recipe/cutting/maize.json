@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "bountifulfares:maize"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "bountifulfares:maize_seeds"
+    },
+    {
+      "chance": 0.5,
+      "count": 1,
+      "item": "farmersdelight:straw"
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knives"
+  }
+}

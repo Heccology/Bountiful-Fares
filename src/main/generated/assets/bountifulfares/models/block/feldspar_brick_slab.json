@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "bountifulfares:block/feldspar_bricks",
+    "side": "bountifulfares:block/feldspar_bricks",
+    "top": "bountifulfares:block/feldspar_bricks"
+  }
+}

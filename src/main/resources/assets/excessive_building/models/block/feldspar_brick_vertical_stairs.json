@@ -1,0 +1,6 @@
+{
+  "parent": "excessive_building:block/template_vertical_stairs",
+  "textures": {
+    "texture": "bountifulfares:block/feldspar_bricks"
+  }
+}

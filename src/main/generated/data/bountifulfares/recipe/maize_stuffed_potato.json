@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:baked_potato"
+    },
+    {
+      "item": "bountifulfares:maize"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:maize_stuffed_potato"
+  }
+}

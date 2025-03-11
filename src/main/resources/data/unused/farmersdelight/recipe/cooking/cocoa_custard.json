@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "bountifulfares:walnut"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "bountifulfares:cocoa_custard"
+  }
+}

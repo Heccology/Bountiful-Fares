@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:elderberries"
+    },
+    {
+      "item": "bountifulfares:maize"
+    },
+    {
+      "item": "bountifulfares:chamomile_flowers"
+    },
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:mire_medley"
+  }
+}

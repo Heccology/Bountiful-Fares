@@ -1,0 +1,6 @@
+{
+  "parent": "bountifulfares:block/jack_o_straw_inventory",
+  "textures": {
+    "texture": "delicate_dyes:block/coral_jack_o_straw"
+  }
+}

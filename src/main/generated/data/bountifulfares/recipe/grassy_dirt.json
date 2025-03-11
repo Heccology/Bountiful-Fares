@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:grass_seeds"
+    },
+    {
+      "tag": "bountifulfares:grass_seeds_plantable_on"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:grassy_dirt"
+  }
+}

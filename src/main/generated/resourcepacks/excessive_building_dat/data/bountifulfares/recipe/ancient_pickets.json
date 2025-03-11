@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "excessive_building:ancient_planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "#S#"
+  ],
+  "result": {
+    "count": 4,
+    "id": "excessive_building:ancient_pickets"
+  }
+}

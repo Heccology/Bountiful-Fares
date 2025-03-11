@@ -1,0 +1,106 @@
+{
+  "variants": {
+    "age=0": [
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_0"
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_0",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_0",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_0",
+        "y": 270
+      }
+    ],
+    "age=1": [
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_1"
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_1",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_1",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_1",
+        "y": 270
+      }
+    ],
+    "age=2": [
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_2"
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_2",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_2",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_2",
+        "y": 270
+      }
+    ],
+    "age=3": [
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_3"
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_3",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_3",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_3",
+        "y": 270
+      }
+    ],
+    "age=4": [
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_4"
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_4",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_4",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_4",
+        "y": 270
+      }
+    ],
+    "age=5": [
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_5"
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_5",
+        "y": 90
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_5",
+        "y": 180
+      },
+      {
+        "model": "bountifulfares:block/hanging_withered_golden_apple_5",
+        "y": 270
+      }
+    ]
+  }
+}

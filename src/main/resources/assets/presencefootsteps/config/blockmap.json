@@ -1,0 +1,15 @@
+{
+  "#bountifulfares:fruit_leaves": "leaves",
+  "bountifulfares:hoary_leaves": "leaves",
+  "#bountifulfares:ceramic_tiles": "marble",
+  "bountifulfares:fermentation_vessel": "marble",
+  "bountifulfares:ceramic_dish": "marble",
+  "bountifulfares:ceramic_pressure_plate": "marble",
+  "bountifulfares:ceramic_button": "marble",
+  "bountifulfares:ceramic_lever": "NOT_EMITTER",
+  "bountifulfares:golden_apple_block": "ore",
+  "bountifulfares:spongekin": "organic",
+  "bountifulfares:gristmill": "woodutility",
+  "#bountifulfares:trellises": "bluntwood",
+  "#bountifulfares:pickets": "bluntwood"
+}

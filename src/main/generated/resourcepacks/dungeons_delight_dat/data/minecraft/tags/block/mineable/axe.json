@@ -1,0 +1,85 @@
+{
+  "values": [
+    "dungeons_delight:wormwood_pickets",
+    {
+      "id": "dungeons_delight:wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:passion_fruit_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:elderberry_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:lapisberry_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:glow_berry_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:spawn_sunflower_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:rose_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:lilac_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:peony_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:sunflower_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:vine_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:weeping_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:twisting_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:ns_lavender_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:ns_bleeding_heart_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:ns_blue_bulb_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:ns_carnation_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:ns_gardenia_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:ns_marigold_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeons_delight:ns_foxglove_wormwood_trellis",
+      "required": false
+    }
+  ]
+}

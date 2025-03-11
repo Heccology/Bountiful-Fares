@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "candles=1,lit=false": {
+      "model":  "bountifulfares:block/coconut_candle_1"
+    },
+    "candles=1,lit=true": {
+      "model":  "bountifulfares:block/coconut_candle_lit_1"
+    },
+    "candles=2,lit=false": {
+      "model":  "bountifulfares:block/coconut_candle_2"
+    },
+    "candles=2,lit=true": {
+      "model":  "bountifulfares:block/coconut_candle_lit_2"
+    },
+    "candles=3,lit=false": {
+      "model":  "bountifulfares:block/coconut_candle_3"
+    },
+    "candles=3,lit=true": {
+      "model":  "bountifulfares:block/coconut_candle_lit_3"
+    }
+  }
+}

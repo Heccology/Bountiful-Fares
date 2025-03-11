@@ -1,0 +1,6 @@
+{
+  "parent": "bountifulfares:block/template_fruit_log_noside",
+  "textures": {
+    "texture": "bountifulfares:block/plum_log"
+  }
+}

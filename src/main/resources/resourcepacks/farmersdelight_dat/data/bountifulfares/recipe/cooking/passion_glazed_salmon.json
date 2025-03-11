@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_salmon"
+    },
+    {
+      "item": "bountifulfares:passion_fruit"
+    },
+    {
+      "item": "bountifulfares:passion_fruit"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "bountifulfares:passion_glazed_salmon"
+  }
+}

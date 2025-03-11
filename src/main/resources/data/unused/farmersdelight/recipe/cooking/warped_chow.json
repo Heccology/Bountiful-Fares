@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:warped_fungus"
+    },
+    {
+      "item": "minecraft:warped_roots"
+    },
+    {
+      "item": "minecraft:nether_sprouts"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "bountifulfares:warped_chow"
+  }
+}

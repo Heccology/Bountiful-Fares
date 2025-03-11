@@ -1,0 +1,29 @@
+{
+  "required": true,
+  "package": "net.hecco.bountifulfares.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractInventoryMixin",
+    "BlockItemMixin",
+    "BrewingRecipeRegistryMixin",
+    "ChickenEntityMixin",
+    "GuiMixin",
+    "util.HandledScreenMixin",
+    "util.ItemRendererAccessor",
+    "ItemRendererMixin",
+    "LivingEntityMixin",
+    "ModelLoaderMixin",
+    "NoteBlockInstrumentMixin",
+    "SweetBerryBushMixin",
+    "WolfEntityMixin",
+    "WoodlandMansionFirstFloorMixin",
+    "WoodlandMansionSecondFloorMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "GuiHeartsMixin",
+    "SplashTextMixin"
+  ]
+}

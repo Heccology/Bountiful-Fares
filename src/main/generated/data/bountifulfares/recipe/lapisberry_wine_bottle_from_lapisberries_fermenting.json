@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:fermenting",
+  "ingredient": {
+    "item": "bountifulfares:lapisberries"
+  },
+  "particle_color": 6449890,
+  "result": {
+    "id": "bountifulfares:lapisberry_wine_bottle"
+  },
+  "result_count": 1
+}

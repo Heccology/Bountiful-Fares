@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "appledog:dogapple"
+    },
+    {
+      "item": "appledog:dogapple"
+    },
+    {
+      "item": "appledog:dogapple"
+    },
+    {
+      "item": "appledog:dogapple"
+    },
+    {
+      "item": "appledog:dogapple"
+    },
+    {
+      "item": "appledog:dogapple"
+    },
+    {
+      "item": "appledog:dogapple"
+    },
+    {
+      "item": "appledog:dogapple"
+    },
+    {
+      "item": "appledog:dogapple"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "appledog:appledog_block"
+  }
+}

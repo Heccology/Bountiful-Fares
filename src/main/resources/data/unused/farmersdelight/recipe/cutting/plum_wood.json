@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "bountifulfares:plum_wood"
+    }
+  ],
+  "result": [
+    {
+      "item": "bountifulfares:stripped_plum_wood"
+    },
+    {
+      "item": "farmersdelight:tree_bark"
+    }
+  ],
+  "sound": "minecraft:item.axe.strip",
+  "tool": {
+    "fabric:type": "farmersdelight:tool_action",
+    "action": "axe_strip"
+  }
+}

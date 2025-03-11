@@ -1,0 +1,25 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"parent": "block/block",
+	"textures": {
+		"0": "#inside",
+		"1": "#bottom",
+		"2": "#side",
+		"3": "#top",
+		"particle": "#top"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 8],
+			"to": [15, 6, 15],
+			"faces": {
+				"north": {"uv": [1, 10, 15, 16], "texture": "#0"},
+				"east": {"uv": [1, 10, 8, 16], "texture": "#2"},
+				"south": {"uv": [1, 10, 15, 16], "texture": "#2"},
+				"west": {"uv": [8, 10, 15, 16], "texture": "#2"},
+				"up": {"uv": [1, 8, 15, 15], "texture": "#3"},
+				"down": {"uv": [1, 1, 15, 8], "texture": "#1"}
+			}
+		}
+	]
+}

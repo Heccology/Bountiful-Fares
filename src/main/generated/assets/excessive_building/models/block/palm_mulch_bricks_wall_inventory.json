@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "excessive_building:block/palm_mulch_bricks"
+  }
+}

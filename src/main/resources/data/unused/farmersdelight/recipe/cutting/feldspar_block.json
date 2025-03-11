@@ -1,0 +1,18 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "bountifulfares:feldspar_block"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "bountifulfares:feldspar"
+    }
+  ],
+  "tool": {
+    "fabric:type": "farmersdelight:tool_action",
+    "action": "pickaxe_dig"
+  }
+}

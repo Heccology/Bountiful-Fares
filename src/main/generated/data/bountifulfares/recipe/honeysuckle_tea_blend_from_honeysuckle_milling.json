@@ -1,0 +1,10 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "bountifulfares:honeysuckle"
+  },
+  "result": {
+    "id": "bountifulfares:honeysuckle_tea_blend"
+  },
+  "result_count": 2
+}

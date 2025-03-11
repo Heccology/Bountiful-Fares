@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "trellis",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "P": {
+      "item": "dungeons_delight:wormwood_planks"
+    }
+  },
+  "pattern": [
+    "# #",
+    " P ",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeons_delight:wormwood_trellis"
+  }
+}

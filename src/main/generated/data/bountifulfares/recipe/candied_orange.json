@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:orange"
+    },
+    {
+      "tag": "bountifulfares:sugar_ingredients"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "bountifulfares:candied_orange"
+  }
+}

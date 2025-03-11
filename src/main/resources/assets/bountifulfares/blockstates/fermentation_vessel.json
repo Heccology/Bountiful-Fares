@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "fermentation_stage=empty": {
+      "model": "bountifulfares:block/fermentation_vessel"
+    },
+    "fermentation_stage=water": {
+      "model": "bountifulfares:block/fermentation_vessel_water"
+    },
+    "fermentation_stage=fermenting": {
+      "model": "bountifulfares:block/fermentation_vessel_closed"
+    },
+    "fermentation_stage=fermented": {
+      "model": "bountifulfares:block/fermentation_vessel_stained"
+    }
+  }
+}

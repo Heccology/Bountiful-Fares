@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:hoary_apple"
+    },
+    {
+      "item": "bountifulfares:lapisberries"
+    },
+    {
+      "item": "bountifulfares:lapisberries"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:stuffed_hoary_apple"
+  }
+}

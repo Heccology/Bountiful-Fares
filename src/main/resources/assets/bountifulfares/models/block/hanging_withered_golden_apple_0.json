@@ -1,0 +1,23 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"ambientocclusion": false,
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "bountifulfares:block/hanging_withered_golden_apple",
+		"particle": "bountifulfares:block/hanging_withered_golden_apple_particle"
+	},
+	"elements": [
+		{
+			"from": [7, 13, 7],
+			"to": [9, 16, 9],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1.5], "texture": "#0"},
+				"east": {"uv": [1, 0, 0, 1.5], "texture": "#0"},
+				"south": {"uv": [0, 0, 1, 1.5], "texture": "#0"},
+				"west": {"uv": [1, 0, 0, 1.5], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#0"},
+				"down": {"uv": [0, 1.5, 1, 2.5], "texture": "#0"}
+			}
+		}
+	]
+}

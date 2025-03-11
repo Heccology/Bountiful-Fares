@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hoary_mosaic": {
+      "conditions": {
+        "items": [
+          {
+            "items": "excessive_building:hoary_mosaic"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "excessive_building:hoary_mosaic_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hoary_mosaic"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "excessive_building:hoary_mosaic_slab"
+    ]
+  }
+}

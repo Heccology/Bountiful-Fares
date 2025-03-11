@@ -1,0 +1,39 @@
+{
+  "feature": "bountifulfares:wild_elderberry",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": {
+        "type": "minecraft:weighted_list",
+        "distribution": [
+          {
+            "data": 6,
+            "weight": 2
+          },
+          {
+            "data": 3,
+            "weight": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:height_range",
+      "height": {
+        "type": "minecraft:uniform",
+        "max_inclusive": {
+          "absolute": 100
+        },
+        "min_inclusive": {
+          "above_bottom": 50
+        }
+      }
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "parent": "bountifulfares:bountiful_fares",
+  "criteria": {
+    "obtain_lemon_block": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulfares:lemon_block",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.how_easy.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "bountifulfares:lemon"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.how_easy"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_lemon_block"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

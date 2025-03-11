@@ -1,0 +1,10 @@
+{
+  "type": "bountifulfares:wild_vine",
+  "config": {
+    "block": {
+      "Name": "bountifulfares:wild_passion_fruit_vine"
+    },
+    "can_place_on": "#minecraft:overworld_natural_logs",
+    "patch_size": 4
+  }
+}
