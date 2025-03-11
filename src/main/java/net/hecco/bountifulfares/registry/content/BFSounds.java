@@ -3,6 +3,7 @@ package net.hecco.bountifulfares.registry.content;
 import net.hecco.bountifulfares.BountifulFares;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -63,6 +64,9 @@ public class BFSounds {
     public static final SoundEvent CABINET_OPEN = registerSoundEvent("cabinet_open");
     public static final SoundEvent CABINET_CLOSE = registerSoundEvent("cabinet_close");
 
+    // Note Block sounds MUST be registered as a RegistryEntry<SoundEvent>! Using registerSoundReference() will do this.
+    // The below sound is used in the example in NoteBlockInstrumentMixin. It can be deleted if necessary.
+    // public static final RegistryEntry<SoundEvent> NOTE_BLOCK_BONK_EXAMPLE = registerSoundReference("coconut_bonk");
 
     public static final BlockSoundGroup CERAMIC_TILES = new BlockSoundGroup(1f, 1f, CERAMIC_TILES_BREAK, CERAMIC_TILES_STEP, CERAMIC_TILES_PLACE, CERAMIC_TILES_HIT, CERAMIC_TILES_FALL);
     public static final BlockSoundGroup CERAMIC_DECORATION = new BlockSoundGroup(1f, 1f, CERAMIC_DECORATION_BREAK, CERAMIC_DECORATION_STEP, CERAMIC_DECORATION_PLACE, CERAMIC_DECORATION_HIT, CERAMIC_DECORATION_FALL);
@@ -73,9 +77,10 @@ public class BFSounds {
     public static final BlockSoundGroup SPONGEKIN = new BlockSoundGroup(1f, 1.1f, SPONGEKIN_BREAK, SPONGEKIN_STEP, SPONGEKIN_PLACE, SoundEvents.BLOCK_WOOD_HIT, SoundEvents.BLOCK_WOOD_FALL);
     public static final BlockSoundGroup COIR = new BlockSoundGroup(1f, 1f, COIR_BREAK, COIR_STEP, COIR_PLACE, COIR_HIT, COIR_FALL);
 
-
-
-
+    private static RegistryEntry.Reference<SoundEvent> registerSoundReference(String name) {
+        Identifier id = Identifier.of(BountifulFares.MOD_ID, name);
+        return Registry.registerReference(Registries.SOUND_EVENT, id, SoundEvent.of(id));
+    }
 
     public static SoundEvent registerSoundEvent(String name) {
         Identifier identifier = Identifier.of(BountifulFares.MOD_ID, name);

@@ -6,3 +6,5 @@ accessible field net/minecraft/loot/LootTable pools Ljava/util/List;
 
 accessible class net/minecraft/structure/WoodlandMansionGenerator$FirstFloorRoomPool
 accessible class net/minecraft/structure/WoodlandMansionGenerator$SecondFloorRoomPool
+
+accessible class net/minecraft/block/enums/NoteBlockInstrument$Type
