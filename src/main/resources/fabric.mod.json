@@ -25,6 +25,9 @@
 		"fabric-datagen": [
 			"net.hecco.bountifulfares.BountifulFaresDataGenerator"
 		],
+		"preLaunch": [
+			"com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
+		],
 		"modmenu": [
 			"net.hecco.bountifulfares.config.BountifulFaresModMenu"
 		],
