@@ -15,6 +15,7 @@
 	"license": "MIT License",
 	"icon": "assets/bountifulfares/icon.png",
 	"environment": "*",
+	"accessWidener": "bountifulfares.accesswidener",
 	"entrypoints": {
 		"main": [
 			"net.hecco.bountifulfares.BountifulFares"
