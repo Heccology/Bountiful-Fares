@@ -61,6 +61,8 @@ public class BFSounds {
     public static final SoundEvent COIR_STEP = registerSoundEvent("coir_step");
     public static final SoundEvent COIR_FALL = registerSoundEvent("coir_fall");
 
+    public static final SoundEvent POPPED_MAIZE_POP = registerSoundEvent("popped_maize_pop");
+
     public static final SoundEvent CABINET_OPEN = registerSoundEvent("cabinet_open");
     public static final SoundEvent CABINET_CLOSE = registerSoundEvent("cabinet_close");
 

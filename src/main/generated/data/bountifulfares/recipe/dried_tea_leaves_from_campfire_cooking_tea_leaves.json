@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.2,
+  "group": "dried_tea_leaves",
+  "ingredient": {
+    "item": "bountifulfares:tea_leaves"
+  },
+  "result": {
+    "id": "bountifulfares:dried_tea_leaves"
+  }
+}

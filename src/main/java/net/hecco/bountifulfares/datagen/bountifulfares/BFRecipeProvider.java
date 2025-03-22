@@ -16,7 +16,7 @@ import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.*;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
@@ -301,6 +301,11 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .input('#', BFItems.MAIZE)
                 .criterion(hasItem(BFItems.MAIZE), conditionsFromItem(BFItems.MAIZE))
                 .offerTo(exporter);
+
+        offerSmelting(exporter, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 100, "popped_maize");
+        offerMultipleOptions(exporter, RecipeSerializer.SMOKING, SmokingRecipe::new, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 50, "popped_maize", "_from_smoking");
+        offerMultipleOptions(exporter, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 300, "popped_maize", "_from_campfire_cooking");
+
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.WALNUT_COOKIE, 4)
                 .pattern("#W#")
@@ -963,6 +968,8 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 
         offerSmelting(exporter, ImmutableList.of(BFItems.CERAMIC_CLAY), RecipeCategory.MISC, BFItems.CERAMIC_TILE, 0.3f, 200, "ceramic_tile");
         offerSmelting(exporter, ImmutableList.of(BFItems.TEA_LEAVES), RecipeCategory.FOOD, BFItems.DRIED_TEA_LEAVES, 0.3f, 200, "dried_tea_leaves");
+        offerMultipleOptions(exporter, RecipeSerializer.SMOKING, SmokingRecipe::new, ImmutableList.of(BFItems.TEA_LEAVES), RecipeCategory.FOOD, BFItems.DRIED_TEA_LEAVES, 0.2f, 100, "dried_tea_leaves", "_from_smoking");
+        offerMultipleOptions(exporter, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new, ImmutableList.of(BFItems.TEA_LEAVES), RecipeCategory.FOOD, BFItems.DRIED_TEA_LEAVES, 0.2f, 600, "dried_tea_leaves", "_from_campfire_cooking");
         offerSmelting(exporter, ImmutableList.of(BFBlocks.CERAMIC_TILES), RecipeCategory.FOOD, BFBlocks.CRACKED_CERAMIC_TILES, 0.3f, 200, "cracked_ceramic_tiles");
 
 

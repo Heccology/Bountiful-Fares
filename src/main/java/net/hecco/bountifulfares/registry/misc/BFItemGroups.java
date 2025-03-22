@@ -438,6 +438,7 @@ public class BFItemGroups {
                         entries.add(BFBlocks.SPONGE_CAKE);
                         entries.add(BFItems.WALNUT_COOKIE);
                         entries.add(BFItems.MAIZE_BREAD);
+                        entries.add(BFItems.POPPED_MAIZE);
                         entries.add(BFItems.FOREST_MEDLEY);
                         entries.add(BFItems.ARID_MEDLEY);
                         entries.add(BFItems.MEADOW_MEDLEY);

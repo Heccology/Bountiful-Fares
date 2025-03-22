@@ -306,6 +306,7 @@ public class BFItemGroupAdditions {
             entries.addAfter(Items.BEETROOT, BFItems.MAIZE);
             entries.addAfter(BFItems.MAIZE, BFItems.LEEK);
             entries.addAfter(BFItems.LEEK, BFItems.WALNUT);
+            entries.addAfter(BFItems.WALNUT, BFItems.POPPED_MAIZE);
             entries.addAfter(Items.BREAD, BFItems.MAIZE_BREAD);
             entries.addAfter(BFItems.MAIZE_BREAD, BFBlocks.ARTISAN_BREAD);
             entries.addAfter(Items.COOKIE, BFItems.WALNUT_COOKIE);

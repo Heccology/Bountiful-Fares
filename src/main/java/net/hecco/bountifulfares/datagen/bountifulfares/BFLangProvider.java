@@ -361,6 +361,8 @@ public class BFLangProvider extends FabricLanguageProvider {
 
         generate(translationBuilder, "subtitles.block.golden_apple.wither", "Golden Apple withers");
 
+        generate(translationBuilder, "subtitles.block.popped_maize.pop", "Maize pops");
+
 
 
         generate(translationBuilder, "config.bountifulfares.title", "Bountiful Fares Configuration");
