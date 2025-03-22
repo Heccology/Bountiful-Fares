@@ -40,4 +40,5 @@ Very spongy!
 WARNING: CONTAINS NUTS
 Now THESE are some bountiful fares!
 /give @p bountifulfares:dirt_stew 99
-"I like the old feldspar though" NOOO!!
+"I like the old feldspar though" LEAVE ME ALONE
+Grab the popped maize!
