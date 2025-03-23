@@ -11,6 +11,8 @@ public class BFItemTags {
     public static final TagKey<Item> C_FLOUR = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "flour"));
     public static final TagKey<Item> C_COCONUT_HALVES = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "coconut_halves"));
 
+    public static final TagKey<Item> C_HIDDEN_FROM_RECIPE_VIEWERS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "hidden_from_recipe_viewers"));
+
     public static final TagKey<Item> APPLE_LOGS = TagKey.of(RegistryKeys.ITEM, Identifier.of(BountifulFares.MOD_ID, "apple_logs"));
     public static final TagKey<Item> ORANGE_LOGS = TagKey.of(RegistryKeys.ITEM, Identifier.of(BountifulFares.MOD_ID, "orange_logs"));
     public static final TagKey<Item> LEMON_LOGS = TagKey.of(RegistryKeys.ITEM, Identifier.of(BountifulFares.MOD_ID, "lemon_logs"));

@@ -31,6 +31,10 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFItems.COCONUT_HALF)
         ;
 
+        getOrCreateTagBuilder(BFItemTags.C_HIDDEN_FROM_RECIPE_VIEWERS)
+                .add(Items.GOLD_NUGGET)
+        ;
+
         getOrCreateTagBuilder(ItemTags.FLOWERS)
                 .add(BFBlocks.FLOWERING_APPLE_LEAVES.asItem())
                 .add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.asItem())

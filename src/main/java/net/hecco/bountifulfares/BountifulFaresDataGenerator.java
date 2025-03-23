@@ -2,6 +2,7 @@ package net.hecco.bountifulfares;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.hecco.bountifulfares.datagen.DisableCompatItemsVisibility;
 import net.hecco.bountifulfares.datagen.appledog.AppledogBlockLootTableProvider;
 import net.hecco.bountifulfares.datagen.appledog.AppledogBlockTagProvider;
 import net.hecco.bountifulfares.datagen.appledog.AppledogRecipeProvider;
@@ -104,6 +105,10 @@ public class BountifulFaresDataGenerator implements DataGeneratorEntrypoint {
         dungeonsDelightPack.addProvider(DungeonsDelightBlockLootTableProvider::new);
         dungeonsDelightPack.addProvider(DungeonsDelightBlockTagProvider::new);
         dungeonsDelightPack.addProvider(DungeonsDelightRecipeProvider::new);
+
+        FabricDataGenerator.Pack disableCompatVisibilityPack = fabricDataGenerator.createBuiltinResourcePack(Identifier.of(BountifulFares.MOD_ID, "hide_compat_items"));
+        disableCompatVisibilityPack.addProvider(DisableCompatItemsVisibility::new);
+
     }
 
     @Override

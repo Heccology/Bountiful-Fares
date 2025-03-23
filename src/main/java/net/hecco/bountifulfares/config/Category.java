@@ -50,7 +50,11 @@ public enum Category {
                     newValue -> BountifulFares.CONFIG.setEnableElderGuardianSpongekinSeeds(newValue), true, "config.bountifulfares.restart_warning"),
 
             Entry.booleanEntry("config.bountifulfares.spongekin_seeds_guardian", () -> BountifulFares.CONFIG.isEnableGuardianSpongekinSeeds(),
-                    newValue -> BountifulFares.CONFIG.setEnableGuardianSpongekinSeeds(newValue), true, "config.bountifulfares.restart_warning")),
+                    newValue -> BountifulFares.CONFIG.setEnableGuardianSpongekinSeeds(newValue), true, "config.bountifulfares.restart_warning"),
+
+            Entry.booleanEntry("config.bountifulfares.show_compat_items_in_recipe_viewers", () -> BountifulFares.CONFIG.showCompatItemsInRecipeViewers,
+                    newValue -> BountifulFares.CONFIG.showCompatItemsInRecipeViewers = newValue, true, "config.bountifulfares.restart_warning")
+    ),
 
     WORLD("config.bountifulfares.category.world", false,
             Entry.booleanEntry("config.bountifulfares.wild_wheat", () -> BountifulFares.CONFIG.isGenerateWildWheat(),
