@@ -4,17 +4,21 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "item": "minecraft:milk_bucket"
+      "tag": "#c:foods/milk"
     },
     {
       "item": "minecraft:sugar"
     },
     {
-      "item": "minecraft:sweet_berries"
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "bountifulfares:walnut"
     }
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:piquant_custard"
+    "count": 1,
+    "id": "bountifulfares:cocoa_custard"
   }
 }

@@ -15,6 +15,7 @@
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:crimson_chow"
+    "count": 1,
+    "id": "bountifulfares:crimson_chow"
   }
 }

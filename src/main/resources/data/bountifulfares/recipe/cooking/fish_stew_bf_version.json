@@ -4,14 +4,18 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "item": "minecraft:milk_bucket"
+      "tag": "c:foods/cooked_fishes"
     },
     {
-      "item": "minecraft:sugar"
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "item": "minecraft:dried_kelp"
     }
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:custard"
+    "count": 1,
+    "id": "bountifulfares:fish_stew"
   }
 }

@@ -4,17 +4,15 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "item": "minecraft:cooked_porkchop"
+      "tag": "#c:foods/milk"
     },
     {
-      "item": "minecraft:crimson_fungus"
-    },
-    {
-      "item": "minecraft:crimson_roots"
+      "item": "minecraft:sugar"
     }
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:crimson_chow"
+    "count": 1,
+    "id": "bountifulfares:custard"
   }
 }
