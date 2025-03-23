@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#c:milks"
+            "items": "#c:foods/milk"
           }
         ]
       },

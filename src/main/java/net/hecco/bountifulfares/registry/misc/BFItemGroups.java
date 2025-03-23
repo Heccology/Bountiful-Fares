@@ -6,6 +6,7 @@ import net.hecco.bountifulfares.compat.appledog.AppledogBlocks;
 import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
 import net.hecco.bountifulfares.compat.dye_depot.DyeDepotBlocks;
 import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
+import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightItemGroups;
 import net.hecco.bountifulfares.compat.mint.MintBlocks;
 import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
 import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
@@ -104,7 +105,6 @@ public class BFItemGroups {
                         entries.add(BFItems.HOARY_HANGING_SIGN);
                         entries.add(BFItems.HOARY_BOAT);
                         entries.add(BFItems.HOARY_CHEST_BOAT);
-//                        entries.add(FarmersDelightBlocks.HOARY_CABINET);
                         entries.add(ExcessiveBuildingBlocks.CHISELED_HOARY_PLANKS);
                         entries.add(ExcessiveBuildingBlocks.HOARY_MOSAIC);
                         entries.add(ExcessiveBuildingBlocks.HOARY_MOSAIC_STAIRS);
@@ -134,7 +134,6 @@ public class BFItemGroups {
                         entries.add(BFItems.WALNUT_HANGING_SIGN);
                         entries.add(BFItems.WALNUT_BOAT);
                         entries.add(BFItems.WALNUT_CHEST_BOAT);
-//                        entries.add(FarmersDelightBlocks.WALNUT_CABINET);
                         entries.add(ExcessiveBuildingBlocks.CHISELED_WALNUT_PLANKS);
                         entries.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC);
                         entries.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC_STAIRS);
@@ -496,7 +495,12 @@ public class BFItemGroups {
             entries.add(itemStack, stackVisibility);
         });
     }
-    public static void registerItemGroups() {
-//        BountifulFares.LOGGER.info("Registering Item Group Entries for " + BountifulFares.MOD_ID);
+    public static void registerItemGroups()
+    {
+        // Can be used to register item mod tabs if the mod is loaded
+        if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID)) FarmersDelightItemGroups.registerModItemTabs();
+
+        // Oh my god kaupenjoe reference        - Artyrian
+        //        BountifulFares.LOGGER.info("Registering Item Group Entries for " + BountifulFares.MOD_ID);
     }
 }

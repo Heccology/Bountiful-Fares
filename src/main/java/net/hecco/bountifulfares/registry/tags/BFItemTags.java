@@ -7,7 +7,7 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 public class BFItemTags {
-    public static final TagKey<Item> C_MILKS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "milks"));
+    public static final TagKey<Item> C_MILKS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/milk"));
     public static final TagKey<Item> C_FLOUR = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "flour"));
     public static final TagKey<Item> C_COCONUT_HALVES = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "coconut_halves"));
 

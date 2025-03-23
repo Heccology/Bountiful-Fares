@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "bountifulfares:walnut_hanging_sign"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 1,
+        "id": "bountifulfares:walnut_planks"
+      }
+    }
+  ],
+  "tool": {
+    "fabric:type": "farmersdelight:item_ability",
+    "action": "axe_dig"
+  }
+}

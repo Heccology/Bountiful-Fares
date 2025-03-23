@@ -11,3 +11,5 @@ accessible class net/minecraft/block/enums/NoteBlockInstrument$Type
 
 accessible field net/minecraft/block/entity/CampfireBlockEntity cookingTimes [I
 accessible field net/minecraft/block/entity/CampfireBlockEntity matchGetter Lnet/minecraft/recipe/RecipeManager$MatchGetter;
+
+accessible field net/minecraft/block/entity/CampfireBlockEntity cookingTotalTimes [I

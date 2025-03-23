@@ -1136,6 +1136,14 @@
     {
       "id": "bountifulfares:ns_foxglove_warped_trellis",
       "required": false
+    },
+    {
+      "id": "farmersdelight:hoary_cabinet",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:walnut_cabinet",
+      "required": false
     }
   ]
 }

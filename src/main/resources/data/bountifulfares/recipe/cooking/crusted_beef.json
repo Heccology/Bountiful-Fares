@@ -1,0 +1,24 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_beef"
+    },
+    {
+      "item": "bountifulfares:walnut"
+    },
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "bountifulfares:elderberries"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:crusted_beef"
+  }
+}
