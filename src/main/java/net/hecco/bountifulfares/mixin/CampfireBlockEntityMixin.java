@@ -35,17 +35,17 @@ public class CampfireBlockEntityMixin {
             locals = LocalCapture.CAPTURE_FAILSOFT)
     private static void bf_addMaizePoppingSound(World world, BlockPos pos, BlockState state, CampfireBlockEntity campfire, CallbackInfo ci, boolean bl, int i, ItemStack itemStack, SingleStackRecipeInput singleStackRecipeInput, ItemStack resultStack) {
         if (itemStack.isOf(BFItems.MAIZE_SEEDS)) {
-            world.playSound(null, pos, BFSounds.POPPED_MAIZE_POP, SoundCategory.BLOCKS, 1.0f, 1.0f + world.random.nextFloat() / 2);
+            world.playSound(null, pos, BFSounds.POPPED_MAIZE_POP, SoundCategory.BLOCKS, 1.0f, 1.0f + world.random.nextFloat() / 3);
             ((ServerWorld)world).spawnParticles(
                     POP,
                     pos.toCenterPos().getX(),
                     pos.toCenterPos().getY() + 0.2D,
                     pos.toCenterPos().getZ(),
-                    15,
-                    ((double) world.random.nextFloat() - 0.5) * 0.8,
-                    ((double) world.random.nextFloat() - 0.5) * 0.8,
-                    ((double) world.random.nextFloat() - 0.5) * 0.8,
-                    0.2
+                    8,
+                    ((double) world.random.nextFloat() - 0.5),
+                    ((double) world.random.nextFloat() - 0.5),
+                    ((double) world.random.nextFloat() - 0.5),
+                    0.1
             );
         }
     }
