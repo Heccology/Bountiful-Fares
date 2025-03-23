@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "fd_cabinet",
   "key": {
     "D": {
       "item": "bountifulfares:walnut_trapdoor"
@@ -16,7 +15,7 @@
     "___"
   ],
   "result": {
+    "count": 1,
     "id": "farmersdelight:walnut_cabinet"
-  },
-  "show_notification": true
+  }
 }

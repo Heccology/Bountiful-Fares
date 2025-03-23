@@ -125,6 +125,10 @@
       "required": false
     },
     {
+      "id": "farmersdelight:hoary_cabinet",
+      "required": false
+    },
+    {
       "id": "dye_depot:olive_jack_o_straw",
       "required": false
     },
@@ -142,6 +146,10 @@
     },
     {
       "id": "natures_spirit:coconut_planks",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:walnut_cabinet",
       "required": false
     },
     {
@@ -374,6 +382,10 @@
     },
     {
       "id": "excessive_building:ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:wormwood_pickets",
       "required": false
     },
     {
@@ -681,11 +693,19 @@
       "required": false
     },
     {
+      "id": "dungeonsdelight:wormwood_planks",
+      "required": false
+    },
+    {
       "id": "mint:sage_wool",
       "required": false
     },
     {
       "id": "arts_and_crafts:cork_planks",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:wormwood_trellis",
       "required": false
     },
     {

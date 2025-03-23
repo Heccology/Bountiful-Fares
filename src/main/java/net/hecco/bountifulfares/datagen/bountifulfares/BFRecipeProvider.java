@@ -1008,11 +1008,18 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerCeramicUndyingRecipe(exporter, BFBlocks.CHECKERED_CERAMIC_TILE_SLAB, BFBlocks.CERAMIC_TILE_SLAB);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES, BFBlocks.CRACKED_CERAMIC_TILES);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TILE_PILLAR);
+        offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_MOSAIC);
+        offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_MOSAIC_STAIRS);
+        offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_MOSAIC_SLAB);
+        offerCeramicUndyingRecipe(exporter, BFBlocks.CHECKERED_CERAMIC_MOSAIC, BFBlocks.CERAMIC_MOSAIC);
+        offerCeramicUndyingRecipe(exporter, BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS, BFBlocks.CERAMIC_MOSAIC_STAIRS);
+        offerCeramicUndyingRecipe(exporter, BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB, BFBlocks.CERAMIC_MOSAIC_SLAB);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_PRESSURE_PLATE);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_BUTTON);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_DISH);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_DOOR);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TRAPDOOR);
+        offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_LEVER);
         offerCeramicUndyingRecipe(exporter, BFItems.ARTISAN_BRUSH);
 
         offerHangingSignRecipe(exporter, BFItems.HOARY_HANGING_SIGN, BFBlocks.STRIPPED_HOARY_LOG);
