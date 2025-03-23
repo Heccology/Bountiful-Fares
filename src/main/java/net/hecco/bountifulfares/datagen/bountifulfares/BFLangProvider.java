@@ -7,6 +7,7 @@ import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
 import net.hecco.bountifulfares.compat.dye_depot.DyeDepotBlocks;
 import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
+import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks;
 import net.hecco.bountifulfares.compat.mint.MintBlocks;
 import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
 import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
@@ -96,9 +97,6 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFBlocks.WALNUT_WALL_HANGING_SIGN, "Walnut Hanging Sign");
         generate(translationBuilder, BFItems.WALNUT_HANGING_SIGN, "Walnut Hanging Sign");
 
-
-
-
         generate(translationBuilder, "effect.bountifulfares.acidic", "Acidic");
         generate(translationBuilder, "item.minecraft.potion.effect.bountifulfares.acidic", "Potion of Acidity");
         generate(translationBuilder, "item.minecraft.potion.effect.bountifulfares.long_acidic", "Potion of Acidity");
@@ -174,7 +172,6 @@ public class BFLangProvider extends FabricLanguageProvider {
         registerTrellisTranslations(translationBuilder, SpawnBlocks.ROTTEN);
 
         registerTrellisTranslations(translationBuilder, ArtsAndCraftsBlocks.CORK);
-
 
 
 
@@ -448,13 +445,13 @@ public class BFLangProvider extends FabricLanguageProvider {
 
         generate(translationBuilder, "death.attack.falling_coconut", "%1$s was bonked too hard");
 
-
         generate(translationBuilder, "bountifulfares.milling", "Milling");
         generate(translationBuilder, "bountifulfares.fermenting", "Fermenting");
         generate(translationBuilder, "bountifulfares.prismarine_propagation", "Prismarine Propagation");
         generate(translationBuilder, "jei.bountifulfares.collect_using", "Collect using ");
         generate(translationBuilder, "jei.bountifulfares.minutes", "minutes");
         generate(translationBuilder, "jei.bountifulfares.seconds", "seconds");
+
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             String key = Registries.BLOCK.get(id).getTranslationKey();
