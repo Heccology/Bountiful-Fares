@@ -4,6 +4,7 @@ import com.mojang.serialization.DynamicOps;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
 import net.fabricmc.loader.api.FabricLoader;
+import net.hecco.bountifulfares.recipe.BFSpecialRecipes;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.misc.*;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
@@ -86,6 +87,7 @@ public class BountifulFares implements ModInitializer {
 		BFEntities.registerModEntities();
 		BFSounds.registerSounds();
 		BFDamageTypes.registerDamageTypes();
+		BFSpecialRecipes.registerSpecialRecipes();
 		BFCompat.registerCompatContent();
 		DynamicRegistrySetupCallback.EVENT.register(registryManager -> {
 			LOGGER.info("DynamicRegistrySetupCallback triggered!");
@@ -106,4 +108,5 @@ public class BountifulFares implements ModInitializer {
 		});
 	} //appledog - Lydia
 	//appledog - Hecco
+	//appledog - Diemond_Player (holy self-insert)
 }
