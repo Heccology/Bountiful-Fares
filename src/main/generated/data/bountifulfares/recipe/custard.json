@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "#c:foods/milk"
+      "tag": "c:foods/milk"
     },
     {
       "item": "minecraft:sugar"

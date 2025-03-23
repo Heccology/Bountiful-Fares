@@ -4,7 +4,7 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "tag": "#c:foods/milk"
+      "tag": "c:foods/milk"
     },
     {
       "item": "minecraft:sugar"

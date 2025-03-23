@@ -12,7 +12,7 @@
       "tag": "c:flour"
     },
     "M": {
-      "tag": "#c:foods/milk"
+      "tag": "c:foods/milk"
     }
   },
   "pattern": [
