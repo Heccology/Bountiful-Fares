@@ -2,6 +2,7 @@ package net.hecco.bountifulfares;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
+import net.hecco.bountifulfares.recipe.BFSpecialRecipes;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.misc.*;
 import net.hecco.bountifulfares.registry.util.BFDamageTypes;
@@ -70,7 +71,9 @@ public class BountifulFares implements ModInitializer {
 		BFEntities.registerModEntities();
 		BFSounds.registerSounds();
 		BFDamageTypes.registerDamageTypes();
+		BFSpecialRecipes.registerSpecialRecipes();
 		BFCompat.registerCompatContent();
 	} //appledog - Lydia
 	//appledog - Hecco
+	//appledog - Diemond_Player (holy self-insert)
 }
