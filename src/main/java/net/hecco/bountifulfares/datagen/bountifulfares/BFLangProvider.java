@@ -462,7 +462,11 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "jei.bountifulfares.minutes", "minutes");
         generate(translationBuilder, "jei.bountifulfares.seconds", "seconds");
 
+        //note to Hecco: Idk why but running datagen seemed to generate over 3000 files, so I am not risking it again XD
+        //and i am going to put these manually inside en_us.json, even tho this code works (i just dont want to run datagen again, because my second try just removed 3000 existing files WHAT THE FLIP)
+        //yeah i am going to switch branches with no checkout to roll this back. what the flip
         generateTag(translationBuilder, BFItemTags.APPLE_LOGS, "Apple Logs");
+        generateTag(translationBuilder, BFItemTags.APPLE_LEAVES, "Apple Leaves");
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             String key = Registries.BLOCK.get(id).getTranslationKey();
