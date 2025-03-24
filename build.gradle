@@ -40,8 +40,8 @@ dependencies {
 //	modRuntimeOnly ("curse.maven:jei-238222:6075246")
 
 	modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
-	//modCompileOnly "dev.emi:emi-fabric:${emi_version}" //use this line to turn off the mod
-	modImplementation "dev.emi:emi-fabric:${emi_version}" //use this line to turn on the mod
+	modCompileOnly "dev.emi:emi-fabric:${emi_version}" //use this line to turn off the mod
+	//modImplementation "dev.emi:emi-fabric:${emi_version}" //use this line to turn on the mod
 
 	modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:11.0.0"
 	include "com.terraformersmc.terraform-api:terraform-wood-api-v1:11.0.0"

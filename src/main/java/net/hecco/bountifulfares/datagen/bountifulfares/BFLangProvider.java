@@ -496,6 +496,11 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateTag(translationBuilder, BFItemTags.MULCH, "Mulches");
         generateTag(translationBuilder, BFItemTags.SUGAR_INGREDIENTS, "Sugar Ingredients");
 
+        //naming for emi category
+        generate(translationBuilder, "emi.category.bountifulfares.milling", "Milling");
+        generate(translationBuilder, "emi.category.bountifulfares.fermenting", "Fermenting");
+        generate(translationBuilder, "emi.category.bountifulfares.propagation", "Primarine Propagation");
+
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             String key = Registries.BLOCK.get(id).getTranslationKey();
