@@ -14,6 +14,7 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFTrellises;
 import net.hecco.bountifulfares.registry.misc.BFCompat;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
@@ -22,6 +23,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 import java.util.HashSet;
@@ -53,6 +55,10 @@ public class BFLangProvider extends FabricLanguageProvider {
 
     private void generateJackOStraw(TranslationBuilder translationBuilder, Block block, String color) {
         generate(translationBuilder, block, color + " Jack O' Straw");
+    }
+
+    private void generateTag(TranslationBuilder translationBuilder, TagKey<Item> itemTag, String translation) {
+        generate(translationBuilder, itemTag.getTranslationKey(), translation);
     }
 
 
@@ -455,6 +461,8 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "jei.bountifulfares.collect_using", "Collect using ");
         generate(translationBuilder, "jei.bountifulfares.minutes", "minutes");
         generate(translationBuilder, "jei.bountifulfares.seconds", "seconds");
+
+        generateTag(translationBuilder, BFItemTags.APPLE_LOGS, "Apple Logs");
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             String key = Registries.BLOCK.get(id).getTranslationKey();
