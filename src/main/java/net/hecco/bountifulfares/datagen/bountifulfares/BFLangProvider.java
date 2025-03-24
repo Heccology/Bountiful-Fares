@@ -465,8 +465,37 @@ public class BFLangProvider extends FabricLanguageProvider {
         //note to Hecco: Idk why but running datagen seemed to generate over 3000 files, so I am not risking it again XD
         //and i am going to put these manually inside en_us.json, even tho this code works (i just dont want to run datagen again, because my second try just removed 3000 existing files WHAT THE FLIP)
         //yeah i am going to switch branches with no checkout to roll this back. what the flip
+        generateTag(translationBuilder, BFItemTags.C_MILKS, "Milks");
+        generateTag(translationBuilder, BFItemTags.C_FLOUR, "Flours");
+        generateTag(translationBuilder, BFItemTags.C_COCONUT_HALVES, "Coconut Halves");
+
         generateTag(translationBuilder, BFItemTags.APPLE_LOGS, "Apple Logs");
+        generateTag(translationBuilder, BFItemTags.ORANGE_LOGS, "Orange Logs");
+        generateTag(translationBuilder, BFItemTags.LEMON_LOGS, "Lemon Logs");
+        generateTag(translationBuilder, BFItemTags.PLUM_LOGS, "Plum Logs");
+        generateTag(translationBuilder, BFItemTags.HOARY_LOGS, "Hoary Logs");
+        generateTag(translationBuilder, BFItemTags.WALNUT_LOGS, "Walnut Logs");
+        generateTag(translationBuilder, BFItemTags.PALM_LOGS, "Palm Logs");
+        generateTag(translationBuilder, BFItemTags.GOLDEN_APPLE_LOGS, "Golden Apple Logs");
         generateTag(translationBuilder, BFItemTags.APPLE_LEAVES, "Apple Leaves");
+        generateTag(translationBuilder, BFItemTags.ORANGE_LEAVES, "Orange Leaves");
+        generateTag(translationBuilder, BFItemTags.LEMON_LEAVES, "Lemon Leaves");
+        generateTag(translationBuilder, BFItemTags.PLUM_LEAVES, "Plum Leaves");
+        generateTag(translationBuilder, BFItemTags.GOLDEN_APPLE_LEAVES, "Golden Apple Leaves");
+        generateTag(translationBuilder, BFItemTags.FRUIT_LOGS, "Fruit Logs");
+        generateTag(translationBuilder, BFItemTags.JACK_O_STRAW_LIGHTABLE, "Jack O' Straw Lightables"); //maybe "can light jack o straws" is a better translation?
+        generateTag(translationBuilder, BFItemTags.DYES, "Dyes");
+        generateTag(translationBuilder, BFItemTags.DYEABLE_CERAMIC_BLOCKS, "Dyeable Ceramic Blocks");
+        generateTag(translationBuilder, BFItemTags.FELSIC_STONES, "Felsic Stones");
+        generateTag(translationBuilder, BFItemTags.VINE_CROP_SEEDS, "Vine Crop Seeds");
+        generateTag(translationBuilder, BFItemTags.PLANTABLE_ON_TRELLIS, "Plantable On Trellis");
+        generateTag(translationBuilder, BFItemTags.COOKED_FISHES, "Cooked Fishes");
+        generateTag(translationBuilder, BFItemTags.MEALS, "Meals");
+        generateTag(translationBuilder, BFItemTags.GRASS_SEEDS_PLANTABLE_ON, "Grass Seeds Plantable On"); //again maybe not the best translation
+        generateTag(translationBuilder, BFItemTags.PICKETS, "Pickets");
+        generateTag(translationBuilder, BFItemTags.MULCH, "Mulches");
+        generateTag(translationBuilder, BFItemTags.SUGAR_INGREDIENTS, "Sugar Ingredients");
+
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             String key = Registries.BLOCK.get(id).getTranslationKey();
