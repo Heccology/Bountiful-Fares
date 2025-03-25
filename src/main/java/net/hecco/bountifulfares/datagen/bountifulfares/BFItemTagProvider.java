@@ -24,11 +24,14 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFItems.FLOUR)
         ;
         getOrCreateTagBuilder(BFItemTags.C_MILKS)
-                .add(Items.MILK_BUCKET)
                 .add(BFItems.COCONUT_MILK_BOTTLE)
         ;
         getOrCreateTagBuilder(BFItemTags.C_COCONUT_HALVES)
                 .add(BFItems.COCONUT_HALF)
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.C_HIDDEN_FROM_RECIPE_VIEWERS)
+                .add(Items.GOLD_NUGGET)
         ;
 
         getOrCreateTagBuilder(ItemTags.FLOWERS)

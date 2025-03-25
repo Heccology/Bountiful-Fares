@@ -32,6 +32,20 @@ public class BountifulFaresUtil {
         }
         return a;
     }
+
+    public static Set<Identifier> allCompatItemIds() {
+        Set<Identifier> set = Registries.ITEM.getIds();
+        Set<Identifier> a = new HashSet<>();
+        for(Identifier id : set) {
+            for (String namespace : BFCompat.COMPAT_IDS) {
+                if (Objects.equals(id.getNamespace(), namespace)) {
+                    a.add(id);
+                }
+            }
+        }
+        return a;
+    }
+
     public static Set<Identifier> allItemIdsInNamespace(String namespace) {
         Set<Identifier> set = Registries.ITEM.getIds();
         Set<Identifier> a = new HashSet<>();

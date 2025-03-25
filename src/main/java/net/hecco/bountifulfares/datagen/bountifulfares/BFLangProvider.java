@@ -7,6 +7,7 @@ import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
 import net.hecco.bountifulfares.compat.dye_depot.DyeDepotBlocks;
 import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
+import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks;
 import net.hecco.bountifulfares.compat.mint.MintBlocks;
 import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
 import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
@@ -102,9 +103,6 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFBlocks.WALNUT_WALL_HANGING_SIGN, "Walnut Hanging Sign");
         generate(translationBuilder, BFItems.WALNUT_HANGING_SIGN, "Walnut Hanging Sign");
 
-
-
-
         generate(translationBuilder, "effect.bountifulfares.acidic", "Acidic");
         generate(translationBuilder, "item.minecraft.potion.effect.bountifulfares.acidic", "Potion of Acidity");
         generate(translationBuilder, "item.minecraft.potion.effect.bountifulfares.long_acidic", "Potion of Acidity");
@@ -180,7 +178,6 @@ public class BFLangProvider extends FabricLanguageProvider {
         registerTrellisTranslations(translationBuilder, SpawnBlocks.ROTTEN);
 
         registerTrellisTranslations(translationBuilder, ArtsAndCraftsBlocks.CORK);
-
 
 
 
@@ -405,6 +402,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "config.bountifulfares.fermentation_time", "Fermentation time, in seconds");
         generate(translationBuilder, "config.bountifulfares.fermentation_bubble_particles", "Fermentation Vessels emit bubble particles");
         generate(translationBuilder, "config.bountifulfares.infused_candle_radius", "Size of area where Infused Candles give effects");
+        generate(translationBuilder, "config.bountifulfares.show_compat_items_in_recipe_viewers", "Show compatibility items in recipe viewers");
 //        generate(translationBuilder, "config.bountifulfares.bountiful_painting", "Allow \"Bountiful\" painting to be placed");
 //        generate(translationBuilder, "config.bountifulfares.citrus_dish_painting", "Allow \"Citrus Dish\" painting to be placed");
 //        generate(translationBuilder, "config.bountifulfares.hazel_floret_painting", "Allow \"Hazel Floret\" painting to be placed");
@@ -454,7 +452,6 @@ public class BFLangProvider extends FabricLanguageProvider {
 
         generate(translationBuilder, "death.attack.falling_coconut", "%1$s was bonked too hard");
 
-
         generate(translationBuilder, "bountifulfares.milling", "Milling");
         generate(translationBuilder, "bountifulfares.fermenting", "Fermenting");
         generate(translationBuilder, "bountifulfares.prismarine_propagation", "Prismarine Propagation");
@@ -462,9 +459,6 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "jei.bountifulfares.minutes", "minutes");
         generate(translationBuilder, "jei.bountifulfares.seconds", "seconds");
 
-        //note to Hecco: Idk why but running datagen seemed to generate over 3000 files, so I am not risking it again XD
-        //and i am going to put these manually inside en_us.json, even tho this code works (i just dont want to run datagen again, because my second try just removed 3000 existing files WHAT THE FLIP)
-        //yeah i am going to switch branches with no checkout to roll this back. what the flip
         generateTag(translationBuilder, BFItemTags.C_MILKS, "Milks");
         generateTag(translationBuilder, BFItemTags.C_FLOUR, "Flours");
         generateTag(translationBuilder, BFItemTags.C_COCONUT_HALVES, "Coconut Halves");
@@ -496,11 +490,9 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateTag(translationBuilder, BFItemTags.MULCH, "Mulches");
         generateTag(translationBuilder, BFItemTags.SUGAR_INGREDIENTS, "Sugar Ingredients");
 
-        //naming for emi category
         generate(translationBuilder, "emi.category.bountifulfares.milling", "Milling");
         generate(translationBuilder, "emi.category.bountifulfares.fermenting", "Fermenting");
         generate(translationBuilder, "emi.category.bountifulfares.propagation", "Primarine Propagation");
-
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             String key = Registries.BLOCK.get(id).getTranslationKey();

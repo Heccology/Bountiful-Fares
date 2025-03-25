@@ -5,14 +5,16 @@
       "item": "bountifulfares:plum_block"
     }
   ],
-  "tool": {
-    "fabric:type": "farmersdelight:tool_action",
-    "action": "axe_dig"
-  },
   "result": [
     {
-      "item": "bountifulfares:plum",
-      "count": 9
+      "item": {
+        "count": 9,
+        "id": "bountifulfares:plum"
+      }
     }
-  ]
+  ],
+  "tool": {
+    "fabric:type": "farmersdelight:item_ability",
+    "action": "axe_dig"
+  }
 }

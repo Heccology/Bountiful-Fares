@@ -339,14 +339,14 @@ public class BountifulFaresClient implements ClientModInitializer {
     private void registerBlockColor(Block ModCeramicBlocksItems) {
 //        Registers tint for ceramic blocks
         registerItemColor(ModCeramicBlocksItems.asItem());
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> DyeableBlockEntity.getColor(world,pos),ModCeramicBlocksItems);
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> ColorHelper.Argb.fullAlpha(DyeableBlockEntity.getColor(world,pos)), ModCeramicBlocksItems);
     }
 
     private void registerItemColor(Item item) {
 //        Registers tint for ceramic items
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
             if (stack.getComponents().get(DataComponentTypes.DYED_COLOR) != null && tintIndex == 0) {
-                return stack.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
+                return ColorHelper.Argb.fullAlpha(stack.getComponents().get(DataComponentTypes.DYED_COLOR).rgb());
             }
             return DyeableBlockEntity.DEFAULT_COLOR;
         },item);

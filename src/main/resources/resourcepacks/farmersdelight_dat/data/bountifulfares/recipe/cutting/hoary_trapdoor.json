@@ -5,13 +5,16 @@
       "item": "bountifulfares:hoary_trapdoor"
     }
   ],
-  "tool": {
-    "fabric:type": "farmersdelight:tool_action",
-    "action": "axe_dig"
-  },
   "result": [
     {
-      "item": "bountifulfares:hoary_planks"
+      "item": {
+        "count": 1,
+        "id": "bountifulfares:hoary_planks"
+      }
     }
-  ]
+  ],
+  "tool": {
+    "fabric:type": "farmersdelight:item_ability",
+    "action": "axe_dig"
+  }
 }

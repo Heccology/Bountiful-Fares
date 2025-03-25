@@ -12,6 +12,7 @@
   ],
   "recipe_book_tab": "misc",
   "result": {
-    "item": "bountifulfares:lemon_compote_jar"
+    "count": 1,
+    "id": "bountifulfares:lemon_compote_jar"
   }
 }
