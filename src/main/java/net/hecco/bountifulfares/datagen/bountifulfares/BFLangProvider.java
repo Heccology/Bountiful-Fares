@@ -15,6 +15,7 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFTrellises;
 import net.hecco.bountifulfares.registry.misc.BFCompat;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
@@ -23,6 +24,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 import java.util.HashSet;
@@ -54,6 +56,10 @@ public class BFLangProvider extends FabricLanguageProvider {
 
     private void generateJackOStraw(TranslationBuilder translationBuilder, Block block, String color) {
         generate(translationBuilder, block, color + " Jack O' Straw");
+    }
+
+    private void generateTag(TranslationBuilder translationBuilder, TagKey<Item> itemTag, String translation) {
+        generate(translationBuilder, itemTag.getTranslationKey(), translation);
     }
 
 
@@ -453,6 +459,40 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "jei.bountifulfares.minutes", "minutes");
         generate(translationBuilder, "jei.bountifulfares.seconds", "seconds");
 
+        generateTag(translationBuilder, BFItemTags.C_MILKS, "Milks");
+        generateTag(translationBuilder, BFItemTags.C_FLOUR, "Flours");
+        generateTag(translationBuilder, BFItemTags.C_COCONUT_HALVES, "Coconut Halves");
+
+        generateTag(translationBuilder, BFItemTags.APPLE_LOGS, "Apple Logs");
+        generateTag(translationBuilder, BFItemTags.ORANGE_LOGS, "Orange Logs");
+        generateTag(translationBuilder, BFItemTags.LEMON_LOGS, "Lemon Logs");
+        generateTag(translationBuilder, BFItemTags.PLUM_LOGS, "Plum Logs");
+        generateTag(translationBuilder, BFItemTags.HOARY_LOGS, "Hoary Logs");
+        generateTag(translationBuilder, BFItemTags.WALNUT_LOGS, "Walnut Logs");
+        generateTag(translationBuilder, BFItemTags.PALM_LOGS, "Palm Logs");
+        generateTag(translationBuilder, BFItemTags.GOLDEN_APPLE_LOGS, "Golden Apple Logs");
+        generateTag(translationBuilder, BFItemTags.APPLE_LEAVES, "Apple Leaves");
+        generateTag(translationBuilder, BFItemTags.ORANGE_LEAVES, "Orange Leaves");
+        generateTag(translationBuilder, BFItemTags.LEMON_LEAVES, "Lemon Leaves");
+        generateTag(translationBuilder, BFItemTags.PLUM_LEAVES, "Plum Leaves");
+        generateTag(translationBuilder, BFItemTags.GOLDEN_APPLE_LEAVES, "Golden Apple Leaves");
+        generateTag(translationBuilder, BFItemTags.FRUIT_LOGS, "Fruit Logs");
+        generateTag(translationBuilder, BFItemTags.JACK_O_STRAW_LIGHTABLE, "Jack O' Straw Lightables"); //maybe "can light jack o straws" is a better translation?
+        generateTag(translationBuilder, BFItemTags.DYES, "Dyes");
+        generateTag(translationBuilder, BFItemTags.DYEABLE_CERAMIC_BLOCKS, "Dyeable Ceramic Blocks");
+        generateTag(translationBuilder, BFItemTags.FELSIC_STONES, "Felsic Stones");
+        generateTag(translationBuilder, BFItemTags.VINE_CROP_SEEDS, "Vine Crop Seeds");
+        generateTag(translationBuilder, BFItemTags.PLANTABLE_ON_TRELLIS, "Plantable On Trellis");
+        generateTag(translationBuilder, BFItemTags.COOKED_FISHES, "Cooked Fishes");
+        generateTag(translationBuilder, BFItemTags.MEALS, "Meals");
+        generateTag(translationBuilder, BFItemTags.GRASS_SEEDS_PLANTABLE_ON, "Grass Seeds Plantable On"); //again maybe not the best translation
+        generateTag(translationBuilder, BFItemTags.PICKETS, "Pickets");
+        generateTag(translationBuilder, BFItemTags.MULCH, "Mulches");
+        generateTag(translationBuilder, BFItemTags.SUGAR_INGREDIENTS, "Sugar Ingredients");
+
+        generate(translationBuilder, "emi.category.bountifulfares.milling", "Milling");
+        generate(translationBuilder, "emi.category.bountifulfares.fermenting", "Fermenting");
+        generate(translationBuilder, "emi.category.bountifulfares.propagation", "Primarine Propagation");
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             String key = Registries.BLOCK.get(id).getTranslationKey();
