@@ -18,6 +18,7 @@
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:crusted_beef"
+    "count": 1,
+    "id": "bountifulfares:crusted_beef"
   }
 }

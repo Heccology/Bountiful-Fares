@@ -15,6 +15,7 @@
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:apple_stew"
+    "count": 1,
+    "id": "bountifulfares:apple_stew"
   }
 }

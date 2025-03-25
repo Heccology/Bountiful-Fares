@@ -15,6 +15,7 @@
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:passion_glazed_salmon"
+    "count": 1,
+    "id": "bountifulfares:passion_glazed_salmon"
   }
 }

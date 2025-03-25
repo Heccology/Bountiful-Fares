@@ -15,6 +15,7 @@
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:leek_stew"
+    "count": 1,
+    "id": "bountifulfares:leek_stew"
   }
 }

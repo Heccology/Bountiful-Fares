@@ -12,6 +12,7 @@
   ],
   "recipe_book_tab": "misc",
   "result": {
-    "item": "bountifulfares:apple_compote_jar"
+    "count": 1,
+    "id": "bountifulfares:apple_compote_jar"
   }
 }

@@ -30,6 +30,7 @@ public class BountifulFaresConfiguration {
     public boolean grassLootTableOverride = true;
     private boolean enableElderGuardianSpongekinSeeds = true;
     private boolean enableGuardianSpongekinSeeds = true;
+    public boolean showCompatItemsInRecipeViewers = true;
     private boolean generateWildWheat = true;
     private boolean generateWildCarrots = true;
     private boolean generateWildPotatoes = true;

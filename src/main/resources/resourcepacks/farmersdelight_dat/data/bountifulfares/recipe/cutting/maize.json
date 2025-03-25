@@ -7,16 +7,20 @@
   ],
   "result": [
     {
-      "count": 4,
-      "item": "bountifulfares:maize_seeds"
+      "item": {
+        "count": 4,
+        "id": "bountifulfares:maize_seeds"
+      }
     },
     {
       "chance": 0.5,
-      "count": 1,
-      "item": "farmersdelight:straw"
+      "item": {
+        "count": 1,
+        "id": "farmersdelight:straw"
+      }
     }
   ],
   "tool": {
-    "tag": "c:tools/knives"
+    "tag": "c:tools/knife"
   }
 }

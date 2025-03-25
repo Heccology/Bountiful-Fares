@@ -88,6 +88,13 @@ public class BFResourcePacks {
                 registerBuiltinDataPack(modContainer.get(), BountifulFares.DUNGEONS_DELIGHT_MOD_ID);
             }
 
+            if (!BountifulFares.CONFIG.showCompatItemsInRecipeViewers) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        Identifier.of(BountifulFares.MOD_ID, "hide_compat_items"),
+                        modContainer.get(),
+                        ResourcePackActivationType.ALWAYS_ENABLED);
+            }
+
             ResourceManagerHelper.registerBuiltinResourcePack(
                     Identifier.of(BountifulFares.MOD_ID, "vanilla_item_override"),
                     modContainer.get(),
