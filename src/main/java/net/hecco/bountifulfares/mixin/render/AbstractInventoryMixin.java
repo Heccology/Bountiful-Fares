@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.mixin;
+package net.hecco.bountifulfares.mixin.render;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.mixin.util.HandledScreenMixin;

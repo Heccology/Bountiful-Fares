@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.mixin;
+package net.hecco.bountifulfares.mixin.gameplay;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.minecraft.block.BlockState;

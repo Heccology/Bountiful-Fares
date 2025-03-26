@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.mixin;
+package net.hecco.bountifulfares.mixin.misc;
 
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.entity.passive.WolfEntity;

@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.mixin;
+package net.hecco.bountifulfares.mixin.gameplay;
 
 import net.fabricmc.fabric.api.attachment.v1.AttachmentType;
 import net.hecco.bountifulfares.registry.content.BFItems;
