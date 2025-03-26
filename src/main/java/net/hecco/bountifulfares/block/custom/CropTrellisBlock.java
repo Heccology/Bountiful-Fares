@@ -103,9 +103,10 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
         dropStack((World) world, pos, new ItemStack(crop.getSeedsItem()));
         super.onBroken(world, pos, state);
     }
+    //same note as in DecorativeTrellisBlock
     @Override
     public String getTranslationKey() {
-        return "block." + variant.getModId() + "." + crop.getName() + "_" + variant.getBlockName();
+        return "block." + variant.getModId() + "." + variant.getBlockName();
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
