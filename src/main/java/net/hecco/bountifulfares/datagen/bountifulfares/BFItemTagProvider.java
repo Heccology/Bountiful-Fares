@@ -2,12 +2,15 @@ package net.hecco.bountifulfares.datagen.bountifulfares;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -24,14 +27,43 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFItems.FLOUR)
         ;
         getOrCreateTagBuilder(BFItemTags.C_MILKS)
+                .add(Items.MILK_BUCKET)
                 .add(BFItems.COCONUT_MILK_BOTTLE)
         ;
         getOrCreateTagBuilder(BFItemTags.C_COCONUT_HALVES)
                 .add(BFItems.COCONUT_HALF)
         ;
 
-        getOrCreateTagBuilder(BFItemTags.C_HIDDEN_FROM_RECIPE_VIEWERS)
-                .add(Items.GOLD_NUGGET)
+        getOrCreateTagBuilder(BFItemTags.C_WALNUTS)
+                .add(BFItems.WALNUT)
+                .addOptional(Identifier.of("nomansland", "walnuts"))
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.C_ORANGES)
+                .add(BFItems.ORANGE)
+                .addOptional(Identifier.of("atmospheric", "orange"))
+                .addOptional(Identifier.of("atmospheric", "blood_orange"))
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.C_LEMONS)
+                .add(BFItems.LEMON)
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.C_PLUMS)
+                .add(BFItems.PLUM)
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.C_PASSION_FRUIT)
+                .add(BFItems.PASSION_FRUIT)
+                .addOptional(Identifier.of("atmospheric", "passion_fruit"))
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.C_ELDERBERRIES)
+                .add(BFItems.ELDERBERRIES)
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.C_CORN)
+                .add(BFItems.MAIZE)
         ;
 
         getOrCreateTagBuilder(ItemTags.FLOWERS)

@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bountifulfares:passion_fruit"
+      "tag": "c:foods/passion_fruit"
     },
     {
       "tag": "c:flour"

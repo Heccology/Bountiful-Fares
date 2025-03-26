@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "bountifulfares:walnut"
+      "tag": "c:foods/walnuts"
     },
     "H": {
       "item": "minecraft:honeycomb"

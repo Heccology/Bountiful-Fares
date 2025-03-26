@@ -6,7 +6,7 @@
       "tag": "c:flour"
     },
     "W": {
-      "item": "bountifulfares:walnut"
+      "tag": "c:foods/walnuts"
     }
   },
   "pattern": [

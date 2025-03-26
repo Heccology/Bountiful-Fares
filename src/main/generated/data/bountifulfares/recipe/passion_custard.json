@@ -9,7 +9,7 @@
       "item": "minecraft:sugar"
     },
     {
-      "item": "bountifulfares:passion_fruit"
+      "tag": "c:foods/passion_fruit"
     },
     {
       "item": "minecraft:bowl"

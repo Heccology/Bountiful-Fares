@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bountifulfares:plum"
+      "tag": "c:foods/plums"
     },
     {
-      "item": "bountifulfares:plum"
+      "tag": "c:foods/plums"
     },
     {
       "item": "bountifulfares:citrus_essence"
