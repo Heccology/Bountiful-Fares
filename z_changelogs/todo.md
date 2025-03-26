@@ -12,5 +12,4 @@
 - Fix block particle tint for tinted blocks
 - Add ns compat for grass seeds (remove wheat seeds)
 - Add bop compat for grass seeds (remove wheat seeds)
-- POPPED MAIZE
 - "deadlier than sharks" advancement for dying to coconut
