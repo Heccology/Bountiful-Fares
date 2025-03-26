@@ -229,16 +229,6 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
         }
     }
 
-    public static void registerTrellisTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder, TrellisVariant trellis, String display) {
-        translationBuilder.add(TrellisUtil.getTrellisFromVariant(trellis), display);
-        for (VineCrop crop : TrellisUtil.VineCrops) {
-            translationBuilder.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), display);
-        }
-        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
-            translationBuilder.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), display);
-        }
-    }
-
     public static void registerTrellisRecipe(RecipeExporter exporter, TrellisVariant trellis) {
         if (trellis.getCraftingItem() != null) {
             ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
