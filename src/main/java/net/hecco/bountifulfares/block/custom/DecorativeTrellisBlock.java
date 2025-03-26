@@ -14,11 +14,14 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.Util;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -103,5 +106,15 @@ public class DecorativeTrellisBlock extends TrellisBlock implements Fertilizable
     @Override
     protected MapCodec<? extends HorizontalFacingBlock> getCodec() {
         return null;
+    }
+
+    //Hey Hecco i have noticed that you have like 20-22 lang files for the same translation of trellises
+    //You can use this method to make these hundreds of lang lines redundant
+    //P.S. i tested this with WTHIT and it works
+    //if you accept this, this will allow to remove like 500 lines from every lang file
+    //they are so annoying to translate through "find and replace"
+    @Override
+    public String getTranslationKey() {
+        return "block." + variant.getModId() + "." + variant.getBlockName();
     }
 }

@@ -519,6 +519,8 @@ public class BFLangProvider extends FabricLanguageProvider {
             }
         }
     }
+
+    //this will be redundant then
     public void registerTrellisTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder, TrellisVariant trellis) {
         String temp = toSentenceCase(Registries.ITEM.getId(TrellisUtil.getTrellisFromVariant(trellis).asItem()).getPath());
         translationBuilder.add(TrellisUtil.getTrellisFromVariant(trellis), temp);
@@ -533,6 +535,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         }
     }
 
+    //this will be redundant then
     public void registerTrellisTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder, TrellisVariant trellis, String display) {
         translationBuilder.add(TrellisUtil.getTrellisFromVariant(trellis), display);
         usedTranslationKeys.add(TrellisUtil.getTrellisFromVariant(trellis).getTranslationKey());
