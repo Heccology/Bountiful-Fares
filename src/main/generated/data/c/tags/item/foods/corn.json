@@ -1,5 +1,9 @@
 {
   "values": [
-    "bountifulfares:maize"
+    "bountifulfares:maize",
+    {
+      "id": "hauntedharvest:corn",
+      "required": false
+    }
   ]
 }

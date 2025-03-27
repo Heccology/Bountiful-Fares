@@ -51,6 +51,7 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(BFItemTags.C_PLUMS)
                 .add(BFItems.PLUM)
+                .addOptional(Identifier.of("environmental", "plum"))
         ;
 
         getOrCreateTagBuilder(BFItemTags.C_PASSION_FRUIT)
@@ -64,6 +65,7 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(BFItemTags.C_CORN)
                 .add(BFItems.MAIZE)
+                .addOptional(Identifier.of("hauntedharvest", "corn"))
         ;
 
         getOrCreateTagBuilder(ItemTags.FLOWERS)
