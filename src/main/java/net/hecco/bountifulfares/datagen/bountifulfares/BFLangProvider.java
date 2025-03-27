@@ -475,6 +475,12 @@ public class BFLangProvider extends FabricLanguageProvider {
 
         generateTag(translationBuilder, BFItemTags.C_MILKS, "Milks");
         generateTag(translationBuilder, BFItemTags.C_FLOUR, "Flours");
+        generateTag(translationBuilder, BFItemTags.C_ORANGES, "Oranges");
+        generateTag(translationBuilder, BFItemTags.C_LEMONS, "Lemons");
+        generateTag(translationBuilder, BFItemTags.C_PLUMS, "Plums");
+        generateTag(translationBuilder, BFItemTags.C_PASSION_FRUIT, "Passion Fruit");
+        generateTag(translationBuilder, BFItemTags.C_ELDERBERRIES, "Elderberries");
+        generateTag(translationBuilder, BFItemTags.C_WALNUTS, "Walnuts");
         generateTag(translationBuilder, BFItemTags.C_COCONUT_HALVES, "Coconut Halves");
 
         generateTag(translationBuilder, BFItemTags.APPLE_LOGS, "Apple Logs");
@@ -491,7 +497,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateTag(translationBuilder, BFItemTags.PLUM_LEAVES, "Plum Leaves");
         generateTag(translationBuilder, BFItemTags.GOLDEN_APPLE_LEAVES, "Golden Apple Leaves");
         generateTag(translationBuilder, BFItemTags.FRUIT_LOGS, "Fruit Logs");
-        generateTag(translationBuilder, BFItemTags.JACK_O_STRAW_LIGHTABLE, "Jack O' Straw Lightables"); //maybe "can light jack o straws" is a better translation?
+        generateTag(translationBuilder, BFItemTags.JACK_O_STRAW_LIGHTABLE, "Can Light Jack O' Straws");
         generateTag(translationBuilder, BFItemTags.DYES, "Dyes");
         generateTag(translationBuilder, BFItemTags.DYEABLE_CERAMIC_BLOCKS, "Dyeable Ceramic Blocks");
         generateTag(translationBuilder, BFItemTags.FELSIC_STONES, "Felsic Stones");
@@ -499,7 +505,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateTag(translationBuilder, BFItemTags.PLANTABLE_ON_TRELLIS, "Plantable On Trellis");
         generateTag(translationBuilder, BFItemTags.COOKED_FISHES, "Cooked Fishes");
         generateTag(translationBuilder, BFItemTags.MEALS, "Meals");
-        generateTag(translationBuilder, BFItemTags.GRASS_SEEDS_PLANTABLE_ON, "Grass Seeds Plantable On"); //again maybe not the best translation
+        generateTag(translationBuilder, BFItemTags.GRASS_SEEDS_PLANTABLE_ON, "Can Plant Grass Seeds On");
         generateTag(translationBuilder, BFItemTags.PICKETS, "Pickets");
         generateTag(translationBuilder, BFItemTags.MULCH, "Mulches");
         generateTag(translationBuilder, BFItemTags.SUGAR_INGREDIENTS, "Sugar Ingredients");
@@ -532,5 +538,6 @@ public class BFLangProvider extends FabricLanguageProvider {
                 translationBuilder.add(key, toSentenceCase(id.getPath()));
             }
         }
+
     }
 }
