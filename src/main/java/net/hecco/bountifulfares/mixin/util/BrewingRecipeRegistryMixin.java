@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.mixin;
+package net.hecco.bountifulfares.mixin.util;
 
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFPotions;

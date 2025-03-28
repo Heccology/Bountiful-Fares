@@ -1,0 +1,13 @@
+{
+  "values": [
+    "bountifulfares:orange",
+    {
+      "id": "atmospheric:orange",
+      "required": false
+    },
+    {
+      "id": "atmospheric:blood_orange",
+      "required": false
+    }
+  ]
+}

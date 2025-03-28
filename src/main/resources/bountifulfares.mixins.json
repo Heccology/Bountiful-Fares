@@ -3,23 +3,23 @@
   "package": "net.hecco.bountifulfares.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "AbstractInventoryMixin",
-    "BlockItemMixin",
-    "BrewingRecipeRegistryMixin",
-    "CakeBlockMixin",
-    "CampfireBlockEntityMixin",
-    "ChickenEntityMixin",
-    "GuiMixin",
-    "ItemRendererMixin",
-    "LivingEntityMixin",
-    "ModelLoaderMixin",
-    "NoteBlockInstrumentMixin",
-    "PumpkinPieItemMixin",
-    "StonecutterScreenHandlerMixin",
-    "SweetBerryBushMixin",
-    "WolfEntityMixin",
-    "WoodlandMansionFirstFloorMixin",
-    "WoodlandMansionSecondFloorMixin",
+    "render.AbstractInventoryMixin",
+    "gameplay.BlockItemMixin",
+    "util.BrewingRecipeRegistryMixin",
+    "gameplay.CakeBlockMixin",
+    "gameplay.CampfireBlockEntityMixin",
+    "gameplay.ChickenEntityMixin",
+    "render.GuiMixin",
+    "render.ItemRendererMixin",
+    "gameplay.LivingEntityMixin",
+    "render.ModelLoaderMixin",
+    "gameplay.NoteBlockInstrumentMixin",
+    "gameplay.PumpkinPieItemMixin",
+    "misc.StonecutterScreenHandlerMixin",
+    "gameplay.SweetBerryBushMixin",
+    "misc.WolfEntityMixin",
+    "misc.WoodlandMansionFirstFloorMixin",
+    "misc.WoodlandMansionSecondFloorMixin",
     "util.HandledScreenMixin",
     "util.ItemRendererAccessor"
   ],
@@ -27,8 +27,8 @@
     "defaultRequire": 1
   },
   "client": [
-    "GuiHeartsMixin",
-    "SplashTextMixin",
-    "StonecutterScreenMixin"
+    "render.GuiHeartsMixin",
+    "misc.SplashTextMixin",
+    "misc.StonecutterScreenMixin"
   ]
 }

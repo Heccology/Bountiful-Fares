@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bountifulfares:plum"
+      "tag": "c:foods/plums"
     },
     {
       "tag": "c:flour"

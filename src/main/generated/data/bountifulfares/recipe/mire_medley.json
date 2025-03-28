@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bountifulfares:elderberries"
+      "tag": "c:foods/elderberries"
     },
     {
-      "item": "bountifulfares:maize"
+      "tag": "c:foods/corn"
     },
     {
       "item": "bountifulfares:chamomile_flowers"

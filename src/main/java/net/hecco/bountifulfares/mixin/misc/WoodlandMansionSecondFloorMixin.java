@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.mixin;
+package net.hecco.bountifulfares.mixin.misc;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.minecraft.structure.WoodlandMansionGenerator;

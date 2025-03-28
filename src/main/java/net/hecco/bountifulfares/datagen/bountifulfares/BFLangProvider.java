@@ -5,6 +5,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
+import net.hecco.bountifulfares.compat.delicate_dyes.DelicateDyesBlocks;
+import net.hecco.bountifulfares.compat.dungeons_delight.DungeonsDelightBlocks;
 import net.hecco.bountifulfares.compat.dye_depot.DyeDepotBlocks;
 import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
 import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks;
@@ -50,6 +52,11 @@ public class BFLangProvider extends FabricLanguageProvider {
     private void generate(TranslationBuilder translationBuilder, Block block, String translation) {
         generate(translationBuilder, block.getTranslationKey(), translation);
     }
+
+    private void generate(TranslationBuilder translationBuilder, Block block) {
+        generate(translationBuilder, block.getTranslationKey(), toSentenceCase(Registries.BLOCK.getId(block).getPath()));
+    }
+
     private void generate(TranslationBuilder translationBuilder, Item item, String translation) {
         generate(translationBuilder, item.getTranslationKey(), translation);
     }
@@ -134,88 +141,48 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "effect.bountifulfares.enrichment", "Enrichment");
         generate(translationBuilder, "effect.bountifulfares.enrichment.description", "Minor buffs to most stats.");
 
-        generate(translationBuilder, "block.bountifulfares.trellis", "Oak Trellis");
-        generate(translationBuilder, "block.bountifulfares.spruce_trellis", "Spruce Trellis");
-        generate(translationBuilder, "block.bountifulfares.birch_trellis", "Birch Trellis");
-        generate(translationBuilder, "block.bountifulfares.jungle_trellis", "Jungle Trellis");
-        generate(translationBuilder, "block.bountifulfares.acacia_trellis", "Acacia Trellis");
-        generate(translationBuilder, "block.bountifulfares.dark_oak_trellis", "Dark Oak Trellis");
-        generate(translationBuilder, "block.bountifulfares.mangrove_trellis", "Mangrove Trellis");
-        generate(translationBuilder, "block.bountifulfares.cherry_trellis", "Cherry Trellis");
-        generate(translationBuilder, "block.bountifulfares.bamboo_trellis", "Bamboo Trellis");
-        generate(translationBuilder, "block.bountifulfares.walnut_trellis", "Walnut Trellis");
-        generate(translationBuilder, "block.bountifulfares.hoary_trellis", "Hoary Trellis");
-        generate(translationBuilder, "block.bountifulfares.crimson_trellis", "Crimson Trellis");
-        generate(translationBuilder, "block.bountifulfares.warped_trellis", "Warped Trellis");
-        generate(translationBuilder, "block.arts_and_crafts.cork_trellis", "Cork Trellis");
-        generate(translationBuilder, "block.excessive_building.ancient_trellis", "Ancient Trellis");
-        generate(translationBuilder, "block.mint.wintergreen_trellis", "Wintergreen Trellis");
-        generate(translationBuilder, "block.natures_spirit.aspen_trellis", "Aspen Trellis");
-        generate(translationBuilder, "block.natures_spirit.cedar_trellis", "Cedar Trellis");
-        generate(translationBuilder, "block.natures_spirit.coconut_trellis", "Coconut Trellis");
-        generate(translationBuilder, "block.natures_spirit.cypress_trellis", "Cypress Trellis");
-        generate(translationBuilder, "block.natures_spirit.fir_trellis", "Fir Trellis");
-        generate(translationBuilder, "block.natures_spirit.ghaf_trellis", "Gnaf Trellis");
-        generate(translationBuilder, "block.mint.wintergreen_trellis", "Wintergreen Trellis");
-        generate(translationBuilder, "block.mint.wintergreen_trellis", "Wintergreen Trellis");
-        generate(translationBuilder, "block.natures_spirit.ghaf_trellis", "Gnaf Trellis");
-        generate(translationBuilder, "block.natures_spirit.joshua_trellis", "Joshua Trellis");
-        generate(translationBuilder, "block.natures_spirit.larch_trellis", "Larch Trellis");
-        generate(translationBuilder, "block.natures_spirit.mahogany_trellis", "Mahogany Trellis");
-        generate(translationBuilder, "block.natures_spirit.maple_trellis", "Maple Trellis");
-        generate(translationBuilder, "block.natures_spirit.olive_trellis", "Olive Trellis");
-        generate(translationBuilder, "block.natures_spirit.palo_verde_trellis", "Palo Verde Trellis");
-        generate(translationBuilder, "block.natures_spirit.saxaul_trellis", "Saxaul Trellis");
-        generate(translationBuilder, "block.natures_spirit.sugi_trellis", "Sugi Trellis");
-        generate(translationBuilder, "block.natures_spirit.willow_trellis", "Willow Trellis");
-        generate(translationBuilder, "block.natures_spirit.wisteria_trellis", "Wisteria Trellis");
-        generate(translationBuilder, "block.spawn.rotten_trellis", "Rotten Trellis");
 
 
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.OAK), "Oak Trellis");
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.SPRUCE));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.BIRCH));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.JUNGLE));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.ACACIA));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.DARK_OAK));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.MANGROVE));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.CHERRY));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.BAMBOO));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.WALNUT));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.HOARY));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.CRIMSON));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.WARPED));
 
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(ExcessiveBuildingBlocks.ANCIENT));
 
-//        registerTrellisTranslations(translationBuilder, BFTrellises.OAK, "Oak Trellis");
-//        registerTrellisTranslations(translationBuilder, BFTrellises.SPRUCE);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.BIRCH);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.JUNGLE);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.ACACIA);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.DARK_OAK);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.MANGROVE);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.CHERRY);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.BAMBOO);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.WALNUT);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.HOARY);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.CRIMSON);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.WARPED);
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(MintBlocks.WINTERGREEN));
 
-//        registerTrellisTranslations(translationBuilder, BFTrellises.BAOBAB);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.WW_CYPRESS);
-//        registerTrellisTranslations(translationBuilder, BFTrellises.PALM);
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.ASPEN));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.CEDAR));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.COCONUT));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.CYPRESS));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.FIR));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.GHAF));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.JOSHUA));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.LARCH));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.MAHOGANY));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.MAPLE));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.OLIVE));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.PALO_VERDE));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.SAXAUL));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.SUGI));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.WILLOW));
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.WISTERIA));
 
-//        registerTrellisTranslations(translationBuilder, ExcessiveBuildingBlocks.ANCIENT);
-//
-//        registerTrellisTranslations(translationBuilder, MintBlocks.WINTERGREEN);
-//
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.ASPEN);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.CEDAR);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.COCONUT);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.CYPRESS);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.FIR);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.GHAF);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.JOSHUA);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.LARCH);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.MAHOGANY);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.MAPLE);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.OLIVE);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.PALO_VERDE);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.SAXAUL);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.SUGI);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.WILLOW);
-//        registerTrellisTranslations(translationBuilder, NaturesSpiritBlocks.WISTERIA);
-//
-//        registerTrellisTranslations(translationBuilder, SpawnBlocks.ROTTEN);
-//
-//        registerTrellisTranslations(translationBuilder, ArtsAndCraftsBlocks.CORK);
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(SpawnBlocks.ROTTEN));
+
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(ArtsAndCraftsBlocks.CORK));
+
+        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(DungeonsDelightBlocks.WORMWOOD));
 
 
 
@@ -282,6 +249,15 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateJackOStraw(translationBuilder, DyeDepotBlocks.SLATE_JACK_O_STRAW, "Slate");
         generateJackOStraw(translationBuilder, DyeDepotBlocks.NAVY_JACK_O_STRAW, "Navy");
         generateJackOStraw(translationBuilder, DyeDepotBlocks.INDIGO_JACK_O_STRAW, "Indigo");
+
+        generateJackOStraw(translationBuilder, DelicateDyesBlocks.CORAL_JACK_O_STRAW, "Coral");
+        generateJackOStraw(translationBuilder, DelicateDyesBlocks.CANARY_JACK_O_STRAW, "Canary");
+        generateJackOStraw(translationBuilder, DelicateDyesBlocks.WASABI_JACK_O_STRAW, "Wasabi");
+        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW, "Sacramento");
+        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SKY_JACK_O_STRAW, "Sky");
+        generateJackOStraw(translationBuilder, DelicateDyesBlocks.BLURPLE_JACK_O_STRAW, "Blurple");
+        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SANGRIA_JACK_O_STRAW, "Sangria");
+        generateJackOStraw(translationBuilder, DelicateDyesBlocks.ROSE_JACK_O_STRAW, "Rose");
 
 
 
@@ -499,6 +475,12 @@ public class BFLangProvider extends FabricLanguageProvider {
 
         generateTag(translationBuilder, BFItemTags.C_MILKS, "Milks");
         generateTag(translationBuilder, BFItemTags.C_FLOUR, "Flours");
+        generateTag(translationBuilder, BFItemTags.C_ORANGES, "Oranges");
+        generateTag(translationBuilder, BFItemTags.C_LEMONS, "Lemons");
+        generateTag(translationBuilder, BFItemTags.C_PLUMS, "Plums");
+        generateTag(translationBuilder, BFItemTags.C_PASSION_FRUIT, "Passion Fruit");
+        generateTag(translationBuilder, BFItemTags.C_ELDERBERRIES, "Elderberries");
+        generateTag(translationBuilder, BFItemTags.C_WALNUTS, "Walnuts");
         generateTag(translationBuilder, BFItemTags.C_COCONUT_HALVES, "Coconut Halves");
 
         generateTag(translationBuilder, BFItemTags.APPLE_LOGS, "Apple Logs");
@@ -515,7 +497,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateTag(translationBuilder, BFItemTags.PLUM_LEAVES, "Plum Leaves");
         generateTag(translationBuilder, BFItemTags.GOLDEN_APPLE_LEAVES, "Golden Apple Leaves");
         generateTag(translationBuilder, BFItemTags.FRUIT_LOGS, "Fruit Logs");
-        generateTag(translationBuilder, BFItemTags.JACK_O_STRAW_LIGHTABLE, "Jack O' Straw Lightables"); //maybe "can light jack o straws" is a better translation?
+        generateTag(translationBuilder, BFItemTags.JACK_O_STRAW_LIGHTABLE, "Can Light Jack O' Straws");
         generateTag(translationBuilder, BFItemTags.DYES, "Dyes");
         generateTag(translationBuilder, BFItemTags.DYEABLE_CERAMIC_BLOCKS, "Dyeable Ceramic Blocks");
         generateTag(translationBuilder, BFItemTags.FELSIC_STONES, "Felsic Stones");
@@ -523,14 +505,14 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateTag(translationBuilder, BFItemTags.PLANTABLE_ON_TRELLIS, "Plantable On Trellis");
         generateTag(translationBuilder, BFItemTags.COOKED_FISHES, "Cooked Fishes");
         generateTag(translationBuilder, BFItemTags.MEALS, "Meals");
-        generateTag(translationBuilder, BFItemTags.GRASS_SEEDS_PLANTABLE_ON, "Grass Seeds Plantable On"); //again maybe not the best translation
+        generateTag(translationBuilder, BFItemTags.GRASS_SEEDS_PLANTABLE_ON, "Can Plant Grass Seeds On");
         generateTag(translationBuilder, BFItemTags.PICKETS, "Pickets");
         generateTag(translationBuilder, BFItemTags.MULCH, "Mulches");
         generateTag(translationBuilder, BFItemTags.SUGAR_INGREDIENTS, "Sugar Ingredients");
 
         generate(translationBuilder, "emi.category.bountifulfares.milling", "Milling");
         generate(translationBuilder, "emi.category.bountifulfares.fermenting", "Fermenting");
-        generate(translationBuilder, "emi.category.bountifulfares.prismarine_propagation", "Primarine Propagation");
+        generate(translationBuilder, "emi.category.bountifulfares.propagation", "Primarine Propagation");
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             String key = Registries.BLOCK.get(id).getTranslationKey();
@@ -556,34 +538,6 @@ public class BFLangProvider extends FabricLanguageProvider {
                 translationBuilder.add(key, toSentenceCase(id.getPath()));
             }
         }
+
     }
-
-    //this will be redundant then
-//    public void registerTrellisTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder, TrellisVariant trellis) {
-//        String temp = toSentenceCase(Registries.ITEM.getId(TrellisUtil.getTrellisFromVariant(trellis).asItem()).getPath());
-//        translationBuilder.add(TrellisUtil.getTrellisFromVariant(trellis), temp);
-//        usedTranslationKeys.add(TrellisUtil.getTrellisFromVariant(trellis).getTranslationKey());
-//        for (VineCrop crop : TrellisUtil.VineCrops) {
-//            translationBuilder.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), temp);
-//            usedTranslationKeys.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop).getTranslationKey());
-//        }
-//        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
-//            translationBuilder.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), temp);
-//            usedTranslationKeys.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine).getTranslationKey());
-//        }
-//    }
-
-    //this will be redundant then
-//    public void registerTrellisTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder, TrellisVariant trellis, String display) {
-//        translationBuilder.add(TrellisUtil.getTrellisFromVariant(trellis), display);
-//        usedTranslationKeys.add(TrellisUtil.getTrellisFromVariant(trellis).getTranslationKey());
-//        for (VineCrop crop : TrellisUtil.VineCrops) {
-//            translationBuilder.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), display);
-//            usedTranslationKeys.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop).getTranslationKey());
-//        }
-//        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
-//            translationBuilder.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), display);
-//            usedTranslationKeys.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine).getTranslationKey());
-//        }
-//    }
 }

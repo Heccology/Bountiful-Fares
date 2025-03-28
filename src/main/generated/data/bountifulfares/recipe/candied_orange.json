@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bountifulfares:orange"
+      "tag": "c:foods/oranges"
     },
     {
       "tag": "bountifulfares:sugar_ingredients"

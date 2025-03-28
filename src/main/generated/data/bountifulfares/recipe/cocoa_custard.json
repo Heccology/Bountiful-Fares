@@ -12,7 +12,7 @@
       "item": "minecraft:cocoa_beans"
     },
     {
-      "item": "bountifulfares:walnut"
+      "tag": "c:foods/walnuts"
     },
     {
       "item": "minecraft:bowl"

@@ -6,16 +6,16 @@
       "item": "minecraft:cooked_beef"
     },
     {
-      "item": "bountifulfares:walnut"
+      "tag": "c:foods/walnuts"
     },
     {
-      "item": "bountifulfares:walnut"
+      "tag": "c:foods/walnuts"
     },
     {
       "item": "minecraft:potato"
     },
     {
-      "item": "bountifulfares:elderberries"
+      "tag": "c:foods/elderberries"
     },
     {
       "item": "minecraft:bowl"

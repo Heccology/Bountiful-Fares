@@ -25,7 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": "bountifulfares:plum"
+            "items": "#c:foods/plums"
           }
         ]
       },

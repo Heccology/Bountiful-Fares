@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bountifulfares:orange"
+      "tag": "c:foods/oranges"
     },
     {
-      "item": "bountifulfares:orange"
+      "tag": "c:foods/oranges"
     },
     {
       "item": "bountifulfares:citrus_essence"

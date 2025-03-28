@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bountifulfares:lemon"
+      "tag": "c:foods/lemons"
     },
     {
       "tag": "bountifulfares:sugar_ingredients"

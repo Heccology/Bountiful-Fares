@@ -9,7 +9,7 @@
       "item": "minecraft:potato"
     },
     {
-      "item": "bountifulfares:maize"
+      "tag": "c:foods/corn"
     },
     {
       "item": "minecraft:bread"

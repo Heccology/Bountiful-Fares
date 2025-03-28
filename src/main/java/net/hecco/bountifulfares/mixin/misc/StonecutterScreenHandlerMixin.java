@@ -1,8 +1,10 @@
-package net.hecco.bountifulfares.mixin;
+package net.hecco.bountifulfares.mixin.misc;
 
 import com.llamalad7.mixinextras.sugar.Local;
+import net.hecco.bountifulfares.BountifulFares;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.screen.StonecutterScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import org.spongepowered.asm.mixin.Final;
@@ -11,6 +13,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.Objects;
 
 @Mixin(StonecutterScreenHandler.class)
 public abstract class StonecutterScreenHandlerMixin {
@@ -25,7 +29,7 @@ public abstract class StonecutterScreenHandlerMixin {
         //because this currently will apply to ANY dyeable item put into stonecutter that has recipes
         //not that it is a bad thing, just saying...
         //if you DO change it, also check out StonecutterScreenMixin
-        if(this.inputSlot.getStack().contains(DataComponentTypes.DYED_COLOR)){
+        if(Objects.equals(Registries.ITEM.getId(this.inputSlot.getStack().getItem()).getNamespace(), BountifulFares.MOD_ID) && this.inputSlot.getStack().contains(DataComponentTypes.DYED_COLOR)){
             itemStack.set(DataComponentTypes.DYED_COLOR, this.inputSlot.getStack().get(DataComponentTypes.DYED_COLOR));
         }
     }

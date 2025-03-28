@@ -1,0 +1,9 @@
+{
+  "values": [
+    "bountifulfares:passion_fruit",
+    {
+      "id": "atmospheric:passion_fruit",
+      "required": false
+    }
+  ]
+}

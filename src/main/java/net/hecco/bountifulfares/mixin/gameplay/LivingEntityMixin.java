@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.mixin;
+package net.hecco.bountifulfares.mixin.gameplay;
 
 import com.google.common.collect.Maps;
 import net.hecco.bountifulfares.registry.content.BFEffects;

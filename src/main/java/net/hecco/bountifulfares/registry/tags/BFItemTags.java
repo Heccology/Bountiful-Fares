@@ -8,6 +8,13 @@ import net.minecraft.util.Identifier;
 
 public class BFItemTags {
     public static final TagKey<Item> C_MILKS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/milk"));
+    public static final TagKey<Item> C_WALNUTS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/walnuts"));
+    public static final TagKey<Item> C_ORANGES = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/oranges"));
+    public static final TagKey<Item> C_LEMONS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/lemons"));
+    public static final TagKey<Item> C_PLUMS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/plums"));
+    public static final TagKey<Item> C_PASSION_FRUIT = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/passion_fruit"));
+    public static final TagKey<Item> C_ELDERBERRIES = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/elderberries"));
+    public static final TagKey<Item> C_CORN = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/corn"));
     public static final TagKey<Item> C_FLOUR = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "flour"));
     public static final TagKey<Item> C_COCONUT_HALVES = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "coconut_halves"));
 
