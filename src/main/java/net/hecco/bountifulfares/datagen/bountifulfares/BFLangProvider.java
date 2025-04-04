@@ -512,7 +512,7 @@ public class BFLangProvider extends FabricLanguageProvider {
 
         generate(translationBuilder, "emi.category.bountifulfares.milling", "Milling");
         generate(translationBuilder, "emi.category.bountifulfares.fermenting", "Fermenting");
-        generate(translationBuilder, "emi.category.bountifulfares.propagation", "Primarine Propagation");
+        generate(translationBuilder, "emi.category.bountifulfares.propagation", "Prismarine Propagation");
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             String key = Registries.BLOCK.get(id).getTranslationKey();
