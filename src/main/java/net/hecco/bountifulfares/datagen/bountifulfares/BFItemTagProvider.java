@@ -68,6 +68,69 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addOptional(Identifier.of("hauntedharvest", "corn"))
         ;
 
+        getOrCreateTagBuilder(ItemTags.CHICKEN_FOOD)
+                .add(BFItems.GRASS_SEEDS)
+                .add(BFItems.SWEET_BERRY_PIPS)
+                .add(BFItems.HOARY_SEEDS)
+                .add(BFItems.LAPISBERRY_SEEDS)
+                .add(BFItems.LEEK_SEEDS)
+                .add(BFItems.MAIZE_SEEDS)
+                .add(BFItems.SPONGEKIN_SEEDS)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.PARROT_FOOD)
+                .add(BFItems.GRASS_SEEDS)
+                .add(BFItems.SWEET_BERRY_PIPS)
+                .add(BFItems.HOARY_SEEDS)
+                .add(BFItems.LAPISBERRY_SEEDS)
+                .add(BFItems.LEEK_SEEDS)
+                .add(BFItems.MAIZE_SEEDS)
+                .add(BFItems.SPONGEKIN_SEEDS)
+                .add(BFItems.WALNUT)
+                .add(BFItems.ARTISAN_COOKIE)
+                .add(BFItems.WALNUT_COOKIE)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.PIG_FOOD)
+                .add(BFItems.MAIZE)
+                .add(BFItems.LEEK)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.SNIFFER_FOOD)
+                .add(Items.PITCHER_POD)
+                .add(BFItems.HOARY_SEEDS)
+                .add(BFItems.LAPISBERRY_SEEDS)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.FOX_FOOD)
+                .add(BFItems.ELDERBERRIES)
+                .add(BFItems.LAPISBERRIES)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.COW_FOOD)
+                .add(BFItems.MAIZE)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.SHEEP_FOOD)
+                .add(BFItems.MAIZE)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.GOAT_FOOD)
+                .add(BFItems.MAIZE)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.WOLF_FOOD)
+                .addTag(BFItemTags.MULCH)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.HORSE_FOOD)
+                .add(BFItems.ORANGE)
+                .add(BFItems.LEMON)
+                .add(BFItems.PLUM)
+                .add(BFItems.HOARY_APPLE)
+                .add(BFItems.MAIZE)
+        ;
+
         getOrCreateTagBuilder(ItemTags.FLOWERS)
                 .add(BFBlocks.FLOWERING_APPLE_LEAVES.asItem())
                 .add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.asItem())
