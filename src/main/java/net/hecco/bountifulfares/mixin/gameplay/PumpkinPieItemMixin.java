@@ -3,6 +3,8 @@ package net.hecco.bountifulfares.mixin.gameplay;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.minecraft.block.BlockState;
+import net.minecraft.component.type.FoodComponent;
+import net.minecraft.component.type.FoodComponents;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.sound.BlockSoundGroup;
@@ -15,6 +17,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Item.class)
@@ -26,6 +29,18 @@ public class PumpkinPieItemMixin {
             ActionResult ar = place(new ItemPlacementContext(context));
             cir.setReturnValue(ar);
         }
+    }
+
+    @ModifyVariable(method = "use", at = @At(
+            value = "STORE",
+            target = "Lnet/minecraft/item/ItemStack;get(Lnet/minecraft/component/ComponentType;)Ljava/lang/Object;",
+            shift = At.Shift.AFTER)
+    )
+    private FoodComponent bf_pumpkinPiePass(FoodComponent original) {
+        if (original == FoodComponents.PUMPKIN_PIE && BountifulFares.CONFIG.enablePlaceablePumpkinPie) {
+            return null;
+        }
+        return original;
     }
 
     @Unique

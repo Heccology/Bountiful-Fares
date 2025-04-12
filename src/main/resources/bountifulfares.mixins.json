@@ -3,23 +3,21 @@
   "package": "net.hecco.bountifulfares.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "render.AbstractInventoryMixin",
     "gameplay.BlockItemMixin",
-    "util.BrewingRecipeRegistryMixin",
     "gameplay.CakeBlockMixin",
     "gameplay.CampfireBlockEntityMixin",
-    "gameplay.ChickenEntityMixin",
-    "render.GuiMixin",
-    "render.ItemRendererMixin",
     "gameplay.LivingEntityMixin",
-    "render.ModelLoaderMixin",
     "gameplay.NoteBlockInstrumentMixin",
     "gameplay.PumpkinPieItemMixin",
-    "misc.StonecutterScreenHandlerMixin",
     "gameplay.SweetBerryBushMixin",
-    "misc.WolfEntityMixin",
+    "misc.StonecutterScreenHandlerMixin",
     "misc.WoodlandMansionFirstFloorMixin",
     "misc.WoodlandMansionSecondFloorMixin",
+    "render.AbstractInventoryMixin",
+    "render.GuiMixin",
+    "render.ItemRendererMixin",
+    "render.ModelLoaderMixin",
+    "util.BrewingRecipeRegistryMixin",
     "util.HandledScreenMixin",
     "util.ItemRendererAccessor"
   ],
@@ -27,8 +25,8 @@
     "defaultRequire": 1
   },
   "client": [
-    "render.GuiHeartsMixin",
     "misc.SplashTextMixin",
-    "misc.StonecutterScreenMixin"
+    "misc.StonecutterScreenMixin",
+    "render.GuiHeartsMixin"
   ]
 }
