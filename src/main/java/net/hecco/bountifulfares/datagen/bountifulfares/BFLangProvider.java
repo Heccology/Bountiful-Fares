@@ -13,6 +13,7 @@ import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks;
 import net.hecco.bountifulfares.compat.mint.MintBlocks;
 import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
 import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
+import net.hecco.bountifulfares.datagen.yapping.YappingCompatLangProvider;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFTrellises;
@@ -539,5 +540,6 @@ public class BFLangProvider extends FabricLanguageProvider {
             }
         }
 
+        YappingCompatLangProvider.generateTranslations(translationBuilder);
     }
 }

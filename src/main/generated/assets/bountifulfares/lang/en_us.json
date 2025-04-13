@@ -455,7 +455,7 @@
   "effect.bountifulfares.stupor.description": "Removes all effects and stops effects from applying for its duration.",
   "emi.category.bountifulfares.fermenting": "Fermenting",
   "emi.category.bountifulfares.milling": "Milling",
-  "emi.category.bountifulfares.propagation": "Primarine Propagation",
+  "emi.category.bountifulfares.propagation": "Prismarine Propagation",
   "item.bountifulfares.ancient_custard": "Ancient Custard",
   "item.bountifulfares.apple_cider_jar": "Apple Cider Jar",
   "item.bountifulfares.apple_compote_jar": "Apple Compote Jar",
@@ -673,5 +673,7 @@
   "warning.bountifulfares.fermentation_vessel.bountifulfares:jar": "Use a Jar to collect this",
   "warning.bountifulfares.fermentation_vessel.minecraft:bowl": "Use a Bowl to collect this",
   "warning.bountifulfares.fermentation_vessel.minecraft:bucket": "Use a Bucket to collect this",
-  "warning.bountifulfares.fermentation_vessel.minecraft:glass_bottle": "Use a Glass Bottle to collect this"
+  "warning.bountifulfares.fermentation_vessel.minecraft:glass_bottle": "Use a Glass Bottle to collect this",
+  "yapping_tooltips.item.bountifulfares.lemon.desc": "A citrus fruit found near rivers",
+  "yapping_tooltips.item.bountifulfares.orange.desc": "A citrus fruit found in tropical areas"
 }
