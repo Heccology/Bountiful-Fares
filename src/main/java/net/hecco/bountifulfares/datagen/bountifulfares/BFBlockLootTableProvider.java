@@ -17,6 +17,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
@@ -24,7 +25,11 @@ import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.EmptyEntry;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LootPoolEntry;
+import net.minecraft.loot.function.ApplyBonusLootFunction;
+import net.minecraft.loot.function.LimitCountLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
@@ -337,6 +342,16 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                                 .apply(List.of(2, 3), (candles) -> SetCountLootFunction.builder(ConstantLootNumberProvider.create((float)candles))
                                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.COCONUT_CANDLE)
                                                 .properties(StatePredicate.Builder.create().exactMatch(CoconutCandleBlock.CANDLES, candles))))))));
+        addDrop(BFBlocks.SPONGEKIN, (block) -> {
+            return dropsWithSilkTouch(
+                    block,
+                    applyExplosionDecay(
+                            block,
+                            ItemEntry.builder(BFItems.SPONGEKIN_SLICE)
+                                    .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3.0F, 7.0F)))
+                                    .apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE)))
+                                    .apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.createMax(9)))));
+        });
         addPottedPlantDrops(BFBlocks.POTTED_HONEYSUCKLE);
         addPottedPlantDrops(BFBlocks.POTTED_APPLE_SAPLING);
         addPottedPlantDrops(BFBlocks.POTTED_ORANGE_SAPLING);
@@ -391,7 +406,6 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         usedBlocks.add(BFBlocks.MELON_PIE);
         usedBlocks.add(BFBlocks.SWEET_BERRY_TART);
         usedBlocks.add(BFBlocks.TEA_SHRUB);
-        usedBlocks.add(BFBlocks.SPONGEKIN);
 
         usedBlocks.add(BFBlocks.HOARY_SIGN);
         usedBlocks.add(BFBlocks.HOARY_WALL_SIGN);
