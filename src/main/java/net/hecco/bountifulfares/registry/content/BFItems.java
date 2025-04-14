@@ -137,7 +137,7 @@ public class BFItems {
     public static final Item WALNUT_COOKIE = registerItem("walnut_cookie", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.1F).build())));
     public static final Item CANDIED_APPLE = registerItem("candied_apple", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.5F).build())));
     public static final Item CANDIED_PLUM = registerItem("candied_plum", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.5F).build())));
-    public static final Item DIRT_STEW = registerItem("dirt_stew", new OPStewItem(new Item.Settings().maxCount(99).rarity(Rarity.EPIC).food(new FoodComponent.Builder().nutrition(1000).saturationModifier(1000)
+    public static final Item DIRT_STEW = registerItem("dirt_stew", new OPStewItem(new Item.Settings().maxCount(99).food(new FoodComponent.Builder().nutrition(1000).saturationModifier(1000)
             .statusEffect(new StatusEffectInstance(BFEffects.RESTORATION, 72000, 10, true, true), 1)
             .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 72000, 10, true, true), 1)
             .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 72000, 10, true, true), 1)

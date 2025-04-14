@@ -138,7 +138,7 @@ public class BFLangProvider extends FabricLanguageProvider {
 
 
         generate(translationBuilder, "effect.bountifulfares.restoration", "Restoration");
-        generate(translationBuilder, "effect.bountifulfares.restoration.description", "On effect completion the user regenerates health up to the health when this was applied.");
+        generate(translationBuilder, "effect.bountifulfares.restoration.description", "Regenerates health up to the health the player or mob had when this was applied.");
         generate(translationBuilder, "effect.bountifulfares.enrichment", "Enrichment");
         generate(translationBuilder, "effect.bountifulfares.enrichment.description", "Minor buffs to most stats.");
 
@@ -355,7 +355,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.obtain_spongekin_seeds", "A Spongy Place");
         generate(translationBuilder, "advancement.bountifulfares.obtain_spongekin_seeds.description", "Discover the source of all these Sponges...");
 
-        generate(translationBuilder, "advancement.bountifulfares.obtain_spongekin", "Who Lives in a Loofah Under The Sea");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_spongekin", "Who Lives in a Loofah Under the Sea");
         generate(translationBuilder, "advancement.bountifulfares.obtain_spongekin.description", "Grow and collect a Spongekin");
 
         generate(translationBuilder, "advancement.bountifulfares.make_first_food", "Anyone Can Cook");
@@ -384,15 +384,15 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "jei.info.appledog_block", "appledog is full of joy, appledog is full of more joy when clicked!");
         generate(translationBuilder, "jei.info.golden_apple_sapling", "Golden Apple Trees are highly sensitive to light, and will wither and die if exposed to any higher than level 8. Additionally, no more fruit can be created after a tree is grown from a sapling.\n" +
                 "\n" +
-                "§o7Golden Apple Trees are the Illagers’ most successful experiment throughout their endeavors into meddling with the world around them. Being able to convert a common Apple Tree into a living source of powerful foods was a revolution, however they were paranoid that their foes would discover their achievement. Now they can only be found growing in the darkness of the walls within Woodland Mansions, in secret, and guarded by troops of Illagers.");
-        generate(translationBuilder, "jei.info.ceramic_dish", "Allows items to be placed and eaten ontop of it.");
-        generate(translationBuilder, "jei.info.artisian_brush", "While dyed this item can dye the color of ceramic blocks.");
-        generate(translationBuilder, "jei.info.prismarine_blossom", "Can be obtained when spongekin grows ontop of sea lanterns.");
-        generate(translationBuilder, "jei.info.fermentation_vessel", "When ingredients are placed inside they will ferment over some time.");
-        generate(translationBuilder, "jei.info.artisan_food", "Can be placed and eaten while placed.");
-        generate(translationBuilder, "jei.info.artisan_cookie", "Can be placed up to a stack of four cookies and eaten while placed.");
+                "§o7 Golden Apple Trees are the Illagers’ most successful experiment throughout their endeavors into meddling with the world around them. Being able to convert a common Apple Tree into a living source of powerful foods was a revolution, however they were paranoid that their foes would discover their achievement. Now they can only be found growing in the darkness of the walls within Woodland Mansions, in secret, and guarded by troops of Illagers.");
+        generate(translationBuilder, "jei.info.ceramic_dish", "Allows items to be placed and eaten ontop of it. Foods with containers normally cannot be eaten on dishes (can be changed in the mod's config)");
+        generate(translationBuilder, "jei.info.artisian_brush", "While dyed this item can dye the color of ceramic blocks. If interacting with a dyeable ceramic block while crouching, the block's color will be copied to the brush. If both colors match, the ceramic block will become checkered (only applies to certain blocks)");
+        generate(translationBuilder, "jei.info.prismarine_blossom", "Can be obtained when a spongekin grows from a sea lantern.");
+        generate(translationBuilder, "jei.info.fermentation_vessel", "When ingredients are placed inside they will ferment over some time. The time taken to ferment can be changed in the config.");
+        generate(translationBuilder, "jei.info.artisan_food", "Can be eaten when placed.");
+        generate(translationBuilder, "jei.info.artisan_cookie", "Can be eaten when placed, up to 4 cookies can be stacked in a block.");
         generate(translationBuilder, "jei.info.fruit_leaves", "Can grow fruits underneath it when bonemealed.");
-        generate(translationBuilder, "jei.info.chance_to_heal", "Has a chance to heal the consumer when consumed.");
+        generate(translationBuilder, "jei.info.chance_to_heal", "Has a chance to heal the user when consumed.");
 
 
         generate(translationBuilder, "config.bountifulfares.title", "Bountiful Fares Configuration");
