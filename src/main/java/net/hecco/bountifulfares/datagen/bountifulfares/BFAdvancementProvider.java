@@ -144,7 +144,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("cake", ItemCriterion.Conditions.createPlacedBlock(Blocks.CAKE))
                 .criterion("cocoa_cake", ItemCriterion.Conditions.createPlacedBlock(BFBlocks.COCOA_CAKE))
                 .criterion("artisan_bread", ItemCriterion.Conditions.createPlacedBlock(BFBlocks.ARTISAN_BREAD))
-                .criterion("artisan_cookie", ItemCriterion.Conditions.createPlacedBlock(BFBlocks.ARTISAN_COOKIES))
+                .criterion("artisan_cookie", ItemCriterion.Conditions.createPlacedBlock(BFBlocks.ARTISAN_COOKIE))
                 .criterion("apple_pie", ItemCriterion.Conditions.createPlacedBlock(BFBlocks.APPLE_PIE))
                 .criterion("orange_pie", ItemCriterion.Conditions.createPlacedBlock(BFBlocks.ORANGE_PIE))
                 .criterion("lemon_pie", ItemCriterion.Conditions.createPlacedBlock(BFBlocks.LEMON_PIE))

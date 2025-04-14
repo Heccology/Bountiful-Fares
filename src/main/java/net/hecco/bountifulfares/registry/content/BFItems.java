@@ -80,7 +80,7 @@ public class BFItems {
     public static final Item PICKLED_SPONGEKIN = registerItem("pickled_spongekin", new AirTimeIncreasingItem( 250, new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.8f).alwaysEdible().build())));
     public static final Item SCORCHKIN_SEEDS = registerItem("scorchkin_seeds", new AliasedBlockItem(BFBlocks.SCORCHKIN_STEM, new Item.Settings()));
     public static final Item FLOUR = registerItem("flour", new FlourItem(new Item.Settings()));
-    public static final Item ARTISAN_COOKIE = registerItem("artisan_cookie", new AliasedBlockItem(BFBlocks.ARTISAN_COOKIES, new Item.Settings()));
+    public static final Item ARTISAN_COOKIE = registerItem("artisan_cookie", new AliasedBlockItem(BFBlocks.ARTISAN_COOKIE, new Item.Settings()));
     public static final Item SUN_HAT = registerItem("sun_hat", new SunHatItem(new Item.Settings().maxCount(1)));
 
 
