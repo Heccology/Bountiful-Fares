@@ -12,6 +12,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.math.Direction;
 
 import java.util.List;
@@ -96,7 +97,7 @@ public class BFItems {
     public static final Item PLUM_CIDER_JAR = registerItem("plum_cider_jar", new LiquidJarItem(new Item.Settings().maxCount(16).recipeRemainder(JAR).food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.6f).build())));
     public static final Item HOARY_CIDER_JAR = registerItem("hoary_cider_jar", new LiquidJarItem(new Item.Settings().maxCount(16).recipeRemainder(JAR).food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.6f).build())));
 
-    public static final Item CANDY = registerItem("candy", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.4F).snack().build())));
+    public static final Item CANDY = registerItem("candy", new HoneyCandyItem(new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.4F).snack().build())));
     public static final Item SOUR_CANDY = registerItem("sour_candy", new EffectFoodItem(List.of(new StatusEffectInstance(BFEffects.ACIDIC, 200)), new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(BFEffects.ACIDIC, 200), 0.2f).snack().build())));
     public static final Item PIQUANT_CANDY = registerItem("piquant_candy", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.3F).snack().build())));
     public static final Item BITTER_CANDY = registerItem("bitter_candy", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 0, true, false), 0.75f).snack().build())));
@@ -136,7 +137,7 @@ public class BFItems {
     public static final Item WALNUT_COOKIE = registerItem("walnut_cookie", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.1F).build())));
     public static final Item CANDIED_APPLE = registerItem("candied_apple", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.5F).build())));
     public static final Item CANDIED_PLUM = registerItem("candied_plum", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.5F).build())));
-    public static final Item DIRT_STEW = registerItem("dirt_stew", new OPStewItem(new Item.Settings().maxCount(99).food(new FoodComponent.Builder().nutrition(1000).saturationModifier(1000)
+    public static final Item DIRT_STEW = registerItem("dirt_stew", new OPStewItem(new Item.Settings().maxCount(99).rarity(Rarity.EPIC).food(new FoodComponent.Builder().nutrition(1000).saturationModifier(1000)
             .statusEffect(new StatusEffectInstance(BFEffects.RESTORATION, 72000, 10, true, true), 1)
             .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 72000, 10, true, true), 1)
             .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 72000, 10, true, true), 1)
