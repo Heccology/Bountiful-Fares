@@ -80,9 +80,6 @@ public class HangingHoaryAppleBlock extends HangingFruitBlock {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         int i = state.get(AGE);
-        if (i != 4 && player.getStackInHand(player.getActiveHand()).isOf(Items.BONE_MEAL)) {
-            return ActionResult.PASS;
-        }
         if (i == 4) {
             HangingFruitBlock.dropStack(world, pos, new ItemStack(BFItems.HOARY_APPLE, 1));
             world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK, SoundCategory.BLOCKS, 1.0f, 0.7f + world.random.nextFloat() * 0.4f);
