@@ -1,9 +1,9 @@
-// 1.21.1	2025-04-12T17:15:54.448895	bountifulfares:excessive_building_dat/Tags for minecraft:block
-69e0e6a995a9e041aae103eba05292824f0bf9ce resourcepacks/excessive_building_dat/data/minecraft/tags/block/mineable/pickaxe.json
-7a2215a7536acb34d46ed17b8e1772a2d5dc30cd resourcepacks/excessive_building_dat/data/minecraft/tags/block/stairs.json
-58b45849ffa7cced26e8d509827f9b7d4291ab9f resourcepacks/excessive_building_dat/data/bountifulfares/tags/block/pickets.json
-39aeab511c7283be73cc07867d3f532cbd84826d resourcepacks/excessive_building_dat/data/minecraft/tags/block/climbable.json
-c4f46ab1e91b0767afd5afc392efb183136862e8 resourcepacks/excessive_building_dat/data/minecraft/tags/block/mineable/axe.json
-33d0e404c49589fbcc36ff2d7afa257557507be5 resourcepacks/excessive_building_dat/data/minecraft/tags/block/mineable/shovel.json
-cab7df359c41e6861a646cf7894875ac936f2d9c resourcepacks/excessive_building_dat/data/minecraft/tags/block/slabs.json
-b98e059e59edfbfcb0eb6f70c6c5a4059d1b18fa resourcepacks/excessive_building_dat/data/minecraft/tags/block/walls.json
+// 1.21.1	2025-04-13T21:23:56.2565488	bountifulfares:excessive_building_dat/Tags for minecraft:block
+58b45849ffa7cced26e8d509827f9b7d4291ab9f resourcepacks\excessive_building_dat\data\bountifulfares\tags\block\pickets.json
+69e0e6a995a9e041aae103eba05292824f0bf9ce resourcepacks\excessive_building_dat\data\minecraft\tags\block\mineable\pickaxe.json
+c4f46ab1e91b0767afd5afc392efb183136862e8 resourcepacks\excessive_building_dat\data\minecraft\tags\block\mineable\axe.json
+39aeab511c7283be73cc07867d3f532cbd84826d resourcepacks\excessive_building_dat\data\minecraft\tags\block\climbable.json
+7a2215a7536acb34d46ed17b8e1772a2d5dc30cd resourcepacks\excessive_building_dat\data\minecraft\tags\block\stairs.json
+33d0e404c49589fbcc36ff2d7afa257557507be5 resourcepacks\excessive_building_dat\data\minecraft\tags\block\mineable\shovel.json
+cab7df359c41e6861a646cf7894875ac936f2d9c resourcepacks\excessive_building_dat\data\minecraft\tags\block\slabs.json
+b98e059e59edfbfcb0eb6f70c6c5a4059d1b18fa resourcepacks\excessive_building_dat\data\minecraft\tags\block\walls.json

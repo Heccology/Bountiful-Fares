@@ -106,7 +106,7 @@ public class BountifulFares implements ModInitializer {
 				}
 			});
 		});
-	} //appledog - Lydia
+	} //appledog - Yirmiri
 	//appledog - Hecco
 	//appledog - Diemond_Player (holy self-insert)
 }

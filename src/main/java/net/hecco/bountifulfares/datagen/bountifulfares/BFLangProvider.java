@@ -138,7 +138,7 @@ public class BFLangProvider extends FabricLanguageProvider {
 
 
         generate(translationBuilder, "effect.bountifulfares.restoration", "Restoration");
-        generate(translationBuilder, "effect.bountifulfares.restoration.description", "Regenerates health up to the health when it was applied.");
+        generate(translationBuilder, "effect.bountifulfares.restoration.description", "Regenerates health up to the health the player or mob had when this was applied.");
         generate(translationBuilder, "effect.bountifulfares.enrichment", "Enrichment");
         generate(translationBuilder, "effect.bountifulfares.enrichment.description", "Minor buffs to most stats.");
 
@@ -263,12 +263,12 @@ public class BFLangProvider extends FabricLanguageProvider {
 
 
         generate(translationBuilder, "tooltip.bountifulfares.dyeable", "Dyeable");
-        generate(translationBuilder, "tooltip.bountifulfares.when_lit", "When lit:");
+        generate(translationBuilder, "tooltip.bountifulfares.when_lit", "While Lit:");
         generate(translationBuilder, "tooltip.bountifulfares.removes", "Removes:");
-        generate(translationBuilder, "tooltip.bountifulfares.when_eaten", "When eaten:");
-        generate(translationBuilder, "tooltip.bountifulfares.when_drunk", "When drunk:");
+        generate(translationBuilder, "tooltip.bountifulfares.when_eaten", "When Consumed:");
+        generate(translationBuilder, "tooltip.bountifulfares.when_drunk", "When Drank:");
         generate(translationBuilder, "tooltip.bountifulfares.air_time", "Oxygen");
-        generate(translationBuilder, "tooltip.bountifulfares.removes_all_effects", "Removes all effects");
+        generate(translationBuilder, "tooltip.bountifulfares.removes_all_effects", "Removes all Effects");
 
 
         generate(translationBuilder, "painting.bountifulfares.bountiful.title", "Bountiful");
@@ -319,7 +319,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.how_easy", "How Easy...");
         generate(translationBuilder, "advancement.bountifulfares.how_easy.description", "Threaten to squeeze a Lemon Block");
 
-        generate(translationBuilder, "advancement.bountifulfares.obtain_fermentation_vessel", "Toil And Trouble");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_fermentation_vessel", "Toil and Trouble");
         generate(translationBuilder, "advancement.bountifulfares.obtain_fermentation_vessel.description", "Craft a Fermentation Vessel");
 
         generate(translationBuilder, "advancement.bountifulfares.eat_ancient_fruit", "How Long Has This Sat Out?");
@@ -334,7 +334,7 @@ public class BFLangProvider extends FabricLanguageProvider {
 //        generate(translationBuilder, "advancement.bountifulfares.throw_flour", "Great Escape");
 //        generate(translationBuilder, "advancement.bountifulfares.throw_flour.description", "Throw Flour");
 
-        generate(translationBuilder, "advancement.bountifulfares.obtain_sun_hat", "Who's the Farmer Now?");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_sun_hat", "Who's The Farmer Now?");
         generate(translationBuilder, "advancement.bountifulfares.obtain_sun_hat.description", "Obtain a Sun Hat");
 
         generate(translationBuilder, "advancement.bountifulfares.eat_all_candy", "Sweet Tooth");
@@ -355,7 +355,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.obtain_spongekin_seeds", "A Spongy Place");
         generate(translationBuilder, "advancement.bountifulfares.obtain_spongekin_seeds.description", "Discover the source of all these Sponges...");
 
-        generate(translationBuilder, "advancement.bountifulfares.obtain_spongekin", "Who Lives In A Loofah Under The Sea");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_spongekin", "Who Lives in a Loofah Under the Sea");
         generate(translationBuilder, "advancement.bountifulfares.obtain_spongekin.description", "Grow and collect a Spongekin");
 
         generate(translationBuilder, "advancement.bountifulfares.make_first_food", "Anyone Can Cook");
@@ -381,6 +381,18 @@ public class BFLangProvider extends FabricLanguageProvider {
 
         generate(translationBuilder, "subtitles.block.popped_maize.pop", "Maize pops");
 
+        generate(translationBuilder, "jei.info.appledog_block", "appledog is full of joy, appledog is full of more joy when clicked!");
+        generate(translationBuilder, "jei.info.golden_apple_sapling", "Golden Apple Trees are highly sensitive to light, and will wither and die if exposed to any higher than level 8. Additionally, no more fruit can be created after a tree is grown from a sapling.\n" +
+                "\n" +
+                "§o7 Golden Apple Trees are the Illagers’ most successful experiment throughout their endeavors into meddling with the world around them. Being able to convert a common Apple Tree into a living source of powerful foods was a revolution, however they were paranoid that their foes would discover their achievement. Now they can only be found growing in the darkness of the walls within Woodland Mansions, in secret, and guarded by troops of Illagers.");
+        generate(translationBuilder, "jei.info.ceramic_dish", "Allows items to be placed and eaten ontop of it. Foods with containers normally cannot be eaten on dishes (can be changed in the mod's config)");
+        generate(translationBuilder, "jei.info.artisian_brush", "While dyed this item can dye the color of ceramic blocks. If interacting with a dyeable ceramic block while crouching, the block's color will be copied to the brush. If both colors match, the ceramic block will become checkered (only applies to certain blocks)");
+        generate(translationBuilder, "jei.info.prismarine_blossom", "Can be obtained when a spongekin grows from a sea lantern.");
+        generate(translationBuilder, "jei.info.fermentation_vessel", "When ingredients are placed inside they will ferment over some time. The time taken to ferment can be changed in the config.");
+        generate(translationBuilder, "jei.info.artisan_food", "Can be eaten when placed.");
+        generate(translationBuilder, "jei.info.artisan_cookie", "Can be eaten when placed, up to 4 cookies can be stacked in a block.");
+        generate(translationBuilder, "jei.info.fruit_leaves", "Can grow fruits underneath it when bonemealed.");
+        generate(translationBuilder, "jei.info.chance_to_heal", "Has a chance to heal the user when consumed.");
 
 
         generate(translationBuilder, "config.bountifulfares.title", "Bountiful Fares Configuration");
