@@ -17,13 +17,13 @@ public class BFTooltipEvents {
     public static void addTooltipsToVanillaItems(ItemStack itemStack, Item.TooltipContext tooltipContext, TooltipType tooltipType, List<Text> tooltip) {
         if (BountifulFares.CONFIG.effectTooltips) {
             if (itemStack.getItem() == Items.MILK_BUCKET) {
-                tooltip.add(ScreenTexts.EMPTY);
-                tooltip.add(Text.translatable("tooltip.bountifulfares.when_drunk").formatted(Formatting.GRAY));
-                tooltip.add(Text.translatable("tooltip.bountifulfares.removes_all_effects").formatted(Formatting.BLUE));
+                tooltip.add(1, ScreenTexts.EMPTY);
+                tooltip.add(2, Text.translatable("tooltip.bountifulfares.when_drunk").formatted(Formatting.GRAY));
+                tooltip.add(3, Text.translatable("tooltip.bountifulfares.removes_all_effects").formatted(Formatting.BLUE));
             } else if (itemStack.getItem() == Items.HONEY_BOTTLE) {
-                tooltip.add(ScreenTexts.EMPTY);
-                tooltip.add(Text.translatable("tooltip.bountifulfares.removes").formatted(Formatting.GRAY));
-                tooltip.add(Text.translatable(new StatusEffectInstance(StatusEffects.POISON).getTranslationKey().formatted(StatusEffects.POISON.value().getCategory().getFormatting())).formatted(Formatting.RED));
+                tooltip.add(1, ScreenTexts.EMPTY);
+                tooltip.add(2, Text.translatable("tooltip.bountifulfares.removes").formatted(Formatting.GRAY));
+                tooltip.add(3, Text.translatable(new StatusEffectInstance(StatusEffects.POISON).getTranslationKey().formatted(StatusEffects.POISON.value().getCategory().getFormatting())).formatted(Formatting.RED));
             }
         }
     }
