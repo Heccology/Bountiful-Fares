@@ -19,6 +19,8 @@ import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -141,16 +143,17 @@ public class JackOStrawBlock extends Block implements Waterloggable {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (state.get(HALF) == DoubleBlockHalf.UPPER & !state.get(LIT) & player.getStackInHand(player.getActiveHand()).isIn(BFItemTags.JACK_O_STRAW_LIGHTABLE)) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
+        if (state.get(HALF) == DoubleBlockHalf.UPPER & !state.get(LIT) & stack.isIn(BFItemTags.JACK_O_STRAW_LIGHTABLE)) {
             if (!player.isCreative()) {
-                player.getStackInHand(player.getActiveHand()).decrement(1);
+                stack.decrement(1);
             }
             world.setBlockState(pos, this.getStateWithProperties(state).with(LIT, true), 2);
             world.playSound(null, pos, SoundEvents.BLOCK_CANDLE_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            return ActionResult.SUCCESS;
+            return ItemActionResult.SUCCESS;
         }
-        return ActionResult.PASS;
+        return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override

@@ -159,9 +159,9 @@ public class CeramicDoorBlock extends DoorBlock implements BlockEntityProvider {
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
         world.setBlockState(pos.up(), state.with(HALF, DoubleBlockHalf.UPPER), 3);
         if (world.getBlockEntity(pos.up()) instanceof DyeableCeramicBlockEntity entity) {
-            DyeableCeramicBlockItem thisEntity = (DyeableCeramicBlockItem) itemStack.getItem();
-            if (thisEntity.getComponents().get(DataComponentTypes.DYED_COLOR) != null) {
-                entity.color = thisEntity.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
+            DyeableCeramicBlockEntity thisEntity = (DyeableCeramicBlockEntity) world.getBlockEntity(pos);
+            if (thisEntity != null) {
+                entity.color = thisEntity.color;
             }
             entity.markDirty();
         }
