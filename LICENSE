@@ -1,15 +1,13 @@
+### For any other case:
 All Rights Reserved
 
-This license applies to any file in the following directories:
-- ./src/main/resources/assets/
+Copyright (c) 2025 Hecco
 
-This license also applies to any file in a `model` package.
 
-All other files are under the following license
-
+### Exclusively for "addons" of this software:
 MIT License
 
-Copyright (c) 2023 Hecco
+Copyright (c) 2025 Hecco
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -28,3 +26,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+For the purposes of this license, an "addon" is a seperate piece of software or mod for Minecraft that depends on this software to function, cannot function as an individual piece of software, and makes explicit and meaningful use of this software's features, systems and concepts. This does not include ports of this software, or mods substantially derived from this software, to other Minecraft mod loaders, game versions, or platforms.
