@@ -20,7 +20,8 @@ public class BFTooltipEvents {
                 tooltip.add(1, ScreenTexts.EMPTY);
                 tooltip.add(2, Text.translatable("tooltip.bountifulfares.when_drunk").formatted(Formatting.GRAY));
                 tooltip.add(3, Text.translatable("tooltip.bountifulfares.removes_all_effects").formatted(Formatting.BLUE));
-            } else if (itemStack.getItem() == Items.HONEY_BOTTLE) {
+            }
+            if (itemStack.getItem() == Items.HONEY_BOTTLE) {
                 tooltip.add(1, ScreenTexts.EMPTY);
                 tooltip.add(2, Text.translatable("tooltip.bountifulfares.removes").formatted(Formatting.GRAY));
                 tooltip.add(3, Text.translatable(new StatusEffectInstance(StatusEffects.POISON).getTranslationKey().formatted(StatusEffects.POISON.value().getCategory().getFormatting())).formatted(Formatting.RED));
