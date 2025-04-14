@@ -11,7 +11,7 @@ import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -25,6 +25,7 @@ import net.minecraft.util.Identifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 import static net.hecco.bountifulfares.BountifulFaresUtil.toSentenceCase;
 import static net.minecraft.data.server.recipe.RecipeProvider.conditionsFromItem;
@@ -229,7 +230,7 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
         }
     }
 
-    public static void registerTrellisRecipe(RecipeExporter exporter, TrellisVariant trellis) {
+    public static void registerTrellisRecipe(Consumer<RecipeJsonProvider> exporter, TrellisVariant trellis) {
         if (trellis.getCraftingItem() != null) {
             ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
                     .pattern("# #")
@@ -244,7 +245,7 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
         }
     }
 
-    public static void registerCompatTrellisRecipe(RecipeExporter exporter, TrellisVariant trellis) {
+    public static void registerCompatTrellisRecipe(Consumer<RecipeJsonProvider> exporter, TrellisVariant trellis) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
                     .pattern("# #")
                     .pattern(" P ")

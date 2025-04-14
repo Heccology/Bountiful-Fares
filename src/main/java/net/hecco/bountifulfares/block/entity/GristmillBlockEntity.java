@@ -1,30 +1,23 @@
 package net.hecco.bountifulfares.block.entity;
 
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.GristmillBlock;
 import net.hecco.bountifulfares.recipe.MillingRecipe;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
-import net.hecco.bountifulfares.registry.misc.BFRecipes;
 import net.hecco.bountifulfares.screen.GristmillScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.SidedInventory;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.RecipeInputProvider;
-import net.minecraft.recipe.RecipeMatcher;
-import net.minecraft.recipe.input.SingleStackRecipeInput;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
@@ -35,7 +28,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class GristmillBlockEntity extends BlockEntity implements SidedInventory, ImplementedInventory, NamedScreenHandlerFactory, RecipeInputProvider {
+public class GristmillBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
+
     private static BooleanProperty millingState;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
 
@@ -43,12 +37,12 @@ public class GristmillBlockEntity extends BlockEntity implements SidedInventory,
     private static final int[] BOTTOM_SLOTS = new int[]{1};
     private static final int INPUT_SLOT = 0;
     private static final int OUTPUT_SLOT = 1;
-    public final PropertyDelegate propertyDelegate;
+    protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 80;
     public GristmillBlockEntity(BlockPos pos, BlockState state) {
         super(BFBlockEntities.GRISTMILL_BLOCK_ENTITY, pos, state);
-        millingState = ((GristmillBlock) state.getBlock()).getMillingState();
+        millingState = ((GristmillBlock)state.getBlock()).getMillingState();
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
@@ -62,8 +56,8 @@ public class GristmillBlockEntity extends BlockEntity implements SidedInventory,
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0 -> GristmillBlockEntity.this.progress = value;
-                    case 1 -> GristmillBlockEntity.this.maxProgress = value;
+                    case 0: GristmillBlockEntity.this.progress = value;
+                    case 1: GristmillBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -75,68 +69,102 @@ public class GristmillBlockEntity extends BlockEntity implements SidedInventory,
     }
 
     @Override
+    public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
+        buf.writeBlockPos(this.pos);
+    }
+
+    @Override
+    public Text getDisplayName() {
+        return Text.translatable("block.bountifulfares.gristmill");
+    }
+
+    @Nullable
+    @Override
+    public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+        return new GristmillScreenHandler(syncId, playerInventory, this, propertyDelegate);
+    }
+
+    @Override
     public DefaultedList<ItemStack> getItems() {
         return this.inventory;
     }
 
-//
+
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        super.writeNbt(nbt, registryLookup);
-        Inventories.writeNbt(nbt, inventory, registryLookup);
+    protected void writeNbt(NbtCompound nbt) {
+        super.writeNbt(nbt);
+        Inventories.writeNbt(nbt, inventory);
         nbt.putInt("milling.progress", progress);
     }
+
     @Override
-    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        Inventories.readNbt(nbt, inventory, registryLookup);
-        progress = nbt.getInt("milling.progress");
-        super.readNbt(nbt, registryLookup);
+    public void readNbt(NbtCompound nbt) {
+        Inventories.readNbt(nbt, inventory);
+        nbt.getInt("milling.progress");
+        super.readNbt(nbt);
     }
 
-    public void tick(World world, BlockPos pos, BlockState state, GristmillBlockEntity blockEntity) {
-        if (BountifulFares.CONFIG.getMillingTime() * 20 != this.maxProgress) {
-            this.maxProgress = BountifulFares.CONFIG.getMillingTime() * 20;
-        }
-        //BountifulFares.LOGGER.info(state.get(millingState) + "" + !blockEntity.hasRecipe() + (blockEntity.progress != 0));
-        if (!state.get(millingState) && !blockEntity.inventory.get(0).isEmpty() && blockEntity.hasRecipe() && blockEntity.canInsertOutputSlot()) {
-            world.setBlockState(pos, state.with(millingState, true));
-        }
-        if (state.get(millingState) && !blockEntity.hasRecipe()) {
-            world.setBlockState(pos, state.with(millingState, false));
-        }
+    private boolean isCrafting() {
+        return hasRecipe() && canInsertOutputSlot();
+    }
 
-        if (this.progress == -1) {
-            this.progress = 20;
-        }
-        if (!world.isClient()) {
-            if (this.canInsertOutputSlot() && this.hasRecipe()) {
-                this.increaseCraftingProgress();
+    public void tick(World world, BlockPos pos, BlockState state) {
+        if (!world.isClient) {
+            if (this.maxProgress != (BountifulFares.CONFIG.getMillingTime() * 20)) {
+                this.maxProgress = BountifulFares.CONFIG.getMillingTime() * 20;
+            }
+//        Updates the block state based on if it is milling
+            if (!state.get(millingState) && !inventory.get(0).isEmpty() && isCrafting()) {
+                world.setBlockState(pos, state.with(millingState, true));
+            }
+            if (state.get(millingState) && !hasRecipe() && progress != 0) {
+                world.setBlockState(pos, state.with(millingState, false));
+            }
+            if (canInsertOutputSlot() && hasRecipe()) {
+                increaseCraftingProgress();
                 markDirty(world, pos, state);
-                if (this.hasCraftingFinished()) {
-                    this.craftItem();
-                    this.resetCraftingProgress();
+                if (hasCraftingFinished()) {
+                    craftItem();
+                    resetProgress();
                 }
             } else {
-                this.decreaseCraftingProgress();
+                decreaseCraftingProgress();
             }
         }
     }
 
-    private boolean hasRecipe() {
-        Optional<RecipeEntry<MillingRecipe>> recipe = getCurrentRecipe();
-        if (recipe.isEmpty()) return false;
-        ItemStack output = recipe.get().value().getOutput();
-        return canInsertAmountIntoOutputSlot(output.getCount())
-                && canInsertItemIntoOutputSlot(output);
+    private void resetProgress() {
+        this.progress = 1;
     }
 
     private void craftItem() {
-        Optional<RecipeEntry<MillingRecipe>> recipe = getCurrentRecipe();
+        Optional<MillingRecipe> recipe = getCurrentRecipe();
+
         this.removeStack(INPUT_SLOT, 1);
-        ItemStack i = recipe.get().value().getOutput();
-        i.increment(inventory.get(OUTPUT_SLOT).getCount());
-        this.setStack(OUTPUT_SLOT, i);
-        this.markDirty();
+        this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutput(null).getItem(),
+                this.getStack(OUTPUT_SLOT).getCount() + recipe.get().getOutput(null).getCount()));
+    }
+
+    private boolean hasCraftingFinished() {
+        return this.progress >= this.maxProgress;
+    }
+
+    private void increaseCraftingProgress() {
+        this.progress++;
+    }
+    private void decreaseCraftingProgress() {
+        if (this.progress > 0) {
+            this.progress -= 2;
+        }
+    }
+    private boolean hasRecipe() {
+        Optional<MillingRecipe> recipe = getCurrentRecipe();
+
+        if (recipe.isEmpty()) return false;
+        ItemStack output = recipe.get().getOutput(null);
+
+        return canInsertAmountIntoOutputSlot(output.getCount())
+                && canInsertItemIntoOutputSlot(output);
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
@@ -144,7 +172,7 @@ public class GristmillBlockEntity extends BlockEntity implements SidedInventory,
     }
 
     private boolean canInsertAmountIntoOutputSlot(int count) {
-        return this.getStack(OUTPUT_SLOT).isEmpty() || this.getStack(OUTPUT_SLOT).getMaxCount() >= this.getStack(OUTPUT_SLOT).getCount() + count;
+        return this.getStack(OUTPUT_SLOT).getMaxCount() >= this.getStack(OUTPUT_SLOT).getCount() + count;
     }
 
     @Override
@@ -158,58 +186,16 @@ public class GristmillBlockEntity extends BlockEntity implements SidedInventory,
         return TOP_SLOTS;
     }
 
-    private Optional<RecipeEntry<MillingRecipe>> getCurrentRecipe() {
-        if (this.getWorld() != null) {
-            return this.getWorld()
-                    .getRecipeManager()
-                    .getFirstMatch(BFRecipes.MILLING, new SingleStackRecipeInput(this.inventory.get(INPUT_SLOT)), this.world);
-        } else {
-            return Optional.empty();
+    private Optional<MillingRecipe> getCurrentRecipe() {
+        SimpleInventory inventory = new SimpleInventory(this.size());
+        for (int i = 0; i < this.size(); i++) {
+            inventory.setStack(i, this.getStack(i));
         }
+        return this.getWorld().getRecipeManager().getFirstMatch(MillingRecipe.Type.INSTANCE, inventory, this.getWorld());
     }
 
     private boolean canInsertOutputSlot() {
         return this.getStack(OUTPUT_SLOT).isEmpty() ||
                 this.getStack(OUTPUT_SLOT).getCount() < this.getStack(OUTPUT_SLOT).getMaxCount();
-    }
-
-    private boolean hasCraftingFinished() {
-        return this.progress >= this.maxProgress;
-    }
-
-    private void increaseCraftingProgress() {
-        this.progress++;
-    }
-
-    private void resetCraftingProgress() {
-        this.progress = 0;
-    }
-
-    private void decreaseCraftingProgress() {
-        if (this.progress > 0) {
-            this.progress -= 2;
-        }
-    }
-
-    @Override
-    public Text getDisplayName() {
-        return Text.translatable("bountifulfares.milling");
-    }
-
-    @Override
-    public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new GristmillScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
-    }
-
-    @Override
-    public Packet<ClientPlayPacketListener> toUpdatePacket() {
-        return BlockEntityUpdateS2CPacket.create(this);
-    }
-
-    @Override
-    public void provideRecipeInputs(RecipeMatcher finder) {
-        for(ItemStack itemStack : this.inventory) {
-            finder.addInput(itemStack);
-        }
     }
 }

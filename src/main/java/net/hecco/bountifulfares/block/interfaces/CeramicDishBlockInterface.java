@@ -4,9 +4,8 @@ import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 
@@ -20,13 +19,12 @@ public interface CeramicDishBlockInterface extends BlockEntityProvider {
 
     default ItemStack pickBlock(BlockView world, BlockPos pos, ItemStack stack){
         CeramicDishBlockEntity blockEntity = CERAMIC_DISH_BLOCK_ENTITY.get(world,pos);
-        int color;
+        int color = CeramicDishBlockEntity.DEFAULT_COLOR;
         if(blockEntity != null){
             color = blockEntity.color;
-        } else {
-            color = CeramicDishBlockEntity.DEFAULT_COLOR;
         }
-        stack.set(DataComponentTypes.DYED_COLOR, new DyedColorComponent(color, true));
+        NbtCompound subNbt = stack.getOrCreateSubNbt("display");
+        subNbt.putInt("color", color);
         return stack;
     }
 

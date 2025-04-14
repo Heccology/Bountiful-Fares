@@ -3,12 +3,12 @@ package net.hecco.bountifulfares.block.custom;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.compat.CompatUtil;
+import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.item.custom.DyeableCeramicBlockItem;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -32,7 +32,7 @@ public class CeramicDoorBlock extends DoorBlock implements BlockEntityProvider {
     private final BlockSetType blockSetType;
 
     public CeramicDoorBlock(Settings settings, BlockSetType blockSetType) {
-        super(blockSetType, settings);
+        super(settings, blockSetType);
         this.blockSetType = blockSetType;
     }
 
@@ -54,11 +54,11 @@ public class CeramicDoorBlock extends DoorBlock implements BlockEntityProvider {
             Item item = player.getStackInHand(player.getActiveHand()).getItem();
             if (CompatUtil.isItemPaintbrush(item)) {
                 brushColor = CompatUtil.getIntColorFromPaintbrush(item);
-            } else if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && !player.isSneaking() && itemStack.getComponents().contains(DataComponentTypes.DYED_COLOR)) {
-                brushColor = itemStack.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
+            } else if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && !player.isSneaking() && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
+                brushColor = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY).getInt(ArtisanBrushItem.COLOR_KEY);
             }
-        } else if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && !player.isSneaking() && itemStack.getComponents().contains(DataComponentTypes.DYED_COLOR)) {
-            brushColor = itemStack.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
+        } else if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && !player.isSneaking() && itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY) != null) {
+            brushColor = itemStack.getSubNbt(ArtisanBrushItem.DISPLAY_KEY).getInt(ArtisanBrushItem.COLOR_KEY);
         }
         if (brushColor != 1 && !player.isSneaking()) {
             if (state.get(HALF) == DoubleBlockHalf.LOWER && world.getBlockState(pos.up()).isOf(this)) {
@@ -160,22 +160,20 @@ public class CeramicDoorBlock extends DoorBlock implements BlockEntityProvider {
         world.setBlockState(pos.up(), state.with(HALF, DoubleBlockHalf.UPPER), 3);
         if (world.getBlockEntity(pos.up()) instanceof DyeableCeramicBlockEntity entity) {
             DyeableCeramicBlockItem thisEntity = (DyeableCeramicBlockItem) itemStack.getItem();
-            if (thisEntity.getComponents().get(DataComponentTypes.DYED_COLOR) != null) {
-                entity.color = thisEntity.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
-            }
+            entity.color = thisEntity.getColor(itemStack);
             entity.markDirty();
         }
     }
 
     @Override
-    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         if (state.get(HALF) == DoubleBlockHalf.LOWER && world.getBlockState(pos.up()).isOf(this)) {
             world.scheduleBlockTick(pos.up(), this, 1);
         }
         if (state.get(HALF) == DoubleBlockHalf.UPPER && world.getBlockState(pos.down()).isOf(this)) {
             world.scheduleBlockTick(pos.down(), this, 1);
         }
-        return super.onBreak(world, pos, state, player);
+        super.onBreak(world, pos, state, player);
     }
 
     @Override

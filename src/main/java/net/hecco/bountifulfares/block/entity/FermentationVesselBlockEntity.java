@@ -4,6 +4,7 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.FermentationVesselBlock;
 import net.hecco.bountifulfares.block.enums.FermentationStage;
 import net.hecco.bountifulfares.recipe.FermentationRecipe;
+import net.hecco.bountifulfares.recipe.MillingRecipe;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.misc.BFRecipes;
@@ -18,8 +19,6 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.input.SingleStackRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.sound.SoundCategory;
@@ -167,9 +166,9 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
         return false;
     }
 
-    public Optional<RecipeEntry<FermentationRecipe>> getCurrentRecipe() {
-        Optional<RecipeEntry<FermentationRecipe>> recipe = Objects.requireNonNull(this.getWorld()).getRecipeManager().getFirstMatch(BFRecipes.FERMENTING, new SingleStackRecipeInput(inventory.get(0)), this.world);
-        return recipe.isEmpty() ? Optional.empty() : Objects.requireNonNull(this.getWorld()).getRecipeManager().getFirstMatch(BFRecipes.FERMENTING, new SingleStackRecipeInput(inventory.get(0)), this.world);
+    public Optional<FermentationRecipe> getCurrentRecipe() {
+        Optional<FermentationRecipe> recipe = Objects.requireNonNull(this.getWorld()).getRecipeManager().getFirstMatch(FermentationRecipe.Type.INSTANCE, inventory, this.getWorld());
+        return recipe.isEmpty() ? Optional.empty() : Objects.requireNonNull(this.getWorld()).getRecipeManager().getFirstMatch(FermentationRecipe.Type.INSTANCE, inventory, this.getWorld());
     }
     public ActionResult tryExtractItem(World world, BlockPos pos, BlockState state, PlayerEntity player, Hand hand) {
         if (this.fermented) {
