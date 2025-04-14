@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -31,7 +32,7 @@ public class CeramicTrapdoorBlock extends TrapdoorBlock implements BlockEntityPr
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (DyeableCeramicBlock.onUse(state, world, pos, player, state.getBlock()) == ActionResult.PASS) {
+        if (DyeableCeramicBlock.onUse(player.getMainHandStack(), state, world, pos, player, player.getActiveHand(), state.getBlock()) == ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION) {
             if (!state.get(POWERED)) {
                 if (!this.blockSetType.canOpenByHand()) {
                     return ActionResult.PASS;
