@@ -90,7 +90,7 @@ public class BountifulFares implements ModInitializer {
 		BFSpecialRecipes.registerSpecialRecipes();
 		BFCompat.registerCompatContent();
 		DynamicRegistrySetupCallback.EVENT.register(registryManager -> {
-			LOGGER.info("DynamicRegistrySetupCallback triggered!");
+			//LOGGER.info("DynamicRegistrySetupCallback triggered!");
 
 			// Access the item registry
 			registryManager.getOptional(RegistryKeys.ITEM).ifPresent(itemRegistry -> {
@@ -109,4 +109,5 @@ public class BountifulFares implements ModInitializer {
 	} //appledog - Yirmiri
 	//appledog - Hecco
 	//appledog - Diemond_Player (holy self-insert)
+	//appledog - Artyrian (ew)
 }

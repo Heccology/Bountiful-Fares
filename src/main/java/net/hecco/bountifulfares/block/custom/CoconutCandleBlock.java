@@ -7,6 +7,7 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
@@ -16,6 +17,8 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -53,27 +56,28 @@ public class CoconutCandleBlock extends Block implements Waterloggable {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (player.getStackInHand(player.getActiveHand()).isEmpty() && state.get(LIT)) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
+        if (stack.isEmpty() && state.get(LIT)) {
             extinguish(player, state, world, pos);
-            return ActionResult.SUCCESS;
+            return ItemActionResult.SUCCESS;
         }
-        if ((player.getStackInHand(player.getActiveHand()).isOf(Items.FLINT_AND_STEEL) || player.getStackInHand(player.getActiveHand()).isOf(Items.FIRE_CHARGE)) && !canBeLit(state)) {
-            return ActionResult.FAIL;
-        } else if (player.getStackInHand(player.getActiveHand()).isOf(Items.FLINT_AND_STEEL)) {
+        if ((stack.isOf(Items.FLINT_AND_STEEL) || stack.isOf(Items.FIRE_CHARGE)) && !canBeLit(state)) {
+            return ItemActionResult.FAIL;
+        } else if (stack.isOf(Items.FLINT_AND_STEEL)) {
             setLit(world, state, pos, true);
             world.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, world.getRandom().nextFloat() * 0.4F + 0.8F);
-            player.getStackInHand(player.getActiveHand()).damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
-            return ActionResult.SUCCESS;
-        } else if (player.getStackInHand(player.getActiveHand()).isOf(Items.FIRE_CHARGE)) {
+            player.getStackInHand(hand).damage(1, player, LivingEntity.getSlotForHand(hand));
+            return ItemActionResult.SUCCESS;
+        } else if (stack.isOf(Items.FIRE_CHARGE)) {
             setLit(world, state, pos, true);
             world.playSound(null, pos, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1.0F, (world.random.nextFloat() - world.random.nextFloat()) * 0.2F + 1.0F);
             if (!player.isCreative()) {
-                player.getStackInHand(player.getActiveHand()).decrement(1);
+                stack.decrement(1);
             }
-            return ActionResult.SUCCESS;
+            return ItemActionResult.SUCCESS;
         }
-        return ActionResult.PASS;
+        return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     protected boolean canReplace(BlockState state, ItemPlacementContext context) {
@@ -151,7 +155,7 @@ public class CoconutCandleBlock extends Block implements Waterloggable {
     }
 
     public static boolean canBeLit(BlockState state) {
-        return !state.get(LIT) || !state.get(WATERLOGGED);
+        return !state.get(LIT) && !state.get(WATERLOGGED);
     }
 
     static void setLit(WorldAccess world, BlockState state, BlockPos pos, boolean lit) {
