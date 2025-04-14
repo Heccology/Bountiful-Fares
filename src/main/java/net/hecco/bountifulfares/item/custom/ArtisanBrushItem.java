@@ -35,7 +35,6 @@ public class ArtisanBrushItem extends Item {
         BlockState current = world.getBlockState(pos);
         int oldColor = DyeableBlockEntity.getColor(world, pos);
         DyedColorComponent component = context.getStack().get(DataComponentTypes.DYED_COLOR);
-        BountifulFares.LOGGER.info(DyedColorComponent.getColor(context.getStack(), DEFAULT_COLOR) + " " + (component != null ? component.rgb() : DEFAULT_COLOR) + " " + DyeableBlockEntity.getColor(world, pos));
         if (BFBlocks.CERAMIC_TO_CHECKERED_CERAMIC.containsKey(current.getBlock()) && DyeableBlockEntity.getColor(world, pos) != DyeableBlockEntity.DEFAULT_COLOR) {
             if ((component != null ? component.rgb() : DEFAULT_COLOR) == DyeableBlockEntity.getColor(world, pos)) {
                     world.setBlockState(pos, BFBlocks.CERAMIC_TO_CHECKERED_CERAMIC.get(current.getBlock()).getStateWithProperties(current));

@@ -387,6 +387,8 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         usedBlocks.add(BFBlocks.ORANGE_PIE);
         usedBlocks.add(BFBlocks.PASSION_FRUIT_TART);
         usedBlocks.add(BFBlocks.PLUM_PIE);
+        usedBlocks.add(BFBlocks.PUMPKIN_PIE);
+        usedBlocks.add(BFBlocks.MELON_PIE);
         usedBlocks.add(BFBlocks.SWEET_BERRY_TART);
         usedBlocks.add(BFBlocks.TEA_SHRUB);
         usedBlocks.add(BFBlocks.SPONGEKIN);

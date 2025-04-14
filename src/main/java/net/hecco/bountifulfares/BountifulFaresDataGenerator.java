@@ -2,6 +2,7 @@ package net.hecco.bountifulfares;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.hecco.bountifulfares.datagen.DisableCompatItemsVisibility;
 import net.hecco.bountifulfares.datagen.appledog.AppledogBlockLootTableProvider;
 import net.hecco.bountifulfares.datagen.appledog.AppledogBlockTagProvider;
 import net.hecco.bountifulfares.datagen.appledog.AppledogRecipeProvider;
@@ -21,6 +22,9 @@ import net.hecco.bountifulfares.datagen.dye_depot.DyeDepotRecipeProvider;
 import net.hecco.bountifulfares.datagen.excessive_building.ExcessiveBuildingBlockLootTableProvider;
 import net.hecco.bountifulfares.datagen.excessive_building.ExcessiveBuildingBlockTagProvider;
 import net.hecco.bountifulfares.datagen.excessive_building.ExcessiveBuildingRecipeProvider;
+import net.hecco.bountifulfares.datagen.farmersdelight.FarmersDelightBlockLootTableProvider;
+import net.hecco.bountifulfares.datagen.farmersdelight.FarmersDelightBlockTagProvider;
+import net.hecco.bountifulfares.datagen.farmersdelight.FarmersDelightRecipeProvider;
 import net.hecco.bountifulfares.datagen.mint.MintBlockLootTableProvider;
 import net.hecco.bountifulfares.datagen.mint.MintBlockTagProvider;
 import net.hecco.bountifulfares.datagen.mint.MintRecipeProvider;
@@ -69,10 +73,10 @@ public class BountifulFaresDataGenerator implements DataGeneratorEntrypoint {
         excessiveBuildingPack.addProvider(ExcessiveBuildingBlockTagProvider::new);
         excessiveBuildingPack.addProvider(ExcessiveBuildingRecipeProvider::new);
 
-//        FabricDataGenerator.Pack farmersDelightPack = fabricDataGenerator.createBuiltinResourcePack(Identifier.of(BountifulFares.MOD_ID, BountifulFares.FARMERS_DELIGHT_MOD_ID + "_dat"));
-//        farmersDelightPack.addProvider(FarmersDelightBlockLootTableProvider::new);
-//        farmersDelightPack.addProvider(FarmersDelightBlockTagProvider::new);
-//        farmersDelightPack.addProvider(FarmersDelightRecipeProvider::new);
+        FabricDataGenerator.Pack farmersDelightPack = fabricDataGenerator.createBuiltinResourcePack(Identifier.of(BountifulFares.MOD_ID, BountifulFares.FARMERS_DELIGHT_MOD_ID + "_dat"));
+        farmersDelightPack.addProvider(FarmersDelightBlockLootTableProvider::new);
+        farmersDelightPack.addProvider(FarmersDelightBlockTagProvider::new);
+        farmersDelightPack.addProvider(FarmersDelightRecipeProvider::new);
 
         FabricDataGenerator.Pack naturesSpiritPack = fabricDataGenerator.createBuiltinResourcePack(Identifier.of(BountifulFares.MOD_ID, BountifulFares.NATURES_SPIRIT_MOD_ID + "_dat"));
         naturesSpiritPack.addProvider(NaturesSpiritBlockLootTableProvider::new);
@@ -104,6 +108,10 @@ public class BountifulFaresDataGenerator implements DataGeneratorEntrypoint {
         dungeonsDelightPack.addProvider(DungeonsDelightBlockLootTableProvider::new);
         dungeonsDelightPack.addProvider(DungeonsDelightBlockTagProvider::new);
         dungeonsDelightPack.addProvider(DungeonsDelightRecipeProvider::new);
+
+        FabricDataGenerator.Pack disableCompatVisibilityPack = fabricDataGenerator.createBuiltinResourcePack(Identifier.of(BountifulFares.MOD_ID, "hide_compat_items"));
+        disableCompatVisibilityPack.addProvider(DisableCompatItemsVisibility::new);
+
     }
 
     @Override

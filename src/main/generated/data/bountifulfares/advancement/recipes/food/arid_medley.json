@@ -25,7 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": "bountifulfares:maize"
+            "items": "#c:foods/corn"
           }
         ]
       },

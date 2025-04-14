@@ -306,6 +306,7 @@ public class BFItemGroupAdditions {
             entries.addAfter(Items.BEETROOT, BFItems.MAIZE);
             entries.addAfter(BFItems.MAIZE, BFItems.LEEK);
             entries.addAfter(BFItems.LEEK, BFItems.WALNUT);
+            entries.addAfter(BFItems.WALNUT, BFItems.POPPED_MAIZE);
             entries.addAfter(Items.BREAD, BFItems.MAIZE_BREAD);
             entries.addAfter(BFItems.MAIZE_BREAD, BFBlocks.ARTISAN_BREAD);
             entries.addAfter(Items.COOKIE, BFItems.WALNUT_COOKIE);
@@ -317,7 +318,8 @@ public class BFItemGroupAdditions {
             entries.addAfter(BFBlocks.SWEET_BERRY_TART, BFBlocks.LAPISBERRY_TART);
             entries.addAfter(Items.CAKE, BFBlocks.COCOA_CAKE);
             entries.addAfter(BFBlocks.COCOA_CAKE, BFBlocks.COCONUT_CAKE);
-            entries.addAfter(Items.PUMPKIN_PIE, BFBlocks.APPLE_PIE);
+            entries.addAfter(Items.PUMPKIN_PIE, BFBlocks.MELON_PIE);
+            entries.addAfter(BFBlocks.MELON_PIE, BFBlocks.APPLE_PIE);
             entries.addAfter(BFBlocks.APPLE_PIE, BFBlocks.ORANGE_PIE);
             entries.addAfter(BFBlocks.ORANGE_PIE, BFBlocks.LEMON_PIE);
             entries.addAfter(BFBlocks.LEMON_PIE, BFBlocks.PLUM_PIE);

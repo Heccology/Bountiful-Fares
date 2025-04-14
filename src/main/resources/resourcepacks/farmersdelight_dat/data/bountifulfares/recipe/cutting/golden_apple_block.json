@@ -5,14 +5,16 @@
       "item": "bountifulfares:golden_apple_block"
     }
   ],
-  "tool": {
-    "fabric:type": "farmersdelight:tool_action",
-    "action": "axe_dig"
-  },
   "result": [
     {
-      "item": "minecraft:golden_apple",
-      "count": 9
+      "item": {
+        "count": 9,
+        "id": "minecraft:golden_apple"
+      }
     }
-  ]
+  ],
+  "tool": {
+    "fabric:type": "farmersdelight:item_ability",
+    "action": "axe_dig"
+  }
 }

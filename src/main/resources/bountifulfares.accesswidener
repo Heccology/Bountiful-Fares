@@ -1,4 +1,4 @@
-accessWidener   v1  named
+accessWidener   v2  named
 
 accessible class net/minecraft/client/gui/hud/InGameHud$HeartType
 
@@ -8,3 +8,8 @@ accessible class net/minecraft/structure/WoodlandMansionGenerator$FirstFloorRoom
 accessible class net/minecraft/structure/WoodlandMansionGenerator$SecondFloorRoomPool
 
 accessible class net/minecraft/block/enums/NoteBlockInstrument$Type
+
+accessible field net/minecraft/block/entity/CampfireBlockEntity cookingTimes [I
+accessible field net/minecraft/block/entity/CampfireBlockEntity matchGetter Lnet/minecraft/recipe/RecipeManager$MatchGetter;
+
+accessible field net/minecraft/block/entity/CampfireBlockEntity cookingTotalTimes [I

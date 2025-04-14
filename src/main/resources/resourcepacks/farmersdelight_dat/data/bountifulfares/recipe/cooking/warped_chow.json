@@ -15,6 +15,7 @@
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "item": "bountifulfares:warped_chow"
+    "count": 1,
+    "id": "bountifulfares:warped_chow"
   }
 }

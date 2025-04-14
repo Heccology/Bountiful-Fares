@@ -473,6 +473,14 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "popped_maize": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:popped_maize"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "sea_salad": {
       "conditions": {
         "item": {
@@ -645,6 +653,9 @@
     ],
     [
       "maize"
+    ],
+    [
+      "popped_maize"
     ],
     [
       "leek"

@@ -15,7 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#c:milks"
+            "items": "#c:foods/milk"
           }
         ]
       },
@@ -41,7 +41,7 @@
       "conditions": {
         "items": [
           {
-            "items": "bountifulfares:walnut"
+            "items": "#c:foods/walnuts"
           }
         ]
       },

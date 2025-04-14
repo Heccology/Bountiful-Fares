@@ -1,0 +1,37 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"parent": "block/block",
+	"textures": {
+		"0": "bountifulfares:block/melon_pie_inside",
+		"1": "bountifulfares:block/pie_bottom",
+		"2": "bountifulfares:block/pie_side",
+		"3": "bountifulfares:block/melon_pie_top",
+		"particle": "bountifulfares:block/melon_pie_top"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 8],
+			"to": [8, 6, 15],
+			"faces": {
+				"north": {"uv": [8, 10, 15, 16], "texture": "#0"},
+				"east": {"uv": [1, 10, 8, 16], "texture": "#0"},
+				"south": {"uv": [1, 10, 8, 16], "texture": "#2"},
+				"west": {"uv": [8, 10, 15, 16], "texture": "#2"},
+				"up": {"uv": [1, 8, 8, 15], "texture": "#3"},
+				"down": {"uv": [1, 1, 8, 8], "texture": "#1"}
+			}
+		},
+		{
+			"from": [5, 6, 8],
+			"to": [8, 8, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [5, 6, 5]},
+			"faces": {
+				"north": {"uv": [8, 8, 11, 10], "texture": "#0"},
+				"east": {"uv": [5, 8, 8, 10], "texture": "#0"},
+				"south": {"uv": [5, 8, 8, 10], "texture": "#0"},
+				"west": {"uv": [8, 8, 11, 10], "texture": "#0"},
+				"up": {"uv": [5, 8, 8, 11], "texture": "#3"}
+			}
+		}
+	]
+}

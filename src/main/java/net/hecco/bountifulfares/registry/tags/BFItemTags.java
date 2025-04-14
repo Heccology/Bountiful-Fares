@@ -7,9 +7,18 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 public class BFItemTags {
-    public static final TagKey<Item> C_MILKS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "milks"));
+    public static final TagKey<Item> C_MILKS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/milk"));
+    public static final TagKey<Item> C_WALNUTS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/walnuts"));
+    public static final TagKey<Item> C_ORANGES = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/oranges"));
+    public static final TagKey<Item> C_LEMONS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/lemons"));
+    public static final TagKey<Item> C_PLUMS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/plums"));
+    public static final TagKey<Item> C_PASSION_FRUIT = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/passion_fruit"));
+    public static final TagKey<Item> C_ELDERBERRIES = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/elderberries"));
+    public static final TagKey<Item> C_CORN = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "foods/corn"));
     public static final TagKey<Item> C_FLOUR = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "flour"));
     public static final TagKey<Item> C_COCONUT_HALVES = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "coconut_halves"));
+
+    public static final TagKey<Item> C_HIDDEN_FROM_RECIPE_VIEWERS = TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "hidden_from_recipe_viewers"));
 
     public static final TagKey<Item> APPLE_LOGS = TagKey.of(RegistryKeys.ITEM, Identifier.of(BountifulFares.MOD_ID, "apple_logs"));
     public static final TagKey<Item> ORANGE_LOGS = TagKey.of(RegistryKeys.ITEM, Identifier.of(BountifulFares.MOD_ID, "orange_logs"));

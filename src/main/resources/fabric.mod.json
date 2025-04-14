@@ -15,6 +15,7 @@
 	"license": "MIT License",
 	"icon": "assets/bountifulfares/icon.png",
 	"environment": "*",
+	"accessWidener": "bountifulfares.accesswidener",
 	"entrypoints": {
 		"main": [
 			"net.hecco.bountifulfares.BountifulFares"
@@ -30,6 +31,9 @@
 		],
 		"jei_mod_plugin": [
 			"net.hecco.bountifulfares.compat.jei.JEIPlugin"
+		],
+		"emi": [
+			"net.hecco.bountifulfares.compat.emi.BFEmiPlugin"
 		]
 	},
 	"mixins": [

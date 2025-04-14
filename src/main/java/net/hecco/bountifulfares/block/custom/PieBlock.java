@@ -10,7 +10,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
-public class PieBlock extends QuarterPastryBlock{
+public class PieBlock extends QuarterPastryBlock {
 
     public static final VoxelShape[] NORTH_SHAPES = new VoxelShape[] {
             Block.createCuboidShape(1, 0, 1, 15, 6, 15),

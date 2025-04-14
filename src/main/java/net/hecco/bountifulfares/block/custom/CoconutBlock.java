@@ -239,7 +239,6 @@ public class CoconutBlock extends FallingBlock implements Fertilizable {
             world.playSound(null, pos, BFSounds.COCONUT_LAND, SoundCategory.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
         }
         fallingBlockEntity.discard();
-        BountifulFares.LOGGER.info("landed" + world.getBlockState(pos));
         world.removeBlock(pos, false);
     }
 

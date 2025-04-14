@@ -1,0 +1,6 @@
+{
+  "parent": "bountifulfares:block/template_trellis",
+  "textures": {
+    "texture": "dungeonsdelight:block/wormwood_trellis"
+  }
+}

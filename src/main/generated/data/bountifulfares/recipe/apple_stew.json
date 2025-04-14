@@ -9,10 +9,10 @@
       "item": "minecraft:apple"
     },
     {
-      "item": "bountifulfares:elderberries"
+      "tag": "c:foods/elderberries"
     },
     {
-      "item": "bountifulfares:elderberries"
+      "tag": "c:foods/elderberries"
     },
     {
       "item": "minecraft:bowl"

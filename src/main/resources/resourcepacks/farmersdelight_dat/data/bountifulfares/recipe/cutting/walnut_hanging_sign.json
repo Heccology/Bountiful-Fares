@@ -5,13 +5,16 @@
       "item": "bountifulfares:walnut_hanging_sign"
     }
   ],
-  "tool": {
-    "fabric:type": "farmersdelight:tool_action",
-    "action": "axe_dig"
-  },
   "result": [
     {
-      "item": "bountifulfares:walnut_planks"
+      "item": {
+        "count": 1,
+        "id": "bountifulfares:walnut_planks"
+      }
     }
-  ]
+  ],
+  "tool": {
+    "fabric:type": "farmersdelight:item_ability",
+    "action": "axe_dig"
+  }
 }

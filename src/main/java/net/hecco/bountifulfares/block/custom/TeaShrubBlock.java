@@ -85,7 +85,7 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
             itemStack.damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
             if (state.get(AGE) == 4) {
-                dropStack(world, pos, new ItemStack(BFItems.TEA_LEAVES, 2 + world.random.nextInt(3)));
+                dropStack(world, pos, new ItemStack(BFItems.TEA_LEAVES, 3 + world.random.nextInt(2)));
             } else {
                 dropStack(world, pos, new ItemStack(BFItems.TEA_LEAVES, 1 + world.random.nextInt(2)));
             }
@@ -133,6 +133,6 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
         return state.get(AGE) == 4;
     }
     protected static boolean canHarvestLeaves(BlockState state) {
-        return (state.get(AGE) == 3 || state.get(AGE) == 4) && !state.get(BERRIES);
+        return state.get(AGE) >= 3 && !state.get(BERRIES);
     }
 }

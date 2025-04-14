@@ -1,0 +1,38 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"parent": "block/block",
+	"textures": {
+		"0": "bountifulfares:block/pumpkin_pie_top",
+		"1": "bountifulfares:block/pie_side",
+		"3": "bountifulfares:block/pie_bottom",
+		"4": "bountifulfares:block/pumpkin_pie_inside",
+		"particle": "bountifulfares:block/pumpkin_pie_top"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 1],
+			"to": [15, 6, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [1, 10, 15, 16], "texture": "#1"},
+				"east": {"uv": [1, 10, 15, 16], "texture": "#1"},
+				"south": {"uv": [1, 10, 15, 16], "texture": "#1"},
+				"west": {"uv": [1, 10, 15, 16], "texture": "#1"},
+				"up": {"uv": [1, 1, 15, 15], "texture": "#0"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#3"}
+			}
+		},
+		{
+			"from": [5, 6, 5],
+			"to": [11, 8, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [5, 6, 5]},
+			"faces": {
+				"north": {"uv": [5, 8, 11, 10], "texture": "#4"},
+				"east": {"uv": [5, 8, 11, 10], "texture": "#4"},
+				"south": {"uv": [5, 8, 11, 10], "texture": "#4"},
+				"west": {"uv": [5, 8, 11, 10], "texture": "#4"},
+				"up": {"uv": [5, 5, 11, 11], "texture": "#0"}
+			}
+		}
+	]
+}

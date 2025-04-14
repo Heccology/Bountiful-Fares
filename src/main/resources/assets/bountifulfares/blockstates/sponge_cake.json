@@ -1,0 +1,46 @@
+{
+  "variants": {
+    "bites=0,pickled=false": {
+      "model": "bountifulfares:block/sponge_cake"
+    },
+    "bites=1,pickled=false": {
+      "model": "bountifulfares:block/sponge_cake_1"
+    },
+    "bites=2,pickled=false": {
+      "model": "bountifulfares:block/sponge_cake_2"
+    },
+    "bites=3,pickled=false": {
+      "model": "bountifulfares:block/sponge_cake_3"
+    },
+    "bites=4,pickled=false": {
+      "model": "bountifulfares:block/sponge_cake_4"
+    },
+    "bites=5,pickled=false": {
+      "model": "bountifulfares:block/sponge_cake_5"
+    },
+    "bites=6,pickled=false": {
+      "model": "bountifulfares:block/sponge_cake_6"
+    },
+    "bites=0,pickled=true": {
+      "model": "bountifulfares:block/pickle_sponge_cake"
+    },
+    "bites=1,pickled=true": {
+      "model": "bountifulfares:block/sponge_cake_1"
+    },
+    "bites=2,pickled=true": {
+      "model": "bountifulfares:block/sponge_cake_2"
+    },
+    "bites=3,pickled=true": {
+      "model": "bountifulfares:block/sponge_cake_3"
+    },
+    "bites=4,pickled=true": {
+      "model": "bountifulfares:block/sponge_cake_4"
+    },
+    "bites=5,pickled=true": {
+      "model": "bountifulfares:block/sponge_cake_5"
+    },
+    "bites=6,pickled=true": {
+      "model": "bountifulfares:block/sponge_cake_6"
+    }
+  }
+}

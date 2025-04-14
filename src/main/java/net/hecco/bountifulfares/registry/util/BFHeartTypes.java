@@ -5,7 +5,8 @@ import net.minecraft.client.gui.hud.InGameHud;
 public class BFHeartTypes
 {
     // This solely ensures the class remains loaded.
-    static {
+    static
+    {
         InGameHud.HeartType.values();
     }
 

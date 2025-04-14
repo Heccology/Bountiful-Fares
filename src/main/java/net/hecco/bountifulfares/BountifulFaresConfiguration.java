@@ -22,12 +22,15 @@ public class BountifulFaresConfiguration {
     private boolean acidifiedEffectIconEffects = true;
     private boolean fermentationBubbleParticles = true;
     public boolean effectTooltips = true;
+    public boolean enablePlaceablePumpkinPie = true;
+    public boolean cakeEatSounds = true;
     public boolean enableSweetBerryPips = true;
     private boolean enableLapisberrySeeds = true;
     private boolean enableHoarySeeds = true;
     public boolean grassLootTableOverride = true;
     private boolean enableElderGuardianSpongekinSeeds = true;
     private boolean enableGuardianSpongekinSeeds = true;
+    public boolean showCompatItemsInRecipeViewers = true;
     private boolean generateWildWheat = true;
     private boolean generateWildCarrots = true;
     private boolean generateWildPotatoes = true;
@@ -136,6 +139,14 @@ public class BountifulFaresConfiguration {
 
     public void setFermentationBubbleParticles(boolean bool) {
         fermentationBubbleParticles = bool;
+    }
+
+    public boolean isCakeEatSounds() {
+        return cakeEatSounds;
+    }
+
+    public void setCakeEatSounds(boolean bool) {
+        cakeEatSounds = bool;
     }
 
     public boolean isEnableFlourThrowing() {

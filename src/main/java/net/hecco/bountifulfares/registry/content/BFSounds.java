@@ -61,8 +61,11 @@ public class BFSounds {
     public static final SoundEvent COIR_STEP = registerSoundEvent("coir_step");
     public static final SoundEvent COIR_FALL = registerSoundEvent("coir_fall");
 
-    public static final SoundEvent CABINET_OPEN = registerSoundEvent("cabinet_open");
-    public static final SoundEvent CABINET_CLOSE = registerSoundEvent("cabinet_close");
+    public static final SoundEvent POPPED_MAIZE_POP = registerSoundEvent("popped_maize_pop");
+
+    // Fallback sounds for FD sounds
+    public static SoundEvent CABINET_OPEN = SoundEvents.BLOCK_BARREL_OPEN;
+    public static SoundEvent CABINET_CLOSE = SoundEvents.BLOCK_BARREL_CLOSE;
 
     // Note Block sounds MUST be registered as a RegistryEntry<SoundEvent>! Using registerSoundReference() will do this.
     // The below sound is used in the example in NoteBlockInstrumentMixin. It can be deleted if necessary.

@@ -23,6 +23,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 import java.util.Map;
 import java.util.function.ToIntFunction;
@@ -185,7 +186,7 @@ public class BFBlocks {
 
     public static final Block FERMENTATION_VESSEL = registerBlock("fermentation_vessel", new FermentationVesselBlock(AbstractBlock.Settings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).instrument(BFNoteBlockInstruments.OCARINA).requiresTool().nonOpaque().sounds(BFSounds.CERAMIC_DECORATION)));
     public static final Block APPLE_BLOCK = registerBlock("apple_block", new AppleBlock(AbstractBlock.Settings.create().mapColor(MapColor.RED).strength(1f).instrument(NoteBlockInstrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block GOLDEN_APPLE_BLOCK = registerBlock("golden_apple_block", new GoldenAppleBlock(AbstractBlock.Settings.create().mapColor(MapColor.YELLOW).strength(1f).instrument(NoteBlockInstrument.DIDGERIDOO).sounds(BlockSoundGroup.METAL).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block GOLDEN_APPLE_BLOCK = registerBlock("golden_apple_block", new GoldenAppleBlock(AbstractBlock.Settings.create().mapColor(MapColor.YELLOW).strength(1f).instrument(NoteBlockInstrument.DIDGERIDOO).sounds(BlockSoundGroup.METAL).pistonBehavior(PistonBehavior.DESTROY)), Rarity.EPIC);
     public static final Block ORANGE_BLOCK = registerBlock("orange_block", new OrangeBlock(AbstractBlock.Settings.create().mapColor(MapColor.ORANGE).strength(0.5f).instrument(NoteBlockInstrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD)));
     public static final Block LEMON_BLOCK = registerBlock("lemon_block", new LemonBlock(AbstractBlock.Settings.create().mapColor(MapColor.YELLOW).strength(0.5f).instrument(NoteBlockInstrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD)));
     public static final Block PLUM_BLOCK = registerBlock("plum_block", new PlumBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_DULL_PINK).strength(0.5f).instrument(NoteBlockInstrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD)));
@@ -239,7 +240,10 @@ public class BFBlocks {
     public static final Block LEMON_PIE = registerBlock16StackItem("lemon_pie", new PieBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block PLUM_PIE = registerBlock16StackItem("plum_pie", new PieBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block HOARY_PIE = registerBlock16StackItem("hoary_pie", new PieBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block PUMPKIN_PIE = registerBlockNoItem("pumpkin_pie", new PieBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block MELON_PIE = registerBlock16StackItem("melon_pie", new PieBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block COCOA_CAKE = registerBlockUnstackableItem("cocoa_cake", new NoCandleCakeBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block SPONGE_CAKE = registerBlockUnstackableItem("sponge_cake", new SpongeCakeBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY).luminance((state) -> state.get(SpongeCakeBlock.PICKLED) && state.get(Properties.BITES) == 0 ? 5 : 0)));
     public static final Block ARTISAN_BREAD = registerBlock16StackItem("artisan_bread", new ArtisanBreadBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block ARTISAN_COOKIES = registerBlockNoItem("artisan_cookies", new ArtisanCookiesBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
 
@@ -261,11 +265,11 @@ public class BFBlocks {
     public static Block GRASSY_DIRT = registerBlock("grassy_dirt", new GrassyDirtBlock(AbstractBlock.Settings.copy(Blocks.DIRT).ticksRandomly()));
 
 
-    public static final Block GOLDEN_APPLE_LOG = registerBlock("golden_apple_log", new FruitLogBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).nonOpaque().notSolid()));
-    public static final Block GOLDEN_APPLE_WOOD = registerBlock("golden_apple_wood", new FruitLogBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).nonOpaque().notSolid()));
-    public static final Block GOLDEN_APPLE_LEAVES = registerBlock("golden_apple_leaves", new GoldenAppleLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).mapColor(MapColor.GOLD)));
-    public static final Block FLOWERING_GOLDEN_APPLE_LEAVES = registerBlock("flowering_golden_apple_leaves", new GoldenAppleLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).mapColor(MapColor.GOLD)));
-    public static final Block GOLDEN_APPLE_SAPLING = registerBlock("golden_apple_sapling", new SaplingBlock(BFSaplingGenerators.GOLDEN_APPLE_SAPLING_GENERATOR, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).luminance(state -> 7)));
+    public static final Block GOLDEN_APPLE_LOG = registerBlock("golden_apple_log", new FruitLogBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).nonOpaque().notSolid()), Rarity.UNCOMMON);
+    public static final Block GOLDEN_APPLE_WOOD = registerBlock("golden_apple_wood", new FruitLogBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).nonOpaque().notSolid()), Rarity.UNCOMMON);
+    public static final Block GOLDEN_APPLE_LEAVES = registerBlock("golden_apple_leaves", new GoldenAppleLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).mapColor(MapColor.GOLD)), Rarity.UNCOMMON);
+    public static final Block FLOWERING_GOLDEN_APPLE_LEAVES = registerBlock("flowering_golden_apple_leaves", new GoldenAppleLeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).mapColor(MapColor.GOLD)), Rarity.UNCOMMON);
+    public static final Block GOLDEN_APPLE_SAPLING = registerBlock("golden_apple_sapling", new SaplingBlock(BFSaplingGenerators.GOLDEN_APPLE_SAPLING_GENERATOR, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).luminance(state -> 7)), Rarity.RARE);
     public static final Block POTTED_GOLDEN_APPLE_SAPLING = registerBlockNoItem("potted_golden_apple_sapling", new FlowerPotBlock(BFBlocks.GOLDEN_APPLE_SAPLING, AbstractBlock.Settings.copy(Blocks.POTTED_OAK_SAPLING).luminance(state -> 7)));
     public static final Block HANGING_GOLDEN_APPLE = registerBlockNoItem("hanging_golden_apple", new HangingGoldenAppleBlock(AbstractBlock.Settings.create().mapColor(MapColor.GOLD).dynamicBounds().sounds(BlockSoundGroup.AZALEA).pistonBehavior(PistonBehavior.DESTROY).ticksRandomly().offset(AbstractBlock.OffsetType.XZ).luminance((state) -> 7)));
     public static final Block HANGING_WITHERED_GOLDEN_APPLE = registerBlockNoItem("hanging_withered_golden_apple", new HangingWitheredGoldenAppleBlock(AbstractBlock.Settings.create().mapColor(MapColor.TERRACOTTA_BLACK).dynamicBounds().sounds(BlockSoundGroup.AZALEA).pistonBehavior(PistonBehavior.DESTROY).offset(AbstractBlock.OffsetType.XZ)));
@@ -282,6 +286,11 @@ public class BFBlocks {
 
     public static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, Identifier.of(BountifulFares.MOD_ID, name), block);
+    }
+
+    public static Block registerBlock(String name, Block block, Rarity rarity) {
+        registerBlockItem(name, block, rarity);
         return Registry.register(Registries.BLOCK, Identifier.of(BountifulFares.MOD_ID, name), block);
     }
 
@@ -309,6 +318,10 @@ public class BFBlocks {
 
     private static void registerBlockItem(String name, Block block) {
         Registry.register(Registries.ITEM, Identifier.of(BountifulFares.MOD_ID, name), new BlockItem(block, new Item.Settings()));
+    }
+
+    private static void registerBlockItem(String name, Block block, Rarity rarity) {
+        Registry.register(Registries.ITEM, Identifier.of(BountifulFares.MOD_ID, name), new BlockItem(block, new Item.Settings().rarity(rarity)));
     }
 
     private static void register16StackItem(String name, Block block) {

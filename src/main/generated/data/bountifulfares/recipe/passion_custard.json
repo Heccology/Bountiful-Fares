@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "c:milks"
+      "tag": "c:foods/milk"
     },
     {
       "item": "minecraft:sugar"
     },
     {
-      "item": "bountifulfares:passion_fruit"
+      "tag": "c:foods/passion_fruit"
     },
     {
       "item": "minecraft:bowl"

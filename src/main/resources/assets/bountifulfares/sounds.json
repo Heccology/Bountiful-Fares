@@ -330,5 +330,13 @@
       "bountifulfares:note/steel_drum"
     ],
     "subtitle": "subtitles.block.note_block.note"
+  },
+  "popped_maize_pop": {
+    "sounds": [
+      "bountifulfares:popped_maize/pop1",
+      "bountifulfares:popped_maize/pop2",
+      "bountifulfares:popped_maize/pop3"
+    ],
+    "subtitle": "subtitles.block.popped_maize.pop"
   }
 }

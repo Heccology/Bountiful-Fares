@@ -1,0 +1,85 @@
+{
+  "values": [
+    "dungeonsdelight:wormwood_pickets",
+    {
+      "id": "dungeonsdelight:wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:passion_fruit_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:elderberry_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:lapisberry_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:glow_berry_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:spawn_sunflower_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:rose_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:lilac_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:peony_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:sunflower_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:vine_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:weeping_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:twisting_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:ns_lavender_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:ns_bleeding_heart_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:ns_blue_bulb_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:ns_carnation_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:ns_gardenia_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:ns_marigold_wormwood_trellis",
+      "required": false
+    },
+    {
+      "id": "dungeonsdelight:ns_foxglove_wormwood_trellis",
+      "required": false
+    }
+  ]
+}

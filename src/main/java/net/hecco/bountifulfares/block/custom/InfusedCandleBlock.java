@@ -6,7 +6,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.component.type.PotionContentsComponent;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -18,8 +18,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.potion.PotionUtil;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.sound.SoundCategory;
@@ -30,6 +30,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -58,17 +59,13 @@ public class InfusedCandleBlock extends BlockWithEntity implements BlockEntityPr
         this.setDefaultState(this.stateManager.getDefaultState().with(LIT, false).with(WATERLOGGED, false));
     }
 
-    @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
-        super.appendTooltip(stack, context, tooltip, type);
-        tooltip.add(ScreenTexts.EMPTY);
-        tooltip.add(Text.translatable("tooltip.bountifulfares.when_lit").formatted(Formatting.GRAY));
-        PotionContentsComponent.buildTooltip(List.of(new StatusEffectInstance(effect, 1, 0)), tooltip::add, 1.0F, context.getUpdateTickRate());
-    }
 
     @Override
-    protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return null;
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        super.appendTooltip(stack, world, tooltip, options);
+        tooltip.add(ScreenTexts.EMPTY);
+        tooltip.add(Text.translatable("tooltip.bountifulfares.when_lit").formatted(Formatting.GRAY));
+        PotionUtil.buildTooltip(List.of(new StatusEffectInstance(effect.value(), 1, 0)), List.of(), 1.0F);
     }
 
     @Override
@@ -77,23 +74,23 @@ public class InfusedCandleBlock extends BlockWithEntity implements BlockEntityPr
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (player.getStackInHand(player.getActiveHand()).isEmpty() && state.get(LIT)) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (player.getStackInHand(hand).isEmpty() && state.get(LIT)) {
             extinguish(player, state, world, pos);
             return ActionResult.SUCCESS;
         }
-        if ((player.getStackInHand(player.getActiveHand()).isOf(Items.FLINT_AND_STEEL) || player.getStackInHand(player.getActiveHand()).isOf(Items.FIRE_CHARGE)) && !canBeLit(state)) {
+        if ((player.getStackInHand(hand).isOf(Items.FLINT_AND_STEEL) || player.getStackInHand(hand).isOf(Items.FIRE_CHARGE)) && !canBeLit(state)) {
             return ActionResult.FAIL;
-        } else if (player.getStackInHand(player.getActiveHand()).isOf(Items.FLINT_AND_STEEL)) {
+        } else if (player.getStackInHand(hand).isOf(Items.FLINT_AND_STEEL)) {
             setLit(world, state, pos, true);
             world.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, world.getRandom().nextFloat() * 0.4F + 0.8F);
-            player.getStackInHand(player.getActiveHand()).damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
+            player.getStackInHand(hand).damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
             return ActionResult.SUCCESS;
-        } else if (player.getStackInHand(player.getActiveHand()).isOf(Items.FIRE_CHARGE)) {
+        } else if (player.getStackInHand(hand).isOf(Items.FIRE_CHARGE)) {
             setLit(world, state, pos, true);
             world.playSound(null, pos, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1.0F, (world.random.nextFloat() - world.random.nextFloat()) * 0.2F + 1.0F);
             if (!player.isCreative()) {
-                player.getStackInHand(player.getActiveHand()).decrement(1);
+                player.getStackInHand(hand).decrement(1);
             }
             return ActionResult.SUCCESS;
         }

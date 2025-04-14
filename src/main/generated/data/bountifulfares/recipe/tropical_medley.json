@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bountifulfares:orange"
+      "tag": "c:foods/oranges"
     },
     {
       "item": "minecraft:cocoa_beans"
     },
     {
-      "item": "bountifulfares:passion_fruit"
+      "tag": "c:foods/passion_fruit"
     },
     {
       "item": "bountifulfares:coconut_half"
