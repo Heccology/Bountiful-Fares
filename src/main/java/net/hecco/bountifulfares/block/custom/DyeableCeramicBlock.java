@@ -1,12 +1,15 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.compat.CompatUtil;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.enums.DoorHinge;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,8 +17,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
+import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.math.BlockPos;
@@ -25,6 +31,11 @@ import net.minecraft.world.WorldView;
 import static net.hecco.bountifulfares.registry.content.BFBlockEntities.CERAMIC_TILES_BLOCK_ENTITY;
 
 public class DyeableCeramicBlock {
+
+    private static final EnumProperty<DoubleBlockHalf> HALF = CeramicDoorBlock.HALF;
+    private static final DirectionProperty FACING = CeramicDoorBlock.FACING;
+    private static final BooleanProperty OPEN = CeramicDoorBlock.OPEN;
+    private static final EnumProperty<DoorHinge> HINGE = CeramicDoorBlock.HINGE;
 
     public static BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new DyeableCeramicBlockEntity(pos, state);
@@ -47,6 +58,7 @@ public class DyeableCeramicBlock {
         }
     }
 
+    /** Attempts to dye the provided block with the ceramic coloring. Meant for most single-block ceramics. */
     public static ItemActionResult onUse(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, Block block) {
         if (stack.isOf(Items.WET_SPONGE) && !player.isSneaking())
         {
@@ -80,6 +92,124 @@ public class DyeableCeramicBlock {
                     }
                     return ItemActionResult.SUCCESS;
                 }
+            }
+        }
+        return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    /** Attempts to dye the provided dish with the ceramic coloring, while keeping its contents intact. Meant for ceramic dishes. */
+    public static ItemActionResult onUseForDish(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, Block block, CeramicDishBlockEntity dish) {
+        ItemStack stackEntity = dish.getStack(0).copy();
+        if (stack.isOf(Items.WET_SPONGE) && !player.isSneaking())
+        {
+            dish.setStack(0, ItemStack.EMPTY);
+            world.removeBlock(pos, false);
+            world.setBlockState(pos, block.getStateWithProperties(state));
+
+            CeramicDishBlockEntity newDish = (CeramicDishBlockEntity) world.getBlockEntity(pos);
+            if (newDish != null)
+            {
+                newDish.insertItem(stackEntity);
+            }
+
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SPONGE_ABSORB, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+            return ItemActionResult.SUCCESS;
+        }
+        if (stack.isOf(BFItems.ARTISAN_BRUSH) && !player.isSneaking() && stack.get(DataComponentTypes.DYED_COLOR) != null) {
+            int brushColor = stack.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
+            dish.setStack(0, ItemStack.EMPTY);
+            world.removeBlock(pos, false);
+            world.setBlockState(pos, block.getStateWithProperties(state));
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+            if (world.getBlockEntity(pos) instanceof CeramicDishBlockEntity ceramicDishBlockEntity && ceramicDishBlockEntity.color != brushColor) {
+                ceramicDishBlockEntity.color = brushColor;
+                ceramicDishBlockEntity.markDirty();
+            }
+
+            CeramicDishBlockEntity newDish = (CeramicDishBlockEntity) world.getBlockEntity(pos);
+            if (newDish != null)
+            {
+                newDish.insertItem(stackEntity);
+            }
+
+            return ItemActionResult.SUCCESS;
+        }
+        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+            Item item = stack.getItem();
+            if (CompatUtil.isItemPaintbrush(item)) {
+                int brushColor = CompatUtil.getIntColorFromPaintbrush(item);
+                if (brushColor != 1) {
+                    dish.setStack(0, ItemStack.EMPTY);
+                    world.removeBlock(pos, false);
+                    world.setBlockState(pos, block.getStateWithProperties(state));
+                    world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+                    if (world.getBlockEntity(pos) instanceof CeramicDishBlockEntity ceramicDishBlockEntity && ceramicDishBlockEntity.color != brushColor) {
+                        ceramicDishBlockEntity.color = brushColor;
+                        ceramicDishBlockEntity.markDirty();
+                    }
+
+                    CeramicDishBlockEntity newDish = (CeramicDishBlockEntity) world.getBlockEntity(pos);
+                    if (newDish != null)
+                    {
+                        newDish.insertItem(stackEntity);
+                    }
+
+                    return ItemActionResult.SUCCESS;
+                }
+            }
+        }
+        return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    /** Attempts to dye the provided door with the ceramic coloring, and then dye its opposite piece. Meant for ceramic doors. */
+    public static ItemActionResult onUseForDoor(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, Block block, CeramicDoorBlock door) {
+        int brushColor = -1;
+        SoundEvent playedSFX = SoundEvents.ITEM_DYE_USE;
+
+        if (stack.isOf(Items.WET_SPONGE) && !player.isSneaking())
+        {
+            brushColor = DyeableCeramicBlockEntity.DEFAULT_COLOR;
+            playedSFX = SoundEvents.BLOCK_SPONGE_ABSORB;
+        }
+        else if (stack.isOf(BFItems.ARTISAN_BRUSH) && !player.isSneaking() && stack.get(DataComponentTypes.DYED_COLOR) != null) {
+            brushColor = stack.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
+        }
+        else if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+            Item item = stack.getItem();
+            if (CompatUtil.isItemPaintbrush(item)) {
+                int compatGet = CompatUtil.getIntColorFromPaintbrush(item);
+                if (compatGet != 1) {
+                    brushColor = compatGet;
+                }
+            }
+        }
+        else {
+            return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+
+        if (brushColor != -1) {
+            if (state.get(HALF) == DoubleBlockHalf.LOWER && world.getBlockState(pos.up()).isOf(door)) {
+                world.setBlockState(pos.up(), door.getDefaultState().with(FACING, state.get(FACING)).with(HALF, DoubleBlockHalf.UPPER).with(OPEN, state.get(OPEN)).with(HINGE, state.get(HINGE)), 0);
+                if (world.getBlockEntity(pos.up()) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity && dyeableCeramicBlockEntity.color != brushColor) {
+                    dyeableCeramicBlockEntity.color = brushColor;
+                    dyeableCeramicBlockEntity.markDirty();
+                }
+            }
+            if (state.get(HALF) == DoubleBlockHalf.UPPER && world.getBlockState(pos.down()).isOf(door)) {
+                world.setBlockState(pos.down(), door.getDefaultState().with(FACING, state.get(FACING)).with(HALF, DoubleBlockHalf.LOWER).with(OPEN, state.get(OPEN)).with(HINGE, state.get(HINGE)), 0);
+                if (world.getBlockEntity(pos.down()) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity && dyeableCeramicBlockEntity.color != brushColor) {
+                    dyeableCeramicBlockEntity.color = brushColor;
+                    dyeableCeramicBlockEntity.markDirty();
+                }
+            }
+            world.removeBlock(pos, false);
+            world.setBlockState(pos, door.getStateWithProperties(state), 0);
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), playedSFX, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+
+            if (world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity && dyeableCeramicBlockEntity.color != brushColor) {
+                dyeableCeramicBlockEntity.color = brushColor;
+                dyeableCeramicBlockEntity.markDirty();
+                return ItemActionResult.SUCCESS;
             }
         }
         return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;

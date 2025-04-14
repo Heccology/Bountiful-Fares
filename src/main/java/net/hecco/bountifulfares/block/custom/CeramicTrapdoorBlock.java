@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -31,21 +32,25 @@ public class CeramicTrapdoorBlock extends TrapdoorBlock implements BlockEntityPr
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (DyeableCeramicBlock.onUse(player.getMainHandStack(), state, world, pos, player, player.getActiveHand(), state.getBlock()) == ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION) {
-            if (!state.get(POWERED)) {
-                if (!this.blockSetType.canOpenByHand()) {
-                    return ActionResult.PASS;
-                } else {
-                    state = state.cycle(OPEN);
-                    world.setBlockState(pos, state, 2);
-                    if (state.get(WATERLOGGED)) {
-                        world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-                    }
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
+        return DyeableCeramicBlock.onUse(stack, state, world, pos, player, hand, state.getBlock());
+    }
 
-                    this.playToggleSound(player, world, pos, state.get(OPEN));
-                    return ActionResult.success(world.isClient);
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if (!state.get(POWERED)) {
+            if (!this.blockSetType.canOpenByHand()) {
+                return ActionResult.PASS;
+            } else {
+                state = state.cycle(OPEN);
+                world.setBlockState(pos, state, 2);
+                if (state.get(WATERLOGGED)) {
+                    world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
                 }
+
+                this.playToggleSound(player, world, pos, state.get(OPEN));
+                return ActionResult.success(world.isClient);
             }
         }
         return ActionResult.PASS;

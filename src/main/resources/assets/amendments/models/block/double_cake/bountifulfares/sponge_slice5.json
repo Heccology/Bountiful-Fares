@@ -1,5 +1,5 @@
 {
-	"parent": "amendments:block/double_cake/full_template",
+	"parent": "amendments:block/double_cake/slice5_template",
 	"credit": "Made with Blockbench",
 	"textures": {
 		"side_up": "amendments:block/bountifulfares/double_sponge_cake_side",
