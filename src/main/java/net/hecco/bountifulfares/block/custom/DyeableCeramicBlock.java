@@ -163,16 +163,19 @@ public class DyeableCeramicBlock {
 
     /** Attempts to dye the provided door with the ceramic coloring, and then dye its opposite piece. Meant for ceramic doors. */
     public static ItemActionResult onUseForDoor(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, Block block, CeramicDoorBlock door) {
-        int brushColor = -1;
+        int brushColor = DyeableCeramicBlockEntity.DEFAULT_COLOR;
         SoundEvent playedSFX = SoundEvents.ITEM_DYE_USE;
+        boolean changes_made = false;
 
         if (stack.isOf(Items.WET_SPONGE) && !player.isSneaking())
         {
             brushColor = DyeableCeramicBlockEntity.DEFAULT_COLOR;
             playedSFX = SoundEvents.BLOCK_SPONGE_ABSORB;
+            changes_made = true;
         }
         else if (stack.isOf(BFItems.ARTISAN_BRUSH) && !player.isSneaking() && stack.get(DataComponentTypes.DYED_COLOR) != null) {
             brushColor = stack.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
+            changes_made = true;
         }
         else if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
             Item item = stack.getItem();
@@ -180,14 +183,12 @@ public class DyeableCeramicBlock {
                 int compatGet = CompatUtil.getIntColorFromPaintbrush(item);
                 if (compatGet != 1) {
                     brushColor = compatGet;
+                    changes_made = true;
                 }
             }
         }
-        else {
-            return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-        }
 
-        if (brushColor != -1) {
+        if (changes_made) {
             if (state.get(HALF) == DoubleBlockHalf.LOWER && world.getBlockState(pos.up()).isOf(door)) {
                 world.setBlockState(pos.up(), door.getDefaultState().with(FACING, state.get(FACING)).with(HALF, DoubleBlockHalf.UPPER).with(OPEN, state.get(OPEN)).with(HINGE, state.get(HINGE)), 0);
                 if (world.getBlockEntity(pos.up()) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity && dyeableCeramicBlockEntity.color != brushColor) {
@@ -209,8 +210,8 @@ public class DyeableCeramicBlock {
             if (world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity && dyeableCeramicBlockEntity.color != brushColor) {
                 dyeableCeramicBlockEntity.color = brushColor;
                 dyeableCeramicBlockEntity.markDirty();
-                return ItemActionResult.SUCCESS;
             }
+            return ItemActionResult.SUCCESS;
         }
         return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
