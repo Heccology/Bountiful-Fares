@@ -5,6 +5,16 @@ This license applies to any file in the following directories:
 
 This license also applies to any file in a `model` package.
 
+
+All Rights Reserved
+
+This license applies to any file in the following directory:
+- ./src/main/java/net/hecco/bountifulfares/compat/AzuruneCompatUtil
+
+The code in this directory is owned by Yirmiri. All rights are reserved by the original author.
+Explicit permission has been granted to Hecco for usage of this code in this software.
+
+
 All other files are under the following license
 
 MIT License
