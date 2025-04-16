@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.block.entity;
 
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.hecco.bountifulfares.block.custom.DyeableCeramicBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -8,14 +8,16 @@ import net.minecraft.component.ComponentMap;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ColorHelper;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class DyeableBlockEntity extends BlockEntity {
@@ -28,9 +30,9 @@ public abstract class DyeableBlockEntity extends BlockEntity {
 
     @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        super.writeNbt(nbt, registryLookup);
         if (color != DEFAULT_COLOR) {
             nbt.putInt("color", color);
-            super.writeNbt(nbt, registryLookup);
         }
     }
 
@@ -38,8 +40,8 @@ public abstract class DyeableBlockEntity extends BlockEntity {
     protected void addComponents(ComponentMap.Builder componentMapBuilder) {
         if (color != DEFAULT_COLOR) {
             componentMapBuilder.add(DataComponentTypes.DYED_COLOR, new DyedColorComponent(color, true));
-            super.addComponents(componentMapBuilder);
         }
+        super.addComponents(componentMapBuilder);
     }
 
     @Override
@@ -53,12 +55,28 @@ public abstract class DyeableBlockEntity extends BlockEntity {
 
     @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        if (nbt.getInt("color") == 0) {
+        super.readNbt(nbt, registryLookup);
+        if (!nbt.contains("color", NbtElement.INT_TYPE) || nbt.getInt("color") == 0) {
             color = DEFAULT_COLOR;
         } else {
-            super.readNbt(nbt, registryLookup);
             color = nbt.getInt("color");
         }
+    }
+
+    @Override
+    public void markDirty()
+    {
+        if (
+                this.getWorld() != null &&
+                !this.getWorld().isClient &&
+                this.getPos() != null
+        )
+        {
+            World thisworld = this.getWorld();
+            DyeableCeramicBlock.sendColorPayload(
+                    (ServerWorld) thisworld, thisworld.getBlockEntity(this.getPos()), this.color);
+        }
+        super.markDirty();
     }
 
     @Nullable
@@ -82,15 +100,6 @@ public abstract class DyeableBlockEntity extends BlockEntity {
         } else {
             return DyeableBlockEntity.DEFAULT_COLOR;
         }
-    }
-
-
-    @Override
-    public void markDirty() {
-        PacketByteBuf data = PacketByteBufs.create();
-        data.writeInt(color);
-        data.writeBlockPos(getPos());
-        super.markDirty();
     }
 
 //    @Override

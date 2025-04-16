@@ -20,7 +20,9 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -63,125 +65,125 @@ public class TrellisBlock extends HorizontalFacingBlock implements Waterloggable
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
         Direction facing = state.get(FACING);
-        ItemStack itemStack = player.getStackInHand(player.getActiveHand());
         boolean isSurvival = !player.isCreative();
-        if (BFBlocks.CROPS_TO_CROP_TRELLISES.containsKey(itemStack.getItem())) {
+        if (BFBlocks.CROPS_TO_CROP_TRELLISES.containsKey(stack.getItem())) {
             if (!world.isClient()) {
-                world.setBlockState(pos, BFTrellises.CROP_TRELLISES.get(BFBlocks.CROPS_TO_VINE_CROPS.get(itemStack.getItem()).getName() + variant.getBlockName()).getDefaultState().with(FACING, facing), 2);
+                world.setBlockState(pos, BFTrellises.CROP_TRELLISES.get(BFBlocks.CROPS_TO_VINE_CROPS.get(stack.getItem()).getName() + variant.getBlockName()).getDefaultState().with(FACING, facing), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
             if (isSurvival) {
-                itemStack.decrement(1);
+                stack.decrement(1);
             }
-            return ActionResult.SUCCESS;
+            return ItemActionResult.SUCCESS;
         }
-        if (BFBlocks.PLANTS_TO_DECORATIVE_TRELLISES.containsKey(itemStack.getItem())) {
+        if (BFBlocks.PLANTS_TO_DECORATIVE_TRELLISES.containsKey(stack.getItem())) {
             if (!world.isClient()) {
-                world.setBlockState(pos, BFTrellises.DECORATIVE_TRELLISES.get(BFBlocks.PLANTS_TO_DECORATIVE_VINES.get(itemStack.getItem()).getName() + variant.getBlockName()).getDefaultState().with(FACING, facing), 2);
+                world.setBlockState(pos, BFTrellises.DECORATIVE_TRELLISES.get(BFBlocks.PLANTS_TO_DECORATIVE_VINES.get(stack.getItem()).getName() + variant.getBlockName()).getDefaultState().with(FACING, facing), 2);
             }
             world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
             if (isSurvival) {
-                itemStack.decrement(1);
+                stack.decrement(1);
             }
-            return ActionResult.SUCCESS;
+            return ItemActionResult.SUCCESS;
         }
         if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
-            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "lavender")))) {
+            if (stack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "lavender")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_LAVENDER).getDefaultState().with(FACING, facing), 2);
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
                 if (isSurvival) {
-                    itemStack.decrement(1);
+                    stack.decrement(1);
                 }
-                return ActionResult.SUCCESS;
+                return ItemActionResult.SUCCESS;
             }
-            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "bleeding_heart")))) {
+            if (stack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "bleeding_heart")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_BLEEDING_HEART).getDefaultState().with(FACING, facing), 2);
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
                 if (isSurvival) {
-                    itemStack.decrement(1);
+                    stack.decrement(1);
                 }
-                return ActionResult.SUCCESS;
+                return ItemActionResult.SUCCESS;
             }
-            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "blue_bulbs")))) {
+            if (stack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "blue_bulbs")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_BLUE_BULB).getDefaultState().with(FACING, facing), 2);
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
                 if (isSurvival) {
-                    itemStack.decrement(1);
+                    stack.decrement(1);
                 }
-                return ActionResult.SUCCESS;
+                return ItemActionResult.SUCCESS;
             }
-            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "carnation")))) {
+            if (stack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "carnation")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_CARNATION).getDefaultState().with(FACING, facing), 2);
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
                 if (isSurvival) {
-                    itemStack.decrement(1);
+                    stack.decrement(1);
                 }
-                return ActionResult.SUCCESS;
+                return ItemActionResult.SUCCESS;
             }
-            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "gardenia")))) {
+            if (stack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "gardenia")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_GARDENIA).getDefaultState().with(FACING, facing), 2);
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
                 if (isSurvival) {
-                    itemStack.decrement(1);
+                    stack.decrement(1);
                 }
-                return ActionResult.SUCCESS;
+                return ItemActionResult.SUCCESS;
             }
-            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "marigold")))) {
+            if (stack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "marigold")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_MARIGOLD).getDefaultState().with(FACING, facing), 2);
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
                 if (isSurvival) {
-                    itemStack.decrement(1);
+                    stack.decrement(1);
                 }
-                return ActionResult.SUCCESS;
+                return ItemActionResult.SUCCESS;
             }
-            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "foxglove")))) {
+            if (stack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "foxglove")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getDecorTrellisFromVariant(variant, BFTrellises.NS_FOXGLOVE).getDefaultState().with(FACING, facing), 2);
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
                 if (isSurvival) {
-                    itemStack.decrement(1);
+                    stack.decrement(1);
                 }
-                return ActionResult.SUCCESS;
+                return ItemActionResult.SUCCESS;
             }
         }
         if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
-            if (itemStack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.SPAWN_MOD_ID, "sunflower_seeds")))) {
+            if (stack.isOf(Registries.ITEM.get(Identifier.of(BountifulFares.SPAWN_MOD_ID, "sunflower_seeds")))) {
                 if (!world.isClient()) {
                     world.setBlockState(pos, TrellisUtil.getCropTrellisFromVariant(variant, BFTrellises.SPAWN_SUNFLOWER).getDefaultState().with(FACING, facing), 2);
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_CROP_PLANT, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
                 if (isSurvival) {
-                    itemStack.decrement(1);
+                    stack.decrement(1);
                 }
-                return ActionResult.SUCCESS;
+                return ItemActionResult.SUCCESS;
             }
         }
-        return super.onUse(state, world, pos, player, hit);
+        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
     }
 
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {

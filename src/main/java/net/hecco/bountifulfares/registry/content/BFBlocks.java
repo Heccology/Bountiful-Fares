@@ -35,6 +35,7 @@ public class BFBlocks {
     public static final Map<Item, DecorativeTrellisBlock> PLANTS_TO_DECORATIVE_TRELLISES = Maps.newHashMap();
     public static final Map<DecorativeTrellisBlock, Item> DECORATIVE_TRELLISES_TO_PLANTS = Maps.newHashMap();
     public static final Map<Block, Block> CERAMIC_TO_CHECKERED_CERAMIC = Maps.newHashMap();
+    public static final Map<Block, Block> REVERT_CHECKERED_CERAMIC = Maps.newHashMap();
 
     public static final Block APPLE_LOG = registerBlock("apple_log", new FruitLogBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).nonOpaque().notSolid()));
     public static final Block APPLE_WOOD = registerBlock("apple_wood", new FruitLogBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).nonOpaque().notSolid()));
@@ -240,7 +241,7 @@ public class BFBlocks {
     public static final Block LEMON_PIE = registerBlock16StackItem("lemon_pie", new PieBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block PLUM_PIE = registerBlock16StackItem("plum_pie", new PieBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block HOARY_PIE = registerBlock16StackItem("hoary_pie", new PieBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block PUMPKIN_PIE = registerBlockNoItem("pumpkin_pie", new PieBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block PUMPKIN_PIE = registerBlockNoItem("pumpkin_pie", new PumpkinPieBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block MELON_PIE = registerBlock16StackItem("melon_pie", new PieBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block COCOA_CAKE = registerBlockUnstackableItem("cocoa_cake", new NoCandleCakeBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block SPONGE_CAKE = registerBlockUnstackableItem("sponge_cake", new SpongeCakeBlock(AbstractBlock.Settings.create().nonOpaque().solid().strength(0.5F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY).luminance((state) -> state.get(SpongeCakeBlock.PICKLED) && state.get(Properties.BITES) == 0 ? 5 : 0)));

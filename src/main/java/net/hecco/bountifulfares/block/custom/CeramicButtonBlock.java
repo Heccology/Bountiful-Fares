@@ -8,6 +8,8 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -30,15 +32,8 @@ public class CeramicButtonBlock extends ButtonBlock implements BlockEntityProvid
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (DyeableCeramicBlock.onUse(state, world, pos, player, state.getBlock()) == ActionResult.PASS) {
-            if (state.get(POWERED)) {
-                return ActionResult.CONSUME;
-            } else {
-                this.powerOn(state, world, pos, player);
-                return ActionResult.success(world.isClient);
-            }
-        }
-        return ActionResult.PASS;
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
+        return DyeableCeramicBlock.onUse(stack, state, world, pos, player, hand, state.getBlock());
     }
 }

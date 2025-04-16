@@ -4,6 +4,7 @@ import com.mojang.serialization.DynamicOps;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
 import net.fabricmc.loader.api.FabricLoader;
+import net.hecco.bountifulfares.networking.BFMessages;
 import net.hecco.bountifulfares.recipe.BFSpecialRecipes;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.misc.*;
@@ -89,24 +90,9 @@ public class BountifulFares implements ModInitializer {
 		BFDamageTypes.registerDamageTypes();
 		BFSpecialRecipes.registerSpecialRecipes();
 		BFCompat.registerCompatContent();
-		DynamicRegistrySetupCallback.EVENT.register(registryManager -> {
-			LOGGER.info("DynamicRegistrySetupCallback triggered!");
-
-			// Access the item registry
-			registryManager.getOptional(RegistryKeys.ITEM).ifPresent(itemRegistry -> {
-				LOGGER.info("Item registry is available!");
-				RegistryEntry<Item> diamondEntry = itemRegistry.getEntry(Items.DIAMOND);
-				LOGGER.info("Diamond Entry: " + diamondEntry);
-				if (diamondEntry != null) {
-					Map<TagKey<Item>, List<RegistryEntry<Item>>> map = new HashMap<>();
-					map.put(BFItemTags.C_HIDDEN_FROM_RECIPE_VIEWERS, List.of(diamondEntry));
-					itemRegistry.populateTags(map);
-				} else {
-					LOGGER.warn("Diamond entry is null!");
-				}
-			});
-		});
+		BFMessages.registerPayloads();
 	} //appledog - Yirmiri
 	//appledog - Hecco
 	//appledog - Diemond_Player (holy self-insert)
+	//appledog - Artyrian (ew)
 }

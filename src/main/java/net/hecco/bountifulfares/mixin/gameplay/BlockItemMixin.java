@@ -16,7 +16,7 @@ public class BlockItemMixin {
     @Inject(method = "canPlace", at = @At("HEAD"), cancellable = true)
     private void bountifulfares_replace_pickstack(ItemPlacementContext context, BlockState state, CallbackInfoReturnable<Boolean> cir) {
         if (BountifulFares.CONFIG.enableSweetBerryPips) {
-            if (context.getPlayer() != null && context.getPlayer().getStackInHand(context.getPlayer().getActiveHand()).isOf(Items.SWEET_BERRIES)) {
+            if (context.getPlayer() != null && context.getStack().isOf(Items.SWEET_BERRIES)) {
                 cir.setReturnValue(false);
                 cir.cancel();
             }

@@ -5,8 +5,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BoneMealItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -18,8 +21,9 @@ public class PalmCrownBlock extends PillarBlock {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (player.getStackInHand(player.getActiveHand()).getItem() instanceof BoneMealItem) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
+        if (stack.getItem() instanceof BoneMealItem) {
             if (hit.getSide() != Direction.DOWN && hit.getSide() != Direction.UP) {
                 if (world.getBlockState(pos.offset(hit.getSide(), 1)).isAir()) {
                     world.setBlockState(pos.offset(hit.getSide(), 1), BFBlocks.COCONUT.getDefaultState().with(Properties.HORIZONTAL_FACING, hit.getSide()));
@@ -28,9 +32,9 @@ public class PalmCrownBlock extends PillarBlock {
                     }
                     BoneMealItem.createParticles(world, pos.down(), 2);
                     if (!player.isCreative()) {
-                        player.getStackInHand(player.getActiveHand()).decrement(1);
+                        stack.decrement(1);
                     }
-                    return ActionResult.SUCCESS;
+                    return ItemActionResult.SUCCESS;
                 }
             } else {
                 Direction[] DIRECTIONS = new Direction[]{Direction.WEST, Direction.EAST, Direction.NORTH, Direction.SOUTH};
@@ -42,13 +46,13 @@ public class PalmCrownBlock extends PillarBlock {
                         }
                         BoneMealItem.createParticles(world, pos.down(), 2);
                         if (!player.isCreative()) {
-                            player.getStackInHand(player.getActiveHand()).decrement(1);
+                            stack.decrement(1);
                         }
-                        return ActionResult.SUCCESS;
+                        return ItemActionResult.SUCCESS;
                     }
                 }
             }
         }
-        return super.onUse(state, world, pos, player, hit);
+        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
     }
 }

@@ -13,10 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTables;
-import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
-import net.minecraft.loot.condition.LocationCheckLootCondition;
-import net.minecraft.loot.condition.RandomChanceLootCondition;
-import net.minecraft.loot.condition.SurvivesExplosionLootCondition;
+import net.minecraft.loot.condition.*;
 import net.minecraft.loot.entry.EmptyEntry;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
@@ -26,10 +23,15 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.predicate.BlockPredicate;
 import net.minecraft.predicate.StatePredicate;
+import net.minecraft.predicate.TagPredicate;
 import net.minecraft.predicate.entity.LocationPredicate;
+import net.minecraft.predicate.item.ItemPredicate;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
@@ -62,28 +64,48 @@ public class BFLootTableModifiers {
         // Short Grass
         LootTableEvents.REPLACE.register((key, original, source, wrapperLookup) -> {
             if (SHORT_GRASS_ID.equals(key) && do_grass_override) {
-                return newGrassDropsShort(Blocks.SHORT_GRASS, BFItems.GRASS_SEEDS, wrapperLookup).build();
+                LootTable.Builder builder = newGrassDropsShort(Blocks.SHORT_GRASS, BFItems.GRASS_SEEDS, wrapperLookup);
+                if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID))
+                {
+                    builder = addFDStraw(builder);
+                }
+                return builder.build();
             }
             return null;
         });
         // Tall Grass
         LootTableEvents.REPLACE.register((key, original, source, wrapperLookup) -> {
             if (TALL_GRASS_ID.equals(key) && do_grass_override) {
-                return newGrassDropsTall(Blocks.TALL_GRASS, Blocks.SHORT_GRASS, BFItems.GRASS_SEEDS).build();
+                LootTable.Builder builder = newGrassDropsTall(Blocks.TALL_GRASS, Blocks.SHORT_GRASS, BFItems.GRASS_SEEDS);
+                if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID))
+                {
+                    builder = addFDStraw(builder);
+                }
+                return builder.build();
             }
             return null;
         });
         // Short Fern
         LootTableEvents.REPLACE.register((key, original, source, wrapperLookup) -> {
             if (FERN_ID.equals(key) && do_grass_override) {
-                return newGrassDropsShort(Blocks.FERN, BFItems.GRASS_SEEDS, wrapperLookup).build();
+                LootTable.Builder builder = newGrassDropsShort(Blocks.FERN, BFItems.GRASS_SEEDS, wrapperLookup);
+                if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID))
+                {
+                    builder = addFDStraw(builder);
+                }
+                return builder.build();
             }
             return null;
         });
         // Large Fern
         LootTableEvents.REPLACE.register((key, original, source, wrapperLookup) -> {
             if (LARGE_FERN_ID.equals(key) && do_grass_override) {
-                return newGrassDropsTall(Blocks.LARGE_FERN, Blocks.FERN, BFItems.GRASS_SEEDS).build();
+                LootTable.Builder builder = newGrassDropsTall(Blocks.LARGE_FERN, Blocks.FERN, BFItems.GRASS_SEEDS);
+                if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID))
+                {
+                    builder = addFDStraw(builder);
+                }
+                return builder.build();
             }
             return null;
         });
@@ -185,5 +207,19 @@ public class BFLootTableModifiers {
                                         )
                                 )
                 );
+    }
+
+    /** Reimplements straw grabbing in FD. Lazy workaround, but the disabling of the feature entirely still works. */
+    public static LootTable.Builder addFDStraw(LootTable.Builder builder)
+    {
+        return builder.pool(LootPool.builder()
+                .with(ItemEntry.builder(Registries.ITEM.get(Identifier.of(BountifulFares.FARMERS_DELIGHT_MOD_ID, "straw")))
+                        .conditionally(RandomChanceLootCondition.builder(0.2F))
+                        .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(
+                                TagKey.of(RegistryKeys.ITEM, Identifier.of(BountifulFares.FARMERS_DELIGHT_MOD_ID, "straw_harvesters")))
+                                )
+                        )
+                )
+        );
     }
 }

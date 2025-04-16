@@ -15,6 +15,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -47,17 +48,31 @@ public class ArtisanCookiesBlock extends Block {
         return SHAPES[state.get(COUNT)];
     }
 
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        ItemStack itemStack = player.getStackInHand(player.getActiveHand());
-        if (itemStack.isOf(BFItems.ARTISAN_COOKIE) && state.get(COUNT) < MAX_COUNT) {
-            return ActionResult.PASS;
+    @Override
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
+        if (stack.isOf(BFItems.ARTISAN_COOKIE) && state.get(COUNT) < MAX_COUNT) {
+            return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         } else if (world.isClient) {
-            if (tryEat(world, pos, state, player, player.getActiveHand()).isAccepted()) {
-                return ActionResult.SUCCESS;
+            if (tryEat(world, pos, state, player, hand).isAccepted()) {
+                return ItemActionResult.SUCCESS;
             }
         }
-        return tryEat(world, pos, state, player, player.getActiveHand());
+
+        return tryEat(world, pos, state, player, hand);
     }
+
+    //public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+    //    ItemStack itemStack = player.getStackInHand(player.getActiveHand());
+    //    if (itemStack.isOf(BFItems.ARTISAN_COOKIE) && state.get(COUNT) < MAX_COUNT) {
+    //        return ActionResult.PASS;
+    //    } else if (world.isClient) {
+    //        if (tryEat(world, pos, state, player, player.getActiveHand()).isAccepted()) {
+    //            return ActionResult.SUCCESS;
+    //        }
+    //    }
+    //    return tryEat(world, pos, state, player, player.getActiveHand());
+    //}
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos());
@@ -76,26 +91,23 @@ public class ArtisanCookiesBlock extends Block {
         return !context.shouldCancelInteraction() && context.getStack().getItem() == this.asItem() || super.canReplace(state, context);
     }
 
-    protected static ActionResult tryEat(WorldAccess world, BlockPos pos, BlockState state, PlayerEntity player, Hand hand) {
+    protected static ItemActionResult tryEat(WorldAccess world, BlockPos pos, BlockState state, PlayerEntity player, Hand hand) {
         if (!player.canConsume(false)) {
-            return ActionResult.PASS;
+            return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         } else {
             player.getHungerManager().add(3, 0.3F);
             int count = state.get(COUNT);
             world.emitGameEvent(player, GameEvent.EAT, pos);
-            if (!player.getStackInHand(hand).isOf(BFItems.ARTISAN_COOKIE)) {
-                if (count > 0) {
-                    world.setBlockState(pos, state.with(COUNT, count - 1), 3);
-                    world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 0.5f, 1.0f);
-                } else {
-                    world.removeBlock(pos, false);
-                    world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
-                    world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 0.5f, 1.0f);
-                }
 
-                return ActionResult.SUCCESS;
+            if (count > 0) {
+                world.setBlockState(pos, state.with(COUNT, count - 1), 3);
+                world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 0.5f, 1.0f);
+            } else {
+                world.removeBlock(pos, false);
+                world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
+                world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 0.5f, 1.0f);
             }
-            return ActionResult.PASS;
+            return ItemActionResult.SUCCESS;
         }
     }
 
