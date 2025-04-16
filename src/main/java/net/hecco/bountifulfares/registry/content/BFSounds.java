@@ -23,6 +23,7 @@ public class BFSounds {
     public static final SoundEvent CERAMIC_DECORATION_STEP = registerSoundEvent("ceramic_decoration_step");
     public static final SoundEvent CERAMIC_DECORATION_FALL = registerSoundEvent("ceramic_decoration_fall");
     public static final SoundEvent CERAMIC_DOOR_TOGGLE = registerSoundEvent("ceramic_door_toggle");
+    public static final SoundEvent CERAMIC_DISH_INTERACT = registerSoundEvent("ceramic_dish_interact");
     public static final SoundEvent FERMENTATION_VESSEL_FILL = registerSoundEvent("fermentation_vessel_fill");
     public static final SoundEvent FERMENTATION_VESSEL_SPLASH = registerSoundEvent("fermentation_vessel_splash");
     public static final SoundEvent FERMENTATION_VESSEL_FERMENT = registerSoundEvent("fermentation_vessel_ferment");

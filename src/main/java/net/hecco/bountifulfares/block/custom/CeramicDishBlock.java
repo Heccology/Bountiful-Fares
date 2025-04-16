@@ -6,6 +6,7 @@ import net.hecco.bountifulfares.block.interfaces.CeramicDishBlockInterface;
 import net.hecco.bountifulfares.compat.CompatUtil;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.component.DataComponentTypes;
@@ -89,6 +90,7 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
                 if (!player.isCreative()) {
                     stack.decrement(1);
                 }
+                world.playSoundAtBlockCenter(pos, BFSounds.CERAMIC_DISH_INTERACT, SoundCategory.PLAYERS, 1.0f, 0.8f + world.random.nextFloat() / 4, true);
                 blockEntity.markDirty();
                 return ItemActionResult.SUCCESS;
             }
@@ -96,6 +98,7 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
                 if (player.isSneaking() && stack.isEmpty()) {
                     player.setStackInHand(hand, stackEntity);
                     blockEntity.removeItem();
+                    world.playSoundAtBlockCenter(pos, BFSounds.CERAMIC_DISH_INTERACT, SoundCategory.PLAYERS, 1.0f, 0.8f + world.random.nextFloat() / 4, true);
                     blockEntity.markDirty();
                     return ItemActionResult.SUCCESS;
                 }

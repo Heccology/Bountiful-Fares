@@ -86,6 +86,13 @@
       "bountifulfares:ceramic_door/toggle2"
     ]
   },
+  "ceramic_dish_interact": {
+    "subtitle": "subtitles.entity.item.pickup",
+    "sounds": [
+      "bountifulfares:ceramic_dish/interact1",
+      "bountifulfares:ceramic_dish/interact2"
+    ]
+  },
   "fermentation_vessel_fill": {
     "subtitle": "subtitles.block.fermentation_vessel.fill",
     "sounds": [
