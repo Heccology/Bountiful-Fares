@@ -155,8 +155,7 @@ public class DyeableCeramicBlock {
     /** Attempts to dye the provided dish with the ceramic coloring, while keeping its contents intact. Meant for ceramic dishes. */
     public static ItemActionResult onUseForDish(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, Block block, CeramicDishBlockEntity dish) {
         ItemStack stackEntity = dish.getStack(0).copy();
-        if (stack.isOf(Items.WET_SPONGE) && !player.isSneaking())
-        {
+        if (stack.isOf(Items.WET_SPONGE) && !player.isSneaking()) {
             dish.setStack(0, ItemStack.EMPTY);
             world.removeBlock(pos, false);
             world.setBlockState(pos, block.getStateWithProperties(state), 2);

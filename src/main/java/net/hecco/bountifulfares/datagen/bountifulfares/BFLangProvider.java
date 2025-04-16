@@ -495,6 +495,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateTag(translationBuilder, BFItemTags.C_ELDERBERRIES, "Elderberries");
         generateTag(translationBuilder, BFItemTags.C_WALNUTS, "Walnuts");
         generateTag(translationBuilder, BFItemTags.C_COCONUT_HALVES, "Coconut Halves");
+        generateTag(translationBuilder, BFItemTags.C_CORN, "Corn");
 
         generateTag(translationBuilder, BFItemTags.APPLE_LOGS, "Apple Logs");
         generateTag(translationBuilder, BFItemTags.ORANGE_LOGS, "Orange Logs");
@@ -525,7 +526,7 @@ public class BFLangProvider extends FabricLanguageProvider {
 
         generate(translationBuilder, "emi.category.bountifulfares.milling", "Milling");
         generate(translationBuilder, "emi.category.bountifulfares.fermenting", "Fermenting");
-        generate(translationBuilder, "emi.category.bountifulfares.propagation", "Prismarine Propagation");
+        generate(translationBuilder, "emi.category.bountifulfares.prismarine_propagation", "Prismarine Propagation");
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             String key = Registries.BLOCK.get(id).getTranslationKey();
