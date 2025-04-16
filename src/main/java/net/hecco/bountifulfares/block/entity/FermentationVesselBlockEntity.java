@@ -42,7 +42,7 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     private int progress = 0;
     private int maxProgress;
     public boolean fermented;
-    public int particleColor;
+    public int particleColor = 0;
     public FermentationVesselBlockEntity(BlockPos pos, BlockState state) {
         super(BFBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, pos, state);
         this.fermented = false;

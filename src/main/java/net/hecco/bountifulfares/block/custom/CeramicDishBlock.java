@@ -89,6 +89,7 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
                 if (!player.isCreative()) {
                     stack.decrement(1);
                 }
+                blockEntity.markDirty();
                 return ItemActionResult.SUCCESS;
             }
             else if (!stackEntity.isEmpty()) {

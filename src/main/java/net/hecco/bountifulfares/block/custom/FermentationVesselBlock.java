@@ -130,6 +130,8 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
                     world.setBlockState(pos, state.with(FERMENTATION_STAGE, FermentationStage.FERMENTING));
                     pushEntitiesUpBeforeBlockChange(state.with(FERMENTATION_STAGE, FermentationStage.WATER), state.with(FERMENTATION_STAGE, FermentationStage.FERMENTING), world, pos);
                     Item remainder = getCurrentRecipe(world, stack).get().value().getIngredient().getMatchingStacks()[0].getItem().getRecipeRemainder();
+                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_SPLASH, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
+                    entity.setParticleColor(getCurrentRecipe(world, stack).get().value().getParticleColor());
                     if (!player.isCreative()) {
                         stack.decrement(1);
                     }
@@ -140,8 +142,6 @@ public class FermentationVesselBlock extends BlockWithEntity implements Waterlog
                             player.dropItem(new ItemStack(remainder), false);
                         }
                     }
-                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_SPLASH, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
-                    entity.setParticleColor(getCurrentRecipe(world, stack).get().value().getParticleColor());
                     return ItemActionResult.SUCCESS;
                 }
             } else if (!entity.canInsertItem()) {
