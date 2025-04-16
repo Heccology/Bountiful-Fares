@@ -4,6 +4,7 @@ import com.mojang.serialization.DynamicOps;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
 import net.fabricmc.loader.api.FabricLoader;
+import net.hecco.bountifulfares.networking.BFMessages;
 import net.hecco.bountifulfares.recipe.BFSpecialRecipes;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.misc.*;
@@ -89,6 +90,7 @@ public class BountifulFares implements ModInitializer {
 		BFDamageTypes.registerDamageTypes();
 		BFSpecialRecipes.registerSpecialRecipes();
 		BFCompat.registerCompatContent();
+		BFMessages.registerPayloads();
 		DynamicRegistrySetupCallback.EVENT.register(registryManager -> {
 			//LOGGER.info("DynamicRegistrySetupCallback triggered!");
 
