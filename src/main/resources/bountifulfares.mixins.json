@@ -14,6 +14,7 @@
     "misc.WoodlandMansionFirstFloorMixin",
     "misc.WoodlandMansionSecondFloorMixin",
     "render.AbstractInventoryMixin",
+    "render.FilledMapItemMixin",
     "render.GuiMixin",
     "render.ItemRendererMixin",
     "render.ModelLoaderMixin",
