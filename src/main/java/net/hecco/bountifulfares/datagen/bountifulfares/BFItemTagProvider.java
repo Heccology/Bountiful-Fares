@@ -207,6 +207,7 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFBlocks.CERAMIC_PRESSURE_PLATE.asItem())
                 .add(BFBlocks.CERAMIC_LEVER.asItem())
                 .add(BFBlocks.CERAMIC_DISH.asItem())
+                .add(BFBlocks.SOLID_CERAMIC.asItem())
                 .add(BFItems.ARTISAN_BRUSH.asItem())
         ;
 

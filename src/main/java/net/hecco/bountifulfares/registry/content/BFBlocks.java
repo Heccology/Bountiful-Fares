@@ -24,6 +24,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 import java.util.function.ToIntFunction;
@@ -161,29 +162,30 @@ public class BFBlocks {
     public static final Block FELDSPAR_LANTERN = registerBlock("feldspar_lantern", new FeldsparLanternBlock(AbstractBlock.Settings.create().mapColor(MapColor.IRON_GRAY).solid().requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(state -> 8).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block TINGED_GLASS = registerBlock("tinged_glass", new TingedGlassBlock(AbstractBlock.Settings.create().instrument(NoteBlockInstrument.HAT).strength(0.3F).sounds(BlockSoundGroup.GLASS).nonOpaque().allowsSpawning(Blocks::never).solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never)));
     public static final Block CERAMIC_CLAY_BLOCK = registerBlock("ceramic_clay_block", new Block(AbstractBlock.Settings.copy(Blocks.CLAY).instrument(NoteBlockInstrument.FLUTE).mapColor(MapColor.WHITE)));
-    public static final Block CERAMIC_TILES = registerDyeableCeramicBlock("ceramic_tiles", new CeramicTilesBlock(AbstractBlock.Settings.create().solidBlock(Blocks::never).requiresTool().strength(2f, 16f).sounds(BFSounds.CERAMIC_TILES).instrument(BFNoteBlockInstruments.OCARINA).mapColor(MapColor.OFF_WHITE)));
-    public static final Block CERAMIC_TILE_STAIRS = registerDyeableCeramicBlock("ceramic_tile_stairs", new CeramicTileStairsBlock(BFBlocks.CERAMIC_TILES.getDefaultState(), AbstractBlock.Settings.copy(BFBlocks.CERAMIC_TILES)));
-    public static final Block CERAMIC_TILE_SLAB = registerDyeableCeramicBlock("ceramic_tile_slab", new CeramicTileSlabBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_TILES)));
-    public static final Block CRACKED_CERAMIC_TILES = registerDyeableCeramicBlock("cracked_ceramic_tiles", new CeramicTilesBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_TILES)));
-    public static final Block CHECKERED_CERAMIC_TILES = registerDyeableCeramicBlock("checkered_ceramic_tiles", new CeramicTilesBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_TILES)));
-    public static final Block CHECKERED_CERAMIC_TILE_STAIRS = registerDyeableCeramicBlock("checkered_ceramic_tile_stairs", new CeramicTileStairsBlock(BFBlocks.CHECKERED_CERAMIC_TILES.getDefaultState(), AbstractBlock.Settings.copy(BFBlocks.CHECKERED_CERAMIC_TILES)));
-    public static final Block CHECKERED_CERAMIC_TILE_SLAB = registerDyeableCeramicBlock("checkered_ceramic_tile_slab", new CeramicTileSlabBlock(AbstractBlock.Settings.copy(BFBlocks.CHECKERED_CERAMIC_TILES)));
-    public static final Block CRACKED_CHECKERED_CERAMIC_TILES = registerDyeableCeramicBlock("cracked_checkered_ceramic_tiles", new CeramicTilesBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_TILES)));
-    public static final Block CERAMIC_TILE_PILLAR = registerDyeableCeramicBlock("ceramic_tile_pillar", new CeramicTilePillarBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_TILES)));
-    public static final Block CERAMIC_MOSAIC = registerDyeableCeramicBlock("ceramic_mosaic", new CeramicTilesBlock(AbstractBlock.Settings.create().solidBlock(Blocks::never).requiresTool().strength(2f, 16f).sounds(BFSounds.CERAMIC_TILES).instrument(BFNoteBlockInstruments.OCARINA).mapColor(MapColor.OFF_WHITE)));
-    public static final Block CERAMIC_MOSAIC_STAIRS = registerDyeableCeramicBlock("ceramic_mosaic_stairs", new CeramicTileStairsBlock(BFBlocks.CERAMIC_MOSAIC.getDefaultState(), AbstractBlock.Settings.copy(BFBlocks.CERAMIC_MOSAIC)));
-    public static final Block CERAMIC_MOSAIC_SLAB = registerDyeableCeramicBlock("ceramic_mosaic_slab", new CeramicTileSlabBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_MOSAIC)));
-    public static final Block CHECKERED_CERAMIC_MOSAIC = registerDyeableCeramicBlock("checkered_ceramic_mosaic", new CeramicTilesBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_MOSAIC)));
-    public static final Block CHECKERED_CERAMIC_MOSAIC_STAIRS = registerDyeableCeramicBlock("checkered_ceramic_mosaic_stairs", new CeramicTileStairsBlock(BFBlocks.CHECKERED_CERAMIC_MOSAIC.getDefaultState(), AbstractBlock.Settings.copy(BFBlocks.CHECKERED_CERAMIC_MOSAIC)));
-    public static final Block CHECKERED_CERAMIC_MOSAIC_SLAB = registerDyeableCeramicBlock("checkered_ceramic_mosaic_slab", new CeramicTileSlabBlock(AbstractBlock.Settings.copy(BFBlocks.CHECKERED_CERAMIC_MOSAIC)));
+    public static final Block CERAMIC_TILES = registerDyeableCeramicBlock("ceramic_tiles", new CeramicTilesBlock(AbstractBlock.Settings.create().solidBlock(Blocks::never).requiresTool().strength(2f, 16f).sounds(BFSounds.CERAMIC_TILES).instrument(BFNoteBlockInstruments.OCARINA).mapColor(MapColor.OFF_WHITE)), null);
+    public static final Block CERAMIC_TILE_STAIRS = registerDyeableCeramicBlock("ceramic_tile_stairs", new CeramicTileStairsBlock(BFBlocks.CERAMIC_TILES.getDefaultState(), AbstractBlock.Settings.copy(BFBlocks.CERAMIC_TILES)), null);
+    public static final Block CERAMIC_TILE_SLAB = registerDyeableCeramicBlock("ceramic_tile_slab", new CeramicTileSlabBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_TILES)), null);
+    public static final Block CRACKED_CERAMIC_TILES = registerDyeableCeramicBlock("cracked_ceramic_tiles", new CeramicTilesBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_TILES)), null);
+    public static final Block CHECKERED_CERAMIC_TILES = registerDyeableCeramicBlock("checkered_ceramic_tiles", new CeramicTilesBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_TILES)), null);
+    public static final Block CHECKERED_CERAMIC_TILE_STAIRS = registerDyeableCeramicBlock("checkered_ceramic_tile_stairs", new CeramicTileStairsBlock(BFBlocks.CHECKERED_CERAMIC_TILES.getDefaultState(), AbstractBlock.Settings.copy(BFBlocks.CHECKERED_CERAMIC_TILES)), null);
+    public static final Block CHECKERED_CERAMIC_TILE_SLAB = registerDyeableCeramicBlock("checkered_ceramic_tile_slab", new CeramicTileSlabBlock(AbstractBlock.Settings.copy(BFBlocks.CHECKERED_CERAMIC_TILES)), null);
+    public static final Block CRACKED_CHECKERED_CERAMIC_TILES = registerDyeableCeramicBlock("cracked_checkered_ceramic_tiles", new CeramicTilesBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_TILES)), null);
+    public static final Block CERAMIC_TILE_PILLAR = registerDyeableCeramicBlock("ceramic_tile_pillar", new CeramicTilePillarBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_TILES)), null);
+    public static final Block CERAMIC_MOSAIC = registerDyeableCeramicBlock("ceramic_mosaic", new CeramicTilesBlock(AbstractBlock.Settings.create().solidBlock(Blocks::never).requiresTool().strength(2f, 16f).sounds(BFSounds.CERAMIC_TILES).instrument(BFNoteBlockInstruments.OCARINA).mapColor(MapColor.OFF_WHITE)), null);
+    public static final Block CERAMIC_MOSAIC_STAIRS = registerDyeableCeramicBlock("ceramic_mosaic_stairs", new CeramicTileStairsBlock(BFBlocks.CERAMIC_MOSAIC.getDefaultState(), AbstractBlock.Settings.copy(BFBlocks.CERAMIC_MOSAIC)), null);
+    public static final Block CERAMIC_MOSAIC_SLAB = registerDyeableCeramicBlock("ceramic_mosaic_slab", new CeramicTileSlabBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_MOSAIC)), null);
+    public static final Block CHECKERED_CERAMIC_MOSAIC = registerDyeableCeramicBlock("checkered_ceramic_mosaic", new CeramicTilesBlock(AbstractBlock.Settings.copy(BFBlocks.CERAMIC_MOSAIC)), null);
+    public static final Block CHECKERED_CERAMIC_MOSAIC_STAIRS = registerDyeableCeramicBlock("checkered_ceramic_mosaic_stairs", new CeramicTileStairsBlock(BFBlocks.CHECKERED_CERAMIC_MOSAIC.getDefaultState(), AbstractBlock.Settings.copy(BFBlocks.CHECKERED_CERAMIC_MOSAIC)), null);
+    public static final Block CHECKERED_CERAMIC_MOSAIC_SLAB = registerDyeableCeramicBlock("checkered_ceramic_mosaic_slab", new CeramicTileSlabBlock(AbstractBlock.Settings.copy(BFBlocks.CHECKERED_CERAMIC_MOSAIC)), null);
 
-    public static final Block CERAMIC_PRESSURE_PLATE = registerDyeableCeramicBlock("ceramic_pressure_plate", new CeramicPressurePlateBlock(AbstractBlock.Settings.create().mapColor(MapColor.CLEAR).solid().sounds(BFSounds.CERAMIC_DECORATION).instrument(BFNoteBlockInstruments.OCARINA).noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY), BFBlockSetTypes.CERAMIC));
-    public static final Block CERAMIC_BUTTON = registerDyeableCeramicBlock("ceramic_button", new CeramicButtonBlock(AbstractBlock.Settings.create().mapColor(MapColor.CLEAR).solid().sounds(BFSounds.CERAMIC_DECORATION).instrument(BFNoteBlockInstruments.OCARINA).noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY), BFBlockSetTypes.CERAMIC, 10, true));
-    public static final Block CERAMIC_LEVER = registerDyeableCeramicBlock("ceramic_lever", new CeramicLeverBlock(AbstractBlock.Settings.create().mapColor(MapColor.CLEAR).solid().sounds(BFSounds.CERAMIC_DECORATION).instrument(BFNoteBlockInstruments.OCARINA).noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block CERAMIC_PRESSURE_PLATE = registerDyeableCeramicBlock("ceramic_pressure_plate", new CeramicPressurePlateBlock(AbstractBlock.Settings.create().mapColor(MapColor.CLEAR).solid().sounds(BFSounds.CERAMIC_DECORATION).instrument(BFNoteBlockInstruments.OCARINA).noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY), BFBlockSetTypes.CERAMIC), null);
+    public static final Block CERAMIC_BUTTON = registerDyeableCeramicBlock("ceramic_button", new CeramicButtonBlock(AbstractBlock.Settings.create().mapColor(MapColor.CLEAR).solid().sounds(BFSounds.CERAMIC_DECORATION).instrument(BFNoteBlockInstruments.OCARINA).noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY), BFBlockSetTypes.CERAMIC, 10, true), null);
+    public static final Block CERAMIC_LEVER = registerDyeableCeramicBlock("ceramic_lever", new CeramicLeverBlock(AbstractBlock.Settings.create().mapColor(MapColor.CLEAR).solid().sounds(BFSounds.CERAMIC_DECORATION).instrument(BFNoteBlockInstruments.OCARINA).noCollision().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY)), null);
     public static final Block CERAMIC_DISH = registerCeramicDishBlock("ceramic_dish", new CeramicDishBlock(AbstractBlock.Settings.create().mapColor(MapColor.CLEAR).sounds(BFSounds.CERAMIC_DECORATION).strength(0.2F).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block CERAMIC_DOOR = registerDyeableCeramicBlock("ceramic_door", new CeramicDoorBlock(AbstractBlock.Settings.create().solidBlock(Blocks::never).requiresTool().strength(2f, 16f).sounds(BFSounds.CERAMIC_DECORATION).instrument(BFNoteBlockInstruments.OCARINA).mapColor(MapColor.OFF_WHITE), BFBlockSetTypes.CERAMIC));
-    public static final Block CERAMIC_TRAPDOOR = registerDyeableCeramicBlock("ceramic_trapdoor", new CeramicTrapdoorBlock(AbstractBlock.Settings.create().solidBlock(Blocks::never).requiresTool().strength(2f, 16f).sounds(BFSounds.CERAMIC_DECORATION).instrument(BFNoteBlockInstruments.OCARINA).mapColor(MapColor.OFF_WHITE), BFBlockSetTypes.CERAMIC));
+    public static final Block CERAMIC_DOOR = registerDyeableCeramicBlock("ceramic_door", new CeramicDoorBlock(AbstractBlock.Settings.create().solidBlock(Blocks::never).requiresTool().strength(2f, 16f).sounds(BFSounds.CERAMIC_DECORATION).instrument(BFNoteBlockInstruments.OCARINA).mapColor(MapColor.OFF_WHITE), BFBlockSetTypes.CERAMIC), null);
+    public static final Block CERAMIC_TRAPDOOR = registerDyeableCeramicBlock("ceramic_trapdoor", new CeramicTrapdoorBlock(AbstractBlock.Settings.create().solidBlock(Blocks::never).requiresTool().strength(2f, 16f).sounds(BFSounds.CERAMIC_DECORATION).instrument(BFNoteBlockInstruments.OCARINA).mapColor(MapColor.OFF_WHITE), BFBlockSetTypes.CERAMIC), null);
 
+    public static final Block SOLID_CERAMIC = registerDyeableCeramicBlock("solid_ceramic", new CeramicTilesBlock(AbstractBlock.Settings.copy(CERAMIC_TILES).hardness(100f).sounds(BFSounds.CERAMIC_DECORATION)), new Item.Settings().rarity(Rarity.EPIC));
 
     public static final Block FERMENTATION_VESSEL = registerBlock("fermentation_vessel", new FermentationVesselBlock(AbstractBlock.Settings.create().mapColor(MapColor.OFF_WHITE).strength(2, 5).instrument(BFNoteBlockInstruments.OCARINA).requiresTool().nonOpaque().sounds(BFSounds.CERAMIC_DECORATION)));
     public static final Block APPLE_BLOCK = registerBlock("apple_block", new AppleBlock(AbstractBlock.Settings.create().mapColor(MapColor.RED).strength(1f).instrument(NoteBlockInstrument.DIDGERIDOO).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
@@ -333,12 +335,12 @@ public class BFBlocks {
         Registry.register(Registries.ITEM, Identifier.of(BountifulFares.MOD_ID, name), new BlockItem(block, new Item.Settings().maxCount(1)));
     }
 
-    private static Block registerDyeableCeramicBlock(String name, Block block) {
-        registerDyeableCeramicBlockItem(name, block);
+    private static Block registerDyeableCeramicBlock(String name, Block block, @Nullable Item.Settings itemSettings) {
+        if (itemSettings == null) {
+            itemSettings = new Item.Settings();
+        }
+        Registry.register(Registries.ITEM, Identifier.of(BountifulFares.MOD_ID, name), new DyeableCeramicBlockItem(block, itemSettings));
         return Registry.register(Registries.BLOCK, Identifier.of(BountifulFares.MOD_ID, name), block);
-    }
-    private static void registerDyeableCeramicBlockItem(String name, Block block) {
-        Registry.register(Registries.ITEM, Identifier.of(BountifulFares.MOD_ID, name), new DyeableCeramicBlockItem(block, new Item.Settings()));
     }
 
     private static Block registerCeramicDishBlock(String name, Block block) {

@@ -415,6 +415,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         usedBlocks.add(BFBlocks.WALNUT_WALL_SIGN);
         usedBlocks.add(BFBlocks.WALNUT_HANGING_SIGN);
         usedBlocks.add(BFBlocks.WALNUT_WALL_HANGING_SIGN);
+        usedBlocks.add(BFBlocks.SOLID_CERAMIC);
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             Block block = Registries.BLOCK.get(id);

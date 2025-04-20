@@ -366,6 +366,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.CERAMIC_BUTTON)
                 .add(BFBlocks.CERAMIC_LEVER)
                 .add(BFBlocks.CERAMIC_DISH)
+                .add(BFBlocks.SOLID_CERAMIC)
         ;
 
         getOrCreateTagBuilder(BFBlockTags.FELSIC_STONES)

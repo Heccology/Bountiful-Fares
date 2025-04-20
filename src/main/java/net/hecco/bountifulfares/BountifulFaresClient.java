@@ -291,6 +291,7 @@ public class BountifulFaresClient implements ClientModInitializer {
         registerBlockColor(BFBlocks.CERAMIC_DOOR);
         registerBlockColor(BFBlocks.CERAMIC_TRAPDOOR);
         registerBlockColor(BFBlocks.CERAMIC_DISH);
+        registerBlockColor(BFBlocks.SOLID_CERAMIC);
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(BFWoodTypes.HOARY, TexturedRenderLayers.getSignTextureId(BFWoodTypes.HOARY));
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(BFWoodTypes.WALNUT, TexturedRenderLayers.getSignTextureId(BFWoodTypes.WALNUT));
         BlockEntityRendererFactories.register(BFBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);

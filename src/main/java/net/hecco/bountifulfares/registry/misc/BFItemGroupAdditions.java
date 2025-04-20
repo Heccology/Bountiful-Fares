@@ -381,6 +381,14 @@ public class BFItemGroupAdditions {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
+            entries.addAfter(Items.PINK_GLAZED_TERRACOTTA, BFBlocks.CERAMIC_TILES);
+            entries.addAfter(BFBlocks.CERAMIC_TILES, BFBlocks.CERAMIC_TILE_STAIRS);
+            entries.addAfter(BFBlocks.CERAMIC_TILE_STAIRS, BFBlocks.CERAMIC_TILE_SLAB);
+            entries.addAfter(BFBlocks.CERAMIC_TILE_SLAB, BFBlocks.CRACKED_CERAMIC_TILES);
+            entries.addAfter(BFBlocks.CRACKED_CERAMIC_TILES, BFBlocks.CERAMIC_TILE_PILLAR);
+            entries.addAfter(BFBlocks.CERAMIC_TILE_PILLAR, BFBlocks.CERAMIC_MOSAIC);
+            entries.addAfter(BFBlocks.CERAMIC_MOSAIC, BFBlocks.CERAMIC_MOSAIC_STAIRS);
+            entries.addAfter(BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CERAMIC_MOSAIC_SLAB);
             entries.add(BFBlocks.WHITE_JACK_O_STRAW);
             entries.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW);
             entries.add(BFBlocks.GRAY_JACK_O_STRAW);
@@ -397,6 +405,10 @@ public class BFItemGroupAdditions {
             entries.add(BFBlocks.PURPLE_JACK_O_STRAW);
             entries.add(BFBlocks.MAGENTA_JACK_O_STRAW);
             entries.add(BFBlocks.PINK_JACK_O_STRAW);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.OPERATOR).register(entries -> {
+            entries.add(BFBlocks.SOLID_CERAMIC);
         });
 //        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
 //            entries.addAfter(BFBlocks.BLACK_JACK_O_STRAW, MintBlocks.ACORN_JACK_O_STRAW);

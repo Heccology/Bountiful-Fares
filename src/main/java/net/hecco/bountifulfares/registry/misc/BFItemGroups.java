@@ -241,6 +241,7 @@ public class BFItemGroups {
                         entries.add(BFBlocks.CERAMIC_BUTTON);
                         entries.add(BFBlocks.CERAMIC_LEVER);
                         entries.add(BFBlocks.CERAMIC_DISH);
+                        entries.add(BFBlocks.SOLID_CERAMIC);
                         entries.add(BFItems.ARTISAN_BRUSH);
                         entries.add(BFItems.SUN_HAT);
 
