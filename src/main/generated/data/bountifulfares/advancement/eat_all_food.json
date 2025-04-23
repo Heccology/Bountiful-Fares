@@ -185,6 +185,14 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "cooked_egg": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:cooked_egg"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "crimson_chow": {
       "conditions": {
         "item": {
@@ -656,6 +664,9 @@
     ],
     [
       "popped_maize"
+    ],
+    [
+      "cooked_egg"
     ],
     [
       "leek"

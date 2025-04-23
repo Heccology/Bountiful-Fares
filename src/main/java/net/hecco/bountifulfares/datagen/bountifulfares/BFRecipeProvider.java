@@ -308,6 +308,10 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerMultipleOptions(exporter, RecipeSerializer.SMOKING, SmokingRecipe::new, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 50, "popped_maize", "_from_smoking");
         offerMultipleOptions(exporter, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 300, "popped_maize", "_from_campfire_cooking");
 
+        offerSmelting(exporter, ImmutableList.of(Items.EGG), RecipeCategory.FOOD, BFItems.COOKED_EGG, 0.1f, 100, "cooked_egg");
+        offerMultipleOptions(exporter, RecipeSerializer.SMOKING, SmokingRecipe::new, ImmutableList.of(Items.EGG), RecipeCategory.FOOD, BFItems.COOKED_EGG, 0.1f, 50, "cooked_egg", "_from_smoking");
+        offerMultipleOptions(exporter, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new, ImmutableList.of(Items.EGG), RecipeCategory.FOOD, BFItems.COOKED_EGG, 0.1f, 300, "cooked_egg", "_from_campfire_cooking");
+
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.WALNUT_COOKIE, 4)
                 .pattern("#W#")

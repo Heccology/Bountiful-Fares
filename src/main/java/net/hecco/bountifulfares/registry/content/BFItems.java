@@ -73,6 +73,7 @@ public class BFItems {
     public static final Item GRASS_SEEDS = registerItem("grass_seeds", new GrassSeedsItem(new Item.Settings()));
     public static final Item MAIZE_SEEDS = registerItem("maize_seeds", new AliasedBlockItem(BFBlocks.MAIZE_CROP, new Item.Settings()));
     public static final Item POPPED_MAIZE = registerItem("popped_maize", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.5f).snack().build())));
+    public static final Item COOKED_EGG = registerItem("cooked_egg", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(1.0f).snack().build())));
     public static final Item LEEK = registerItem("leek", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.6f).build())));
     public static final Item LEEK_SEEDS = registerItem("leek_seeds", new AliasedBlockItem(BFBlocks.LEEKS, new Item.Settings()));
     public static final Item SPONGEKIN_SEEDS = registerItem("spongekin_seeds", new AliasedBlockItem(BFBlocks.SPONGEKIN_STEM, new Item.Settings()));
