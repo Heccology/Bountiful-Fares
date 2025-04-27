@@ -1,15 +1,16 @@
 {
-  "color": "#a7c900",
+  "color": "#cc5725",
   "containers": [
     {
       "filled": [
-        "bountifulfares:green_tea_bottle"
+        "bountifulfares:torchflower_tea_bottle"
       ],
       "empty": "minecraft:glass_bottle",
       "capacity": 1
     }
   ],
+  "from_mod": "bountifulfares",
   "flowing_texture": "amendments:block/potion_cauldron",
   "still_texture": "amendments:block/potion_cauldron",
-  "translation_key": "item.bountifulfares.green_tea_bottle"
+  "translation_key": "item.bountifulfares.torchflower_tea_bottle"
 }

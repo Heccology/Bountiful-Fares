@@ -11,6 +11,7 @@
       "capacity": 1
     }
   ],
+  "from_mod": "bountifulfares",
   "flowing_texture": "bountifulfares:block/amendments/orange_compote_cauldron",
   "still_texture": "bountifulfares:block/amendments/orange_compote_cauldron",
   "translation_key": "item.bountifulfares.orange_compote_jar"

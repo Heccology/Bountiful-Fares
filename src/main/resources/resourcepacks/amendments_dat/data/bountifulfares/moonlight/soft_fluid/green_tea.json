@@ -1,15 +1,16 @@
 {
-  "color": "#ff9c2c",
+  "color": "#a7c900",
   "containers": [
     {
       "filled": [
-        "bountifulfares:apple_cider_jar"
+        "bountifulfares:green_tea_bottle"
       ],
-      "empty": "bountifulfares:jar",
+      "empty": "minecraft:glass_bottle",
       "capacity": 1
     }
   ],
+  "from_mod": "bountifulfares",
   "flowing_texture": "amendments:block/potion_cauldron",
   "still_texture": "amendments:block/potion_cauldron",
-  "translation_key": "item.bountifulfares.apple_cider_jar"
+  "translation_key": "item.bountifulfares.green_tea_bottle"
 }

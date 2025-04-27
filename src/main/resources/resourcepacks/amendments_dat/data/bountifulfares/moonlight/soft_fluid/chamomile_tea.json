@@ -1,15 +1,16 @@
 {
-  "color": "#b2296f",
+  "color": "#c6a47d",
   "containers": [
     {
       "filled": [
-        "bountifulfares:bellflower_tea_bottle"
+        "bountifulfares:chamomile_tea_bottle"
       ],
       "empty": "minecraft:glass_bottle",
       "capacity": 1
     }
   ],
+  "from_mod": "bountifulfares",
   "flowing_texture": "amendments:block/potion_cauldron",
   "still_texture": "amendments:block/potion_cauldron",
-  "translation_key": "item.bountifulfares.bellflower_tea_bottle"
+  "translation_key": "item.bountifulfares.chamomile_tea_bottle"
 }

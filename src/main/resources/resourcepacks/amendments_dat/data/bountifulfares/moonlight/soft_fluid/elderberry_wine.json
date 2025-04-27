@@ -1,15 +1,16 @@
 {
-  "color": "#421b99",
+  "color": "#4c0e37",
   "containers": [
     {
       "filled": [
-        "bountifulfares:lapisberry_wine_bottle"
+        "bountifulfares:elderberry_wine_bottle"
       ],
       "empty": "minecraft:glass_bottle",
       "capacity": 1
     }
   ],
+  "from_mod": "bountifulfares",
   "flowing_texture": "amendments:block/potion_cauldron",
   "still_texture": "amendments:block/potion_cauldron",
-  "translation_key": "item.bountifulfares.lapisberry_wine_bottle"
+  "translation_key": "item.bountifulfares.elderberry_wine_bottle"
 }

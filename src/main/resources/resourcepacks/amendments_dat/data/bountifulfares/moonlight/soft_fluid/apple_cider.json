@@ -1,15 +1,16 @@
 {
-  "color": "#d0b36f",
+  "color": "#ff9c2c",
   "containers": [
     {
       "filled": [
-        "bountifulfares:mead_bottle"
+        "bountifulfares:apple_cider_jar"
       ],
-      "empty": "minecraft:glass_bottle",
+      "empty": "bountifulfares:jar",
       "capacity": 1
     }
   ],
+  "from_mod": "bountifulfares",
   "flowing_texture": "amendments:block/potion_cauldron",
   "still_texture": "amendments:block/potion_cauldron",
-  "translation_key": "item.bountifulfares.mead_bottle"
+  "translation_key": "item.bountifulfares.apple_cider_jar"
 }

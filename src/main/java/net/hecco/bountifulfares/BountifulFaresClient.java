@@ -28,6 +28,7 @@ import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.misc.BFScreenHandlers;
 import net.hecco.bountifulfares.registry.util.BFTooltipEvents;
 import net.hecco.bountifulfares.registry.util.BFWoodTypes;
+import net.hecco.bountifulfares.registry.util.BlockUseEvents;
 import net.hecco.bountifulfares.screen.GristmillScreen;
 import net.minecraft.block.Block;
 import net.minecraft.client.color.world.BiomeColors;
@@ -54,6 +55,7 @@ public class BountifulFaresClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BFMessages.registerS2CPackets();
+        BlockUseEvents.register();
         ItemTooltipCallback.EVENT.register(BFTooltipEvents::addTooltipsToVanillaItems);
         BlockEntityRendererFactories.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, CeramicDishBlockEntityRenderer::new);
 //        ElsAndLsDyes compat

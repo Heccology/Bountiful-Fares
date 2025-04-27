@@ -11,6 +11,7 @@
       "capacity": 1
     }
   ],
+  "from_mod": "bountifulfares",
   "flowing_texture": "bountifulfares:block/amendments/citrus_essence_cauldron",
   "still_texture": "bountifulfares:block/amendments/citrus_essence_cauldron",
   "translation_key": "item.bountifulfares.citrus_essence"
