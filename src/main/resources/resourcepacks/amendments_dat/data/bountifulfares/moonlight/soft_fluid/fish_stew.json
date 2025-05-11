@@ -1,0 +1,16 @@
+{
+  "color": "#fdce82",
+  "containers": [
+    {
+      "filled": [
+        "bountifulfares:fish_stew"
+      ],
+      "empty": "minecraft:bowl",
+      "capacity": 1
+    }
+  ],
+  "from_mod": "bountifulfares",
+  "flowing_texture": "bountifulfares:block/amendments/fish_stew_cauldron",
+  "still_texture": "bountifulfares:block/amendments/fish_stew_cauldron",
+  "translation_key": "item.bountifulfares.fish_stew"
+}

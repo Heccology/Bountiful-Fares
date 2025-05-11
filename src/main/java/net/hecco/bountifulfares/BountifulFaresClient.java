@@ -28,6 +28,7 @@ import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.misc.BFScreenHandlers;
 import net.hecco.bountifulfares.registry.util.BFTooltipEvents;
 import net.hecco.bountifulfares.registry.util.BFWoodTypes;
+import net.hecco.bountifulfares.registry.util.BlockUseEvents;
 import net.hecco.bountifulfares.screen.GristmillScreen;
 import net.minecraft.block.Block;
 import net.minecraft.client.color.world.BiomeColors;
@@ -54,6 +55,7 @@ public class BountifulFaresClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BFMessages.registerS2CPackets();
+        BlockUseEvents.register();
         ItemTooltipCallback.EVENT.register(BFTooltipEvents::addTooltipsToVanillaItems);
         BlockEntityRendererFactories.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, CeramicDishBlockEntityRenderer::new);
 //        ElsAndLsDyes compat
@@ -196,10 +198,12 @@ public class BountifulFaresClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CHECKERED_CERAMIC_TILES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB, RenderLayer.getCutout());
+        //BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CHECKERED_CERAMIC_TILE_WALL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CHECKERED_CERAMIC_MOSAIC, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB, RenderLayer.getCutout());
+        //BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.CERAMIC_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.APPLE_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BFBlocks.GOLDEN_APPLE_BLOCK, RenderLayer.getCutout());
@@ -273,17 +277,21 @@ public class BountifulFaresClient implements ClientModInitializer {
         registerBlockColor(BFBlocks.CERAMIC_TILES);
         registerBlockColor(BFBlocks.CERAMIC_TILE_STAIRS);
         registerBlockColor(BFBlocks.CERAMIC_TILE_SLAB);
+        //registerBlockColor(BFBlocks.CERAMIC_TILE_WALL);
         registerBlockColor(BFBlocks.CRACKED_CERAMIC_TILES);
         registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILES);
         registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
         registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB);
+        //registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_WALL);
         registerBlockColor(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES);
         registerBlockColor(BFBlocks.CERAMIC_MOSAIC);
         registerBlockColor(BFBlocks.CERAMIC_MOSAIC_STAIRS);
         registerBlockColor(BFBlocks.CERAMIC_MOSAIC_SLAB);
+        //registerBlockColor(BFBlocks.CERAMIC_MOSAIC_WALL);
         registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC);
         registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS);
         registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB);
+        //registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL);
         registerBlockColor(BFBlocks.CERAMIC_TILE_PILLAR);
         registerBlockColor(BFBlocks.CERAMIC_PRESSURE_PLATE);
         registerBlockColor(BFBlocks.CERAMIC_BUTTON);

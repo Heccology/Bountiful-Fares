@@ -219,6 +219,7 @@ public class BFItemGroups {
                         entries.add(BFBlocks.FELDSPAR_BRICK_STAIRS);
                         entries.add(ExcessiveBuildingBlocks.FELDSPAR_BRICK_VERTICAL_STAIRS);
                         entries.add(BFBlocks.FELDSPAR_BRICK_SLAB);
+                        entries.add(BFBlocks.FELDSPAR_BRICK_WALL);
                         entries.add(BFBlocks.FELDSPAR_LANTERN);
                         entries.add(TwigsBlocks.FELDSPAR_LAMP);
                         entries.add(BFBlocks.TINGED_GLASS);
@@ -229,12 +230,14 @@ public class BFItemGroups {
                         entries.add(BFBlocks.CERAMIC_TILE_STAIRS);
                         entries.add(ExcessiveBuildingBlocks.CERAMIC_TILE_VERTICAL_STAIRS);
                         entries.add(BFBlocks.CERAMIC_TILE_SLAB);
+                        //entries.add(BFBlocks.CERAMIC_TILE_WALL);
                         entries.add(BFBlocks.CRACKED_CERAMIC_TILES);
                         entries.add(BFBlocks.CERAMIC_TILE_PILLAR);
                         entries.add(BFBlocks.CERAMIC_MOSAIC);
                         entries.add(BFBlocks.CERAMIC_MOSAIC_STAIRS);
                         entries.add(ExcessiveBuildingBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS);
                         entries.add(BFBlocks.CERAMIC_MOSAIC_SLAB);
+                        //entries.add(BFBlocks.CERAMIC_MOSAIC_WALL);
                         entries.add(BFBlocks.CERAMIC_DOOR);
                         entries.add(BFBlocks.CERAMIC_TRAPDOOR);
                         entries.add(BFBlocks.CERAMIC_PRESSURE_PLATE);

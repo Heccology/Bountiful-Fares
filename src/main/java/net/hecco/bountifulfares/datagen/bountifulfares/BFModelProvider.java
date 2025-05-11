@@ -59,6 +59,7 @@ public class BFModelProvider extends FabricModelProvider {
         BlockStateModelGenerator.BlockTexturePool feldsparTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(BFBlocks.FELDSPAR_BRICKS);
         feldsparTexturePool.stairs(BFBlocks.FELDSPAR_BRICK_STAIRS);
         feldsparTexturePool.slab(BFBlocks.FELDSPAR_BRICK_SLAB);
+        feldsparTexturePool.wall(BFBlocks.FELDSPAR_BRICK_WALL);
 
         BlockStateModelGenerator.BlockTexturePool coirBrickTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(BFBlocks.COIR_BRICKS);
         coirBrickTexturePool.stairs(BFBlocks.COIR_BRICK_STAIRS);

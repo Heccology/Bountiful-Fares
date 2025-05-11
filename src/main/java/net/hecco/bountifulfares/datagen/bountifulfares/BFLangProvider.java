@@ -88,12 +88,16 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFBlocks.HANGING_HOARY_APPLE, "Hoary Apple");
 
         generate(translationBuilder, BFBlocks.CERAMIC_CLAY_BLOCK, "Block of Ceramic Clay");
-
+        //generate(translationBuilder, BFBlocks.CERAMIC_MOSAIC_WALL, "Ceramic Mosaic Wall");
+        //generate(translationBuilder, BFBlocks.CERAMIC_TILE_WALL, "Ceramic Tile Wall");
+        //generate(translationBuilder, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, "Checkered Ceramic Mosaic Wall");
+        //generate(translationBuilder, BFBlocks.CHECKERED_CERAMIC_TILE_WALL, "Checkered Ceramic Tile Wall");
 
         generate(translationBuilder, BFItems.WALNUT_CHEST_BOAT, "Walnut Boat with Chest");
 
         generate(translationBuilder, BFBlocks.HANGING_WALNUTS, "Walnuts");
 
+        generate(translationBuilder, BFBlocks.FELDSPAR_BRICK_WALL, "Feldspar Brick Wall");
 
         generate(translationBuilder, BFBlocks.WALL_PALM_FROND, "Palm Frond");
 

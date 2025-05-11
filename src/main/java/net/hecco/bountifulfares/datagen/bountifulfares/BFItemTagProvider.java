@@ -9,6 +9,7 @@ import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
@@ -169,6 +170,30 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS).add(BFBlocks.HOARY_TRAPDOOR.asItem(), BFBlocks.WALNUT_TRAPDOOR.asItem());
         getOrCreateTagBuilder(ItemTags.BUTTONS).add(BFBlocks.CERAMIC_BUTTON.asItem());
 
+        getOrCreateTagBuilder(ItemTags.STAIRS)
+                .add(BFBlocks.COIR_BRICK_STAIRS.asItem())
+                .add(BFBlocks.FELDSPAR_BRICK_STAIRS.asItem())
+                .add(BFBlocks.CERAMIC_TILE_STAIRS.asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC_STAIRS.asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.asItem())
+        ;
+        getOrCreateTagBuilder(ItemTags.SLABS)
+                .add(BFBlocks.COIR_BRICK_SLAB.asItem())
+                .add(BFBlocks.FELDSPAR_BRICK_SLAB.asItem())
+                .add(BFBlocks.CERAMIC_TILE_SLAB.asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC_SLAB.asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.asItem())
+        ;
+        getOrCreateTagBuilder(ItemTags.WALLS)
+                .add(BFBlocks.COIR_BRICK_WALL.asItem())
+                .add(BFBlocks.FELDSPAR_BRICK_WALL.asItem())
+                //.add(BFBlocks.CERAMIC_TILE_WALL.asItem())
+                //.add(BFBlocks.CERAMIC_MOSAIC_WALL.asItem())
+                //.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL.asItem())
+                //.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL.asItem())
+        ;
 
         getOrCreateTagBuilder(ItemTags.CANDLES)
                 .add(BFBlocks.GREEN_TEA_CANDLE.asItem())
@@ -189,18 +214,22 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFBlocks.CERAMIC_TILES.asItem())
                 .add(BFBlocks.CERAMIC_TILE_STAIRS.asItem())
                 .add(BFBlocks.CERAMIC_TILE_SLAB.asItem())
+                //.add(BFBlocks.CERAMIC_TILE_WALL.asItem())
                 .add(BFBlocks.CRACKED_CERAMIC_TILES.asItem())
                 .add(BFBlocks.CHECKERED_CERAMIC_TILES.asItem())
                 .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.asItem())
                 .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.asItem())
+                //.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL.asItem())
                 .add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.asItem())
                 .add(BFBlocks.CERAMIC_TILE_PILLAR.asItem())
                 .add(BFBlocks.CERAMIC_MOSAIC.asItem())
                 .add(BFBlocks.CERAMIC_MOSAIC_STAIRS.asItem())
                 .add(BFBlocks.CERAMIC_MOSAIC_SLAB.asItem())
+                //.add(BFBlocks.CERAMIC_MOSAIC_WALL.asItem())
                 .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC.asItem())
                 .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.asItem())
                 .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.asItem())
+                //.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL.asItem())
                 .add(BFBlocks.CERAMIC_DOOR.asItem())
                 .add(BFBlocks.CERAMIC_TRAPDOOR.asItem())
                 .add(BFBlocks.CERAMIC_BUTTON.asItem())
@@ -274,18 +303,22 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFBlocks.CERAMIC_TILES.asItem())
                 .add(BFBlocks.CERAMIC_TILE_STAIRS.asItem())
                 .add(BFBlocks.CERAMIC_TILE_SLAB.asItem())
+                //.add(BFBlocks.CERAMIC_TILE_WALL.asItem())
                 .add(BFBlocks.CRACKED_CERAMIC_TILES.asItem())
                 .add(BFBlocks.CHECKERED_CERAMIC_TILES.asItem())
                 .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.asItem())
                 .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.asItem())
+                //.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL.asItem())
                 .add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.asItem())
                 .add(BFBlocks.CERAMIC_TILE_PILLAR.asItem())
                 .add(BFBlocks.CERAMIC_MOSAIC.asItem())
                 .add(BFBlocks.CERAMIC_MOSAIC_STAIRS.asItem())
                 .add(BFBlocks.CERAMIC_MOSAIC_SLAB.asItem())
+                //.add(BFBlocks.CERAMIC_MOSAIC_WALL.asItem())
                 .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC.asItem())
                 .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.asItem())
                 .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.asItem())
+                //.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL.asItem())
                 .add(BFBlocks.CERAMIC_DOOR.asItem())
                 .add(BFBlocks.CERAMIC_TRAPDOOR.asItem())
                 .add(BFBlocks.CERAMIC_PRESSURE_PLATE.asItem())

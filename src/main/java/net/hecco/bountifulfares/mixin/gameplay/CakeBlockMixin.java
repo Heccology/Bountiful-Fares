@@ -17,13 +17,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(CakeBlock.class)
 public class CakeBlockMixin {
-    @Inject(method = "tryEat", at = @At("TAIL"))
-    private static void bf_eatSound(WorldAccess world, BlockPos pos, BlockState state, PlayerEntity player, CallbackInfoReturnable<ActionResult> cir) {
-        if (player.canConsume(false) && BountifulFares.CONFIG.isCakeEatSounds()) {
-            world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 0.5f, 1.0f);
-            if (state.get(Properties.BITES) == 6) {
-                world.playSound(null, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.BLOCKS, 0.5f, 1.0f);
-            }
-        }
-    }
+    // || UNUSED AS OF 2.1.0 || - Artyrian
+    //  @Inject(method = "tryEat", at = @At("HEAD"), order = 10)
+    //  private static void bf_eatSound(WorldAccess world, BlockPos pos, BlockState state, PlayerEntity player, CallbackInfoReturnable<ActionResult> cir) {
+    //          if (player.canConsume(false) && BountifulFares.CONFIG.isCakeEatSounds()) {
+    //                  world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 0.5f, 1.0f);
+    //                  if (state.get(Properties.BITES) == 6) {
+    //                          world.playSound(null, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.BLOCKS, 0.5f, 1.0f);
+    //                      }
+    //              }
+    //      }
 }

@@ -363,6 +363,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         addPottedPlantDrops(BFBlocks.POTTED_PALM_FROND);
         addPottedPlantDrops(BFBlocks.POTTED_GOLDEN_APPLE_SAPLING);
         addDrop(BFBlocks.PALM_SAPLING, BFItems.COCONUT);
+        addDrop(BFBlocks.FELDSPAR_BRICK_WALL);
 
 
         usedBlocks.add(BFBlocks.APPLE_PIE);
@@ -375,18 +376,22 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         usedBlocks.add(BFBlocks.CERAMIC_MOSAIC);
         usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_SLAB);
         usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_STAIRS);
+        //usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_WALL);
         usedBlocks.add(BFBlocks.CERAMIC_PRESSURE_PLATE);
         usedBlocks.add(BFBlocks.CERAMIC_TILE_PILLAR);
         usedBlocks.add(BFBlocks.CERAMIC_TILE_SLAB);
         usedBlocks.add(BFBlocks.CERAMIC_TILE_STAIRS);
+        //usedBlocks.add(BFBlocks.CERAMIC_TILE_WALL);
         usedBlocks.add(BFBlocks.CERAMIC_TILES);
         usedBlocks.add(BFBlocks.CERAMIC_TRAPDOOR);
         usedBlocks.add(BFBlocks.CHAMOMILE_FLOWERS);
         usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC);
         usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB);
         usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS);
+        //usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL);
         usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB);
         usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
+        //usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL);
         usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILES);
         usedBlocks.add(BFBlocks.COCONUT_CAKE);
         usedBlocks.add(BFBlocks.COCONUT);
