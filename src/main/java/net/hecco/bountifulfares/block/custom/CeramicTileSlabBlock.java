@@ -44,20 +44,6 @@ public class CeramicTileSlabBlock extends SlabBlock implements BlockEntityProvid
 
     @Override
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        ItemStack itemStack = context.getStack();
-        SlabType slabType = state.get(TYPE);
-        if (slabType != SlabType.DOUBLE && itemStack.isOf(this.asItem()) && DyedColorComponent.getColor(itemStack, DyeableCeramicBlockEntity.DEFAULT_COLOR) == ColorHelper.Argb.fullAlpha(DyeableCeramicBlockEntity.getColor(context.getWorld(), context.getBlockPos()))) {
-            if (context.canReplaceExisting()) {
-                boolean bl = context.getHitPos().y - (double)context.getBlockPos().getY() > 0.5;
-                Direction direction = context.getSide();
-                return slabType == SlabType.BOTTOM
-                        ? direction == Direction.UP || bl && direction.getAxis().isHorizontal()
-                        : direction == Direction.DOWN || !bl && direction.getAxis().isHorizontal();
-            } else {
-                return true;
-            }
-        } else {
-            return false;
-        }
+        return super.canReplace(state, context) && DyedColorComponent.getColor(context.getStack(), DyeableCeramicBlockEntity.DEFAULT_COLOR) == ColorHelper.Argb.fullAlpha(DyeableCeramicBlockEntity.getColor(context.getWorld(), context.getBlockPos()));
     }
 }
