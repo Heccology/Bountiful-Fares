@@ -18,6 +18,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -47,49 +49,13 @@ public class CeramicDoorBlock extends DoorBlock implements BlockEntityProvider {
     }
 
     @Override
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
+        return DyeableCeramicBlock.onUseForDoor(stack, state, world, pos, player, hand, state.getBlock(), this);
+    }
+
+    @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        ItemStack itemStack = player.getStackInHand(player.getActiveHand());
-        int brushColor = 1;
-        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
-            Item item = player.getStackInHand(player.getActiveHand()).getItem();
-            if (CompatUtil.isItemPaintbrush(item)) {
-                brushColor = CompatUtil.getIntColorFromPaintbrush(item);
-            } else if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && !player.isSneaking() && itemStack.getComponents().contains(DataComponentTypes.DYED_COLOR)) {
-                brushColor = itemStack.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
-            }
-        } else if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && !player.isSneaking() && itemStack.getComponents().contains(DataComponentTypes.DYED_COLOR)) {
-            brushColor = itemStack.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
-        }
-        if (brushColor != 1 && !player.isSneaking()) {
-            if (state.get(HALF) == DoubleBlockHalf.LOWER && world.getBlockState(pos.up()).isOf(this)) {
-                world.setBlockState(pos.up(), this.getDefaultState().with(FACING, state.get(FACING)).with(HALF, DoubleBlockHalf.UPPER).with(OPEN, state.get(OPEN)).with(HINGE, state.get(HINGE)), 0);
-                if (world.getBlockEntity(pos.up()) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity && dyeableCeramicBlockEntity.color != brushColor) {
-                    dyeableCeramicBlockEntity.color = brushColor;
-                    dyeableCeramicBlockEntity.markDirty();
-                }
-            }
-            if (state.get(HALF) == DoubleBlockHalf.UPPER && world.getBlockState(pos.down()).isOf(this)) {
-                world.setBlockState(pos.down(), this.getDefaultState().with(FACING, state.get(FACING)).with(HALF, DoubleBlockHalf.LOWER).with(OPEN, state.get(OPEN)).with(HINGE, state.get(HINGE)), 0);
-                if (world.getBlockEntity(pos.down()) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity && dyeableCeramicBlockEntity.color != brushColor) {
-                    dyeableCeramicBlockEntity.color = brushColor;
-                    dyeableCeramicBlockEntity.markDirty();
-                }
-            }
-            world.removeBlock(pos, false);
-            world.setBlockState(pos, this.getStateWithProperties(state), 0);
-            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
-            if (world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity && dyeableCeramicBlockEntity.color != brushColor) {
-                dyeableCeramicBlockEntity.color = brushColor;
-                dyeableCeramicBlockEntity.markDirty();
-                return ActionResult.SUCCESS;
-            }
-        }
-        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
-            Item item = player.getStackInHand(player.getActiveHand()).getItem();
-            if (CompatUtil.isItemPaintbrush(item)) {
-                return ActionResult.SUCCESS;
-            }
-        }
         if (!state.get(POWERED)) {
             if (!this.blockSetType.canOpenByHand()) {
                 return ActionResult.PASS;
@@ -159,9 +125,9 @@ public class CeramicDoorBlock extends DoorBlock implements BlockEntityProvider {
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
         world.setBlockState(pos.up(), state.with(HALF, DoubleBlockHalf.UPPER), 3);
         if (world.getBlockEntity(pos.up()) instanceof DyeableCeramicBlockEntity entity) {
-            DyeableCeramicBlockItem thisEntity = (DyeableCeramicBlockItem) itemStack.getItem();
-            if (thisEntity.getComponents().get(DataComponentTypes.DYED_COLOR) != null) {
-                entity.color = thisEntity.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
+            DyeableCeramicBlockEntity thisEntity = (DyeableCeramicBlockEntity) world.getBlockEntity(pos);
+            if (thisEntity != null) {
+                entity.color = thisEntity.color;
             }
             entity.markDirty();
         }

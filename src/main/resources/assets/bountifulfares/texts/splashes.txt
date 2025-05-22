@@ -5,7 +5,7 @@ Also try Excessive Building!
 Also try Subterrous!
 Who needs Farmer's Delight?
 Hoary is a real word!
-Forge port when?
+forge port when
 The world is filled with more food!
 Hecco was here!
 Okay but what if it was an apple?
@@ -42,3 +42,8 @@ Now THESE are some bountiful fares!
 /give @p bountifulfares:dirt_stew 99
 "I like the old feldspar though" LEAVE ME ALONE
 Grab the popped maize!
+Totally synced ceramic tiles!
+Now with extra limes!
+Owlimes!
+A medley of medleys!
+The walls are glistening...

@@ -206,6 +206,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         BlockFamily ceramicFamily = register(BFBlocks.CERAMIC_TILES)
                 .slab(BFBlocks.CERAMIC_TILE_SLAB)
                 .stairs(BFBlocks.CERAMIC_TILE_STAIRS)
+                /*.wall(BFBlocks.CERAMIC_TILE_WALL)*/
                 .group("ceramic_tiles")
                 .unlockCriterionName("has_ceramic_tiles")
                 .build();
@@ -222,6 +223,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         BlockFamily ceramicMosaicFamily = register(BFBlocks.CERAMIC_MOSAIC)
                 .slab(BFBlocks.CERAMIC_MOSAIC_SLAB)
                 .stairs(BFBlocks.CERAMIC_MOSAIC_STAIRS)
+                /*.wall(BFBlocks.CERAMIC_MOSAIC_WALL)*/
                 .group("ceramic_mosaic")
                 .unlockCriterionName("has_ceramic_mosaic")
                 .build();
@@ -307,6 +309,10 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerSmelting(exporter, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 100, "popped_maize");
         offerMultipleOptions(exporter, RecipeSerializer.SMOKING, SmokingRecipe::new, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 50, "popped_maize", "_from_smoking");
         offerMultipleOptions(exporter, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 300, "popped_maize", "_from_campfire_cooking");
+
+        offerSmelting(exporter, ImmutableList.of(Items.EGG), RecipeCategory.FOOD, BFItems.COOKED_EGG, 0.1f, 100, "cooked_egg");
+        offerMultipleOptions(exporter, RecipeSerializer.SMOKING, SmokingRecipe::new, ImmutableList.of(Items.EGG), RecipeCategory.FOOD, BFItems.COOKED_EGG, 0.1f, 50, "cooked_egg", "_from_smoking");
+        offerMultipleOptions(exporter, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new, ImmutableList.of(Items.EGG), RecipeCategory.FOOD, BFItems.COOKED_EGG, 0.1f, 300, "cooked_egg", "_from_campfire_cooking");
 
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.WALNUT_COOKIE, 4)
@@ -946,6 +952,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         BlockFamily feldsparBricksFamily = register(BFBlocks.FELDSPAR_BRICKS)
                 .stairs(BFBlocks.FELDSPAR_BRICK_STAIRS)
                 .slab(BFBlocks.FELDSPAR_BRICK_SLAB)
+                .wall(BFBlocks.FELDSPAR_BRICK_WALL)
                 .unlockCriterionName("has_feldspar_bricks")
                 .build();
         generateFamily(exporter, feldsparBricksFamily, FeatureSet.of(FeatureFlags.VANILLA));
@@ -954,22 +961,37 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICKS, BFBlocks.FELDSPAR_BLOCK, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_STAIRS, BFBlocks.FELDSPAR_BLOCK, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_SLAB, BFBlocks.FELDSPAR_BLOCK, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_WALL, BFBlocks.FELDSPAR_BLOCK, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICKS, BFBlocks.CUT_FELDSPAR_BLOCK, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_STAIRS, BFBlocks.CUT_FELDSPAR_BLOCK, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_SLAB, BFBlocks.CUT_FELDSPAR_BLOCK, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_WALL, BFBlocks.CUT_FELDSPAR_BLOCK, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_STAIRS, BFBlocks.FELDSPAR_BRICKS, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_SLAB, BFBlocks.FELDSPAR_BRICKS, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_WALL, BFBlocks.FELDSPAR_BRICKS, 1);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_STAIRS, BFBlocks.CERAMIC_TILES, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_SLAB, BFBlocks.CERAMIC_TILES, 2);
+        //offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_WALL, BFBlocks.CERAMIC_TILES, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_TILE_SLAB, BFBlocks.CHECKERED_CERAMIC_TILES, 2);
+        //offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_TILE_WALL, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_PILLAR, BFBlocks.CERAMIC_TILES, 1);
+
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC, BFBlocks.CERAMIC_TILES, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CERAMIC_TILES, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CERAMIC_TILES, 2);
+        //offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_WALL, BFBlocks.CERAMIC_TILES, 2);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CERAMIC_MOSAIC, 1);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CERAMIC_MOSAIC, 2);
+        //offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_WALL, BFBlocks.CERAMIC_MOSAIC, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB, BFBlocks.CHECKERED_CERAMIC_TILES, 2);
+        //offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS, BFBlocks.CHECKERED_CERAMIC_MOSAIC, 1);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB, BFBlocks.CHECKERED_CERAMIC_MOSAIC, 2);
+        //offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, BFBlocks.CHECKERED_CERAMIC_MOSAIC, 1);
 
         offerSmelting(exporter, ImmutableList.of(BFItems.CERAMIC_CLAY), RecipeCategory.MISC, BFItems.CERAMIC_TILE, 0.3f, 200, "ceramic_tile");
         offerSmelting(exporter, ImmutableList.of(BFItems.TEA_LEAVES), RecipeCategory.FOOD, BFItems.DRIED_TEA_LEAVES, 0.3f, 200, "dried_tea_leaves");
@@ -1025,6 +1047,10 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_DOOR);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TRAPDOOR);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_LEVER);
+        //offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_MOSAIC_WALL);
+        //offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TILE_WALL);
+        //offerCeramicUndyingRecipe(exporter, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, BFBlocks.CERAMIC_MOSAIC_WALL);
+        //offerCeramicUndyingRecipe(exporter, BFBlocks.CHECKERED_CERAMIC_TILE_WALL, BFBlocks.CERAMIC_TILE_WALL);
         offerCeramicUndyingRecipe(exporter, BFItems.ARTISAN_BRUSH);
 
         offerHangingSignRecipe(exporter, BFItems.HOARY_HANGING_SIGN, BFBlocks.STRIPPED_HOARY_LOG);

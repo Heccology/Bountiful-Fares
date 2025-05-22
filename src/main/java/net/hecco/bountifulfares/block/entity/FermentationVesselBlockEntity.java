@@ -26,6 +26,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -41,7 +42,7 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     private int progress = 0;
     private int maxProgress;
     public boolean fermented;
-    public int particleColor;
+    public int particleColor = 0;
     public FermentationVesselBlockEntity(BlockPos pos, BlockState state) {
         super(BFBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, pos, state);
         this.fermented = false;
@@ -169,9 +170,9 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
 
     public Optional<RecipeEntry<FermentationRecipe>> getCurrentRecipe() {
         Optional<RecipeEntry<FermentationRecipe>> recipe = Objects.requireNonNull(this.getWorld()).getRecipeManager().getFirstMatch(BFRecipes.FERMENTING, new SingleStackRecipeInput(inventory.get(0)), this.world);
-        return recipe.isEmpty() ? Optional.empty() : Objects.requireNonNull(this.getWorld()).getRecipeManager().getFirstMatch(BFRecipes.FERMENTING, new SingleStackRecipeInput(inventory.get(0)), this.world);
+        return recipe.isEmpty() ? Optional.empty() : recipe;
     }
-    public ActionResult tryExtractItem(World world, BlockPos pos, BlockState state, PlayerEntity player, Hand hand) {
+    public ItemActionResult tryExtractItem(World world, BlockPos pos, BlockState state, PlayerEntity player, Hand hand) {
         if (this.fermented) {
             ItemStack output = getCurrentRecipe().isEmpty() ? null : getCurrentRecipe().get().value().getOutput();
             if (output != null) {
@@ -184,7 +185,7 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
                     this.progress = 0;
                     this.fermented = false;
                     markDirty(world, pos, state);
-                    return ActionResult.SUCCESS;
+                    return ItemActionResult.SUCCESS;
                 } else {
                     if (player.getStackInHand(hand).isOf(collector)) {
                         world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
@@ -201,15 +202,15 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
                         this.fermented = false;
                         removeItem();
                         markDirty(world, pos, state);
-                        return ActionResult.SUCCESS;
+                        return ItemActionResult.SUCCESS;
                     } else {
                         player.sendMessage(Text.translatable("warning." + BountifulFares.MOD_ID + ".fermentation_vessel." + collector), true);
-                        return ActionResult.SUCCESS;
+                        return ItemActionResult.SUCCESS;
                     }
                 }
             }
         }
-        return ActionResult.PASS;
+        return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 }
 

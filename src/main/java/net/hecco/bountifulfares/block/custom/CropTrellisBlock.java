@@ -23,10 +23,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -114,16 +111,21 @@ public class CropTrellisBlock extends Block implements Waterloggable, Fertilizab
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        int i = state.get(AGE);
-        if (player.getStackInHand(player.getActiveHand()).isOf(Items.SHEARS) && !state.get(SNIPPED)) {
-            player.getStackInHand(player.getActiveHand()).damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
+        if (stack.isOf(Items.SHEARS) && !state.get(SNIPPED)) {
+            stack.damage(1, player, LivingEntity.getSlotForHand(hand));
             world.setBlockState(pos, state.with(SNIPPED, true));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            return ActionResult.SUCCESS;
-        } else if(i != 3) {
-            return ActionResult.PASS;
-        } else if(state.get(AGE) == 3 & !state.get(SNIPPED)) {
+            return ItemActionResult.SUCCESS;
+        }
+        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        int i = state.get(AGE);
+        if (i == 3 & !state.get(SNIPPED)) {
             int j = 1 + world.random.nextInt(2);
             if (this.berryItem != null) {
                 dropStack(world, pos, new ItemStack(this.berryItem, world.random.nextBetween(1, 2)));

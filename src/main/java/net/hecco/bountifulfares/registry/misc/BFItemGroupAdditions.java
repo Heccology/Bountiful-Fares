@@ -110,15 +110,20 @@ public class BFItemGroupAdditions {
             entries.addAfter(BFBlocks.CUT_FELDSPAR_BLOCK, BFBlocks.FELDSPAR_BRICKS);
             entries.addAfter(BFBlocks.FELDSPAR_BRICKS, BFBlocks.FELDSPAR_BRICK_STAIRS);
             entries.addAfter(BFBlocks.FELDSPAR_BRICK_STAIRS, BFBlocks.FELDSPAR_BRICK_SLAB);
-            entries.addAfter(BFBlocks.FELDSPAR_BRICK_SLAB, BFBlocks.CERAMIC_CLAY_BLOCK);
+            entries.addAfter(BFBlocks.FELDSPAR_BRICK_SLAB, BFBlocks.FELDSPAR_BRICK_WALL);
+            entries.addAfter(BFBlocks.FELDSPAR_BRICK_WALL, BFBlocks.CERAMIC_CLAY_BLOCK);
             entries.addAfter(BFBlocks.CERAMIC_CLAY_BLOCK, BFBlocks.CERAMIC_TILES);
             entries.addAfter(BFBlocks.CERAMIC_TILES, BFBlocks.CERAMIC_TILE_STAIRS);
             entries.addAfter(BFBlocks.CERAMIC_TILE_STAIRS, BFBlocks.CERAMIC_TILE_SLAB);
+            //entries.addAfter(BFBlocks.CERAMIC_TILE_SLAB, BFBlocks.CERAMIC_TILE_WALL);
+            //entries.addAfter(BFBlocks.CERAMIC_TILE_WALL, BFBlocks.CRACKED_CERAMIC_TILES);
             entries.addAfter(BFBlocks.CERAMIC_TILE_SLAB, BFBlocks.CRACKED_CERAMIC_TILES);
             entries.addAfter(BFBlocks.CRACKED_CERAMIC_TILES, BFBlocks.CERAMIC_TILE_PILLAR);
             entries.addAfter(BFBlocks.CERAMIC_TILE_PILLAR, BFBlocks.CERAMIC_MOSAIC);
             entries.addAfter(BFBlocks.CERAMIC_MOSAIC, BFBlocks.CERAMIC_MOSAIC_STAIRS);
             entries.addAfter(BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CERAMIC_MOSAIC_SLAB);
+            //entries.addAfter(BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CERAMIC_MOSAIC_WALL);
+            //entries.addAfter(BFBlocks.CERAMIC_MOSAIC_WALL, BFBlocks.CERAMIC_DOOR);
             entries.addAfter(BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CERAMIC_DOOR);
             entries.addAfter(BFBlocks.CERAMIC_DOOR, BFBlocks.CERAMIC_TRAPDOOR);
             entries.addAfter(BFBlocks.CERAMIC_TRAPDOOR, BFBlocks.CERAMIC_PRESSURE_PLATE);
@@ -381,6 +386,17 @@ public class BFItemGroupAdditions {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
+            entries.addAfter(Items.PINK_GLAZED_TERRACOTTA, BFBlocks.CERAMIC_TILES);
+            entries.addAfter(BFBlocks.CERAMIC_TILES, BFBlocks.CERAMIC_TILE_STAIRS);
+            entries.addAfter(BFBlocks.CERAMIC_TILE_STAIRS, BFBlocks.CERAMIC_TILE_SLAB);
+            //entries.addAfter(BFBlocks.CERAMIC_TILE_SLAB, BFBlocks.CERAMIC_TILE_WALL);
+            //entries.addAfter(BFBlocks.CERAMIC_TILE_WALL, BFBlocks.CRACKED_CERAMIC_TILES);
+            entries.addAfter(BFBlocks.CERAMIC_TILE_SLAB, BFBlocks.CRACKED_CERAMIC_TILES);
+            entries.addAfter(BFBlocks.CRACKED_CERAMIC_TILES, BFBlocks.CERAMIC_TILE_PILLAR);
+            entries.addAfter(BFBlocks.CERAMIC_TILE_PILLAR, BFBlocks.CERAMIC_MOSAIC);
+            entries.addAfter(BFBlocks.CERAMIC_MOSAIC, BFBlocks.CERAMIC_MOSAIC_STAIRS);
+            entries.addAfter(BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CERAMIC_MOSAIC_SLAB);
+            //entries.addAfter(BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CERAMIC_MOSAIC_WALL);
             entries.add(BFBlocks.WHITE_JACK_O_STRAW);
             entries.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW);
             entries.add(BFBlocks.GRAY_JACK_O_STRAW);
@@ -397,6 +413,10 @@ public class BFItemGroupAdditions {
             entries.add(BFBlocks.PURPLE_JACK_O_STRAW);
             entries.add(BFBlocks.MAGENTA_JACK_O_STRAW);
             entries.add(BFBlocks.PINK_JACK_O_STRAW);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.OPERATOR).register(entries -> {
+            entries.add(BFBlocks.SOLID_CERAMIC);
         });
 //        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
 //            entries.addAfter(BFBlocks.BLACK_JACK_O_STRAW, MintBlocks.ACORN_JACK_O_STRAW);

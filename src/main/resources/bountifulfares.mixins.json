@@ -4,7 +4,6 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "gameplay.BlockItemMixin",
-    "gameplay.CakeBlockMixin",
     "gameplay.CampfireBlockEntityMixin",
     "gameplay.LivingEntityMixin",
     "gameplay.NoteBlockInstrumentMixin",
@@ -14,6 +13,7 @@
     "misc.WoodlandMansionFirstFloorMixin",
     "misc.WoodlandMansionSecondFloorMixin",
     "render.AbstractInventoryMixin",
+    "render.FilledMapItemMixin",
     "render.GuiMixin",
     "render.ItemRendererMixin",
     "render.ModelLoaderMixin",

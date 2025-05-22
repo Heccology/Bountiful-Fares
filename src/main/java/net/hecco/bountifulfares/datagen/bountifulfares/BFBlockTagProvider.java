@@ -30,22 +30,27 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.FELDSPAR_BRICKS)
                 .add(BFBlocks.FELDSPAR_BRICK_STAIRS)
                 .add(BFBlocks.FELDSPAR_BRICK_SLAB)
+                .add(BFBlocks.FELDSPAR_BRICK_WALL)
                 .add(BFBlocks.FELDSPAR_LANTERN)
                 .add(BFBlocks.CERAMIC_TILES)
                 .add(BFBlocks.CERAMIC_TILE_STAIRS)
                 .add(BFBlocks.CERAMIC_TILE_SLAB)
+                //.add(BFBlocks.CERAMIC_TILE_WALL)
                 .add(BFBlocks.CRACKED_CERAMIC_TILES)
                 .add(BFBlocks.CHECKERED_CERAMIC_TILES)
                 .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS)
                 .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB)
+                //.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL)
                 .add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES)
                 .add(BFBlocks.CERAMIC_TILE_PILLAR)
                 .add(BFBlocks.CERAMIC_MOSAIC)
                 .add(BFBlocks.CERAMIC_MOSAIC_STAIRS)
                 .add(BFBlocks.CERAMIC_MOSAIC_SLAB)
+                //.add(BFBlocks.CERAMIC_MOSAIC_WALL)
                 .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC)
                 .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS)
                 .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB)
+                //.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL)
                 .add(BFBlocks.CERAMIC_PRESSURE_PLATE)
                 .add(BFBlocks.CERAMIC_DOOR)
                 .add(BFBlocks.CERAMIC_TRAPDOOR)
@@ -248,7 +253,6 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS).add(BFBlocks.WALNUT_HANGING_SIGN, BFBlocks.HOARY_HANGING_SIGN);
         getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS).add(BFBlocks.WALNUT_WALL_HANGING_SIGN, BFBlocks.HOARY_WALL_HANGING_SIGN);
         getOrCreateTagBuilder(BlockTags.WALL_SIGNS).add(BFBlocks.WALNUT_WALL_SIGN, BFBlocks.HOARY_WALL_SIGN);
-        getOrCreateTagBuilder(BlockTags.WALLS).add(BFBlocks.COIR_BRICK_WALL);
         getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).add(BFBlocks.WALNUT_BUTTON, BFBlocks.HOARY_BUTTON);
         getOrCreateTagBuilder(BlockTags.WOODEN_DOORS).add(BFBlocks.WALNUT_DOOR, BFBlocks.HOARY_DOOR);
         getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(BFBlocks.WALNUT_FENCE, BFBlocks.HOARY_FENCE);
@@ -262,6 +266,30 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.PRESSURE_PLATES).add(BFBlocks.CERAMIC_PRESSURE_PLATE);
         getOrCreateTagBuilder(BlockTags.BUTTONS).add(BFBlocks.CERAMIC_BUTTON);
 
+        getOrCreateTagBuilder(BlockTags.STAIRS)
+                .add(BFBlocks.COIR_BRICK_STAIRS)
+                .add(BFBlocks.FELDSPAR_BRICK_STAIRS)
+                .add(BFBlocks.CERAMIC_TILE_STAIRS)
+                .add(BFBlocks.CERAMIC_MOSAIC_STAIRS)
+                .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS)
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS)
+        ;
+        getOrCreateTagBuilder(BlockTags.SLABS)
+                .add(BFBlocks.COIR_BRICK_SLAB)
+                .add(BFBlocks.FELDSPAR_BRICK_SLAB)
+                .add(BFBlocks.CERAMIC_TILE_SLAB)
+                .add(BFBlocks.CERAMIC_MOSAIC_SLAB)
+                .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB)
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB)
+        ;
+        getOrCreateTagBuilder(BlockTags.WALLS)
+                .add(BFBlocks.COIR_BRICK_WALL)
+                .add(BFBlocks.FELDSPAR_BRICK_WALL)
+                //.add(BFBlocks.CERAMIC_TILE_WALL)
+                //.add(BFBlocks.CERAMIC_MOSAIC_WALL)
+                //.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL)
+                //.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL)
+        ;
 
         getOrCreateTagBuilder(BFBlockTags.INFUSED_CANDLES)
                 .add(BFBlocks.GREEN_TEA_CANDLE)
@@ -345,18 +373,22 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.CERAMIC_TILES)
                 .add(BFBlocks.CERAMIC_TILE_STAIRS)
                 .add(BFBlocks.CERAMIC_TILE_SLAB)
+                //.add(BFBlocks.CERAMIC_TILE_WALL)
                 .add(BFBlocks.CRACKED_CERAMIC_TILES)
                 .add(BFBlocks.CHECKERED_CERAMIC_TILES)
                 .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS)
                 .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB)
+                //.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL)
                 .add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES)
                 .add(BFBlocks.CERAMIC_TILE_PILLAR)
                 .add(BFBlocks.CERAMIC_MOSAIC)
                 .add(BFBlocks.CERAMIC_MOSAIC_STAIRS)
                 .add(BFBlocks.CERAMIC_MOSAIC_SLAB)
+                //.add(BFBlocks.CERAMIC_MOSAIC_WALL)
                 .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC)
                 .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS)
                 .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB)
+                //.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL)
         ;
         getOrCreateTagBuilder(BFBlockTags.DYEABLE_CERAMIC_BLOCKS)
                 .addTag(BFBlockTags.CERAMIC_TILES)
@@ -366,6 +398,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.CERAMIC_BUTTON)
                 .add(BFBlocks.CERAMIC_LEVER)
                 .add(BFBlocks.CERAMIC_DISH)
+                .add(BFBlocks.SOLID_CERAMIC)
         ;
 
         getOrCreateTagBuilder(BFBlockTags.FELSIC_STONES)

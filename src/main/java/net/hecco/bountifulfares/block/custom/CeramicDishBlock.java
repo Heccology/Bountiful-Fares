@@ -6,9 +6,11 @@ import net.hecco.bountifulfares.block.interfaces.CeramicDishBlockInterface;
 import net.hecco.bountifulfares.compat.CompatUtil;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -28,6 +30,8 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -71,96 +75,64 @@ public class CeramicDishBlock extends Block implements BlockEntityProvider, Wate
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        ItemStack item = player.getStackInHand(player.getActiveHand());
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
         if (world.getBlockEntity(pos) instanceof CeramicDishBlockEntity blockEntity) {
-            ItemStack itemStack = player.getStackInHand(player.getActiveHand());
-            ItemStack stack = blockEntity.getStack(0);
-            if (itemStack.isOf(BFItems.ARTISAN_BRUSH) && itemStack.getComponents().contains(DataComponentTypes.DYED_COLOR) && blockEntity.getStack(0).isEmpty()) {
-                int brushColor = itemStack.getComponents().get(DataComponentTypes.DYED_COLOR).rgb();
-                world.removeBlock(pos, true);
-                world.setBlockState(pos, this.getStateWithProperties(state));
+            ItemStack stackEntity = blockEntity.getStack(0);
+            ItemActionResult BRUSH_PASS = DyeableCeramicBlock.onUseForDish(stack, state, world, pos, player, hand, state.getBlock(), blockEntity);
+
+            if (BRUSH_PASS.isAccepted())
+            {
+                return BRUSH_PASS;
+            }
+            else if (!stack.isEmpty() && blockEntity.canInsertItem()) {
                 blockEntity.insertItem(stack);
-                world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
-                if (world.getBlockEntity(pos) instanceof CeramicDishBlockEntity ceramicDishBlockEntity && ceramicDishBlockEntity.color != brushColor) {
-                    ceramicDishBlockEntity.color = brushColor;
-                    ceramicDishBlockEntity.markDirty();
-                    return ActionResult.SUCCESS;
-
-                }
-            } else if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
-                if (CompatUtil.isItemPaintbrush(item.getItem()) && blockEntity.getStack(0).isEmpty()) {
-                    int brushColor = CompatUtil.getIntColorFromPaintbrush(item.getItem());
-                    if (brushColor != 1) {
-                        world.removeBlock(pos, false);
-                        world.setBlockState(pos, this.getStateWithProperties(state));
-                        world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_DYE_USE, SoundCategory.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
-                        if (world.getBlockEntity(pos) instanceof CeramicDishBlockEntity ceramicDishBlockEntity && ceramicDishBlockEntity.color != brushColor) {
-                            ceramicDishBlockEntity.color = brushColor;
-                            ceramicDishBlockEntity.markDirty();
-                            return ActionResult.SUCCESS;
-
-                        }
-                    }
-                }
-            } else if (!item.isEmpty() && blockEntity.canInsertItem()) {
-                blockEntity.insertItem(item);
                 if (!player.isCreative()) {
-                    item.decrement(1);
+                    stack.decrement(1);
                 }
-                return ActionResult.SUCCESS;
-            } else if (!stack.isEmpty()) {
-                if (player.isSneaking() && item.isEmpty()) {
-                    player.setStackInHand(player.getActiveHand(), stack);
+                world.playSoundAtBlockCenter(pos, BFSounds.CERAMIC_DISH_INTERACT, SoundCategory.PLAYERS, 1.0f, 0.8f + world.random.nextFloat() / 4, true);
+                blockEntity.markDirty();
+                return ItemActionResult.SUCCESS;
+            }
+            else if (!stackEntity.isEmpty()) {
+                if (player.isSneaking() && stack.isEmpty()) {
+                    player.setStackInHand(hand, stackEntity);
                     blockEntity.removeItem();
+                    world.playSoundAtBlockCenter(pos, BFSounds.CERAMIC_DISH_INTERACT, SoundCategory.PLAYERS, 1.0f, 0.8f + world.random.nextFloat() / 4, true);
                     blockEntity.markDirty();
-                    return ActionResult.SUCCESS;
-                } else if (canEatOnDish(stack)) {
-                    boolean shouldIgnore = stack.getComponents().get(DataComponentTypes.FOOD).canAlwaysEat();
+                    return ItemActionResult.SUCCESS;
+                }
+                else if (canEatOnDish(stackEntity)) {
+                    FoodComponent check = stackEntity.getComponents().get(DataComponentTypes.FOOD);
+                    boolean shouldIgnore = check != null && check.canAlwaysEat();
                     if (player.canConsume(shouldIgnore)) {
-//                        int hunger = Objects.requireNonNull(stack.getComponents().get(DataComponentTypes.FOOD)).nutrition();
-//                        float sat = Objects.requireNonNull(stack.getComponents().get(DataComponentTypes.FOOD)).saturation();
-//                        List<FoodComponent.StatusEffectEntry> effects = Objects.requireNonNull(stack.getComponents().get(DataComponentTypes.FOOD)).effects();
-//                        player.getHungerManager().add(hunger, sat);
                         world.playSound(null, pos, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.BLOCKS, 0.3f, 1.0f);
-//                        if (stack.getItem() instanceof AirTimeIncreasingItem) {
-//                            int air = player.getAir();
-//                            int maxAir = player.getMaxAir();
-//                            if (air < maxAir - AirTimeIncreasingItem.airTickIncrease){
-//                                player.setAir(air + AirTimeIncreasingItem.airTickIncrease);
-//                            } else {
-//                                player.setAir(maxAir);
-//                            }
-//                        }
-//                        if (stack.isOf(Items.CHORUS_FRUIT)) {
-//                            chorusTeleport(world, player);
-//                        }
-//                        for (FoodComponent.StatusEffectEntry statusEffectEntry : effects) {
-//                            StatusEffectInstance effect = statusEffectEntry.effect();
-//                            int length = effect.getDuration();
-//                            int amplifier = effect.getAmplifier();
-//                            StatusEffectInstance newEffect = new StatusEffectInstance(effect.getEffectType(), length, amplifier);
-//                            player.addStatusEffect(newEffect);
-//                        }
+
                         for (int i = 0; i < 4 + world.random.nextBetween(0, 4); i++) {
-                            world.addParticle(new ItemStackParticleEffect(ParticleTypes.ITEM, stack), pos.getX() + world.random.nextGaussian() / 12 + 0.5, pos.getY() + 0.2, pos.getZ() + world.random.nextGaussian() / 12 + 0.5, (world.random.nextFloat() - 0.5) / 8, (world.random.nextFloat() - 0.5) / 8, (world.random.nextFloat() - 0.5) / 8);
+                            world.addParticle(new ItemStackParticleEffect(
+                                    ParticleTypes.ITEM, stackEntity),
+                                    pos.getX() + world.random.nextGaussian() / 12 + 0.5,
+                                    pos.getY() + 0.2,
+                                    pos.getZ() + world.random.nextGaussian() / 12 + 0.5,
+                                    (world.random.nextFloat() - 0.5) / 8,
+                                    (world.random.nextFloat() - 0.5) / 8,
+                                    (world.random.nextFloat() - 0.5) / 8);
                         }
 
-                        stack.getItem().finishUsing(stack, world, player);
+                        stackEntity.getItem().finishUsing(stackEntity, world, player);
 
-                        if (stack.getRecipeRemainder().getItem() != Items.AIR) {
-                            blockEntity.insertItem(stack.getRecipeRemainder());
+                        if (stackEntity.getRecipeRemainder().getItem() != Items.AIR) {
+                            blockEntity.insertItem(stackEntity.getRecipeRemainder());
                         } else {
                             blockEntity.removeItem();
                         }
                         blockEntity.markDirty();
-                        return ActionResult.SUCCESS;
+                        return ItemActionResult.SUCCESS;
                     }
                 }
             }
-
         }
-        return ActionResult.PASS;
+        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
     }
 
     public static boolean canEatOnDish(ItemStack stack) {

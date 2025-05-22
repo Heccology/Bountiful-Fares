@@ -17,6 +17,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
@@ -24,7 +25,11 @@ import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
 import net.minecraft.loot.entry.EmptyEntry;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LootPoolEntry;
+import net.minecraft.loot.function.ApplyBonusLootFunction;
+import net.minecraft.loot.function.LimitCountLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
@@ -337,6 +342,16 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                                 .apply(List.of(2, 3), (candles) -> SetCountLootFunction.builder(ConstantLootNumberProvider.create((float)candles))
                                         .conditionally(BlockStatePropertyLootCondition.builder(BFBlocks.COCONUT_CANDLE)
                                                 .properties(StatePredicate.Builder.create().exactMatch(CoconutCandleBlock.CANDLES, candles))))))));
+        addDrop(BFBlocks.SPONGEKIN, (block) -> {
+            return dropsWithSilkTouch(
+                    block,
+                    applyExplosionDecay(
+                            block,
+                            ItemEntry.builder(BFItems.SPONGEKIN_SLICE)
+                                    .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(3.0F, 7.0F)))
+                                    .apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE)))
+                                    .apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.createMax(9)))));
+        });
         addPottedPlantDrops(BFBlocks.POTTED_HONEYSUCKLE);
         addPottedPlantDrops(BFBlocks.POTTED_APPLE_SAPLING);
         addPottedPlantDrops(BFBlocks.POTTED_ORANGE_SAPLING);
@@ -348,11 +363,12 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         addPottedPlantDrops(BFBlocks.POTTED_PALM_FROND);
         addPottedPlantDrops(BFBlocks.POTTED_GOLDEN_APPLE_SAPLING);
         addDrop(BFBlocks.PALM_SAPLING, BFItems.COCONUT);
+        addDrop(BFBlocks.FELDSPAR_BRICK_WALL);
 
 
         usedBlocks.add(BFBlocks.APPLE_PIE);
         usedBlocks.add(BFBlocks.ARTISAN_BREAD);
-        usedBlocks.add(BFBlocks.ARTISAN_COOKIES);
+        usedBlocks.add(BFBlocks.ARTISAN_COOKIE);
         usedBlocks.add(BFBlocks.CERAMIC_BUTTON);
         usedBlocks.add(BFBlocks.CERAMIC_DISH);
         usedBlocks.add(BFBlocks.CERAMIC_DOOR);
@@ -360,18 +376,22 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         usedBlocks.add(BFBlocks.CERAMIC_MOSAIC);
         usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_SLAB);
         usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_STAIRS);
+        //usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_WALL);
         usedBlocks.add(BFBlocks.CERAMIC_PRESSURE_PLATE);
         usedBlocks.add(BFBlocks.CERAMIC_TILE_PILLAR);
         usedBlocks.add(BFBlocks.CERAMIC_TILE_SLAB);
         usedBlocks.add(BFBlocks.CERAMIC_TILE_STAIRS);
+        //usedBlocks.add(BFBlocks.CERAMIC_TILE_WALL);
         usedBlocks.add(BFBlocks.CERAMIC_TILES);
         usedBlocks.add(BFBlocks.CERAMIC_TRAPDOOR);
         usedBlocks.add(BFBlocks.CHAMOMILE_FLOWERS);
         usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC);
         usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB);
         usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS);
+        //usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL);
         usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB);
         usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
+        //usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL);
         usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILES);
         usedBlocks.add(BFBlocks.COCONUT_CAKE);
         usedBlocks.add(BFBlocks.COCONUT);
@@ -391,7 +411,6 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         usedBlocks.add(BFBlocks.MELON_PIE);
         usedBlocks.add(BFBlocks.SWEET_BERRY_TART);
         usedBlocks.add(BFBlocks.TEA_SHRUB);
-        usedBlocks.add(BFBlocks.SPONGEKIN);
 
         usedBlocks.add(BFBlocks.HOARY_SIGN);
         usedBlocks.add(BFBlocks.HOARY_WALL_SIGN);
@@ -401,6 +420,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         usedBlocks.add(BFBlocks.WALNUT_WALL_SIGN);
         usedBlocks.add(BFBlocks.WALNUT_HANGING_SIGN);
         usedBlocks.add(BFBlocks.WALNUT_WALL_HANGING_SIGN);
+        usedBlocks.add(BFBlocks.SOLID_CERAMIC);
 
         for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             Block block = Registries.BLOCK.get(id);

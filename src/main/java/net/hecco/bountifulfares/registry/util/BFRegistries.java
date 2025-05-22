@@ -190,10 +190,12 @@ public class BFRegistries {
         registerCheckeredCeramic(BFBlocks.CERAMIC_TILES, BFBlocks.CHECKERED_CERAMIC_TILES);
         registerCheckeredCeramic(BFBlocks.CERAMIC_TILE_STAIRS, BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
         registerCheckeredCeramic(BFBlocks.CERAMIC_TILE_SLAB, BFBlocks.CHECKERED_CERAMIC_TILE_SLAB);
+        //registerCheckeredCeramic(BFBlocks.CERAMIC_TILE_WALL, BFBlocks.CHECKERED_CERAMIC_TILE_WALL);
         registerCheckeredCeramic(BFBlocks.CRACKED_CERAMIC_TILES, BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES);
         registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC, BFBlocks.CHECKERED_CERAMIC_MOSAIC);
         registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS);
         registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB);
+        //registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_WALL, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL);
         if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
             registerCheckeredCeramic(ExcessiveBuildingBlocks.CERAMIC_TILE_VERTICAL_STAIRS, ExcessiveBuildingBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS);
             registerCheckeredCeramic(ExcessiveBuildingBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS, ExcessiveBuildingBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS);
@@ -203,6 +205,7 @@ public class BFRegistries {
     public static void registerCheckeredCeramic(Block normal, Block checkered) {
         BFBlocks.CERAMIC_TO_CHECKERED_CERAMIC.put(normal, checkered);
         BFBlocks.CERAMIC_TO_CHECKERED_CERAMIC.put(checkered, normal);
+        BFBlocks.REVERT_CHECKERED_CERAMIC.put(checkered, normal);
     }
 
     public static void registerStrippables() {
@@ -295,5 +298,31 @@ public class BFRegistries {
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.TORCHFLOWER_TEA_BLEND, 0.3f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.MAIZE_BREAD, 0.85f);
         ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.WALNUT_COOKIE, 0.85f);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.WILD_ELDERBERRY_VINE.asItem(), 0.5F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.WILD_PASSION_FRUIT_VINE.asItem(), 0.5F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.WILD_CARROTS.asItem(), 0.3F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.WILD_WHEAT.asItem(), 0.3F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.WILD_POTATOES.asItem(), 0.3F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.WILD_LEEKS.asItem(), 0.3F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.WILD_BEETROOTS.asItem(), 0.3F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.WILD_MAIZE.asItem(), 0.3F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.SWEET_BERRY_PIPS, 0.3F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.ARTISAN_BREAD.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.ARTISAN_COOKIE.asItem(), 0.5F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.APPLE_PIE.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.ORANGE_PIE.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.LEMON_PIE.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.PLUM_PIE.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.HOARY_PIE.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.MELON_PIE.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.PASSION_FRUIT_TART.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.ELDERBERRY_TART.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.GLOW_BERRY_TART.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.SWEET_BERRY_TART.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.LAPISBERRY_TART.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.COCOA_CAKE.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.COCONUT_CAKE.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFBlocks.SPONGE_CAKE.asItem(), 1F);
+        ITEM_TO_LEVEL_INCREASE_CHANCE.put(BFItems.POPPED_MAIZE, 0.3F);
     }
 }

@@ -1,0 +1,16 @@
+{
+  "color": "#ada89e",
+  "containers": [
+    {
+      "filled": [
+        "bountifulfares:stone_stew"
+      ],
+      "empty": "minecraft:bowl",
+      "capacity": 1
+    }
+  ],
+  "from_mod": "bountifulfares",
+  "flowing_texture": "bountifulfares:block/amendments/stone_stew_cauldron",
+  "still_texture": "bountifulfares:block/amendments/stone_stew_cauldron",
+  "translation_key": "item.bountifulfares.stone_stew"
+}

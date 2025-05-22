@@ -9,6 +9,8 @@ import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -37,25 +39,29 @@ public class CeramicLeverBlock extends LeverBlock implements BlockEntityProvider
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (DyeableCeramicBlock.onUse(state, world, pos, player, state.getBlock()) == ActionResult.PASS) {
-            BlockState blockState;
-            if (world.isClient) {
-                blockState = state.cycle(POWERED);
-                if (blockState.get(POWERED)) {
-                    spawnParticles(blockState, world, pos, 1.0F);
-                }
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
+        return DyeableCeramicBlock.onUse(stack, state, world, pos, player, hand, state.getBlock());
+    }
 
-                return ActionResult.SUCCESS;
-            } else {
-                this.togglePower(state, world, pos, player);
-                SoundEvent f = state.get(POWERED) ? BFSounds.CERAMIC_LEVER_OFF : BFSounds.CERAMIC_LEVER_ON;
-                world.playSound(null, pos, f, SoundCategory.BLOCKS, 0.8F, 1);
-                world.emitGameEvent(player, state.get(POWERED) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
-                return ActionResult.CONSUME;
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        BlockState blockState;
+        if (world.isClient) {
+            blockState = state.cycle(POWERED);
+            if (blockState.get(POWERED)) {
+                spawnParticles(blockState, world, pos, 1.0F);
             }
+
+            return ActionResult.SUCCESS;
         }
-        return ActionResult.PASS;
+        else {
+            this.togglePower(state, world, pos, player);
+            SoundEvent f = state.get(POWERED) ? BFSounds.CERAMIC_LEVER_OFF : BFSounds.CERAMIC_LEVER_ON;
+            world.playSound(null, pos, f, SoundCategory.BLOCKS, 0.8F, 1);
+            world.emitGameEvent(player, state.get(POWERED) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
+            return ActionResult.CONSUME;
+        }
     }
 
     @Override

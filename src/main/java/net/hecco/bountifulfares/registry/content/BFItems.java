@@ -12,6 +12,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.math.Direction;
 
 import java.util.List;
@@ -72,6 +73,7 @@ public class BFItems {
     public static final Item GRASS_SEEDS = registerItem("grass_seeds", new GrassSeedsItem(new Item.Settings()));
     public static final Item MAIZE_SEEDS = registerItem("maize_seeds", new AliasedBlockItem(BFBlocks.MAIZE_CROP, new Item.Settings()));
     public static final Item POPPED_MAIZE = registerItem("popped_maize", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.5f).snack().build())));
+    public static final Item COOKED_EGG = registerItem("cooked_egg", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(1.0f).snack().build())));
     public static final Item LEEK = registerItem("leek", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.6f).build())));
     public static final Item LEEK_SEEDS = registerItem("leek_seeds", new AliasedBlockItem(BFBlocks.LEEKS, new Item.Settings()));
     public static final Item SPONGEKIN_SEEDS = registerItem("spongekin_seeds", new AliasedBlockItem(BFBlocks.SPONGEKIN_STEM, new Item.Settings()));
@@ -79,7 +81,7 @@ public class BFItems {
     public static final Item PICKLED_SPONGEKIN = registerItem("pickled_spongekin", new AirTimeIncreasingItem( 250, new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.8f).alwaysEdible().build())));
     public static final Item SCORCHKIN_SEEDS = registerItem("scorchkin_seeds", new AliasedBlockItem(BFBlocks.SCORCHKIN_STEM, new Item.Settings()));
     public static final Item FLOUR = registerItem("flour", new FlourItem(new Item.Settings()));
-    public static final Item ARTISAN_COOKIE = registerItem("artisan_cookie", new AliasedBlockItem(BFBlocks.ARTISAN_COOKIES, new Item.Settings()));
+    public static final Item ARTISAN_COOKIE = registerItem("artisan_cookie", new AliasedBlockItem(BFBlocks.ARTISAN_COOKIE, new Item.Settings()));
     public static final Item SUN_HAT = registerItem("sun_hat", new SunHatItem(new Item.Settings().maxCount(1)));
 
 
@@ -96,7 +98,7 @@ public class BFItems {
     public static final Item PLUM_CIDER_JAR = registerItem("plum_cider_jar", new LiquidJarItem(new Item.Settings().maxCount(16).recipeRemainder(JAR).food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.6f).build())));
     public static final Item HOARY_CIDER_JAR = registerItem("hoary_cider_jar", new LiquidJarItem(new Item.Settings().maxCount(16).recipeRemainder(JAR).food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.6f).build())));
 
-    public static final Item CANDY = registerItem("candy", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.4F).snack().build())));
+    public static final Item CANDY = registerItem("candy", new HoneyCandyItem(new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.4F).snack().build())));
     public static final Item SOUR_CANDY = registerItem("sour_candy", new EffectFoodItem(List.of(new StatusEffectInstance(BFEffects.ACIDIC, 200)), new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(BFEffects.ACIDIC, 200), 0.2f).snack().build())));
     public static final Item PIQUANT_CANDY = registerItem("piquant_candy", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.3F).snack().build())));
     public static final Item BITTER_CANDY = registerItem("bitter_candy", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 0, true, false), 0.75f).snack().build())));

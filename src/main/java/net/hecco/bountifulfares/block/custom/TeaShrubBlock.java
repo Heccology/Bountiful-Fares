@@ -15,6 +15,8 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -79,10 +81,11 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
 
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    {
         ItemStack itemStack = player.getStackInHand(player.getActiveHand());
-        if (itemStack.isOf(Items.SHEARS) && canHarvestLeaves(state)) {
-            itemStack.damage(1, player, LivingEntity.getSlotForHand(player.getActiveHand()));
+        if (stack.isOf(Items.SHEARS) && canHarvestLeaves(state)) {
+            stack.damage(1, player, LivingEntity.getSlotForHand(hand));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
             if (state.get(AGE) == 4) {
                 dropStack(world, pos, new ItemStack(BFItems.TEA_LEAVES, 3 + world.random.nextInt(2)));
@@ -90,21 +93,21 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
                 dropStack(world, pos, new ItemStack(BFItems.TEA_LEAVES, 1 + world.random.nextInt(2)));
             }
             world.setBlockState(pos, state.with(AGE, 2), Block.NOTIFY_LISTENERS);
-            return ActionResult.SUCCESS;
-        } else if (itemStack.isOf(Items.BONE_MEAL) && state.get(AGE) == 4 && !state.get(BERRIES)) {
+            return ItemActionResult.SUCCESS;
+        } else if (stack.isOf(Items.BONE_MEAL) && state.get(AGE) == 4 && !state.get(BERRIES)) {
             if (!player.isCreative()) {
-                itemStack.decrement(1);
+                stack.decrement(1);
             }
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BONE_MEAL_USE, SoundCategory.BLOCKS, 1.0F, 1.0F);
             world.setBlockState(pos, state.with(BERRIES, true), Block.NOTIFY_LISTENERS);
-            return ActionResult.SUCCESS;
+            return ItemActionResult.SUCCESS;
         } else if (state.get(BERRIES)) {
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0F, 1.0F);
             world.setBlockState(pos, state.with(BERRIES, false), Block.NOTIFY_LISTENERS);
             dropStack(world, pos, new ItemStack(BFItems.TEA_BERRIES, 1 + world.random.nextInt(1)));
-            return ActionResult.SUCCESS;
+            return ItemActionResult.SUCCESS;
         }
-        return ActionResult.PASS;
+        return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override

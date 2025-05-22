@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.entity;
 
+import net.hecco.bountifulfares.block.custom.DyeableCeramicBlock;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -8,10 +9,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class CeramicDishBlockEntity extends DyeableBlockEntity implements ImplementedInventory {
@@ -51,6 +54,28 @@ public class CeramicDishBlockEntity extends DyeableBlockEntity implements Implem
         assert world != null;
         this.setStack(0, Items.AIR.getDefaultStack());
         markDirty();
+    }
+
+    @Override
+    public void markDirty()
+    {
+        if (
+                this.getWorld() != null &&
+                !this.getWorld().isClient &&
+                this.getPos() != null
+        )
+        {
+            World thisworld = this.getWorld();
+            if (this.getStack(0).isEmpty()) {
+                DyeableCeramicBlock.sendDishClearPayload(
+                        (ServerWorld) thisworld, thisworld.getBlockEntity(this.getPos()));
+            }
+            else {
+                DyeableCeramicBlock.sendDishPayload(
+                        (ServerWorld) thisworld, thisworld.getBlockEntity(this.getPos()), this.getStack(0));
+            }
+        }
+        super.markDirty();
     }
 
     public static int getColor(BlockView world, BlockPos pos){
