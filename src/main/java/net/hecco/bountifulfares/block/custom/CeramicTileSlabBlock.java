@@ -10,13 +10,11 @@ import net.minecraft.component.type.DyedColorComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ColorHelper;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
@@ -44,20 +42,6 @@ public class CeramicTileSlabBlock extends SlabBlock implements BlockEntityProvid
 
     @Override
     public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        ItemStack itemStack = context.getStack();
-        SlabType slabType = state.get(TYPE);
-        if (slabType != SlabType.DOUBLE && itemStack.isOf(this.asItem()) && DyedColorComponent.getColor(itemStack, DyeableCeramicBlockEntity.DEFAULT_COLOR) == ColorHelper.Argb.fullAlpha(DyeableCeramicBlockEntity.getColor(context.getWorld(), context.getBlockPos()))) {
-            if (context.canReplaceExisting()) {
-                boolean bl = context.getHitPos().y - (double)context.getBlockPos().getY() > 0.5;
-                Direction direction = context.getSide();
-                return slabType == SlabType.BOTTOM
-                        ? direction == Direction.UP || bl && direction.getAxis().isHorizontal()
-                        : direction == Direction.DOWN || !bl && direction.getAxis().isHorizontal();
-            } else {
-                return true;
-            }
-        } else {
-            return false;
-        }
+        return super.canReplace(state, context) && DyedColorComponent.getColor(context.getStack(), DyeableCeramicBlockEntity.DEFAULT_COLOR) == ColorHelper.Argb.fullAlpha(DyeableCeramicBlockEntity.getColor(context.getWorld(), context.getBlockPos()));
     }
 }
