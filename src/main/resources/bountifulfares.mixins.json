@@ -12,8 +12,8 @@
     "misc.StonecutterScreenHandlerMixin",
     "misc.WoodlandMansionFirstFloorMixin",
     "misc.WoodlandMansionSecondFloorMixin",
-    "render.AbstractInventoryMixin",
     "render.AbstractBlockStateMixin",
+    "render.AbstractInventoryMixin",
     "render.GuiMixin",
     "render.ItemRendererMixin",
     "render.ModelLoaderMixin",
@@ -27,6 +27,7 @@
   "client": [
     "misc.SplashTextMixin",
     "misc.StonecutterScreenMixin",
+    "render.BlockDustParticleMixin",
     "render.GuiHeartsMixin"
   ]
 }
