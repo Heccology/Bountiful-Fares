@@ -3,33 +3,39 @@ package net.hecco.bountifulfares.mixin.render;
 import net.hecco.bountifulfares.block.entity.DyeableBlockEntity;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.item.FilledMapItem;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(FilledMapItem.class)
-public abstract class FilledMapItemMixin {
+@Mixin(AbstractBlock.AbstractBlockState.class)
+public abstract class AbstractBlockStateMixin {
 
-    @Redirect(method = "updateColors", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;getMapColor(Lnet/minecraft/world/BlockView;Lnet/minecraft/util/math/BlockPos;)Lnet/minecraft/block/MapColor;"))
-    private MapColor bountifulfares_findColorForCeramic(BlockState state, BlockView world, BlockPos pos) {
-        if (state.isIn(BFBlockTags.DYEABLE_CERAMIC_BLOCKS) && state.getMapColor(world, pos) != MapColor.CLEAR) {
+    @Shadow @Final private MapColor mapColor;
+
+    @Inject(method = "getMapColor", at = @At(value = "HEAD"), cancellable = true)
+    private void bountifulfares$getMapColor(BlockView world, BlockPos pos, CallbackInfoReturnable<MapColor> cir) {
+        BlockState state = world.getBlockState(pos);
+        if (state.isIn(BFBlockTags.DYEABLE_CERAMIC_BLOCKS) && this.mapColor != MapColor.CLEAR) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof DyeableCeramicBlockEntity) {
-                return findNearestMapColor(Integer.parseInt(String.format("%06X", DyeableBlockEntity.getColor(world, pos)).substring(0, 6), 16));
+                cir.setReturnValue(bountifulfares$findNearestMapColor(Integer.parseInt(String.format("%06X", DyeableBlockEntity.getColor(world, pos)).substring(0, 6), 16)));
             }
         }
-        return state.getMapColor(world, pos);
     }
 
     @Unique
-    private static MapColor findNearestMapColor(int color) {
+    private static MapColor bountifulfares$findNearestMapColor(int color) {
         int r1 = (color >> 16) & 255;
         int g1 = (color >> 8) & 255;
         int b1 = color & 255;
