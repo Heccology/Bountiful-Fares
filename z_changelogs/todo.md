@@ -8,4 +8,7 @@
 - Fix block particle tint for tinted blocks
 - Add ns compat for grass seeds (remove wheat seeds)
 - Add bop compat for grass seeds (remove wheat seeds)
-- "deadlier than sharks" advancement for dying to coconut
+- "deadlier than sharks" advancement for getting hit by coconut
+- nerf enrichment
+- "Money does grow on trees!" find a golden apple sapling
+- "golden thumb" Sustain a golden apple tree and pick an apple from it
