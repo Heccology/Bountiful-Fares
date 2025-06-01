@@ -86,7 +86,9 @@ public class MaizeCropBlock extends CropBlock implements Fertilizable {
         if (!isLowerHalf(state)) {
             return super.canPlaceAt(state, world, pos) || world.getBlockState(pos.down()).isOf(this);
         } else {
-            return super.canPlantOnTop(world.getBlockState(pos.down()), world, pos.down()) && canPlaceAt(world, pos) && (state.get(AGE) < 4 || isUpperHalf(world.getBlockState(pos.up())));
+            // original 1st arg: super.canPlantOnTop(world.getBlockState(pos.down()), world, pos.down()
+            // changed because it was incompatible with things like FD rich soil. - Artyrian
+            return (world.getBlockState(pos.down()).getBlock() instanceof FarmlandBlock) && canPlaceAt(world, pos) && (state.get(AGE) < 4 || isUpperHalf(world.getBlockState(pos.up())));
         }
     }
 
