@@ -1,36 +1,36 @@
 package net.hecco.bountifulfares.particle;
 
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particle.SimpleParticleType;
+import net.minecraft.core.particles.SimpleParticleType;
 
-public class PrismarineBlossomParticle extends SpriteBillboardParticle {
-    public PrismarineBlossomParticle(ClientWorld world, double xCoord, double yCoord, double zCoord, SpriteProvider spriteSet, double xd, double yd, double zd) {
+public class PrismarineBlossomParticle extends TextureSheetParticle {
+    public PrismarineBlossomParticle(ClientLevel world, double xCoord, double yCoord, double zCoord, SpriteSet spriteSet, double xd, double yd, double zd) {
         super(world, xCoord, yCoord, zCoord, xd, yd, zd);
-        this.velocityMultiplier = 0.95f;
-        this.velocityX = xd;
-        this.velocityY = yd;
-        this.velocityZ = zd;
-        this.scale = 0.05f + world.random.nextFloat()/20;
-        this.maxAge = 20 + world.random.nextInt(10);
-        this.collidesWithWorld = false;
+        this.friction = 0.95f;
+        this.xd = xd;
+        this.yd = yd;
+        this.zd = zd;
+        this.quadSize = 0.05f + world.random.nextFloat()/20;
+        this.lifetime = 20 + world.random.nextInt(10);
+        this.hasPhysics = false;
 
 //        this.alpha = 0f;
-        this.setSpriteForAge(spriteSet);
+        this.setSpriteFromAge(spriteSet);
     }
 
     @Override
-    public ParticleTextureSheet getType() {
-        return ParticleTextureSheet.PARTICLE_SHEET_LIT;
+    public ParticleRenderType getRenderType() {
+        return ParticleRenderType.PARTICLE_SHEET_LIT;
     }
 
-    public static class Factory implements ParticleFactory<SimpleParticleType> {
-        private final SpriteProvider sprites;
-        public Factory(SpriteProvider spriteProvider) {
+    public static class Factory implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet sprites;
+        public Factory(SpriteSet spriteProvider) {
             this.sprites = spriteProvider;
         }
 
-        public Particle createParticle(SimpleParticleType particleType, ClientWorld clientWorld, double x, double y, double z, double xd, double yd, double zd) {
+        public Particle createParticle(SimpleParticleType particleType, ClientLevel clientWorld, double x, double y, double z, double xd, double yd, double zd) {
             return new PrismarineBlossomParticle(clientWorld, x, y, z, this.sprites, xd, yd, zd);
         }
     }

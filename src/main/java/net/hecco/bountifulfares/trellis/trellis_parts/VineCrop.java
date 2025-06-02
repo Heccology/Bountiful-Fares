@@ -1,9 +1,9 @@
 package net.hecco.bountifulfares.trellis.trellis_parts;
 
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 
 public class VineCrop {
     public final String MOD_ID;
@@ -19,13 +19,13 @@ public class VineCrop {
         BFBlocks.CROPS_TO_VINE_CROPS.put(seeds, this);
     }
 
-    public VineCrop(String modId, String id, Identifier crop) {
+    public VineCrop(String modId, String id, ResourceLocation crop) {
         this.MOD_ID = modId;
         this.TYPE_ID = id;
-        this.CROP_ITEM = Registries.ITEM.get(crop);
-        this.SEEDS_ITEM = Registries.ITEM.get(crop);
+        this.CROP_ITEM = BuiltInRegistries.ITEM.get(crop);
+        this.SEEDS_ITEM = BuiltInRegistries.ITEM.get(crop);
 //        TrellisVariants.VineCrops.add(this);
-        BFBlocks.CROPS_TO_VINE_CROPS.put(Registries.ITEM.get(crop), this);
+        BFBlocks.CROPS_TO_VINE_CROPS.put(BuiltInRegistries.ITEM.get(crop), this);
     }
 
     public VineCrop(String modId, String id, Item crop) {

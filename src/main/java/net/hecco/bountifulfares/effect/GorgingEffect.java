@@ -1,28 +1,28 @@
 package net.hecco.bountifulfares.effect;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 
-public class GorgingEffect extends StatusEffect {
-    protected GorgingEffect(StatusEffectCategory category, int color) {
+public class GorgingEffect extends MobEffect {
+    protected GorgingEffect(MobEffectCategory category, int color) {
         super(category, color);
     }
 
     @Override
-    public void onApplied(LivingEntity entity, int amplifier) {
-        if (entity instanceof  PlayerEntity) {
-            ((PlayerEntity) entity).getHungerManager().setFoodLevel(20);
+    public void onEffectStarted(LivingEntity entity, int amplifier) {
+        if (entity instanceof  Player) {
+            ((Player) entity).getFoodData().setFoodLevel(20);
         }
-        super.onApplied(entity, amplifier);
+        super.onEffectStarted(entity, amplifier);
     }
 
     @Override
-    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
-        super.applyUpdateEffect(entity, amplifier);
-        if (entity instanceof PlayerEntity) {
-            ((PlayerEntity) entity).getHungerManager().setExhaustion(0f);
+    public boolean applyEffectTick(LivingEntity entity, int amplifier) {
+        super.applyEffectTick(entity, amplifier);
+        if (entity instanceof Player) {
+            ((Player) entity).getFoodData().setExhaustion(0f);
         }
         return true;
     }
@@ -36,7 +36,7 @@ public class GorgingEffect extends StatusEffect {
 //    }
 
     @Override
-    public boolean canApplyUpdateEffect(int duration, int amplifier) {
+    public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
         return true;
     }
 }

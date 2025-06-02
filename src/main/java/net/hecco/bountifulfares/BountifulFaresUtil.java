@@ -1,18 +1,18 @@
 package net.hecco.bountifulfares;
 
 import net.hecco.bountifulfares.registry.misc.BFCompat;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 public class BountifulFaresUtil {
-    public static Set<Identifier> allBlockIdsInNamespace(String namespace) {
-        Set<Identifier> set = Registries.BLOCK.getIds();
-        Set<Identifier> a = new HashSet<>();
-        for(Identifier id : set) {
+    public static Set<ResourceLocation> allBlockIdsInNamespace(String namespace) {
+        Set<ResourceLocation> set = BuiltInRegistries.BLOCK.keySet();
+        Set<ResourceLocation> a = new HashSet<>();
+        for(ResourceLocation id : set) {
             if(Objects.equals(id.getNamespace(), namespace)) {
                 a.add(id);
             }
@@ -20,10 +20,10 @@ public class BountifulFaresUtil {
         return a;
     }
 
-    public static Set<Identifier> allCompatBlockIds() {
-        Set<Identifier> set = Registries.BLOCK.getIds();
-        Set<Identifier> a = new HashSet<>();
-        for(Identifier id : set) {
+    public static Set<ResourceLocation> allCompatBlockIds() {
+        Set<ResourceLocation> set = BuiltInRegistries.BLOCK.keySet();
+        Set<ResourceLocation> a = new HashSet<>();
+        for(ResourceLocation id : set) {
             for (String namespace : BFCompat.COMPAT_IDS) {
                 if (Objects.equals(id.getNamespace(), namespace)) {
                     a.add(id);
@@ -33,10 +33,10 @@ public class BountifulFaresUtil {
         return a;
     }
 
-    public static Set<Identifier> allCompatItemIds() {
-        Set<Identifier> set = Registries.ITEM.getIds();
-        Set<Identifier> a = new HashSet<>();
-        for(Identifier id : set) {
+    public static Set<ResourceLocation> allCompatItemIds() {
+        Set<ResourceLocation> set = BuiltInRegistries.ITEM.keySet();
+        Set<ResourceLocation> a = new HashSet<>();
+        for(ResourceLocation id : set) {
             for (String namespace : BFCompat.COMPAT_IDS) {
                 if (Objects.equals(id.getNamespace(), namespace)) {
                     a.add(id);
@@ -46,10 +46,10 @@ public class BountifulFaresUtil {
         return a;
     }
 
-    public static Set<Identifier> allItemIdsInNamespace(String namespace) {
-        Set<Identifier> set = Registries.ITEM.getIds();
-        Set<Identifier> a = new HashSet<>();
-        for(Identifier id : set) {
+    public static Set<ResourceLocation> allItemIdsInNamespace(String namespace) {
+        Set<ResourceLocation> set = BuiltInRegistries.ITEM.keySet();
+        Set<ResourceLocation> a = new HashSet<>();
+        for(ResourceLocation id : set) {
             if(Objects.equals(id.getNamespace(), namespace)) {
                 a.add(id);
             }

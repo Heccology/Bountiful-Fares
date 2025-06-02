@@ -1,81 +1,81 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.block.Waterloggable;
-import net.minecraft.entity.ai.pathing.NavigationType;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.state.property.Property;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.WorldAccess;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PicketsBlock extends Block implements Waterloggable {
-    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public static final BooleanProperty NORTH = BooleanProperty.of("north");
-    public static final BooleanProperty EAST = BooleanProperty.of("east");
-    public static final BooleanProperty SOUTH = BooleanProperty.of("south");
-    public static final BooleanProperty WEST = BooleanProperty.of("west");
-    public static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0, 0, 14, 16, 8, 16);
-    public static final VoxelShape EAST_SHAPE = Block.createCuboidShape(0, 0, 0, 2, 8, 16);
-    public static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0, 0, 0, 16, 8, 2);
-    public static final VoxelShape WEST_SHAPE = Block.createCuboidShape(14, 0, 0, 16, 8, 16);
-    public static final VoxelShape NORTH_COLL = Block.createCuboidShape(0, 0, 14, 16, 10, 16);
-    public static final VoxelShape EAST_COLL = Block.createCuboidShape(0, 0, 0, 2, 10, 16);
-    public static final VoxelShape SOUTH_COLL = Block.createCuboidShape(0, 0, 0, 16, 10, 2);
-    public static final VoxelShape WEST_COLL = Block.createCuboidShape(14, 0, 0, 16, 10, 16);
-    public PicketsBlock(Settings settings) {
+public class PicketsBlock extends Block implements SimpleWaterloggedBlock {
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    public static final BooleanProperty NORTH = BooleanProperty.create("north");
+    public static final BooleanProperty EAST = BooleanProperty.create("east");
+    public static final BooleanProperty SOUTH = BooleanProperty.create("south");
+    public static final BooleanProperty WEST = BooleanProperty.create("west");
+    public static final VoxelShape NORTH_SHAPE = Block.box(0, 0, 14, 16, 8, 16);
+    public static final VoxelShape EAST_SHAPE = Block.box(0, 0, 0, 2, 8, 16);
+    public static final VoxelShape SOUTH_SHAPE = Block.box(0, 0, 0, 16, 8, 2);
+    public static final VoxelShape WEST_SHAPE = Block.box(14, 0, 0, 16, 8, 16);
+    public static final VoxelShape NORTH_COLL = Block.box(0, 0, 14, 16, 10, 16);
+    public static final VoxelShape EAST_COLL = Block.box(0, 0, 0, 2, 10, 16);
+    public static final VoxelShape SOUTH_COLL = Block.box(0, 0, 0, 16, 10, 2);
+    public static final VoxelShape WEST_COLL = Block.box(14, 0, 0, 16, 10, 16);
+    public PicketsBlock(Properties settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(NORTH, false).with(EAST, false).with(SOUTH, false).with(WEST, false).with(WATERLOGGED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, false).setValue(EAST, false).setValue(SOUTH, false).setValue(WEST, false).setValue(WATERLOGGED, false));
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         List<VoxelShape> SHAPES = new ArrayList<>();
 
-        if (state.get(NORTH)) SHAPES.add(NORTH_SHAPE);
-        if (state.get(EAST)) SHAPES.add(EAST_SHAPE);
-        if (state.get(SOUTH)) SHAPES.add(SOUTH_SHAPE);
-        if (state.get(WEST)) SHAPES.add(WEST_SHAPE);
+        if (state.getValue(NORTH)) SHAPES.add(NORTH_SHAPE);
+        if (state.getValue(EAST)) SHAPES.add(EAST_SHAPE);
+        if (state.getValue(SOUTH)) SHAPES.add(SOUTH_SHAPE);
+        if (state.getValue(WEST)) SHAPES.add(WEST_SHAPE);
 
         if (!SHAPES.isEmpty()) {
             VoxelShape result = SHAPES.get(0);
             for (int i = 1; i < SHAPES.size(); i++) {
-                result = VoxelShapes.union(result, SHAPES.get(i));
+                result = Shapes.or(result, SHAPES.get(i));
             }
             return result;
         }
 
-        return super.getOutlineShape(state, world, pos, context);
+        return super.getShape(state, world, pos, context);
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         List<VoxelShape> COLLISION = new ArrayList<>();
 
-        if (state.get(NORTH)) COLLISION.add(NORTH_COLL);
-        if (state.get(EAST)) COLLISION.add(EAST_COLL);
-        if (state.get(SOUTH)) COLLISION.add(SOUTH_COLL);
-        if (state.get(WEST)) COLLISION.add(WEST_COLL);
+        if (state.getValue(NORTH)) COLLISION.add(NORTH_COLL);
+        if (state.getValue(EAST)) COLLISION.add(EAST_COLL);
+        if (state.getValue(SOUTH)) COLLISION.add(SOUTH_COLL);
+        if (state.getValue(WEST)) COLLISION.add(WEST_COLL);
 
         if (!COLLISION.isEmpty()) {
             VoxelShape result = COLLISION.get(0);
             for (int i = 1; i < COLLISION.size(); i++) {
-                result = VoxelShapes.union(result, COLLISION.get(i));
+                result = Shapes.or(result, COLLISION.get(i));
             }
             return result;
         }
@@ -85,42 +85,42 @@ public class PicketsBlock extends Block implements Waterloggable {
 
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(NORTH, EAST, SOUTH, WEST, WATERLOGGED);
     }
 
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        Direction playerDir = ctx.getHorizontalPlayerFacing().getOpposite();
-        BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos());
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        Direction playerDir = ctx.getHorizontalDirection().getOpposite();
+        BlockState blockState = ctx.getLevel().getBlockState(ctx.getClickedPos());
 
-        if (blockState.isOf(this)) {
+        if (blockState.is(this)) {
             Direction facingDirection = getFacingDirection(blockState);
 
             if (facingDirection != playerDir) {
-                return super.getStateWithProperties(blockState).with(getFacingProperty(playerDir), true);
+                return super.withPropertiesOf(blockState).setValue(getFacingProperty(playerDir), true);
             }
         } else {
-            return super.getDefaultState().with(getFacingProperty(playerDir), true).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
+            return super.defaultBlockState().setValue(getFacingProperty(playerDir), true).setValue(WATERLOGGED, ctx.getLevel().getFluidState(ctx.getClickedPos()).getType() == Fluids.WATER);
         }
 
-        return super.getPlacementState(ctx).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
+        return super.getStateForPlacement(ctx).setValue(WATERLOGGED, ctx.getLevel().getFluidState(ctx.getClickedPos()).getType() == Fluids.WATER);
     }
 
-    public boolean canReplace(BlockState state, ItemPlacementContext context) {
+    public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
         if (context.getPlayer() != null) {
-            Direction playerDir = context.getHorizontalPlayerFacing().getOpposite();
+            Direction playerDir = context.getHorizontalDirection().getOpposite();
             Direction facingDirection = getFacingDirection(state);
-            return !context.shouldCancelInteraction() && context.getStack().getItem() == this.asItem() && facingDirection != playerDir || super.canReplace(state, context);
+            return !context.isSecondaryUseActive() && context.getItemInHand().getItem() == this.asItem() && facingDirection != playerDir || super.canBeReplaced(state, context);
         } else {
             return true;
         }
     }
 
     private Direction getFacingDirection(BlockState blockState) {
-        if (blockState.get(NORTH)) return Direction.NORTH;
-        if (blockState.get(EAST)) return Direction.EAST;
-        if (blockState.get(SOUTH)) return Direction.SOUTH;
-        if (blockState.get(WEST)) return Direction.WEST;
+        if (blockState.getValue(NORTH)) return Direction.NORTH;
+        if (blockState.getValue(EAST)) return Direction.EAST;
+        if (blockState.getValue(SOUTH)) return Direction.SOUTH;
+        if (blockState.getValue(WEST)) return Direction.WEST;
         return Direction.NORTH;
     }
 
@@ -140,42 +140,42 @@ public class PicketsBlock extends Block implements Waterloggable {
     }
 
     @Override
-    public BlockState rotate(BlockState state, BlockRotation rotation) {
+    public BlockState rotate(BlockState state, Rotation rotation) {
         return switch (rotation) {
-            case CLOCKWISE_180 -> (((state.with(NORTH, state.get(SOUTH))).with(EAST, state.get(WEST))).with(SOUTH, state.get(NORTH))).with(WEST, state.get(EAST));
-            case COUNTERCLOCKWISE_90 -> (((state.with(NORTH, state.get(EAST))).with(EAST, state.get(SOUTH))).with(SOUTH, state.get(WEST))).with(WEST, state.get(NORTH));
-            case CLOCKWISE_90 -> (((state.with(NORTH, state.get(WEST))).with(EAST, state.get(NORTH))).with(SOUTH, state.get(EAST))).with(WEST, state.get(SOUTH));
+            case CLOCKWISE_180 -> (((state.setValue(NORTH, state.getValue(SOUTH))).setValue(EAST, state.getValue(WEST))).setValue(SOUTH, state.getValue(NORTH))).setValue(WEST, state.getValue(EAST));
+            case COUNTERCLOCKWISE_90 -> (((state.setValue(NORTH, state.getValue(EAST))).setValue(EAST, state.getValue(SOUTH))).setValue(SOUTH, state.getValue(WEST))).setValue(WEST, state.getValue(NORTH));
+            case CLOCKWISE_90 -> (((state.setValue(NORTH, state.getValue(WEST))).setValue(EAST, state.getValue(NORTH))).setValue(SOUTH, state.getValue(EAST))).setValue(WEST, state.getValue(SOUTH));
             default -> state;
         };
     }
 
     @Override
-    public BlockState mirror(BlockState state, BlockMirror mirror) {
+    public BlockState mirror(BlockState state, Mirror mirror) {
         return switch (mirror) {
-            case LEFT_RIGHT -> (state.with(NORTH, state.get(SOUTH))).with(SOUTH, state.get(NORTH));
-            case FRONT_BACK -> (state.with(EAST, state.get(WEST))).with(WEST, state.get(EAST));
+            case LEFT_RIGHT -> (state.setValue(NORTH, state.getValue(SOUTH))).setValue(SOUTH, state.getValue(NORTH));
+            case FRONT_BACK -> (state.setValue(EAST, state.getValue(WEST))).setValue(WEST, state.getValue(EAST));
             default -> super.mirror(state, mirror);
         };
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        if (state.get(WATERLOGGED)) {
-            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
+        if (state.getValue(WATERLOGGED)) {
+            world.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
         }
-        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+        return super.updateShape(state, direction, neighborState, world, pos, neighborPos);
     }
 
     @Override
     public FluidState getFluidState(BlockState state) {
-        if (state.get(WATERLOGGED)) {
-            return Fluids.WATER.getStill(false);
+        if (state.getValue(WATERLOGGED)) {
+            return Fluids.WATER.getSource(false);
         }
         return super.getFluidState(state);
     }
 
     @Override
-    protected boolean canPathfindThrough(BlockState state, NavigationType type) {
+    protected boolean isPathfindable(BlockState state, PathComputationType type) {
         return false;
     }
 }

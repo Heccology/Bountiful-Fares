@@ -1,98 +1,102 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.registry.content.BFSounds;
-import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.particle.DustParticleEffect;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.event.GameEvent;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.DustParticleOptions;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.LeverBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class CeramicLeverBlock extends LeverBlock implements BlockEntityProvider {
+public class CeramicLeverBlock extends LeverBlock implements EntityBlock {
 
-    public CeramicLeverBlock(Settings settings) {
+    public CeramicLeverBlock(Properties settings) {
         super(settings);
     }
 
     @Override
-    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+    public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return DyeableCeramicBlock.createBlockEntity(pos, state);
     }
 
     @Override
-    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state) {
         return DyeableCeramicBlock.getPickStack(world, pos, state.getBlock());
     }
 
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit)
     {
         return DyeableCeramicBlock.onUse(stack, state, world, pos, player, hand, state.getBlock());
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+    public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
         BlockState blockState;
-        if (world.isClient) {
+        if (world.isClientSide) {
             blockState = state.cycle(POWERED);
-            if (blockState.get(POWERED)) {
-                spawnParticles(blockState, world, pos, 1.0F);
+            if (blockState.getValue(POWERED)) {
+                makeParticle(blockState, world, pos, 1.0F);
             }
 
-            return ActionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
         else {
-            this.togglePower(state, world, pos, player);
-            SoundEvent f = state.get(POWERED) ? BFSounds.CERAMIC_LEVER_OFF : BFSounds.CERAMIC_LEVER_ON;
-            world.playSound(null, pos, f, SoundCategory.BLOCKS, 0.8F, 1);
-            world.emitGameEvent(player, state.get(POWERED) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
-            return ActionResult.CONSUME;
+            this.pull(state, world, pos, player);
+            SoundEvent f = state.getValue(POWERED) ? BFSounds.CERAMIC_LEVER_OFF : BFSounds.CERAMIC_LEVER_ON;
+            world.playSound(null, pos, f, SoundSource.BLOCKS, 0.8F, 1);
+            world.gameEvent(player, state.getValue(POWERED) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
+            return InteractionResult.CONSUME;
         }
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        switch (state.get(FACE)) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        switch (state.getValue(FACE)) {
             case FLOOR:
-                return Block.createCuboidShape(4, 0, 4, 12, 2, 12);
+                return Block.box(4, 0, 4, 12, 2, 12);
             case WALL:
-                switch (state.get(FACING)) {
+                switch (state.getValue(FACING)) {
                     case EAST:
-                        return Block.createCuboidShape(0, 4, 4, 2, 12, 12);
+                        return Block.box(0, 4, 4, 2, 12, 12);
                     case WEST:
-                        return Block.createCuboidShape(14, 4, 4, 16, 12, 12);
+                        return Block.box(14, 4, 4, 16, 12, 12);
                     case SOUTH:
-                        return Block.createCuboidShape(4, 4, 0, 12, 12, 2);
+                        return Block.box(4, 4, 0, 12, 12, 2);
                     case NORTH:
                     default:
-                        return Block.createCuboidShape(4, 4, 14, 12, 12, 16);
+                        return Block.box(4, 4, 14, 12, 12, 16);
                 }
             case CEILING:
             default:
-                return Block.createCuboidShape(4, 14, 4, 12, 16, 12);
+                return Block.box(4, 14, 4, 12, 16, 12);
         }
     }
 
-    public static void spawnParticles(BlockState state, WorldAccess world, BlockPos pos, float alpha) {
-        Direction direction = state.get(FACING).getOpposite();
-        Direction direction2 = getDirection(state).getOpposite();
-        double d = (double)pos.getX() + (double)0.5F + 0.1 * (double)direction.getOffsetX() + 0.2 * (double)direction2.getOffsetX();
-        double e = (double)pos.getY() + (double)0.5F + 0.1 * (double)direction.getOffsetY() + 0.2 * (double)direction2.getOffsetY();
-        double f = (double)pos.getZ() + (double)0.5F + 0.1 * (double)direction.getOffsetZ() + 0.2 * (double)direction2.getOffsetZ();
-        world.addParticle(new DustParticleEffect(DustParticleEffect.RED, alpha), d, e, f, 0.0F, 0.0F, 0.0F);
+    public static void makeParticle(BlockState state, LevelAccessor world, BlockPos pos, float alpha) {
+        Direction direction = state.getValue(FACING).getOpposite();
+        Direction direction2 = getConnectedDirection(state).getOpposite();
+        double d = (double)pos.getX() + (double)0.5F + 0.1 * (double)direction.getStepX() + 0.2 * (double)direction2.getStepX();
+        double e = (double)pos.getY() + (double)0.5F + 0.1 * (double)direction.getStepY() + 0.2 * (double)direction2.getStepY();
+        double f = (double)pos.getZ() + (double)0.5F + 0.1 * (double)direction.getStepZ() + 0.2 * (double)direction2.getStepZ();
+        world.addParticle(new DustParticleOptions(DustParticleOptions.REDSTONE_PARTICLE_COLOR, alpha), d, e, f, 0.0F, 0.0F, 0.0F);
     }
 }

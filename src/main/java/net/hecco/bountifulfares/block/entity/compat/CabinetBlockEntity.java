@@ -4,43 +4,42 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.compat.farmersdelight.CabinetBlock;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFSounds;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.LootableContainerBlockEntity;
-import net.minecraft.block.entity.ViewerCountManager;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.Inventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.screen.GenericContainerScreenHandler;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3i;
-import net.minecraft.world.World;
-import net.minecraft.world.tick.OrderedTick;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.Vec3i;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.Container;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ChestMenu;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
+import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.ticks.ScheduledTick;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class CabinetBlockEntity extends LootableContainerBlockEntity
+public class CabinetBlockEntity extends RandomizableContainerBlockEntity
 {
     private static final int MAX_INVENTORY_SIZE = 27;
 
-    private final ViewerCountManager viewerManager;
-    private DefaultedList<ItemStack> content;
+    private final ContainerOpenersCounter viewerManager;
+    private NonNullList<ItemStack> content;
 
     public CabinetBlockEntity(BlockPos blockPos, BlockState blockState) {
         this(BFBlockEntities.CABINET_BLOCK_ENTITY, blockPos, blockState);
@@ -48,28 +47,28 @@ public class CabinetBlockEntity extends LootableContainerBlockEntity
 
     private CabinetBlockEntity(BlockEntityType<?> type, BlockPos blockPos, BlockState blockState) {
         super(type, blockPos, blockState);
-        this.content = DefaultedList.ofSize(MAX_INVENTORY_SIZE, ItemStack.EMPTY);
-        this.viewerManager = new ViewerCountManager() {
-            protected void onContainerOpen(World world, BlockPos pos, BlockState state) {
-                SoundEvent lazy_open = Registries.SOUND_EVENT.get(Identifier.of(BountifulFares.FARMERS_DELIGHT_MOD_ID, "block.cabinet.open"));
+        this.content = NonNullList.withSize(MAX_INVENTORY_SIZE, ItemStack.EMPTY);
+        this.viewerManager = new ContainerOpenersCounter() {
+            protected void onOpen(Level world, BlockPos pos, BlockState state) {
+                SoundEvent lazy_open = BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(BountifulFares.FARMERS_DELIGHT_MOD_ID, "block.cabinet.open"));
                 CabinetBlockEntity.this.playSound(state, (lazy_open != null) ? lazy_open : BFSounds.CABINET_OPEN);
                 CabinetBlockEntity.this.setOpen(state, true);
             }
 
-            protected void onContainerClose(World world, BlockPos pos, BlockState state) {
-                SoundEvent lazy_close = Registries.SOUND_EVENT.get(Identifier.of(BountifulFares.FARMERS_DELIGHT_MOD_ID, "block.cabinet.close"));
+            protected void onClose(Level world, BlockPos pos, BlockState state) {
+                SoundEvent lazy_close = BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.fromNamespaceAndPath(BountifulFares.FARMERS_DELIGHT_MOD_ID, "block.cabinet.close"));
                 CabinetBlockEntity.this.playSound(state, (lazy_close != null) ? lazy_close : BFSounds.CABINET_CLOSE);
                 CabinetBlockEntity.this.setOpen(state, false);
             }
 
-            protected void onViewerCountUpdate(World world, BlockPos pos, BlockState state, int oldViewerCount, int newViewerCount) {
+            protected void openerCountChanged(Level world, BlockPos pos, BlockState state, int oldViewerCount, int newViewerCount) {
                 // Nothing to do when viewer count is updated
             }
 
             @Override
-            protected boolean isPlayerViewing(PlayerEntity player) {
-                if (player.currentScreenHandler instanceof GenericContainerScreenHandler genericContainerScreenHandler) {
-                    Inventory inventory = genericContainerScreenHandler.getInventory();
+            protected boolean isOwnContainer(Player player) {
+                if (player.containerMenu instanceof ChestMenu genericContainerScreenHandler) {
+                    Container inventory = genericContainerScreenHandler.getContainer();
                     return inventory == CabinetBlockEntity.this;
                 } else {
                     return false;
@@ -80,96 +79,96 @@ public class CabinetBlockEntity extends LootableContainerBlockEntity
     }
 
     @Override
-    protected Text getContainerName() {
-        return net.minecraft.text.Text.translatable("farmersdelight.container.cabinet");
+    protected Component getDefaultName() {
+        return net.minecraft.network.chat.Component.translatable("farmersdelight.container.cabinet");
     }
 
     @Override
-    protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-        return GenericContainerScreenHandler.createGeneric9x3(syncId, playerInventory, this);
+    protected AbstractContainerMenu createMenu(int syncId, Inventory playerInventory) {
+        return ChestMenu.threeRows(syncId, playerInventory, this);
     }
 
     @Override
-    protected DefaultedList<ItemStack> getHeldStacks() {
+    protected NonNullList<ItemStack> getItems() {
         return content;
     }
 
     @Override
-    protected void setHeldStacks(DefaultedList<ItemStack> list) {
+    protected void setItems(NonNullList<ItemStack> list) {
         content = list;
     }
 
     @Override
-    public int size() {
+    public int getContainerSize() {
         return MAX_INVENTORY_SIZE;
     }
 
     @Override
-    public void onOpen(PlayerEntity player) {
-        if (!this.removed && !player.isSpectator()) {
-            this.viewerManager.openContainer(player, this.getWorld(), this.getPos(), this.getCachedState());
+    public void startOpen(Player player) {
+        if (!this.remove && !player.isSpectator()) {
+            this.viewerManager.incrementOpeners(player, this.getLevel(), this.getBlockPos(), this.getBlockState());
         }
     }
 
     @Override
-    public void onClose(PlayerEntity player) {
-        if (!this.removed && !player.isSpectator()) {
-            this.viewerManager.openContainer(player, this.getWorld(), this.getPos(), this.getCachedState());
+    public void stopOpen(Player player) {
+        if (!this.remove && !player.isSpectator()) {
+            this.viewerManager.incrementOpeners(player, this.getLevel(), this.getBlockPos(), this.getBlockState());
         }
     }
 
     public void recheckOpen() {
-        if (world != null && !this.removed) {
-            this.viewerManager.updateViewerCount(this.getWorld(), this.getPos(), this.getCachedState());
+        if (level != null && !this.remove) {
+            this.viewerManager.recheckOpeners(this.getLevel(), this.getBlockPos(), this.getBlockState());
         }
     }
 
     @Override
-    public void writeNbt(NbtCompound tag, RegistryWrapper.WrapperLookup registryLookup) {
-        super.writeNbt(tag, registryLookup);
-        if (!writeLootTable(tag)) {
-            Inventories.writeNbt(tag, content, registryLookup);
+    public void saveAdditional(CompoundTag tag, HolderLookup.Provider registryLookup) {
+        super.saveAdditional(tag, registryLookup);
+        if (!trySaveLootTable(tag)) {
+            ContainerHelper.saveAllItems(tag, content, registryLookup);
         }
     }
 
     @Override
-    public void readNbt(NbtCompound tag, RegistryWrapper.WrapperLookup registryLookup) {
-        super.readNbt(tag, registryLookup);
-        content = DefaultedList.ofSize(size(), ItemStack.EMPTY);
-        if (!readLootTable(tag)) {
-            Inventories.readNbt(tag, content, registryLookup);
+    public void loadAdditional(CompoundTag tag, HolderLookup.Provider registryLookup) {
+        super.loadAdditional(tag, registryLookup);
+        content = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
+        if (!tryLoadLootTable(tag)) {
+            ContainerHelper.loadAllItems(tag, content, registryLookup);
         }
     }
 
     @Nullable
     @Override
-    public Packet<ClientPlayPacketListener> toUpdatePacket() {
-        return BlockEntityUpdateS2CPacket.create(this);
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override
-    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
-        NbtCompound nbtCompound = new NbtCompound();
-        Inventories.writeNbt(nbtCompound, content, registryLookup);
+    public CompoundTag getUpdateTag(HolderLookup.Provider registryLookup) {
+        CompoundTag nbtCompound = new CompoundTag();
+        ContainerHelper.saveAllItems(nbtCompound, content, registryLookup);
 
         return nbtCompound;
     }
 
     public void tick() {
-        if (!this.removed) {
-            this.viewerManager.updateViewerCount(this.getWorld(), this.getPos(), this.getCachedState());
+        if (!this.remove) {
+            this.viewerManager.recheckOpeners(this.getLevel(), this.getBlockPos(), this.getBlockState());
         }
 
-        if (this.viewerManager.getViewerCount() > 0) {
+        if (this.viewerManager.getOpenerCount() > 0) {
             scheduleTick();
         } else {
-            BlockState blockstate = getCachedState();
+            BlockState blockstate = getBlockState();
             if (!(blockstate.getBlock() instanceof CabinetBlock)) {
-                markRemoved();
+                setRemoved();
                 return;
             }
 
-            boolean flag = blockstate.get(CabinetBlock.OPEN);
+            boolean flag = blockstate.getValue(CabinetBlock.OPEN);
             if (flag) {
                 playSound(blockstate, BFSounds.CABINET_CLOSE);
                 setOpen(blockstate, false);
@@ -178,20 +177,20 @@ public class CabinetBlockEntity extends LootableContainerBlockEntity
     }
 
     private void scheduleTick() {
-        Objects.requireNonNull(getWorld()).getBlockTickScheduler().scheduleTick(OrderedTick.create(getCachedState().getBlock(), getPos()));
+        Objects.requireNonNull(getLevel()).getBlockTicks().schedule(ScheduledTick.probe(getBlockState().getBlock(), getBlockPos()));
     }
 
     private void setOpen(BlockState state, boolean open) {
-        Objects.requireNonNull(getWorld()).setBlockState(getPos(), state.with(CabinetBlock.OPEN, open));
+        Objects.requireNonNull(getLevel()).setBlockAndUpdate(getBlockPos(), state.setValue(CabinetBlock.OPEN, open));
     }
 
     private void playSound(BlockState state, SoundEvent sound) {
-        Vec3i vec3i = state.get(CabinetBlock.FACING).getVector();
-        BlockPos pos = getPos();
+        Vec3i vec3i = state.getValue(CabinetBlock.FACING).getNormal();
+        BlockPos pos = getBlockPos();
         double dX = pos.getX() + .5d + vec3i.getX() / 2.d;
         double dT = pos.getY() + .5d + vec3i.getY() / 2.d;
         double dZ = pos.getZ() + .5d + vec3i.getZ() / 2.d;
-        World world = Objects.requireNonNull(getWorld());
-        world.playSound(null, dX, dT, dZ, sound, SoundCategory.BLOCKS, .5f, world.getRandom().nextFloat() * .1f + .9f);
+        Level world = Objects.requireNonNull(getLevel());
+        world.playSound(null, dX, dT, dZ, sound, SoundSource.BLOCKS, .5f, world.getRandom().nextFloat() * .1f + .9f);
     }
 }

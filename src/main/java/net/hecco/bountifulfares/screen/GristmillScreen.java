@@ -2,17 +2,17 @@ package net.hecco.bountifulfares.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.render.GameRenderer;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Inventory;
 
-public class GristmillScreen extends HandledScreen<GristmillScreenHandler> {
-    private static final Identifier TEXTURE = Identifier.of(BountifulFares.MOD_ID, "textures/gui/gristmill.png");
-    private static final Identifier PROGRESS_ARROW = Identifier.of(BountifulFares.MOD_ID, "textures/gui/gristmill_progress_arrow.png");
-    public GristmillScreen(GristmillScreenHandler handler, PlayerInventory inventory, Text title) {
+public class GristmillScreen extends AbstractContainerScreen<GristmillScreenHandler> {
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "textures/gui/gristmill.png");
+    private static final ResourceLocation PROGRESS_ARROW = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "textures/gui/gristmill_progress_arrow.png");
+    public GristmillScreen(GristmillScreenHandler handler, Inventory inventory, Component title) {
         super(handler, inventory, title);
     }
 
@@ -22,27 +22,27 @@ public class GristmillScreen extends HandledScreen<GristmillScreenHandler> {
     }
 
     @Override
-    protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexProgram);
+    protected void renderBg(GuiGraphics context, float delta, int mouseX, int mouseY) {
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
-        int x = (width - backgroundWidth) / 2;
-        int y = (height - backgroundHeight) / 2;
+        int x = (width - imageWidth) / 2;
+        int y = (height - imageHeight) / 2;
 
-        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        renderProgressArrow(context, this.x, this.y);
+        context.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
+        renderProgressArrow(context, this.leftPos, this.topPos);
     }
 
-    private void renderProgressArrow(DrawContext context, int x, int y) {
-        if(handler.isCrafting()) {
-            context.drawTexture(PROGRESS_ARROW, x + 69, y + 36, 0, 0, handler.getScaledProgress(), 14);
+    private void renderProgressArrow(GuiGraphics context, int x, int y) {
+        if(menu.isCrafting()) {
+            context.blit(PROGRESS_ARROW, x + 69, y + 36, 0, 0, menu.getScaledProgress(), 14);
         }
     }
 
     @Override
-    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        drawBackground(context, delta, mouseX, mouseY);
+    public void render(GuiGraphics context, int mouseX, int mouseY, float delta) {
+        renderBg(context, delta, mouseX, mouseY);
         super.render(context, mouseX, mouseY, delta);
-        drawMouseoverTooltip(context, mouseX, mouseY);
+        renderTooltip(context, mouseX, mouseY);
     }
 }

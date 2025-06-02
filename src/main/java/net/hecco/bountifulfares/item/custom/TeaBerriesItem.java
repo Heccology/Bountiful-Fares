@@ -1,11 +1,11 @@
 package net.hecco.bountifulfares.item.custom;
 
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.item.AliasedBlockItem;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.level.block.Block;
 
-public class TeaBerriesItem extends AliasedBlockItem {
-    public TeaBerriesItem(Block block, Settings settings) {
+public class TeaBerriesItem extends ItemNameBlockItem {
+    public TeaBerriesItem(Block block, Properties settings) {
         super(block, settings);
     }
 

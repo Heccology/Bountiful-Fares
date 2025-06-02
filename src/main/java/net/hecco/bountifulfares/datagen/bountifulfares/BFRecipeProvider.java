@@ -10,54 +10,57 @@ import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFTrellises;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
-import net.minecraft.data.family.BlockFamily;
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.*;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.resource.featuretoggle.FeatureFlags;
-import net.minecraft.resource.featuretoggle.FeatureSet;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.BlockFamily;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CampfireCookingRecipe;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.SmokingRecipe;
+import net.minecraft.world.level.ItemLike;
 
 import java.util.concurrent.CompletableFuture;
 
-import static net.minecraft.data.family.BlockFamilies.register;
-import static net.minecraft.data.server.recipe.CraftingRecipeJsonBuilder.getItemId;
+import static net.minecraft.data.BlockFamilies.familyBuilder;
+import static net.minecraft.data.recipes.RecipeBuilder.getDefaultRecipeId;
 
 public class BFRecipeProvider extends FabricRecipeProvider {
 
-    public BFRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    public BFRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
-    public void generate(RecipeExporter exporter) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BFBlocks.GRISTMILL)
+    public void buildRecipes(RecipeOutput exporter) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BFBlocks.GRISTMILL)
                 .pattern("IP")
                 .pattern("BB")
-                .input('I', Items.IRON_INGOT)
-                .input('P', ItemTags.PLANKS)
-                .input('B', Items.BRICK)
-                .criterion("has_plank", conditionsFromTag(ItemTags.PLANKS))
-                .criterion(hasItem(Items.BRICK), conditionsFromItem(Items.BRICK))
-                .offerTo(exporter);
+                .define('I', Items.IRON_INGOT)
+                .define('P', ItemTags.PLANKS)
+                .define('B', Items.BRICK)
+                .unlockedBy("has_plank", has(ItemTags.PLANKS))
+                .unlockedBy(getHasName(Items.BRICK), has(Items.BRICK))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, BFItems.SUN_HAT)
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, BFItems.SUN_HAT)
                 .pattern("###")
                 .pattern("# #")
-                .input('#', Items.WHEAT)
-                .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
-                .offerTo(exporter);
+                .define('#', Items.WHEAT)
+                .unlockedBy(getHasName(Items.WHEAT), has(Items.WHEAT))
+                .save(exporter);
 
-        offerSingleOutputShapelessRecipe(exporter, BFItems.SWEET_BERRY_PIPS, Items.SWEET_BERRIES, "sweet_berry_seeds");
+        oneToOneConversionRecipe(exporter, BFItems.SWEET_BERRY_PIPS, Items.SWEET_BERRIES, "sweet_berry_seeds");
 
 //        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
 //            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
@@ -101,76 +104,76 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 
 
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.FELDSPAR_LANTERN)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.FELDSPAR_LANTERN)
                 .pattern("III")
                 .pattern("FTF")
                 .pattern("III")
-                .input('I', Items.IRON_NUGGET)
-                .input('F', BFItems.FELDSPAR)
-                .input('T', Items.TORCH)
-                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
-                .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
-                .criterion(hasItem(BFItems.FELDSPAR), conditionsFromItem(BFItems.FELDSPAR))
-                .offerTo(exporter);
+                .define('I', Items.IRON_NUGGET)
+                .define('F', BFItems.FELDSPAR)
+                .define('T', Items.TORCH)
+                .unlockedBy(getHasName(Items.IRON_INGOT), has(Items.IRON_INGOT))
+                .unlockedBy(getHasName(Items.IRON_NUGGET), has(Items.IRON_NUGGET))
+                .unlockedBy(getHasName(BFItems.FELDSPAR), has(BFItems.FELDSPAR))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BFBlocks.TINGED_GLASS)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.TINGED_GLASS)
                 .pattern(" F ")
                 .pattern("FGF")
                 .pattern(" F ")
-                .input('F', BFItems.FELDSPAR)
-                .input('G', Items.GLASS)
-                .criterion(hasItem(BFItems.FELDSPAR), conditionsFromItem(BFItems.FELDSPAR))
-                .offerTo(exporter);
+                .define('F', BFItems.FELDSPAR)
+                .define('G', Items.GLASS)
+                .unlockedBy(getHasName(BFItems.FELDSPAR), has(BFItems.FELDSPAR))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BFItems.CERAMIC_CLAY, 4)
-                .input(Items.CLAY_BALL, 3)
-                .input(BFItems.FELDSPAR)
-                .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
-                .criterion(hasItem(BFItems.FELDSPAR), conditionsFromItem(BFItems.FELDSPAR))
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BFItems.CERAMIC_CLAY, 4)
+                .requires(Items.CLAY_BALL, 3)
+                .requires(BFItems.FELDSPAR)
+                .unlockedBy(getHasName(Items.CLAY_BALL), has(Items.CLAY_BALL))
+                .unlockedBy(getHasName(BFItems.FELDSPAR), has(BFItems.FELDSPAR))
                 .group("ceramic_clay")
-                .offerTo(exporter);
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, BFBlocks.CERAMIC_BUTTON)
-                .input(BFItems.CERAMIC_TILE, 1)
-                .criterion(hasItem(BFItems.CERAMIC_TILE), conditionsFromItem(BFItems.CERAMIC_TILE))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, BFBlocks.CERAMIC_BUTTON)
+                .requires(BFItems.CERAMIC_TILE, 1)
+                .unlockedBy(getHasName(BFItems.CERAMIC_TILE), has(BFItems.CERAMIC_TILE))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, BFBlocks.CERAMIC_PRESSURE_PLATE)
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, BFBlocks.CERAMIC_PRESSURE_PLATE)
                 .pattern("##")
-                .input('#', BFItems.CERAMIC_TILE)
-                .criterion(hasItem(BFItems.CERAMIC_TILE), conditionsFromItem(BFItems.CERAMIC_TILE))
-                .offerTo(exporter);
+                .define('#', BFItems.CERAMIC_TILE)
+                .unlockedBy(getHasName(BFItems.CERAMIC_TILE), has(BFItems.CERAMIC_TILE))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.CERAMIC_DISH)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.CERAMIC_DISH)
                 .pattern("###")
-                .input('#', BFItems.CERAMIC_TILE)
-                .criterion(hasItem(BFItems.CERAMIC_TILE), conditionsFromItem(BFItems.CERAMIC_TILE))
-                .offerTo(exporter);
+                .define('#', BFItems.CERAMIC_TILE)
+                .unlockedBy(getHasName(BFItems.CERAMIC_TILE), has(BFItems.CERAMIC_TILE))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, BFBlocks.CERAMIC_LEVER)
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, BFBlocks.CERAMIC_LEVER)
                 .pattern(" S ")
                 .pattern("###")
-                .input('S', Items.STICK)
-                .input('#', BFItems.CERAMIC_TILE)
-                .criterion(hasItem(BFItems.CERAMIC_TILE), conditionsFromItem(BFItems.CERAMIC_TILE))
-                .offerTo(exporter);
+                .define('S', Items.STICK)
+                .define('#', BFItems.CERAMIC_TILE)
+                .unlockedBy(getHasName(BFItems.CERAMIC_TILE), has(BFItems.CERAMIC_TILE))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.JAR, 3)
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, BFItems.JAR, 3)
                 .pattern("# #")
                 .pattern(" # ")
-                .input('#', BFItems.CERAMIC_CLAY)
-                .criterion(hasItem(BFItems.CERAMIC_CLAY), conditionsFromItem(BFItems.CERAMIC_CLAY))
-                .offerTo(exporter);
+                .define('#', BFItems.CERAMIC_CLAY)
+                .unlockedBy(getHasName(BFItems.CERAMIC_CLAY), has(BFItems.CERAMIC_CLAY))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BFBlocks.FERMENTATION_VESSEL)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BFBlocks.FERMENTATION_VESSEL)
                 .pattern(" # ")
                 .pattern("# #")
                 .pattern("###")
-                .input('#', BFItems.CERAMIC_CLAY)
-                .criterion(hasItem(BFItems.CERAMIC_CLAY), conditionsFromItem(BFItems.CERAMIC_CLAY))
-                .offerTo(exporter);
+                .define('#', BFItems.CERAMIC_CLAY)
+                .unlockedBy(getHasName(BFItems.CERAMIC_CLAY), has(BFItems.CERAMIC_CLAY))
+                .save(exporter);
 
-        BlockFamily hoaryFamily = register(BFBlocks.HOARY_PLANKS)
+        BlockFamily hoaryFamily = familyBuilder(BFBlocks.HOARY_PLANKS)
                 .button(BFBlocks.HOARY_BUTTON)
                 .fence(BFBlocks.HOARY_FENCE)
                 .fenceGate(BFBlocks.HOARY_FENCE_GATE)
@@ -180,14 +183,14 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .stairs(BFBlocks.HOARY_STAIRS)
                 .door(BFBlocks.HOARY_DOOR)
                 .trapdoor(BFBlocks.HOARY_TRAPDOOR)
-                .group("wooden")
-                .unlockCriterionName("has_planks")
-                .build();
-        generateFamily(exporter, hoaryFamily, FeatureSet.of(FeatureFlags.VANILLA));
-        offerPlanksRecipe(exporter, BFBlocks.HOARY_PLANKS, BFItemTags.HOARY_LOGS, 4);
+                .recipeGroupPrefix("wooden")
+                .recipeUnlockedBy("has_planks")
+                .getFamily();
+        generateRecipes(exporter, hoaryFamily, FeatureFlagSet.of(FeatureFlags.VANILLA));
+        planksFromLogs(exporter, BFBlocks.HOARY_PLANKS, BFItemTags.HOARY_LOGS, 4);
 
 
-        BlockFamily walnutFamily = register(BFBlocks.WALNUT_PLANKS)
+        BlockFamily walnutFamily = familyBuilder(BFBlocks.WALNUT_PLANKS)
                 .button(BFBlocks.WALNUT_BUTTON)
                 .fence(BFBlocks.WALNUT_FENCE)
                 .fenceGate(BFBlocks.WALNUT_FENCE_GATE)
@@ -197,20 +200,20 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .stairs(BFBlocks.WALNUT_STAIRS)
                 .door(BFBlocks.WALNUT_DOOR)
                 .trapdoor(BFBlocks.WALNUT_TRAPDOOR)
-                .group("wooden")
-                .unlockCriterionName("has_planks")
-                .build();
-        generateFamily(exporter, walnutFamily, FeatureSet.of(FeatureFlags.VANILLA));
-        offerPlanksRecipe(exporter, BFBlocks.WALNUT_PLANKS, BFItemTags.WALNUT_LOGS, 4);
+                .recipeGroupPrefix("wooden")
+                .recipeUnlockedBy("has_planks")
+                .getFamily();
+        generateRecipes(exporter, walnutFamily, FeatureFlagSet.of(FeatureFlags.VANILLA));
+        planksFromLogs(exporter, BFBlocks.WALNUT_PLANKS, BFItemTags.WALNUT_LOGS, 4);
 
-        BlockFamily ceramicFamily = register(BFBlocks.CERAMIC_TILES)
+        BlockFamily ceramicFamily = familyBuilder(BFBlocks.CERAMIC_TILES)
                 .slab(BFBlocks.CERAMIC_TILE_SLAB)
                 .stairs(BFBlocks.CERAMIC_TILE_STAIRS)
                 /*.wall(BFBlocks.CERAMIC_TILE_WALL)*/
-                .group("ceramic_tiles")
-                .unlockCriterionName("has_ceramic_tiles")
-                .build();
-        generateFamily(exporter, ceramicFamily, FeatureSet.of(FeatureFlags.VANILLA));
+                .recipeGroupPrefix("ceramic_tiles")
+                .recipeUnlockedBy("has_ceramic_tiles")
+                .getFamily();
+        generateRecipes(exporter, ceramicFamily, FeatureFlagSet.of(FeatureFlags.VANILLA));
 
 //        BlockFamily checkeredCeramicFamily = register(ModBlocks.CHECKERED_CERAMIC_TILES)
 //                .slab(ModBlocks.CERAMIC_TILE_SLAB)
@@ -220,461 +223,461 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 //                .build();
 //        generateFamily(exporter, checkeredCeramicFamily);
 
-        BlockFamily ceramicMosaicFamily = register(BFBlocks.CERAMIC_MOSAIC)
+        BlockFamily ceramicMosaicFamily = familyBuilder(BFBlocks.CERAMIC_MOSAIC)
                 .slab(BFBlocks.CERAMIC_MOSAIC_SLAB)
                 .stairs(BFBlocks.CERAMIC_MOSAIC_STAIRS)
                 /*.wall(BFBlocks.CERAMIC_MOSAIC_WALL)*/
-                .group("ceramic_mosaic")
-                .unlockCriterionName("has_ceramic_mosaic")
-                .build();
-        generateFamily(exporter, ceramicMosaicFamily, FeatureSet.of(FeatureFlags.VANILLA));
+                .recipeGroupPrefix("ceramic_mosaic")
+                .recipeUnlockedBy("has_ceramic_mosaic")
+                .getFamily();
+        generateRecipes(exporter, ceramicMosaicFamily, FeatureFlagSet.of(FeatureFlags.VANILLA));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BFBlocks.CERAMIC_DOOR)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BFBlocks.CERAMIC_DOOR)
                 .pattern("##")
                 .pattern("##")
                 .pattern("##")
-                .input('#', BFItems.CERAMIC_TILE)
-                .criterion(hasItem(BFItems.CERAMIC_TILE), conditionsFromItem(BFItems.CERAMIC_TILE))
-                .offerTo(exporter);
+                .define('#', BFItems.CERAMIC_TILE)
+                .unlockedBy(getHasName(BFItems.CERAMIC_TILE), has(BFItems.CERAMIC_TILE))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, BFBlocks.CERAMIC_TRAPDOOR)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BFBlocks.CERAMIC_TRAPDOOR)
                 .pattern("###")
                 .pattern("###")
-                .input('#', BFItems.CERAMIC_TILE)
-                .criterion(hasItem(BFItems.CERAMIC_TILE), conditionsFromItem(BFItems.CERAMIC_TILE))
-                .offerTo(exporter);
+                .define('#', BFItems.CERAMIC_TILE)
+                .unlockedBy(getHasName(BFItems.CERAMIC_TILE), has(BFItems.CERAMIC_TILE))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFBlocks.ARTISAN_BREAD)
-                .input(BFItemTags.C_FLOUR)
-                .input(BFItemTags.C_FLOUR)
-                .input(BFItemTags.C_FLOUR)
-                .input(Items.EGG)
-                .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
-                .criterion(hasItem(BFItems.FLOUR), conditionsFromTag(BFItemTags.C_FLOUR))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFBlocks.ARTISAN_BREAD)
+                .requires(BFItemTags.C_FLOUR)
+                .requires(BFItemTags.C_FLOUR)
+                .requires(BFItemTags.C_FLOUR)
+                .requires(Items.EGG)
+                .unlockedBy(getHasName(Items.EGG), has(Items.EGG))
+                .unlockedBy(getHasName(BFItems.FLOUR), has(BFItemTags.C_FLOUR))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.ARTISAN_COOKIE, 4)
-                .input(BFItemTags.C_FLOUR)
-                .input(BFItemTags.C_ELDERBERRIES)
-                .input(Items.SUGAR)
-                .criterion(hasItem(BFItems.ELDERBERRIES), conditionsFromTag(BFItemTags.C_ELDERBERRIES))
-                .criterion(hasItem(BFItems.FLOUR), conditionsFromTag(BFItemTags.C_FLOUR))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.ARTISAN_COOKIE, 4)
+                .requires(BFItemTags.C_FLOUR)
+                .requires(BFItemTags.C_ELDERBERRIES)
+                .requires(Items.SUGAR)
+                .unlockedBy(getHasName(BFItems.ELDERBERRIES), has(BFItemTags.C_ELDERBERRIES))
+                .unlockedBy(getHasName(BFItems.FLOUR), has(BFItemTags.C_FLOUR))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFBlocks.COCOA_CAKE)
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, BFBlocks.COCOA_CAKE)
                 .pattern("MMM")
                 .pattern("CEC")
                 .pattern("FFF")
-                .input('M', BFItemTags.C_MILKS)
-                .input('E', Items.EGG)
-                .input('F', BFItemTags.C_FLOUR)
-                .input('C', Items.COCOA_BEANS)
-                .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
-                .criterion(hasItem(BFItems.FLOUR), conditionsFromTag(BFItemTags.C_FLOUR))
-                .criterion(hasItem(Items.COCOA_BEANS), conditionsFromItem(Items.COCOA_BEANS))
-                .offerTo(exporter);
+                .define('M', BFItemTags.C_MILKS)
+                .define('E', Items.EGG)
+                .define('F', BFItemTags.C_FLOUR)
+                .define('C', Items.COCOA_BEANS)
+                .unlockedBy(getHasName(Items.EGG), has(Items.EGG))
+                .unlockedBy(getHasName(BFItems.FLOUR), has(BFItemTags.C_FLOUR))
+                .unlockedBy(getHasName(Items.COCOA_BEANS), has(Items.COCOA_BEANS))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFBlocks.COCONUT_CAKE)
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, BFBlocks.COCONUT_CAKE)
                 .pattern("CCC")
                 .pattern("SES")
                 .pattern("FFF")
-                .input('C', BFItemTags.C_COCONUT_HALVES)
-                .input('E', Items.EGG)
-                .input('F', BFItemTags.C_FLOUR)
-                .input('S', Items.SUGAR)
-                .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
-                .criterion(hasItem(BFItems.FLOUR), conditionsFromTag(BFItemTags.C_FLOUR))
-                .criterion(hasItem(BFItems.COCONUT_HALF), conditionsFromTag(BFItemTags.C_COCONUT_HALVES))
-                .offerTo(exporter);
+                .define('C', BFItemTags.C_COCONUT_HALVES)
+                .define('E', Items.EGG)
+                .define('F', BFItemTags.C_FLOUR)
+                .define('S', Items.SUGAR)
+                .unlockedBy(getHasName(Items.EGG), has(Items.EGG))
+                .unlockedBy(getHasName(BFItems.FLOUR), has(BFItemTags.C_FLOUR))
+                .unlockedBy(getHasName(BFItems.COCONUT_HALF), has(BFItemTags.C_COCONUT_HALVES))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFBlocks.SPONGE_CAKE)
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, BFBlocks.SPONGE_CAKE)
                 .pattern("PPP")
                 .pattern("SES")
                 .pattern("###")
-                .input('P', Items.WATER_BUCKET)
-                .input('E', Items.EGG)
-                .input('#', BFBlocks.SPONGEKIN)
-                .input('S', Items.SUGAR)
-                .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
-                .criterion(hasItem(Items.SPONGE), conditionsFromItem(Items.SPONGE))
-                .criterion(hasItem(BFBlocks.SPONGEKIN), conditionsFromItem(BFBlocks.SPONGEKIN))
-                .offerTo(exporter);
+                .define('P', Items.WATER_BUCKET)
+                .define('E', Items.EGG)
+                .define('#', BFBlocks.SPONGEKIN)
+                .define('S', Items.SUGAR)
+                .unlockedBy(getHasName(Items.EGG), has(Items.EGG))
+                .unlockedBy(getHasName(Items.SPONGE), has(Items.SPONGE))
+                .unlockedBy(getHasName(BFBlocks.SPONGEKIN), has(BFBlocks.SPONGEKIN))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.MAIZE_BREAD)
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, BFItems.MAIZE_BREAD)
                 .pattern("###")
-                .input('#', BFItemTags.C_CORN)
-                .criterion(hasItem(BFItems.MAIZE), conditionsFromTag(BFItemTags.C_CORN))
-                .offerTo(exporter);
+                .define('#', BFItemTags.C_CORN)
+                .unlockedBy(getHasName(BFItems.MAIZE), has(BFItemTags.C_CORN))
+                .save(exporter);
 
-        offerSmelting(exporter, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 100, "popped_maize");
-        offerMultipleOptions(exporter, RecipeSerializer.SMOKING, SmokingRecipe::new, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 50, "popped_maize", "_from_smoking");
-        offerMultipleOptions(exporter, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 300, "popped_maize", "_from_campfire_cooking");
+        oreSmelting(exporter, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 100, "popped_maize");
+        oreCooking(exporter, RecipeSerializer.SMOKING_RECIPE, SmokingRecipe::new, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 50, "popped_maize", "_from_smoking");
+        oreCooking(exporter, RecipeSerializer.CAMPFIRE_COOKING_RECIPE, CampfireCookingRecipe::new, ImmutableList.of(BFItems.MAIZE_SEEDS), RecipeCategory.FOOD, BFItems.POPPED_MAIZE, 0.1f, 300, "popped_maize", "_from_campfire_cooking");
 
-        offerSmelting(exporter, ImmutableList.of(Items.EGG), RecipeCategory.FOOD, BFItems.COOKED_EGG, 0.1f, 100, "cooked_egg");
-        offerMultipleOptions(exporter, RecipeSerializer.SMOKING, SmokingRecipe::new, ImmutableList.of(Items.EGG), RecipeCategory.FOOD, BFItems.COOKED_EGG, 0.1f, 50, "cooked_egg", "_from_smoking");
-        offerMultipleOptions(exporter, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new, ImmutableList.of(Items.EGG), RecipeCategory.FOOD, BFItems.COOKED_EGG, 0.1f, 300, "cooked_egg", "_from_campfire_cooking");
+        oreSmelting(exporter, ImmutableList.of(Items.EGG), RecipeCategory.FOOD, BFItems.COOKED_EGG, 0.1f, 100, "cooked_egg");
+        oreCooking(exporter, RecipeSerializer.SMOKING_RECIPE, SmokingRecipe::new, ImmutableList.of(Items.EGG), RecipeCategory.FOOD, BFItems.COOKED_EGG, 0.1f, 50, "cooked_egg", "_from_smoking");
+        oreCooking(exporter, RecipeSerializer.CAMPFIRE_COOKING_RECIPE, CampfireCookingRecipe::new, ImmutableList.of(Items.EGG), RecipeCategory.FOOD, BFItems.COOKED_EGG, 0.1f, 300, "cooked_egg", "_from_campfire_cooking");
 
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.WALNUT_COOKIE, 4)
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, BFItems.WALNUT_COOKIE, 4)
                 .pattern("#W#")
-                .input('#', BFItemTags.C_FLOUR)
-                .input('W', BFItemTags.C_WALNUTS)
-                .criterion(hasItem(BFItems.FLOUR), conditionsFromTag(BFItemTags.C_FLOUR))
-                .criterion(hasItem(BFItems.WALNUT), conditionsFromTag(BFItemTags.C_WALNUTS))
-                .offerTo(exporter);
+                .define('#', BFItemTags.C_FLOUR)
+                .define('W', BFItemTags.C_WALNUTS)
+                .unlockedBy(getHasName(BFItems.FLOUR), has(BFItemTags.C_FLOUR))
+                .unlockedBy(getHasName(BFItems.WALNUT), has(BFItemTags.C_WALNUTS))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.FOREST_MEDLEY)
-                .input(Items.COOKED_PORKCHOP)
-                .input(Items.CARROT)
-                .input(Items.SWEET_BERRIES)
-                .input(Items.BREAD)
-                .criterion(hasItem(Items.COOKED_PORKCHOP), conditionsFromItem(Items.COOKED_PORKCHOP))
-                .criterion(hasItem(Items.CARROT), conditionsFromItem(Items.CARROT))
-                .criterion(hasItem(Items.SWEET_BERRIES), conditionsFromItem(Items.SWEET_BERRIES))
-                .criterion(hasItem(Items.BREAD), conditionsFromItem(Items.BREAD))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.FOREST_MEDLEY)
+                .requires(Items.COOKED_PORKCHOP)
+                .requires(Items.CARROT)
+                .requires(Items.SWEET_BERRIES)
+                .requires(Items.BREAD)
+                .unlockedBy(getHasName(Items.COOKED_PORKCHOP), has(Items.COOKED_PORKCHOP))
+                .unlockedBy(getHasName(Items.CARROT), has(Items.CARROT))
+                .unlockedBy(getHasName(Items.SWEET_BERRIES), has(Items.SWEET_BERRIES))
+                .unlockedBy(getHasName(Items.BREAD), has(Items.BREAD))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.ARID_MEDLEY)
-                .input(Items.CACTUS)
-                .input(Items.POTATO)
-                .input(BFItemTags.C_CORN)
-                .input(Items.BREAD)
-                .criterion(hasItem(Items.CACTUS), conditionsFromItem(Items.CACTUS))
-                .criterion(hasItem(Items.POTATO), conditionsFromItem(Items.POTATO))
-                .criterion(hasItem(BFItems.MAIZE), conditionsFromTag(BFItemTags.C_CORN))
-                .criterion(hasItem(Items.BREAD), conditionsFromItem(Items.BREAD))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.ARID_MEDLEY)
+                .requires(Items.CACTUS)
+                .requires(Items.POTATO)
+                .requires(BFItemTags.C_CORN)
+                .requires(Items.BREAD)
+                .unlockedBy(getHasName(Items.CACTUS), has(Items.CACTUS))
+                .unlockedBy(getHasName(Items.POTATO), has(Items.POTATO))
+                .unlockedBy(getHasName(BFItems.MAIZE), has(BFItemTags.C_CORN))
+                .unlockedBy(getHasName(Items.BREAD), has(Items.BREAD))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.MEADOW_MEDLEY)
-                .input(Items.COOKED_MUTTON)
-                .input(Items.BEETROOT)
-                .input(BFBlocks.VIOLET_BELLFLOWER)
-                .input(BFItems.LEEK)
-                .criterion(hasItem(Items.COOKED_MUTTON), conditionsFromItem(Items.COOKED_MUTTON))
-                .criterion(hasItem(Items.BEETROOT), conditionsFromItem(Items.BEETROOT))
-                .criterion(hasItem(BFBlocks.VIOLET_BELLFLOWER), conditionsFromItem(BFBlocks.VIOLET_BELLFLOWER))
-                .criterion(hasItem(BFItems.LEEK), conditionsFromItem(BFItems.LEEK))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.MEADOW_MEDLEY)
+                .requires(Items.COOKED_MUTTON)
+                .requires(Items.BEETROOT)
+                .requires(BFBlocks.VIOLET_BELLFLOWER)
+                .requires(BFItems.LEEK)
+                .unlockedBy(getHasName(Items.COOKED_MUTTON), has(Items.COOKED_MUTTON))
+                .unlockedBy(getHasName(Items.BEETROOT), has(Items.BEETROOT))
+                .unlockedBy(getHasName(BFBlocks.VIOLET_BELLFLOWER), has(BFBlocks.VIOLET_BELLFLOWER))
+                .unlockedBy(getHasName(BFItems.LEEK), has(BFItems.LEEK))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.MIRE_MEDLEY)
-                .input(BFItemTags.C_ELDERBERRIES)
-                .input(BFItemTags.C_CORN)
-                .input(BFBlocks.CHAMOMILE_FLOWERS)
-                .input(Items.CARROT)
-                .criterion(hasItem(BFItems.ELDERBERRIES), conditionsFromTag(BFItemTags.C_ELDERBERRIES))
-                .criterion(hasItem(BFItems.MAIZE), conditionsFromTag(BFItemTags.C_CORN))
-                .criterion(hasItem(BFBlocks.CHAMOMILE_FLOWERS), conditionsFromItem(BFBlocks.CHAMOMILE_FLOWERS))
-                .criterion(hasItem(Items.CARROT), conditionsFromItem(Items.CARROT))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.MIRE_MEDLEY)
+                .requires(BFItemTags.C_ELDERBERRIES)
+                .requires(BFItemTags.C_CORN)
+                .requires(BFBlocks.CHAMOMILE_FLOWERS)
+                .requires(Items.CARROT)
+                .unlockedBy(getHasName(BFItems.ELDERBERRIES), has(BFItemTags.C_ELDERBERRIES))
+                .unlockedBy(getHasName(BFItems.MAIZE), has(BFItemTags.C_CORN))
+                .unlockedBy(getHasName(BFBlocks.CHAMOMILE_FLOWERS), has(BFBlocks.CHAMOMILE_FLOWERS))
+                .unlockedBy(getHasName(Items.CARROT), has(Items.CARROT))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.COASTAL_MEDLEY)
-                .input(BFItems.SPONGEKIN_SLICE)
-                .input(Items.DRIED_KELP, 2)
-                .input(BFItemTags.COOKED_FISHES)
-                .criterion(hasItem(BFItems.SPONGEKIN_SLICE), conditionsFromItem(BFItems.SPONGEKIN_SLICE))
-                .criterion(hasItem(Items.DRIED_KELP), conditionsFromItem(Items.DRIED_KELP))
-                .criterion("has_fish", conditionsFromTag(BFItemTags.COOKED_FISHES))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.COASTAL_MEDLEY)
+                .requires(BFItems.SPONGEKIN_SLICE)
+                .requires(Items.DRIED_KELP, 2)
+                .requires(BFItemTags.COOKED_FISHES)
+                .unlockedBy(getHasName(BFItems.SPONGEKIN_SLICE), has(BFItems.SPONGEKIN_SLICE))
+                .unlockedBy(getHasName(Items.DRIED_KELP), has(Items.DRIED_KELP))
+                .unlockedBy("has_fish", has(BFItemTags.COOKED_FISHES))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.TROPICAL_MEDLEY)
-                .input(BFItemTags.C_ORANGES)
-                .input(Items.COCOA_BEANS)
-                .input(BFItemTags.C_PASSION_FRUIT)
-                .input(BFItems.COCONUT_HALF)
-                .criterion(hasItem(BFItems.ORANGE), conditionsFromTag(BFItemTags.C_ORANGES))
-                .criterion(hasItem(Items.COCOA_BEANS), conditionsFromItem(Items.COCOA_BEANS))
-                .criterion(hasItem(BFItems.PASSION_FRUIT), conditionsFromTag(BFItemTags.C_PASSION_FRUIT))
-                .criterion(hasItem(BFItems.COCONUT_HALF), conditionsFromItem(BFItems.COCONUT_HALF))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.TROPICAL_MEDLEY)
+                .requires(BFItemTags.C_ORANGES)
+                .requires(Items.COCOA_BEANS)
+                .requires(BFItemTags.C_PASSION_FRUIT)
+                .requires(BFItems.COCONUT_HALF)
+                .unlockedBy(getHasName(BFItems.ORANGE), has(BFItemTags.C_ORANGES))
+                .unlockedBy(getHasName(Items.COCOA_BEANS), has(Items.COCOA_BEANS))
+                .unlockedBy(getHasName(BFItems.PASSION_FRUIT), has(BFItemTags.C_PASSION_FRUIT))
+                .unlockedBy(getHasName(BFItems.COCONUT_HALF), has(BFItems.COCONUT_HALF))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.STUFFED_HOARY_APPLE)
-                .input(BFItems.HOARY_APPLE)
-                .input(BFItems.LAPISBERRIES, 2)
-                .criterion(hasItem(BFItems.HOARY_APPLE), conditionsFromItem(BFItems.HOARY_APPLE))
-                .criterion(hasItem(BFItems.LAPISBERRIES), conditionsFromItem(BFItems.LAPISBERRIES))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.STUFFED_HOARY_APPLE)
+                .requires(BFItems.HOARY_APPLE)
+                .requires(BFItems.LAPISBERRIES, 2)
+                .unlockedBy(getHasName(BFItems.HOARY_APPLE), has(BFItems.HOARY_APPLE))
+                .unlockedBy(getHasName(BFItems.LAPISBERRIES), has(BFItems.LAPISBERRIES))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.SEA_SALAD)
-                .input(Items.KELP, 2)
-                .input(BFItems.LEEK)
-                .input(BFItems.CITRUS_ESSENCE)
-                .input(Items.BOWL)
-                .criterion(hasItem(Items.KELP), conditionsFromItem(Items.KELP))
-                .criterion(hasItem(BFItems.LEEK), conditionsFromItem(BFItems.LEEK))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.SEA_SALAD)
+                .requires(Items.KELP, 2)
+                .requires(BFItems.LEEK)
+                .requires(BFItems.CITRUS_ESSENCE)
+                .requires(Items.BOWL)
+                .unlockedBy(getHasName(Items.KELP), has(Items.KELP))
+                .unlockedBy(getHasName(BFItems.LEEK), has(BFItems.LEEK))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.MUSHROOM_STUFFED_POTATO)
-                .input(Items.BAKED_POTATO)
-                .input(Items.RED_MUSHROOM)
-                .input(Items.BROWN_MUSHROOM)
-                .criterion(hasItem(Items.BAKED_POTATO), conditionsFromItem(Items.BAKED_POTATO))
-                .criterion(hasItem(Items.RED_MUSHROOM), conditionsFromItem(Items.RED_MUSHROOM))
-                .criterion(hasItem(Items.BROWN_MUSHROOM), conditionsFromItem(Items.BROWN_MUSHROOM))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.MUSHROOM_STUFFED_POTATO)
+                .requires(Items.BAKED_POTATO)
+                .requires(Items.RED_MUSHROOM)
+                .requires(Items.BROWN_MUSHROOM)
+                .unlockedBy(getHasName(Items.BAKED_POTATO), has(Items.BAKED_POTATO))
+                .unlockedBy(getHasName(Items.RED_MUSHROOM), has(Items.RED_MUSHROOM))
+                .unlockedBy(getHasName(Items.BROWN_MUSHROOM), has(Items.BROWN_MUSHROOM))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.BERRY_STUFFED_POTATO)
-                .input(Items.BAKED_POTATO)
-                .input(Items.SWEET_BERRIES)
-                .input(Items.GLOW_BERRIES)
-                .criterion(hasItem(Items.BAKED_POTATO), conditionsFromItem(Items.BAKED_POTATO))
-                .criterion(hasItem(Items.SWEET_BERRIES), conditionsFromItem(Items.SWEET_BERRIES))
-                .criterion(hasItem(Items.GLOW_BERRIES), conditionsFromItem(Items.GLOW_BERRIES))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.BERRY_STUFFED_POTATO)
+                .requires(Items.BAKED_POTATO)
+                .requires(Items.SWEET_BERRIES)
+                .requires(Items.GLOW_BERRIES)
+                .unlockedBy(getHasName(Items.BAKED_POTATO), has(Items.BAKED_POTATO))
+                .unlockedBy(getHasName(Items.SWEET_BERRIES), has(Items.SWEET_BERRIES))
+                .unlockedBy(getHasName(Items.GLOW_BERRIES), has(Items.GLOW_BERRIES))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.MAIZE_STUFFED_POTATO)
-                .input(Items.BAKED_POTATO)
-                .input(BFItemTags.C_CORN)
-                .criterion(hasItem(Items.BAKED_POTATO), conditionsFromItem(Items.BAKED_POTATO))
-                .criterion(hasItem(BFItems.MAIZE), conditionsFromTag(BFItemTags.C_CORN))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.MAIZE_STUFFED_POTATO)
+                .requires(Items.BAKED_POTATO)
+                .requires(BFItemTags.C_CORN)
+                .unlockedBy(getHasName(Items.BAKED_POTATO), has(Items.BAKED_POTATO))
+                .unlockedBy(getHasName(BFItems.MAIZE), has(BFItemTags.C_CORN))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.PASSION_GLAZED_SALMON)
-                .input(BFItemTags.C_PASSION_FRUIT)
-                .input(BFItemTags.C_PASSION_FRUIT)
-                .input(Items.COOKED_SALMON)
-                .input(Items.BOWL)
-                .criterion(hasItem(BFItems.PASSION_FRUIT), conditionsFromTag(BFItemTags.C_PASSION_FRUIT))
-                .criterion(hasItem(Items.COOKED_SALMON), conditionsFromItem(Items.COOKED_SALMON))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.PASSION_GLAZED_SALMON)
+                .requires(BFItemTags.C_PASSION_FRUIT)
+                .requires(BFItemTags.C_PASSION_FRUIT)
+                .requires(Items.COOKED_SALMON)
+                .requires(Items.BOWL)
+                .unlockedBy(getHasName(BFItems.PASSION_FRUIT), has(BFItemTags.C_PASSION_FRUIT))
+                .unlockedBy(getHasName(Items.COOKED_SALMON), has(Items.COOKED_SALMON))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.COCONUT_CRUSTED_COD)
-                .input(BFItemTags.C_COCONUT_HALVES)
-                .input(BFItemTags.C_COCONUT_HALVES)
-                .input(Items.COOKED_COD)
-                .input(Items.BOWL)
-                .criterion(hasItem(BFItems.COCONUT_HALF), conditionsFromTag(BFItemTags.C_COCONUT_HALVES))
-                .criterion(hasItem(Items.COOKED_COD), conditionsFromItem(Items.COOKED_COD))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.COCONUT_CRUSTED_COD)
+                .requires(BFItemTags.C_COCONUT_HALVES)
+                .requires(BFItemTags.C_COCONUT_HALVES)
+                .requires(Items.COOKED_COD)
+                .requires(Items.BOWL)
+                .unlockedBy(getHasName(BFItems.COCONUT_HALF), has(BFItemTags.C_COCONUT_HALVES))
+                .unlockedBy(getHasName(Items.COOKED_COD), has(Items.COOKED_COD))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.BOUNTIFUL_STEW)
-                .input(Items.COOKED_PORKCHOP)
-                .input(Items.CARROT)
-                .input(BFItemTags.C_CORN)
-                .input(Items.BOWL)
-                .criterion(hasItem(Items.COOKED_PORKCHOP), conditionsFromItem(Items.COOKED_PORKCHOP))
-                .criterion(hasItem(Items.CARROT), conditionsFromItem(Items.CARROT))
-                .criterion(hasItem(BFItems.MAIZE), conditionsFromTag(BFItemTags.C_CORN))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.BOUNTIFUL_STEW)
+                .requires(Items.COOKED_PORKCHOP)
+                .requires(Items.CARROT)
+                .requires(BFItemTags.C_CORN)
+                .requires(Items.BOWL)
+                .unlockedBy(getHasName(Items.COOKED_PORKCHOP), has(Items.COOKED_PORKCHOP))
+                .unlockedBy(getHasName(Items.CARROT), has(Items.CARROT))
+                .unlockedBy(getHasName(BFItems.MAIZE), has(BFItemTags.C_CORN))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.LEEK_STEW)
-                .input(BFItems.LEEK, 3)
-                .input(Items.BOWL)
-                .criterion(hasItem(BFItems.LEEK), conditionsFromItem(BFItems.LEEK))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.LEEK_STEW)
+                .requires(BFItems.LEEK, 3)
+                .requires(Items.BOWL)
+                .unlockedBy(getHasName(BFItems.LEEK), has(BFItems.LEEK))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.APPLE_STEW)
-                .input(Items.APPLE, 2)
-                .input(BFItemTags.C_ELDERBERRIES)
-                .input(BFItemTags.C_ELDERBERRIES)
-                .input(Items.BOWL)
-                .criterion(hasItem(Items.APPLE), conditionsFromItem(Items.APPLE))
-                .criterion(hasItem(BFItems.ELDERBERRIES), conditionsFromTag(BFItemTags.C_ELDERBERRIES))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.APPLE_STEW)
+                .requires(Items.APPLE, 2)
+                .requires(BFItemTags.C_ELDERBERRIES)
+                .requires(BFItemTags.C_ELDERBERRIES)
+                .requires(Items.BOWL)
+                .unlockedBy(getHasName(Items.APPLE), has(Items.APPLE))
+                .unlockedBy(getHasName(BFItems.ELDERBERRIES), has(BFItemTags.C_ELDERBERRIES))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.COCONUT_STEW)
-                .input(BFItemTags.C_COCONUT_HALVES)
-                .input(BFItemTags.C_COCONUT_HALVES)
-                .input(BFItems.LEEK, 1)
-                .input(Items.BOWL)
-                .criterion(hasItem(BFItems.COCONUT_HALF), conditionsFromTag(BFItemTags.C_COCONUT_HALVES))
-                .criterion(hasItem(BFItems.LEEK), conditionsFromItem(BFItems.LEEK))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.COCONUT_STEW)
+                .requires(BFItemTags.C_COCONUT_HALVES)
+                .requires(BFItemTags.C_COCONUT_HALVES)
+                .requires(BFItems.LEEK, 1)
+                .requires(Items.BOWL)
+                .unlockedBy(getHasName(BFItems.COCONUT_HALF), has(BFItemTags.C_COCONUT_HALVES))
+                .unlockedBy(getHasName(BFItems.LEEK), has(BFItems.LEEK))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.STONE_STEW)
-                .input(Items.STONE_PICKAXE)
-                .input(Items.COBBLESTONE, 2)
-                .input(Items.ROTTEN_FLESH, 1)
-                .input(Items.BOWL)
-                .criterion(hasItem(Items.STONE_PICKAXE), conditionsFromItem(Items.STONE_PICKAXE))
-                .criterion(hasItem(Items.ROTTEN_FLESH), conditionsFromItem(Items.ROTTEN_FLESH))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.STONE_STEW)
+                .requires(Items.STONE_PICKAXE)
+                .requires(Items.COBBLESTONE, 2)
+                .requires(Items.ROTTEN_FLESH, 1)
+                .requires(Items.BOWL)
+                .unlockedBy(getHasName(Items.STONE_PICKAXE), has(Items.STONE_PICKAXE))
+                .unlockedBy(getHasName(Items.ROTTEN_FLESH), has(Items.ROTTEN_FLESH))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.FISH_STEW)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.FISH_STEW)
                 .group("fish_stew")
-                .input(Ingredient.fromTag(BFItemTags.COOKED_FISHES), 2)
-                .input(Items.DRIED_KELP, 2)
-                .input(Items.BOWL)
-                .criterion("has_cooked_fish", conditionsFromTag(BFItemTags.COOKED_FISHES))
-                .criterion(hasItem(Items.DRIED_KELP), conditionsFromItem(Items.DRIED_KELP))
-                .offerTo(exporter);
+                .requires(Ingredient.of(BFItemTags.COOKED_FISHES), 2)
+                .requires(Items.DRIED_KELP, 2)
+                .requires(Items.BOWL)
+                .unlockedBy("has_cooked_fish", has(BFItemTags.COOKED_FISHES))
+                .unlockedBy(getHasName(Items.DRIED_KELP), has(Items.DRIED_KELP))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.CUSTARD)
-                .input(BFItemTags.C_MILKS)
-                .input(Items.SUGAR)
-                .input(Items.BOWL)
-                .criterion("has_milk", conditionsFromTag(BFItemTags.C_MILKS))
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.CUSTARD)
+                .requires(BFItemTags.C_MILKS)
+                .requires(Items.SUGAR)
+                .requires(Items.BOWL)
+                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
+                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.PIQUANT_CUSTARD)
-                .input(BFItemTags.C_MILKS)
-                .input(Items.SUGAR)
-                .input(Items.SWEET_BERRIES)
-                .input(Items.BOWL)
-                .criterion("has_milk", conditionsFromTag(BFItemTags.C_MILKS))
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .criterion(hasItem(Items.SWEET_BERRIES), conditionsFromItem(Items.SWEET_BERRIES))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.PIQUANT_CUSTARD)
+                .requires(BFItemTags.C_MILKS)
+                .requires(Items.SUGAR)
+                .requires(Items.SWEET_BERRIES)
+                .requires(Items.BOWL)
+                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
+                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
+                .unlockedBy(getHasName(Items.SWEET_BERRIES), has(Items.SWEET_BERRIES))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.PASSION_CUSTARD)
-                .input(BFItemTags.C_MILKS)
-                .input(Items.SUGAR)
-                .input(BFItemTags.C_PASSION_FRUIT)
-                .input(Items.BOWL)
-                .criterion("has_milk", conditionsFromTag(BFItemTags.C_MILKS))
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .criterion(hasItem(BFItems.PASSION_FRUIT), conditionsFromTag(BFItemTags.C_PASSION_FRUIT))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.PASSION_CUSTARD)
+                .requires(BFItemTags.C_MILKS)
+                .requires(Items.SUGAR)
+                .requires(BFItemTags.C_PASSION_FRUIT)
+                .requires(Items.BOWL)
+                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
+                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
+                .unlockedBy(getHasName(BFItems.PASSION_FRUIT), has(BFItemTags.C_PASSION_FRUIT))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.COCOA_CUSTARD)
-                .input(BFItemTags.C_MILKS)
-                .input(Items.SUGAR)
-                .input(Items.COCOA_BEANS)
-                .input(BFItemTags.C_WALNUTS)
-                .input(Items.BOWL)
-                .criterion("has_milk", conditionsFromTag(BFItemTags.C_MILKS))
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .criterion(hasItem(Items.COCOA_BEANS), conditionsFromItem(Items.COCOA_BEANS))
-                .criterion(hasItem(BFItems.WALNUT), conditionsFromTag(BFItemTags.C_WALNUTS))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.COCOA_CUSTARD)
+                .requires(BFItemTags.C_MILKS)
+                .requires(Items.SUGAR)
+                .requires(Items.COCOA_BEANS)
+                .requires(BFItemTags.C_WALNUTS)
+                .requires(Items.BOWL)
+                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
+                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
+                .unlockedBy(getHasName(Items.COCOA_BEANS), has(Items.COCOA_BEANS))
+                .unlockedBy(getHasName(BFItems.WALNUT), has(BFItemTags.C_WALNUTS))
+                .save(exporter);
 
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.ANCIENT_CUSTARD)
-                .input(BFItemTags.C_MILKS)
-                .input(Items.SUGAR)
-                .input(BFItems.LAPISBERRIES)
-                .input(BFItems.HOARY_APPLE)
-                .input(Items.BOWL)
-                .criterion("has_milk", conditionsFromTag(BFItemTags.C_MILKS))
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .criterion(hasItem(BFItems.HOARY_APPLE), conditionsFromItem(BFItems.HOARY_APPLE))
-                .criterion(hasItem(BFItems.LAPISBERRIES), conditionsFromItem(BFItems.LAPISBERRIES))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.ANCIENT_CUSTARD)
+                .requires(BFItemTags.C_MILKS)
+                .requires(Items.SUGAR)
+                .requires(BFItems.LAPISBERRIES)
+                .requires(BFItems.HOARY_APPLE)
+                .requires(Items.BOWL)
+                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
+                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
+                .unlockedBy(getHasName(BFItems.HOARY_APPLE), has(BFItems.HOARY_APPLE))
+                .unlockedBy(getHasName(BFItems.LAPISBERRIES), has(BFItems.LAPISBERRIES))
+                .save(exporter);
 
         offerCandiedFruitRecipe(exporter, Items.APPLE, BFItems.CANDIED_APPLE, 1);
         offerCandiedFruitRecipe(exporter, BFItems.PLUM, BFItemTags.C_PLUMS, BFItems.CANDIED_PLUM, 1);
         offerCandiedFruitRecipe(exporter, BFItems.ORANGE, BFItemTags.C_ORANGES, BFItems.CANDIED_ORANGE, 4);
         offerCandiedFruitRecipe(exporter, BFItems.LEMON, BFItemTags.C_LEMONS, BFItems.CANDIED_LEMON, 4);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.CRUSTED_BEEF)
-                .input(Items.COOKED_BEEF)
-                .input(BFItemTags.C_WALNUTS)
-                .input(BFItemTags.C_WALNUTS)
-                .input(Items.POTATO)
-                .input(BFItemTags.C_ELDERBERRIES)
-                .input(Items.BOWL)
-                .criterion(hasItem(Items.COOKED_BEEF), conditionsFromItem(Items.COOKED_BEEF))
-                .criterion(hasItem(Items.POTATO), conditionsFromItem(Items.POTATO))
-                .criterion(hasItem(BFItems.WALNUT), conditionsFromTag(BFItemTags.C_WALNUTS))
-                .criterion(hasItem(BFItems.ELDERBERRIES), conditionsFromTag(BFItemTags.C_ELDERBERRIES))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.CRUSTED_BEEF)
+                .requires(Items.COOKED_BEEF)
+                .requires(BFItemTags.C_WALNUTS)
+                .requires(BFItemTags.C_WALNUTS)
+                .requires(Items.POTATO)
+                .requires(BFItemTags.C_ELDERBERRIES)
+                .requires(Items.BOWL)
+                .unlockedBy(getHasName(Items.COOKED_BEEF), has(Items.COOKED_BEEF))
+                .unlockedBy(getHasName(Items.POTATO), has(Items.POTATO))
+                .unlockedBy(getHasName(BFItems.WALNUT), has(BFItemTags.C_WALNUTS))
+                .unlockedBy(getHasName(BFItems.ELDERBERRIES), has(BFItemTags.C_ELDERBERRIES))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.CRIMSON_CHOW)
-                .input(Items.COOKED_PORKCHOP)
-                .input(Items.CRIMSON_FUNGUS, 2)
-                .input(Items.CRIMSON_ROOTS)
-                .input(Items.BOWL)
-                .criterion(hasItem(Items.CRIMSON_FUNGUS), conditionsFromItem(Items.CRIMSON_FUNGUS))
-                .criterion(hasItem(Items.CRIMSON_ROOTS), conditionsFromItem(Items.CRIMSON_ROOTS))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.CRIMSON_CHOW)
+                .requires(Items.COOKED_PORKCHOP)
+                .requires(Items.CRIMSON_FUNGUS, 2)
+                .requires(Items.CRIMSON_ROOTS)
+                .requires(Items.BOWL)
+                .unlockedBy(getHasName(Items.CRIMSON_FUNGUS), has(Items.CRIMSON_FUNGUS))
+                .unlockedBy(getHasName(Items.CRIMSON_ROOTS), has(Items.CRIMSON_ROOTS))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, BFItems.WARPED_CHOW)
-                .input(Items.WARPED_FUNGUS, 2)
-                .input(Items.WARPED_ROOTS)
-                .input(Items.NETHER_SPROUTS)
-                .input(Items.BOWL)
-                .criterion(hasItem(Items.WARPED_FUNGUS), conditionsFromItem(Items.WARPED_FUNGUS))
-                .criterion(hasItem(Items.WARPED_ROOTS), conditionsFromItem(Items.WARPED_ROOTS))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.WARPED_CHOW)
+                .requires(Items.WARPED_FUNGUS, 2)
+                .requires(Items.WARPED_ROOTS)
+                .requires(Items.NETHER_SPROUTS)
+                .requires(Items.BOWL)
+                .unlockedBy(getHasName(Items.WARPED_FUNGUS), has(Items.WARPED_FUNGUS))
+                .unlockedBy(getHasName(Items.WARPED_ROOTS), has(Items.WARPED_ROOTS))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.STICK, 8)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STICK, 8)
                         .group("stick")
-                        .input(BFItemTags.FRUIT_LOGS)
-                        .criterion("has_fruit_log", conditionsFromTag(BFItemTags.FRUIT_LOGS))
-                        .offerTo(exporter);
+                        .requires(BFItemTags.FRUIT_LOGS)
+                        .unlockedBy("has_fruit_log", has(BFItemTags.FRUIT_LOGS))
+                        .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.WALNUT_MULCH, 4)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, BFBlocks.WALNUT_MULCH, 4)
                 .group("walnut_mulch")
-                .input(BFBlocks.WALNUT_MULCH_BLOCK)
-                .criterion("has_mulch", conditionsFromItem(BFBlocks.WALNUT_MULCH_BLOCK))
-                .offerTo(exporter);
+                .requires(BFBlocks.WALNUT_MULCH_BLOCK)
+                .unlockedBy("has_mulch", has(BFBlocks.WALNUT_MULCH_BLOCK))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.RED_DYE)
-                .input(BFItems.TEA_BERRIES)
-                .criterion(hasItem(BFItems.TEA_BERRIES), conditionsFromItem(BFItems.TEA_BERRIES))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.RED_DYE)
+                .requires(BFItems.TEA_BERRIES)
+                .unlockedBy(getHasName(BFItems.TEA_BERRIES), has(BFItems.TEA_BERRIES))
+                .save(exporter);
 
-        offerBarkBlockRecipe(exporter, BFBlocks.APPLE_WOOD, BFBlocks.APPLE_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_APPLE_WOOD, BFBlocks.STRIPPED_APPLE_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.GOLDEN_APPLE_WOOD, BFBlocks.GOLDEN_APPLE_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.ORANGE_WOOD, BFBlocks.ORANGE_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_ORANGE_WOOD, BFBlocks.STRIPPED_ORANGE_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.LEMON_WOOD, BFBlocks.LEMON_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_LEMON_WOOD, BFBlocks.STRIPPED_LEMON_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.PLUM_WOOD, BFBlocks.PLUM_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_PLUM_WOOD, BFBlocks.STRIPPED_PLUM_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.PALM_WOOD, BFBlocks.PALM_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_PALM_WOOD, BFBlocks.STRIPPED_PALM_LOG);
+        woodFromLogs(exporter, BFBlocks.APPLE_WOOD, BFBlocks.APPLE_LOG);
+        woodFromLogs(exporter, BFBlocks.STRIPPED_APPLE_WOOD, BFBlocks.STRIPPED_APPLE_LOG);
+        woodFromLogs(exporter, BFBlocks.GOLDEN_APPLE_WOOD, BFBlocks.GOLDEN_APPLE_LOG);
+        woodFromLogs(exporter, BFBlocks.ORANGE_WOOD, BFBlocks.ORANGE_LOG);
+        woodFromLogs(exporter, BFBlocks.STRIPPED_ORANGE_WOOD, BFBlocks.STRIPPED_ORANGE_LOG);
+        woodFromLogs(exporter, BFBlocks.LEMON_WOOD, BFBlocks.LEMON_LOG);
+        woodFromLogs(exporter, BFBlocks.STRIPPED_LEMON_WOOD, BFBlocks.STRIPPED_LEMON_LOG);
+        woodFromLogs(exporter, BFBlocks.PLUM_WOOD, BFBlocks.PLUM_LOG);
+        woodFromLogs(exporter, BFBlocks.STRIPPED_PLUM_WOOD, BFBlocks.STRIPPED_PLUM_LOG);
+        woodFromLogs(exporter, BFBlocks.PALM_WOOD, BFBlocks.PALM_LOG);
+        woodFromLogs(exporter, BFBlocks.STRIPPED_PALM_WOOD, BFBlocks.STRIPPED_PALM_LOG);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, Items.BROWN_DYE)
-                .input(BFBlocks.WALNUT_MULCH)
-                .criterion("has_mulch", conditionsFromItem(BFBlocks.WALNUT_MULCH))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, Items.BROWN_DYE)
+                .requires(BFBlocks.WALNUT_MULCH)
+                .unlockedBy("has_mulch", has(BFBlocks.WALNUT_MULCH))
+                .save(exporter);
 
-        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.WALNUT_MULCH_BLOCK, BFBlocks.WALNUT_MULCH);
+        twoByTwoPacker(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.WALNUT_MULCH_BLOCK, BFBlocks.WALNUT_MULCH);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.PALM_MULCH, 4)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, BFBlocks.PALM_MULCH, 4)
                 .group("coconut_mulch")
-                .input(BFBlocks.PALM_MULCH_BLOCK)
-                .criterion("has_mulch", conditionsFromItem(BFBlocks.PALM_MULCH_BLOCK))
-                .offerTo(exporter);
-        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.PALM_MULCH_BLOCK, BFBlocks.PALM_MULCH);
+                .requires(BFBlocks.PALM_MULCH_BLOCK)
+                .unlockedBy("has_mulch", has(BFBlocks.PALM_MULCH_BLOCK))
+                .save(exporter);
+        twoByTwoPacker(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.PALM_MULCH_BLOCK, BFBlocks.PALM_MULCH);
 
-        offerShapelessRecipe(exporter, BFItems.COCONUT_HALF, BFItems.COCONUT, "coconut_half", 2);
+        oneToOneConversionRecipe(exporter, BFItems.COCONUT_HALF, BFItems.COCONUT, "coconut_half", 2);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.PAPER, 2)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.PAPER, 2)
                 .pattern("##")
-                .input('#', BFItems.PALM_FROND)
-                .criterion(hasItem(BFItems.PALM_FROND), conditionsFromItem(BFItems.PALM_FROND))
-                .offerTo(exporter);
+                .define('#', BFItems.PALM_FROND)
+                .unlockedBy(getHasName(BFItems.PALM_FROND), has(BFItems.PALM_FROND))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.PACKED_MUD)
-                .input(Items.MUD)
-                .input(BFItems.COCONUT_COIR)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.PACKED_MUD)
+                .requires(Items.MUD)
+                .requires(BFItems.COCONUT_COIR)
                 .group("packed_mud")
-                .criterion(hasItem(Items.MUD), conditionsFromItem(Items.MUD))
-                .offerTo(exporter);
+                .unlockedBy(getHasName(Items.MUD), has(Items.MUD))
+                .save(exporter);
 
-        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.PACKED_COCONUT_COIR, BFItems.COCONUT_COIR);
-        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.COIR_BRICKS, BFBlocks.PACKED_COCONUT_COIR);
-        BlockFamily coirBricksFamily = register(BFBlocks.COIR_BRICKS)
+        twoByTwoPacker(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.PACKED_COCONUT_COIR, BFItems.COCONUT_COIR);
+        polished(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.COIR_BRICKS, BFBlocks.PACKED_COCONUT_COIR);
+        BlockFamily coirBricksFamily = familyBuilder(BFBlocks.COIR_BRICKS)
                 .stairs(BFBlocks.COIR_BRICK_STAIRS)
                 .slab(BFBlocks.COIR_BRICK_SLAB)
                 .wall(BFBlocks.COIR_BRICK_WALL)
-                .unlockCriterionName("has_coir_bricks")
-                .build();
-        generateFamily(exporter, coirBricksFamily, FeatureSet.of(FeatureFlags.VANILLA));
-        offerCarpetRecipe(exporter, BFBlocks.COIR_CARPET, BFBlocks.PACKED_COCONUT_COIR);
+                .recipeUnlockedBy("has_coir_bricks")
+                .getFamily();
+        generateRecipes(exporter, coirBricksFamily, FeatureFlagSet.of(FeatureFlags.VANILLA));
+        carpet(exporter, BFBlocks.COIR_CARPET, BFBlocks.PACKED_COCONUT_COIR);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.COCONUT_CANDLE, 1)
-                .input('S', Items.STRING)
-                .input('H', Items.HONEYCOMB)
-                .input('#', BFItemTags.C_COCONUT_HALVES)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.COCONUT_CANDLE, 1)
+                .define('S', Items.STRING)
+                .define('H', Items.HONEYCOMB)
+                .define('#', BFItemTags.C_COCONUT_HALVES)
                 .pattern("S")
                 .pattern("H")
                 .pattern("#")
-                .criterion(hasItem(Items.HONEYCOMB), conditionsFromItem(Items.HONEYCOMB))
-                .criterion("has_coconut", conditionsFromTag(BFItemTags.C_COCONUT_HALVES))
-                .offerTo(exporter);
+                .unlockedBy(getHasName(Items.HONEYCOMB), has(Items.HONEYCOMB))
+                .unlockedBy("has_coconut", has(BFItemTags.C_COCONUT_HALVES))
+                .save(exporter);
 
-        offerBarkBlockRecipe(exporter, BFBlocks.HOARY_WOOD, BFBlocks.HOARY_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_HOARY_WOOD, BFBlocks.STRIPPED_HOARY_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.WALNUT_WOOD, BFBlocks.WALNUT_LOG);
-        offerBarkBlockRecipe(exporter, BFBlocks.STRIPPED_WALNUT_WOOD, BFBlocks.STRIPPED_WALNUT_LOG);
-        offerBoatRecipe(exporter, BFItems.HOARY_BOAT, BFBlocks.HOARY_PLANKS);
-        offerBoatRecipe(exporter, BFItems.WALNUT_BOAT, BFBlocks.WALNUT_PLANKS);
-        offerChestBoatRecipe(exporter, BFItems.HOARY_CHEST_BOAT, BFItems.HOARY_BOAT);
-        offerChestBoatRecipe(exporter, BFItems.WALNUT_CHEST_BOAT, BFItems.WALNUT_BOAT);
+        woodFromLogs(exporter, BFBlocks.HOARY_WOOD, BFBlocks.HOARY_LOG);
+        woodFromLogs(exporter, BFBlocks.STRIPPED_HOARY_WOOD, BFBlocks.STRIPPED_HOARY_LOG);
+        woodFromLogs(exporter, BFBlocks.WALNUT_WOOD, BFBlocks.WALNUT_LOG);
+        woodFromLogs(exporter, BFBlocks.STRIPPED_WALNUT_WOOD, BFBlocks.STRIPPED_WALNUT_LOG);
+        woodenBoat(exporter, BFItems.HOARY_BOAT, BFBlocks.HOARY_PLANKS);
+        woodenBoat(exporter, BFItems.WALNUT_BOAT, BFBlocks.WALNUT_PLANKS);
+        chestBoat(exporter, BFItems.HOARY_CHEST_BOAT, BFItems.HOARY_BOAT);
+        chestBoat(exporter, BFItems.WALNUT_CHEST_BOAT, BFItems.WALNUT_BOAT);
 
         offerPicketsRecipe(exporter, BFBlocks.OAK_PICKETS, Items.OAK_PLANKS);
         offerPicketsRecipe(exporter, BFBlocks.SPRUCE_PICKETS, Items.SPRUCE_PLANKS);
@@ -689,45 +692,45 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerPicketsRecipe(exporter, BFBlocks.HOARY_PICKETS, BFBlocks.HOARY_PLANKS);
         offerPicketsRecipe(exporter, BFBlocks.CRIMSON_PICKETS, Items.CRIMSON_PLANKS);
         offerPicketsRecipe(exporter, BFBlocks.WARPED_PICKETS, Items.WARPED_PLANKS);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BFBlocks.IRON_RAILING, 8)
-                .input('#', Items.IRON_INGOT)
-                .input('S', Items.IRON_NUGGET)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.IRON_RAILING, 8)
+                .define('#', Items.IRON_INGOT)
+                .define('S', Items.IRON_NUGGET)
                 .pattern("#S#")
-                .criterion("has_iron", conditionsFromItem(Items.IRON_INGOT)).offerTo(exporter);
+                .unlockedBy("has_iron", has(Items.IRON_INGOT)).save(exporter);
 
 
 
-        offerShapelessRecipe(exporter, BFItems.MAIZE_SEEDS, BFItems.MAIZE, null, 2);
-        offerShapelessRecipe(exporter, BFItems.SPONGEKIN_SEEDS, BFItems.SPONGEKIN_SLICE, null, 1);
-        offerShapelessRecipe(exporter, Items.GREEN_DYE, BFItems.TEA_LEAVES, "green_dye", 1);
-        offerShapelessRecipe(exporter, Items.BLACK_DYE, BFItems.DRIED_TEA_LEAVES, "black_dye", 1);
-        offerShapelessRecipe(exporter, Items.LIGHT_GRAY_DYE, BFBlocks.CHAMOMILE_FLOWERS, "light_gray_dye", 1);
-        offerShapelessRecipe(exporter, Items.YELLOW_DYE, BFBlocks.HONEYSUCKLE, "yellow_dye", 1);
-        offerShapelessRecipe(exporter, Items.PURPLE_DYE, BFBlocks.VIOLET_BELLFLOWER, "purple_dye", 1);
+        oneToOneConversionRecipe(exporter, BFItems.MAIZE_SEEDS, BFItems.MAIZE, null, 2);
+        oneToOneConversionRecipe(exporter, BFItems.SPONGEKIN_SEEDS, BFItems.SPONGEKIN_SLICE, null, 1);
+        oneToOneConversionRecipe(exporter, Items.GREEN_DYE, BFItems.TEA_LEAVES, "green_dye", 1);
+        oneToOneConversionRecipe(exporter, Items.BLACK_DYE, BFItems.DRIED_TEA_LEAVES, "black_dye", 1);
+        oneToOneConversionRecipe(exporter, Items.LIGHT_GRAY_DYE, BFBlocks.CHAMOMILE_FLOWERS, "light_gray_dye", 1);
+        oneToOneConversionRecipe(exporter, Items.YELLOW_DYE, BFBlocks.HONEYSUCKLE, "yellow_dye", 1);
+        oneToOneConversionRecipe(exporter, Items.PURPLE_DYE, BFBlocks.VIOLET_BELLFLOWER, "purple_dye", 1);
 
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.FOOD, Items.GOLDEN_APPLE, RecipeCategory.FOOD, BFBlocks.GOLDEN_APPLE_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.FOOD, Items.APPLE, RecipeCategory.FOOD, BFBlocks.APPLE_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.FOOD, BFItems.ORANGE, RecipeCategory.FOOD, BFBlocks.ORANGE_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.FOOD, BFItems.LEMON, RecipeCategory.FOOD, BFBlocks.LEMON_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.FOOD, BFItems.PLUM, RecipeCategory.FOOD, BFBlocks.PLUM_BLOCK);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.FOOD, BFItems.HOARY_APPLE, RecipeCategory.FOOD, BFBlocks.HOARY_APPLE_BLOCK);
+        nineBlockStorageRecipes(exporter, RecipeCategory.FOOD, Items.GOLDEN_APPLE, RecipeCategory.FOOD, BFBlocks.GOLDEN_APPLE_BLOCK);
+        nineBlockStorageRecipes(exporter, RecipeCategory.FOOD, Items.APPLE, RecipeCategory.FOOD, BFBlocks.APPLE_BLOCK);
+        nineBlockStorageRecipes(exporter, RecipeCategory.FOOD, BFItems.ORANGE, RecipeCategory.FOOD, BFBlocks.ORANGE_BLOCK);
+        nineBlockStorageRecipes(exporter, RecipeCategory.FOOD, BFItems.LEMON, RecipeCategory.FOOD, BFBlocks.LEMON_BLOCK);
+        nineBlockStorageRecipes(exporter, RecipeCategory.FOOD, BFItems.PLUM, RecipeCategory.FOOD, BFBlocks.PLUM_BLOCK);
+        nineBlockStorageRecipes(exporter, RecipeCategory.FOOD, BFItems.HOARY_APPLE, RecipeCategory.FOOD, BFBlocks.HOARY_APPLE_BLOCK);
         offerTeaRecipes(exporter, BFItems.GREEN_TEA_BOTTLE, BFBlocks.GREEN_TEA_CANDLE, BFItems.GREEN_TEA_BLEND);
         offerTeaRecipes(exporter, BFItems.BLACK_TEA_BOTTLE, BFBlocks.BLACK_TEA_CANDLE, BFItems.BLACK_TEA_BLEND);
         offerTeaRecipes(exporter, BFItems.CHAMOMILE_TEA_BOTTLE, BFBlocks.CHAMOMILE_CANDLE, BFItems.CHAMOMILE_TEA_BLEND);
         offerTeaRecipes(exporter, BFItems.HONEYSUCKLE_TEA_BOTTLE, BFBlocks.HONEYSUCKLE_CANDLE, BFItems.HONEYSUCKLE_TEA_BLEND);
         offerTeaRecipes(exporter, BFItems.BELLFLOWER_TEA_BOTTLE, BFBlocks.BELLFLOWER_CANDLE, BFItems.BELLFLOWER_TEA_BLEND);
         offerTeaRecipes(exporter, BFItems.TORCHFLOWER_TEA_BOTTLE, BFBlocks.TORCHFLOWER_CANDLE, BFItems.TORCHFLOWER_TEA_BLEND);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.WALNUT_CANDLE, 1)
-                .input('S', Items.STRING)
-                .input('H', Items.HONEYCOMB)
-                .input('#', BFItemTags.C_WALNUTS)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.WALNUT_CANDLE, 1)
+                .define('S', Items.STRING)
+                .define('H', Items.HONEYCOMB)
+                .define('#', BFItemTags.C_WALNUTS)
                 .pattern("S")
                 .pattern("H")
                 .pattern("#")
-                .criterion(hasItem(Items.HONEYCOMB), conditionsFromItem(Items.HONEYCOMB))
-                .criterion(hasItem(BFItems.WALNUT), conditionsFromTag(BFItemTags.C_WALNUTS))
-                .offerTo(exporter);
-        offerCompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.SPONGEKIN, BFItems.SPONGEKIN_SLICE);
+                .unlockedBy(getHasName(Items.HONEYCOMB), has(Items.HONEYCOMB))
+                .unlockedBy(getHasName(BFItems.WALNUT), has(BFItemTags.C_WALNUTS))
+                .save(exporter);
+        threeByThreePacker(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.SPONGEKIN, BFItems.SPONGEKIN_SLICE);
         offerCompoteJarRecipe(exporter, BFItems.APPLE_COMPOTE_JAR, Items.APPLE);
         offerCompoteJarRecipe(exporter, BFItems.ORANGE_COMPOTE_JAR, BFItemTags.C_ORANGES, BFItems.ORANGE);
         offerCompoteJarRecipe(exporter, BFItems.LEMON_COMPOTE_JAR, BFItemTags.C_LEMONS, BFItems.LEMON);
@@ -750,25 +753,25 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerTartAndPieRecipe(exporter, BFBlocks.HOARY_PIE, BFItems.HOARY_APPLE);
         offerTartAndPieRecipe(exporter, BFBlocks.MELON_PIE, Items.MELON_SLICE);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BLOCK)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BLOCK)
                 .pattern("##")
                 .pattern("##")
-                .input('#', BFItems.FELDSPAR)
-                .criterion(hasItem(BFItems.FELDSPAR), conditionsFromItem(BFItems.FELDSPAR))
-                .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, BFItems.FELDSPAR, 4)
-                .input(BFBlocks.FELDSPAR_BLOCK)
-                .criterion(hasItem(BFBlocks.FELDSPAR_BLOCK), conditionsFromItem(BFBlocks.FELDSPAR_BLOCK))
-                .offerTo(exporter);
-        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, BFItems.CERAMIC_CLAY, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_CLAY_BLOCK, "ceramic_clay_block", null, "ceramic_clay_from_block", "ceramic_clay");
-        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILES, BFItems.CERAMIC_TILE);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_PILLAR, 2)
+                .define('#', BFItems.FELDSPAR)
+                .unlockedBy(getHasName(BFItems.FELDSPAR), has(BFItems.FELDSPAR))
+                .save(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BFItems.FELDSPAR, 4)
+                .requires(BFBlocks.FELDSPAR_BLOCK)
+                .unlockedBy(getHasName(BFBlocks.FELDSPAR_BLOCK), has(BFBlocks.FELDSPAR_BLOCK))
+                .save(exporter);
+        nineBlockStorageRecipes(exporter, RecipeCategory.MISC, BFItems.CERAMIC_CLAY, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_CLAY_BLOCK, "ceramic_clay_block", null, "ceramic_clay_from_block", "ceramic_clay");
+        twoByTwoPacker(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILES, BFItems.CERAMIC_TILE);
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_PILLAR, 2)
                 .pattern("#")
                 .pattern("#")
-                .input('#', BFBlocks.CERAMIC_TILES)
-                .criterion(hasItem(BFBlocks.CERAMIC_TILES), conditionsFromItem(BFBlocks.CERAMIC_TILES))
-                .offerTo(exporter);
-        offer2x2CompactingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC, BFBlocks.CERAMIC_TILES);
+                .define('#', BFBlocks.CERAMIC_TILES)
+                .unlockedBy(getHasName(BFBlocks.CERAMIC_TILES), has(BFBlocks.CERAMIC_TILES))
+                .save(exporter);
+        twoByTwoPacker(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC, BFBlocks.CERAMIC_TILES);
 
 
         offerJackOStrawRecipes(exporter, BFBlocks.WHITE_JACK_O_STRAW, Items.WHITE_WOOL);
@@ -947,84 +950,84 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 //                .criterion(hasItem(Items.DEEPSLATE_DIAMOND_ORE), conditionsFromItem(Items.DEEPSLATE_DIAMOND_ORE))
 //                .offerTo(exporter);
 
-        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CUT_FELDSPAR_BLOCK, BFBlocks.FELDSPAR_BLOCK);
-        offerPolishedStoneRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICKS, BFBlocks.CUT_FELDSPAR_BLOCK);
-        BlockFamily feldsparBricksFamily = register(BFBlocks.FELDSPAR_BRICKS)
+        polished(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CUT_FELDSPAR_BLOCK, BFBlocks.FELDSPAR_BLOCK);
+        polished(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICKS, BFBlocks.CUT_FELDSPAR_BLOCK);
+        BlockFamily feldsparBricksFamily = familyBuilder(BFBlocks.FELDSPAR_BRICKS)
                 .stairs(BFBlocks.FELDSPAR_BRICK_STAIRS)
                 .slab(BFBlocks.FELDSPAR_BRICK_SLAB)
                 .wall(BFBlocks.FELDSPAR_BRICK_WALL)
-                .unlockCriterionName("has_feldspar_bricks")
-                .build();
-        generateFamily(exporter, feldsparBricksFamily, FeatureSet.of(FeatureFlags.VANILLA));
+                .recipeUnlockedBy("has_feldspar_bricks")
+                .getFamily();
+        generateRecipes(exporter, feldsparBricksFamily, FeatureFlagSet.of(FeatureFlags.VANILLA));
 
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CUT_FELDSPAR_BLOCK, BFBlocks.FELDSPAR_BLOCK, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICKS, BFBlocks.FELDSPAR_BLOCK, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_STAIRS, BFBlocks.FELDSPAR_BLOCK, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_SLAB, BFBlocks.FELDSPAR_BLOCK, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_WALL, BFBlocks.FELDSPAR_BLOCK, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICKS, BFBlocks.CUT_FELDSPAR_BLOCK, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_STAIRS, BFBlocks.CUT_FELDSPAR_BLOCK, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_SLAB, BFBlocks.CUT_FELDSPAR_BLOCK, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_WALL, BFBlocks.CUT_FELDSPAR_BLOCK, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_STAIRS, BFBlocks.FELDSPAR_BRICKS, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_SLAB, BFBlocks.FELDSPAR_BRICKS, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_WALL, BFBlocks.FELDSPAR_BRICKS, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CUT_FELDSPAR_BLOCK, BFBlocks.FELDSPAR_BLOCK, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICKS, BFBlocks.FELDSPAR_BLOCK, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_STAIRS, BFBlocks.FELDSPAR_BLOCK, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_SLAB, BFBlocks.FELDSPAR_BLOCK, 2);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_WALL, BFBlocks.FELDSPAR_BLOCK, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICKS, BFBlocks.CUT_FELDSPAR_BLOCK, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_STAIRS, BFBlocks.CUT_FELDSPAR_BLOCK, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_SLAB, BFBlocks.CUT_FELDSPAR_BLOCK, 2);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_WALL, BFBlocks.CUT_FELDSPAR_BLOCK, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_STAIRS, BFBlocks.FELDSPAR_BRICKS, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_SLAB, BFBlocks.FELDSPAR_BRICKS, 2);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICK_WALL, BFBlocks.FELDSPAR_BRICKS, 1);
 
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_STAIRS, BFBlocks.CERAMIC_TILES, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_SLAB, BFBlocks.CERAMIC_TILES, 2);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_STAIRS, BFBlocks.CERAMIC_TILES, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_SLAB, BFBlocks.CERAMIC_TILES, 2);
         //offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_WALL, BFBlocks.CERAMIC_TILES, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_TILE_SLAB, BFBlocks.CHECKERED_CERAMIC_TILES, 2);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_TILE_SLAB, BFBlocks.CHECKERED_CERAMIC_TILES, 2);
         //offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_TILE_WALL, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_PILLAR, BFBlocks.CERAMIC_TILES, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_PILLAR, BFBlocks.CERAMIC_TILES, 1);
 
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC, BFBlocks.CERAMIC_TILES, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CERAMIC_TILES, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CERAMIC_TILES, 2);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC, BFBlocks.CERAMIC_TILES, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CERAMIC_TILES, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CERAMIC_TILES, 2);
         //offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_WALL, BFBlocks.CERAMIC_TILES, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CERAMIC_MOSAIC, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CERAMIC_MOSAIC, 2);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CERAMIC_MOSAIC, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CERAMIC_MOSAIC, 2);
         //offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC_WALL, BFBlocks.CERAMIC_MOSAIC, 2);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB, BFBlocks.CHECKERED_CERAMIC_TILES, 2);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB, BFBlocks.CHECKERED_CERAMIC_TILES, 2);
         //offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, BFBlocks.CHECKERED_CERAMIC_TILES, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS, BFBlocks.CHECKERED_CERAMIC_MOSAIC, 1);
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB, BFBlocks.CHECKERED_CERAMIC_MOSAIC, 2);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS, BFBlocks.CHECKERED_CERAMIC_MOSAIC, 1);
+        stonecutterResultFromBase(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB, BFBlocks.CHECKERED_CERAMIC_MOSAIC, 2);
         //offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, BFBlocks.CHECKERED_CERAMIC_MOSAIC, 1);
 
-        offerSmelting(exporter, ImmutableList.of(BFItems.CERAMIC_CLAY), RecipeCategory.MISC, BFItems.CERAMIC_TILE, 0.3f, 200, "ceramic_tile");
-        offerSmelting(exporter, ImmutableList.of(BFItems.TEA_LEAVES), RecipeCategory.FOOD, BFItems.DRIED_TEA_LEAVES, 0.3f, 200, "dried_tea_leaves");
-        offerMultipleOptions(exporter, RecipeSerializer.SMOKING, SmokingRecipe::new, ImmutableList.of(BFItems.TEA_LEAVES), RecipeCategory.FOOD, BFItems.DRIED_TEA_LEAVES, 0.2f, 100, "dried_tea_leaves", "_from_smoking");
-        offerMultipleOptions(exporter, RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new, ImmutableList.of(BFItems.TEA_LEAVES), RecipeCategory.FOOD, BFItems.DRIED_TEA_LEAVES, 0.2f, 600, "dried_tea_leaves", "_from_campfire_cooking");
-        offerSmelting(exporter, ImmutableList.of(BFBlocks.CERAMIC_TILES), RecipeCategory.FOOD, BFBlocks.CRACKED_CERAMIC_TILES, 0.3f, 200, "cracked_ceramic_tiles");
+        oreSmelting(exporter, ImmutableList.of(BFItems.CERAMIC_CLAY), RecipeCategory.MISC, BFItems.CERAMIC_TILE, 0.3f, 200, "ceramic_tile");
+        oreSmelting(exporter, ImmutableList.of(BFItems.TEA_LEAVES), RecipeCategory.FOOD, BFItems.DRIED_TEA_LEAVES, 0.3f, 200, "dried_tea_leaves");
+        oreCooking(exporter, RecipeSerializer.SMOKING_RECIPE, SmokingRecipe::new, ImmutableList.of(BFItems.TEA_LEAVES), RecipeCategory.FOOD, BFItems.DRIED_TEA_LEAVES, 0.2f, 100, "dried_tea_leaves", "_from_smoking");
+        oreCooking(exporter, RecipeSerializer.CAMPFIRE_COOKING_RECIPE, CampfireCookingRecipe::new, ImmutableList.of(BFItems.TEA_LEAVES), RecipeCategory.FOOD, BFItems.DRIED_TEA_LEAVES, 0.2f, 600, "dried_tea_leaves", "_from_campfire_cooking");
+        oreSmelting(exporter, ImmutableList.of(BFBlocks.CERAMIC_TILES), RecipeCategory.FOOD, BFBlocks.CRACKED_CERAMIC_TILES, 0.3f, 200, "cracked_ceramic_tiles");
 
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, BFItems.ARTISAN_BRUSH)
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, BFItems.ARTISAN_BRUSH)
                 .pattern("FFF")
                 .pattern(" G ")
                 .pattern(" S ")
-                .input('F', Items.STRING)
-                .input('G', Items.GOLD_INGOT)
-                .input('S', Items.STICK)
-                .criterion(hasItem(BFBlocks.CERAMIC_TILES), conditionsFromTag(BFItemTags.DYEABLE_CERAMIC_BLOCKS))
-                .criterion(hasItem(Items.GOLD_INGOT), conditionsFromItem(Items.GOLD_INGOT))
-                .criterion(hasItem(Items.STRING), conditionsFromItem(Items.STRING))
-                .offerTo(exporter);
+                .define('F', Items.STRING)
+                .define('G', Items.GOLD_INGOT)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(BFBlocks.CERAMIC_TILES), has(BFItemTags.DYEABLE_CERAMIC_BLOCKS))
+                .unlockedBy(getHasName(Items.GOLD_INGOT), has(Items.GOLD_INGOT))
+                .unlockedBy(getHasName(Items.STRING), has(Items.STRING))
+                .save(exporter);
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.DIORITE)
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Items.DIORITE)
                 .pattern("CF")
                 .pattern("FC")
-                .input('C', Items.COBBLESTONE)
-                .input('F', BFItems.FELDSPAR)
-                .criterion(hasItem(BFItems.FELDSPAR), conditionsFromItem(BFItems.FELDSPAR))
-                .offerTo(exporter);
+                .define('C', Items.COBBLESTONE)
+                .define('F', BFItems.FELDSPAR)
+                .unlockedBy(getHasName(BFItems.FELDSPAR), has(BFItems.FELDSPAR))
+                .save(exporter);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.GRANITE)
-                .input(Items.DIORITE)
-                .input(BFItems.FELDSPAR)
-                .criterion(hasItem(BFItems.FELDSPAR), conditionsFromItem(BFItems.FELDSPAR))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.GRANITE)
+                .requires(Items.DIORITE)
+                .requires(BFItems.FELDSPAR)
+                .unlockedBy(getHasName(BFItems.FELDSPAR), has(BFItems.FELDSPAR))
+                .save(exporter);
 
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TILES);
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TILE_STAIRS);
@@ -1053,14 +1056,14 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         //offerCeramicUndyingRecipe(exporter, BFBlocks.CHECKERED_CERAMIC_TILE_WALL, BFBlocks.CERAMIC_TILE_WALL);
         offerCeramicUndyingRecipe(exporter, BFItems.ARTISAN_BRUSH);
 
-        offerHangingSignRecipe(exporter, BFItems.HOARY_HANGING_SIGN, BFBlocks.STRIPPED_HOARY_LOG);
-        offerHangingSignRecipe(exporter, BFItems.WALNUT_HANGING_SIGN, BFBlocks.STRIPPED_WALNUT_LOG);
+        hangingSign(exporter, BFItems.HOARY_HANGING_SIGN, BFBlocks.STRIPPED_HOARY_LOG);
+        hangingSign(exporter, BFItems.WALNUT_HANGING_SIGN, BFBlocks.STRIPPED_WALNUT_LOG);
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, BFBlocks.GRASSY_DIRT)
-                .input(BFItems.GRASS_SEEDS)
-                .input(BFItemTags.GRASS_SEEDS_PLANTABLE_ON)
-                .criterion(hasItem(BFItems.GRASS_SEEDS), conditionsFromItem(BFItems.GRASS_SEEDS))
-                .offerTo(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, BFBlocks.GRASSY_DIRT)
+                .requires(BFItems.GRASS_SEEDS)
+                .requires(BFItemTags.GRASS_SEEDS_PLANTABLE_ON)
+                .unlockedBy(getHasName(BFItems.GRASS_SEEDS), has(BFItems.GRASS_SEEDS))
+                .save(exporter);
 
     }
 
@@ -1070,172 +1073,172 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 
 
 
-    public static void offerCandiedFruitRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible output, int count) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output, count)
-                .input(input)
-                .input(BFItemTags.SUGAR_INGREDIENTS)
-                .criterion(hasItem(input), conditionsFromItem(input))
-                .offerTo(exporter);
+    public static void offerCandiedFruitRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output, count)
+                .requires(input)
+                .requires(BFItemTags.SUGAR_INGREDIENTS)
+                .unlockedBy(getHasName(input), has(input))
+                .save(exporter);
     }
 
-    public static void offerCandiedFruitRecipe(RecipeExporter exporter, ItemConvertible input, TagKey<Item> tag, ItemConvertible output, int count) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output, count)
-                .input(tag)
-                .input(BFItemTags.SUGAR_INGREDIENTS)
-                .criterion(hasItem(input), conditionsFromTag(tag))
-                .offerTo(exporter);
+    public static void offerCandiedFruitRecipe(RecipeOutput exporter, ItemLike input, TagKey<Item> tag, ItemLike output, int count) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output, count)
+                .requires(tag)
+                .requires(BFItemTags.SUGAR_INGREDIENTS)
+                .unlockedBy(getHasName(input), has(tag))
+                .save(exporter);
     }
 
-    public static void offerCeramicUndyingRecipe(RecipeExporter exporter, ItemConvertible item) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, item, 1).input(item)
-                .criterion("has_item", conditionsFromItem(item)).offerTo(exporter, getItemId(item) + "_undying");
+    public static void offerCeramicUndyingRecipe(RecipeOutput exporter, ItemLike item) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, item, 1).requires(item)
+                .unlockedBy("has_item", has(item)).save(exporter, getDefaultRecipeId(item) + "_undying");
     }
 
-    public static void offerCeramicUndyingRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible output) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, output, 1).input(input)
-                .criterion("has_item", conditionsFromItem(input)).offerTo(exporter, getItemId(input) + "_undying");
+    public static void offerCeramicUndyingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, output, 1).requires(input)
+                .unlockedBy("has_item", has(input)).save(exporter, getDefaultRecipeId(input) + "_undying");
     }
 
-    public static void offerPicketsRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 4).input('#', input).input('S', Items.STICK)
-                .pattern("#S#").criterion("has_planks", conditionsFromItem(input)).offerTo(exporter);
+    public static void offerPicketsRecipe(RecipeOutput exporter, ItemLike output, ItemLike input) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, output, 4).define('#', input).define('S', Items.STICK)
+                .pattern("#S#").unlockedBy("has_planks", has(input)).save(exporter);
     }
 
-    public static void offerPicketsRecipe(RecipeExporter exporter, ItemConvertible output, Identifier input) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, output, 4).input('#', Registries.ITEM.get(input)).input('S', Items.STICK)
-                .pattern("#S#").criterion("has_planks", conditionsFromItem(Registries.ITEM.get(input))).offerTo(exporter);
+    public static void offerPicketsRecipe(RecipeOutput exporter, ItemLike output, ResourceLocation input) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, output, 4).define('#', BuiltInRegistries.ITEM.get(input)).define('S', Items.STICK)
+                .pattern("#S#").unlockedBy("has_planks", has(BuiltInRegistries.ITEM.get(input))).save(exporter);
     }
-    public static void offerTeaRecipes(RecipeExporter exporter, ItemConvertible teaBottle, ItemConvertible teaCandle, ItemConvertible teaBlendItem) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, teaBottle)
-                .input(teaBlendItem, 1)
-                .input(Items.POTION)
-                .criterion(hasItem(teaBlendItem), conditionsFromItem(teaBlendItem))
-                .offerTo(exporter);
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, teaCandle, 1)
-                .input('S', Items.STRING)
-                .input('H', Items.HONEYCOMB)
-                .input('#', teaBlendItem)
+    public static void offerTeaRecipes(RecipeOutput exporter, ItemLike teaBottle, ItemLike teaCandle, ItemLike teaBlendItem) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, teaBottle)
+                .requires(teaBlendItem, 1)
+                .requires(Items.POTION)
+                .unlockedBy(getHasName(teaBlendItem), has(teaBlendItem))
+                .save(exporter);
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, teaCandle, 1)
+                .define('S', Items.STRING)
+                .define('H', Items.HONEYCOMB)
+                .define('#', teaBlendItem)
                 .pattern("S")
                 .pattern("H")
                 .pattern("#")
-                .criterion(hasItem(Items.HONEYCOMB), conditionsFromItem(Items.HONEYCOMB))
-                .criterion("has_tea_blend", conditionsFromItem(teaBlendItem))
-                .offerTo(exporter);
+                .unlockedBy(getHasName(Items.HONEYCOMB), has(Items.HONEYCOMB))
+                .unlockedBy("has_tea_blend", has(teaBlendItem))
+                .save(exporter);
 
 
     }
-    public static void offerCompoteJarRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output)
-                .input(input, 2)
-                .input(BFItems.CITRUS_ESSENCE)
-                .input(BFItems.JAR)
-                .criterion(hasItem(BFItems.JAR), conditionsFromItem(BFItems.JAR))
-                .criterion(hasItem(input), conditionsFromItem(input))
-                .offerTo(exporter);
+    public static void offerCompoteJarRecipe(RecipeOutput exporter, ItemLike output, ItemLike input) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output)
+                .requires(input, 2)
+                .requires(BFItems.CITRUS_ESSENCE)
+                .requires(BFItems.JAR)
+                .unlockedBy(getHasName(BFItems.JAR), has(BFItems.JAR))
+                .unlockedBy(getHasName(input), has(input))
+                .save(exporter);
     }
-    public static void offerCompoteJarRecipe(RecipeExporter exporter, ItemConvertible output, TagKey<Item> tag, ItemConvertible input) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output)
-                .input(tag)
-                .input(tag)
-                .input(BFItems.CITRUS_ESSENCE)
-                .input(BFItems.JAR)
-                .criterion(hasItem(BFItems.JAR), conditionsFromItem(BFItems.JAR))
-                .criterion(hasItem(input), conditionsFromTag(tag))
-                .offerTo(exporter);
+    public static void offerCompoteJarRecipe(RecipeOutput exporter, ItemLike output, TagKey<Item> tag, ItemLike input) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output)
+                .requires(tag)
+                .requires(tag)
+                .requires(BFItems.CITRUS_ESSENCE)
+                .requires(BFItems.JAR)
+                .unlockedBy(getHasName(BFItems.JAR), has(BFItems.JAR))
+                .unlockedBy(getHasName(input), has(tag))
+                .save(exporter);
     }
-    public static void offerCandyRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output)
-                .input(input)
-                .input(Items.SUGAR)
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .criterion(hasItem(input), conditionsFromItem(input))
-                .offerTo(exporter);
+    public static void offerCandyRecipe(RecipeOutput exporter, ItemLike output, ItemLike input) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output)
+                .requires(input)
+                .requires(Items.SUGAR)
+                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
+                .unlockedBy(getHasName(input), has(input))
+                .save(exporter);
     }
-    public static void offerCandyRecipe(RecipeExporter exporter, ItemConvertible output, TagKey<Item> tag, ItemConvertible input) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output)
-                .input(tag)
-                .input(Items.SUGAR)
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .criterion(hasItem(input), conditionsFromTag(tag))
-                .offerTo(exporter);
+    public static void offerCandyRecipe(RecipeOutput exporter, ItemLike output, TagKey<Item> tag, ItemLike input) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output)
+                .requires(tag)
+                .requires(Items.SUGAR)
+                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
+                .unlockedBy(getHasName(input), has(tag))
+                .save(exporter);
     }
-    public static void offerJackOStrawRecipes(RecipeExporter exporter, ItemConvertible output, ItemConvertible wool) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output)
-                .input(BFItems.SUN_HAT)
-                .input(Items.CARVED_PUMPKIN)
-                .input(wool)
-                .input(Items.STICK)
-                .criterion(hasItem(wool), conditionsFromItem(wool))
-                .criterion(hasItem(Items.CARVED_PUMPKIN), conditionsFromItem(Items.CARVED_PUMPKIN))
-                .criterion(hasItem(BFItems.SUN_HAT), conditionsFromItem(BFItems.SUN_HAT))
-                .criterion("has_wool", conditionsFromItem(wool))
-                .offerTo(exporter, getItemId(output) + "_with_carved_pumpkin");
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output)
-                .input(BFItems.SUN_HAT)
-                .input(Items.PUMPKIN)
-                .input(wool)
-                .input(Items.STICK)
-                .criterion(hasItem(wool), conditionsFromItem(wool))
-                .criterion(hasItem(Items.CARVED_PUMPKIN), conditionsFromItem(Items.CARVED_PUMPKIN))
-                .criterion(hasItem(BFItems.SUN_HAT), conditionsFromItem(BFItems.SUN_HAT))
-                .criterion("has_wool", conditionsFromItem(wool))
-                .offerTo(exporter, getItemId(output) + "_with_pumpkin");
+    public static void offerJackOStrawRecipes(RecipeOutput exporter, ItemLike output, ItemLike wool) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, output)
+                .requires(BFItems.SUN_HAT)
+                .requires(Items.CARVED_PUMPKIN)
+                .requires(wool)
+                .requires(Items.STICK)
+                .unlockedBy(getHasName(wool), has(wool))
+                .unlockedBy(getHasName(Items.CARVED_PUMPKIN), has(Items.CARVED_PUMPKIN))
+                .unlockedBy(getHasName(BFItems.SUN_HAT), has(BFItems.SUN_HAT))
+                .unlockedBy("has_wool", has(wool))
+                .save(exporter, getDefaultRecipeId(output) + "_with_carved_pumpkin");
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, output)
+                .requires(BFItems.SUN_HAT)
+                .requires(Items.PUMPKIN)
+                .requires(wool)
+                .requires(Items.STICK)
+                .unlockedBy(getHasName(wool), has(wool))
+                .unlockedBy(getHasName(Items.CARVED_PUMPKIN), has(Items.CARVED_PUMPKIN))
+                .unlockedBy(getHasName(BFItems.SUN_HAT), has(BFItems.SUN_HAT))
+                .unlockedBy("has_wool", has(wool))
+                .save(exporter, getDefaultRecipeId(output) + "_with_pumpkin");
     }
-    public static void offerJackOStrawRecipes(RecipeExporter exporter, ItemConvertible output, ItemConvertible wool, String specifier) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output)
-                .input(BFItems.SUN_HAT)
-                .input(Items.CARVED_PUMPKIN)
-                .input(wool)
-                .input(Items.STICK)
-                .criterion(hasItem(wool), conditionsFromItem(wool))
-                .criterion(hasItem(Items.CARVED_PUMPKIN), conditionsFromItem(Items.CARVED_PUMPKIN))
-                .criterion(hasItem(BFItems.SUN_HAT), conditionsFromItem(BFItems.SUN_HAT))
-                .criterion("has_wool", conditionsFromItem(wool))
-                .offerTo(exporter, getItemId(output) + "_with_carved_pumpkin_" + specifier);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output)
-                .input(BFItems.SUN_HAT)
-                .input(Items.PUMPKIN)
-                .input(wool)
-                .input(Items.STICK)
-                .criterion(hasItem(wool), conditionsFromItem(wool))
-                .criterion(hasItem(Items.CARVED_PUMPKIN), conditionsFromItem(Items.CARVED_PUMPKIN))
-                .criterion(hasItem(BFItems.SUN_HAT), conditionsFromItem(BFItems.SUN_HAT))
-                .criterion("has_wool", conditionsFromItem(wool))
-                .offerTo(exporter, getItemId(output) + "_with_pumpkin_" + specifier);
+    public static void offerJackOStrawRecipes(RecipeOutput exporter, ItemLike output, ItemLike wool, String specifier) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, output)
+                .requires(BFItems.SUN_HAT)
+                .requires(Items.CARVED_PUMPKIN)
+                .requires(wool)
+                .requires(Items.STICK)
+                .unlockedBy(getHasName(wool), has(wool))
+                .unlockedBy(getHasName(Items.CARVED_PUMPKIN), has(Items.CARVED_PUMPKIN))
+                .unlockedBy(getHasName(BFItems.SUN_HAT), has(BFItems.SUN_HAT))
+                .unlockedBy("has_wool", has(wool))
+                .save(exporter, getDefaultRecipeId(output) + "_with_carved_pumpkin_" + specifier);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, output)
+                .requires(BFItems.SUN_HAT)
+                .requires(Items.PUMPKIN)
+                .requires(wool)
+                .requires(Items.STICK)
+                .unlockedBy(getHasName(wool), has(wool))
+                .unlockedBy(getHasName(Items.CARVED_PUMPKIN), has(Items.CARVED_PUMPKIN))
+                .unlockedBy(getHasName(BFItems.SUN_HAT), has(BFItems.SUN_HAT))
+                .unlockedBy("has_wool", has(wool))
+                .save(exporter, getDefaultRecipeId(output) + "_with_pumpkin_" + specifier);
     }
-    public static void offerTartAndPieRecipe(RecipeExporter exporter, ItemConvertible output, ItemConvertible input) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output)
-                .input(input)
-                .input(BFItemTags.C_FLOUR)
-                .input(Items.EGG)
-                .input(Items.SUGAR)
-                .criterion(hasItem(BFItems.FLOUR), conditionsFromTag(BFItemTags.C_FLOUR))
-                .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
-                .criterion(hasItem(input), conditionsFromItem(input))
-                .offerTo(exporter);
-    }
-
-    public static void offerTartAndPieRecipe(RecipeExporter exporter, ItemConvertible output, TagKey<Item> tag, ItemConvertible input) {
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, output)
-                .input(tag)
-                .input(BFItemTags.C_FLOUR)
-                .input(Items.EGG)
-                .input(Items.SUGAR)
-                .criterion(hasItem(BFItems.FLOUR), conditionsFromTag(BFItemTags.C_FLOUR))
-                .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
-                .criterion(hasItem(input), conditionsFromTag(tag))
-                .offerTo(exporter);
+    public static void offerTartAndPieRecipe(RecipeOutput exporter, ItemLike output, ItemLike input) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output)
+                .requires(input)
+                .requires(BFItemTags.C_FLOUR)
+                .requires(Items.EGG)
+                .requires(Items.SUGAR)
+                .unlockedBy(getHasName(BFItems.FLOUR), has(BFItemTags.C_FLOUR))
+                .unlockedBy(getHasName(Items.EGG), has(Items.EGG))
+                .unlockedBy(getHasName(input), has(input))
+                .save(exporter);
     }
 
-    public static void offerMillingRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible output, int count) {
+    public static void offerTartAndPieRecipe(RecipeOutput exporter, ItemLike output, TagKey<Item> tag, ItemLike input) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output)
+                .requires(tag)
+                .requires(BFItemTags.C_FLOUR)
+                .requires(Items.EGG)
+                .requires(Items.SUGAR)
+                .unlockedBy(getHasName(BFItems.FLOUR), has(BFItemTags.C_FLOUR))
+                .unlockedBy(getHasName(Items.EGG), has(Items.EGG))
+                .unlockedBy(getHasName(input), has(tag))
+                .save(exporter);
+    }
+
+    public static void offerMillingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count) {
         MillingRecipeBuilder.create(input.asItem(), output, count)
-                .criterion(hasItem(input), conditionsFromItem(input))
-                .offerTo(exporter);
+                .unlockedBy(getHasName(input), has(input))
+                .save(exporter);
     }
 
-    public static void offerFermentingRecipe(RecipeExporter exporter, ItemConvertible input, ItemConvertible output, int count, int particleColor) {
+    public static void offerFermentingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, int particleColor) {
         FermentingRecipeBuilder.create(input.asItem(), output, count, particleColor)
-                .criterion(hasItem(input), conditionsFromItem(input))
-                .offerTo(exporter);
+                .unlockedBy(getHasName(input), has(input))
+                .save(exporter);
     }
 }

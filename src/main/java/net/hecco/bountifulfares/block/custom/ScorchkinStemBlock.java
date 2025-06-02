@@ -2,60 +2,64 @@ package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.minecraft.block.*;
-import net.minecraft.registry.tag.FluidTags;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ScorchkinStemBlock extends PlantBlock {
-    public static BooleanProperty ATTACHED = BooleanProperty.of("attached");
+public class ScorchkinStemBlock extends BushBlock {
+    public static BooleanProperty ATTACHED = BooleanProperty.create("attached");
 
-    public static final VoxelShape[] SHAPES = new VoxelShape[] {Block.createCuboidShape(7, 13, 7, 9, 16, 9), Block.createCuboidShape(6, 10, 6, 10, 16, 10), Block.createCuboidShape(5, 5, 5, 11, 16, 11), Block.createCuboidShape(5, 1, 5, 11, 16, 11), Block.createCuboidShape(4, 0, 4, 12, 16, 12)};
+    public static final VoxelShape[] SHAPES = new VoxelShape[] {Block.box(7, 13, 7, 9, 16, 9), Block.box(6, 10, 6, 10, 16, 10), Block.box(5, 5, 5, 11, 16, 11), Block.box(5, 1, 5, 11, 16, 11), Block.box(4, 0, 4, 12, 16, 12)};
     public static final int MAX_AGE = 3;
-    public static final IntProperty AGE = IntProperty.of("age", 0, 3);
-    public ScorchkinStemBlock(Settings settings) {
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 3);
+    public ScorchkinStemBlock(Properties settings) {
         super(settings);
-        this.setDefaultState((this.stateManager.getDefaultState()).with(AGE, 0).with(ATTACHED, false));
+        this.registerDefaultState((this.stateDefinition.any()).setValue(AGE, 0).setValue(ATTACHED, false));
     }
 
     @Override
-    protected MapCodec<? extends PlantBlock> getCodec() {
+    protected MapCodec<? extends BushBlock> codec() {
         return null;
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(AGE) == 3 && state.get(ATTACHED).equals(true)) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        if (state.getValue(AGE) == 3 && state.getValue(ATTACHED).equals(true)) {
             return SHAPES[4];
         }
-        return SHAPES[state.get(AGE)];
+        return SHAPES[state.getValue(AGE)];
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AGE, ATTACHED);
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
         if (random.nextFloat() < 0.1f && checkForLava(world, pos)) {
-            if (!isFullyGrown(state) && !state.get(ATTACHED)) {
-                world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
+            if (!isFullyGrown(state) && !state.getValue(ATTACHED)) {
+                world.setBlock(pos, state.cycle(AGE), Block.UPDATE_CLIENTS);
             }
-            if (isFullyGrown(state) && !state.get(ATTACHED)) {
-                BlockPos SCORCHKINPos = pos.offset(Direction.DOWN);
-                if ((world.getBlockState(SCORCHKINPos).isAir() || world.getBlockState(SCORCHKINPos).isOf(Blocks.LAVA) && isFullyGrown(state))) {
-                    world.setBlockState(SCORCHKINPos, BFBlocks.SCORCHKIN.getDefaultState(), 2);
-                    world.setBlockState(pos, this.getStateWithProperties(state).with(ATTACHED, true));
+            if (isFullyGrown(state) && !state.getValue(ATTACHED)) {
+                BlockPos SCORCHKINPos = pos.relative(Direction.DOWN);
+                if ((world.getBlockState(SCORCHKINPos).isAir() || world.getBlockState(SCORCHKINPos).is(Blocks.LAVA) && isFullyGrown(state))) {
+                    world.setBlock(SCORCHKINPos, BFBlocks.SCORCHKIN.defaultBlockState(), 2);
+                    world.setBlockAndUpdate(pos, this.withPropertiesOf(state).setValue(ATTACHED, true));
 //                BlockPos prismarineBlossomPos = pos.offset(Direction.DOWN, 2);
 //                if (shouldPropagatePrismarine(world, pos)) {
 //                    if (world.getBlockState(prismarineBlossomPos).isOf(Blocks.WATER)) {
@@ -70,38 +74,38 @@ public class ScorchkinStemBlock extends PlantBlock {
         }
     }
 
-    public boolean checkForLava(ServerWorld world, BlockPos pos) {
-        BlockPos iPos = pos.down();
-        while (!world.getBlockState(iPos).getFluidState().isIn(FluidTags.LAVA)) {
-            if (world.getBlockState(iPos).isSolidBlock(world, pos)) {
+    public boolean checkForLava(ServerLevel world, BlockPos pos) {
+        BlockPos iPos = pos.below();
+        while (!world.getBlockState(iPos).getFluidState().is(FluidTags.LAVA)) {
+            if (world.getBlockState(iPos).isRedstoneConductor(world, pos)) {
                 return false;
             }
-            iPos = iPos.down();
+            iPos = iPos.below();
         }
         return true;
     }
-    public boolean shouldPropagatePrismarine(ServerWorld world, BlockPos pos) {
-        return world.getBlockState(pos.down()).isOf(Blocks.SEA_LANTERN);
+    public boolean shouldPropagatePrismarine(ServerLevel world, BlockPos pos) {
+        return world.getBlockState(pos.below()).is(Blocks.SEA_LANTERN);
     }
 
     protected static boolean isFullyGrown(BlockState state) {
-        return state.get(AGE) == 3;
+        return state.getValue(AGE) == 3;
     }
 
-    protected boolean canPlantOnTop(BlockView world, BlockPos pos) {
-        return world.getBlockState(pos.up()).isSideSolidFullSquare(world, pos, Direction.DOWN);
+    protected boolean canPlantOnTop(BlockGetter world, BlockPos pos) {
+        return world.getBlockState(pos.above()).isFaceSturdy(world, pos, Direction.DOWN);
     }
     @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
         return this.canPlantOnTop(world, pos);
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        if (state.get(ATTACHED) && !world.getBlockState(pos.down()).isOf(BFBlocks.SCORCHKIN)) {
-            if (state.get(AGE) == 3)
-                return state.with(ATTACHED, false);
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
+        if (state.getValue(ATTACHED) && !world.getBlockState(pos.below()).is(BFBlocks.SCORCHKIN)) {
+            if (state.getValue(AGE) == 3)
+                return state.setValue(ATTACHED, false);
         }
-        return !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : state;
+        return !state.canSurvive(world, pos) ? Blocks.AIR.defaultBlockState() : state;
     }
 }

@@ -1,19 +1,19 @@
 package net.hecco.bountifulfares.compat.block;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.block.Block;
-import net.minecraft.block.StairsBlock;
-import net.minecraft.resource.featuretoggle.FeatureSet;
+import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.StairBlock;
 
-public class CompatStairsBlock extends StairsBlock {
+public class CompatStairsBlock extends StairBlock {
     private final String modId;
-    public CompatStairsBlock(String modId, Block base, Settings settings) {
-        super(base.getDefaultState(), settings);
+    public CompatStairsBlock(String modId, Block base, Properties settings) {
+        super(base.defaultBlockState(), settings);
         this.modId = modId;
     }
 
     @Override
-    public boolean isEnabled(FeatureSet enabledFeatures) {
+    public boolean isEnabled(FeatureFlagSet enabledFeatures) {
         return BountifulFares.isModLoaded(modId) || BountifulFares.isDatagen();
     }
 }

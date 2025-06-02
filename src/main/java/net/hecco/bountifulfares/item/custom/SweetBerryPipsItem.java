@@ -1,17 +1,17 @@
 package net.hecco.bountifulfares.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.block.Block;
-import net.minecraft.item.AliasedBlockItem;
-import net.minecraft.resource.featuretoggle.FeatureSet;
+import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.level.block.Block;
 
-public class SweetBerryPipsItem extends AliasedBlockItem {
-    public SweetBerryPipsItem(Block block, Settings settings) {
+public class SweetBerryPipsItem extends ItemNameBlockItem {
+    public SweetBerryPipsItem(Block block, Properties settings) {
         super(block, settings);
     }
 
     @Override
-    public boolean isEnabled(FeatureSet enabledFeatures) {
+    public boolean isEnabled(FeatureFlagSet enabledFeatures) {
         return BountifulFares.CONFIG.enableSweetBerryPips;
     }
 }

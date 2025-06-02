@@ -12,3 +12,4 @@
 - nerf enrichment
 - "Money does grow on trees!" find a golden apple sapling
 - "golden thumb" Sustain a golden apple tree and pick an apple from it
+- Add dungeons delight compat, stained scrap railings

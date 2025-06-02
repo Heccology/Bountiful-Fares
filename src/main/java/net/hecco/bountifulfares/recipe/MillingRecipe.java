@@ -5,58 +5,54 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.misc.BFRecipes;
-import net.minecraft.item.ItemStack;
-import net.minecraft.network.RegistryByteBuf;
-import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.codec.PacketCodecs;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.input.RecipeInput;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.dynamic.Codecs;
-import net.minecraft.world.World;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.ExtraCodecs;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.Level;
 
 public class MillingRecipe implements Recipe<RecipeInput> {
 
-    private final Identifier id;
+    private final ResourceLocation id;
     private final ItemStack output;
     private final Ingredient ingredient;
 
-    public MillingRecipe(Identifier id, ItemStack output, Ingredient input) {
+    public MillingRecipe(ResourceLocation id, ItemStack output, Ingredient input) {
         this.id = id;
         this.output = output;
         this.ingredient = input;
     }
 
     public MillingRecipe(Ingredient ingredient, ItemStack itemStack, int count) {
-        this.id = Identifier.of(BountifulFares.MOD_ID, "milling");
+        this.id = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "milling");
         this.output = itemStack.copyWithCount(count);
         this.ingredient = ingredient;
     }
 
     @Override
-    public boolean matches(RecipeInput input, World world) {
-        if (world.isClient()) {
+    public boolean matches(RecipeInput input, Level world) {
+        if (world.isClientSide()) {
             return false;
         }
-        return ingredient.test(input.getStackInSlot(0));
+        return ingredient.test(input.getItem(0));
     }
 
     @Override
-    public ItemStack craft(RecipeInput input, RegistryWrapper.WrapperLookup lookup) {
+    public ItemStack assemble(RecipeInput input, HolderLookup.Provider lookup) {
         return output.copy();
     }
 
     @Override
-    public boolean fits(int width, int height) {
+    public boolean canCraftInDimensions(int width, int height) {
         return true;
     }
 
     @Override
-    public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
+    public ItemStack getResultItem(HolderLookup.Provider registriesLookup) {
         return output;
     }
 
@@ -64,7 +60,7 @@ public class MillingRecipe implements Recipe<RecipeInput> {
         return output.copy();
     }
 
-    public Identifier getId() {
+    public ResourceLocation getId() {
         return this.id;
     }
 
@@ -83,7 +79,7 @@ public class MillingRecipe implements Recipe<RecipeInput> {
     }
 
     @Override
-    public ItemStack createIcon() {
+    public ItemStack getToastSymbol() {
         return new ItemStack(BFBlocks.GRISTMILL);
     }
 
@@ -101,7 +97,7 @@ public class MillingRecipe implements Recipe<RecipeInput> {
         private final MillingRecipe.RecipeFactory<MillingRecipe> recipeFactory;
         public static final Serializer INSTANCE = new Serializer(MillingRecipe::new);
         public final MapCodec<MillingRecipe> CODEC;
-        public final PacketCodec<RegistryByteBuf, MillingRecipe> PACKET_CODEC;
+        public final StreamCodec<RegistryFriendlyByteBuf, MillingRecipe> PACKET_CODEC;
 
         public MillingRecipe create(Ingredient ingredient, ItemStack result, int count) {
             return this.recipeFactory.create(ingredient, result, count);
@@ -110,29 +106,29 @@ public class MillingRecipe implements Recipe<RecipeInput> {
         public Serializer(MillingRecipe.RecipeFactory<MillingRecipe> recipeFactory) {
             this.CODEC = RecordCodecBuilder.mapCodec((instance) ->
                     instance.group(
-                            Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("ingredient")
+                            Ingredient.CODEC_NONEMPTY.fieldOf("ingredient")
                                     .forGetter((recipe) -> recipe.ingredient),
-                            ItemStack.VALIDATED_UNCOUNTED_CODEC.fieldOf("result")
+                            ItemStack.STRICT_SINGLE_ITEM_CODEC.fieldOf("result")
                                     .forGetter((recipe) -> recipe.output),
-                            Codecs.rangedInt(1, 99).fieldOf("result_count")
+                            ExtraCodecs.intRange(1, 99).fieldOf("result_count")
                                     .forGetter((recipe) -> recipe.output.getCount())
                             )
                             .apply(instance, recipeFactory::create));
-            this.PACKET_CODEC = PacketCodec.ofStatic(this::write, this::read);
+            this.PACKET_CODEC = StreamCodec.of(this::write, this::read);
             this.recipeFactory = recipeFactory;
         }
 
-        public MillingRecipe read(RegistryByteBuf buf) {
-            Ingredient ingredient = Ingredient.PACKET_CODEC.decode(buf);
-            ItemStack itemStack = ItemStack.PACKET_CODEC.decode(buf);
-            int count = PacketCodecs.INTEGER.decode(buf);
+        public MillingRecipe read(RegistryFriendlyByteBuf buf) {
+            Ingredient ingredient = Ingredient.CONTENTS_STREAM_CODEC.decode(buf);
+            ItemStack itemStack = ItemStack.STREAM_CODEC.decode(buf);
+            int count = ByteBufCodecs.INT.decode(buf);
             return this.recipeFactory.create(ingredient, itemStack, count);
         }
 
-        public void write(RegistryByteBuf buf, MillingRecipe recipe) {
-            Ingredient.PACKET_CODEC.encode(buf, recipe.ingredient);
-            ItemStack.PACKET_CODEC.encode(buf, recipe.output);
-            PacketCodecs.INTEGER.encode(buf, recipe.output.getCount());
+        public void write(RegistryFriendlyByteBuf buf, MillingRecipe recipe) {
+            Ingredient.CONTENTS_STREAM_CODEC.encode(buf, recipe.ingredient);
+            ItemStack.STREAM_CODEC.encode(buf, recipe.output);
+            ByteBufCodecs.INT.encode(buf, recipe.output.getCount());
         }
         @Override
         public MapCodec<MillingRecipe> codec() {
@@ -141,7 +137,7 @@ public class MillingRecipe implements Recipe<RecipeInput> {
 
 
         @Override
-        public PacketCodec<RegistryByteBuf, MillingRecipe> packetCodec() {
+        public StreamCodec<RegistryFriendlyByteBuf, MillingRecipe> streamCodec() {
             return PACKET_CODEC;
         }
     }

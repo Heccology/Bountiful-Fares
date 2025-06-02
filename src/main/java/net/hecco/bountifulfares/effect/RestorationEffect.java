@@ -1,44 +1,44 @@
 package net.hecco.bountifulfares.effect;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.AttributeContainer;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeMap;
 
-public class RestorationEffect extends StatusEffect {
+public class RestorationEffect extends MobEffect {
     private float regenMax;
-    public RestorationEffect(StatusEffectCategory category, int color) {
+    public RestorationEffect(MobEffectCategory category, int color) {
         super(category, color);
         this.regenMax = 0;
     }
 
     @Override
-    public void onApplied(LivingEntity entity, int amplifier) {
+    public void onEffectStarted(LivingEntity entity, int amplifier) {
         float health = entity.getHealth();
         float maxHealth = entity.getMaxHealth();
         regenMax = health;
-        super.onApplied(entity, amplifier);
+        super.onEffectStarted(entity, amplifier);
     }
 
     @Override
-    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyEffectTick(LivingEntity entity, int amplifier) {
         float health = entity.getHealth();
         float maxHealth = entity.getMaxHealth();
         if (health < regenMax && health < maxHealth) {
             entity.heal(0.1f * (amplifier + 1));
         }
-        super.applyUpdateEffect(entity, amplifier);
+        super.applyEffectTick(entity, amplifier);
         return true;
     }
 
     @Override
-    public void onRemoved(AttributeContainer attributeContainer) {
+    public void removeAttributeModifiers(AttributeMap attributeContainer) {
         regenMax = 0;
-        super.onRemoved(attributeContainer);
+        super.removeAttributeModifiers(attributeContainer);
     }
 
     @Override
-    public boolean canApplyUpdateEffect(int duration, int amplifier) {
+    public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
         return true;
     }
 }

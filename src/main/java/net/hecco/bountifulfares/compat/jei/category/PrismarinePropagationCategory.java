@@ -14,11 +14,11 @@ import net.hecco.bountifulfares.compat.jei.PropagationRecipe;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
-import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -31,7 +31,7 @@ public class PrismarinePropagationCategory implements IRecipeCategory<Propagatio
 
     public PrismarinePropagationCategory(IGuiHelper helper) {
         icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(BFBlocks.PRISMARINE_BLOSSOM));
-        Identifier backgroundImage = Identifier.of(BountifulFares.MOD_ID, "textures/gui/jei/propagation.png");
+        ResourceLocation backgroundImage = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "textures/gui/jei/propagation.png");
         background = helper.createDrawable(backgroundImage, 0, 0, 92, 49);
     }
 
@@ -42,21 +42,21 @@ public class PrismarinePropagationCategory implements IRecipeCategory<Propagatio
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, PropagationRecipe recipe, IFocusGroup focusGroup) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 6, 6).addItemStack(BFItems.SPONGEKIN_SEEDS.getDefaultStack());
-        builder.addSlot(RecipeIngredientRole.CATALYST, 27, 27).addItemStacks(Registries.BLOCK.getEntryList(
+        builder.addSlot(RecipeIngredientRole.INPUT, 6, 6).addItemStack(BFItems.SPONGEKIN_SEEDS.getDefaultInstance());
+        builder.addSlot(RecipeIngredientRole.CATALYST, 27, 27).addItemStacks(BuiltInRegistries.BLOCK.getTag(
                 BFBlockTags.PRISMARINE_PROPAGATION_SUBSTRATE)
                 .map(tag -> tag.stream()
-                        .map(RegistryEntry::value)
-                        .map(block -> block.asItem().getDefaultStack())
+                        .map(Holder::value)
+                        .map(block -> block.asItem().getDefaultInstance())
                         .collect(Collectors.toList()))
                 .orElse(List.of()));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 70, 6).addItemStack(BFBlocks.PRISMARINE_BLOSSOM.asItem().getDefaultStack());
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 70, 27).addItemStack(BFBlocks.SPONGEKIN.asItem().getDefaultStack());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 70, 6).addItemStack(BFBlocks.PRISMARINE_BLOSSOM.asItem().getDefaultInstance());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 70, 27).addItemStack(BFBlocks.SPONGEKIN.asItem().getDefaultInstance());
     }
 
     @Override
-    public Text getTitle() {
-        return Text.translatable("bountifulfares.prismarine_propagation");
+    public Component getTitle() {
+        return Component.translatable("bountifulfares.prismarine_propagation");
     }
 
     @Override

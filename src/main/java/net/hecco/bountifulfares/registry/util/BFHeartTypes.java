@@ -1,13 +1,13 @@
 package net.hecco.bountifulfares.registry.util;
 
-import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.gui.Gui;
 
 public class BFHeartTypes
 {
     // This solely ensures the class remains loaded.
     static
     {
-        InGameHud.HeartType.values();
+        Gui.HeartType.values();
     }
 
     // For reference, Vanilla values are:
@@ -17,7 +17,7 @@ public class BFHeartTypes
     //                   WITHERED
     //                   ABSORBING
     //                   FROZEN
-    public static InGameHud.HeartType BF_RESTORATION;          // Restoration hearts
+    public static Gui.HeartType BF_RESTORATION;          // Restoration hearts
     // public static InGameHud.HeartType BF_NEWHEART;
 
     /*

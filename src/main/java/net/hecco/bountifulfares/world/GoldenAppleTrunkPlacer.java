@@ -6,15 +6,15 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.hecco.bountifulfares.block.custom.FruitLogBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.misc.BFTrunkPlacerTypes;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.TestableWorld;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
-import net.minecraft.world.gen.foliage.FoliagePlacer;
-import net.minecraft.world.gen.trunk.TrunkPlacer;
-import net.minecraft.world.gen.trunk.TrunkPlacerType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.LevelSimulatedReader;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,53 +35,53 @@ public class GoldenAppleTrunkPlacer extends TrunkPlacer {
     }
 
     @Override
-    protected TrunkPlacerType<?> getType() {
+    protected TrunkPlacerType<?> type() {
         return BFTrunkPlacerTypes.GOLDEN_APPLE_TRUNK_PLACER;
     }
 
     @Override
-    public List<FoliagePlacer.TreeNode> generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, int height, BlockPos startPos, TreeFeatureConfig config) {
-        List<FoliagePlacer.TreeNode> nodes = new ArrayList<>();
-        int baseHeight = this.height + random.nextBetween(0, 1);
-        Direction firstBranchDir = Direction.Type.HORIZONTAL.random(random);
+    public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader world, BiConsumer<BlockPos, BlockState> replacer, RandomSource random, int height, BlockPos startPos, TreeConfiguration config) {
+        List<FoliagePlacer.FoliageAttachment> nodes = new ArrayList<>();
+        int baseHeight = this.height + random.nextIntBetweenInclusive(0, 1);
+        Direction firstBranchDir = Direction.Plane.HORIZONTAL.getRandomDirection(random);
         for (int i = 0; i <= baseHeight; i++) {
-            replacer.accept(startPos.up(i), BFBlocks.GOLDEN_APPLE_LOG.getDefaultState()
-                    .with(FruitLogBlock.AXIS, Direction.Axis.Y)
-                    .with(FruitLogBlock.UP, true)
-                    .with(FruitLogBlock.DOWN, true)
-                    .with(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir), true));
+            replacer.accept(startPos.above(i), BFBlocks.GOLDEN_APPLE_LOG.defaultBlockState()
+                    .setValue(FruitLogBlock.AXIS, Direction.Axis.Y)
+                    .setValue(FruitLogBlock.UP, true)
+                    .setValue(FruitLogBlock.DOWN, true)
+                    .setValue(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir), true));
         }
-        replacer.accept(startPos.up(baseHeight).offset(firstBranchDir), BFBlocks.GOLDEN_APPLE_LOG.getDefaultState()
-                .with(FruitLogBlock.AXIS, firstBranchDir.getAxis())
-                .with(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir), true)
-                .with(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir.getOpposite()), true));
-        replacer.accept(startPos.up(baseHeight).offset(firstBranchDir, 2), BFBlocks.GOLDEN_APPLE_LOG.getDefaultState()
-                .with(FruitLogBlock.AXIS, Direction.Axis.Y)
-                .with(FruitLogBlock.UP, true)
-                .with(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir), true));
-        replacer.accept(startPos.up(baseHeight + 1).offset(firstBranchDir, 2), BFBlocks.GOLDEN_APPLE_LOG.getDefaultState()
-                .with(FruitLogBlock.AXIS, Direction.Axis.Y)
-                .with(FruitLogBlock.UP, true)
-                .with(FruitLogBlock.DOWN, true));
-        nodes.add(new FoliagePlacer.TreeNode(startPos.up(baseHeight + 1).offset(firstBranchDir, 2), 2, false));
-        replacer.accept(startPos.up(baseHeight + 1), BFBlocks.GOLDEN_APPLE_LOG.getDefaultState()
-                .with(FruitLogBlock.AXIS, Direction.Axis.Y)
-                .with(FruitLogBlock.UP, true)
-                .with(FruitLogBlock.DOWN, true)
-                .with(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir.getOpposite()), true));
-        replacer.accept(startPos.up(baseHeight + 1).offset(firstBranchDir.getOpposite()), BFBlocks.GOLDEN_APPLE_LOG.getDefaultState()
-                .with(FruitLogBlock.AXIS, firstBranchDir.getAxis())
-                .with(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir), true)
-                .with(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir.getOpposite()), true));
-        replacer.accept(startPos.up(baseHeight + 1).offset(firstBranchDir.getOpposite(), 2), BFBlocks.GOLDEN_APPLE_LOG.getDefaultState()
-                .with(FruitLogBlock.AXIS, Direction.Axis.Y)
-                .with(FruitLogBlock.UP, true)
-                .with(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir.getOpposite()), true));
-        replacer.accept(startPos.up(baseHeight + 2).offset(firstBranchDir.getOpposite(), 2), BFBlocks.GOLDEN_APPLE_LOG.getDefaultState()
-                .with(FruitLogBlock.AXIS, Direction.Axis.Y)
-                .with(FruitLogBlock.UP, true)
-                .with(FruitLogBlock.DOWN, true));
-        nodes.add(new FoliagePlacer.TreeNode(startPos.up(baseHeight + 2).offset(firstBranchDir.getOpposite(), 2), 2, false));
+        replacer.accept(startPos.above(baseHeight).relative(firstBranchDir), BFBlocks.GOLDEN_APPLE_LOG.defaultBlockState()
+                .setValue(FruitLogBlock.AXIS, firstBranchDir.getAxis())
+                .setValue(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir), true)
+                .setValue(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir.getOpposite()), true));
+        replacer.accept(startPos.above(baseHeight).relative(firstBranchDir, 2), BFBlocks.GOLDEN_APPLE_LOG.defaultBlockState()
+                .setValue(FruitLogBlock.AXIS, Direction.Axis.Y)
+                .setValue(FruitLogBlock.UP, true)
+                .setValue(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir), true));
+        replacer.accept(startPos.above(baseHeight + 1).relative(firstBranchDir, 2), BFBlocks.GOLDEN_APPLE_LOG.defaultBlockState()
+                .setValue(FruitLogBlock.AXIS, Direction.Axis.Y)
+                .setValue(FruitLogBlock.UP, true)
+                .setValue(FruitLogBlock.DOWN, true));
+        nodes.add(new FoliagePlacer.FoliageAttachment(startPos.above(baseHeight + 1).relative(firstBranchDir, 2), 2, false));
+        replacer.accept(startPos.above(baseHeight + 1), BFBlocks.GOLDEN_APPLE_LOG.defaultBlockState()
+                .setValue(FruitLogBlock.AXIS, Direction.Axis.Y)
+                .setValue(FruitLogBlock.UP, true)
+                .setValue(FruitLogBlock.DOWN, true)
+                .setValue(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir.getOpposite()), true));
+        replacer.accept(startPos.above(baseHeight + 1).relative(firstBranchDir.getOpposite()), BFBlocks.GOLDEN_APPLE_LOG.defaultBlockState()
+                .setValue(FruitLogBlock.AXIS, firstBranchDir.getAxis())
+                .setValue(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir), true)
+                .setValue(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir.getOpposite()), true));
+        replacer.accept(startPos.above(baseHeight + 1).relative(firstBranchDir.getOpposite(), 2), BFBlocks.GOLDEN_APPLE_LOG.defaultBlockState()
+                .setValue(FruitLogBlock.AXIS, Direction.Axis.Y)
+                .setValue(FruitLogBlock.UP, true)
+                .setValue(FruitLogBlock.DIRECTION_TO_PROPERTY.get(firstBranchDir.getOpposite()), true));
+        replacer.accept(startPos.above(baseHeight + 2).relative(firstBranchDir.getOpposite(), 2), BFBlocks.GOLDEN_APPLE_LOG.defaultBlockState()
+                .setValue(FruitLogBlock.AXIS, Direction.Axis.Y)
+                .setValue(FruitLogBlock.UP, true)
+                .setValue(FruitLogBlock.DOWN, true));
+        nodes.add(new FoliagePlacer.FoliageAttachment(startPos.above(baseHeight + 2).relative(firstBranchDir.getOpposite(), 2), 2, false));
         return nodes;
     }
 }

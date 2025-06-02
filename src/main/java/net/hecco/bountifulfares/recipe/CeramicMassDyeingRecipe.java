@@ -4,39 +4,39 @@ import com.google.common.collect.Lists;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.item.custom.CeramicDishBlockItem;
 import net.hecco.bountifulfares.item.custom.DyeableCeramicBlockItem;
-import net.minecraft.component.type.DyedColorComponent;
-import net.minecraft.item.DyeItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.SpecialCraftingRecipe;
-import net.minecraft.recipe.book.CraftingRecipeCategory;
-import net.minecraft.recipe.input.CraftingRecipeInput;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
-import net.minecraft.world.World;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.DyedItemColor;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
+import net.minecraft.world.item.crafting.CraftingInput;
+import net.minecraft.world.item.crafting.CustomRecipe;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.Level;
 
 import java.util.ArrayList;
 
-public class CeramicMassDyeingRecipe extends SpecialCraftingRecipe {
-    public CeramicMassDyeingRecipe(CraftingRecipeCategory category) {
+public class CeramicMassDyeingRecipe extends CustomRecipe {
+    public CeramicMassDyeingRecipe(CraftingBookCategory category) {
         super(category);
     }
 
     @Override
-    public boolean matches(CraftingRecipeInput inventory, World world) {
+    public boolean matches(CraftingInput inventory, Level world) {
         boolean difference = false;
         Item dyeItem = null;
         int dyeCount = 0;
         ItemStack ceramicItemStack = ItemStack.EMPTY;
-        for (int i = 0; i < inventory.getSize(); i++) {
-            ItemStack itemStack2 = inventory.getStackInSlot(i);
+        for (int i = 0; i < inventory.size(); i++) {
+            ItemStack itemStack2 = inventory.getItem(i);
             if (itemStack2.isEmpty()) {
                 continue;
             }
             if (itemStack2.getItem() instanceof DyeItem
-            && !Registries.ITEM.getId(itemStack2.getItem()).equals(Identifier.of("unidye", "custom_dye"))) {
+            && !BuiltInRegistries.ITEM.getKey(itemStack2.getItem()).equals(ResourceLocation.fromNamespaceAndPath("unidye", "custom_dye"))) {
                 dyeCount++;
                 if (dyeItem == null) {
                     dyeItem = itemStack2.getItem();
@@ -50,9 +50,9 @@ public class CeramicMassDyeingRecipe extends SpecialCraftingRecipe {
                 if (ceramicItemStack.isEmpty()) {
                     ceramicItemStack = itemStack2;
                     continue;
-                } else if (ceramicItemStack.isOf(itemStack2.getItem())){
-                    if(DyedColorComponent.getColor(ceramicItemStack, DyeableCeramicBlockEntity.DEFAULT_COLOR)
-                    == DyedColorComponent.getColor(itemStack2, DyeableCeramicBlockEntity.DEFAULT_COLOR)){
+                } else if (ceramicItemStack.is(itemStack2.getItem())){
+                    if(DyedItemColor.getOrDefault(ceramicItemStack, DyeableCeramicBlockEntity.DEFAULT_COLOR)
+                    == DyedItemColor.getOrDefault(itemStack2, DyeableCeramicBlockEntity.DEFAULT_COLOR)){
                         continue;
                     }else{
                         return false;
@@ -65,12 +65,12 @@ public class CeramicMassDyeingRecipe extends SpecialCraftingRecipe {
     }
 
     @Override
-    public ItemStack craft(CraftingRecipeInput inventory, RegistryWrapper.WrapperLookup lookup) {
+    public ItemStack assemble(CraftingInput input, HolderLookup.Provider registries) {
         ArrayList<DyeItem> list = Lists.newArrayList();
         ItemStack ceramicStack = ItemStack.EMPTY;
         int ceramicCount = 0;
-        for (int i = 0; i < inventory.getSize(); i++) {
-            ItemStack itemStack2 = inventory.getStackInSlot(i);
+        for (int i = 0; i < input.size(); i++) {
+            ItemStack itemStack2 = input.getItem(i);
             if (itemStack2.isEmpty()) continue;
             Item item = itemStack2.getItem();
             if (item instanceof DyeItem) {
@@ -87,13 +87,13 @@ public class CeramicMassDyeingRecipe extends SpecialCraftingRecipe {
         if (list.isEmpty() || ceramicStack.isEmpty()) {
             return ItemStack.EMPTY;
         }
-        ItemStack itemStack = DyedColorComponent.setColor(ceramicStack, list);
+        ItemStack itemStack = DyedItemColor.applyDyes(ceramicStack, list);
         itemStack.setCount(ceramicCount);
         return itemStack;
     }
 
     @Override
-    public boolean fits(int width, int height) {
+    public boolean canCraftInDimensions(int width, int height) {
         return width * height >= 2;
     }
 

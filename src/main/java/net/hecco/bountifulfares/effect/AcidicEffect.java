@@ -1,18 +1,18 @@
 package net.hecco.bountifulfares.effect;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
 
-public class AcidicEffect extends StatusEffect {
+public class AcidicEffect extends MobEffect {
 //    private final List<StatusEffectInstance> affectedEffects;
-    public AcidicEffect(StatusEffectCategory category, int color) {
+    public AcidicEffect(MobEffectCategory category, int color) {
         super(category, color);
 //        this.affectedEffects = new ArrayList<>();
     }
 
     @Override
-    public void onApplied(LivingEntity entity, int amplifier) {
+    public void onEffectStarted(LivingEntity entity, int amplifier) {
 //        for (StatusEffectInstance effect : entity.getStatusEffects()) {
 //            if (effect.getEffectType() != BFEffects.ACIDIC && effect.getEffectType().isIn(BFEffectTags.ACIDIC_BLACKLIST)) {
 //                int newAmplifier = Math.min(effect.getAmplifier() + amplifier + 1, 255);
@@ -21,7 +21,7 @@ public class AcidicEffect extends StatusEffect {
 //                entity.addStatusEffect(newEffect);
 //            }
 //        }
-        super.onApplied(entity, amplifier);
+        super.onEffectStarted(entity, amplifier);
     }
 
 //    @Override

@@ -3,98 +3,98 @@ package net.hecco.bountifulfares.block.custom;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFSounds;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.function.BooleanBiFunction;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.event.GameEvent;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class HangingAppleBlock extends HangingFruitBlock {
-    private static final VoxelShape[] SHAPES = new VoxelShape[]{Block.createCuboidShape(7, 13, 7, 9, 16, 9),
-            Block.createCuboidShape(6, 13, 6, 10, 16, 10),
-            Block.createCuboidShape(6.5, 13, 6.5, 9.5, 16, 9.5),
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(5.5, 10, 5.5, 10.5, 15, 10.5), Block.createCuboidShape(7, 15, 7, 9, 16, 9), BooleanBiFunction.OR),
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(5, 8, 5, 11, 14, 11), Block.createCuboidShape(7, 14, 7, 9, 16, 9), BooleanBiFunction.OR)};
-    private static final VoxelShape[] COLL_SHAPES = new VoxelShape[]{VoxelShapes.empty(),
-            VoxelShapes.empty(),
-            Block.createCuboidShape(6.5, 13, 6.5, 9.5, 16, 9.5),
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(5.5, 10, 5.5, 10.5, 15, 10.5), Block.createCuboidShape(7, 15, 7, 9, 16, 9), BooleanBiFunction.OR),
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(5, 8, 5, 11, 14, 11), Block.createCuboidShape(7, 14, 7, 9, 16, 9), BooleanBiFunction.OR)};
-    public HangingAppleBlock(Settings settings) {
+    private static final VoxelShape[] SHAPES = new VoxelShape[]{Block.box(7, 13, 7, 9, 16, 9),
+            Block.box(6, 13, 6, 10, 16, 10),
+            Block.box(6.5, 13, 6.5, 9.5, 16, 9.5),
+            Shapes.join(Block.box(5.5, 10, 5.5, 10.5, 15, 10.5), Block.box(7, 15, 7, 9, 16, 9), BooleanOp.OR),
+            Shapes.join(Block.box(5, 8, 5, 11, 14, 11), Block.box(7, 14, 7, 9, 16, 9), BooleanOp.OR)};
+    private static final VoxelShape[] COLL_SHAPES = new VoxelShape[]{Shapes.empty(),
+            Shapes.empty(),
+            Block.box(6.5, 13, 6.5, 9.5, 16, 9.5),
+            Shapes.join(Block.box(5.5, 10, 5.5, 10.5, 15, 10.5), Block.box(7, 15, 7, 9, 16, 9), BooleanOp.OR),
+            Shapes.join(Block.box(5, 8, 5, 11, 14, 11), Block.box(7, 14, 7, 9, 16, 9), BooleanOp.OR)};
+    public HangingAppleBlock(Properties settings) {
         super(settings);
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        VoxelShape voxelShape = SHAPES[state.get(AGE)];
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        VoxelShape voxelShape = SHAPES[state.getValue(AGE)];
         if (!BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !BountifulFares.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
-            Vec3d vec3d = state.getModelOffset(world, pos);
-            return voxelShape.offset(vec3d.x, vec3d.y, vec3d.z);
+            Vec3 vec3d = state.getOffset(world, pos);
+            return voxelShape.move(vec3d.x, vec3d.y, vec3d.z);
         }
         return voxelShape;
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        VoxelShape voxelShape = COLL_SHAPES[state.get(AGE)];
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        VoxelShape voxelShape = COLL_SHAPES[state.getValue(AGE)];
         if (!BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !BountifulFares.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
-            Vec3d vec3d = state.getModelOffset(world, pos);
-            return voxelShape.offset(vec3d.x, vec3d.y, vec3d.z);
+            Vec3 vec3d = state.getOffset(world, pos);
+            return voxelShape.move(vec3d.x, vec3d.y, vec3d.z);
         }
         return voxelShape;
     }
 
     @Override
-    public float getMaxHorizontalModelOffset() {
+    public float getMaxHorizontalOffset() {
         if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID) || BountifulFares.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
             return 0;
         }
-        return super.getMaxHorizontalModelOffset();
+        return super.getMaxHorizontalOffset();
     }
 
     @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return Block.sideCoversSmallSquare(world, pos.up(), Direction.DOWN) && !world.isWater(pos)
-                || world.getBlockState(pos.up()).isOf(BFBlocks.APPLE_LEAVES) && !world.isWater(pos)
-                || world.getBlockState(pos.up()).isOf(BFBlocks.FLOWERING_APPLE_LEAVES) && !world.isWater(pos);
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+        return Block.canSupportCenter(world, pos.above(), Direction.DOWN) && !world.isWaterAt(pos)
+                || world.getBlockState(pos.above()).is(BFBlocks.APPLE_LEAVES) && !world.isWaterAt(pos)
+                || world.getBlockState(pos.above()).is(BFBlocks.FLOWERING_APPLE_LEAVES) && !world.isWaterAt(pos);
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        int i = state.get(AGE);
+    public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
+        int i = state.getValue(AGE);
         if (i == 4) {
-            HangingFruitBlock.dropStack(world, pos, new ItemStack(Items.APPLE, 1));
-            world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK, SoundCategory.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            if (!world.isClient()) {
+            HangingFruitBlock.popResource(world, pos, new ItemStack(Items.APPLE, 1));
+            world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK, SoundSource.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
+            if (!world.isClientSide()) {
                 if (BountifulFares.CONFIG.isFruitReplaceWhenPicked()) {
-                    BlockState blockState = state.with(AGE, 0);
-                    world.setBlockState(pos, blockState, Block.NOTIFY_LISTENERS);
-                    world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState));
+                    BlockState blockState = state.setValue(AGE, 0);
+                    world.setBlock(pos, blockState, Block.UPDATE_CLIENTS);
+                    world.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));
                 } else {
                     world.removeBlock(pos, false);
                 }
             }
-            return ActionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
-        return super.onUse(state, world, pos, player, hit);
+        return super.useWithoutItem(state, world, pos, player, hit);
     }
 
     @Override
-    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state) {
         return new ItemStack(Items.APPLE);
     }
 }

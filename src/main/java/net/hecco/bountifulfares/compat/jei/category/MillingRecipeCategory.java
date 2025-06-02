@@ -12,10 +12,10 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.compat.jei.BFRecipeTypes;
 import net.hecco.bountifulfares.recipe.MillingRecipe;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("removal")
@@ -25,7 +25,7 @@ public class MillingRecipeCategory implements IRecipeCategory<MillingRecipe> {
 
     public MillingRecipeCategory(IGuiHelper helper) {
         icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(BFBlocks.GRISTMILL.asItem()));
-        Identifier backgroundImage = Identifier.of(BountifulFares.MOD_ID, "textures/gui/jei/milling.png");
+        ResourceLocation backgroundImage = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "textures/gui/jei/milling.png");
         background = helper.createDrawable(backgroundImage, 0, 0, 105, 36);
     }
 
@@ -39,7 +39,7 @@ public class MillingRecipeCategory implements IRecipeCategory<MillingRecipe> {
         Ingredient recipeIngredients = recipe.getIngredient();
         ItemStack resultStack = recipe.getOutput();
 
-        builder.addSlot(RecipeIngredientRole.INPUT, 7, 10).addItemStack(recipeIngredients.getMatchingStacks()[0]);
+        builder.addSlot(RecipeIngredientRole.INPUT, 7, 10).addItemStack(recipeIngredients.getItems()[0]);
         builder.addSlot(RecipeIngredientRole.OUTPUT, 79, 10).addItemStack(resultStack);
     }
 
@@ -68,8 +68,8 @@ public class MillingRecipeCategory implements IRecipeCategory<MillingRecipe> {
 //    }
 
     @Override
-    public Text getTitle() {
-        return Text.translatable("bountifulfares.milling");
+    public Component getTitle() {
+        return Component.translatable("bountifulfares.milling");
     }
 
     @Override

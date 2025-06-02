@@ -1,14 +1,14 @@
 package net.hecco.bountifulfares.world.wild_vine_feature;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.block.Blocks;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.util.FeatureContext;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 
 import java.util.Collection;
 
@@ -18,17 +18,17 @@ public class WildVineFeature extends Feature<WildVineFeatureConfig> {
     }
 
     @Override
-    public boolean generate(FeatureContext<WildVineFeatureConfig> context) {
-        Random random = context.getRandom();
-        StructureWorldAccess world = context.getWorld();
-        BlockPos startPos = context.getOrigin();
-        int patchSize = context.getConfig().patchSize;
+    public boolean place(FeaturePlaceContext<WildVineFeatureConfig> context) {
+        RandomSource random = context.random();
+        WorldGenLevel world = context.level();
+        BlockPos startPos = context.origin();
+        int patchSize = context.config().patchSize;
 
         for (int i = -patchSize; i <= patchSize; i++) {
             for (int j = -patchSize; j <= patchSize; j++) {
                 for (int k = -patchSize; k <= patchSize; k++) {
                     if (random.nextFloat() < 0.25f) {
-                        placeVine(random, world, startPos.add(i, j, k), context);
+                        placeVine(random, world, startPos.offset(i, j, k), context);
                     }
                 }
             }
@@ -36,14 +36,14 @@ public class WildVineFeature extends Feature<WildVineFeatureConfig> {
         return true;
     }
 
-    private void placeVine(Random random, StructureWorldAccess world, BlockPos pos, FeatureContext<WildVineFeatureConfig> context) {
-        Collection<Direction> dirs = Direction.shuffle(random);
+    private void placeVine(RandomSource random, WorldGenLevel world, BlockPos pos, FeaturePlaceContext<WildVineFeatureConfig> context) {
+        Collection<Direction> dirs = Direction.allShuffled(random);
         dirs.remove(Direction.UP);
         dirs.remove(Direction.DOWN);
-        if (world.isAir(pos) || world.getBlockState(pos).isOf(Blocks.VINE)) {
+        if (world.isEmptyBlock(pos) || world.getBlockState(pos).is(Blocks.VINE)) {
             for (Direction direction : dirs) {
-                if (world.getBlockState(pos.offset(direction.getOpposite())).isIn(context.getConfig().canPlaceOn)) {
-                    world.setBlockState(pos, context.getConfig().block.with(Properties.HORIZONTAL_FACING, direction), 2);
+                if (world.getBlockState(pos.relative(direction.getOpposite())).is(context.config().canPlaceOn)) {
+                    world.setBlock(pos, context.config().block.setValue(BlockStateProperties.HORIZONTAL_FACING, direction), 2);
                 }
             }
         }

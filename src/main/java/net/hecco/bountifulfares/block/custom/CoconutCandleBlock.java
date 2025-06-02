@@ -1,168 +1,171 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.minecraft.block.*;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
-import net.minecraft.world.event.GameEvent;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.AbstractCandleBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class CoconutCandleBlock extends Block implements Waterloggable {
-    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+public class CoconutCandleBlock extends Block implements SimpleWaterloggedBlock {
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty LIT = AbstractCandleBlock.LIT;
-    public static final IntProperty CANDLES = IntProperty.of("candles", 1, 3);
+    public static final IntegerProperty CANDLES = IntegerProperty.create("candles", 1, 3);
     public static boolean canBeLit;
 
     public static final VoxelShape[] SHAPES = new VoxelShape[] {
-            Block.createCuboidShape(5.5, 0, 5.5, 10.5, 4, 10.5),
-            Block.createCuboidShape(3, 0, 4, 13, 4, 12),
-            Block.createCuboidShape(2.5, 0, 2.5, 13.5, 4, 13.5)
+            Block.box(5.5, 0, 5.5, 10.5, 4, 10.5),
+            Block.box(3, 0, 4, 13, 4, 12),
+            Block.box(2.5, 0, 2.5, 13.5, 4, 13.5)
     };
 
-    public CoconutCandleBlock(Settings settings) {
+    public CoconutCandleBlock(Properties settings) {
         super(settings);
-        canBeLit = canBeLit(getDefaultState());
-        this.setDefaultState(this.stateManager.getDefaultState().with(LIT, false).with(CANDLES, 1).with(WATERLOGGED, false));
+        canBeLit = canBeLit(defaultBlockState());
+        this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false).setValue(CANDLES, 1).setValue(WATERLOGGED, false));
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPES[state.get(CANDLES) - 1];
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        return SHAPES[state.getValue(CANDLES) - 1];
     }
 
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit)
     {
-        if (stack.isEmpty() && state.get(LIT)) {
+        if (stack.isEmpty() && state.getValue(LIT)) {
             extinguish(player, state, world, pos);
-            return ItemActionResult.SUCCESS;
+            return ItemInteractionResult.SUCCESS;
         }
-        if ((stack.isOf(Items.FLINT_AND_STEEL) || stack.isOf(Items.FIRE_CHARGE)) && !canBeLit(state)) {
-            return ItemActionResult.FAIL;
-        } else if (stack.isOf(Items.FLINT_AND_STEEL)) {
+        if ((stack.is(Items.FLINT_AND_STEEL) || stack.is(Items.FIRE_CHARGE)) && !canBeLit(state)) {
+            return ItemInteractionResult.FAIL;
+        } else if (stack.is(Items.FLINT_AND_STEEL)) {
             setLit(world, state, pos, true);
-            world.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, world.getRandom().nextFloat() * 0.4F + 0.8F);
-            player.getStackInHand(hand).damage(1, player, LivingEntity.getSlotForHand(hand));
-            return ItemActionResult.SUCCESS;
-        } else if (stack.isOf(Items.FIRE_CHARGE)) {
+            world.playSound(player, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, world.getRandom().nextFloat() * 0.4F + 0.8F);
+            player.getItemInHand(hand).hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+            return ItemInteractionResult.SUCCESS;
+        } else if (stack.is(Items.FIRE_CHARGE)) {
             setLit(world, state, pos, true);
-            world.playSound(null, pos, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.BLOCKS, 1.0F, (world.random.nextFloat() - world.random.nextFloat()) * 0.2F + 1.0F);
+            world.playSound(null, pos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, (world.random.nextFloat() - world.random.nextFloat()) * 0.2F + 1.0F);
             if (!player.isCreative()) {
-                stack.decrement(1);
+                stack.shrink(1);
             }
-            return ItemActionResult.SUCCESS;
+            return ItemInteractionResult.SUCCESS;
         }
-        return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
-    protected boolean canReplace(BlockState state, ItemPlacementContext context) {
-        return !context.shouldCancelInteraction() && context.getStack().getItem() == this.asItem() && state.get(CANDLES) < 3 || super.canReplace(state, context);
+    protected boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
+        return !context.isSecondaryUseActive() && context.getItemInHand().getItem() == this.asItem() && state.getValue(CANDLES) < 3 || super.canBeReplaced(state, context);
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(CANDLES, LIT, WATERLOGGED);
     }
 
     @Override
-    public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
-        if (!world.isClient && projectile.isOnFire() && !state.get(LIT)) {
+    public void onProjectileHit(Level world, BlockState state, BlockHitResult hit, Projectile projectile) {
+        if (!world.isClientSide && projectile.isOnFire() && !state.getValue(LIT)) {
             setLit(world, state, hit.getBlockPos(), true);
         }
     }
 
     @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return Block.sideCoversSmallSquare(world, pos.down(), Direction.UP);
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+        return Block.canSupportCenter(world, pos.below(), Direction.UP);
     }
 
-    public static void extinguish(@Nullable PlayerEntity player, BlockState state, WorldAccess world, BlockPos pos) {
+    public static void extinguish(@Nullable Player player, BlockState state, LevelAccessor world, BlockPos pos) {
         setLit(world, state, pos, false);
-        world.playSound(null, pos, SoundEvents.BLOCK_CANDLE_EXTINGUISH, SoundCategory.BLOCKS, 1.0f, 1.0f);
-        world.emitGameEvent(player, GameEvent.BLOCK_CHANGE, pos);
+        world.playSound(null, pos, SoundEvents.CANDLE_EXTINGUISH, SoundSource.BLOCKS, 1.0f, 1.0f);
+        world.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
     }
 
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos());
-        if (blockState.isOf(this)) {
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        BlockState blockState = ctx.getLevel().getBlockState(ctx.getClickedPos());
+        if (blockState.is(this)) {
             return blockState.cycle(CANDLES);
         } else {
-            FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-            boolean bl = fluidState.getFluid() == Fluids.WATER;
-            return super.getPlacementState(ctx).with(WATERLOGGED, bl);
+            FluidState fluidState = ctx.getLevel().getFluidState(ctx.getClickedPos());
+            boolean bl = fluidState.getType() == Fluids.WATER;
+            return super.getStateForPlacement(ctx).setValue(WATERLOGGED, bl);
         }
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        if (state.get(WATERLOGGED)) {
-            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
+        if (state.getValue(WATERLOGGED)) {
+            world.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
         }
-        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+        return super.updateShape(state, direction, neighborState, world, pos, neighborPos);
     }
 
     @Override
     public FluidState getFluidState(BlockState state) {
-        if (state.get(WATERLOGGED)) {
-            return Fluids.WATER.getStill(false);
+        if (state.getValue(WATERLOGGED)) {
+            return Fluids.WATER.getSource(false);
         }
         return super.getFluidState(state);
     }
 
     @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
-        if (!state.get(LIT)) {
+    public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
+        if (!state.getValue(LIT)) {
             return;
         }
-        if (state.get(CANDLES) == 1) {
-            spawnCandleParticles(world, new Vec3d(pos.getX()+0.5, pos.getY()+0.3, pos.getZ()+0.5), random);
-        } else if (state.get(CANDLES) == 2) {
-            spawnCandleParticles(world, new Vec3d(pos.getX() + 0.65625, pos.getY() + 0.3, pos.getZ() + 0.59375), random);
-            spawnCandleParticles(world, new Vec3d(pos.getX() + 0.3125, pos.getY() + 0.2375, pos.getZ() + 0.34375), random);
+        if (state.getValue(CANDLES) == 1) {
+            spawnCandleParticles(world, new Vec3(pos.getX()+0.5, pos.getY()+0.3, pos.getZ()+0.5), random);
+        } else if (state.getValue(CANDLES) == 2) {
+            spawnCandleParticles(world, new Vec3(pos.getX() + 0.65625, pos.getY() + 0.3, pos.getZ() + 0.59375), random);
+            spawnCandleParticles(world, new Vec3(pos.getX() + 0.3125, pos.getY() + 0.2375, pos.getZ() + 0.34375), random);
         } else {
-            spawnCandleParticles(world, new Vec3d(pos.getX()+0.6875, pos.getY()+0.3, pos.getZ()+0.6875), random);
-            spawnCandleParticles(world, new Vec3d(pos.getX()+0.625, pos.getY()+0.2375, pos.getZ()+0.28125), random);
-            spawnCandleParticles(world, new Vec3d(pos.getX()+0.28125, pos.getY()+0.2375, pos.getZ()+0.53125), random);
+            spawnCandleParticles(world, new Vec3(pos.getX()+0.6875, pos.getY()+0.3, pos.getZ()+0.6875), random);
+            spawnCandleParticles(world, new Vec3(pos.getX()+0.625, pos.getY()+0.2375, pos.getZ()+0.28125), random);
+            spawnCandleParticles(world, new Vec3(pos.getX()+0.28125, pos.getY()+0.2375, pos.getZ()+0.53125), random);
         }
         if (random.nextFloat() < 0.17f) {
-            world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.BLOCK_CANDLE_AMBIENT, SoundCategory.BLOCKS, 1.0f + random.nextFloat(), random.nextFloat() * 0.7f + 0.3f, false);
+            world.playLocalSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS, 1.0f + random.nextFloat(), random.nextFloat() * 0.7f + 0.3f, false);
         }
     }
 
     public static boolean canBeLit(BlockState state) {
-        return !state.get(LIT) && !state.get(WATERLOGGED);
+        return !state.getValue(LIT) && !state.getValue(WATERLOGGED);
     }
 
-    static void setLit(WorldAccess world, BlockState state, BlockPos pos, boolean lit) {
-        world.setBlockState(pos, state.with(LIT, lit), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
+    static void setLit(LevelAccessor world, BlockState state, BlockPos pos, boolean lit) {
+        world.setBlock(pos, state.setValue(LIT, lit), Block.UPDATE_ALL | Block.UPDATE_IMMEDIATE);
     }
 
-    private static void spawnCandleParticles(World world, Vec3d vec3d, Random random) {
+    private static void spawnCandleParticles(Level world, Vec3 vec3d, RandomSource random) {
         float f = random.nextFloat();
         if (f < 0.3f) {
             world.addParticle(ParticleTypes.SMOKE, vec3d.x, vec3d.y, vec3d.z, 0.0, 0.0, 0.0);

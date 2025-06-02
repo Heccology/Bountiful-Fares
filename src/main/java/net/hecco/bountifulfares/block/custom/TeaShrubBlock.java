@@ -2,43 +2,46 @@ package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.minecraft.block.*;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
-import net.minecraft.util.function.BooleanBiFunction;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class TeaShrubBlock extends PlantBlock implements Fertilizable {
+public class TeaShrubBlock extends BushBlock implements BonemealableBlock {
 
-    public static final IntProperty AGE = Properties.AGE_4;
-    public static BooleanProperty BERRIES = BooleanProperty.of("berries");
+    public static final IntegerProperty AGE = BlockStateProperties.AGE_4;
+    public static BooleanProperty BERRIES = BooleanProperty.create("berries");
 
-    private static final VoxelShape AGE0_SHAPE = Block.createCuboidShape(4, 0, 4, 12, 6, 12);
-    private static final VoxelShape AGE1_SHAPE = Block.createCuboidShape(3, 0, 3, 13, 9, 13);
-    private static final VoxelShape AGE2_SHAPE = VoxelShapes.combineAndSimplify(Block.createCuboidShape(7, 0, 7, 9, 9, 9), Block.createCuboidShape(0, 9, 0, 16, 16, 16), BooleanBiFunction.OR);
+    private static final VoxelShape AGE0_SHAPE = Block.box(4, 0, 4, 12, 6, 12);
+    private static final VoxelShape AGE1_SHAPE = Block.box(3, 0, 3, 13, 9, 13);
+    private static final VoxelShape AGE2_SHAPE = Shapes.join(Block.box(7, 0, 7, 9, 9, 9), Block.box(0, 9, 0, 16, 16, 16), BooleanOp.OR);
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        switch (state.get(AGE)) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        switch (state.getValue(AGE)) {
             case 0:
                 return AGE0_SHAPE;
             case 1:
@@ -49,93 +52,93 @@ public class TeaShrubBlock extends PlantBlock implements Fertilizable {
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(AGE) >= 2 && context.isAbove(AGE2_SHAPE, pos, false)) {
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        if (state.getValue(AGE) >= 2 && context.isAbove(AGE2_SHAPE, pos, false)) {
             return AGE2_SHAPE;
         } else {
-            return VoxelShapes.empty();
+            return Shapes.empty();
         }
     }
 
-    public TeaShrubBlock(Settings settings) {
+    public TeaShrubBlock(Properties settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0).with(BERRIES, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0).setValue(BERRIES, false));
     }
 
     @Override
-    protected MapCodec<? extends PlantBlock> getCodec() {
+    protected MapCodec<? extends BushBlock> codec() {
         return null;
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AGE, BERRIES);
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
         if (!isFullyGrown(state) && random.nextFloat() < 0.5f) {
-            world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
+            world.setBlock(pos, state.cycle(AGE), Block.UPDATE_CLIENTS);
         }
     }
 
 
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit)
     {
-        ItemStack itemStack = player.getStackInHand(player.getActiveHand());
-        if (stack.isOf(Items.SHEARS) && canHarvestLeaves(state)) {
-            stack.damage(1, player, LivingEntity.getSlotForHand(hand));
-            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            if (state.get(AGE) == 4) {
-                dropStack(world, pos, new ItemStack(BFItems.TEA_LEAVES, 3 + world.random.nextInt(2)));
+        ItemStack itemStack = player.getItemInHand(player.getUsedItemHand());
+        if (stack.is(Items.SHEARS) && canHarvestLeaves(state)) {
+            stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
+            if (state.getValue(AGE) == 4) {
+                popResource(world, pos, new ItemStack(BFItems.TEA_LEAVES, 3 + world.random.nextInt(2)));
             } else {
-                dropStack(world, pos, new ItemStack(BFItems.TEA_LEAVES, 1 + world.random.nextInt(2)));
+                popResource(world, pos, new ItemStack(BFItems.TEA_LEAVES, 1 + world.random.nextInt(2)));
             }
-            world.setBlockState(pos, state.with(AGE, 2), Block.NOTIFY_LISTENERS);
-            return ItemActionResult.SUCCESS;
-        } else if (stack.isOf(Items.BONE_MEAL) && state.get(AGE) == 4 && !state.get(BERRIES)) {
+            world.setBlock(pos, state.setValue(AGE, 2), Block.UPDATE_CLIENTS);
+            return ItemInteractionResult.SUCCESS;
+        } else if (stack.is(Items.BONE_MEAL) && state.getValue(AGE) == 4 && !state.getValue(BERRIES)) {
             if (!player.isCreative()) {
-                stack.decrement(1);
+                stack.shrink(1);
             }
-            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BONE_MEAL_USE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            world.setBlockState(pos, state.with(BERRIES, true), Block.NOTIFY_LISTENERS);
-            return ItemActionResult.SUCCESS;
-        } else if (state.get(BERRIES)) {
-            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            world.setBlockState(pos, state.with(BERRIES, false), Block.NOTIFY_LISTENERS);
-            dropStack(world, pos, new ItemStack(BFItems.TEA_BERRIES, 1 + world.random.nextInt(1)));
-            return ItemActionResult.SUCCESS;
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+            world.setBlock(pos, state.setValue(BERRIES, true), Block.UPDATE_CLIENTS);
+            return ItemInteractionResult.SUCCESS;
+        } else if (state.getValue(BERRIES)) {
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 1.0F);
+            world.setBlock(pos, state.setValue(BERRIES, false), Block.UPDATE_CLIENTS);
+            popResource(world, pos, new ItemStack(BFItems.TEA_BERRIES, 1 + world.random.nextInt(1)));
+            return ItemInteractionResult.SUCCESS;
         }
-        return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     @Override
-    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
+    public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state) {
         return new ItemStack(BFItems.TEA_BERRIES);
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state) {
         return true;
     }
 
     @Override
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level world, RandomSource random, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
         if (!isFullyGrown(state)) {
-            world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
+            world.setBlock(pos, state.cycle(AGE), Block.UPDATE_CLIENTS);
         }
     }
 
     protected static boolean isFullyGrown(BlockState state) {
-        return state.get(AGE) == 4;
+        return state.getValue(AGE) == 4;
     }
     protected static boolean canHarvestLeaves(BlockState state) {
-        return state.get(AGE) >= 3 && !state.get(BERRIES);
+        return state.getValue(AGE) >= 3 && !state.getValue(BERRIES);
     }
 }

@@ -9,13 +9,13 @@ import dev.emi.emi.api.widget.WidgetHolder;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
 
 public class EmiPropagationRecipe implements EmiRecipe {
-    private final Identifier id =  EmiPort.id("bountifulfares", "/" + "prismarine_propagation"); //synthetic id because emi would complain otherwise
+    private final ResourceLocation id =  EmiPort.id("bountifulfares", "/" + "prismarine_propagation"); //synthetic id because emi would complain otherwise
     private final List<EmiIngredient> inputs = List.of(EmiStack.of(BFItems.SPONGEKIN_SEEDS), EmiStack.of(Blocks.SEA_LANTERN));
     private final List<EmiStack> outputs = List.of(EmiStack.of(BFBlocks.SPONGEKIN), EmiStack.of(BFBlocks.PRISMARINE_BLOSSOM));
 
@@ -28,7 +28,7 @@ public class EmiPropagationRecipe implements EmiRecipe {
     }
 
     @Override
-    public Identifier getId() {
+    public ResourceLocation getId() {
         return id;
     }
 
@@ -55,7 +55,7 @@ public class EmiPropagationRecipe implements EmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(Identifier.of(BountifulFares.MOD_ID, "textures/gui/jei/propagation.png"), 0, 0, 92, 49, 0, 0);
+        widgets.addTexture(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "textures/gui/jei/propagation.png"), 0, 0, 92, 49, 0, 0);
         //if you want you can add a tooltip to a certain part of a bg(which means you draw a part of bg on top of bg) (look at the next line) saying smth like "Plant seeds on a sea lantern"
 //        widgets.addTexture(Identifier.of(BountifulFares.MOD_ID, "textures/gui/jei/propagation.png"), 26, 11, 14, 14, 26, 11)
 //                .tooltip((mx, my) -> List.of(TooltipComponent.of(EmiPort.ordered(Text.literal("Hi i am a test tooltip appledog")))));

@@ -1,42 +1,42 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import org.jetbrains.annotations.Nullable;
 
 public class PalmFrondParentBlock extends Block {
-    public static final IntProperty SIZE = IntProperty.of("size", 0, 2);
-    public PalmFrondParentBlock(Settings settings) {
+    public static final IntegerProperty SIZE = IntegerProperty.create("size", 0, 2);
+    public PalmFrondParentBlock(Properties settings) {
         super(settings);
-        this.setDefaultState(this.getStateManager().getDefaultState().with(SIZE, 0));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(SIZE, 0));
     }
 
     @Override
-    public boolean canReplace(BlockState state, ItemPlacementContext context) {
-        return !context.shouldCancelInteraction() && context.getStack().getItem() == this.asItem() && state.get(SIZE) != 2 || super.canReplace(state, context);
+    public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
+        return !context.isSecondaryUseActive() && context.getItemInHand().getItem() == this.asItem() && state.getValue(SIZE) != 2 || super.canBeReplaced(state, context);
     }
 
     @Nullable
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        BlockState blockState = ctx.getWorld().getBlockState(ctx.getBlockPos());
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        BlockState blockState = ctx.getLevel().getBlockState(ctx.getClickedPos());
         if (blockState.getBlock() instanceof PalmFrondBlock) {
 
-            return super.getStateWithProperties(blockState).with(SIZE, blockState.get(SIZE) + 1);
+            return super.withPropertiesOf(blockState).setValue(SIZE, blockState.getValue(SIZE) + 1);
         }
         if (blockState.getBlock() instanceof WallPalmFrondBlock) {
 
-            return super.getStateWithProperties(blockState).with(SIZE, blockState.get(SIZE) + 1);
+            return super.withPropertiesOf(blockState).setValue(SIZE, blockState.getValue(SIZE) + 1);
         }
-        return super.getPlacementState(ctx);
+        return super.getStateForPlacement(ctx);
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(SIZE);
-        super.appendProperties(builder);
+        super.createBlockStateDefinition(builder);
     }
 }

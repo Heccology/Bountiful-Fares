@@ -1,23 +1,23 @@
 package net.hecco.bountifulfares.block.entity;
 
 import net.hecco.bountifulfares.block.custom.DyeableCeramicBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.component.ComponentMap;
-import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.DyedColorComponent;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ColorHelper;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.FastColor;
+import net.minecraft.world.item.component.DyedItemColor;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class DyeableBlockEntity extends BlockEntity {
@@ -25,38 +25,38 @@ public abstract class DyeableBlockEntity extends BlockEntity {
         super(type, pos, state);
     }
 
-    public static final int DEFAULT_COLOR = ColorHelper.Argb.fullAlpha(16777215);
+    public static final int DEFAULT_COLOR = FastColor.ARGB32.opaque(16777215);
     public int color = DEFAULT_COLOR;
 
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        super.writeNbt(nbt, registryLookup);
+    protected void saveAdditional(CompoundTag nbt, HolderLookup.Provider registryLookup) {
+        super.saveAdditional(nbt, registryLookup);
         if (color != DEFAULT_COLOR) {
             nbt.putInt("color", color);
         }
     }
 
     @Override
-    protected void addComponents(ComponentMap.Builder componentMapBuilder) {
+    protected void collectImplicitComponents(DataComponentMap.Builder componentMapBuilder) {
         if (color != DEFAULT_COLOR) {
-            componentMapBuilder.add(DataComponentTypes.DYED_COLOR, new DyedColorComponent(color, true));
+            componentMapBuilder.set(DataComponents.DYED_COLOR, new DyedItemColor(color, true));
         }
-        super.addComponents(componentMapBuilder);
+        super.collectImplicitComponents(componentMapBuilder);
     }
 
     @Override
-    protected void readComponents(ComponentsAccess components) {
-        if (components.get(DataComponentTypes.DYED_COLOR) == null) {
+    protected void applyImplicitComponents(DataComponentInput components) {
+        if (components.get(DataComponents.DYED_COLOR) == null) {
             color = DEFAULT_COLOR;
         } else {
-            color = components.get(DataComponentTypes.DYED_COLOR).rgb();
+            color = components.get(DataComponents.DYED_COLOR).rgb();
         }
     }
 
     @Override
-    protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        super.readNbt(nbt, registryLookup);
-        if (!nbt.contains("color", NbtElement.INT_TYPE) || nbt.getInt("color") == 0) {
+    protected void loadAdditional(CompoundTag nbt, HolderLookup.Provider registryLookup) {
+        super.loadAdditional(nbt, registryLookup);
+        if (!nbt.contains("color", Tag.TAG_INT) || nbt.getInt("color") == 0) {
             color = DEFAULT_COLOR;
         } else {
             color = nbt.getInt("color");
@@ -64,33 +64,33 @@ public abstract class DyeableBlockEntity extends BlockEntity {
     }
 
     @Override
-    public void markDirty()
+    public void setChanged()
     {
         if (
-                this.getWorld() != null &&
-                !this.getWorld().isClient &&
-                this.getPos() != null
+                this.getLevel() != null &&
+                !this.getLevel().isClientSide &&
+                this.getBlockPos() != null
         )
         {
-            World thisworld = this.getWorld();
+            Level thisworld = this.getLevel();
             DyeableCeramicBlock.sendColorPayload(
-                    (ServerWorld) thisworld, thisworld.getBlockEntity(this.getPos()), this.color);
+                    (ServerLevel) thisworld, thisworld.getBlockEntity(this.getBlockPos()), this.color);
         }
-        super.markDirty();
+        super.setChanged();
     }
 
     @Nullable
     @Override
-    public Packet<ClientPlayPacketListener> toUpdatePacket() {
-        return BlockEntityUpdateS2CPacket.create(this);
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override
-    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
-        return createNbt(registryLookup);
+    public CompoundTag getUpdateTag(HolderLookup.Provider registryLookup) {
+        return saveWithoutMetadata(registryLookup);
     }
 
-    public static int getColor(BlockView world, BlockPos pos){
+    public static int getColor(BlockGetter world, BlockPos pos){
         if(world==null){
             return DyeableBlockEntity.DEFAULT_COLOR;
         }

@@ -4,7 +4,7 @@ import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import me.shedaniel.clothconfig2.gui.entries.TooltipListEntry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.text.Text;
+import net.minecraft.network.chat.Component;
 
 import java.util.Arrays;
 import java.util.function.Consumer;
@@ -26,7 +26,7 @@ public abstract class Entry<T> {
         return new Entry<>(name, current, saver, defaultValue) {
             @Override
             TooltipListEntry<Boolean> build(ConfigEntryBuilder builder) {
-                return builder.startBooleanToggle(Text.translatable(getText()), getCurrent().get())
+                return builder.startBooleanToggle(Component.translatable(getText()), getCurrent().get())
                         .setSaveConsumer(getSaver())
                         .setDefaultValue(getDefaultValue())
                         .build();
@@ -38,9 +38,9 @@ public abstract class Entry<T> {
         return new Entry<>(name, current, saver, defaultValue, tooltip) {
             @Override
             TooltipListEntry<Boolean> build(ConfigEntryBuilder builder) {
-                return builder.startBooleanToggle(Text.translatable(getText()), getCurrent().get())
+                return builder.startBooleanToggle(Component.translatable(getText()), getCurrent().get())
                         .setSaveConsumer(getSaver())
-                        .setTooltip(Arrays.stream(getTooltip()).map(Text::translatable).toArray(Text[]::new))
+                        .setTooltip(Arrays.stream(getTooltip()).map(Component::translatable).toArray(Component[]::new))
                         .setDefaultValue(getDefaultValue())
                         .build();
             }
@@ -51,9 +51,9 @@ public abstract class Entry<T> {
         return new Entry<>(name, current, saver, defaultValue, min, max, tooltip) {
             @Override
             TooltipListEntry<Double> build(ConfigEntryBuilder builder) {
-                return builder.startDoubleField(Text.translatable(getText()), getCurrent().get())
+                return builder.startDoubleField(Component.translatable(getText()), getCurrent().get())
                         .setSaveConsumer(getSaver())
-                        .setTooltip(Arrays.stream(getTooltip()).map(Text::literal).toArray(Text[]::new))
+                        .setTooltip(Arrays.stream(getTooltip()).map(Component::literal).toArray(Component[]::new))
                         .setDefaultValue(getDefaultValue()).setMin(getMin()).setMax(getMax())
                         .build();
             }
@@ -64,9 +64,9 @@ public abstract class Entry<T> {
         return new Entry<>(name, current, saver, defaultValue, min, max, tooltip) {
             @Override
             TooltipListEntry<Integer> build(ConfigEntryBuilder builder) {
-                return builder.startIntField(Text.translatable(getText()), getCurrent().get())
+                return builder.startIntField(Component.translatable(getText()), getCurrent().get())
                         .setSaveConsumer(getSaver())
-                        .setTooltip(Arrays.stream(getTooltip()).map(Text::literal).toArray(Text[]::new))
+                        .setTooltip(Arrays.stream(getTooltip()).map(Component::literal).toArray(Component[]::new))
                         .setDefaultValue(getDefaultValue()).setMin(getMin()).setMax(getMax())
                         .build();
             }
@@ -77,9 +77,9 @@ public abstract class Entry<T> {
         return new Entry<>(name, current, saver, defaultValue, tooltip) {
             @Override
             TooltipListEntry<String> build(ConfigEntryBuilder builder) {
-                return builder.startStrField(Text.literal(getText()), getCurrent().get())
+                return builder.startStrField(Component.literal(getText()), getCurrent().get())
                         .setSaveConsumer(getSaver())
-                        .setTooltip(Arrays.stream(getTooltip()).map(Text::literal).toArray(Text[]::new))
+                        .setTooltip(Arrays.stream(getTooltip()).map(Component::literal).toArray(Component[]::new))
                         .setDefaultValue(getDefaultValue())
                         .build();
             }

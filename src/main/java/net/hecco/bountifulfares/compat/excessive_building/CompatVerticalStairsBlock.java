@@ -3,81 +3,85 @@ package net.hecco.bountifulfares.compat.excessive_building;
 
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.block.*;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.resource.featuretoggle.FeatureSet;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.function.BooleanBiFunction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class CompatVerticalStairsBlock extends HorizontalFacingBlock implements Waterloggable {
-    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+public class CompatVerticalStairsBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
 
     private final String modId;
 
-    public CompatVerticalStairsBlock(String modId, Settings settings) {
+    public CompatVerticalStairsBlock(String modId, Properties settings) {
         super(settings);
         this.modId = modId;
     }
 
-    public CompatVerticalStairsBlock(Settings settings) {
+    public CompatVerticalStairsBlock(Properties settings) {
         super(settings);
         this.modId = BountifulFares.EXCESSIVE_BUILDING_MOD_ID;
     }
 
     @Override
-    public boolean isEnabled(FeatureSet enabledFeatures) {
+    public boolean isEnabled(FeatureFlagSet enabledFeatures) {
         return BountifulFares.isModLoaded(modId) || BountifulFares.isDatagen();
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        switch (state.get(FACING)) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        switch (state.getValue(FACING)) {
             case NORTH -> {
-                return VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 8, 8, 16, 16), Block.createCuboidShape(8, 0, 0, 16, 16, 16), BooleanBiFunction.OR);
+                return Shapes.join(Block.box(0, 0, 8, 8, 16, 16), Block.box(8, 0, 0, 16, 16, 16), BooleanOp.OR);
             }
             case EAST -> {
-                return VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 0, 8, 16, 8), Block.createCuboidShape(0, 0, 8, 16, 16, 16), BooleanBiFunction.OR);
+                return Shapes.join(Block.box(0, 0, 0, 8, 16, 8), Block.box(0, 0, 8, 16, 16, 16), BooleanOp.OR);
             }
             case SOUTH -> {
-                return VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 0, 16, 16, 8), Block.createCuboidShape(0, 0, 0, 8, 16, 16), BooleanBiFunction.OR);
+                return Shapes.join(Block.box(8, 0, 0, 16, 16, 8), Block.box(0, 0, 0, 8, 16, 16), BooleanOp.OR);
             }
             case WEST -> {
-                return VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 8, 16, 16, 16), Block.createCuboidShape(0, 0, 0, 16, 16, 8), BooleanBiFunction.OR);
+                return Shapes.join(Block.box(8, 0, 8, 16, 16, 16), Block.box(0, 0, 0, 16, 16, 8), BooleanOp.OR);
             }
         }
-        return VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 8, 8, 16, 16), Block.createCuboidShape(8, 0, 0, 16, 16, 16), BooleanBiFunction.OR);
+        return Shapes.join(Block.box(0, 0, 8, 8, 16, 16), Block.box(8, 0, 0, 16, 16, 16), BooleanOp.OR);
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(WATERLOGGED, FACING);
-        super.appendProperties(builder);
+        super.createBlockStateDefinition(builder);
     }
 
     @Nullable
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        World world = ctx.getWorld();
-        BlockPos pos = ctx.getBlockPos();
-        return this.getDefaultState().with(WATERLOGGED, world.getFluidState(pos).getFluid() == Fluids.WATER)
-                .with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        Level world = ctx.getLevel();
+        BlockPos pos = ctx.getClickedPos();
+        return this.defaultBlockState().setValue(WATERLOGGED, world.getFluidState(pos).getType() == Fluids.WATER)
+                .setValue(FACING, ctx.getHorizontalDirection().getOpposite());
     }
-    public static final MapCodec<CompatVerticalStairsBlock> CODEC = CompatVerticalStairsBlock.createCodec(CompatVerticalStairsBlock::new);
+    public static final MapCodec<CompatVerticalStairsBlock> CODEC = CompatVerticalStairsBlock.simpleCodec(CompatVerticalStairsBlock::new);
 
     @Override
-    protected MapCodec<? extends HorizontalFacingBlock> getCodec() {
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return CODEC;
     }
 }

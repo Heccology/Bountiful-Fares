@@ -5,8 +5,8 @@ import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 import java.util.Calendar;
 import java.util.Optional;
@@ -14,36 +14,36 @@ import java.util.Optional;
 public class BFResourcePacks {
     private static void registerBuiltinResourcePack(ModContainer modContainer, String forModID) {
             ResourceManagerHelper.registerBuiltinResourcePack(
-                    Identifier.of(BountifulFares.MOD_ID, forModID + "_res"),
+                    ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, forModID + "_res"),
                     modContainer,
-                    Text.translatable("pack." + BountifulFares.MOD_ID + "." + forModID),
+                    Component.translatable("pack." + BountifulFares.MOD_ID + "." + forModID),
                     ResourcePackActivationType.ALWAYS_ENABLED
             );
     }
 
     private static void registerBuiltinResourcePack(ModContainer modContainer, String forModID, String additional) {
         ResourceManagerHelper.registerBuiltinResourcePack(
-                Identifier.of(BountifulFares.MOD_ID, forModID + "_res_" + additional),
+                ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, forModID + "_res_" + additional),
                 modContainer,
-                Text.translatable("pack." + BountifulFares.MOD_ID + "." + forModID),
+                Component.translatable("pack." + BountifulFares.MOD_ID + "." + forModID),
                 ResourcePackActivationType.ALWAYS_ENABLED
         );
     }
 
     private static void registerBuiltinDataPack(ModContainer modContainer, String packId) {
             ResourceManagerHelper.registerBuiltinResourcePack(
-                    Identifier.of(BountifulFares.MOD_ID, packId + "_dat"),
+                    ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, packId + "_dat"),
                     modContainer,
-                    Text.translatable("pack." + BountifulFares.MOD_ID + "." + packId),
+                    Component.translatable("pack." + BountifulFares.MOD_ID + "." + packId),
                     ResourcePackActivationType.ALWAYS_ENABLED
             );
     }
 
     private static void registerBuiltinDataPack(ModContainer modContainer, String packId, String additional) {
         ResourceManagerHelper.registerBuiltinResourcePack(
-                Identifier.of(BountifulFares.MOD_ID, packId + "_dat_" + additional),
+                ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, packId + "_dat_" + additional),
                 modContainer,
-                Text.translatable("pack." + BountifulFares.MOD_ID + "." + packId),
+                Component.translatable("pack." + BountifulFares.MOD_ID + "." + packId),
                 ResourcePackActivationType.ALWAYS_ENABLED
         );
     }
@@ -90,20 +90,20 @@ public class BFResourcePacks {
 
             if (!BountifulFares.CONFIG.showCompatItemsInRecipeViewers) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
-                        Identifier.of(BountifulFares.MOD_ID, "hide_compat_items"),
+                        ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "hide_compat_items"),
                         modContainer.get(),
                         ResourcePackActivationType.ALWAYS_ENABLED);
             }
 
             ResourceManagerHelper.registerBuiltinResourcePack(
-                    Identifier.of(BountifulFares.MOD_ID, "vanilla_item_override"),
+                    ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "vanilla_item_override"),
                     modContainer.get(),
-                    Text.translatable("pack." + BountifulFares.MOD_ID + "." + "vanilla_item_override"),
+                    Component.translatable("pack." + BountifulFares.MOD_ID + "." + "vanilla_item_override"),
                     ResourcePackActivationType.DEFAULT_ENABLED);
 
             if ((Calendar.getInstance().get(Calendar.MONTH) == Calendar.APRIL && Calendar.getInstance().get(Calendar.DAY_OF_MONTH) == 1)) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
-                        Identifier.of(BountifulFares.MOD_ID, "lime"),
+                        ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "lime"),
                         modContainer.get(),
                         ResourcePackActivationType.ALWAYS_ENABLED);
             }

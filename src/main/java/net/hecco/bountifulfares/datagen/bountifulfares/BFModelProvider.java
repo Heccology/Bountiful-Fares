@@ -14,11 +14,11 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFTrellises;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
-import net.minecraft.data.client.TexturedModel;
-import net.minecraft.util.Identifier;
+import net.minecraft.data.models.BlockModelGenerators;
+import net.minecraft.data.models.ItemModelGenerators;
+import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TexturedModel;
+import net.minecraft.resources.ResourceLocation;
 
 import static net.hecco.bountifulfares.datagen.bountifulfares.BFTemplateModels.*;
 
@@ -28,7 +28,7 @@ public class BFModelProvider extends FabricModelProvider {
     }
 
     @Override
-    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+    public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
         registerFruitLogModels(blockStateModelGenerator, BFBlocks.APPLE_LOG, BFBlocks.APPLE_WOOD, BFBlocks.APPLE_LEAVES);
         registerFruitLogModels(blockStateModelGenerator, BFBlocks.STRIPPED_APPLE_LOG, BFBlocks.STRIPPED_APPLE_WOOD);
         registerFruitLogModels(blockStateModelGenerator, BFBlocks.ORANGE_LOG, BFBlocks.ORANGE_WOOD, BFBlocks.ORANGE_LEAVES);
@@ -41,33 +41,33 @@ public class BFModelProvider extends FabricModelProvider {
         registerFruitLogModels(blockStateModelGenerator, BFBlocks.STRIPPED_PALM_LOG, BFBlocks.STRIPPED_PALM_WOOD);
         registerFruitLogModels(blockStateModelGenerator, BFBlocks.GOLDEN_APPLE_LOG, BFBlocks.GOLDEN_APPLE_WOOD, BFBlocks.GOLDEN_APPLE_LEAVES);
 
-        blockStateModelGenerator.registerLog(BFBlocks.WALNUT_LOG).log(BFBlocks.WALNUT_LOG).wood(BFBlocks.WALNUT_WOOD);
-        blockStateModelGenerator.registerLog(BFBlocks.STRIPPED_WALNUT_LOG).log(BFBlocks.STRIPPED_WALNUT_LOG).wood(BFBlocks.STRIPPED_WALNUT_WOOD);
-        blockStateModelGenerator.registerSingleton(BFBlocks.WALNUT_LEAVES, TexturedModel.LEAVES);
-        blockStateModelGenerator.registerSingleton(BFBlocks.GOLDEN_APPLE_LEAVES, TexturedModel.LEAVES);
-        blockStateModelGenerator.registerSingleton(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES, TexturedModel.LEAVES);
-        BlockStateModelGenerator.BlockTexturePool walnutTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(BFBlocks.WALNUT_PLANKS);
+        blockStateModelGenerator.woodProvider(BFBlocks.WALNUT_LOG).logWithHorizontal(BFBlocks.WALNUT_LOG).wood(BFBlocks.WALNUT_WOOD);
+        blockStateModelGenerator.woodProvider(BFBlocks.STRIPPED_WALNUT_LOG).logWithHorizontal(BFBlocks.STRIPPED_WALNUT_LOG).wood(BFBlocks.STRIPPED_WALNUT_WOOD);
+        blockStateModelGenerator.createTrivialBlock(BFBlocks.WALNUT_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.createTrivialBlock(BFBlocks.GOLDEN_APPLE_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.createTrivialBlock(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES, TexturedModel.LEAVES);
+        BlockModelGenerators.BlockFamilyProvider walnutTexturePool = blockStateModelGenerator.family(BFBlocks.WALNUT_PLANKS);
         walnutTexturePool.stairs(BFBlocks.WALNUT_STAIRS);
         walnutTexturePool.slab(BFBlocks.WALNUT_SLAB);
         walnutTexturePool.fence(BFBlocks.WALNUT_FENCE);
         walnutTexturePool.fenceGate(BFBlocks.WALNUT_FENCE_GATE);
         walnutTexturePool.pressurePlate(BFBlocks.WALNUT_PRESSURE_PLATE);
         walnutTexturePool.button(BFBlocks.WALNUT_BUTTON);
-        blockStateModelGenerator.registerHangingSign(BFBlocks.STRIPPED_WALNUT_LOG, BFBlocks.WALNUT_HANGING_SIGN, BFBlocks.WALNUT_WALL_HANGING_SIGN);
-        blockStateModelGenerator.registerDoor(BFBlocks.WALNUT_DOOR);
-        blockStateModelGenerator.registerSimpleCubeAll(BFBlocks.CUT_FELDSPAR_BLOCK);
-        BlockStateModelGenerator.BlockTexturePool feldsparTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(BFBlocks.FELDSPAR_BRICKS);
+        blockStateModelGenerator.createHangingSign(BFBlocks.STRIPPED_WALNUT_LOG, BFBlocks.WALNUT_HANGING_SIGN, BFBlocks.WALNUT_WALL_HANGING_SIGN);
+        blockStateModelGenerator.createDoor(BFBlocks.WALNUT_DOOR);
+        blockStateModelGenerator.createTrivialCube(BFBlocks.CUT_FELDSPAR_BLOCK);
+        BlockModelGenerators.BlockFamilyProvider feldsparTexturePool = blockStateModelGenerator.family(BFBlocks.FELDSPAR_BRICKS);
         feldsparTexturePool.stairs(BFBlocks.FELDSPAR_BRICK_STAIRS);
         feldsparTexturePool.slab(BFBlocks.FELDSPAR_BRICK_SLAB);
         feldsparTexturePool.wall(BFBlocks.FELDSPAR_BRICK_WALL);
 
-        BlockStateModelGenerator.BlockTexturePool coirBrickTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(BFBlocks.COIR_BRICKS);
+        BlockModelGenerators.BlockFamilyProvider coirBrickTexturePool = blockStateModelGenerator.family(BFBlocks.COIR_BRICKS);
         coirBrickTexturePool.stairs(BFBlocks.COIR_BRICK_STAIRS);
         coirBrickTexturePool.slab(BFBlocks.COIR_BRICK_SLAB);
         coirBrickTexturePool.wall(BFBlocks.COIR_BRICK_WALL);
-        blockStateModelGenerator.registerWoolAndCarpet(BFBlocks.PACKED_COCONUT_COIR, BFBlocks.COIR_CARPET);
+        blockStateModelGenerator.createFullAndCarpetBlocks(BFBlocks.PACKED_COCONUT_COIR, BFBlocks.COIR_CARPET);
 
-        blockStateModelGenerator.registerFlowerPotPlant(BFBlocks.GOLDEN_APPLE_SAPLING, BFBlocks.POTTED_GOLDEN_APPLE_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.createPlant(BFBlocks.GOLDEN_APPLE_SAPLING, BFBlocks.POTTED_GOLDEN_APPLE_SAPLING, BlockModelGenerators.TintState.NOT_TINTED);
 
         registerJackOStrawModels(blockStateModelGenerator, BFBlocks.RED_JACK_O_STRAW);
         registerJackOStrawModels(blockStateModelGenerator, BFBlocks.ORANGE_JACK_O_STRAW);
@@ -179,16 +179,16 @@ public class BFModelProvider extends FabricModelProvider {
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, BFTrellises.PALM);
 
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, ExcessiveBuildingBlocks.ANCIENT);
-        BlockStateModelGenerator.BlockTexturePool walnutMulchBrickPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ExcessiveBuildingBlocks.WALNUT_MULCH_BRICKS);
+        BlockModelGenerators.BlockFamilyProvider walnutMulchBrickPool = blockStateModelGenerator.family(ExcessiveBuildingBlocks.WALNUT_MULCH_BRICKS);
         walnutMulchBrickPool.stairs(ExcessiveBuildingBlocks.WALNUT_MULCH_BRICK_STAIRS);
         walnutMulchBrickPool.slab(ExcessiveBuildingBlocks.WALNUT_MULCH_BRICK_SLAB);
         walnutMulchBrickPool.wall(ExcessiveBuildingBlocks.WALNUT_MULCH_BRICK_WALL);
-        blockStateModelGenerator.registerParentedItemModel(ExcessiveBuildingBlocks.WALNUT_MULCH_BRICKS, Identifier.of(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "block/walnut_mulch_bricks"));
-        BlockStateModelGenerator.BlockTexturePool palmMulchBrickPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ExcessiveBuildingBlocks.PALM_MULCH_BRICKS);
+        blockStateModelGenerator.delegateItemModel(ExcessiveBuildingBlocks.WALNUT_MULCH_BRICKS, ResourceLocation.fromNamespaceAndPath(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "block/walnut_mulch_bricks"));
+        BlockModelGenerators.BlockFamilyProvider palmMulchBrickPool = blockStateModelGenerator.family(ExcessiveBuildingBlocks.PALM_MULCH_BRICKS);
         palmMulchBrickPool.stairs(ExcessiveBuildingBlocks.PALM_MULCH_BRICK_STAIRS);
         palmMulchBrickPool.slab(ExcessiveBuildingBlocks.PALM_MULCH_BRICK_SLAB);
         palmMulchBrickPool.wall(ExcessiveBuildingBlocks.PALM_MULCH_BRICK_WALL);
-        blockStateModelGenerator.registerParentedItemModel(ExcessiveBuildingBlocks.PALM_MULCH_BRICKS, Identifier.of(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "block/palm_mulch_bricks"));
+        blockStateModelGenerator.delegateItemModel(ExcessiveBuildingBlocks.PALM_MULCH_BRICKS, ResourceLocation.fromNamespaceAndPath(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "block/palm_mulch_bricks"));
 
         TrellisUtil.registerTrellisModels(blockStateModelGenerator, MintBlocks.WINTERGREEN);
 
@@ -218,55 +218,55 @@ public class BFModelProvider extends FabricModelProvider {
     }
 
     @Override
-    public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(BFItems.LEEK, Models.HANDHELD);
-        itemModelGenerator.register(BFItems.LEEK_SEEDS, Models.GENERATED);
-        itemModelGenerator.register(BFItems.LEEK_STEW, Models.GENERATED);
-        itemModelGenerator.register(BFItems.CRUSTED_BEEF, Models.GENERATED);
-        itemModelGenerator.register(BFItems.WALNUT, Models.GENERATED);
-        itemModelGenerator.register(BFItems.WALNUT_BOAT, Models.GENERATED);
-        itemModelGenerator.register(BFItems.WALNUT_CHEST_BOAT, Models.GENERATED);
-        itemModelGenerator.register(BFBlocks.WILD_PASSION_FRUIT_VINE.asItem(), Models.GENERATED);
-        itemModelGenerator.register(BFBlocks.WILD_ELDERBERRY_VINE.asItem(), Models.GENERATED);
-        itemModelGenerator.register(BFItems.FISH_STEW, Models.GENERATED);
-        itemModelGenerator.register(BFItems.APPLE_STEW, Models.GENERATED);
-        itemModelGenerator.register(BFItems.STONE_STEW, Models.GENERATED);
-        itemModelGenerator.register(BFItems.FOREST_MEDLEY, Models.GENERATED);
-        itemModelGenerator.register(BFItems.ARID_MEDLEY, Models.GENERATED);
-        itemModelGenerator.register(BFItems.MEADOW_MEDLEY, Models.GENERATED);
-        itemModelGenerator.register(BFItems.COASTAL_MEDLEY, Models.GENERATED);
-        itemModelGenerator.register(BFItems.BERRY_STUFFED_POTATO, Models.GENERATED);
-        itemModelGenerator.register(BFItems.MAIZE_STUFFED_POTATO, Models.GENERATED);
-        itemModelGenerator.register(BFItems.MAIZE_BREAD, Models.GENERATED);
-        itemModelGenerator.register(BFItems.WALNUT_COOKIE, Models.GENERATED);
-        itemModelGenerator.register(BFItems.CUSTARD, Models.GENERATED);
-        itemModelGenerator.register(BFItems.PIQUANT_CUSTARD, Models.GENERATED);
-        itemModelGenerator.register(BFItems.PASSION_CUSTARD, Models.GENERATED);
-        itemModelGenerator.register(BFItems.COCOA_CUSTARD, Models.GENERATED);
-        itemModelGenerator.register(BFItems.ANCIENT_CUSTARD, Models.GENERATED);
-        itemModelGenerator.register(BFItems.CANDIED_APPLE, Models.GENERATED);
-        itemModelGenerator.register(BFItems.CANDIED_PLUM, Models.GENERATED);
-        itemModelGenerator.register(BFItems.GRASS_SEEDS, Models.GENERATED);
-        itemModelGenerator.register(BFItems.SCORCHKIN_SEEDS, Models.GENERATED);
-        itemModelGenerator.register(BFItems.PALM_FROND, Models.GENERATED);
-        itemModelGenerator.register(BFItems.COCONUT, Models.GENERATED);
-        itemModelGenerator.register(BFItems.COCONUT_COIR, Models.GENERATED);
-        itemModelGenerator.register(BFItems.COCONUT_HALF, Models.GENERATED);
-        itemModelGenerator.register(BFItems.COCONUT_STEW, Models.GENERATED);
-        itemModelGenerator.register(BFItems.COCONUT_CRUSTED_COD, Models.GENERATED);
-        itemModelGenerator.register(BFBlocks.COCONUT_CANDLE.asItem(), Models.GENERATED);
-        itemModelGenerator.register(BFItems.DIRT_STEW, Models.GENERATED);
-        itemModelGenerator.register(BFItems.PICKLED_SPONGEKIN, Models.GENERATED);
-        itemModelGenerator.register(BFItems.TROPICAL_MEDLEY, Models.GENERATED);
-        itemModelGenerator.register(BFItems.SWEET_BERRY_PIPS, Models.GENERATED);
-        itemModelGenerator.register(BFItems.SEA_SALAD, Models.GENERATED);
-        itemModelGenerator.register(BFItems.STUFFED_HOARY_APPLE, Models.GENERATED);
-        itemModelGenerator.register(BFItems.MIRE_MEDLEY, Models.GENERATED);
-        itemModelGenerator.register(BFItems.STRANGE_CANDY, Models.GENERATED);
-        itemModelGenerator.register(BFItems.COCONUT_MILK_BOTTLE, Models.GENERATED);
-        itemModelGenerator.register(BFBlocks.MELON_PIE.asItem(), Models.GENERATED);
-        itemModelGenerator.register(BFBlocks.SPONGE_CAKE.asItem(), Models.GENERATED);
-        itemModelGenerator.register(BFItems.POPPED_MAIZE, Models.GENERATED);
-        itemModelGenerator.register(BFItems.COOKED_EGG, Models.GENERATED);
+    public void generateItemModels(ItemModelGenerators itemModelGenerator) {
+        itemModelGenerator.generateFlatItem(BFItems.LEEK, ModelTemplates.FLAT_HANDHELD_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.LEEK_SEEDS, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.LEEK_STEW, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.CRUSTED_BEEF, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.WALNUT, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.WALNUT_BOAT, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.WALNUT_CHEST_BOAT, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFBlocks.WILD_PASSION_FRUIT_VINE.asItem(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFBlocks.WILD_ELDERBERRY_VINE.asItem(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.FISH_STEW, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.APPLE_STEW, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.STONE_STEW, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.FOREST_MEDLEY, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.ARID_MEDLEY, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.MEADOW_MEDLEY, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.COASTAL_MEDLEY, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.BERRY_STUFFED_POTATO, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.MAIZE_STUFFED_POTATO, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.MAIZE_BREAD, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.WALNUT_COOKIE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.CUSTARD, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.PIQUANT_CUSTARD, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.PASSION_CUSTARD, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.COCOA_CUSTARD, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.ANCIENT_CUSTARD, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.CANDIED_APPLE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.CANDIED_PLUM, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.GRASS_SEEDS, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.SCORCHKIN_SEEDS, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.PALM_FROND, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.COCONUT, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.COCONUT_COIR, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.COCONUT_HALF, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.COCONUT_STEW, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.COCONUT_CRUSTED_COD, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFBlocks.COCONUT_CANDLE.asItem(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.DIRT_STEW, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.PICKLED_SPONGEKIN, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.TROPICAL_MEDLEY, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.SWEET_BERRY_PIPS, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.SEA_SALAD, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.STUFFED_HOARY_APPLE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.MIRE_MEDLEY, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.STRANGE_CANDY, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.COCONUT_MILK_BOTTLE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFBlocks.MELON_PIE.asItem(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFBlocks.SPONGE_CAKE.asItem(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.POPPED_MAIZE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.COOKED_EGG, ModelTemplates.FLAT_ITEM);
     }
 }

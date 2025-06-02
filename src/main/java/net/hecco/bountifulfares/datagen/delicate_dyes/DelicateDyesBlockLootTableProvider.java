@@ -4,14 +4,14 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hecco.bountifulfares.block.custom.JackOStrawBlock;
 import net.hecco.bountifulfares.compat.delicate_dyes.DelicateDyesBlocks;
-import net.minecraft.block.Block;
-import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 
 import java.util.concurrent.CompletableFuture;
 
 public class DelicateDyesBlockLootTableProvider extends FabricBlockLootTableProvider {
-    public DelicateDyesBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    public DelicateDyesBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, registryLookup);
     }
 
@@ -28,6 +28,6 @@ public class DelicateDyesBlockLootTableProvider extends FabricBlockLootTableProv
     }
 
     public void jackOStrawDrops(Block block) {
-        this.addDrop(block, this.dropsWithProperty(block, JackOStrawBlock.HALF, DoubleBlockHalf.LOWER));
+        this.add(block, this.createSinglePropConditionTable(block, JackOStrawBlock.HALF, DoubleBlockHalf.LOWER));
     }
 }

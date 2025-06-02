@@ -14,7 +14,7 @@ import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
 import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
 import net.hecco.bountifulfares.compat.twigs.TwigsBlocks;
 import net.hecco.bountifulfares.compat.twigs.TwigsSounds;
-import net.minecraft.block.Block;
+import net.minecraft.world.level.block.Block;
 
 import java.util.HashSet;
 import java.util.List;

@@ -7,38 +7,37 @@ import net.hecco.bountifulfares.recipe.FermentationRecipe;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.misc.BFRecipes;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.Inventories;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.input.SingleStackRecipeInput;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.screen.PropertyDelegate;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
-import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 import java.util.Optional;
 
 public class FermentationVesselBlockEntity extends BlockEntity implements ImplementedInventory {
-    public final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
-    protected final PropertyDelegate propertyDelegate;
+    public final NonNullList<ItemStack> inventory = NonNullList.withSize(1, ItemStack.EMPTY);
+    protected final ContainerData propertyDelegate;
     private int progress = 0;
     private int maxProgress;
     public boolean fermented;
@@ -46,7 +45,7 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     public FermentationVesselBlockEntity(BlockPos pos, BlockState state) {
         super(BFBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, pos, state);
         this.fermented = false;
-        this.propertyDelegate = new PropertyDelegate() {
+        this.propertyDelegate = new ContainerData() {
             @Override
             public int get(int index) {
                 return switch (index) {
@@ -65,43 +64,43 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
             }
 
             @Override
-            public int size() {
+            public int getCount() {
                 return 1;
             }
         };
     }
 
     @Override
-    public DefaultedList<ItemStack> getItems() {
+    public NonNullList<ItemStack> getItems() {
         return this.inventory;
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        super.writeNbt(nbt, registryLookup);
-        Inventories.writeNbt(nbt, this.inventory, registryLookup);
+    protected void saveAdditional(CompoundTag nbt, HolderLookup.Provider registryLookup) {
+        super.saveAdditional(nbt, registryLookup);
+        ContainerHelper.saveAllItems(nbt, this.inventory, registryLookup);
         nbt.putInt("fermenting.progress", this.progress);
         nbt.putInt("particleColor", this.particleColor);
     }
 
 
     @Override
-    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        Inventories.readNbt(nbt, this.inventory, registryLookup);
+    public void loadAdditional(CompoundTag nbt, HolderLookup.Provider registryLookup) {
+        ContainerHelper.loadAllItems(nbt, this.inventory, registryLookup);
         this.progress = nbt.getInt("fermenting.progress");
         this.particleColor = nbt.getInt("particleColor");
-        super.readNbt(nbt, registryLookup);
+        super.loadAdditional(nbt, registryLookup);
     }
 
     @Nullable
     @Override
-    public Packet<ClientPlayPacketListener> toUpdatePacket() {
-        return BlockEntityUpdateS2CPacket.create(this);
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     public void setParticleColor(int color) {
         this.particleColor = color;
-        markDirty();
+        setChanged();
     }
 
     public Optional<Integer> getParticleColor() {
@@ -109,108 +108,108 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     }
 
     @Override
-    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
-        return createNbt(registryLookup);
+    public CompoundTag getUpdateTag(HolderLookup.Provider registryLookup) {
+        return saveWithoutMetadata(registryLookup);
     }
 
     public boolean canInsertItem() {
-        return this.getStack(0).isEmpty();
+        return this.getItem(0).isEmpty();
     }
 
     public void insertItem(ItemStack item) {
-        assert this.world != null;
-        if (!this.world.isClient()) {
-            this.setStack(0, item.copyWithCount(1));
-            markDirty();
+        assert this.level != null;
+        if (!this.level.isClientSide()) {
+            this.setItem(0, item.copyWithCount(1));
+            setChanged();
         }
     }
 
     public void removeItem() {
-        assert this.world != null;
-        this.setStack(0, Items.AIR.getDefaultStack());
-        markDirty();
+        assert this.level != null;
+        this.setItem(0, Items.AIR.getDefaultInstance());
+        setChanged();
     }
 
-    public void tick(World world, BlockPos pos, BlockState state) {
-        if (!world.isClient) {
+    public void tick(Level world, BlockPos pos, BlockState state) {
+        if (!world.isClientSide) {
             if (this.maxProgress != (BountifulFares.CONFIG.getFermentationTime() * 20)) {
                 this.maxProgress = BountifulFares.CONFIG.getFermentationTime() * 20;
             }
             if (this.progress < this.maxProgress && !this.inventory.get(0).isEmpty()) {
                 this.progress++;
-                markDirty(world, pos, state);
+                setChanged(world, pos, state);
             }
             if (this.progress >= this.maxProgress && this.inventory.get(0).isEmpty()) {
                 this.fermented = false;
                 this.progress = 0;
-                markDirty(world, pos, state);
+                setChanged(world, pos, state);
             }
             if (!this.fermented && this.progress >= this.maxProgress && !this.inventory.get(0).isEmpty()) {
                 this.fermented = true;
-                if (state.get(FermentationVesselBlock.FERMENTATION_STAGE) != FermentationStage.FERMENTED) {
-                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FERMENT, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
-                    markDirty(world, pos, state);
+                if (state.getValue(FermentationVesselBlock.FERMENTATION_STAGE) != FermentationStage.FERMENTED) {
+                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FERMENT, SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
+                    setChanged(world, pos, state);
                 }
             }
-            if (this.fermented && state.get(FermentationVesselBlock.FERMENTATION_STAGE) != FermentationStage.FERMENTED) {
-                world.setBlockState(pos, state.with(FermentationVesselBlock.FERMENTATION_STAGE, FermentationStage.FERMENTED));
+            if (this.fermented && state.getValue(FermentationVesselBlock.FERMENTATION_STAGE) != FermentationStage.FERMENTED) {
+                world.setBlockAndUpdate(pos, state.setValue(FermentationVesselBlock.FERMENTATION_STAGE, FermentationStage.FERMENTED));
             }
         }
     }
 
     @Override
-    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
+    public boolean canPlaceItemThroughFace(int slot, ItemStack stack, @Nullable Direction side) {
         return false;
     }
 
     @Override
-    public boolean canExtract(int slot, ItemStack stack, Direction side) {
+    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
         return false;
     }
 
-    public Optional<RecipeEntry<FermentationRecipe>> getCurrentRecipe() {
-        Optional<RecipeEntry<FermentationRecipe>> recipe = Objects.requireNonNull(this.getWorld()).getRecipeManager().getFirstMatch(BFRecipes.FERMENTING, new SingleStackRecipeInput(inventory.get(0)), this.world);
+    public Optional<RecipeHolder<FermentationRecipe>> getCurrentRecipe() {
+        Optional<RecipeHolder<FermentationRecipe>> recipe = Objects.requireNonNull(this.getLevel()).getRecipeManager().getRecipeFor(BFRecipes.FERMENTING, new SingleRecipeInput(inventory.get(0)), this.level);
         return recipe.isEmpty() ? Optional.empty() : recipe;
     }
-    public ItemActionResult tryExtractItem(World world, BlockPos pos, BlockState state, PlayerEntity player, Hand hand) {
+    public ItemInteractionResult tryExtractItem(Level world, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
         if (this.fermented) {
             ItemStack output = getCurrentRecipe().isEmpty() ? null : getCurrentRecipe().get().value().getOutput();
             if (output != null) {
-                Item collector = output.getItem().getRecipeRemainder();
+                Item collector = output.getItem().getCraftingRemainingItem();
                 if (collector == null) {
-                    FermentationVesselBlock.dropStack(world, new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), output);
-                    world.setBlockState(pos, state.with(FermentationVesselBlock.FERMENTATION_STAGE, FermentationStage.EMPTY));
+                    FermentationVesselBlock.popResource(world, new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), output);
+                    world.setBlockAndUpdate(pos, state.setValue(FermentationVesselBlock.FERMENTATION_STAGE, FermentationStage.EMPTY));
                     removeItem();
-                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
+                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_EMPTY, SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
                     this.progress = 0;
                     this.fermented = false;
-                    markDirty(world, pos, state);
-                    return ItemActionResult.SUCCESS;
+                    setChanged(world, pos, state);
+                    return ItemInteractionResult.SUCCESS;
                 } else {
-                    if (player.getStackInHand(hand).isOf(collector)) {
-                        world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_EMPTY, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
+                    if (player.getItemInHand(hand).is(collector)) {
+                        world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_EMPTY, SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
                         if (!player.isCreative()) {
-                            player.getStackInHand(hand).decrement(1);
+                            player.getItemInHand(hand).shrink(1);
                         }
-                        if (player.getStackInHand(hand).isEmpty() && !player.isCreative()) {
-                            player.setStackInHand(hand, new ItemStack(output.getItem()));
-                        } else if (!player.getInventory().insertStack(new ItemStack(output.getItem()))) {
-                            player.dropItem(new ItemStack(output.getItem()), false);
+                        if (player.getItemInHand(hand).isEmpty() && !player.isCreative()) {
+                            player.setItemInHand(hand, new ItemStack(output.getItem()));
+                        } else if (!player.getInventory().add(new ItemStack(output.getItem()))) {
+                            player.drop(new ItemStack(output.getItem()), false);
                         }
-                        world.setBlockState(pos, state.with(FermentationVesselBlock.FERMENTATION_STAGE, FermentationStage.EMPTY));
+                        world.setBlockAndUpdate(pos, state.setValue(FermentationVesselBlock.FERMENTATION_STAGE, FermentationStage.EMPTY));
                         this.progress = 0;
                         this.fermented = false;
                         removeItem();
-                        markDirty(world, pos, state);
-                        return ItemActionResult.SUCCESS;
+                        setChanged(world, pos, state);
+                        return ItemInteractionResult.SUCCESS;
                     } else {
-                        player.sendMessage(Text.translatable("warning." + BountifulFares.MOD_ID + ".fermentation_vessel." + collector), true);
-                        return ItemActionResult.SUCCESS;
+                        player.displayClientMessage(Component.translatable("warning." + BountifulFares.MOD_ID + ".fermentation_vessel." + collector), true);
+                        return ItemInteractionResult.SUCCESS;
                     }
                 }
             }
         }
-        return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 }
 

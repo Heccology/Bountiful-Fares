@@ -1,15 +1,8 @@
 accessWidener   v2  named
 
-accessible class net/minecraft/client/gui/hud/InGameHud$HeartType
-
-accessible field net/minecraft/loot/LootTable pools Ljava/util/List;
-
-accessible class net/minecraft/structure/WoodlandMansionGenerator$FirstFloorRoomPool
-accessible class net/minecraft/structure/WoodlandMansionGenerator$SecondFloorRoomPool
-
-accessible class net/minecraft/block/enums/NoteBlockInstrument$Type
-
-accessible field net/minecraft/block/entity/CampfireBlockEntity cookingTimes [I
-accessible field net/minecraft/block/entity/CampfireBlockEntity matchGetter Lnet/minecraft/recipe/RecipeManager$MatchGetter;
-
-accessible field net/minecraft/block/entity/CampfireBlockEntity cookingTotalTimes [I
+accessible class net/minecraft/client/gui/Gui$HeartType
+accessible class net/minecraft/world/level/levelgen/structure/structures/WoodlandMansionPieces$FirstFloorRoomCollection
+accessible class net/minecraft/world/level/levelgen/structure/structures/WoodlandMansionPieces$SecondFloorRoomCollection
+accessible field net/minecraft/world/level/storage/loot/LootTable pools Ljava/util/List;
+accessible class net/minecraft/world/level/block/state/properties/NoteBlockInstrument$Type
+accessible method java/lang/Enum ordinal ()I

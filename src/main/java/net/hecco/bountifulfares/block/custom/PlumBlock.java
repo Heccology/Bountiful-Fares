@@ -1,55 +1,55 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.item.Item;
-import net.minecraft.util.function.BooleanBiFunction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class PlumBlock extends FruitBlock {
     private static final VoxelShape[] NORTH_SHAPES = new VoxelShape[] {
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(8, 0, 0, 16, 16, 16), Block.createCuboidShape(0, 0, 8, 8, 16, 16), BooleanBiFunction.OR),
-            Block.createCuboidShape(0, 0, 8, 16, 16, 16),
-            Block.createCuboidShape(0, 0, 8, 8, 16, 16)
+            Shapes.join(Block.box(8, 0, 0, 16, 16, 16), Block.box(0, 0, 8, 8, 16, 16), BooleanOp.OR),
+            Block.box(0, 0, 8, 16, 16, 16),
+            Block.box(0, 0, 8, 8, 16, 16)
     };
     private static final VoxelShape[] EAST_SHAPES = new VoxelShape[] {
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 8, 16, 16, 16), Block.createCuboidShape(0, 0, 0, 8, 16, 8), BooleanBiFunction.OR),
-            Block.createCuboidShape(0, 0, 0, 8, 16, 16),
-            Block.createCuboidShape(0, 0, 0, 8, 16, 8)
+            Shapes.join(Block.box(0, 0, 8, 16, 16, 16), Block.box(0, 0, 0, 8, 16, 8), BooleanOp.OR),
+            Block.box(0, 0, 0, 8, 16, 16),
+            Block.box(0, 0, 0, 8, 16, 8)
     };
     private static final VoxelShape[] SOUTH_SHAPES = new VoxelShape[] {
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 0, 8, 16, 16), Block.createCuboidShape(8, 0, 0, 16, 16, 8), BooleanBiFunction.OR),
-            Block.createCuboidShape(0, 0, 0, 16, 16, 8),
-            Block.createCuboidShape(8, 0, 0, 16, 16, 8)
+            Shapes.join(Block.box(0, 0, 0, 8, 16, 16), Block.box(8, 0, 0, 16, 16, 8), BooleanOp.OR),
+            Block.box(0, 0, 0, 16, 16, 8),
+            Block.box(8, 0, 0, 16, 16, 8)
     };
     private static final VoxelShape[] WEST_SHAPES = new VoxelShape[] {
-            VoxelShapes.combineAndSimplify(Block.createCuboidShape(0, 0, 0, 16, 16, 8), Block.createCuboidShape(8, 0, 8, 16, 16, 16), BooleanBiFunction.OR),
-            Block.createCuboidShape(8, 0, 0, 16, 16, 16),
-            Block.createCuboidShape(8, 0, 8, 16, 16, 16)
+            Shapes.join(Block.box(0, 0, 0, 16, 16, 8), Block.box(8, 0, 8, 16, 16, 16), BooleanOp.OR),
+            Block.box(8, 0, 0, 16, 16, 16),
+            Block.box(8, 0, 8, 16, 16, 16)
     };
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(SLICES) != 0) {
-            if (state.get(FACING) == Direction.NORTH) {
-                return NORTH_SHAPES[state.get(SLICES) - 1];
-            } else if (state.get(FACING) == Direction.EAST) {
-                return EAST_SHAPES[state.get(SLICES) - 1];
-            } else if (state.get(FACING) == Direction.SOUTH) {
-                return SOUTH_SHAPES[state.get(SLICES) - 1];
-            } else if (state.get(FACING) == Direction.WEST) {
-                return WEST_SHAPES[state.get(SLICES) - 1];
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        if (state.getValue(SLICES) != 0) {
+            if (state.getValue(FACING) == Direction.NORTH) {
+                return NORTH_SHAPES[state.getValue(SLICES) - 1];
+            } else if (state.getValue(FACING) == Direction.EAST) {
+                return EAST_SHAPES[state.getValue(SLICES) - 1];
+            } else if (state.getValue(FACING) == Direction.SOUTH) {
+                return SOUTH_SHAPES[state.getValue(SLICES) - 1];
+            } else if (state.getValue(FACING) == Direction.WEST) {
+                return WEST_SHAPES[state.getValue(SLICES) - 1];
             }
         }
-        return super.getOutlineShape(state, world, pos, context);
+        return super.getShape(state, world, pos, context);
     }
-    public PlumBlock(Settings settings) {
+    public PlumBlock(Properties settings) {
         super(settings);
     }
 

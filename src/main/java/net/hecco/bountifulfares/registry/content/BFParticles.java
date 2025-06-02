@@ -2,10 +2,10 @@ package net.hecco.bountifulfares.registry.content;
 
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.particle.SimpleParticleType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 
 public class BFParticles {
 
@@ -15,7 +15,7 @@ public class BFParticles {
     public static final SimpleParticleType GOLDEN_PETAL = registerParticle("golden_petal", FabricParticleTypes.simple());
 
     private static SimpleParticleType registerParticle(String name, SimpleParticleType particleType) {
-        return Registry.register(Registries.PARTICLE_TYPE, Identifier.of(BountifulFares.MOD_ID, name), particleType);
+        return Registry.register(BuiltInRegistries.PARTICLE_TYPE, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, name), particleType);
     }
     public static void registerParticles() {
 //        BountifulFares.LOGGER.info("Registering Mod Particles for " + BountifulFares.MOD_ID);

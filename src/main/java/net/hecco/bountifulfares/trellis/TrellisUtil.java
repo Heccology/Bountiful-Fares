@@ -9,30 +9,30 @@ import net.hecco.bountifulfares.registry.content.BFTrellises;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
-import net.minecraft.block.Block;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.models.BlockModelGenerators;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static net.hecco.bountifulfares.BountifulFaresUtil.toSentenceCase;
-import static net.minecraft.data.server.recipe.RecipeProvider.conditionsFromItem;
+import static net.minecraft.data.recipes.RecipeProvider.has;
 
 public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
 
 
-    public TrellisUtil(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    public TrellisUtil(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
@@ -70,16 +70,16 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
     }
 
     public static Block registerBlockNoItem(String id, String name, Block block) {
-        return Registry.register(Registries.BLOCK, Identifier.of(id, name), block);
+        return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath(id, name), block);
     }
 
     public static Block registerBlock(String id, String name, Block block) {
         registerBlockItem(id, name, block);
-        return Registry.register(Registries.BLOCK, Identifier.of(id, name), block);
+        return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath(id, name), block);
     }
 
     private static Item registerBlockItem(String id, String name, Block block) {
-        return Registry.register(Registries.ITEM, Identifier.of(id, name), new BlockItem(block, new Item.Settings()));
+        return Registry.register(BuiltInRegistries.ITEM, ResourceLocation.fromNamespaceAndPath(id, name), new BlockItem(block, new Item.Properties()));
     }
 
     public static Block getTrellisFromVariant(TrellisVariant variant) {
@@ -94,7 +94,7 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
         return BFTrellises.DECORATIVE_TRELLISES.get(vine.getName() + variant.getBlockName());
     }
 
-    public static void registerTrellisModels(BlockStateModelGenerator blockStateModelGenerator, TrellisVariant variant) {
+    public static void registerTrellisModels(BlockModelGenerators blockStateModelGenerator, TrellisVariant variant) {
         BFTemplateModels.registerTrellis(blockStateModelGenerator, variant);
         BFTemplateModels.registerCropTrellis(blockStateModelGenerator,
                 TrellisUtil.getCropTrellisFromVariant(variant, BFTrellises.PASSION_FRUIT),
@@ -219,7 +219,7 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
     }
 
     public static void registerTrellisTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder, TrellisVariant trellis) {
-        String temp = toSentenceCase(Registries.ITEM.getId(TrellisUtil.getTrellisFromVariant(trellis).asItem()).getPath());
+        String temp = toSentenceCase(BuiltInRegistries.ITEM.getKey(TrellisUtil.getTrellisFromVariant(trellis).asItem()).getPath());
         translationBuilder.add(TrellisUtil.getTrellisFromVariant(trellis), temp);
         for (VineCrop crop : TrellisUtil.VineCrops) {
             translationBuilder.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), temp);
@@ -229,36 +229,36 @@ public class TrellisUtil extends FabricTagProvider.BlockTagProvider {
         }
     }
 
-    public static void registerTrellisRecipe(RecipeExporter exporter, TrellisVariant trellis) {
+    public static void registerTrellisRecipe(RecipeOutput exporter, TrellisVariant trellis) {
         if (trellis.getCraftingItem() != null) {
-            ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
+            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
                     .pattern("# #")
                     .pattern(" P ")
                     .pattern("# #")
-                    .input('#', Items.STICK)
-                    .input('P', trellis.getCraftingItem())
-                    .criterion("has_stick", conditionsFromItem(Items.STICK))
-                    .criterion("has_planks", conditionsFromItem(trellis.getCraftingItem()))
+                    .define('#', Items.STICK)
+                    .define('P', trellis.getCraftingItem())
+                    .unlockedBy("has_stick", has(Items.STICK))
+                    .unlockedBy("has_planks", has(trellis.getCraftingItem()))
                     .group("trellis")
-                    .offerTo(exporter);
+                    .save(exporter);
         }
     }
 
-    public static void registerCompatTrellisRecipe(RecipeExporter exporter, TrellisVariant trellis) {
-        ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
+    public static void registerCompatTrellisRecipe(RecipeOutput exporter, TrellisVariant trellis) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, TrellisUtil.getTrellisFromVariant(trellis))
                     .pattern("# #")
                     .pattern(" P ")
                     .pattern("# #")
-                    .input('#', Items.STICK)
-                    .input('P', Registries.ITEM.get(trellis.getCraftingItemIdentifier()))
-                    .criterion("has_stick", conditionsFromItem(Items.STICK))
-                    .criterion("has_planks", conditionsFromItem(Registries.ITEM.get(trellis.getCraftingItemIdentifier())))
+                    .define('#', Items.STICK)
+                    .define('P', BuiltInRegistries.ITEM.get(trellis.getCraftingItemIdentifier()))
+                    .unlockedBy("has_stick", has(Items.STICK))
+                    .unlockedBy("has_planks", has(BuiltInRegistries.ITEM.get(trellis.getCraftingItemIdentifier())))
                     .group("trellis")
-                    .offerTo(exporter);
+                    .save(exporter);
     }
 
     @Override
-    protected void configure(RegistryWrapper.WrapperLookup arg) {
+    protected void addTags(HolderLookup.Provider arg) {
 
     }
 }

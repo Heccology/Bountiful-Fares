@@ -14,14 +14,14 @@ import net.hecco.bountifulfares.compat.jei.category.MillingRecipeCategory;
 import net.hecco.bountifulfares.compat.jei.category.PrismarinePropagationCategory;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.annotation.MethodsReturnNonnullByDefault;
+import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 
 @JeiPlugin @MethodsReturnNonnullByDefault @SuppressWarnings("unused")
 public class JEIPlugin implements IModPlugin {
-    private static final Identifier ID = Identifier.of(BountifulFares.MOD_ID, "jei_plugin");
+    private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "jei_plugin");
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
@@ -33,22 +33,22 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(BFRecipeTypes.PRISMARINE_PROPAGATION, ImmutableList.of(new PropagationRecipe()));
 
         //TOOLTIPS
-        registration.addIngredientInfo(new ItemStack(AppledogBlocks.APPLEDOG_BLOCK), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.appledog_block"));
+        registration.addIngredientInfo(new ItemStack(AppledogBlocks.APPLEDOG_BLOCK), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.appledog_block"));
 
-        registration.addIngredientInfo(new ItemStack(BFBlocks.GOLDEN_APPLE_SAPLING), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.golden_apple_sapling"));
-        registration.addIngredientInfo(new ItemStack(BFBlocks.CERAMIC_DISH), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.ceramic_dish"));
-        registration.addIngredientInfo(new ItemStack(BFItems.ARTISAN_BRUSH), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.artisian_brush"));
-        registration.addIngredientInfo(new ItemStack(BFBlocks.PRISMARINE_BLOSSOM), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.prismarine_blossom"));
-        registration.addIngredientInfo(new ItemStack(BFBlocks.FERMENTATION_VESSEL), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.fermentation_vessel"));
-        registration.addIngredientInfo(new ItemStack(BFBlocks.ARTISAN_BREAD), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.artisan_food"));
-        registration.addIngredientInfo(new ItemStack(BFBlocks.ARTISAN_COOKIE), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.artisan_cookie"));
-        registration.addIngredientInfo(new ItemStack(BFBlocks.APPLE_LEAVES), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.fruit_leaves"));
-        registration.addIngredientInfo(new ItemStack(BFBlocks.PLUM_LEAVES), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.fruit_leaves"));
-        registration.addIngredientInfo(new ItemStack(BFBlocks.ORANGE_LEAVES), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.fruit_leaves"));
-        registration.addIngredientInfo(new ItemStack(BFBlocks.LEMON_LEAVES), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.fruit_leaves"));
-        registration.addIngredientInfo(new ItemStack(BFItems.ELDERBERRIES), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.chance_to_heal"));
-        registration.addIngredientInfo(new ItemStack(BFItems.BITTER_CANDY), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.chance_to_heal"));
-        registration.addIngredientInfo(new ItemStack(BFItems.ELDERBERRY_WINE_BOTTLE), VanillaTypes.ITEM_STACK, Text.translatable("jei.info.chance_to_heal"));
+        registration.addIngredientInfo(new ItemStack(BFBlocks.GOLDEN_APPLE_SAPLING), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.golden_apple_sapling"));
+        registration.addIngredientInfo(new ItemStack(BFBlocks.CERAMIC_DISH), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.ceramic_dish"));
+        registration.addIngredientInfo(new ItemStack(BFItems.ARTISAN_BRUSH), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.artisian_brush"));
+        registration.addIngredientInfo(new ItemStack(BFBlocks.PRISMARINE_BLOSSOM), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.prismarine_blossom"));
+        registration.addIngredientInfo(new ItemStack(BFBlocks.FERMENTATION_VESSEL), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.fermentation_vessel"));
+        registration.addIngredientInfo(new ItemStack(BFBlocks.ARTISAN_BREAD), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.artisan_food"));
+        registration.addIngredientInfo(new ItemStack(BFBlocks.ARTISAN_COOKIE), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.artisan_cookie"));
+        registration.addIngredientInfo(new ItemStack(BFBlocks.APPLE_LEAVES), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.fruit_leaves"));
+        registration.addIngredientInfo(new ItemStack(BFBlocks.PLUM_LEAVES), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.fruit_leaves"));
+        registration.addIngredientInfo(new ItemStack(BFBlocks.ORANGE_LEAVES), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.fruit_leaves"));
+        registration.addIngredientInfo(new ItemStack(BFBlocks.LEMON_LEAVES), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.fruit_leaves"));
+        registration.addIngredientInfo(new ItemStack(BFItems.ELDERBERRIES), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.chance_to_heal"));
+        registration.addIngredientInfo(new ItemStack(BFItems.BITTER_CANDY), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.chance_to_heal"));
+        registration.addIngredientInfo(new ItemStack(BFItems.ELDERBERRY_WINE_BOTTLE), VanillaTypes.ITEM_STACK, Component.translatable("jei.info.chance_to_heal"));
     }
 
     @Override
@@ -65,7 +65,7 @@ public class JEIPlugin implements IModPlugin {
     }
 
     @Override
-    public Identifier getPluginUid() {
+    public ResourceLocation getPluginUid() {
         return ID;
     }
 }

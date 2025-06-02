@@ -1,22 +1,22 @@
 package net.hecco.bountifulfares.item.custom;
 
 import net.hecco.bountifulfares.registry.content.BFEffects;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.core.Holder;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GreenTeaBottleItem extends TeaBottleItem{
-    public GreenTeaBottleItem(Settings settings) {
-        super(List.of(new StatusEffectInstance(BFEffects.STUPOR), new StatusEffectInstance(StatusEffects.HUNGER), new StatusEffectInstance(BFEffects.ACIDIC)), settings);
+    public GreenTeaBottleItem(Properties settings) {
+        super(List.of(new MobEffectInstance(BFEffects.STUPOR), new MobEffectInstance(MobEffects.HUNGER), new MobEffectInstance(BFEffects.ACIDIC)), settings);
     }
-    public ArrayList<RegistryEntry<StatusEffect>> getStatusEffectsToRemove() {
-        ArrayList<RegistryEntry<StatusEffect>> list = new ArrayList<>();
+    public ArrayList<Holder<MobEffect>> getStatusEffectsToRemove() {
+        ArrayList<Holder<MobEffect>> list = new ArrayList<>();
         list.add(BFEffects.STUPOR);
-        list.add(StatusEffects.HUNGER);
+        list.add(MobEffects.HUNGER);
         list.add(BFEffects.ACIDIC);
         return list;
     }

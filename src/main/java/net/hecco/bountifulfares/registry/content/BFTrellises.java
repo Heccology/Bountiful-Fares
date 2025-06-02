@@ -4,9 +4,9 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
-import net.minecraft.block.Block;
-import net.minecraft.item.Items;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,7 +74,7 @@ public class BFTrellises {
         if (BountifulFares.isDatagen()) {
             SPAWN_SUNFLOWER = new VineCrop(BountifulFares.SPAWN_MOD_ID, "spawn_sunflower", Items.WHEAT_SEEDS);
         } else if (BountifulFares.isModLoaded(BountifulFares.SPAWN_MOD_ID)) {
-            SPAWN_SUNFLOWER = new VineCrop(BountifulFares.SPAWN_MOD_ID, "spawn_sunflower", Identifier.of(BountifulFares.SPAWN_MOD_ID, "sunflower_seeds"));
+            SPAWN_SUNFLOWER = new VineCrop(BountifulFares.SPAWN_MOD_ID, "spawn_sunflower", ResourceLocation.fromNamespaceAndPath(BountifulFares.SPAWN_MOD_ID, "sunflower_seeds"));
 
         }
 //        Compat Decorative Vines
@@ -87,13 +87,13 @@ public class BFTrellises {
             NS_MARIGOLD = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_marigold", Items.POPPY);
             NS_FOXGLOVE = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_foxglove", Items.POPPY);
         } else if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
-            NS_LAVENDER = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_lavender", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "lavender"));
-            NS_BLEEDING_HEART = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_bleeding_heart", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "bleeding_heart"));
-            NS_BLUE_BULB = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_blue_bulb", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "blue_bulbs"));
-            NS_CARNATION = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_carnation", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "carnation"));
-            NS_GARDENIA = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_gardenia", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "gardenia"));
-            NS_MARIGOLD = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_marigold", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "marigold"));
-            NS_FOXGLOVE = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_foxglove", Identifier.of(BountifulFares.NATURES_SPIRIT_MOD_ID, "foxglove"));
+            NS_LAVENDER = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_lavender", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "lavender"));
+            NS_BLEEDING_HEART = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_bleeding_heart", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "bleeding_heart"));
+            NS_BLUE_BULB = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_blue_bulb", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "blue_bulbs"));
+            NS_CARNATION = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_carnation", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "carnation"));
+            NS_GARDENIA = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_gardenia", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "gardenia"));
+            NS_MARIGOLD = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_marigold", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "marigold"));
+            NS_FOXGLOVE = new DecorativeVine(true, BountifulFares.NATURES_SPIRIT_MOD_ID, "ns_foxglove", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "foxglove"));
         }
 
 

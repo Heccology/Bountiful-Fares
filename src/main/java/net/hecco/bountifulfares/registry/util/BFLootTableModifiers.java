@@ -3,55 +3,53 @@ package net.hecco.bountifulfares.registry.util;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.TallPlantBlock;
-import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.Item;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.LootTables;
-import net.minecraft.loot.condition.*;
-import net.minecraft.loot.entry.EmptyEntry;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LootPoolEntry;
-import net.minecraft.loot.function.ApplyBonusLootFunction;
-import net.minecraft.loot.function.ExplosionDecayLootFunction;
-import net.minecraft.loot.function.SetCountLootFunction;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.predicate.BlockPredicate;
-import net.minecraft.predicate.StatePredicate;
-import net.minecraft.predicate.TagPredicate;
-import net.minecraft.predicate.entity.LocationPredicate;
-import net.minecraft.predicate.item.ItemPredicate;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.advancements.critereon.BlockPredicate;
+import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.LocationPredicate;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.EmptyLootItem;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.*;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 import java.util.List;
 
-import static net.minecraft.data.server.loottable.BlockLootTableGenerator.WITH_SHEARS;
+import static net.minecraft.data.loot.BlockLootSubProvider.HAS_SHEARS;
 
 public class BFLootTableModifiers {
 
-    private static final RegistryKey<LootTable> SHORT_GRASS_ID = Blocks.SHORT_GRASS.getLootTableKey();
-    private static final RegistryKey<LootTable> TALL_GRASS_ID = Blocks.TALL_GRASS.getLootTableKey();
-    private static final RegistryKey<LootTable> FERN_ID = Blocks.FERN.getLootTableKey();
-    private static final RegistryKey<LootTable> LARGE_FERN_ID = Blocks.LARGE_FERN.getLootTableKey();
+    private static final ResourceKey<LootTable> SHORT_GRASS_ID = Blocks.SHORT_GRASS.getLootTable();
+    private static final ResourceKey<LootTable> TALL_GRASS_ID = Blocks.TALL_GRASS.getLootTable();
+    private static final ResourceKey<LootTable> FERN_ID = Blocks.FERN.getLootTable();
+    private static final ResourceKey<LootTable> LARGE_FERN_ID = Blocks.LARGE_FERN.getLootTable();
 
-    private static final RegistryKey<LootTable> GUARDIAN_ID = RegistryKey.of(
-            RegistryKeys.LOOT_TABLE, Identifier.ofVanilla("entities/guardian"));
-    private static final RegistryKey<LootTable> ELDER_GUARDIAN_ID = RegistryKey.of(
-            RegistryKeys.LOOT_TABLE, Identifier.ofVanilla("entities/elder_guardian"));
+    private static final ResourceKey<LootTable> GUARDIAN_ID = ResourceKey.create(
+            Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/guardian"));
+    private static final ResourceKey<LootTable> ELDER_GUARDIAN_ID = ResourceKey.create(
+            Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/elder_guardian"));
 
-    private static final RegistryKey<LootTable> SNIFFER_DIGGING_ID = LootTables.SNIFFER_DIGGING_GAMEPLAY;
+    private static final ResourceKey<LootTable> SNIFFER_DIGGING_ID = BuiltInLootTables.SNIFFER_DIGGING;
 
     public static void modifyLootTables() {
         // Prefetch all config settings for easier read
@@ -115,31 +113,31 @@ public class BFLootTableModifiers {
 
                 // Lapisberries
                 if (do_lapisberries) tableBuilder.modifyPools(itemEntry -> {
-                    itemEntry.with((ItemEntry.builder(BFItems.LAPISBERRY_SEEDS)).build());
+                    itemEntry.with((LootItem.lootTableItem(BFItems.LAPISBERRY_SEEDS)).build());
                 });
 
                 // Hoary Seeds
                 if (do_hoaryseeds) tableBuilder.modifyPools(itemEntry -> {
-                    itemEntry.with((ItemEntry.builder(BFItems.HOARY_SEEDS)).build());
+                    itemEntry.with((LootItem.lootTableItem(BFItems.HOARY_SEEDS)).build());
                 });
             }
         });
         // Elder Guardian
         LootTableEvents.MODIFY.register((key, original, source, wrapperLookup) -> {
             if (ELDER_GUARDIAN_ID.equals(key) && do_spongekinseed_elderguardian) {
-                original.pool(LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1.0F))
-                        .with(ItemEntry.builder(BFItems.SPONGEKIN_SEEDS))
+                original.withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(BFItems.SPONGEKIN_SEEDS))
                 );
             }
         });
         // Guardian
         LootTableEvents.MODIFY.register((key, original, source, wrapperLookup) -> {
             if (GUARDIAN_ID.equals(key) && do_spongekinseed_guardian) {
-                original.pool(LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1.0F))
-                        .with(ItemEntry.builder(BFItems.SPONGEKIN_SEEDS).weight(1))
-                        .with(EmptyEntry.builder().weight(5))
+                original.withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(BFItems.SPONGEKIN_SEEDS).setWeight(1))
+                        .add(EmptyLootItem.emptyItem().setWeight(5))
                 );
             }
         });
@@ -147,62 +145,62 @@ public class BFLootTableModifiers {
 
     @Deprecated
     private static LootTable mergePools(LootTable lootTable, LootPool lootPool) {
-        lootPool = LootPool.builder().with(lootTable.pools.getFirst().entries).with(lootPool.entries).build();
-        return LootTable.builder().pools(List.of(lootPool)).build();
+        lootPool = LootPool.lootPool().with(lootTable.pools.getFirst().entries).with(lootPool.entries).build();
+        return LootTable.lootTable().pools(List.of(lootPool)).build();
     }
 
     /** A hacky, yet functional method of rebuilding short grass drops. Contains an input for the seed to drop as well. */
-    public static LootTable.Builder newGrassDropsShort(Block grass, Item seed, RegistryWrapper.WrapperLookup wrapper) {
+    public static LootTable.Builder newGrassDropsShort(Block grass, Item seed, HolderLookup.Provider wrapper) {
 
-        RegistryWrapper.Impl<Enchantment> impl = wrapper.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        HolderLookup.RegistryLookup<Enchantment> impl = wrapper.lookupOrThrow(Registries.ENCHANTMENT);
 
-        return LootTable.builder().pool(LootPool.builder()
-                .rolls(ConstantLootNumberProvider.create(1.0F))
-                .with(ItemEntry.builder(grass)
-                                .conditionally(WITH_SHEARS)
-                                .alternatively(ItemEntry.builder(seed)
-                                        .conditionally(RandomChanceLootCondition.builder(0.125F))
-                                        .apply(ExplosionDecayLootFunction.builder())
-                                        .apply(ApplyBonusLootFunction.uniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE), 2)))
+        return LootTable.lootTable().withPool(LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1.0F))
+                .add(LootItem.lootTableItem(grass)
+                                .when(HAS_SHEARS)
+                                .otherwise(LootItem.lootTableItem(seed)
+                                        .when(LootItemRandomChanceCondition.randomChance(0.125F))
+                                        .apply(ApplyExplosionDecay.explosionDecay())
+                                        .apply(ApplyBonusCount.addUniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE), 2)))
                 )
         );
     }
 
     /** A method of rebuilding tall grass drops. Contains an input for the seed to drop as well. */
     public static LootTable.Builder newGrassDropsTall(Block tallPlant, Block shortPlant, Item seed) {
-        LootPoolEntry.Builder<?> builder = ItemEntry.builder(shortPlant)
-                .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F)))
-                .conditionally(WITH_SHEARS)
-                .alternatively(
-                        (ItemEntry.builder(seed)
-                                .conditionally(SurvivesExplosionLootCondition.builder())
-                                .conditionally(RandomChanceLootCondition.builder(0.125F)))
+        LootPoolEntryContainer.Builder<?> builder = LootItem.lootTableItem(shortPlant)
+                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))
+                .when(HAS_SHEARS)
+                .otherwise(
+                        (LootItem.lootTableItem(seed)
+                                .when(ExplosionCondition.survivesExplosion())
+                                .when(LootItemRandomChanceCondition.randomChance(0.125F)))
                 );
-        return LootTable.builder()
-                .pool(
-                        LootPool.builder()
-                                .with(builder)
-                                .conditionally(
-                                        BlockStatePropertyLootCondition.builder(tallPlant).properties(StatePredicate.Builder.create().exactMatch(TallPlantBlock.HALF, DoubleBlockHalf.LOWER))
+        return LootTable.lootTable()
+                .withPool(
+                        LootPool.lootPool()
+                                .add(builder)
+                                .when(
+                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(tallPlant).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER))
                                 )
-                                .conditionally(
-                                        LocationCheckLootCondition.builder(
-                                                LocationPredicate.Builder.create()
-                                                        .block(BlockPredicate.Builder.create().blocks(tallPlant).state(StatePredicate.Builder.create().exactMatch(TallPlantBlock.HALF, DoubleBlockHalf.UPPER))),
+                                .when(
+                                        LocationCheck.checkLocation(
+                                                LocationPredicate.Builder.location()
+                                                        .setBlock(BlockPredicate.Builder.block().of(tallPlant).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER))),
                                                 new BlockPos(0, 1, 0)
                                         )
                                 )
                 )
-                .pool(
-                        LootPool.builder()
-                                .with(builder)
-                                .conditionally(
-                                        BlockStatePropertyLootCondition.builder(tallPlant).properties(StatePredicate.Builder.create().exactMatch(TallPlantBlock.HALF, DoubleBlockHalf.UPPER))
+                .withPool(
+                        LootPool.lootPool()
+                                .add(builder)
+                                .when(
+                                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(tallPlant).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER))
                                 )
-                                .conditionally(
-                                        LocationCheckLootCondition.builder(
-                                                LocationPredicate.Builder.create()
-                                                        .block(BlockPredicate.Builder.create().blocks(tallPlant).state(StatePredicate.Builder.create().exactMatch(TallPlantBlock.HALF, DoubleBlockHalf.LOWER))),
+                                .when(
+                                        LocationCheck.checkLocation(
+                                                LocationPredicate.Builder.location()
+                                                        .setBlock(BlockPredicate.Builder.block().of(tallPlant).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER))),
                                                 new BlockPos(0, -1, 0)
                                         )
                                 )
@@ -212,11 +210,11 @@ public class BFLootTableModifiers {
     /** Reimplements straw grabbing in FD. Lazy workaround, but the disabling of the feature entirely still works. */
     public static LootTable.Builder addFDStraw(LootTable.Builder builder)
     {
-        return builder.pool(LootPool.builder()
-                .with(ItemEntry.builder(Registries.ITEM.get(Identifier.of(BountifulFares.FARMERS_DELIGHT_MOD_ID, "straw")))
-                        .conditionally(RandomChanceLootCondition.builder(0.2F))
-                        .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(
-                                TagKey.of(RegistryKeys.ITEM, Identifier.of(BountifulFares.FARMERS_DELIGHT_MOD_ID, "straw_harvesters")))
+        return builder.withPool(LootPool.lootPool()
+                .add(LootItem.lootTableItem(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(BountifulFares.FARMERS_DELIGHT_MOD_ID, "straw")))
+                        .when(LootItemRandomChanceCondition.randomChance(0.2F))
+                        .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(
+                                TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BountifulFares.FARMERS_DELIGHT_MOD_ID, "straw_harvesters")))
                                 )
                         )
                 )

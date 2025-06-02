@@ -1,26 +1,26 @@
 package net.hecco.bountifulfares.item.custom;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 
 import java.util.List;
 
 public class OPStewItem extends StackableBowlFoodItem{
-    public OPStewItem(Settings settings) {
+    public OPStewItem(Properties settings) {
         super(settings);
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        super.appendTooltip(stack, context, tooltip, type);
-        tooltip.add(Text.literal("Perfectly balanced!").formatted(Formatting.GREEN).formatted(Formatting.ITALIC));
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
+        super.appendHoverText(stack, context, tooltip, type);
+        tooltip.add(Component.literal("Perfectly balanced!").withStyle(ChatFormatting.GREEN).withStyle(ChatFormatting.ITALIC));
     }
 
-    public SoundEvent getEatSound() {
-        return SoundEvents.BLOCK_GRAVEL_HIT;
+    public SoundEvent getEatingSound() {
+        return SoundEvents.GRAVEL_HIT;
     }
 }

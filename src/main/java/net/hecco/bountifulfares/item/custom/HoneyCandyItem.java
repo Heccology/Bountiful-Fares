@@ -1,22 +1,22 @@
 package net.hecco.bountifulfares.item.custom;
 
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.core.Holder;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HoneyCandyItem extends EffectClearingItem {
-    public HoneyCandyItem(Settings settings) {
-        super(List.of(new StatusEffectInstance(StatusEffects.POISON)), settings);
+    public HoneyCandyItem(Properties settings) {
+        super(List.of(new MobEffectInstance(MobEffects.POISON)), settings);
     }
 
     @Override
-    public ArrayList<RegistryEntry<StatusEffect>> getStatusEffectsToRemove() {
-        ArrayList<RegistryEntry<StatusEffect>> list = new ArrayList<>();
-        list.add(StatusEffects.POISON);
+    public ArrayList<Holder<MobEffect>> getStatusEffectsToRemove() {
+        ArrayList<Holder<MobEffect>> list = new ArrayList<>();
+        list.add(MobEffects.POISON);
         return list;
     }
 }

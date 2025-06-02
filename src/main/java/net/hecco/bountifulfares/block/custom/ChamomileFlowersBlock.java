@@ -1,19 +1,20 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.minecraft.block.*;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.WorldView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.PinkPetalsBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class ChamomileFlowersBlock extends FlowerbedBlock implements Fertilizable {
-    public ChamomileFlowersBlock(Settings settings) {
+public class ChamomileFlowersBlock extends PinkPetalsBlock implements BonemealableBlock {
+    public ChamomileFlowersBlock(Properties settings) {
         super(settings);
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
-        return world.getBlockState(pos.down()).getBlock() instanceof FarmlandBlock;
+    public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state) {
+        return world.getBlockState(pos.below()).getBlock() instanceof FarmBlock;
     }
 
     // Unnecessary - `isFertilizable` will make sure the super method can only run on Farmland anyway. - Artyrian

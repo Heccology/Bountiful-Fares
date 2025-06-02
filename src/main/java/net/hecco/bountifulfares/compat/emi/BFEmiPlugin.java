@@ -15,15 +15,11 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.misc.BFRecipes;
 import net.hecco.bountifulfares.registry.misc.BFScreenHandlers;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
-import net.minecraft.item.Item;
-import net.minecraft.recipe.CraftingRecipe;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeEntry;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.input.RecipeInput;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.registry.tag.TagKey;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.*;
 
 import java.util.List;
 import java.util.Set;
@@ -34,10 +30,10 @@ import java.util.stream.Stream;
 public class BFEmiPlugin implements EmiPlugin {
 
     Set<Item> hiddenItems = Stream.concat(
-            EmiUtil.values(TagKey.of(EmiPort.getItemRegistry().getKey(), EmiTags.HIDDEN_FROM_RECIPE_VIEWERS)).map(RegistryEntry::value),
+            EmiUtil.values(TagKey.create(EmiPort.getItemRegistry().key(), EmiTags.HIDDEN_FROM_RECIPE_VIEWERS)).map(Holder::value),
             EmiPort.getDisabledItems()
     ).collect(Collectors.toSet());
-    List<Item> dyeableCeramicItems = EmiUtil.values(BFItemTags.DYEABLE_CERAMIC_BLOCKS).map(RegistryEntry::value).collect(Collectors.toList());
+    List<Item> dyeableCeramicItems = EmiUtil.values(BFItemTags.DYEABLE_CERAMIC_BLOCKS).map(Holder::value).collect(Collectors.toList());
 
     @Override
     public void register(EmiRegistry registry) {
@@ -70,7 +66,7 @@ public class BFEmiPlugin implements EmiPlugin {
     }
 
     private static <C extends RecipeInput, T extends Recipe<C>> Iterable<T> getRecipes(EmiRegistry registry, RecipeType<T> type) {
-        return registry.getRecipeManager().listAllOfType(type).stream().map(RecipeEntry::value)::iterator;
+        return registry.getRecipeManager().getAllRecipesFor(type).stream().map(RecipeHolder::value)::iterator;
     }
 
     private static void addRecipeSafe(EmiRegistry registry, Supplier<EmiRecipe> supplier, Recipe<?> recipe) {
@@ -91,7 +87,7 @@ public class BFEmiPlugin implements EmiPlugin {
         }
     }
 
-    private static Identifier synthetic(String type, String name) {
+    private static ResourceLocation synthetic(String type, String name) {
         return EmiPort.id("bountifulfares", "/" + type + "/" + name);
     }
 }

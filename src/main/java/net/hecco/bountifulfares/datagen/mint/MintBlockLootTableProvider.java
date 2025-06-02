@@ -11,34 +11,33 @@ import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
-import net.minecraft.block.Block;
-import net.minecraft.block.enums.DoubleBlockHalf;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.LootTable;
-import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
-import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.predicate.StatePredicate;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
-
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
 
 public class MintBlockLootTableProvider extends FabricBlockLootTableProvider {
-    public MintBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    public MintBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, registryLookup);
     }
 
     public static final ArrayList<Block> usedBlocks = new ArrayList<>();
 
     @Override
-    public void addDrop(Block block, LootTable.Builder lootTable) {
+    public void add(Block block, LootTable.Builder lootTable) {
         if(usedBlocks.contains(block)) {
             return;
         }
-        super.addDrop(block, lootTable);
+        super.add(block, lootTable);
         usedBlocks.add(block);
     }
 
@@ -67,48 +66,48 @@ public class MintBlockLootTableProvider extends FabricBlockLootTableProvider {
         picketsDrops(MintBlocks.WINTERGREEN_PICKETS);
         registerTrellisLootTables(MintBlocks.WINTERGREEN);
 
-        for(Identifier id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
-            Block block = Registries.BLOCK.get(id);
+        for(ResourceLocation id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
+            Block block = BuiltInRegistries.BLOCK.get(id);
             if(usedBlocks.contains(block)) { continue; }
-            this.addDrop(block);
+            this.dropSelf(block);
         }
     }
 
     public void registerTrellisLootTables(TrellisVariant trellis) {
-        this.addDrop(TrellisUtil.getTrellisFromVariant(trellis));
+        this.dropSelf(TrellisUtil.getTrellisFromVariant(trellis));
         for (VineCrop crop : TrellisUtil.VineCrops) {
-            this.addDrop(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootTable.builder()
-                    .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                            .with(this.applyExplosionDecay(TrellisUtil.getCropTrellisFromVariant(trellis, crop), ItemEntry.builder(TrellisUtil.getTrellisFromVariant(trellis))))));
+            this.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootTable.lootTable()
+                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                            .add(this.applyExplosionDecay(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootItem.lootTableItem(TrellisUtil.getTrellisFromVariant(trellis))))));
         }
         for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
-            this.addDrop(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootTable.builder()
-                    .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                            .with(this.applyExplosionDecay(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), ItemEntry.builder(TrellisUtil.getTrellisFromVariant(trellis))))));
+            this.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootTable.lootTable()
+                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                            .add(this.applyExplosionDecay(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootItem.lootTableItem(TrellisUtil.getTrellisFromVariant(trellis))))));
         }
     }
 
     public void picketsDrops(Block block) {
-        this.addDrop(block, LootTable.builder()
-                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(BlockStatePropertyLootCondition.builder(block)
-                                .properties(StatePredicate.Builder.create().exactMatch(PicketsBlock.NORTH, true)))
-                        .with(this.applyExplosionDecay(block, ItemEntry.builder(block))))
-                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(BlockStatePropertyLootCondition.builder(block)
-                                .properties(StatePredicate.Builder.create().exactMatch(PicketsBlock.EAST, true)))
-                        .with(this.applyExplosionDecay(block, ItemEntry.builder(block))))
-                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(BlockStatePropertyLootCondition.builder(block)
-                                .properties(StatePredicate.Builder.create().exactMatch(PicketsBlock.SOUTH, true)))
-                        .with(this.applyExplosionDecay(block, ItemEntry.builder(block))))
-                .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
-                        .conditionally(BlockStatePropertyLootCondition.builder(block)
-                                .properties(StatePredicate.Builder.create().exactMatch(PicketsBlock.WEST, true)))
-                        .with(this.applyExplosionDecay(block, ItemEntry.builder(block)))));
+        this.add(block, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PicketsBlock.NORTH, true)))
+                        .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block))))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PicketsBlock.EAST, true)))
+                        .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block))))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PicketsBlock.SOUTH, true)))
+                        .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block))))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PicketsBlock.WEST, true)))
+                        .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block)))));
     }
 
     public void jackOStrawDrops(Block block) {
-        this.addDrop(block, this.dropsWithProperty(block, JackOStrawBlock.HALF, DoubleBlockHalf.LOWER));
+        this.add(block, this.createSinglePropConditionTable(block, JackOStrawBlock.HALF, DoubleBlockHalf.LOWER));
     }
 }

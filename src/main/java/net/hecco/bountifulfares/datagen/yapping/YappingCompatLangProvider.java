@@ -2,20 +2,17 @@ package net.hecco.bountifulfares.datagen.yapping;
 
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
 public class YappingCompatLangProvider {
 
     public static void generate(FabricLanguageProvider.TranslationBuilder builder, Block block, String tooltip) {
-        builder.add("yapping_tooltips." + block.getTranslationKey() + ".desc", tooltip);
+        builder.add("yapping_tooltips." + block.getDescriptionId() + ".desc", tooltip);
     }
 
     public static void generate(FabricLanguageProvider.TranslationBuilder builder, Item item, String tooltip) {
-        builder.add("yapping_tooltips." + item.getTranslationKey() + ".desc", tooltip);
+        builder.add("yapping_tooltips." + item.getDescriptionId() + ".desc", tooltip);
     }
 
     public static void generateTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder) {

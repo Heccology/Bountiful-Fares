@@ -1,10 +1,10 @@
 package net.hecco.bountifulfares.compat;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 
 import static net.hecco.bountifulfares.BountifulFares.*;
 
@@ -12,7 +12,7 @@ import static net.hecco.bountifulfares.BountifulFares.*;
 public class DatagenOnlyItems {
     private static void registerDatagenOnlyItem(String modId, String name) {
         if (BountifulFares.isDatagen()) {
-            Registry.register(Registries.ITEM, Identifier.of(modId, name), new Item(new Item.Settings()));
+            Registry.register(BuiltInRegistries.ITEM, ResourceLocation.fromNamespaceAndPath(modId, name), new Item(new Item.Properties()));
         }
     }
 

@@ -1,58 +1,56 @@
 package net.hecco.bountifulfares.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.registry.content.BFEffects;
-import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.component.type.PotionContentsComponent;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.screen.ScreenTexts;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.world.World;
+import net.minecraft.ChatFormatting;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.Holder;
+import net.minecraft.network.chat.CommonComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class EffectClearingItem extends Item {
-    protected List<StatusEffectInstance> removedEffects;
+    protected List<MobEffectInstance> removedEffects;
 
-    public EffectClearingItem(List<StatusEffectInstance> removedEffects, Settings settings) {
+    public EffectClearingItem(List<MobEffectInstance> removedEffects, Properties settings) {
         super(settings);
         this.removedEffects = removedEffects;
     }
 
-    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        super.finishUsing(stack, world, user);
-        if (user instanceof ServerPlayerEntity serverPlayerEntity) {
-            Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
-            serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
-            for (RegistryEntry<StatusEffect> effect : getStatusEffectsToRemove()) {
-                user.removeStatusEffect(effect);
+    public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity user) {
+        super.finishUsingItem(stack, world, user);
+        if (user instanceof ServerPlayer serverPlayerEntity) {
+            CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
+            serverPlayerEntity.awardStat(Stats.ITEM_USED.get(this));
+            for (Holder<MobEffect> effect : getStatusEffectsToRemove()) {
+                user.removeEffect(effect);
             }
         }
         return stack;
     }
 
-    public ArrayList<RegistryEntry<StatusEffect>> getStatusEffectsToRemove() {
+    public ArrayList<Holder<MobEffect>> getStatusEffectsToRemove() {
         return new ArrayList<>();
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        super.appendTooltip(stack, context, tooltip, type);
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
+        super.appendHoverText(stack, context, tooltip, type);
         if (BountifulFares.CONFIG.effectTooltips) {
-            tooltip.add(ScreenTexts.EMPTY);
-            tooltip.add(Text.translatable("tooltip.bountifulfares.removes").formatted(Formatting.GRAY));
-            for (StatusEffectInstance effect : removedEffects) {
-                tooltip.add(Text.translatable(effect.getTranslationKey().formatted(effect.getEffectType().value().getCategory().getFormatting())).formatted(Formatting.RED));
+            tooltip.add(CommonComponents.EMPTY);
+            tooltip.add(Component.translatable("tooltip.bountifulfares.removes").withStyle(ChatFormatting.GRAY));
+            for (MobEffectInstance effect : removedEffects) {
+                tooltip.add(Component.translatable(effect.getDescriptionId().formatted(effect.getEffect().value().getCategory().getTooltipFormatting())).withStyle(ChatFormatting.RED));
             }
         }
     }

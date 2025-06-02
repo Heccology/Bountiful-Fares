@@ -1,13 +1,13 @@
 package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.level.block.SoundType;
 
 public class BFSounds {
 
@@ -65,32 +65,32 @@ public class BFSounds {
     public static final SoundEvent POPPED_MAIZE_POP = registerSoundEvent("popped_maize_pop");
 
     // Fallback sounds for FD sounds
-    public static SoundEvent CABINET_OPEN = SoundEvents.BLOCK_BARREL_OPEN;
-    public static SoundEvent CABINET_CLOSE = SoundEvents.BLOCK_BARREL_CLOSE;
+    public static SoundEvent CABINET_OPEN = SoundEvents.BARREL_OPEN;
+    public static SoundEvent CABINET_CLOSE = SoundEvents.BARREL_CLOSE;
 
     // Note Block sounds MUST be registered as a RegistryEntry<SoundEvent>! Using registerSoundReference() will do this.
     // The below sound is used in the example in NoteBlockInstrumentMixin. It can be deleted if necessary.
-     public static final RegistryEntry<SoundEvent> NOTE_BLOCK_OCARINA = registerSoundReference("ocarina");
-     public static final RegistryEntry<SoundEvent> NOTE_BLOCK_OLD_PIANO = registerSoundReference("old_piano");
-     public static final RegistryEntry<SoundEvent> NOTE_BLOCK_STEEL_DRUM = registerSoundReference("steel_drum");
+     public static final Holder<SoundEvent> NOTE_BLOCK_OCARINA = registerSoundReference("ocarina");
+     public static final Holder<SoundEvent> NOTE_BLOCK_OLD_PIANO = registerSoundReference("old_piano");
+     public static final Holder<SoundEvent> NOTE_BLOCK_STEEL_DRUM = registerSoundReference("steel_drum");
 
-    public static final BlockSoundGroup CERAMIC_TILES = new BlockSoundGroup(1f, 1f, CERAMIC_TILES_BREAK, CERAMIC_TILES_STEP, CERAMIC_TILES_PLACE, CERAMIC_TILES_HIT, CERAMIC_TILES_FALL);
-    public static final BlockSoundGroup CERAMIC_DECORATION = new BlockSoundGroup(1f, 1f, CERAMIC_DECORATION_BREAK, CERAMIC_DECORATION_STEP, CERAMIC_DECORATION_PLACE, CERAMIC_DECORATION_HIT, CERAMIC_DECORATION_FALL);
-    public static final BlockSoundGroup LIGHT_WOOD = new BlockSoundGroup(1f, 1.1f, LIGHT_WOOD_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
-    public static final BlockSoundGroup JACK_O_STRAW = new BlockSoundGroup(1f, 1f, JACK_O_STRAW_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
-    public static final BlockSoundGroup SILENT = new BlockSoundGroup(1f, 1f, SoundEvents.INTENTIONALLY_EMPTY, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
-    public static final BlockSoundGroup PLANTED_TRELLIS = new BlockSoundGroup(1f, 1.1f, PLANTED_TRELLIS_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
-    public static final BlockSoundGroup SPONGEKIN = new BlockSoundGroup(1f, 1.1f, SPONGEKIN_BREAK, SPONGEKIN_STEP, SPONGEKIN_PLACE, SoundEvents.BLOCK_WOOD_HIT, SoundEvents.BLOCK_WOOD_FALL);
-    public static final BlockSoundGroup COIR = new BlockSoundGroup(1f, 1f, COIR_BREAK, COIR_STEP, COIR_PLACE, COIR_HIT, COIR_FALL);
+    public static final SoundType CERAMIC_TILES = new SoundType(1f, 1f, CERAMIC_TILES_BREAK, CERAMIC_TILES_STEP, CERAMIC_TILES_PLACE, CERAMIC_TILES_HIT, CERAMIC_TILES_FALL);
+    public static final SoundType CERAMIC_DECORATION = new SoundType(1f, 1f, CERAMIC_DECORATION_BREAK, CERAMIC_DECORATION_STEP, CERAMIC_DECORATION_PLACE, CERAMIC_DECORATION_HIT, CERAMIC_DECORATION_FALL);
+    public static final SoundType LIGHT_WOOD = new SoundType(1f, 1.1f, LIGHT_WOOD_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
+    public static final SoundType JACK_O_STRAW = new SoundType(1f, 1f, JACK_O_STRAW_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
+    public static final SoundType SILENT = new SoundType(1f, 1f, SoundEvents.EMPTY, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
+    public static final SoundType PLANTED_TRELLIS = new SoundType(1f, 1.1f, PLANTED_TRELLIS_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
+    public static final SoundType SPONGEKIN = new SoundType(1f, 1.1f, SPONGEKIN_BREAK, SPONGEKIN_STEP, SPONGEKIN_PLACE, SoundEvents.WOOD_HIT, SoundEvents.WOOD_FALL);
+    public static final SoundType COIR = new SoundType(1f, 1f, COIR_BREAK, COIR_STEP, COIR_PLACE, COIR_HIT, COIR_FALL);
 
-    private static RegistryEntry.Reference<SoundEvent> registerSoundReference(String name) {
-        Identifier id = Identifier.of(BountifulFares.MOD_ID, name);
-        return Registry.registerReference(Registries.SOUND_EVENT, id, SoundEvent.of(id));
+    private static Holder.Reference<SoundEvent> registerSoundReference(String name) {
+        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, name);
+        return Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(id));
     }
 
     public static SoundEvent registerSoundEvent(String name) {
-        Identifier identifier = Identifier.of(BountifulFares.MOD_ID, name);
-        return Registry.register(Registries.SOUND_EVENT, identifier, SoundEvent.of(identifier));
+        ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, name);
+        return Registry.register(BuiltInRegistries.SOUND_EVENT, identifier, SoundEvent.createVariableRangeEvent(identifier));
     }
     public static void registerSounds() {
     }

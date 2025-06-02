@@ -4,25 +4,25 @@ import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFParticles;
 import net.hecco.bountifulfares.registry.content.BFSounds;
-import net.minecraft.entity.EntityStatuses;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
-import net.minecraft.item.Item;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.util.hit.HitResult;
-import net.minecraft.world.World;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.EntityEvent;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.HitResult;
 
-public class FlourProjectileEntity extends ThrownItemEntity {
-    public FlourProjectileEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
+public class FlourProjectileEntity extends ThrowableItemProjectile {
+    public FlourProjectileEntity(EntityType<? extends ThrowableItemProjectile> entityType, Level world) {
         super(entityType, world);
     }
 
-    public FlourProjectileEntity(LivingEntity livingEntity, World world) {
+    public FlourProjectileEntity(LivingEntity livingEntity, Level world) {
         super(BFEntities.THROWN_FLOUR_PROJECTILE, livingEntity, world);
     }
 
-    public FlourProjectileEntity(World world, double x, double y, double z) {
+    public FlourProjectileEntity(Level world, double x, double y, double z) {
         super(BFEntities.THROWN_FLOUR_PROJECTILE, x, y, z, world);
     }
 
@@ -33,30 +33,30 @@ public class FlourProjectileEntity extends ThrownItemEntity {
 
 
     @Override
-    protected void onCollision(HitResult hitResult) {
-        super.onCollision(hitResult);
-        World world = this.getWorld();
-        if (!world.isClient()) {
-            world.sendEntityStatus(this, EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES);
+    protected void onHit(HitResult hitResult) {
+        super.onHit(hitResult);
+        Level world = this.level();
+        if (!world.isClientSide()) {
+            world.broadcastEntityEvent(this, EntityEvent.DEATH);
         }
-        this.getWorld().playSound(null, this.getBlockPos(), BFSounds.FLOUR_LAND, SoundCategory.BLOCKS, 1.0f, 0.9f + world.random.nextFloat()/4);
+        this.level().playSound(null, this.blockPosition(), BFSounds.FLOUR_LAND, SoundSource.BLOCKS, 1.0f, 0.9f + world.random.nextFloat()/4);
 
-        if (world.isClient()) {
+        if (world.isClientSide()) {
             return;
         }
-        if (!this.getWorld().isClient && !this.isRemoved()) {
+        if (!this.level().isClientSide && !this.isRemoved()) {
             this.discard();
         }
     }
 
     @Override
-    public void handleStatus(byte status) {
-        if (status == EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES) {
+    public void handleEntityEvent(byte status) {
+        if (status == EntityEvent.DEATH) {
             for (int x = 0; x < 16; ++x) {
-                this.getWorld().addParticle(BFParticles.FLOUR_CLOUD, this.getX()+this.getWorld().random.nextFloat(), this.getY()+this.getWorld().random.nextFloat(), this.getZ()+this.getWorld().random.nextFloat(), this.getWorld().random.nextGaussian()/16 + this.getVelocity().getX(), this.getWorld().random.nextFloat()/8, this.getWorld().random.nextGaussian()/16 + this.getVelocity().getZ());
+                this.level().addParticle(BFParticles.FLOUR_CLOUD, this.getX()+this.level().random.nextFloat(), this.getY()+this.level().random.nextFloat(), this.getZ()+this.level().random.nextFloat(), this.level().random.nextGaussian()/16 + this.getDeltaMovement().x(), this.level().random.nextFloat()/8, this.level().random.nextGaussian()/16 + this.getDeltaMovement().z());
             }
             for (int x = 0; x < 16; ++x) {
-                this.getWorld().addImportantParticle(BFParticles.FLOUR_CLOUD, this.getX()+this.getWorld().random.nextFloat(), this.getY()+this.getWorld().random.nextFloat(), this.getZ()+this.getWorld().random.nextFloat(), this.getWorld().random.nextGaussian()/16 + this.getVelocity().getX(), this.getWorld().random.nextFloat()/8, this.getWorld().random.nextGaussian()/16 + this.getVelocity().getZ());
+                this.level().addAlwaysVisibleParticle(BFParticles.FLOUR_CLOUD, this.getX()+this.level().random.nextFloat(), this.getY()+this.level().random.nextFloat(), this.getZ()+this.level().random.nextFloat(), this.level().random.nextGaussian()/16 + this.getDeltaMovement().x(), this.level().random.nextFloat()/8, this.level().random.nextGaussian()/16 + this.getDeltaMovement().z());
             }
         }
     }

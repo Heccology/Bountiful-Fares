@@ -8,9 +8,9 @@
 
 package net.hecco.bountifulfares.compat;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
 public class AzuruneCompatUtil {
     /**
@@ -20,17 +20,17 @@ public class AzuruneCompatUtil {
      */
     public static Item createCompatibilityItem(String string) {
         try {
-            return (Item) Class.forName(string).getConstructor(Item.Settings.class).newInstance(new Item.Settings());
+            return (Item) Class.forName(string).getConstructor(Item.Properties.class).newInstance(new Item.Properties());
         } catch (Exception exception) {
-            return new Item(new Item.Settings());
+            return new Item(new Item.Properties());
         }
     }
 
     public static Block createCompatibilityBlock(String string) {
         try {
-            return (Block) Class.forName(string).getConstructor(AbstractBlock.Settings.class).newInstance(AbstractBlock.Settings.create());
+            return (Block) Class.forName(string).getConstructor(BlockBehaviour.Properties.class).newInstance(BlockBehaviour.Properties.of());
         } catch (Exception exception) {
-            return new Block(AbstractBlock.Settings.create());
+            return new Block(BlockBehaviour.Properties.of());
         }
     }
 }

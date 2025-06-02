@@ -2,27 +2,24 @@ package net.hecco.bountifulfares.datagen.bountifulfares;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
-import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
 
 public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
-    public BFItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    public BFItemTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
-    protected void configure(RegistryWrapper.WrapperLookup arg) {
+    protected void addTags(HolderLookup.Provider arg) {
 
         getOrCreateTagBuilder(BFItemTags.C_FLOUR)
                 .add(BFItems.FLOUR)
@@ -37,13 +34,13 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(BFItemTags.C_WALNUTS)
                 .add(BFItems.WALNUT)
-                .addOptional(Identifier.of("nomansland", "walnuts"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("nomansland", "walnuts"))
         ;
 
         getOrCreateTagBuilder(BFItemTags.C_ORANGES)
                 .add(BFItems.ORANGE)
-                .addOptional(Identifier.of("atmospheric", "orange"))
-                .addOptional(Identifier.of("atmospheric", "blood_orange"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("atmospheric", "orange"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("atmospheric", "blood_orange"))
         ;
 
         getOrCreateTagBuilder(BFItemTags.C_LEMONS)
@@ -52,12 +49,12 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(BFItemTags.C_PLUMS)
                 .add(BFItems.PLUM)
-                .addOptional(Identifier.of("environmental", "plum"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("environmental", "plum"))
         ;
 
         getOrCreateTagBuilder(BFItemTags.C_PASSION_FRUIT)
                 .add(BFItems.PASSION_FRUIT)
-                .addOptional(Identifier.of("atmospheric", "passion_fruit"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("atmospheric", "passion_fruit"))
         ;
 
         getOrCreateTagBuilder(BFItemTags.C_ELDERBERRIES)
@@ -66,7 +63,7 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(BFItemTags.C_CORN)
                 .add(BFItems.MAIZE)
-                .addOptional(Identifier.of("hauntedharvest", "corn"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("hauntedharvest", "corn"))
         ;
 
         getOrCreateTagBuilder(ItemTags.CHICKEN_FOOD)

@@ -1,108 +1,108 @@
 package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.FallingBlock;
-import net.minecraft.entity.FallingBlockEntity;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.item.FallingBlockEntity;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FallingBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.BlockHitResult;
 
 public class FruitBlock extends FallingBlock {
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
-    public static final IntProperty SLICES = IntProperty.of("slices", 0, 3);
-    public FruitBlock(Settings settings) {
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final IntegerProperty SLICES = IntegerProperty.create("slices", 0, 3);
+    public FruitBlock(Properties settings) {
         super(settings);
-        this.setDefaultState(this.getStateManager().getDefaultState().with(SLICES, 0).with(FACING, Direction.NORTH));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(SLICES, 0).setValue(FACING, Direction.NORTH));
     }
 
     @Override
-    protected MapCodec<? extends FallingBlock> getCodec() {
+    protected MapCodec<? extends FallingBlock> codec() {
         return null;
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(SLICES, FACING);
     }
 
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        return this.defaultBlockState().setValue(FACING, ctx.getHorizontalDirection().getOpposite());
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        if (!world.getBlockState(pos.up()).isIn(BlockTags.LEAVES)) {
-            world.scheduleBlockTick(pos, this, this.getFallDelay());
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
+        if (!world.getBlockState(pos.above()).is(BlockTags.LEAVES)) {
+            world.scheduleTick(pos, this, this.getDelayAfterPlace());
         }
-        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+        return super.updateShape(state, direction, neighborState, world, pos, neighborPos);
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        if (state.get(SLICES) != 3 && player.canConsume(false)) {
-            world.setBlockState(pos, state.cycle(SLICES), Block.NOTIFY_LISTENERS);
-            player.getHungerManager().add(4, 0.1f);
-            world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            return ActionResult.SUCCESS;
-        } else if (state.get(SLICES) == 3 && player.canConsume(false)) {
+    public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
+        if (state.getValue(SLICES) != 3 && player.canEat(false)) {
+            world.setBlock(pos, state.cycle(SLICES), Block.UPDATE_CLIENTS);
+            player.getFoodData().eat(4, 0.1f);
+            world.playSound(null, pos, SoundEvents.GENERIC_EAT, SoundSource.BLOCKS, 1.0f, 1.0f);
+            return InteractionResult.SUCCESS;
+        } else if (state.getValue(SLICES) == 3 && player.canEat(false)) {
             world.removeBlock(pos, false);
-            player.getHungerManager().add(4, 0.1f);
-            world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            return ActionResult.SUCCESS;
+            player.getFoodData().eat(4, 0.1f);
+            world.playSound(null, pos, SoundEvents.GENERIC_EAT, SoundSource.BLOCKS, 1.0f, 1.0f);
+            return InteractionResult.SUCCESS;
         }
-        return ActionResult.FAIL;
+        return InteractionResult.FAIL;
     }
 
     @Override
-    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-        if (!world.getBlockState(pos.up()).isIn(BlockTags.LEAVES)) {
-            world.scheduleBlockTick(pos, this, this.getFallDelay());
+    public void onPlace(BlockState state, Level world, BlockPos pos, BlockState oldState, boolean notify) {
+        if (!world.getBlockState(pos.above()).is(BlockTags.LEAVES)) {
+            world.scheduleTick(pos, this, this.getDelayAfterPlace());
         }
     }
 
     @Override
-    protected void configureFallingBlockEntity(FallingBlockEntity entity) {
-        if (entity.getBlockState().get(SLICES) != 0) {
+    protected void falling(FallingBlockEntity entity) {
+        if (entity.getBlockState().getValue(SLICES) != 0) {
             entity.dropItem = false;
         }
-        super.configureFallingBlockEntity(entity);
+        super.falling(entity);
     }
 
     @Override
-    public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
-        if (!world.isClient) {
-            world.breakBlock(hit.getBlockPos(), false);
-            world.playSound(null, hit.getBlockPos(), SoundEvents.BLOCK_BAMBOO_WOOD_FALL, SoundCategory.BLOCKS, 1.0F, 1.0F);
+    public void onProjectileHit(Level world, BlockState state, BlockHitResult hit, Projectile projectile) {
+        if (!world.isClientSide) {
+            world.destroyBlock(hit.getBlockPos(), false);
+            world.playSound(null, hit.getBlockPos(), SoundEvents.BAMBOO_WOOD_FALL, SoundSource.BLOCKS, 1.0F, 1.0F);
             int stackCount = 9;
-            if (state.get(SLICES) == 1) {
+            if (state.getValue(SLICES) == 1) {
                 stackCount = 4;
-            } else if (state.get(SLICES) == 2) {
+            } else if (state.getValue(SLICES) == 2) {
                 stackCount = 2;
-            } else if (state.get(SLICES) == 3) {
+            } else if (state.getValue(SLICES) == 3) {
                 stackCount = 1;
             }
-            world.spawnEntity(new ItemEntity(world, hit.getBlockPos().getX() + 0.5, hit.getBlockPos().getY() + 0.5, hit.getBlockPos().getZ() + 0.5, new ItemStack(getFruitItem(), stackCount)));
+            world.addFreshEntity(new ItemEntity(world, hit.getBlockPos().getX() + 0.5, hit.getBlockPos().getY() + 0.5, hit.getBlockPos().getZ() + 0.5, new ItemStack(getFruitItem(), stackCount)));
         }
     }
 
@@ -111,15 +111,15 @@ public class FruitBlock extends FallingBlock {
     }
 
     @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+    public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
 
     }
 
     @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (canFallThrough(world.getBlockState(pos.down())) && pos.getY() >= world.getBottomY() && !world.getBlockState(pos.up()).isIn(BlockTags.LEAVES)) {
-            FallingBlockEntity fallingBlockEntity = FallingBlockEntity.spawnFromBlock(world, pos, state);
-            this.configureFallingBlockEntity(fallingBlockEntity);
+    public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+        if (isFree(world.getBlockState(pos.below())) && pos.getY() >= world.getMinBuildHeight() && !world.getBlockState(pos.above()).is(BlockTags.LEAVES)) {
+            FallingBlockEntity fallingBlockEntity = FallingBlockEntity.fall(world, pos, state);
+            this.falling(fallingBlockEntity);
         }
     }
 }

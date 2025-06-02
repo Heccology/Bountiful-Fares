@@ -10,16 +10,16 @@ import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFTrellises;
 import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.Items;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.Objects;
 
 public class BFItemGroupAdditions {
     public static void registerItemGroupAdditions() {
 //        BountifulFares.LOGGER.info("Adding Items to Vanilla Tabs from " + BountifulFares.MOD_ID);
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.BUILDING_BLOCKS).register(entries -> {
             entries.addAfter(Items.OAK_FENCE_GATE, BFBlocks.OAK_PICKETS);
             entries.addAfter(Items.SPRUCE_FENCE_GATE, BFBlocks.SPRUCE_PICKETS);
             entries.addAfter(Items.BIRCH_FENCE_GATE, BFBlocks.BIRCH_PICKETS);
@@ -131,7 +131,7 @@ public class BFItemGroupAdditions {
             entries.addAfter(Blocks.IRON_BARS, BFBlocks.IRON_RAILING);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
             entries.addAfter(Items.GRASS_BLOCK, BFBlocks.GRASSY_DIRT);
             entries.addAfter(Items.CHERRY_LOG, BFBlocks.APPLE_LOG);
             entries.addAfter(BFBlocks.APPLE_LOG, BFBlocks.ORANGE_LOG);
@@ -184,7 +184,7 @@ public class BFItemGroupAdditions {
             entries.addAfter(BFItems.LAPISBERRY_SEEDS, BFItems.HOARY_SEEDS);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
             entries.addAfter(Items.LANTERN, BFBlocks.FELDSPAR_LANTERN);
             entries.addAfter(Items.GRINDSTONE, BFBlocks.GRISTMILL);
             entries.addAfter(Items.SOUL_CAMPFIRE, BFBlocks.GREEN_TEA_CANDLE);
@@ -249,14 +249,14 @@ public class BFItemGroupAdditions {
             entries.addAfter(BFItems.HOARY_SIGN, BFItems.HOARY_HANGING_SIGN);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(rEntries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.REDSTONE_BLOCKS).register(rEntries -> {
             rEntries.addAfter(Items.LEVER, BFBlocks.CERAMIC_LEVER);
             rEntries.addAfter(Items.STONE_BUTTON, BFBlocks.CERAMIC_BUTTON);
             rEntries.addAfter(Items.HEAVY_WEIGHTED_PRESSURE_PLATE, BFBlocks.CERAMIC_PRESSURE_PLATE);
             rEntries.addAfter(Items.WHITE_WOOL, BFBlocks.CERAMIC_TILES);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
             entries.addAfter(Items.LEAD, BFItems.SUN_HAT);
             entries.addAfter(Items.BRUSH, BFItems.ARTISAN_BRUSH);
             entries.addAfter(Items.BAMBOO_CHEST_RAFT, BFItems.WALNUT_BOAT);
@@ -265,11 +265,11 @@ public class BFItemGroupAdditions {
             entries.addAfter(BFItems.HOARY_BOAT, BFItems.HOARY_CHEST_BOAT);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COMBAT).register(entries -> {
             entries.addAfter(Items.EGG, BFItems.FLOUR);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
             entries.addAfter(Items.APPLE, BFItems.APPLE_COMPOTE_JAR);
             entries.addAfter(BFItems.APPLE_COMPOTE_JAR, BFItems.APPLE_CIDER_JAR);
             entries.addAfter(BFItems.APPLE_CIDER_JAR, BFBlocks.APPLE_BLOCK);
@@ -364,7 +364,7 @@ public class BFItemGroupAdditions {
             entries.addAfter(BFItems.COCOA_CUSTARD, BFItems.ANCIENT_CUSTARD);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(entries -> {
             entries.addAfter(Items.WHEAT, BFItems.MAIZE);
             entries.addAfter(BFItems.MAIZE, BFItems.FLOUR);
             entries.addAfter(Items.SLIME_BALL, BFItems.FELDSPAR);
@@ -385,7 +385,7 @@ public class BFItemGroupAdditions {
             entries.addAfter(BFItems.BELLFLOWER_TEA_BLEND, BFItems.TORCHFLOWER_TEA_BLEND);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.COLORED_BLOCKS).register(entries -> {
             entries.addAfter(Items.PINK_GLAZED_TERRACOTTA, BFBlocks.CERAMIC_TILES);
             entries.addAfter(BFBlocks.CERAMIC_TILES, BFBlocks.CERAMIC_TILE_STAIRS);
             entries.addAfter(BFBlocks.CERAMIC_TILE_STAIRS, BFBlocks.CERAMIC_TILE_SLAB);
@@ -397,26 +397,26 @@ public class BFItemGroupAdditions {
             entries.addAfter(BFBlocks.CERAMIC_MOSAIC, BFBlocks.CERAMIC_MOSAIC_STAIRS);
             entries.addAfter(BFBlocks.CERAMIC_MOSAIC_STAIRS, BFBlocks.CERAMIC_MOSAIC_SLAB);
             //entries.addAfter(BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CERAMIC_MOSAIC_WALL);
-            entries.add(BFBlocks.WHITE_JACK_O_STRAW);
-            entries.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW);
-            entries.add(BFBlocks.GRAY_JACK_O_STRAW);
-            entries.add(BFBlocks.BLACK_JACK_O_STRAW);
-            entries.add(BFBlocks.BROWN_JACK_O_STRAW);
-            entries.add(BFBlocks.RED_JACK_O_STRAW);
-            entries.add(BFBlocks.ORANGE_JACK_O_STRAW);
-            entries.add(BFBlocks.YELLOW_JACK_O_STRAW);
-            entries.add(BFBlocks.LIME_JACK_O_STRAW);
-            entries.add(BFBlocks.GREEN_JACK_O_STRAW);
-            entries.add(BFBlocks.CYAN_JACK_O_STRAW);
-            entries.add(BFBlocks.LIGHT_BLUE_JACK_O_STRAW);
-            entries.add(BFBlocks.BLUE_JACK_O_STRAW);
-            entries.add(BFBlocks.PURPLE_JACK_O_STRAW);
-            entries.add(BFBlocks.MAGENTA_JACK_O_STRAW);
-            entries.add(BFBlocks.PINK_JACK_O_STRAW);
+            entries.accept(BFBlocks.WHITE_JACK_O_STRAW);
+            entries.accept(BFBlocks.LIGHT_GRAY_JACK_O_STRAW);
+            entries.accept(BFBlocks.GRAY_JACK_O_STRAW);
+            entries.accept(BFBlocks.BLACK_JACK_O_STRAW);
+            entries.accept(BFBlocks.BROWN_JACK_O_STRAW);
+            entries.accept(BFBlocks.RED_JACK_O_STRAW);
+            entries.accept(BFBlocks.ORANGE_JACK_O_STRAW);
+            entries.accept(BFBlocks.YELLOW_JACK_O_STRAW);
+            entries.accept(BFBlocks.LIME_JACK_O_STRAW);
+            entries.accept(BFBlocks.GREEN_JACK_O_STRAW);
+            entries.accept(BFBlocks.CYAN_JACK_O_STRAW);
+            entries.accept(BFBlocks.LIGHT_BLUE_JACK_O_STRAW);
+            entries.accept(BFBlocks.BLUE_JACK_O_STRAW);
+            entries.accept(BFBlocks.PURPLE_JACK_O_STRAW);
+            entries.accept(BFBlocks.MAGENTA_JACK_O_STRAW);
+            entries.accept(BFBlocks.PINK_JACK_O_STRAW);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.OPERATOR).register(entries -> {
-            entries.add(BFBlocks.SOLID_CERAMIC);
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.OP_BLOCKS).register(entries -> {
+            entries.accept(BFBlocks.SOLID_CERAMIC);
         });
 //        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(entries -> {
 //            entries.addAfter(BFBlocks.BLACK_JACK_O_STRAW, MintBlocks.ACORN_JACK_O_STRAW);

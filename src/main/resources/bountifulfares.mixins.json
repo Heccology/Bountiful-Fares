@@ -4,9 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "gameplay.BlockItemMixin",
-    "gameplay.CampfireBlockEntityMixin",
     "gameplay.LivingEntityMixin",
-    "gameplay.NoteBlockInstrumentMixin",
     "gameplay.PumpkinPieItemMixin",
     "gameplay.SweetBerryBushMixin",
     "misc.StonecutterScreenHandlerMixin",

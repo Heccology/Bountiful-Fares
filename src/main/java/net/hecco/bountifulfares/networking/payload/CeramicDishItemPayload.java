@@ -1,24 +1,24 @@
 package net.hecco.bountifulfares.networking.payload;
 
 import net.hecco.bountifulfares.networking.BFMessages;
-import net.minecraft.item.ItemStack;
-import net.minecraft.network.RegistryByteBuf;
-import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.packet.CustomPayload;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.world.item.ItemStack;
 
-public record CeramicDishItemPayload(BlockPos pos, ItemStack stack) implements CustomPayload
+public record CeramicDishItemPayload(BlockPos pos, ItemStack stack) implements CustomPacketPayload
 {
-    public static final CustomPayload.Id<CeramicDishItemPayload> ID = new CustomPayload.Id<>(BFMessages.CERAMIC_DISH_ITEM);
-    public static final PacketCodec<RegistryByteBuf, CeramicDishItemPayload> CODEC =
-            PacketCodec.tuple(
-                    BlockPos.PACKET_CODEC, CeramicDishItemPayload::pos,
-                    ItemStack.PACKET_CODEC, CeramicDishItemPayload::stack,
+    public static final CustomPacketPayload.Type<CeramicDishItemPayload> ID = new CustomPacketPayload.Type<>(BFMessages.CERAMIC_DISH_ITEM);
+    public static final StreamCodec<RegistryFriendlyByteBuf, CeramicDishItemPayload> CODEC =
+            StreamCodec.composite(
+                    BlockPos.STREAM_CODEC, CeramicDishItemPayload::pos,
+                    ItemStack.STREAM_CODEC, CeramicDishItemPayload::stack,
                     CeramicDishItemPayload::new
             );
 
     @Override
-    public CustomPayload.Id<? extends CustomPayload> getId()
+    public CustomPacketPayload.Type<? extends CustomPacketPayload> type()
     {
         return ID;
     }

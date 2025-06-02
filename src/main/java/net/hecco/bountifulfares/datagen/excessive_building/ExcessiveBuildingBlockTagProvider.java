@@ -8,24 +8,24 @@ import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 
 import java.util.concurrent.CompletableFuture;
 
 public class ExcessiveBuildingBlockTagProvider extends FabricTagProvider.BlockTagProvider {
-    public ExcessiveBuildingBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    public ExcessiveBuildingBlockTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
-    protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+    protected void addTags(HolderLookup.Provider wrapperLookup) {
         registerTrellisBlockTags(ExcessiveBuildingBlocks.ANCIENT);
 
         getOrCreateTagBuilder(BFBlockTags.PICKETS)
                 .add(ExcessiveBuildingBlocks.ANCIENT_PICKETS);
-        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
                 .add(ExcessiveBuildingBlocks.WALNUT_VERTICAL_STAIRS)
                 .add(ExcessiveBuildingBlocks.CHISELED_WALNUT_PLANKS)
                 .add(ExcessiveBuildingBlocks.WALNUT_MOSAIC)
@@ -41,14 +41,14 @@ public class ExcessiveBuildingBlockTagProvider extends FabricTagProvider.BlockTa
                 .add(ExcessiveBuildingBlocks.HOARY_MOSAIC_VERTICAL_STAIRS)
                 .add(ExcessiveBuildingBlocks.HOARY_LADDER)
                 .add(ExcessiveBuildingBlocks.ANCIENT_PICKETS);
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ExcessiveBuildingBlocks.FELDSPAR_BRICK_VERTICAL_STAIRS)
                 .add(ExcessiveBuildingBlocks.CERAMIC_TILE_VERTICAL_STAIRS)
                 .add(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS)
                 .add(ExcessiveBuildingBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS)
                 .add(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS)
                 ;
-        getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(ExcessiveBuildingBlocks.WALNUT_MULCH_BRICKS)
                 .add(ExcessiveBuildingBlocks.WALNUT_MULCH_BRICK_STAIRS)
                 .add(ExcessiveBuildingBlocks.WALNUT_MULCH_BRICK_SLAB)
@@ -81,17 +81,17 @@ public class ExcessiveBuildingBlockTagProvider extends FabricTagProvider.BlockTa
     }
 
     public void registerTrellisBlockTags(TrellisVariant trellis) {
-        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                .addOptional(Identifier.of(trellis.getModId(), trellis.getBlockName()))
+        tag(BlockTags.MINEABLE_WITH_AXE)
+                .addOptional(ResourceLocation.fromNamespaceAndPath(trellis.getModId(), trellis.getBlockName()))
         ;
         for (VineCrop crop : TrellisUtil.VineCrops) {
-            getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                    .addOptional(Identifier.of(trellis.getModId(), crop.getName() + "_" + trellis.getBlockName()))
+            tag(BlockTags.MINEABLE_WITH_AXE)
+                    .addOptional(ResourceLocation.fromNamespaceAndPath(trellis.getModId(), crop.getName() + "_" + trellis.getBlockName()))
             ;
         }
         for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
-            getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
-                    .addOptional(Identifier.of(trellis.getModId(), vine.getName() + "_" + trellis.getBlockName()))
+            tag(BlockTags.MINEABLE_WITH_AXE)
+                    .addOptional(ResourceLocation.fromNamespaceAndPath(trellis.getModId(), vine.getName() + "_" + trellis.getBlockName()))
             ;
         }
     }

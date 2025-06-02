@@ -3,80 +3,82 @@ package net.hecco.bountifulfares.block.custom;
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
-import net.minecraft.block.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.registry.tag.FluidTags;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class SpongekinStemBlock extends PlantBlock implements Fertilizable, FluidFillable {
-    public static BooleanProperty ATTACHED = BooleanProperty.of("attached");
+public class SpongekinStemBlock extends BushBlock implements BonemealableBlock, LiquidBlockContainer {
+    public static BooleanProperty ATTACHED = BooleanProperty.create("attached");
 
-    public static final VoxelShape[] SHAPES = new VoxelShape[] {Block.createCuboidShape(7, 0, 7, 9, 3, 9), Block.createCuboidShape(6, 0, 6, 10, 6, 10), Block.createCuboidShape(5, 0, 5, 11, 11, 11), Block.createCuboidShape(5, 0, 5, 11, 15, 11), Block.createCuboidShape(4, 0, 4, 12, 16, 12)};
+    public static final VoxelShape[] SHAPES = new VoxelShape[] {Block.box(7, 0, 7, 9, 3, 9), Block.box(6, 0, 6, 10, 6, 10), Block.box(5, 0, 5, 11, 11, 11), Block.box(5, 0, 5, 11, 15, 11), Block.box(4, 0, 4, 12, 16, 12)};
     public static final int MAX_AGE = 3;
-    public static final IntProperty AGE = IntProperty.of("age", 0, 3);
-    public SpongekinStemBlock(Settings settings) {
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 3);
+    public SpongekinStemBlock(Properties settings) {
         super(settings);
-        this.setDefaultState((this.stateManager.getDefaultState()).with(AGE, 0).with(ATTACHED, false));
+        this.registerDefaultState((this.stateDefinition.any()).setValue(AGE, 0).setValue(ATTACHED, false));
     }
 
     @Override
-    protected MapCodec<? extends PlantBlock> getCodec() {
+    protected MapCodec<? extends BushBlock> codec() {
         return null;
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(AGE) == 0) {
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        if (state.getValue(AGE) == 0) {
             return SHAPES[0];
-        } else if (state.get(AGE) == 1) {
+        } else if (state.getValue(AGE) == 1) {
             return SHAPES[1];
-        } else if (state.get(AGE) == 2) {
+        } else if (state.getValue(AGE) == 2) {
             return SHAPES[2];
-        } else if (state.get(AGE) == 3 && state.get(ATTACHED).equals(false)) {
+        } else if (state.getValue(AGE) == 3 && state.getValue(ATTACHED).equals(false)) {
             return SHAPES[3];
-        } else if (state.get(AGE) == 3 && state.get(ATTACHED).equals(true)) {
+        } else if (state.getValue(AGE) == 3 && state.getValue(ATTACHED).equals(true)) {
             return SHAPES[4];
         }
         return SHAPES[0];
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AGE, ATTACHED);
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!isFullyGrown(state) && !state.get(ATTACHED) && random.nextFloat() < 0.1f) {
-            world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+        if (!isFullyGrown(state) && !state.getValue(ATTACHED) && random.nextFloat() < 0.1f) {
+            world.setBlock(pos, state.cycle(AGE), Block.UPDATE_CLIENTS);
         }
-        if (isFullyGrown(state) && !state.get(ATTACHED) && random.nextFloat() < 0.1f) {
-            BlockPos spongekinPos = pos.offset(Direction.UP);
-            if ((world.getBlockState(spongekinPos).isAir() || world.getBlockState(spongekinPos).isOf(Blocks.WATER) && isFullyGrown(state))) {
-                world.setBlockState(spongekinPos, BFBlocks.SPONGEKIN.getDefaultState(), 2);
-                world.setBlockState(pos, this.getStateWithProperties(state).with(ATTACHED, true));
-                BlockPos prismarineBlossomPos = pos.offset(Direction.UP, 2);
+        if (isFullyGrown(state) && !state.getValue(ATTACHED) && random.nextFloat() < 0.1f) {
+            BlockPos spongekinPos = pos.relative(Direction.UP);
+            if ((world.getBlockState(spongekinPos).isAir() || world.getBlockState(spongekinPos).is(Blocks.WATER) && isFullyGrown(state))) {
+                world.setBlock(spongekinPos, BFBlocks.SPONGEKIN.defaultBlockState(), 2);
+                world.setBlockAndUpdate(pos, this.withPropertiesOf(state).setValue(ATTACHED, true));
+                BlockPos prismarineBlossomPos = pos.relative(Direction.UP, 2);
                 if (shouldPropagatePrismarine(world, pos)) {
-                    if (world.getBlockState(prismarineBlossomPos).isOf(Blocks.WATER)) {
-                        world.setBlockState(prismarineBlossomPos, BFBlocks.PRISMARINE_BLOSSOM.getDefaultState().with(PrismarineBlossomBlock.WATERLOGGED, true), 2);
+                    if (world.getBlockState(prismarineBlossomPos).is(Blocks.WATER)) {
+                        world.setBlock(prismarineBlossomPos, BFBlocks.PRISMARINE_BLOSSOM.defaultBlockState().setValue(PrismarineBlossomBlock.WATERLOGGED, true), 2);
                     } else if (world.getBlockState(prismarineBlossomPos).isAir()) {
-                        world.setBlockState(prismarineBlossomPos, BFBlocks.PRISMARINE_BLOSSOM.getDefaultState(), 2);
+                        world.setBlock(prismarineBlossomPos, BFBlocks.PRISMARINE_BLOSSOM.defaultBlockState(), 2);
                     }
 
                 }
@@ -85,70 +87,70 @@ public class SpongekinStemBlock extends PlantBlock implements Fertilizable, Flui
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
 
     @Override
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level world, RandomSource random, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        if (!isFullyGrown(state) && !state.get(ATTACHED)) {
-            world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
+    public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
+        if (!isFullyGrown(state) && !state.getValue(ATTACHED)) {
+            world.setBlock(pos, state.cycle(AGE), Block.UPDATE_CLIENTS);
         }
     }
 
-    public boolean shouldPropagatePrismarine(ServerWorld world, BlockPos pos) {
-        return world.getBlockState(pos.down()).isIn(BFBlockTags.PRISMARINE_PROPAGATION_SUBSTRATE);
+    public boolean shouldPropagatePrismarine(ServerLevel world, BlockPos pos) {
+        return world.getBlockState(pos.below()).is(BFBlockTags.PRISMARINE_PROPAGATION_SUBSTRATE);
     }
 
     protected static boolean isFullyGrown(BlockState state) {
-        return state.get(AGE) == 3;
+        return state.getValue(AGE) == 3;
     }
 
     @Override
-    protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isSideSolidFullSquare(world, pos, Direction.UP) && !floor.isOf(Blocks.MAGMA_BLOCK);
+    protected boolean mayPlaceOn(BlockState floor, BlockGetter world, BlockPos pos) {
+        return floor.isFaceSturdy(world, pos, Direction.UP) && !floor.is(Blocks.MAGMA_BLOCK);
     }
 
     @Override
     @Nullable
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-        if (fluidState.isIn(FluidTags.WATER) && fluidState.getLevel() == 8) {
-            return super.getPlacementState(ctx);
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        FluidState fluidState = ctx.getLevel().getFluidState(ctx.getClickedPos());
+        if (fluidState.is(FluidTags.WATER) && fluidState.getAmount() == 8) {
+            return super.getStateForPlacement(ctx);
         }
         return null;
     }
 
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        BlockState blockState = super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
+        BlockState blockState = super.updateShape(state, direction, neighborState, world, pos, neighborPos);
         if (!blockState.isAir()) {
-            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
         }
-        if (state.get(ATTACHED) && !world.getBlockState(pos.up()).isOf(BFBlocks.SPONGEKIN)) {
-            if (state.get(AGE) == 3)
-                return state.with(ATTACHED, false);
+        if (state.getValue(ATTACHED) && !world.getBlockState(pos.above()).is(BFBlocks.SPONGEKIN)) {
+            if (state.getValue(AGE) == 3)
+                return state.setValue(ATTACHED, false);
         }
         return blockState;
     }
 
     @Override
     public FluidState getFluidState(BlockState state) {
-        return Fluids.WATER.getStill(false);
+        return Fluids.WATER.getSource(false);
     }
 
     @Override
-    public boolean canFillWithFluid(@Nullable PlayerEntity player, BlockView world, BlockPos pos, BlockState state, Fluid fluid) {
+    public boolean canPlaceLiquid(@Nullable Player player, BlockGetter world, BlockPos pos, BlockState state, Fluid fluid) {
         return false;
     }
 
     @Override
-    public boolean tryFillWithFluid(WorldAccess world, BlockPos pos, BlockState state, FluidState fluidState) {
+    public boolean placeLiquid(LevelAccessor world, BlockPos pos, BlockState state, FluidState fluidState) {
         return false;
     }
 }

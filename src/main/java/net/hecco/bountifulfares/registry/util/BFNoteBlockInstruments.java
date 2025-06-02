@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.registry.util;
 
-import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 
 // Loads Note Block types
 public class BFNoteBlockInstruments

@@ -1,58 +1,57 @@
 package net.hecco.bountifulfares.block.custom;
 
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.PillarBlock;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BoneMealItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BoneMealItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.phys.BlockHitResult;
 
-public class PalmCrownBlock extends PillarBlock {
-    public PalmCrownBlock(Settings settings) {
+public class PalmCrownBlock extends RotatedPillarBlock {
+    public PalmCrownBlock(Properties settings) {
         super(settings);
     }
 
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit)
     {
         if (stack.getItem() instanceof BoneMealItem) {
-            if (hit.getSide() != Direction.DOWN && hit.getSide() != Direction.UP) {
-                if (world.getBlockState(pos.offset(hit.getSide(), 1)).isAir()) {
-                    world.setBlockState(pos.offset(hit.getSide(), 1), BFBlocks.COCONUT.getDefaultState().with(Properties.HORIZONTAL_FACING, hit.getSide()));
-                    if (!world.isClient) {
-                        world.syncWorldEvent(1505, pos, 0);
+            if (hit.getDirection() != Direction.DOWN && hit.getDirection() != Direction.UP) {
+                if (world.getBlockState(pos.relative(hit.getDirection(), 1)).isAir()) {
+                    world.setBlockAndUpdate(pos.relative(hit.getDirection(), 1), BFBlocks.COCONUT.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, hit.getDirection()));
+                    if (!world.isClientSide) {
+                        world.levelEvent(1505, pos, 0);
                     }
-                    BoneMealItem.createParticles(world, pos.down(), 2);
+                    BoneMealItem.addGrowthParticles(world, pos.below(), 2);
                     if (!player.isCreative()) {
-                        stack.decrement(1);
+                        stack.shrink(1);
                     }
-                    return ItemActionResult.SUCCESS;
+                    return ItemInteractionResult.SUCCESS;
                 }
             } else {
                 Direction[] DIRECTIONS = new Direction[]{Direction.WEST, Direction.EAST, Direction.NORTH, Direction.SOUTH};
                 for (Direction direction : DIRECTIONS) {
-                    if (world.getBlockState(pos.offset(direction)).isAir()) {
-                        world.setBlockState(pos.offset(direction), BFBlocks.COCONUT.getDefaultState().with(Properties.HORIZONTAL_FACING, direction));
-                        if (!world.isClient) {
-                            world.syncWorldEvent(1505, pos.down(), 0);
+                    if (world.getBlockState(pos.relative(direction)).isAir()) {
+                        world.setBlockAndUpdate(pos.relative(direction), BFBlocks.COCONUT.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction));
+                        if (!world.isClientSide) {
+                            world.levelEvent(1505, pos.below(), 0);
                         }
-                        BoneMealItem.createParticles(world, pos.down(), 2);
+                        BoneMealItem.addGrowthParticles(world, pos.below(), 2);
                         if (!player.isCreative()) {
-                            stack.decrement(1);
+                            stack.shrink(1);
                         }
-                        return ItemActionResult.SUCCESS;
+                        return ItemInteractionResult.SUCCESS;
                     }
                 }
             }
         }
-        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
+        return super.useItemOn(stack, state, world, pos, player, hand, hit);
     }
 }

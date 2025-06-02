@@ -1,27 +1,27 @@
 package net.hecco.bountifulfares.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.screen.ScreenTexts;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.world.World;
+import net.minecraft.ChatFormatting;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.network.chat.CommonComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 
 import java.util.List;
 
 public class AirTimeIncreasingItem extends EffectFoodItem {
     public int airTickIncrease;
-    public AirTimeIncreasingItem(int airTickIncrease, Settings settings) {
+    public AirTimeIncreasingItem(int airTickIncrease, Properties settings) {
         super(List.of(), settings);
         this.airTickIncrease = airTickIncrease;
     }
-    public AirTimeIncreasingItem(List<StatusEffectInstance> effects, int airTickIncrease, Settings settings) {
+    public AirTimeIncreasingItem(List<MobEffectInstance> effects, int airTickIncrease, Properties settings) {
         super(effects, settings);
         this.airTickIncrease = airTickIncrease;
     }
@@ -29,28 +29,28 @@ public class AirTimeIncreasingItem extends EffectFoodItem {
 
 
     @Override
-    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        if (user instanceof ServerPlayerEntity serverPlayerEntity) {
-            Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
-            serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+    public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity user) {
+        if (user instanceof ServerPlayer serverPlayerEntity) {
+            CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
+            serverPlayerEntity.awardStat(Stats.ITEM_USED.get(this));
         }
-        int air = user.getAir();
-        int maxAir = user.getMaxAir();
+        int air = user.getAirSupply();
+        int maxAir = user.getMaxAirSupply();
         if (air < maxAir - airTickIncrease){
-            user.setAir(air + airTickIncrease);
+            user.setAirSupply(air + airTickIncrease);
         } else {
-            user.setAir(maxAir);
+            user.setAirSupply(maxAir);
         }
-        return super.finishUsing(stack, world, user);
+        return super.finishUsingItem(stack, world, user);
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        super.appendTooltip(stack, context, tooltip, type);
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
+        super.appendHoverText(stack, context, tooltip, type);
         if (BountifulFares.CONFIG.effectTooltips) {
-            tooltip.add(ScreenTexts.EMPTY);
-            tooltip.add(Text.translatable("tooltip.bountifulfares.when_eaten").formatted(Formatting.GRAY));
-            tooltip.add(Text.translatable("+" + airTickIncrease / 20 + " ").append(Text.translatable("tooltip.bountifulfares.air_time")).formatted(Formatting.BLUE));
+            tooltip.add(CommonComponents.EMPTY);
+            tooltip.add(Component.translatable("tooltip.bountifulfares.when_eaten").withStyle(ChatFormatting.GRAY));
+            tooltip.add(Component.translatable("+" + airTickIncrease / 20 + " ").append(Component.translatable("tooltip.bountifulfares.air_time")).withStyle(ChatFormatting.BLUE));
         }
     }
 }

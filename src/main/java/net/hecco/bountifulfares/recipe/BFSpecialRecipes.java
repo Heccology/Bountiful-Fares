@@ -1,13 +1,13 @@
 package net.hecco.bountifulfares.recipe;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.SpecialCraftingRecipe;
-import net.minecraft.recipe.SpecialRecipeSerializer;
-import net.minecraft.recipe.book.CraftingRecipeCategory;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
+import net.minecraft.world.item.crafting.CustomRecipe;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.SimpleCraftingRecipeSerializer;
 
 import java.util.function.Function;
 
@@ -20,8 +20,8 @@ public class BFSpecialRecipes {
     public static void registerSpecialRecipes() {
     }
 
-    private static RecipeSerializer<? extends SpecialCraftingRecipe> registerSpecialRecipe(String name, Function<CraftingRecipeCategory, SpecialCraftingRecipe> toRecipe){
-        return Registry.register(Registries.RECIPE_SERIALIZER, Identifier.of(BountifulFares.MOD_ID, name),
-                new SpecialRecipeSerializer<>(toRecipe::apply));
+    private static RecipeSerializer<? extends CustomRecipe> registerSpecialRecipe(String name, Function<CraftingBookCategory, CustomRecipe> toRecipe){
+        return Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, name),
+                new SimpleCraftingRecipeSerializer<>(toRecipe::apply));
     }
 }

@@ -1,10 +1,10 @@
 package net.hecco.bountifulfares.effect;
 
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
 
-public class EnrichmentEffect extends StatusEffect {
-    public EnrichmentEffect(StatusEffectCategory category, int color) {
+public class EnrichmentEffect extends MobEffect {
+    public EnrichmentEffect(MobEffectCategory category, int color) {
         super(category, color);
     }
 }

@@ -2,11 +2,10 @@ package net.hecco.bountifulfares.mixin.render;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFEffects;
-//import net.hecco.bountifulfares.registry.util.BFHeartTypes;
 import net.hecco.bountifulfares.registry.util.BFHeartTypes;
-import net.minecraft.client.gui.hud.InGameHud;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.gen.Invoker;
@@ -23,22 +22,22 @@ import java.util.Arrays;
 // private final static synthetic [Lnet/minecraft/client/gui/hud/InGameHud$HeartType; field_33952
 // If the field is a different number, change the field ID here to match.
 @Debug(export = true)
-@Mixin(InGameHud.HeartType.class)
+@Mixin(Gui.HeartType.class)
 public abstract class GuiHeartsMixin
 {
     // Allows new entries.
     @SuppressWarnings("InvokerTarget")
     @Invoker("<init>")
-    private static InGameHud.HeartType newHeartType(String internalName,
+    private static Gui.HeartType newHeartType(String internalName,
                                                     int ordinal,
-                                                    Identifier fullTex,
-                                                    Identifier fullBlinkTex,
-                                                    Identifier halfTex,
-                                                    Identifier halfBlinkTex,
-                                                    Identifier hardcoreFullTex,
-                                                    Identifier hardcoreFullBlinkTex,
-                                                    Identifier hardcoreHalfTex,
-                                                    Identifier hardcoreHalfBlinkTex)
+                                                    ResourceLocation fullTex,
+                                                    ResourceLocation fullBlinkTex,
+                                                    ResourceLocation halfTex,
+                                                    ResourceLocation halfBlinkTex,
+                                                    ResourceLocation hardcoreFullTex,
+                                                    ResourceLocation hardcoreFullBlinkTex,
+                                                    ResourceLocation hardcoreHalfTex,
+                                                    ResourceLocation hardcoreHalfBlinkTex)
     {
         throw new AssertionError();
     }
@@ -48,7 +47,7 @@ public abstract class GuiHeartsMixin
     @Shadow
     private static @Final
     @Mutable
-    InGameHud.HeartType[] field_33952;
+    Gui.HeartType[] field_33952;
 
     // Injects data.
     @SuppressWarnings("UnresolvedMixinReference")
@@ -68,14 +67,14 @@ public abstract class GuiHeartsMixin
         var bf_restoration = newHeartType(
                 "BOUNTIFUL_FARES_RESTORATION",
                 last.ordinal() + i,
-                Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_full"),
-                Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_full_blinking"),
-                Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_half"),
-                Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_half_blinking"),
-                Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_full"),
-                Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_full_blinking"),
-                Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_half"),
-                Identifier.of(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_half_blinking")
+                ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "hud/heart/restoration_full"),
+                ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "hud/heart/restoration_full_blinking"),
+                ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "hud/heart/restoration_half"),
+                ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "hud/heart/restoration_half_blinking"),
+                ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_full"),
+                ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_full_blinking"),
+                ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_half"),
+                ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "hud/heart/restoration_hardcore_half_blinking")
         );
         BFHeartTypes.BF_RESTORATION = bf_restoration;
         hearts.add(bf_restoration);
@@ -94,19 +93,19 @@ public abstract class GuiHeartsMixin
 
         // Complete the injection.
         // This must ALWAYS be executed at the end of this method - no more code beyond this.
-        field_33952 = hearts.toArray(new InGameHud.HeartType[0]);
+        field_33952 = hearts.toArray(new Gui.HeartType[0]);
     }
 
     // This will directly inject the new heart usage.
-    @Inject(method = "fromPlayerState", at = @At("TAIL"), cancellable = true)
-    private static void bfPlayerStateCheck(PlayerEntity player, CallbackInfoReturnable<InGameHud.HeartType> cir) {
+    @Inject(method = "forPlayer", at = @At("TAIL"), cancellable = true)
+    private static void bfPlayerStateCheck(Player player, CallbackInfoReturnable<Gui.HeartType> cir) {
         // Prefetch config values.
         boolean useRestorationHeart = BountifulFares.CONFIG.isRestorationHeartOverlay();
 
         // Check for if the normal heart type is the candidate for return.
-        boolean isNormal = (cir.getReturnValue() == InGameHud.HeartType.NORMAL);
+        boolean isNormal = (cir.getReturnValue() == Gui.HeartType.NORMAL);
         if (isNormal) {
-            if (player.hasStatusEffect(BFEffects.RESTORATION) && useRestorationHeart) {
+            if (player.hasEffect(BFEffects.RESTORATION) && useRestorationHeart) {
                 cir.setReturnValue(BFHeartTypes.BF_RESTORATION);
             }
         }

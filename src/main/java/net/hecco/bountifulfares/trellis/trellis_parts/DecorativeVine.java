@@ -1,9 +1,9 @@
 package net.hecco.bountifulfares.trellis.trellis_parts;
 
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 
 public class DecorativeVine {
     public final String MOD_ID;
@@ -20,13 +20,13 @@ public class DecorativeVine {
         BFBlocks.PLANTS_TO_DECORATIVE_VINES.put(crop, this);
     }
 
-    public DecorativeVine(boolean canDuplicate, String modId, String id, Identifier cropItemPath) {
+    public DecorativeVine(boolean canDuplicate, String modId, String id, ResourceLocation cropItemPath) {
         this.MOD_ID = modId;
         this.TYPE_ID = id;
-        this.CROP_ITEM = Registries.ITEM.get(cropItemPath);
+        this.CROP_ITEM = BuiltInRegistries.ITEM.get(cropItemPath);
         this.CAN_DUPLICATE = canDuplicate;
 //        TrellisVariants.DecorativeVines.add(this);
-        BFBlocks.PLANTS_TO_DECORATIVE_VINES.put(Registries.ITEM.get(cropItemPath), this);
+        BFBlocks.PLANTS_TO_DECORATIVE_VINES.put(BuiltInRegistries.ITEM.get(cropItemPath), this);
     }
 
     public String getName() {

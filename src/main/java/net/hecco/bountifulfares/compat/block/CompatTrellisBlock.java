@@ -3,16 +3,16 @@ package net.hecco.bountifulfares.compat.block;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
-import net.minecraft.resource.featuretoggle.FeatureSet;
+import net.minecraft.world.flag.FeatureFlagSet;
 
 public class CompatTrellisBlock extends TrellisBlock {
     private final String modId;
-    public CompatTrellisBlock(String modId, TrellisVariant variant, Settings settings) {
+    public CompatTrellisBlock(String modId, TrellisVariant variant, Properties settings) {
         super(variant, settings);
         this.modId = modId;
     }
     @Override
-    public boolean isEnabled(FeatureSet enabledFeatures) {
+    public boolean isEnabled(FeatureFlagSet enabledFeatures) {
         return BountifulFares.isModLoaded(modId) || BountifulFares.isDatagen();
     }
 }

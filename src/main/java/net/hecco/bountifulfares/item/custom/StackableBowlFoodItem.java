@@ -1,45 +1,45 @@
 package net.hecco.bountifulfares.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.component.type.PotionContentsComponent;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
-import net.minecraft.world.World;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.level.Level;
 
 import java.util.List;
 
 public class StackableBowlFoodItem extends Item {
-    public List<StatusEffectInstance> effects;
+    public List<MobEffectInstance> effects;
 
-    public StackableBowlFoodItem(Item.Settings settings) {
-        super(settings.recipeRemainder(Items.BOWL));
+    public StackableBowlFoodItem(Item.Properties settings) {
+        super(settings.craftRemainder(Items.BOWL));
     }
-    public StackableBowlFoodItem(List<StatusEffectInstance> effects, Item.Settings settings) {
-        super(settings.recipeRemainder(Items.BOWL));
+    public StackableBowlFoodItem(List<MobEffectInstance> effects, Item.Properties settings) {
+        super(settings.craftRemainder(Items.BOWL));
         this.effects = effects;
     }
 
     @Override
-    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        super.finishUsing(stack, world, user);
-        if (user instanceof ServerPlayerEntity serverPlayerEntity) {
-            Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
-            serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+    public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity user) {
+        super.finishUsingItem(stack, world, user);
+        if (user instanceof ServerPlayer serverPlayerEntity) {
+            CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
+            serverPlayerEntity.awardStat(Stats.ITEM_USED.get(this));
         }
-            if (user instanceof PlayerEntity && !((PlayerEntity)user).getAbilities().creativeMode) {
+            if (user instanceof Player && !((Player)user).getAbilities().instabuild) {
                 ItemStack itemStack = new ItemStack(Items.BOWL);
-                PlayerEntity playerEntity = (PlayerEntity)user;
-                if (!playerEntity.getInventory().insertStack(itemStack)) {
-                    playerEntity.dropItem(itemStack, false);
+                Player playerEntity = (Player)user;
+                if (!playerEntity.getInventory().add(itemStack)) {
+                    playerEntity.drop(itemStack, false);
                 }
             }
 
@@ -47,10 +47,10 @@ public class StackableBowlFoodItem extends Item {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        super.appendTooltip(stack, context, tooltip, type);
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
+        super.appendHoverText(stack, context, tooltip, type);
         if (effects != null && !effects.isEmpty() && BountifulFares.CONFIG.effectTooltips) {
-            PotionContentsComponent.buildTooltip(effects, tooltip::add, 1.0F, context.getUpdateTickRate());
+            PotionContents.addPotionTooltip(effects, tooltip::add, 1.0F, context.tickRate());
         }
     }
 }

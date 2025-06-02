@@ -3,23 +3,22 @@ package net.hecco.bountifulfares.datagen.appledog;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.hecco.bountifulfares.compat.appledog.AppledogBlocks;
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
-
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.resources.ResourceLocation;
 import java.util.concurrent.CompletableFuture;
 
 import static net.hecco.bountifulfares.BountifulFares.APPLEDOG_MOD_ID;
 
 public class AppledogRecipeProvider extends FabricRecipeProvider {
-    public AppledogRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    public AppledogRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
-    public void generate(RecipeExporter exporter) {
-        offerCompactingRecipe(exporter, RecipeCategory.MISC, AppledogBlocks.APPLEDOG_BLOCK, Registries.ITEM.get(Identifier.of(APPLEDOG_MOD_ID, "dogapple")));
+    public void buildRecipes(RecipeOutput exporter) {
+        threeByThreePacker(exporter, RecipeCategory.MISC, AppledogBlocks.APPLEDOG_BLOCK, BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(APPLEDOG_MOD_ID, "dogapple")));
     }
 }

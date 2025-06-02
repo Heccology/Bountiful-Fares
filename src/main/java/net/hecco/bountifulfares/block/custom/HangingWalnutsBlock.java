@@ -3,121 +3,125 @@ package net.hecco.bountifulfares.block.custom;
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.minecraft.block.*;
-import net.minecraft.entity.FallingBlockEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.pathing.NavigationType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.FallingBlockEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.FallingBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
+public class HangingWalnutsBlock extends FallingBlock implements BonemealableBlock {
 
-    public static final IntProperty AGE = Properties.AGE_3;
-    public static final BooleanProperty SNIPPED = BooleanProperty.of("snipped");
+    public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
+    public static final BooleanProperty SNIPPED = BooleanProperty.create("snipped");
 
-    public HangingWalnutsBlock(Settings settings) {
+    public HangingWalnutsBlock(Properties settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0).with(SNIPPED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0).setValue(SNIPPED, false));
     }
 
     @Override
-    protected MapCodec<? extends FallingBlock> getCodec() {
+    protected MapCodec<? extends FallingBlock> codec() {
         return null;
     }
 
     @Override
-    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        Vec3d vec3d = state.getModelOffset(world, pos);
-        return Block.createCuboidShape(4, 12, 4, 12, 16, 12).offset(vec3d.x, vec3d.y, vec3d.z);
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        Vec3 vec3d = state.getOffset(world, pos);
+        return Block.box(4, 12, 4, 12, 16, 12).move(vec3d.x, vec3d.y, vec3d.z);
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(AGE, SNIPPED);
     }
 
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
         if (!HangingWalnutsBlock.isFullyGrown(state) && random.nextFloat() < 0.2) {
-            world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
+            world.setBlock(pos, state.cycle(AGE), Block.UPDATE_CLIENTS);
         }
     }
 
     @Override
-    public void onDestroyedOnLanding(World world, BlockPos pos, FallingBlockEntity fallingBlockEntity) {
-        if (world.getBlockState(pos).isAir() || world.getBlockState(pos).isIn(BlockTags.REPLACEABLE)) {
-            if (world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos, Direction.UP)) {
-                world.setBlockState(pos, BFBlocks.FALLEN_WALNUTS.getDefaultState(), 2);
+    public void onBrokenAfterFall(Level world, BlockPos pos, FallingBlockEntity fallingBlockEntity) {
+        if (world.getBlockState(pos).isAir() || world.getBlockState(pos).is(BlockTags.REPLACEABLE)) {
+            if (world.getBlockState(pos.below()).isFaceSturdy(world, pos, Direction.UP)) {
+                world.setBlock(pos, BFBlocks.FALLEN_WALNUTS.defaultBlockState(), 2);
             }
 
         } else {
-            if (world.getBlockState(pos).isSideSolidFullSquare(world, pos, Direction.UP)) {
-                world.setBlockState(pos.up(), BFBlocks.FALLEN_WALNUTS.getDefaultState(), 2);
+            if (world.getBlockState(pos).isFaceSturdy(world, pos, Direction.UP)) {
+                world.setBlock(pos.above(), BFBlocks.FALLEN_WALNUTS.defaultBlockState(), 2);
             }
-            if (world.getBlockState(pos).isOf(BFBlocks.FALLEN_WALNUTS) && world.getBlockState(pos).get(FallenWalnutsBlock.COUNT) != 3) {
-                world.setBlockState(pos, BFBlocks.FALLEN_WALNUTS.getDefaultState().with(FallenWalnutsBlock.COUNT, world.getBlockState(pos).get(FallenWalnutsBlock.COUNT) + 1), 2);
-            } else if (world.getBlockState(pos).isOf(Blocks.FARMLAND) || world.getBlockState(pos).isOf(Blocks.DIRT_PATH)) {
-                if (world.getBlockState(pos.up()).isOf(BFBlocks.FALLEN_WALNUTS) && world.getBlockState(pos.up()).get(FallenWalnutsBlock.COUNT) != 3) {
-                    world.setBlockState(pos.up(), BFBlocks.FALLEN_WALNUTS.getDefaultState().with(FallenWalnutsBlock.COUNT, world.getBlockState(pos.up()).get(FallenWalnutsBlock.COUNT) + 1), 2);
+            if (world.getBlockState(pos).is(BFBlocks.FALLEN_WALNUTS) && world.getBlockState(pos).getValue(FallenWalnutsBlock.COUNT) != 3) {
+                world.setBlock(pos, BFBlocks.FALLEN_WALNUTS.defaultBlockState().setValue(FallenWalnutsBlock.COUNT, world.getBlockState(pos).getValue(FallenWalnutsBlock.COUNT) + 1), 2);
+            } else if (world.getBlockState(pos).is(Blocks.FARMLAND) || world.getBlockState(pos).is(Blocks.DIRT_PATH)) {
+                if (world.getBlockState(pos.above()).is(BFBlocks.FALLEN_WALNUTS) && world.getBlockState(pos.above()).getValue(FallenWalnutsBlock.COUNT) != 3) {
+                    world.setBlock(pos.above(), BFBlocks.FALLEN_WALNUTS.defaultBlockState().setValue(FallenWalnutsBlock.COUNT, world.getBlockState(pos.above()).getValue(FallenWalnutsBlock.COUNT) + 1), 2);
                 } else {
-                    world.setBlockState(pos.up(), BFBlocks.FALLEN_WALNUTS.getDefaultState(), 2);
+                    world.setBlock(pos.above(), BFBlocks.FALLEN_WALNUTS.defaultBlockState(), 2);
                 }
             }
         }
-        super.onDestroyedOnLanding(world, pos, fallingBlockEntity);
+        super.onBrokenAfterFall(world, pos, fallingBlockEntity);
     }
 
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit)
     {
-        if (stack.isOf(Items.SHEARS) && !state.get(SNIPPED)) {
-            world.setBlockState(pos, state.with(SNIPPED, true));
-            stack.damage(1, player, LivingEntity.getSlotForHand(hand));
-            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.BLOCKS, 1.0F, 1.0F);
-            return ItemActionResult.SUCCESS;
+        if (stack.is(Items.SHEARS) && !state.getValue(SNIPPED)) {
+            world.setBlockAndUpdate(pos, state.setValue(SNIPPED, true));
+            stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
+            return ItemInteractionResult.SUCCESS;
         }
-        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
+        return super.useItemOn(stack, state, world, pos, player, hand, hit);
     }
 
     @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return Block.sideCoversSmallSquare(world, pos.up(), Direction.DOWN) && !world.isWater(pos)
-                || world.getBlockState(pos.up()).isOf(BFBlocks.WALNUT_LEAVES) && !world.isWater(pos);
+    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+        return Block.canSupportCenter(world, pos.above(), Direction.DOWN) && !world.isWaterAt(pos)
+                || world.getBlockState(pos.above()).is(BFBlocks.WALNUT_LEAVES) && !world.isWaterAt(pos);
     }
 
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (canFallThrough(state) && pos.getY() >= world.getBottomY()) {
-            FallingBlockEntity fallingBlockEntity = FallingBlockEntity.spawnFromBlock(world, pos, state);
-            this.configureFallingBlockEntity(fallingBlockEntity);
-            world.setBlockState(pos, state.with(AGE, 0));
+    public void tick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+        if (isFree(state) && pos.getY() >= world.getMinBuildHeight()) {
+            FallingBlockEntity fallingBlockEntity = FallingBlockEntity.fall(world, pos, state);
+            this.falling(fallingBlockEntity);
+            world.setBlockAndUpdate(pos, state.setValue(AGE, 0));
         }
     }
 
-    public static boolean canFallThrough(BlockState state) {
-        if (!isFullyGrown(state) || state.get(SNIPPED)) {
+    public static boolean isFree(BlockState state) {
+        if (!isFullyGrown(state) || state.getValue(SNIPPED)) {
             return false;
         } else {
             return true;
@@ -125,54 +129,54 @@ public class HangingWalnutsBlock extends FallingBlock implements Fertilizable {
     }
 
     @Override
-    protected int getFallDelay() {
+    protected int getDelayAfterPlace() {
         return 30;
     }
 
     @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+    public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
 
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
+    public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state) {
         return false;
     }
 
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level world, RandomSource random, BlockPos pos, BlockState state) {
         return !isFullyGrown(state);
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
         if (!isFullyGrown(state)) {
-            world.setBlockState(pos, state.cycle(AGE), Block.NOTIFY_LISTENERS);
+            world.setBlock(pos, state.cycle(AGE), Block.UPDATE_CLIENTS);
         }
     }
 
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
+    public boolean isFertilizable(LevelReader world, BlockPos pos, BlockState state, boolean isClient) {
         return !isFullyGrown(state);
     }
 
     private static boolean isFullyGrown(BlockState state) {
-        return state.get(AGE) == 3;
+        return state.getValue(AGE) == 3;
     }
 
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        return !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
+        return !state.canSurvive(world, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, neighborState, world, pos, neighborPos);
     }
 
-    public boolean isTransparent(BlockState state, BlockView world, BlockPos pos) {
+    public boolean propagatesSkylightDown(BlockState state, BlockGetter world, BlockPos pos) {
         return state.getFluidState().isEmpty();
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, NavigationType type) {
-        return type == NavigationType.AIR && !this.collidable || super.canPathfindThrough(state, type);
+    public boolean isPathfindable(BlockState state, PathComputationType type) {
+        return type == PathComputationType.AIR && !this.hasCollision || super.isPathfindable(state, type);
     }
 
     @Override
-    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
-        return BFItems.WALNUT.getDefaultStack();
+    public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state) {
+        return BFItems.WALNUT.getDefaultInstance();
     }
 }
