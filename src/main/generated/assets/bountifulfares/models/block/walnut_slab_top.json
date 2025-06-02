@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "bountifulfares:block/walnut_planks",
-    "side": "bountifulfares:block/walnut_planks",
-    "top": "bountifulfares:block/walnut_planks"
-  }
-}

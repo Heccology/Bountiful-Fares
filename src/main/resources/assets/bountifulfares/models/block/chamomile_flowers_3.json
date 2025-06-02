@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/flowerbed_3",
-  "textures": {
-    "flowerbed": "bountifulfares:block/chamomile_flowers",
-    "stem": "bountifulfares:block/chamomile_flowers_stem"
-  }
-}

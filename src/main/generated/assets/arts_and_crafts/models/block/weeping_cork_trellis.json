@@ -1,8 +1,0 @@
-{
-  "parent": "bountifulfares:block/template_planted_trellis",
-  "textures": {
-    "crop": "bountifulfares:block/weeping_trellis_vines",
-    "front": "bountifulfares:block/weeping_trellis_foliage",
-    "texture": "arts_and_crafts:block/cork_trellis"
-  }
-}

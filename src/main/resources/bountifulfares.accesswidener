@@ -1,8 +1,0 @@
-accessWidener   v2  named
-
-accessible class net/minecraft/client/gui/Gui$HeartType
-accessible class net/minecraft/world/level/levelgen/structure/structures/WoodlandMansionPieces$FirstFloorRoomCollection
-accessible class net/minecraft/world/level/levelgen/structure/structures/WoodlandMansionPieces$SecondFloorRoomCollection
-accessible field net/minecraft/world/level/storage/loot/LootTable pools Ljava/util/List;
-accessible class net/minecraft/world/level/block/state/properties/NoteBlockInstrument$Type
-accessible method java/lang/Enum ordinal ()I

@@ -1,8 +1,0 @@
-{
-  "parent": "bountifulfares:block/template_planted_trellis",
-  "textures": {
-    "crop": "bountifulfares:block/ns_blue_bulb_trellis_vines",
-    "front": "bountifulfares:block/ns_blue_bulb_trellis_foliage",
-    "texture": "excessive_building:block/ancient_trellis"
-  }
-}

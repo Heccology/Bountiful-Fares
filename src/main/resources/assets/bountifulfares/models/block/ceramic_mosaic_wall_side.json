@@ -1,6 +1,0 @@
-{
-  "parent": "bountifulfares:block/tintable_wall_side",
-  "textures": {
-    "wall": "bountifulfares:block/ceramic_mosaic"
-  }
-}

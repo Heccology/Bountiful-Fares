@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "bountifulfares:item/ceramic_door",
-    "layer1": "bountifulfares:item/ceramic_door_overlay"
-  }
-}

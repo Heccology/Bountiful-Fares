@@ -1,8 +1,0 @@
-{
-  "values": [
-    "minecraft:plains",
-    "minecraft:forest",
-    "minecraft:meadow",
-    "#minecraft:is_taiga"
-  ]
-}

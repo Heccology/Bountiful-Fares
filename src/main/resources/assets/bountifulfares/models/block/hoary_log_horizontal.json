@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "bountifulfares:block/hoary_log_top",
-    "side": "bountifulfares:block/hoary_log"
-  }
-}

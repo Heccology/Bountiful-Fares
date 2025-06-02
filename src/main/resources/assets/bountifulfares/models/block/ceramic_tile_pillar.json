@@ -1,7 +1,0 @@
-{
-  "parent": "bountifulfares:block/tintable_pillar",
-  "textures": {
-    "end": "bountifulfares:block/ceramic_tile_pillar_top",
-    "side": "bountifulfares:block/ceramic_tile_pillar"
-  }
-}

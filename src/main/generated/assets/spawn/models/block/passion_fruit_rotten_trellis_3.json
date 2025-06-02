@@ -1,8 +1,0 @@
-{
-  "parent": "bountifulfares:block/template_planted_trellis",
-  "textures": {
-    "crop": "bountifulfares:block/passion_fruit_trellis_vines_1",
-    "front": "bountifulfares:block/passion_fruit_trellis_foliage_3",
-    "texture": "spawn:block/rotten_trellis"
-  }
-}
