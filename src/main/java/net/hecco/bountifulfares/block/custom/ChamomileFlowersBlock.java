@@ -13,14 +13,16 @@ public class ChamomileFlowersBlock extends FlowerbedBlock implements Fertilizabl
 
     @Override
     public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
-        return world.getBlockState(pos.down()).isOf(Blocks.FARMLAND);
+        return world.getBlockState(pos.down()).getBlock() instanceof FarmlandBlock;
     }
 
-    @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        int i = state.get(FLOWER_AMOUNT);
-        if (i < 4 || world.getBlockState(pos.down()).isOf(Blocks.FARMLAND)) {
-            world.setBlockState(pos, state.cycle(FLOWER_AMOUNT), Block.NOTIFY_LISTENERS);
-        }
-    }
+    // Unnecessary - `isFertilizable` will make sure the super method can only run on Farmland anyway. - Artyrian
+    //@Override
+    //public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    //    int i = state.get(FLOWER_AMOUNT);
+    //    if (i < 4 || world.getBlockState(pos.down()).isOf(Blocks.FARMLAND))
+    //    {
+    //        world.setBlockState(pos, state.cycle(FLOWER_AMOUNT), Block.NOTIFY_LISTENERS);
+    //    }
+    //}
 }
