@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "bountifulfares:spongekin"
+    }
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 9,
+        "id": "bountifulfares:spongekin_slice"
+      }
+    }
+  ],
+  "tool": {
+    "tag": "c:tools/knife"
+  }
+}

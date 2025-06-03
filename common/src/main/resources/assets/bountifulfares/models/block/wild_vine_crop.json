@@ -1,0 +1,49 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"parent": "minecraft:block/block",
+	"ambientocclusion": false,
+	"textures": {
+		"0": "#tint",
+		"1": "#texture",
+		"particle": "#tint"
+	},
+	"elements": [
+		{
+			"from": [0, 8, 15.5],
+			"to": [16, 16, 15.5],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [0, 8, 15.5]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 8], "texture": "#0", "tintindex": 0},
+				"south": {"uv": [0, 0, 16, 8], "texture": "#0", "tintindex": 0}
+			}
+		},
+		{
+			"from": [0, 8, 15.5],
+			"to": [16, 16, 15.5],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [0, 8, 15.5]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 8], "texture": "#1"},
+				"south": {"uv": [0, 0, 16, 8], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 0, 15.5],
+			"to": [16, 8, 15.5],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [0, 8, 15.5]},
+			"faces": {
+				"north": {"uv": [0, 8, 16, 16], "texture": "#1"},
+				"south": {"uv": [0, 8, 16, 16], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 0, 15.5],
+			"to": [16, 8, 15.5],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [0, 8, 15.5]},
+			"faces": {
+				"north": {"uv": [0, 8, 16, 16], "texture": "#0", "tintindex": 0},
+				"south": {"uv": [0, 8, 16, 16], "texture": "#0", "tintindex": 0}
+			}
+		}
+	],
+	"display": {}
+}

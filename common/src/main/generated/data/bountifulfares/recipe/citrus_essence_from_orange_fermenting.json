@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:fermenting",
+  "ingredient": {
+    "item": "bountifulfares:orange"
+  },
+  "particle_color": 15200149,
+  "result": {
+    "id": "bountifulfares:citrus_essence"
+  },
+  "result_count": 2
+}

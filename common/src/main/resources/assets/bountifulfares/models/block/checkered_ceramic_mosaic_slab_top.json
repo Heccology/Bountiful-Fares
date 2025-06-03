@@ -1,0 +1,7 @@
+{
+	"parent": "bountifulfares:block/tintable_slab_top_with_overlay",
+	"textures": {
+		"tint": "bountifulfares:block/checkered_ceramic_mosaic",
+		"overlay": "bountifulfares:block/checkered_ceramic_mosaic_overlay"
+	}
+}

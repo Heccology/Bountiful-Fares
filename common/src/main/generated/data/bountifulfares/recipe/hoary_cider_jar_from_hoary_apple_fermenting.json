@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:fermenting",
+  "ingredient": {
+    "item": "bountifulfares:hoary_apple"
+  },
+  "particle_color": 15714738,
+  "result": {
+    "id": "bountifulfares:hoary_cider_jar"
+  },
+  "result_count": 1
+}

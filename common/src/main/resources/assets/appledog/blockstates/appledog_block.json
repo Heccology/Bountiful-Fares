@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,joy=false": {
+      "model": "appledog:block/appledog_block",
+      "y": 90
+    },
+    "facing=north,joy=false": {
+      "model": "appledog:block/appledog_block"
+    },
+    "facing=south,joy=false": {
+      "model": "appledog:block/appledog_block",
+      "y": 180
+    },
+    "facing=west,joy=false": {
+      "model": "appledog:block/appledog_block",
+      "y": 270
+    },
+    "facing=east,joy=true": {
+      "model": "appledog:block/appledog_block_joy",
+      "y": 90
+    },
+    "facing=north,joy=true": {
+      "model": "appledog:block/appledog_block_joy"
+    },
+    "facing=south,joy=true": {
+      "model": "appledog:block/appledog_block_joy",
+      "y": 180
+    },
+    "facing=west,joy=true": {
+      "model": "appledog:block/appledog_block_joy",
+      "y": 270
+    }
+  }
+}

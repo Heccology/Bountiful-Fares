@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "excessive_building:walnut_mosaic"
+    }
+  },
+  "pattern": [
+    "###",
+    "## ",
+    "#  "
+  ],
+  "result": {
+    "count": 4,
+    "id": "excessive_building:walnut_mosaic_vertical_stairs"
+  }
+}

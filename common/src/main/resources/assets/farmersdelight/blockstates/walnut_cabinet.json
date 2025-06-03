@@ -1,0 +1,42 @@
+{
+  "variants": {
+    "facing=east,open=false": {
+      "model": "farmersdelight:block/walnut_cabinet",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north,open=false": {
+      "model": "farmersdelight:block/walnut_cabinet",
+      "uvlock": true
+    },
+    "facing=south,open=false": {
+      "model": "farmersdelight:block/walnut_cabinet",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=west,open=false": {
+      "model": "farmersdelight:block/walnut_cabinet",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=east,open=true": {
+      "model": "farmersdelight:block/walnut_cabinet_open",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north,open=true": {
+      "model": "farmersdelight:block/walnut_cabinet_open",
+      "uvlock": true
+    },
+    "facing=south,open=true": {
+      "model": "farmersdelight:block/walnut_cabinet_open",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=west,open=true": {
+      "model": "farmersdelight:block/walnut_cabinet_open",
+      "uvlock": true,
+      "y": 270
+    }
+  }
+}

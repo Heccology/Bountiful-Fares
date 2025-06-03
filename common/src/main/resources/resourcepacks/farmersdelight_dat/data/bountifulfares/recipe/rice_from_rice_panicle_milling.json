@@ -1,0 +1,10 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "farmersdelight:rice_panicle"
+  },
+  "result": {
+    "id": "farmersdelight:rice"
+  },
+  "result_count": 2
+}

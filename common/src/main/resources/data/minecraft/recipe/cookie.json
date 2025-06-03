@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:flour"
+    },
+    "X": {
+      "item": "minecraft:cocoa_beans"
+    }
+  },
+  "pattern": [
+    "#X#"
+  ],
+  "result": {
+    "count": 8,
+    "id": "minecraft:cookie"
+  },
+  "show_notification": true
+}

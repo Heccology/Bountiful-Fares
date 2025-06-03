@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "bountifulfares:item/artisan_brush_tint",
+    "layer1": "bountifulfares:item/artisan_brush_overlay"
+  }
+}

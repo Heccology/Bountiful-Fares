@@ -1,0 +1,7 @@
+{
+	"parent": "bountifulfares:block/tintable_cross_with_overlay",
+	"textures": {
+		"cross": "bountifulfares:block/wild_maize_top",
+		"tint": "bountifulfares:block/wild_maize_top_tint"
+	}
+}

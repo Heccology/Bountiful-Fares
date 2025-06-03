@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_coir_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:coir_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bountifulfares:coir_brick_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_coir_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bountifulfares:coir_brick_wall"
+    ]
+  }
+}

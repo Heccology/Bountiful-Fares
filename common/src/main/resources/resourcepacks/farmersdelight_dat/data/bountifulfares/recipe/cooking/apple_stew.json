@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "bountifulfares:elderberries"
+    },
+    {
+      "item": "bountifulfares:elderberries"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:apple_stew"
+  }
+}

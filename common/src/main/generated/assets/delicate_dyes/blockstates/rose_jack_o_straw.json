@@ -1,0 +1,68 @@
+{
+  "variants": {
+    "facing=east,half=lower,lit=false": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_lower",
+      "y": 90
+    },
+    "facing=east,half=lower,lit=true": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_lower",
+      "y": 90
+    },
+    "facing=east,half=upper,lit=false": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_upper",
+      "y": 90
+    },
+    "facing=east,half=upper,lit=true": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_upper_lit",
+      "y": 90
+    },
+    "facing=north,half=lower,lit=false": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_lower",
+      "y": 0
+    },
+    "facing=north,half=lower,lit=true": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_lower",
+      "y": 0
+    },
+    "facing=north,half=upper,lit=false": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_upper",
+      "y": 0
+    },
+    "facing=north,half=upper,lit=true": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_upper_lit",
+      "y": 0
+    },
+    "facing=south,half=lower,lit=false": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_lower",
+      "y": 180
+    },
+    "facing=south,half=lower,lit=true": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_lower",
+      "y": 180
+    },
+    "facing=south,half=upper,lit=false": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_upper",
+      "y": 180
+    },
+    "facing=south,half=upper,lit=true": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_upper_lit",
+      "y": 180
+    },
+    "facing=west,half=lower,lit=false": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_lower",
+      "y": 270
+    },
+    "facing=west,half=lower,lit=true": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_lower",
+      "y": 270
+    },
+    "facing=west,half=upper,lit=false": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_upper",
+      "y": 270
+    },
+    "facing=west,half=upper,lit=true": {
+      "model": "delicate_dyes:block/rose_jack_o_straw_upper_lit",
+      "y": 270
+    }
+  }
+}

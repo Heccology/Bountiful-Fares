@@ -1,0 +1,99 @@
+{
+  "values": [
+    {
+      "id": "excessive_building:ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:passion_fruit_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:elderberry_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:lapisberry_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:glow_berry_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:spawn_sunflower_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:rose_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:lilac_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:peony_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:sunflower_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:vine_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:weeping_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:twisting_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_lavender_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_bleeding_heart_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_blue_bulb_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_carnation_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_gardenia_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_marigold_ancient_trellis",
+      "required": false
+    },
+    {
+      "id": "excessive_building:ns_foxglove_ancient_trellis",
+      "required": false
+    },
+    "excessive_building:walnut_vertical_stairs",
+    "excessive_building:chiseled_walnut_planks",
+    "excessive_building:walnut_mosaic",
+    "excessive_building:walnut_mosaic_stairs",
+    "excessive_building:walnut_mosaic_slab",
+    "excessive_building:walnut_mosaic_vertical_stairs",
+    "excessive_building:walnut_ladder",
+    "excessive_building:hoary_vertical_stairs",
+    "excessive_building:chiseled_hoary_planks",
+    "excessive_building:hoary_mosaic",
+    "excessive_building:hoary_mosaic_stairs",
+    "excessive_building:hoary_mosaic_slab",
+    "excessive_building:hoary_mosaic_vertical_stairs",
+    "excessive_building:hoary_ladder",
+    "excessive_building:ancient_pickets"
+  ]
+}

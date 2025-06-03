@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "excessive_building:walnut_mosaic_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_walnut_mosaic": {
+      "conditions": {
+        "items": [
+          {
+            "items": "excessive_building:walnut_mosaic"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_walnut_mosaic"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "excessive_building:walnut_mosaic_stairs"
+    ]
+  }
+}

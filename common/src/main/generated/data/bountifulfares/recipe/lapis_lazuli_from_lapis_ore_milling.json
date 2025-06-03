@@ -1,0 +1,10 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:lapis_ore"
+  },
+  "result": {
+    "id": "minecraft:lapis_lazuli"
+  },
+  "result_count": 6
+}

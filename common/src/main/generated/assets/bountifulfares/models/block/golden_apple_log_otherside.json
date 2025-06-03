@@ -1,0 +1,6 @@
+{
+  "parent": "bountifulfares:block/template_fruit_log_otherside",
+  "textures": {
+    "texture": "bountifulfares:block/golden_apple_log"
+  }
+}

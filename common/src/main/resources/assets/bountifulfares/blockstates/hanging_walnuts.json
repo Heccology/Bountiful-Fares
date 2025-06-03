@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "bountifulfares:block/hanging_walnuts_0"
+    },
+    "age=1": {
+      "model": "bountifulfares:block/hanging_walnuts_1"
+    },
+    "age=2": {
+      "model": "bountifulfares:block/hanging_walnuts_2"
+    },
+    "age=3": {
+      "model": "bountifulfares:block/hanging_walnuts_3"
+    }
+  }
+}

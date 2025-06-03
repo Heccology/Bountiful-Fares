@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "bountifulfares:ceramic_tiles"
+    }
+  },
+  "pattern": [
+    "###",
+    "## ",
+    "#  "
+  ],
+  "result": {
+    "count": 4,
+    "id": "excessive_building:ceramic_tile_vertical_stairs"
+  }
+}

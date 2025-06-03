@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "trellis",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "P": {
+      "item": "excessive_building:ancient_planks"
+    }
+  },
+  "pattern": [
+    "# #",
+    " P ",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "excessive_building:ancient_trellis"
+  }
+}

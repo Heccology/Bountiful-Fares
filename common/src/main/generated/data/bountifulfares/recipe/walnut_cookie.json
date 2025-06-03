@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:flour"
+    },
+    "W": {
+      "tag": "c:foods/walnuts"
+    }
+  },
+  "pattern": [
+    "#W#"
+  ],
+  "result": {
+    "count": 4,
+    "id": "bountifulfares:walnut_cookie"
+  }
+}

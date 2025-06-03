@@ -1,0 +1,100 @@
+{
+  "parent": "bountifulfares:place_gristmill",
+  "criteria": {
+    "bellflower": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:bellflower_tea_blend"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "black": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:black_tea_blend"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "chamomile": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:chamomile_tea_blend"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "green": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:green_tea_blend"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "honeysuckle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:honeysuckle_tea_blend"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "torchflower": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:torchflower_tea_blend"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.obtain_tea_blends.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "bountifulfares:tea_leaves"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.obtain_tea_blends"
+    }
+  },
+  "requirements": [
+    [
+      "green"
+    ],
+    [
+      "black"
+    ],
+    [
+      "chamomile"
+    ],
+    [
+      "honeysuckle"
+    ],
+    [
+      "bellflower"
+    ],
+    [
+      "torchflower"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

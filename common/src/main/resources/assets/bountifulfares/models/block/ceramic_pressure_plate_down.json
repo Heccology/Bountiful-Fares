@@ -1,0 +1,18 @@
+{
+  "textures": {
+    "particle": "bountifulfares:block/ceramic_pressure_plate"
+  },
+  "elements": [
+    {   "from": [ 1, 0, 1 ],
+      "to": [ 15, 0.5, 15 ],
+      "faces": {
+        "down":  { "uv": [ 1,    1, 15, 15 ], "texture": "#particle", "cullface": "down", "tintindex": 0 },
+        "up":    { "uv": [ 1,    1, 15, 15 ], "texture": "#particle", "tintindex": 0 },
+        "north": { "uv": [ 1, 15, 15, 15.5 ], "texture": "#particle", "tintindex": 0 },
+        "south": { "uv": [ 1, 15, 15, 15.5 ], "texture": "#particle", "tintindex": 0 },
+        "west":  { "uv": [ 1, 15, 15, 15.5 ], "texture": "#particle", "tintindex": 0 },
+        "east":  { "uv": [ 1, 15, 15, 15.5 ], "texture": "#particle", "tintindex": 0 }
+      }
+    }
+  ]
+}

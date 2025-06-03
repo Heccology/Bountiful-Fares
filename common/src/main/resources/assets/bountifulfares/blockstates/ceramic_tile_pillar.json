@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "bountifulfares:block/ceramic_tile_pillar",
+      "x": -90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "bountifulfares:block/ceramic_tile_pillar"
+    },
+    "axis=z": {
+      "model": "bountifulfares:block/ceramic_tile_pillar",
+      "x": -90
+    }
+  }
+}

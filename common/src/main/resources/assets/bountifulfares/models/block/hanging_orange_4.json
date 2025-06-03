@@ -1,0 +1,50 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"ambientocclusion": false,
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "bountifulfares:block/hanging_orange",
+		"particle": "bountifulfares:item/orange"
+	},
+	"elements": [
+		{
+			"from": [5, 8, 5],
+			"to": [11, 14, 11],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, 16, 8]},
+			"faces": {
+				"north": {"uv": [8, 0, 11, 3], "texture": "#0"},
+				"east": {"uv": [8, 0, 11, 3], "texture": "#0"},
+				"south": {"uv": [8, 0, 11, 3], "texture": "#0"},
+				"west": {"uv": [8, 0, 11, 3], "texture": "#0"},
+				"up": {"uv": [8, 3, 11, 6], "texture": "#0"},
+				"down": {"uv": [11, 0, 14, 3], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7, 14, 8],
+			"to": [9, 16, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 14, 8]},
+			"faces": {
+				"north": {"uv": [0, 3, 1, 4], "texture": "#0"},
+				"east": {"uv": [0, 3, 1, 4], "texture": "#0"},
+				"south": {"uv": [0, 3, 1, 4], "texture": "#0"},
+				"west": {"uv": [0, 3, 1, 4], "texture": "#0"},
+				"up": {"uv": [0, 3, 1, 4], "texture": "#0"},
+				"down": {"uv": [0, 3, 1, 4], "texture": "#0"}
+			}
+		},
+		{
+			"from": [8, 14, 7],
+			"to": [8, 16, 9],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 14, 8]},
+			"faces": {
+				"north": {"uv": [0, 3, 1, 4], "texture": "#0"},
+				"east": {"uv": [0, 3, 1, 4], "texture": "#0"},
+				"south": {"uv": [0, 3, 1, 4], "texture": "#0"},
+				"west": {"uv": [0, 3, 1, 4], "texture": "#0"},
+				"up": {"uv": [0, 3, 1, 4], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 3, 1, 4], "rotation": 270, "texture": "#0"}
+			}
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:foods/plums"
+    },
+    {
+      "tag": "bountifulfares:sugar_ingredients"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:candied_plum"
+  }
+}

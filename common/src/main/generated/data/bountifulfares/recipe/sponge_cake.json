@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "bountifulfares:spongekin"
+    },
+    "E": {
+      "item": "minecraft:egg"
+    },
+    "P": {
+      "item": "minecraft:water_bucket"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "pattern": [
+    "PPP",
+    "SES",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:sponge_cake"
+  }
+}

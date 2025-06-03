@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:foods/lemons"
+    },
+    {
+      "tag": "c:foods/lemons"
+    },
+    {
+      "item": "bountifulfares:citrus_essence"
+    },
+    {
+      "item": "bountifulfares:jar"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:lemon_compote_jar"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "bountifulfares:leek"
+    },
+    {
+      "item": "bountifulfares:coconut_half"
+    },
+    {
+      "item": "bountifulfares:coconut_half"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:coconut_stew"
+  }
+}

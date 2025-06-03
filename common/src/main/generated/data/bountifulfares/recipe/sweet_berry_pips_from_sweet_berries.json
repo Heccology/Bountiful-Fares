@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "sweet_berry_seeds",
+  "ingredients": [
+    {
+      "item": "minecraft:sweet_berries"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:sweet_berry_pips"
+  }
+}

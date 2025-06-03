@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "trellis",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "P": {
+      "item": "minecraft:oak_planks"
+    }
+  },
+  "pattern": [
+    "# #",
+    " P ",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:trellis"
+  }
+}

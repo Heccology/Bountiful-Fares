@@ -1,0 +1,36 @@
+{
+	"credit": "Made with Blockbench by Hecco",
+	"textures": {
+		"particle": "bountifulfares:block/plum_block_side",
+		"side": "bountifulfares:block/plum_block_side",
+		"top": "bountifulfares:block/plum_block_top",
+		"bottom": "bountifulfares:block/plum_block_bottom",
+		"inside": "bountifulfares:block/plum_block_inside"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 8],
+			"to": [8, 16, 16],
+			"faces": {
+				"north": {"uv": [8, 0, 16, 16], "texture": "#inside"},
+				"east": {"uv": [0, 0, 8, 16], "texture": "#inside"},
+				"south": {"uv": [0, 0, 8, 16], "texture": "#side", "cullface": "south"},
+				"west": {"uv": [8, 0, 16, 16], "texture": "#side", "cullface": "west"},
+				"up": {"uv": [0, 8, 8, 16], "texture": "#top", "cullface": "up"},
+				"down": {"uv": [0, 0, 8, 8], "texture": "#bottom", "cullface": "down"}
+			}
+		},
+		{
+			"from": [6, 5, 6],
+			"to": [10, 11, 10],
+			"faces": {
+				"north": {"uv": [6, 5, 10, 11], "texture": "#inside"},
+				"east": {"uv": [6, 5, 10, 11], "texture": "#inside"},
+				"south": {"uv": [6, 5, 10, 11], "texture": "#inside"},
+				"west": {"uv": [6, 5, 10, 11], "texture": "#inside"},
+				"up": {"uv": [6, 5, 10, 9], "texture": "#inside"},
+				"down": {"uv": [6, 7, 10, 11], "texture": "#inside"}
+			}
+		}
+	]
+}

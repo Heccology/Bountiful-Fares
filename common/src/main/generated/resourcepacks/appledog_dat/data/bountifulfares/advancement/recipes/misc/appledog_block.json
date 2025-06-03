@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dogapple": {
+      "conditions": {
+        "items": [
+          {
+            "items": "appledog:dogapple"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "appledog:appledog_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dogapple"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "appledog:appledog_block"
+    ]
+  }
+}

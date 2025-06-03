@@ -1,0 +1,6 @@
+{
+  "parent": "bountifulfares:block/jack_o_straw_upper",
+  "textures": {
+    "texture": "bountifulfares:block/green_jack_o_straw_lit"
+  }
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "bountifulfares:block/tintable_inner_stairs_with_overlay",
+	"textures": {
+		"tint": "bountifulfares:block/checkered_ceramic_tiles",
+		"overlay": "bountifulfares:block/checkered_ceramic_tiles_overlay"
+	}
+}

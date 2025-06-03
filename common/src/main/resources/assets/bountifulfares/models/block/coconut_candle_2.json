@@ -1,0 +1,6 @@
+{
+	"parent": "bountifulfares:block/template_coconut_candle_2",
+	"textures": {
+		"texture": "bountifulfares:block/coconut_candle"
+	}
+}
