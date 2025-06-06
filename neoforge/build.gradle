@@ -3,6 +3,14 @@ plugins {
     id 'net.neoforged.moddev'
 }
 
+repositories {
+    maven { url = "https://cursemaven.com" }
+}
+
+dependencies {
+    implementation "curse.maven:heccolib-1279113:${neoforge_heccolib}"
+}
+
 neoForge {
     version = neoforge_version
     // Automatically enable neoforge AccessTransformers if the file exists
