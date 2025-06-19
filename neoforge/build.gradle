@@ -7,10 +7,6 @@ repositories {
     maven { url = "https://cursemaven.com" }
 }
 
-dependencies {
-    implementation "curse.maven:heccolib-1279113:${neoforge_heccolib}"
-}
-
 neoForge {
     version = neoforge_version
     // Automatically enable neoforge AccessTransformers if the file exists
@@ -44,4 +40,9 @@ neoForge {
     }
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+dependencies {
+    //HECCOLIB
+    implementation "curse.maven:heccolib-1279113:${neoforge_heccolib}"
+}
+
+sourceSets.main.resources { srcDir project(":common").file('src/main/generated/').getAbsolutePath() }

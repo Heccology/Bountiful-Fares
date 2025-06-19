@@ -1,3 +1,8 @@
+========================================================
+MULTILOADER PORT TODO:
+- NeoForge biome modifier jsons
+- .get() all referenced registries (do this after HeccoLib registries have been added to everything,,, unless you need to I suppose)
+========================================================
 - Add coconut advancements
 - Add urban decor compat, stainless steel railings
 - Normal candy removes poison

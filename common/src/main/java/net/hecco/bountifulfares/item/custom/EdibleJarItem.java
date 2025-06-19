@@ -47,10 +47,10 @@ public class EdibleJarItem extends Item {
             serverPlayerEntity.awardStat(Stats.ITEM_USED.get(this));
         }
         if (stack.isEmpty()) {
-            return new ItemStack(BFItems.JAR);
+            return new ItemStack(BFItems.JAR.get());
         } else {
             if (user instanceof Player && !((Player)user).getAbilities().instabuild) {
-                ItemStack itemStack = new ItemStack(BFItems.JAR);
+                ItemStack itemStack = new ItemStack(BFItems.JAR.get());
                 Player playerEntity = (Player)user;
                 if (!playerEntity.getInventory().add(itemStack)) {
                     playerEntity.drop(itemStack, false);

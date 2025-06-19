@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.registry.content;
 
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.entity.FlourProjectileEntity;
 import net.minecraft.core.Registry;

@@ -14,6 +14,7 @@ import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
 import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
 import net.hecco.bountifulfares.compat.twigs.TwigsBlocks;
 import net.hecco.bountifulfares.compat.twigs.TwigsSounds;
+import net.hecco.bountifulfares.platform.Services;
 import net.minecraft.world.level.block.Block;
 
 import java.util.HashSet;
@@ -45,7 +46,7 @@ public class BFCompat {
 
 //        twigs
         TwigsBlocks.registerTwigsBlocks();
-        if (BountifulFares.isModLoaded(TWIGS_MOD_ID)) {
+        if (Services.PLATFORM.isModLoaded(TWIGS_MOD_ID)) {
             TwigsSounds.registerSounds();
         }
 

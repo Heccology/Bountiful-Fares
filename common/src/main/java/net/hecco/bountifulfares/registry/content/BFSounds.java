@@ -1,68 +1,72 @@
 package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.SoundType;
+
+import java.util.function.Supplier;
 
 public class BFSounds {
 
-    public static final SoundEvent CERAMIC_TILES_PLACE = registerSoundEvent("ceramic_tiles_place");
-    public static final SoundEvent CERAMIC_TILES_BREAK = registerSoundEvent("ceramic_tiles_break");
-    public static final SoundEvent CERAMIC_TILES_HIT = registerSoundEvent("ceramic_tiles_hit");
-    public static final SoundEvent CERAMIC_TILES_STEP = registerSoundEvent("ceramic_tiles_step");
-    public static final SoundEvent CERAMIC_TILES_FALL = registerSoundEvent("ceramic_tiles_fall");
+    public static final Supplier<SoundEvent> CERAMIC_TILES_PLACE = registerSoundEvent("ceramic_tiles_place");
+    public static final Supplier<SoundEvent> CERAMIC_TILES_BREAK = registerSoundEvent("ceramic_tiles_break");
+    public static final Supplier<SoundEvent> CERAMIC_TILES_HIT = registerSoundEvent("ceramic_tiles_hit");
+    public static final Supplier<SoundEvent> CERAMIC_TILES_STEP = registerSoundEvent("ceramic_tiles_step");
+    public static final Supplier<SoundEvent> CERAMIC_TILES_FALL = registerSoundEvent("ceramic_tiles_fall");
 
-    public static final SoundEvent CERAMIC_DECORATION_PLACE = registerSoundEvent("ceramic_decoration_place");
-    public static final SoundEvent CERAMIC_DECORATION_BREAK = registerSoundEvent("ceramic_decoration_break");
-    public static final SoundEvent CERAMIC_DECORATION_HIT = registerSoundEvent("ceramic_decoration_hit");
-    public static final SoundEvent CERAMIC_DECORATION_STEP = registerSoundEvent("ceramic_decoration_step");
-    public static final SoundEvent CERAMIC_DECORATION_FALL = registerSoundEvent("ceramic_decoration_fall");
-    public static final SoundEvent CERAMIC_DOOR_TOGGLE = registerSoundEvent("ceramic_door_toggle");
-    public static final SoundEvent CERAMIC_DISH_INTERACT = registerSoundEvent("ceramic_dish_interact");
-    public static final SoundEvent FERMENTATION_VESSEL_FILL = registerSoundEvent("fermentation_vessel_fill");
-    public static final SoundEvent FERMENTATION_VESSEL_SPLASH = registerSoundEvent("fermentation_vessel_splash");
-    public static final SoundEvent FERMENTATION_VESSEL_FERMENT = registerSoundEvent("fermentation_vessel_ferment");
-    public static final SoundEvent FERMENTATION_VESSEL_EMPTY = registerSoundEvent("fermentation_vessel_empty");
+    public static final Supplier<SoundEvent> CERAMIC_DECORATION_PLACE = registerSoundEvent("ceramic_decoration_place");
+    public static final Supplier<SoundEvent> CERAMIC_DECORATION_BREAK = registerSoundEvent("ceramic_decoration_break");
+    public static final Supplier<SoundEvent> CERAMIC_DECORATION_HIT = registerSoundEvent("ceramic_decoration_hit");
+    public static final Supplier<SoundEvent> CERAMIC_DECORATION_STEP = registerSoundEvent("ceramic_decoration_step");
+    public static final Supplier<SoundEvent> CERAMIC_DECORATION_FALL = registerSoundEvent("ceramic_decoration_fall");
+    public static final Supplier<SoundEvent> CERAMIC_DOOR_TOGGLE = registerSoundEvent("ceramic_door_toggle");
+    public static final Supplier<SoundEvent> CERAMIC_DISH_INTERACT = registerSoundEvent("ceramic_dish_interact");
+    public static final Supplier<SoundEvent> FERMENTATION_VESSEL_FILL = registerSoundEvent("fermentation_vessel_fill");
+    public static final Supplier<SoundEvent> FERMENTATION_VESSEL_SPLASH = registerSoundEvent("fermentation_vessel_splash");
+    public static final Supplier<SoundEvent> FERMENTATION_VESSEL_FERMENT = registerSoundEvent("fermentation_vessel_ferment");
+    public static final Supplier<SoundEvent> FERMENTATION_VESSEL_EMPTY = registerSoundEvent("fermentation_vessel_empty");
 
-    public static final SoundEvent GRISTMILL_GRIND = registerSoundEvent("gristmill_grind");
+    public static final Supplier<SoundEvent> GRISTMILL_GRIND = registerSoundEvent("gristmill_grind");
 
-    public static final SoundEvent GOLDEN_APPLE_WITHER = registerSoundEvent("golden_apple_wither");
+    public static final Supplier<SoundEvent> GOLDEN_APPLE_WITHER = registerSoundEvent("golden_apple_wither");
 
-    public static final SoundEvent LIGHT_WOOD_PLACE = registerSoundEvent("light_wood_place");
-    public static final SoundEvent LIGHT_WOOD_BREAK = registerSoundEvent("light_wood_break");
-    public static final SoundEvent LIGHT_WOOD_HIT = registerSoundEvent("light_wood_hit");
-    public static final SoundEvent LIGHT_WOOD_STEP = registerSoundEvent("light_wood_step");
-    public static final SoundEvent LIGHT_WOOD_FALL = registerSoundEvent("light_wood_fall");
-    public static final SoundEvent PLANTED_TRELLIS_BREAK = registerSoundEvent("planted_trellis_break");
-    public static final SoundEvent JACK_O_STRAW_BREAK = registerSoundEvent("jack_o_straw_break");
-    public static final SoundEvent CERAMIC_LEVER_ON = registerSoundEvent("ceramic_lever_on");
-    public static final SoundEvent CERAMIC_LEVER_OFF = registerSoundEvent("ceramic_lever_off");
-    public static final SoundEvent CERAMIC_BUTTON_ON = registerSoundEvent("ceramic_button_on");
-    public static final SoundEvent CERAMIC_BUTTON_OFF = registerSoundEvent("ceramic_button_off");
-    public static final SoundEvent CERAMIC_PRESSURE_PLATE_ON = registerSoundEvent("ceramic_pressure_plate_on");
-    public static final SoundEvent CERAMIC_PRESSURE_PLATE_OFF = registerSoundEvent("ceramic_pressure_plate_off");
+    public static final Supplier<SoundEvent> LIGHT_WOOD_PLACE = registerSoundEvent("light_wood_place");
+    public static final Supplier<SoundEvent> LIGHT_WOOD_BREAK = registerSoundEvent("light_wood_break");
+    public static final Supplier<SoundEvent> LIGHT_WOOD_HIT = registerSoundEvent("light_wood_hit");
+    public static final Supplier<SoundEvent> LIGHT_WOOD_STEP = registerSoundEvent("light_wood_step");
+    public static final Supplier<SoundEvent> LIGHT_WOOD_FALL = registerSoundEvent("light_wood_fall");
+    public static final Supplier<SoundEvent> PLANTED_TRELLIS_BREAK = registerSoundEvent("planted_trellis_break");
+    public static final Supplier<SoundEvent> JACK_O_STRAW_BREAK = registerSoundEvent("jack_o_straw_break");
+    public static final Supplier<SoundEvent> CERAMIC_LEVER_ON = registerSoundEvent("ceramic_lever_on");
+    public static final Supplier<SoundEvent> CERAMIC_LEVER_OFF = registerSoundEvent("ceramic_lever_off");
+    public static final Supplier<SoundEvent> CERAMIC_BUTTON_ON = registerSoundEvent("ceramic_button_on");
+    public static final Supplier<SoundEvent> CERAMIC_BUTTON_OFF = registerSoundEvent("ceramic_button_off");
+    public static final Supplier<SoundEvent> CERAMIC_PRESSURE_PLATE_ON = registerSoundEvent("ceramic_pressure_plate_on");
+    public static final Supplier<SoundEvent> CERAMIC_PRESSURE_PLATE_OFF = registerSoundEvent("ceramic_pressure_plate_off");
 
-    public static final SoundEvent SPONGEKIN_PLACE = registerSoundEvent("spongekin_place");
-    public static final SoundEvent SPONGEKIN_BREAK = registerSoundEvent("spongekin_break");
-    public static final SoundEvent SPONGEKIN_STEP = registerSoundEvent("spongekin_step");
-    public static final SoundEvent SPONGEKIN_SHEAR = registerSoundEvent("spongekin_shear");
-    public static final SoundEvent FLOUR_THROW = registerSoundEvent("flour_throw");
-    public static final SoundEvent FLOUR_LAND = registerSoundEvent("flour_land");
-    public static final SoundEvent HANGING_FRUIT_PICK = registerSoundEvent("hanging_fruit_pick");
-    public static final SoundEvent COCONUT_LAND = registerSoundEvent("coconut_land");
-    public static final SoundEvent COCONUT_BONK = registerSoundEvent("coconut_bonk");
-    public static final SoundEvent COIR_PLACE = registerSoundEvent("coir_place");
-    public static final SoundEvent COIR_BREAK = registerSoundEvent("coir_break");
-    public static final SoundEvent COIR_HIT = registerSoundEvent("coir_hit");
-    public static final SoundEvent COIR_STEP = registerSoundEvent("coir_step");
-    public static final SoundEvent COIR_FALL = registerSoundEvent("coir_fall");
+    public static final Supplier<SoundEvent> SPONGEKIN_PLACE = registerSoundEvent("spongekin_place");
+    public static final Supplier<SoundEvent> SPONGEKIN_BREAK = registerSoundEvent("spongekin_break");
+    public static final Supplier<SoundEvent> SPONGEKIN_STEP = registerSoundEvent("spongekin_step");
+    public static final Supplier<SoundEvent> SPONGEKIN_SHEAR = registerSoundEvent("spongekin_shear");
+    public static final Supplier<SoundEvent> FLOUR_THROW = registerSoundEvent("flour_throw");
+    public static final Supplier<SoundEvent> FLOUR_LAND = registerSoundEvent("flour_land");
+    public static final Supplier<SoundEvent> HANGING_FRUIT_PICK = registerSoundEvent("hanging_fruit_pick");
+    public static final Supplier<SoundEvent> COCONUT_LAND = registerSoundEvent("coconut_land");
+    public static final Supplier<SoundEvent> COCONUT_BONK = registerSoundEvent("coconut_bonk");
+    public static final Supplier<SoundEvent> COIR_PLACE = registerSoundEvent("coir_place");
+    public static final Supplier<SoundEvent> COIR_BREAK = registerSoundEvent("coir_break");
+    public static final Supplier<SoundEvent> COIR_HIT = registerSoundEvent("coir_hit");
+    public static final Supplier<SoundEvent> COIR_STEP = registerSoundEvent("coir_step");
+    public static final Supplier<SoundEvent> COIR_FALL = registerSoundEvent("coir_fall");
 
-    public static final SoundEvent POPPED_MAIZE_POP = registerSoundEvent("popped_maize_pop");
+    public static final Supplier<SoundEvent> POPPED_MAIZE_POP = registerSoundEvent("popped_maize_pop");
 
     // Fallback sounds for FD sounds
     public static SoundEvent CABINET_OPEN = SoundEvents.BARREL_OPEN;
@@ -73,25 +77,24 @@ public class BFSounds {
      public static final Holder<SoundEvent> NOTE_BLOCK_OCARINA = registerSoundReference("ocarina");
      public static final Holder<SoundEvent> NOTE_BLOCK_OLD_PIANO = registerSoundReference("old_piano");
      public static final Holder<SoundEvent> NOTE_BLOCK_STEEL_DRUM = registerSoundReference("steel_drum");
+    //TODO: fix this stupid ass shit I wrote
+    public static final SoundType CERAMIC_TILES = new SoundType(1f, 1f, (SoundEvent) CERAMIC_TILES_BREAK, (SoundEvent) CERAMIC_TILES_STEP, (SoundEvent) CERAMIC_TILES_PLACE, (SoundEvent) CERAMIC_TILES_HIT, (SoundEvent) CERAMIC_TILES_FALL);
+    public static final SoundType CERAMIC_DECORATION = new SoundType(1f, 1f, (SoundEvent) CERAMIC_DECORATION_BREAK, (SoundEvent) CERAMIC_DECORATION_STEP, (SoundEvent) CERAMIC_DECORATION_PLACE, (SoundEvent) CERAMIC_DECORATION_HIT, (SoundEvent) CERAMIC_DECORATION_FALL);
+    public static final SoundType LIGHT_WOOD = new SoundType(1f, 1.1f, (SoundEvent) LIGHT_WOOD_BREAK, (SoundEvent) LIGHT_WOOD_STEP, (SoundEvent) LIGHT_WOOD_PLACE, (SoundEvent) LIGHT_WOOD_HIT, (SoundEvent) LIGHT_WOOD_FALL);
+    public static final SoundType JACK_O_STRAW = new SoundType(1f, 1f, (SoundEvent) JACK_O_STRAW_BREAK, (SoundEvent) LIGHT_WOOD_STEP, (SoundEvent) LIGHT_WOOD_PLACE, (SoundEvent) LIGHT_WOOD_HIT, (SoundEvent) LIGHT_WOOD_FALL);
+    public static final SoundType SILENT = new SoundType(1f, 1f, SoundEvents.EMPTY, (SoundEvent) LIGHT_WOOD_STEP, (SoundEvent) LIGHT_WOOD_PLACE, (SoundEvent) LIGHT_WOOD_HIT, (SoundEvent) LIGHT_WOOD_FALL);
+    public static final SoundType PLANTED_TRELLIS = new SoundType(1f, 1.1f, (SoundEvent) PLANTED_TRELLIS_BREAK, (SoundEvent) LIGHT_WOOD_STEP, (SoundEvent) LIGHT_WOOD_PLACE, (SoundEvent) LIGHT_WOOD_HIT, (SoundEvent) LIGHT_WOOD_FALL);
+    public static final SoundType SPONGEKIN = new SoundType(1f, 1.1f, (SoundEvent) SPONGEKIN_BREAK, (SoundEvent) SPONGEKIN_STEP, (SoundEvent) SPONGEKIN_PLACE, SoundEvents.WOOD_HIT, SoundEvents.WOOD_FALL);
+    public static final SoundType COIR = new SoundType(1f, 1f, (SoundEvent) COIR_BREAK, (SoundEvent) COIR_STEP, (SoundEvent) COIR_PLACE, (SoundEvent) COIR_HIT, (SoundEvent) COIR_FALL);
 
-    public static final SoundType CERAMIC_TILES = new SoundType(1f, 1f, CERAMIC_TILES_BREAK, CERAMIC_TILES_STEP, CERAMIC_TILES_PLACE, CERAMIC_TILES_HIT, CERAMIC_TILES_FALL);
-    public static final SoundType CERAMIC_DECORATION = new SoundType(1f, 1f, CERAMIC_DECORATION_BREAK, CERAMIC_DECORATION_STEP, CERAMIC_DECORATION_PLACE, CERAMIC_DECORATION_HIT, CERAMIC_DECORATION_FALL);
-    public static final SoundType LIGHT_WOOD = new SoundType(1f, 1.1f, LIGHT_WOOD_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
-    public static final SoundType JACK_O_STRAW = new SoundType(1f, 1f, JACK_O_STRAW_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
-    public static final SoundType SILENT = new SoundType(1f, 1f, SoundEvents.EMPTY, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
-    public static final SoundType PLANTED_TRELLIS = new SoundType(1f, 1.1f, PLANTED_TRELLIS_BREAK, LIGHT_WOOD_STEP, LIGHT_WOOD_PLACE, LIGHT_WOOD_HIT, LIGHT_WOOD_FALL);
-    public static final SoundType SPONGEKIN = new SoundType(1f, 1.1f, SPONGEKIN_BREAK, SPONGEKIN_STEP, SPONGEKIN_PLACE, SoundEvents.WOOD_HIT, SoundEvents.WOOD_FALL);
-    public static final SoundType COIR = new SoundType(1f, 1f, COIR_BREAK, COIR_STEP, COIR_PLACE, COIR_HIT, COIR_FALL);
-
-    private static Holder.Reference<SoundEvent> registerSoundReference(String name) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, name);
-        return Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(id));
+    private static Holder<SoundEvent> registerSoundReference(String id) {
+        return HLServices.REGISTRY.registerHolder(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT.key(), SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
     }
 
-    public static SoundEvent registerSoundEvent(String name) {
-        ResourceLocation identifier = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, name);
-        return Registry.register(BuiltInRegistries.SOUND_EVENT, identifier, SoundEvent.createVariableRangeEvent(identifier));
+    private static Supplier<SoundEvent> registerSoundEvent(String id) {
+        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT.key(), () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
     }
+
     public static void registerSounds() {
     }
 }

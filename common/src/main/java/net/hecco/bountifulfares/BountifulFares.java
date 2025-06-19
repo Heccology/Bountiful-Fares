@@ -34,33 +34,31 @@ public class BountifulFares {
 	public static BountifulFaresConfiguration CONFIG = new BountifulFaresConfiguration();
 
 	public void init() {
-		BountifulFares.CONFIG = BountifulFaresConfiguration.load();
-		BFResourcePacks.registerBuiltinResourcePacks();
+		BountifulFares.CONFIG = BountifulFaresConfiguration.load(); //TODO: MOVE TO NEOFORGE CONFIG API(?)
+		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here
 		BFItems.registerModItems();
-		BFBlocks.registerModBlocks();
-		BFTrellises.registerTrellisParts();
-		TrellisUtil.registerTrellisParts();
+		BFBlocks.registerModBlocks(); //TODO: MOVE TO HECCOLIB REGISTRY
+		BFTrellises.registerTrellisParts(); //TODO: FIX
+		TrellisUtil.registerTrellisParts(); //TODO: FIX
 		BFItemGroups.registerItemGroups();
-		BFItemGroupAdditions.registerItemGroupAdditions();
-		BFRecipes.registerRecipes();
-		BFTreeGeneration.generateTrees();
-		BFFoliageGeneration.generateFlowers();
-		BFEffects.registerEffects();
-		BFBoats.registerBoats();
-		BFLootTableModifiers.modifyLootTables();
-		BFParticles.registerParticles();
-		BFPotions.registerPotions();
-		BFTrunkPlacerTypes.register();
+		BFItemGroupAdditions.registerItemGroupAdditions(); //TODO: MOVE TO FABRIC (CREATE EQUIVALENT ON NEOFORGE,,,, OR IG MAKE A HELPER FOR THIS IN HECCOLIB)
+		BFRecipes.registerRecipes(); //TODO: MOVE TO HECCOLIB REGISTRY
+		BFEffects.registerEffects(); //TODO: MOVE TO HECCOLIB REGISTRY
+		//BFBoats.registerBoats(); //TODO: FIX(???.. or just remove boats if all else fails)
+		BFLootTableModifiers.modifyLootTables(); //TODO: MOVE TO FABRIC (CREATE EQUIVALENT NEOFORGE LOOT MODIFIER JSONS)
+		BFParticles.registerParticles(); //TODO: MOVE TO HECCOLIB REGISTRY
+		BFPotions.registerPotions(); //TODO: MOVE TO HECCOLIB REGISTRY
+		BFTrunkPlacerTypes.register(); //TODO: MOVE TO HECCOLIB REGISTRY
 		BFFeatures.register();
-		BFRegistries.RegisterModStuffs();
-		BFBlockEntities.registerBlockEntities();
-		BFScreenHandlers.registerScreenHandlers();
-		BFEntities.registerModEntities();
+		BFRegistries.RegisterModStuffs(); //TODO: FIX
+		BFBlockEntities.registerBlockEntities(); //TODO: MOVE TO HECCOLIB REGISTRY
+		BFScreenHandlers.registerScreenHandlers(); //TODO: MOVE TO HECCOLIB REGISTRY
+		BFEntities.registerModEntities(); //TODO: MOVE TO HECCOLIB REGISTRY
 		BFSounds.registerSounds();
 		BFDamageTypes.registerDamageTypes();
-		BFSpecialRecipes.registerSpecialRecipes();
+		BFSpecialRecipes.registerSpecialRecipes(); //TODO: FIX(??????????????)
 		BFCompat.registerCompatContent();
-		BFMessages.registerPayloads();
+		BFMessages.registerPayloads(); //TODO: FIX
 	} //appledog - Yirmiri
 	//appledog - Hecco
 	//appledog - Diemond_Player (holy self-insert)
