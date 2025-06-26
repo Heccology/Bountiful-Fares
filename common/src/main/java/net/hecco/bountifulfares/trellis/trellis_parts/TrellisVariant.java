@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.trellis.trellis_parts;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.CropTrellisBlock;
 import net.hecco.bountifulfares.block.custom.DecorativeTrellisBlock;

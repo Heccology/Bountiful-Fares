@@ -17,7 +17,7 @@ public class BFParticles {
     private static SimpleParticleType registerParticle(String name, SimpleParticleType particleType) {
         return Registry.register(BuiltInRegistries.PARTICLE_TYPE, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, name), particleType);
     }
+
     public static void registerParticles() {
-//        BountifulFares.LOGGER.info("Registering Mod Particles for " + BountifulFares.MOD_ID);
     }
 }

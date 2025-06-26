@@ -66,7 +66,7 @@ public class MillingRecipe implements Recipe<RecipeInput> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return BFRecipes.MILLING_SERIALIZER;
+        return BFRecipes.MILLING_SERIALIZER.get();
     }
 
     @Override
@@ -80,7 +80,7 @@ public class MillingRecipe implements Recipe<RecipeInput> {
 
     @Override
     public ItemStack getToastSymbol() {
-        return new ItemStack(BFBlocks.GRISTMILL);
+        return new ItemStack(BFBlocks.GRISTMILL.get());
     }
 
     public interface RecipeFactory<T extends MillingRecipe> {

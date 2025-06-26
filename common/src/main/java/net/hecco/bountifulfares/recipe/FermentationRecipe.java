@@ -74,7 +74,7 @@ public class FermentationRecipe implements Recipe<RecipeInput> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return BFRecipes.FERMENTING_SERIALIZER;
+        return BFRecipes.FERMENTING_SERIALIZER.get();
     }
 
     @Override
@@ -88,7 +88,7 @@ public class FermentationRecipe implements Recipe<RecipeInput> {
 
     @Override
     public ItemStack getToastSymbol() {
-        return new ItemStack(BFBlocks.FERMENTATION_VESSEL);
+        return new ItemStack(BFBlocks.FERMENTATION_VESSEL.get());
     }
 
     public interface RecipeFactory<T extends FermentationRecipe> {

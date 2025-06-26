@@ -44,7 +44,7 @@ import net.minecraft.resources.ResourceLocation;
 public class BountifulFaresDataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-        FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
+        FabricDataGenerator.Pack pack = fabricDataGenerator.createPack(); //TODO: MOVE ALL THIS AND USE HL PROVIDERS
         pack.addProvider(BFRecipeProvider::new);
         pack.addProvider(BFBlockLootTableProvider::new);
         pack.addProvider(BFBlockTagProvider::new);
@@ -56,7 +56,7 @@ public class BountifulFaresDataGenerator implements DataGeneratorEntrypoint {
         FabricDataGenerator.Pack mintDataPack = fabricDataGenerator.createBuiltinResourcePack(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, BountifulFares.ELS_AND_LS_DYES_MOD_ID + "_dat"));
         mintDataPack.addProvider(MintBlockLootTableProvider::new);
         mintDataPack.addProvider(MintBlockTagProvider::new);
-        mintDataPack.addProvider(MintRecipeProvider::new);
+        mintDataPack.addProvider(MintRecipeProvider::new); //TODO: MOVE TO COMPATMODULES
 
         FabricDataGenerator.Pack artsAndCraftsDataPack = fabricDataGenerator.createBuiltinResourcePack(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, BountifulFares.ARTS_AND_CRAFTS_MOD_ID + "_dat"));
         artsAndCraftsDataPack.addProvider(ArtsAndCraftsBlockLootTableProvider::new);

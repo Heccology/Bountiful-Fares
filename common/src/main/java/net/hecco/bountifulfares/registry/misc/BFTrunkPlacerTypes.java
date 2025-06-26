@@ -17,6 +17,7 @@ public class BFTrunkPlacerTypes {
     public static final TrunkPlacerType<?> WALNUT_TRUNK_PLACER = registerTrunkPlacer("walnut_trunk_placer", WalnutTrunkPlacer.CODEC);
     public static final TrunkPlacerType<?> PALM_TRUNK_PLACER = registerTrunkPlacer("palm_trunk_placer", PalmTrunkPlacer.CODEC);
     public static final TrunkPlacerType<?> GOLDEN_APPLE_TRUNK_PLACER = registerTrunkPlacer("golden_apple_trunk_placer", GoldenAppleTrunkPlacer.CODEC);
+
     private static <P extends TrunkPlacer> TrunkPlacerType registerTrunkPlacer(String id, MapCodec<P> codec) {
         return Registry.register(BuiltInRegistries.TRUNK_PLACER_TYPE,  ResourceLocation.fromNamespaceAndPath (BountifulFares.MOD_ID, id), new TrunkPlacerType(codec));
     }

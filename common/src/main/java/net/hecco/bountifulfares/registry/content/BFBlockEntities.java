@@ -5,6 +5,7 @@ import net.hecco.bountifulfares.block.entity.*;
 import net.hecco.bountifulfares.block.entity.compat.CabinetBlockEntity;
 import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
 import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -89,7 +90,7 @@ public class BFBlockEntities {
     public static BlockEntityType<CabinetBlockEntity> CABINET_BLOCK_ENTITY;
 
     public static void registerBlockEntities() {
-        if (BountifulFares.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID) || BountifulFares.isDatagen()) {
+        if (HLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID) || HLServices.PLATFORM.isDatagen()) {
             CABINET_BLOCK_ENTITY = Registry.register(
                     BuiltInRegistries.BLOCK_ENTITY_TYPE,
                     ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "cabinet_block_entity"),

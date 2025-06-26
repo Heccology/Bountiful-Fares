@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BrewingRecipeRegistryMixin {
     @Inject(method = "addVanillaMixes", at = @At("TAIL"))
     private static void registerDefaults(PotionBrewing.Builder builder, CallbackInfo ci) {
-        builder.addMix(Potions.AWKWARD, BFItems.CITRUS_ESSENCE, BFPotions.ACIDIC);
+        builder.addMix(Potions.AWKWARD, BFItems.CITRUS_ESSENCE.get(), BFPotions.ACIDIC);
         builder.addMix(BFPotions.ACIDIC, Items.REDSTONE, BFPotions.LONG_ACIDIC);
         builder.addMix(BFPotions.ACIDIC, Items.GLOWSTONE_DUST, BFPotions.STRONG_ACIDIC);
         builder.addMix(BFPotions.ACIDIC, Items.FERMENTED_SPIDER_EYE, BFPotions.STUPOR);

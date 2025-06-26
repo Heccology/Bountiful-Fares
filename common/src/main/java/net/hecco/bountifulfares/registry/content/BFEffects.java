@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.effect.*;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -27,7 +28,7 @@ public class BFEffects {
     );
     public static final Holder<MobEffect> RESTORATION = registerStatusEffect("restoration", new RestorationEffect(MobEffectCategory.BENEFICIAL, 0xFF4B19));
     private static Holder<MobEffect> registerStatusEffect(String name, MobEffect statusEffect) {
-        return Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, name), statusEffect);
+        return HLServices.REGISTRY.registerHolder(BountifulFares.MOD_ID, name, BuiltInRegistries.MOB_EFFECT.key(), statusEffect);
     }
     public static void registerEffects() {
     }
