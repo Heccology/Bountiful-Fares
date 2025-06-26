@@ -5,6 +5,7 @@ import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFParticles;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,23 +15,22 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
 
 public class FlourProjectileEntity extends ThrowableItemProjectile {
-    public FlourProjectileEntity(EntityType<? extends ThrowableItemProjectile> entityType, Level world) {
-        super(entityType, world);
+    public FlourProjectileEntity(EntityType<? extends Entity> entityType, Level world) {
+        super(BFEntities.THROWN_FLOUR_PROJECTILE.get(), world);
     }
 
     public FlourProjectileEntity(LivingEntity livingEntity, Level world) {
-        super(BFEntities.THROWN_FLOUR_PROJECTILE, livingEntity, world);
+        super(BFEntities.THROWN_FLOUR_PROJECTILE.get(), livingEntity, world);
     }
 
     public FlourProjectileEntity(Level world, double x, double y, double z) {
-        super(BFEntities.THROWN_FLOUR_PROJECTILE, x, y, z, world);
+        super(BFEntities.THROWN_FLOUR_PROJECTILE.get(), x, y, z, world);
     }
 
     @Override
     protected Item getDefaultItem() {
-        return BFItems.FLOUR;
+        return BFItems.FLOUR.get();
     }
-
 
     @Override
     protected void onHit(HitResult hitResult) {
@@ -39,7 +39,7 @@ public class FlourProjectileEntity extends ThrowableItemProjectile {
         if (!world.isClientSide()) {
             world.broadcastEntityEvent(this, EntityEvent.DEATH);
         }
-        this.level().playSound(null, this.blockPosition(), BFSounds.FLOUR_LAND, SoundSource.BLOCKS, 1.0f, 0.9f + world.random.nextFloat()/4);
+        this.level().playSound(null, this.blockPosition(), BFSounds.FLOUR_LAND.get(), SoundSource.BLOCKS, 1.0f, 0.9f + world.random.nextFloat()/4);
 
         if (world.isClientSide()) {
             return;
