@@ -81,7 +81,7 @@ public class CabinetBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return BFBlockEntities.CABINET_BLOCK_ENTITY.create(pos, state);
+        return BFBlockEntities.CABINET_BLOCK_ENTITY.get().create(pos, state);
     }
 
     @Override

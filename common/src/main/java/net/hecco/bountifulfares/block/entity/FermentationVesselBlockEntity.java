@@ -43,7 +43,7 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     public boolean fermented;
     public int particleColor = 0;
     public FermentationVesselBlockEntity(BlockPos pos, BlockState state) {
-        super(BFBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, pos, state);
+        super(BFBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY.get(), pos, state);
         this.fermented = false;
         this.propertyDelegate = new ContainerData() {
             @Override

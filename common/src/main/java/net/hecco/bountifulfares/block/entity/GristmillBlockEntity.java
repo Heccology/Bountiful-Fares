@@ -47,7 +47,7 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
     private int progress = 0;
     private int maxProgress = 80;
     public GristmillBlockEntity(BlockPos pos, BlockState state) {
-        super(BFBlockEntities.GRISTMILL_BLOCK_ENTITY, pos, state);
+        super(BFBlockEntities.GRISTMILL_BLOCK_ENTITY.get(), pos, state);
         millingState = ((GristmillBlock) state.getBlock()).getMillingState();
         this.propertyDelegate = new ContainerData() {
             @Override

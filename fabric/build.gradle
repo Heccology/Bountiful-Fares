@@ -16,7 +16,8 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     //HECCOLIB
-    modImplementation "curse.maven:heccolib-1279113:${fabric_heccolib}"
+//    modImplementation "curse.maven:heccolib-1279113:${fabric_heccolib}"
+    modImplementation files("heccolib-fabric-1.21.1-1.1.2.jar")
 }
 
 loom {

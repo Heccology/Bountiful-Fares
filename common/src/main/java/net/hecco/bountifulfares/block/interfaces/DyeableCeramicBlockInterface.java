@@ -19,7 +19,7 @@ public interface DyeableCeramicBlockInterface extends EntityBlock {
     }
 
     default ItemStack pickBlock(BlockGetter world, BlockPos pos, ItemStack stack){
-        DyeableCeramicBlockEntity blockEntity = CERAMIC_TILES_BLOCK_ENTITY.getBlockEntity(world,pos);
+        DyeableCeramicBlockEntity blockEntity = CERAMIC_TILES_BLOCK_ENTITY.get().getBlockEntity(world,pos);
         int color;
         if(blockEntity != null){
             color = blockEntity.color;

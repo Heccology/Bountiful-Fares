@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class DyeableCeramicBlockEntity extends DyeableBlockEntity {
     public DyeableCeramicBlockEntity(BlockPos pos, BlockState state) {
-        super(BFBlockEntities.CERAMIC_TILES_BLOCK_ENTITY, pos, state);
+        super(BFBlockEntities.CERAMIC_TILES_BLOCK_ENTITY.get(), pos, state);
     }
 
 //    @Override

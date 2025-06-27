@@ -18,7 +18,7 @@ import java.util.List;
 public class BellflowerCandleBlockEntity extends BlockEntity {
     private static BooleanProperty isLit;
     public BellflowerCandleBlockEntity(BlockPos pos, BlockState state) {
-        super(BFBlockEntities.BELLFLOWER_CANDLE_BLOCK_ENTITY, pos, state);
+        super(BFBlockEntities.BELLFLOWER_CANDLE_BLOCK_ENTITY.get(), pos, state);
         isLit = ((BellflowerCandleBlock)state.getBlock()).getLit();
     }
     public static void tick(Level world, BlockPos pos, BlockState state, BellflowerCandleBlockEntity blockEntity) {

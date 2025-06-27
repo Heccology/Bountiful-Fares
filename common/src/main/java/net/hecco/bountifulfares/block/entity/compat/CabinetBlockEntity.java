@@ -42,7 +42,7 @@ public class CabinetBlockEntity extends RandomizableContainerBlockEntity
     private NonNullList<ItemStack> content;
 
     public CabinetBlockEntity(BlockPos blockPos, BlockState blockState) {
-        this(BFBlockEntities.CABINET_BLOCK_ENTITY, blockPos, blockState);
+        this(BFBlockEntities.CABINET_BLOCK_ENTITY.get(), blockPos, blockState);
     }
 
     private CabinetBlockEntity(BlockEntityType<?> type, BlockPos blockPos, BlockState blockState) {

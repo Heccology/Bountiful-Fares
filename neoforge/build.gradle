@@ -42,7 +42,8 @@ neoForge {
 
 dependencies {
     //HECCOLIB
-    implementation "curse.maven:heccolib-1279113:${neoforge_heccolib}"
+//    implementation "curse.maven:heccolib-1279113:${neoforge_heccolib}"
+    implementation files("heccolib-neoforge-1.21.1-1.1.2.jar")
 }
 
 sourceSets.main.resources { srcDir project(":common").file('src/main/generated/').getAbsolutePath() }

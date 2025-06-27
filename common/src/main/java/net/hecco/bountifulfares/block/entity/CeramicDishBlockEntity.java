@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 public class CeramicDishBlockEntity extends DyeableBlockEntity implements ImplementedInventory {
     private final NonNullList<ItemStack> inventory = NonNullList.withSize(1, ItemStack.EMPTY);
     public CeramicDishBlockEntity(BlockPos pos, BlockState state) {
-        super(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, pos, state);
+        super(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), pos, state);
     }
 
     @Override

@@ -34,13 +34,13 @@ public class BFRegistries {
         registerModCompostables();
         registerFermentationRecipes();
         registerFlammables();
-        DispenserBlock.registerBehavior(BFItems.FLOUR, new FlourDispenserBehavior() {
+        DispenserBlock.registerBehavior(BFItems.FLOUR.get(), new FlourDispenserBehavior() {
             @Override
             protected Projectile createProjectile(Level world, Position position, ItemStack stack) {
                 return new FlourProjectileEntity(world, position.x(), position.y(), position.z());
             }
         });
-        DispenserBlock.registerBehavior(BFItems.GRASS_SEEDS, new GrassSeedsDispenserBehavior() {
+        DispenserBlock.registerBehavior(BFItems.GRASS_SEEDS.get(), new GrassSeedsDispenserBehavior() {
             @Override
             public ItemStack execute(BlockSource pointer, ItemStack stack) {
                 return super.execute(pointer, stack);

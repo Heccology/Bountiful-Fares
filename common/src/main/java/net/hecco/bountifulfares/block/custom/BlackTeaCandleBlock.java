@@ -23,6 +23,6 @@ public class BlackTeaCandleBlock extends InfusedCandleBlock {
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
-        return createTickerHelper(type, BFBlockEntities.BLACK_TEA_CANDLE_BLOCK_ENTITY, BlackTeaCandleBlockEntity::tick);
+        return createTickerHelper(type, BFBlockEntities.BLACK_TEA_CANDLE_BLOCK_ENTITY.get(), BlackTeaCandleBlockEntity::tick);
     }
 }

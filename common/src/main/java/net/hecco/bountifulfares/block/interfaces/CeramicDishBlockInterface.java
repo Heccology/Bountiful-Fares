@@ -19,7 +19,7 @@ public interface CeramicDishBlockInterface extends EntityBlock {
     }
 
     default ItemStack pickBlock(BlockGetter world, BlockPos pos, ItemStack stack){
-        CeramicDishBlockEntity blockEntity = CERAMIC_DISH_BLOCK_ENTITY.getBlockEntity(world,pos);
+        CeramicDishBlockEntity blockEntity = CERAMIC_DISH_BLOCK_ENTITY.get().getBlockEntity(world,pos);
         int color;
         if(blockEntity != null){
             color = blockEntity.color;

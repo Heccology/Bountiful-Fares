@@ -23,7 +23,7 @@ public class GreenTeaCandleBlock extends InfusedCandleBlock {
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
-        return createTickerHelper(type, BFBlockEntities.GREEN_TEA_CANDLE_BLOCK_ENTITY, GreenTeaCandleBlockEntity::tick);
+        return createTickerHelper(type, BFBlockEntities.GREEN_TEA_CANDLE_BLOCK_ENTITY.get(), GreenTeaCandleBlockEntity::tick);
     }
 
 

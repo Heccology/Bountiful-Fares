@@ -12,6 +12,7 @@ import net.hecco.bountifulfares.networking.payload.CeramicDishEmptyPayload;
 import net.hecco.bountifulfares.networking.payload.CeramicDishItemPayload;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
@@ -49,7 +50,7 @@ public class DyeableCeramicBlock {
     public static ItemStack getPickStack(LevelReader world, BlockPos pos, Block block) {
         if (DyeableCeramicBlockEntity.getColor(world, pos) != DyeableCeramicBlockEntity.DEFAULT_COLOR) {
             ItemStack stack = new ItemStack(block);
-            DyeableCeramicBlockEntity blockEntity = CERAMIC_TILES_BLOCK_ENTITY.getBlockEntity(world,pos);
+            DyeableCeramicBlockEntity blockEntity = CERAMIC_TILES_BLOCK_ENTITY.get().getBlockEntity(world,pos);
             int color;
             if(blockEntity != null){
                 color = blockEntity.color;
@@ -116,7 +117,7 @@ public class DyeableCeramicBlock {
                 return ItemInteractionResult.SUCCESS;
             }
         }
-        if (stack.is(BFItems.ARTISAN_BRUSH) && !player.isShiftKeyDown() && stack.get(DataComponents.DYED_COLOR) != null) {
+        if (stack.is(BFItems.ARTISAN_BRUSH.get()) && !player.isShiftKeyDown() && stack.get(DataComponents.DYED_COLOR) != null) {
             int brushColor = stack.getComponents().get(DataComponents.DYED_COLOR).rgb();
             world.removeBlock(pos, false);
             world.setBlock(pos, block.withPropertiesOf(state), 2);
@@ -127,7 +128,7 @@ public class DyeableCeramicBlock {
                 return ItemInteractionResult.SUCCESS;
             }
         }
-        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+        if (HLServices.PLATFORM.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
             Item item = stack.getItem();
             if (CompatUtil.isItemPaintbrush(item)) {
                 int brushColor = CompatUtil.getIntColorFromPaintbrush(item);
@@ -163,7 +164,7 @@ public class DyeableCeramicBlock {
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.SPONGE_ABSORB, SoundSource.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
             return ItemInteractionResult.SUCCESS;
         }
-        if (stack.is(BFItems.ARTISAN_BRUSH) && !player.isShiftKeyDown() && stack.get(DataComponents.DYED_COLOR) != null) {
+        if (stack.is(BFItems.ARTISAN_BRUSH.get()) && !player.isShiftKeyDown() && stack.get(DataComponents.DYED_COLOR) != null) {
             int brushColor = stack.getComponents().get(DataComponents.DYED_COLOR).rgb();
             dish.setItem(0, ItemStack.EMPTY);
             world.removeBlock(pos, false);
@@ -182,7 +183,7 @@ public class DyeableCeramicBlock {
 
             return ItemInteractionResult.SUCCESS;
         }
-        if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+        if (HLServices.PLATFORM.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
             Item item = stack.getItem();
             if (CompatUtil.isItemPaintbrush(item)) {
                 int brushColor = CompatUtil.getIntColorFromPaintbrush(item);
@@ -221,11 +222,11 @@ public class DyeableCeramicBlock {
             playedSFX = SoundEvents.SPONGE_ABSORB;
             changes_made = true;
         }
-        else if (stack.is(BFItems.ARTISAN_BRUSH) && !player.isShiftKeyDown() && stack.get(DataComponents.DYED_COLOR) != null) {
+        else if (stack.is(BFItems.ARTISAN_BRUSH.get()) && !player.isShiftKeyDown() && stack.get(DataComponents.DYED_COLOR) != null) {
             brushColor = stack.getComponents().get(DataComponents.DYED_COLOR).rgb();
             changes_made = true;
         }
-        else if (BountifulFares.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+        else if (HLServices.PLATFORM.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
             Item item = stack.getItem();
             if (CompatUtil.isItemPaintbrush(item)) {
                 int compatGet = CompatUtil.getIntColorFromPaintbrush(item);

@@ -23,6 +23,6 @@ public class BellflowerCandleBlock extends InfusedCandleBlock {
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
-        return createTickerHelper(type, BFBlockEntities.BELLFLOWER_CANDLE_BLOCK_ENTITY, BellflowerCandleBlockEntity::tick);
+        return createTickerHelper(type, BFBlockEntities.BELLFLOWER_CANDLE_BLOCK_ENTITY.get(), BellflowerCandleBlockEntity::tick);
     }
 }
