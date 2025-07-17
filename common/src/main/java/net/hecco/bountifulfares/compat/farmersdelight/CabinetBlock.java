@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.entity.compat.CabinetBlockEntity;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -54,7 +55,7 @@ public class CabinetBlock extends BaseEntityBlock {
 
     @Override
     public boolean isEnabled(FeatureFlagSet enabledFeatures) {
-        return BountifulFares.isModLoaded(modId) || BountifulFares.isDatagen();
+        return HLServices.PLATFORM.isModLoaded(modId) || HLServices.PLATFORM.isDatagen();
     }
 
     @Override

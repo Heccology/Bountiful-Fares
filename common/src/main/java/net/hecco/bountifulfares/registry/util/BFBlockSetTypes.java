@@ -12,14 +12,14 @@ public class BFBlockSetTypes {
             true,
             BlockSetType.PressurePlateSensitivity.EVERYTHING,
             BFSounds.CERAMIC_DECORATION,
-            BFSounds.CERAMIC_DOOR_TOGGLE,
-            BFSounds.CERAMIC_DOOR_TOGGLE,
-            BFSounds.CERAMIC_DOOR_TOGGLE,
-            BFSounds.CERAMIC_DOOR_TOGGLE,
-            BFSounds.CERAMIC_PRESSURE_PLATE_OFF,
-            BFSounds.CERAMIC_PRESSURE_PLATE_ON,
-            BFSounds.CERAMIC_BUTTON_OFF,
-            BFSounds.CERAMIC_BUTTON_ON
+            BFSounds.CERAMIC_DOOR_TOGGLE.get(),
+            BFSounds.CERAMIC_DOOR_TOGGLE.get(),
+            BFSounds.CERAMIC_DOOR_TOGGLE.get(),
+            BFSounds.CERAMIC_DOOR_TOGGLE.get(),
+            BFSounds.CERAMIC_PRESSURE_PLATE_OFF.get(),
+            BFSounds.CERAMIC_PRESSURE_PLATE_ON.get(),
+            BFSounds.CERAMIC_BUTTON_OFF.get(),
+            BFSounds.CERAMIC_BUTTON_ON.get()
     ));
 
 

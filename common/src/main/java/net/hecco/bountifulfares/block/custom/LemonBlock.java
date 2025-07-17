@@ -79,6 +79,6 @@ public class LemonBlock extends FruitBlock {
 
     @Override
     public Item getFruitItem() {
-        return BFItems.LEMON;
+        return BFItems.LEMON.get();
     }
 }

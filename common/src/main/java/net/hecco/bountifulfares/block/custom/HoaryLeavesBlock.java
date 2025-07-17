@@ -25,6 +25,6 @@ public class HoaryLeavesBlock extends LeavesBlock implements BonemealableBlock {
     }
     @Override
     public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
-        world.setBlock(pos.below(), BFBlocks.HANGING_HOARY_APPLE.defaultBlockState(), 2);
+        world.setBlock(pos.below(), BFBlocks.HANGING_HOARY_APPLE.get().defaultBlockState(), 2);
     }
 }

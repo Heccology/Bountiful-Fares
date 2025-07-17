@@ -96,7 +96,7 @@ public class MaizeCropBlock extends CropBlock implements BonemealableBlock {
 
     @Override
     public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state) {
-        return new ItemStack(BFItems.MAIZE_SEEDS);
+        return new ItemStack(BFItems.MAIZE_SEEDS.get());
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -106,7 +106,7 @@ public class MaizeCropBlock extends CropBlock implements BonemealableBlock {
     public BlockState playerWillDestroy(Level world, BlockPos pos, BlockState state, Player player) {
         DoubleBlockHalf doubleBlockHalf = state.getValue(HALF);
         if (doubleBlockHalf == DoubleBlockHalf.LOWER && state.getValue(AGE) < 7) {
-            popResource(world, pos, BFItems.MAIZE_SEEDS.getDefaultInstance());
+            popResource(world, pos, BFItems.MAIZE_SEEDS.get().getDefaultInstance());
         }
         if (!world.isClientSide) {
             if (player.isCreative()) {
@@ -198,7 +198,7 @@ public class MaizeCropBlock extends CropBlock implements BonemealableBlock {
 
     private static boolean canGrowAt(LevelReader world, BlockPos pos) {
         BlockState blockState = world.getBlockState(pos);
-        return blockState.isAir() || blockState.is(BFBlocks.MAIZE_CROP);
+        return blockState.isAir() || blockState.is(BFBlocks.MAIZE_CROP.get());
     }
 
     private static boolean canPlaceAt(LevelReader world, BlockPos pos) {
@@ -206,11 +206,11 @@ public class MaizeCropBlock extends CropBlock implements BonemealableBlock {
     }
 
     private static boolean isLowerHalf(BlockState state) {
-        return state.is(BFBlocks.MAIZE_CROP) && state.getValue(HALF) == DoubleBlockHalf.LOWER;
+        return state.is(BFBlocks.MAIZE_CROP.get()) && state.getValue(HALF) == DoubleBlockHalf.LOWER;
     }
 
     private static boolean isUpperHalf(BlockState state) {
-        return state.is(BFBlocks.MAIZE_CROP) && state.getValue(HALF) == DoubleBlockHalf.UPPER;
+        return state.is(BFBlocks.MAIZE_CROP.get()) && state.getValue(HALF) == DoubleBlockHalf.UPPER;
     }
 
     private boolean canGrow(LevelReader world, BlockPos pos, BlockState state, int age) {

@@ -11,6 +11,6 @@ public class TeaBerriesItem extends ItemNameBlockItem {
 
     @Override
     public Block getBlock() {
-        return BFBlocks.TEA_SHRUB;
+        return BFBlocks.TEA_SHRUB.get();
     }
 }

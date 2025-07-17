@@ -45,32 +45,32 @@ public class HoaryTrunkPlacer extends TrunkPlacer {
             }
             for (int i = 0; i < eastHorizontalLength; i++) {
                 BlockPos branchPos = startPos.above(firstVerticalLength).relative(Direction.EAST, i);
-                BlockState branchState = BFBlocks.HOARY_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
+                BlockState branchState = BFBlocks.HOARY_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
                 replacer.accept(branchPos, branchState);
             }
             for (int i = 0; i < bendVerticalLength; i++) {
                 BlockPos branchPos = startPos.above(firstVerticalLength + i).relative(Direction.EAST, eastHorizontalLength);
-                BlockState branchState = BFBlocks.HOARY_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y);
+                BlockState branchState = BFBlocks.HOARY_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y);
                 replacer.accept(branchPos, branchState);
             }
             for (int i = 0; i < westHorizontalLength; i++) {
                 BlockPos branchPos = startPos.above(firstVerticalLength + bendVerticalLength).relative(Direction.EAST, eastHorizontalLength - i);
-                BlockState branchState = BFBlocks.HOARY_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
+                BlockState branchState = BFBlocks.HOARY_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
                 replacer.accept(branchPos, branchState);
             }
             for (int i = 0; i < bendVerticalLength; i++) {
                 BlockPos branchPos = startPos.above(firstVerticalLength + bendVerticalLength + i).relative(Direction.EAST, eastHorizontalLength - westHorizontalLength);
-                BlockState branchState = BFBlocks.HOARY_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y);
+                BlockState branchState = BFBlocks.HOARY_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y);
                 replacer.accept(branchPos, branchState);
             }
             for (int i = 0; i < eastHorizontalLength; i++) {
                 BlockPos branchPos = startPos.above(firstVerticalLength + bendVerticalLength * 2).relative(Direction.EAST, eastHorizontalLength - westHorizontalLength + i);
-                BlockState branchState = BFBlocks.HOARY_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
+                BlockState branchState = BFBlocks.HOARY_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
                 replacer.accept(branchPos, branchState);
             }
             for (int i = 0; i < bendVerticalLength + 1; i++) {
                 BlockPos branchPos = startPos.above(firstVerticalLength + bendVerticalLength * 2 + i).relative(Direction.EAST, eastHorizontalLength - westHorizontalLength + eastHorizontalLength);
-                BlockState branchState = BFBlocks.HOARY_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y);
+                BlockState branchState = BFBlocks.HOARY_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y);
                 replacer.accept(branchPos, branchState);
             }
             return ImmutableList.of(
@@ -90,32 +90,32 @@ public class HoaryTrunkPlacer extends TrunkPlacer {
             }
             for(int i = 0; i < southHorizontalLength; i++) {
                 BlockPos branchPos = startPos.above(firstVerticalLength).relative(Direction.SOUTH, i);
-                BlockState branchState = BFBlocks.HOARY_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
+                BlockState branchState = BFBlocks.HOARY_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
                 replacer.accept(branchPos, branchState);
             }
             for(int i = 0; i < bendVerticalLength; i++) {
                 BlockPos branchPos = startPos.above(firstVerticalLength + i).relative(Direction.SOUTH, southHorizontalLength);
-                BlockState branchState = BFBlocks.HOARY_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y);
+                BlockState branchState = BFBlocks.HOARY_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y);
                 replacer.accept(branchPos, branchState);
             }
             for(int i = 0; i < northHorizontalLength; i++) {
                 BlockPos branchPos = startPos.above(firstVerticalLength + bendVerticalLength).relative(Direction.SOUTH, southHorizontalLength - i);
-                BlockState branchState = BFBlocks.HOARY_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
+                BlockState branchState = BFBlocks.HOARY_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
                 replacer.accept(branchPos, branchState);
             }
             for(int i = 0; i < bendVerticalLength; i++) {
                 BlockPos branchPos = startPos.above(firstVerticalLength + bendVerticalLength + i).relative(Direction.SOUTH, southHorizontalLength - northHorizontalLength);
-                BlockState branchState = BFBlocks.HOARY_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y);
+                BlockState branchState = BFBlocks.HOARY_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y);
                 replacer.accept(branchPos, branchState);
             }
             for(int i = 0; i < southHorizontalLength; i++) {
                 BlockPos branchPos = startPos.above(firstVerticalLength + bendVerticalLength * 2).relative(Direction.SOUTH, southHorizontalLength - northHorizontalLength + i);
-                BlockState branchState = BFBlocks.HOARY_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
+                BlockState branchState = BFBlocks.HOARY_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
                 replacer.accept(branchPos, branchState);
             }
             for(int i = 0; i < bendVerticalLength + 1; i++) {
                 BlockPos branchPos = startPos.above(firstVerticalLength + bendVerticalLength * 2 + i).relative(Direction.SOUTH, southHorizontalLength - northHorizontalLength + southHorizontalLength);
-                BlockState branchState = BFBlocks.HOARY_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y);
+                BlockState branchState = BFBlocks.HOARY_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y);
                 replacer.accept(branchPos, branchState);
             }
             return ImmutableList.of(

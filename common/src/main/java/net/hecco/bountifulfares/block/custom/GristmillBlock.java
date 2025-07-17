@@ -105,7 +105,7 @@ public class GristmillBlock extends BaseEntityBlock implements EntityBlock {
             double e = pos.getY();
             double f = (double)pos.getZ() + 0.5;
             if (random.nextDouble() < 0.1) {
-                world.playLocalSound(d, e, f, BFSounds.GRISTMILL_GRIND, SoundSource.BLOCKS, 0.5F, 0.5F + random.nextFloat()/2, true);
+                world.playLocalSound(d, e, f, BFSounds.GRISTMILL_GRIND.get(), SoundSource.BLOCKS, 0.5F, 0.5F + random.nextFloat()/2, true);
             }
         }
     }

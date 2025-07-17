@@ -25,6 +25,6 @@ public class OrangeLeavesBlock extends LeavesBlock implements BonemealableBlock 
     }
     @Override
     public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
-        world.setBlock(pos.below(), BFBlocks.HANGING_ORANGE.defaultBlockState(), 2);
+        world.setBlock(pos.below(), BFBlocks.HANGING_ORANGE.get().defaultBlockState(), 2);
     }
 }

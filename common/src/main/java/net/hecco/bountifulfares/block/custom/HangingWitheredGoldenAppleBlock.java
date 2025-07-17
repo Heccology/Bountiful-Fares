@@ -3,6 +3,7 @@ package net.hecco.bountifulfares.block.custom;
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -49,7 +50,7 @@ public class HangingWitheredGoldenAppleBlock extends BushBlock {
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         VoxelShape voxelShape = SHAPES[state.getValue(AGE)];
-        if (!BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !BountifulFares.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
+        if (!HLServices.PLATFORM.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !HLServices.PLATFORM.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
             Vec3 vec3d = state.getOffset(world, pos);
             return voxelShape.move(vec3d.x, vec3d.y, vec3d.z);
         }
@@ -59,7 +60,7 @@ public class HangingWitheredGoldenAppleBlock extends BushBlock {
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         VoxelShape voxelShape = COLL_SHAPES[state.getValue(AGE)];
-        if (!BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !BountifulFares.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
+        if (!HLServices.PLATFORM.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !HLServices.PLATFORM.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
             Vec3 vec3d = state.getOffset(world, pos);
             return voxelShape.move(vec3d.x, vec3d.y, vec3d.z);
         }
@@ -68,7 +69,7 @@ public class HangingWitheredGoldenAppleBlock extends BushBlock {
 
     @Override
     public float getMaxHorizontalOffset() {
-        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID) || BountifulFares.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
+        if (HLServices.PLATFORM.isModLoaded(BountifulFares.TWIGS_MOD_ID) || HLServices.PLATFORM.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
             return 0;
         }
         return super.getMaxHorizontalOffset();
@@ -87,8 +88,8 @@ public class HangingWitheredGoldenAppleBlock extends BushBlock {
     @Override
     public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
         return Block.canSupportCenter(world, pos.above(), Direction.DOWN) && !world.isWaterAt(pos)
-                || world.getBlockState(pos.above()).is(BFBlocks.GOLDEN_APPLE_LEAVES) && !world.isWaterAt(pos)
-                || world.getBlockState(pos.above()).is(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES) && !world.isWaterAt(pos);
+                || world.getBlockState(pos.above()).is(BFBlocks.GOLDEN_APPLE_LEAVES.get()) && !world.isWaterAt(pos)
+                || world.getBlockState(pos.above()).is(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.get()) && !world.isWaterAt(pos);
     }
 
     private static boolean isFullyGrown(BlockState state) {

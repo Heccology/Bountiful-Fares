@@ -23,7 +23,7 @@ public abstract class FlourDispenserBehavior extends DefaultDispenseItemBehavior
         projectileEntity.shoot(direction.getStepX(), ((float)direction.getStepY() + 0.1F), direction.getStepZ(), this.getForce(), this.getVariation());
         world.addFreshEntity(projectileEntity);
         stack.shrink(1);
-        world.playSound(null, position.x(), position.y(), position.z(), BFSounds.FLOUR_THROW, SoundSource.BLOCKS, 0.6f, 0.9f + world.random.nextFloat() / 4);
+        world.playSound(null, position.x(), position.y(), position.z(), BFSounds.FLOUR_THROW.get(), SoundSource.BLOCKS, 0.6f, 0.9f + world.random.nextFloat() / 4);
         return stack;
     }
 

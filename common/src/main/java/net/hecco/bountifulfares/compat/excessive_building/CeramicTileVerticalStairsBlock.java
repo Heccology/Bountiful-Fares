@@ -4,6 +4,7 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.DyeableCeramicBlock;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.block.interfaces.DyeableCeramicBlockInterface;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -25,7 +26,7 @@ public class CeramicTileVerticalStairsBlock extends CompatVerticalStairsBlock im
     }
     @Override
     public boolean isEnabled(FeatureFlagSet enabledFeatures) {
-        return BountifulFares.isModLoaded(modId) || BountifulFares.isDatagen();
+        return HLServices.PLATFORM.isModLoaded(modId) || HLServices.PLATFORM.isDatagen();
     }
     @Override
     public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state) {

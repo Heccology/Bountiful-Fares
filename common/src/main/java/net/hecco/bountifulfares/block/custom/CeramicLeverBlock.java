@@ -61,7 +61,7 @@ public class CeramicLeverBlock extends LeverBlock implements EntityBlock {
         }
         else {
             this.pull(state, world, pos, player);
-            SoundEvent f = state.getValue(POWERED) ? BFSounds.CERAMIC_LEVER_OFF : BFSounds.CERAMIC_LEVER_ON;
+            SoundEvent f = state.getValue(POWERED) ? BFSounds.CERAMIC_LEVER_OFF.get() : BFSounds.CERAMIC_LEVER_ON.get();
             world.playSound(null, pos, f, SoundSource.BLOCKS, 0.8F, 1);
             world.gameEvent(player, state.getValue(POWERED) ? GameEvent.BLOCK_ACTIVATE : GameEvent.BLOCK_DEACTIVATE, pos);
             return InteractionResult.CONSUME;

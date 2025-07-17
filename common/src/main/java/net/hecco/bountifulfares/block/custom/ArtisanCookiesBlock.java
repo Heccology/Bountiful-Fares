@@ -50,7 +50,7 @@ public class ArtisanCookiesBlock extends Block {
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit)
     {
-        if (stack.is(BFItems.ARTISAN_COOKIE) && state.getValue(COUNT) < MAX_COUNT) {
+        if (stack.is(BFItems.ARTISAN_COOKIE.get()) && state.getValue(COUNT) < MAX_COUNT) {
             return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         } else if (world.isClientSide) {
             if (tryEat(world, pos, state, player, hand).consumesAction()) {

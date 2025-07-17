@@ -9,7 +9,6 @@ import net.hecco.bountifulfares.datagen.appledog.AppledogRecipeProvider;
 import net.hecco.bountifulfares.datagen.arts_and_crafts.ArtsAndCraftsBlockLootTableProvider;
 import net.hecco.bountifulfares.datagen.arts_and_crafts.ArtsAndCraftsBlockTagProvider;
 import net.hecco.bountifulfares.datagen.arts_and_crafts.ArtsAndCraftsRecipeProvider;
-import net.hecco.bountifulfares.datagen.bountifulfares.*;
 import net.hecco.bountifulfares.datagen.delicate_dyes.DelicateDyesBlockLootTableProvider;
 import net.hecco.bountifulfares.datagen.delicate_dyes.DelicateDyesBlockTagProvider;
 import net.hecco.bountifulfares.datagen.delicate_dyes.DelicateDyesRecipeProvider;

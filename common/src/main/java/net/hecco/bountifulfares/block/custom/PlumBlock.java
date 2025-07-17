@@ -55,6 +55,6 @@ public class PlumBlock extends FruitBlock {
 
     @Override
     public Item getFruitItem() {
-        return BFItems.PLUM;
+        return BFItems.PLUM.get();
     }
 }

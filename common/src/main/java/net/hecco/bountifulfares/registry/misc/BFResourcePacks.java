@@ -12,6 +12,7 @@ import java.util.Calendar;
 import java.util.Optional;
 
 public class BFResourcePacks {
+    //Yikes
     private static void registerBuiltinResourcePack(ModContainer modContainer, String forModID) {
             ResourceManagerHelper.registerBuiltinResourcePack(
                     ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, forModID + "_res"),

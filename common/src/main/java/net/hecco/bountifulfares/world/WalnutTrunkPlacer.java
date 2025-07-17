@@ -46,25 +46,25 @@ public class WalnutTrunkPlacer extends TrunkPlacer {
         }
         for (int x = 1; x < 3; x++) {
             BlockPos branchPos = startPos.above(northBranchHeight).relative(Direction.NORTH, x);
-            BlockState branchState = BFBlocks.WALNUT_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
+            BlockState branchState = BFBlocks.WALNUT_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
             replacer.accept(branchPos, branchState);
             list.add(new FoliagePlacer.FoliageAttachment(branchPos, 0,true));
         }
         for (int x = 1; x < 3; x++) {
             BlockPos branchPos = startPos.above(eastBranchHeight).relative(Direction.EAST, x);
-            BlockState branchState = BFBlocks.WALNUT_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
+            BlockState branchState = BFBlocks.WALNUT_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
             replacer.accept(branchPos, branchState);
             list.add(new FoliagePlacer.FoliageAttachment(branchPos, 0,false));
         }
         for (int x = 1; x < 3; x++) {
             BlockPos branchPos = startPos.above(southBranchHeight).relative(Direction.SOUTH, x);
-            BlockState branchState = BFBlocks.WALNUT_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
+            BlockState branchState = BFBlocks.WALNUT_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
             replacer.accept(branchPos, branchState);
             list.add(new FoliagePlacer.FoliageAttachment(branchPos, 0,false));
         }
         for (int x = 1; x < 3; x++) {
             BlockPos branchPos = startPos.above(westBranchHeight).relative(Direction.WEST, x);
-            BlockState branchState = BFBlocks.WALNUT_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
+            BlockState branchState = BFBlocks.WALNUT_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
             replacer.accept(branchPos, branchState);
             list.add(new FoliagePlacer.FoliageAttachment(branchPos, 0,false));
         }
@@ -72,22 +72,22 @@ public class WalnutTrunkPlacer extends TrunkPlacer {
         int stubDirChance = random.nextIntBetweenInclusive(1, 4);
         if (stubDirChance == 1) {
             BlockPos stubPos = startPos.above(random.nextIntBetweenInclusive(2, 3)).relative(Direction.NORTH, 1);
-            BlockState branchState = BFBlocks.WALNUT_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
+            BlockState branchState = BFBlocks.WALNUT_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
             replacer.accept(stubPos, branchState);
         }
         if (stubDirChance == 2) {
             BlockPos stubPos = startPos.above(random.nextIntBetweenInclusive(2, 3)).relative(Direction.EAST, 1);
-            BlockState stubState = BFBlocks.WALNUT_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
+            BlockState stubState = BFBlocks.WALNUT_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
             replacer.accept(stubPos, stubState);
         }
         if (stubDirChance == 3) {
             BlockPos stubPos = startPos.above(random.nextIntBetweenInclusive(2, 3)).relative(Direction.SOUTH, 1);
-            BlockState branchState = BFBlocks.WALNUT_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
+            BlockState branchState = BFBlocks.WALNUT_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Z);
             replacer.accept(stubPos, branchState);
         }
         if (stubDirChance == 4) {
             BlockPos stubPos = startPos.above(random.nextIntBetweenInclusive(2, 3)).relative(Direction.WEST, 1);
-            BlockState stubState = BFBlocks.WALNUT_LOG.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
+            BlockState stubState = BFBlocks.WALNUT_LOG.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.X);
             replacer.accept(stubPos, stubState);
         }
         list.add(new FoliagePlacer.FoliageAttachment(startPos.above(mainHeight), 0,false));

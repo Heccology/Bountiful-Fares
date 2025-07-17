@@ -60,7 +60,7 @@ public class HangingFruitBlock extends BushBlock implements BonemealableBlock {
         int i = state.getValue(AGE);
         if (i == 4) {
             HangingFruitBlock.popResource(world, pos, new ItemStack(Items.APPLE, 1));
-            world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK, SoundSource.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
+            world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK.get(), SoundSource.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
             if (!world.isClientSide()) {
                 if (BountifulFares.CONFIG.isFruitReplaceWhenPicked()) {
                     BlockState blockState = state.setValue(AGE, 0);

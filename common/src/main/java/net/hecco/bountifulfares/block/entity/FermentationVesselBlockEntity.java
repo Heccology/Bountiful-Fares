@@ -147,7 +147,7 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
             if (!this.fermented && this.progress >= this.maxProgress && !this.inventory.get(0).isEmpty()) {
                 this.fermented = true;
                 if (state.getValue(FermentationVesselBlock.FERMENTATION_STAGE) != FermentationStage.FERMENTED) {
-                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FERMENT, SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
+                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FERMENT.get(), SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
                     setChanged(world, pos, state);
                 }
             }
@@ -180,14 +180,14 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
                     FermentationVesselBlock.popResource(world, new BlockPos(pos.getX(), pos.getY() + 1, pos.getZ()), output);
                     world.setBlockAndUpdate(pos, state.setValue(FermentationVesselBlock.FERMENTATION_STAGE, FermentationStage.EMPTY));
                     removeItem();
-                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_EMPTY, SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
+                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_EMPTY.get(), SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
                     this.progress = 0;
                     this.fermented = false;
                     setChanged(world, pos, state);
                     return ItemInteractionResult.SUCCESS;
                 } else {
                     if (player.getItemInHand(hand).is(collector)) {
-                        world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_EMPTY, SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
+                        world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_EMPTY.get(), SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() / 3);
                         if (!player.isCreative()) {
                             player.getItemInHand(hand).shrink(1);
                         }

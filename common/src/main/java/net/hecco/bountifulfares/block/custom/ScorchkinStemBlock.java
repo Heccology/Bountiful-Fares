@@ -58,7 +58,7 @@ public class ScorchkinStemBlock extends BushBlock {
             if (isFullyGrown(state) && !state.getValue(ATTACHED)) {
                 BlockPos SCORCHKINPos = pos.relative(Direction.DOWN);
                 if ((world.getBlockState(SCORCHKINPos).isAir() || world.getBlockState(SCORCHKINPos).is(Blocks.LAVA) && isFullyGrown(state))) {
-                    world.setBlock(SCORCHKINPos, BFBlocks.SCORCHKIN.defaultBlockState(), 2);
+                    world.setBlock(SCORCHKINPos, BFBlocks.SCORCHKIN.get().defaultBlockState(), 2);
                     world.setBlockAndUpdate(pos, this.withPropertiesOf(state).setValue(ATTACHED, true));
 //                BlockPos prismarineBlossomPos = pos.offset(Direction.DOWN, 2);
 //                if (shouldPropagatePrismarine(world, pos)) {
@@ -102,7 +102,7 @@ public class ScorchkinStemBlock extends BushBlock {
 
     @Override
     public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
-        if (state.getValue(ATTACHED) && !world.getBlockState(pos.below()).is(BFBlocks.SCORCHKIN)) {
+        if (state.getValue(ATTACHED) && !world.getBlockState(pos.below()).is(BFBlocks.SCORCHKIN.get())) {
             if (state.getValue(AGE) == 3)
                 return state.setValue(ATTACHED, false);
         }

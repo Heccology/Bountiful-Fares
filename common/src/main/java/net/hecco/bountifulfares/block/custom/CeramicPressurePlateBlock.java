@@ -78,11 +78,11 @@ public class CeramicPressurePlateBlock extends BasePressurePlateBlock implements
         }
 
         if (!bl2 && bl) {
-            world.playSound(null, pos, BFSounds.CERAMIC_LEVER_OFF, SoundSource.BLOCKS);
+            world.playSound(null, pos, BFSounds.CERAMIC_LEVER_OFF.get(), SoundSource.BLOCKS);
             world.gameEvent(entity, GameEvent.BLOCK_DEACTIVATE, pos);
             state.getValue(POWERED);
         } else if (bl2 && !bl) {
-            world.playSound(null, pos, BFSounds.CERAMIC_LEVER_ON, SoundSource.BLOCKS);
+            world.playSound(null, pos, BFSounds.CERAMIC_LEVER_ON.get(), SoundSource.BLOCKS);
             world.gameEvent(entity, GameEvent.BLOCK_ACTIVATE, pos);
         }
 

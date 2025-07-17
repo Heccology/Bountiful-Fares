@@ -39,7 +39,7 @@ public class PalmSaplingBlock extends SaplingBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
         if (ctx.getPlayer() != null) {
-            return BFBlocks.PALM_SAPLING.defaultBlockState().setValue(NATURAL, false);
+            return BFBlocks.PALM_SAPLING.get().defaultBlockState().setValue(NATURAL, false);
         }
         return super.getStateForPlacement(ctx);
     }

@@ -62,7 +62,7 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
             ItemStack stack = super.getCloneItemStack(world, pos, state);
             return pickBlock(world,pos,stack);
         } else {
-            return new ItemStack(BFBlocks.CERAMIC_DISH);
+            return new ItemStack(BFBlocks.CERAMIC_DISH.get());
         }
     }
 
@@ -92,7 +92,7 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
                 if (!player.isCreative()) {
                     stack.shrink(1);
                 }
-                world.playLocalSound(pos, BFSounds.CERAMIC_DISH_INTERACT, SoundSource.PLAYERS, 1.0f, 0.8f + world.random.nextFloat() / 4, true);
+                world.playLocalSound(pos, BFSounds.CERAMIC_DISH_INTERACT.get(), SoundSource.PLAYERS, 1.0f, 0.8f + world.random.nextFloat() / 4, true);
                 blockEntity.setChanged();
                 return ItemInteractionResult.SUCCESS;
             }
@@ -100,7 +100,7 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
                 if (player.isShiftKeyDown() && stack.isEmpty()) {
                     player.setItemInHand(hand, stackEntity);
                     blockEntity.removeItem();
-                    world.playLocalSound(pos, BFSounds.CERAMIC_DISH_INTERACT, SoundSource.PLAYERS, 1.0f, 0.8f + world.random.nextFloat() / 4, true);
+                    world.playLocalSound(pos, BFSounds.CERAMIC_DISH_INTERACT.get(), SoundSource.PLAYERS, 1.0f, 0.8f + world.random.nextFloat() / 4, true);
                     blockEntity.setChanged();
                     return ItemInteractionResult.SUCCESS;
                 }
@@ -123,8 +123,8 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
 
                         stackEntity.getItem().finishUsingItem(stackEntity, world, player);
 
-                        if (stackEntity.getRecipeRemainder().getItem() != Items.AIR) {
-                            blockEntity.insertItem(stackEntity.getRecipeRemainder());
+                        if (stackEntity.getItem().hasCraftingRemainingItem()) {
+                            blockEntity.insertItem(new ItemStack(stackEntity.getItem().getCraftingRemainingItem()));
                         } else {
                             blockEntity.removeItem();
                         }
@@ -141,7 +141,7 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
         if (stack.getComponents().get(DataComponents.FOOD) != null) {
             if (BountifulFares.CONFIG.isContainerFoodsEatableOnDish()) {
                 return true;
-            } else if (stack.getRecipeRemainder().getItem() == Items.AIR) {
+            } else if (stack.getItem().hasCraftingRemainingItem()) {
                 return true;
             }
         }

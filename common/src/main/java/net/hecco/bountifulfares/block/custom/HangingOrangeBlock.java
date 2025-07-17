@@ -4,6 +4,7 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
@@ -43,7 +44,7 @@ public class HangingOrangeBlock extends HangingFruitBlock {
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         VoxelShape voxelShape = SHAPES[state.getValue(AGE)];
-        if (!BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !BountifulFares.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
+        if (!HLServices.PLATFORM.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !HLServices.PLATFORM.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
             Vec3 vec3d = state.getOffset(world, pos);
             return voxelShape.move(vec3d.x, vec3d.y, vec3d.z);
         }
@@ -53,7 +54,7 @@ public class HangingOrangeBlock extends HangingFruitBlock {
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         VoxelShape voxelShape = COLL_SHAPES[state.getValue(AGE)];
-        if (!BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !BountifulFares.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
+        if (!HLServices.PLATFORM.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !HLServices.PLATFORM.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
             Vec3 vec3d = state.getOffset(world, pos);
             return voxelShape.move(vec3d.x, vec3d.y, vec3d.z);
         }
@@ -62,7 +63,7 @@ public class HangingOrangeBlock extends HangingFruitBlock {
 
     @Override
     public float getMaxHorizontalOffset() {
-        if (BountifulFares.isModLoaded(BountifulFares.TWIGS_MOD_ID) || BountifulFares.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
+        if (HLServices.PLATFORM.isModLoaded(BountifulFares.TWIGS_MOD_ID) || HLServices.PLATFORM.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
             return 0;
         }
         return super.getMaxHorizontalOffset();
@@ -71,16 +72,16 @@ public class HangingOrangeBlock extends HangingFruitBlock {
     @Override
     public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
         return Block.canSupportCenter(world, pos.above(), Direction.DOWN) && !world.isWaterAt(pos)
-                || world.getBlockState(pos.above()).is(BFBlocks.ORANGE_LEAVES) && !world.isWaterAt(pos)
-                || world.getBlockState(pos.above()).is(BFBlocks.FLOWERING_ORANGE_LEAVES) && !world.isWaterAt(pos);
+                || world.getBlockState(pos.above()).is(BFBlocks.ORANGE_LEAVES.get()) && !world.isWaterAt(pos)
+                || world.getBlockState(pos.above()).is(BFBlocks.FLOWERING_ORANGE_LEAVES.get()) && !world.isWaterAt(pos);
     }
 
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
         int i = state.getValue(AGE);
         if (i == 4) {
-            HangingFruitBlock.popResource(world, pos, new ItemStack(BFItems.ORANGE, 1));
-            world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK, SoundSource.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
+            HangingFruitBlock.popResource(world, pos, new ItemStack(BFItems.ORANGE.get(), 1));
+            world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK.get(), SoundSource.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
             if (!world.isClientSide()) {
                 if (BountifulFares.CONFIG.isFruitReplaceWhenPicked()) {
                     BlockState blockState = state.setValue(AGE, 0);
@@ -97,6 +98,6 @@ public class HangingOrangeBlock extends HangingFruitBlock {
 
     @Override
     public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state) {
-        return new ItemStack(BFItems.ORANGE);
+        return new ItemStack(BFItems.ORANGE.get());
     }
 }

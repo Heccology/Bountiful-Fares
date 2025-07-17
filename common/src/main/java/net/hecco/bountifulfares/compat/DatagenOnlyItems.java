@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.compat;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -11,7 +12,7 @@ import static net.hecco.bountifulfares.BountifulFares.*;
 
 public class DatagenOnlyItems {
     private static void registerDatagenOnlyItem(String modId, String name) {
-        if (BountifulFares.isDatagen()) {
+        if (HLServices.PLATFORM.isDatagen()) {
             Registry.register(BuiltInRegistries.ITEM, ResourceLocation.fromNamespaceAndPath(modId, name), new Item(new Item.Properties()));
         }
     }

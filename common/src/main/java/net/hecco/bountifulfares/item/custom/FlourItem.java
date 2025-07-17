@@ -22,7 +22,7 @@ public class FlourItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
         if (BountifulFares.CONFIG.isEnableFlourThrowing()) {
             ItemStack itemStack = user.getItemInHand(hand);
-            world.playSound(null, user.getX(), user.getY(), user.getZ(), BFSounds.FLOUR_THROW, SoundSource.NEUTRAL, 0.6f, 0.9f + world.random.nextFloat() / 4);
+            world.playSound(null, user.getX(), user.getY(), user.getZ(), BFSounds.FLOUR_THROW.get(), SoundSource.NEUTRAL, 0.6f, 0.9f + world.random.nextFloat() / 4);
             if (!world.isClientSide) {
                 FlourProjectileEntity flourProjectileEntity = new FlourProjectileEntity(user, world);
                 flourProjectileEntity.setItem(itemStack);

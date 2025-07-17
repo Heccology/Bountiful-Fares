@@ -26,6 +26,6 @@ public class LemonLeavesBlock extends LeavesBlock implements BonemealableBlock {
     }
     @Override
     public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
-        world.setBlock(pos.below(), BFBlocks.HANGING_LEMON.defaultBlockState(), 2);
+        world.setBlock(pos.below(), BFBlocks.HANGING_LEMON.get().defaultBlockState(), 2);
     }
 }

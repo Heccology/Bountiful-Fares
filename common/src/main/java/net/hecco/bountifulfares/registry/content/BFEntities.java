@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 public class BFEntities {
     public static final Supplier<EntityType<FlourProjectileEntity>> THROWN_FLOUR_PROJECTILE = register("flour", () ->
             EntityType.Builder.of(FlourProjectileEntity::new, MobCategory.MISC)
-                    .clientTrackingRange(4).trackRangeBlocks(4).trackedUpdateRate(10).sized(0.25F, 0.25F)
+                    .clientTrackingRange(4).sized(0.25F, 0.25F)
                     .build(BountifulFares.MOD_ID + ":" + "flour"));
 
     private static <T extends EntityType<?>> Supplier<T> register(String id, Supplier<T> registry) {

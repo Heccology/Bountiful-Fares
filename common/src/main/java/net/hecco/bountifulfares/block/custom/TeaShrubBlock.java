@@ -91,9 +91,9 @@ public class TeaShrubBlock extends BushBlock implements BonemealableBlock {
             stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0F, 1.0F);
             if (state.getValue(AGE) == 4) {
-                popResource(world, pos, new ItemStack(BFItems.TEA_LEAVES, 3 + world.random.nextInt(2)));
+                popResource(world, pos, new ItemStack(BFItems.TEA_LEAVES.get(), 3 + world.random.nextInt(2)));
             } else {
-                popResource(world, pos, new ItemStack(BFItems.TEA_LEAVES, 1 + world.random.nextInt(2)));
+                popResource(world, pos, new ItemStack(BFItems.TEA_LEAVES.get(), 1 + world.random.nextInt(2)));
             }
             world.setBlock(pos, state.setValue(AGE, 2), Block.UPDATE_CLIENTS);
             return ItemInteractionResult.SUCCESS;
@@ -107,7 +107,7 @@ public class TeaShrubBlock extends BushBlock implements BonemealableBlock {
         } else if (state.getValue(BERRIES)) {
             world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 1.0F);
             world.setBlock(pos, state.setValue(BERRIES, false), Block.UPDATE_CLIENTS);
-            popResource(world, pos, new ItemStack(BFItems.TEA_BERRIES, 1 + world.random.nextInt(1)));
+            popResource(world, pos, new ItemStack(BFItems.TEA_BERRIES.get(), 1 + world.random.nextInt(1)));
             return ItemInteractionResult.SUCCESS;
         }
         return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
@@ -115,7 +115,7 @@ public class TeaShrubBlock extends BushBlock implements BonemealableBlock {
 
     @Override
     public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state) {
-        return new ItemStack(BFItems.TEA_BERRIES);
+        return new ItemStack(BFItems.TEA_BERRIES.get());
     }
 
     @Override

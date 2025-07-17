@@ -7,7 +7,6 @@ import net.hecco.bountifulfares.registry.misc.*;
 import net.hecco.bountifulfares.registry.util.BFDamageTypes;
 import net.hecco.bountifulfares.registry.util.BFLootTableModifiers;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
-import net.hecco.bountifulfares.trellis.TrellisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,13 +32,13 @@ public class BountifulFares {
 
 	public static BountifulFaresConfiguration CONFIG = new BountifulFaresConfiguration();
 
-	public void init() {
+	public static void init() {
 		BountifulFares.CONFIG = BountifulFaresConfiguration.load(); //TODO: MOVE TO NEOFORGE CONFIG API(?)
 		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here
 		BFItems.registerModItems();
 		BFBlocks.registerModBlocks(); //TODO: UTILIZE BLOCKFAMILYCREATOR
 		BFTrellises.registerTrellisParts(); //TODO: FIX
-		TrellisUtil.registerTrellisParts(); //TODO: FIX
+//		TrellisUtil.registerTrellisParts(); //TODO: FIX
 		BFItemGroups.registerItemGroups();
 		BFItemGroupAdditions.registerItemGroupAdditions(); //TODO: MOVE TO FABRIC (CREATE EQUIVALENT ON NEOFORGE,,,, OR IG MAKE A HELPER FOR THIS IN HECCOLIB)
 		BFRecipes.registerRecipes();
@@ -65,4 +64,5 @@ public class BountifulFares {
 	//appledog - Artyrian (ew)
 	//blueberrycat - Yirmiri
 	//hey mr bountifare
+	//hello stranger - mr bountifare
 }

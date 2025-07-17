@@ -12,6 +12,6 @@ public class LeekCropBlock extends CropBlock {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return BFItems.LEEK_SEEDS;
+        return BFItems.LEEK_SEEDS.get();
     }
 }

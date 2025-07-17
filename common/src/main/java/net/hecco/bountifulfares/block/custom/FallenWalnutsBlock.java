@@ -53,6 +53,6 @@ public class FallenWalnutsBlock extends Block {
 
     @Override
     public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state) {
-        return BFItems.WALNUT.getDefaultInstance();
+        return BFItems.WALNUT.get().getDefaultInstance();
     }
 }

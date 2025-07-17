@@ -27,6 +27,6 @@ public class WalnutLeavesBlock extends LeavesBlock implements BonemealableBlock 
     }
     @Override
     public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
-        world.setBlock(pos.below(), BFBlocks.HANGING_WALNUTS.defaultBlockState(), 2);
+        world.setBlock(pos.below(), BFBlocks.HANGING_WALNUTS.get().defaultBlockState(), 2);
     }
 }

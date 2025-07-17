@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.compat.block;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.level.block.WallBlock;
 
@@ -13,6 +14,6 @@ public class CompatWallBlock extends WallBlock {
 
     @Override
     public boolean isEnabled(FeatureFlagSet enabledFeatures) {
-        return BountifulFares.isModLoaded(modId) || BountifulFares.isDatagen();
+        return HLServices.PLATFORM.isModLoaded(modId) || HLServices.PLATFORM.isDatagen();
     }
 }

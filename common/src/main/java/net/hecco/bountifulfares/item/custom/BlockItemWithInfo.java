@@ -28,7 +28,7 @@ public class BlockItemWithInfo extends BlockItem {
     }
 
     public void writeInfo(List<Component> tooltip) {
-        if (this == BFBlocks.FERMENTATION_VESSEL.asItem()) {
+        if (this == BFBlocks.FERMENTATION_VESSEL.get().asItem()) {
             tooltip.add(Component.literal("§7"+"Can be used to ferment ingredients."));
             tooltip.add(Component.literal("§7"+"Fill the vessel with a Water Bottle"));
             tooltip.add(Component.literal("§7"+"and an item to ferment it."));

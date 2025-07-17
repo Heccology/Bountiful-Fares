@@ -102,7 +102,7 @@ public class FermentationVesselBlock extends BaseEntityBlock implements SimpleWa
     {
         if (stack.is(PotionContents.createItemStack(Items.POTION, Potions.WATER).getItem()) && state.getValue(FERMENTATION_STAGE) == FermentationStage.EMPTY) {
             world.setBlock(pos, state.setValue(FERMENTATION_STAGE, FermentationStage.WATER), 2);
-            world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FILL, SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
+            world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FILL.get(), SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
             if (!player.isCreative()) {
                 stack.shrink(1);
             }
@@ -116,7 +116,7 @@ public class FermentationVesselBlock extends BaseEntityBlock implements SimpleWa
         } else if (stack.is(Items.WATER_BUCKET) && state.getValue(FERMENTATION_STAGE) == FermentationStage.EMPTY) {
             world.setBlock(pos, state.setValue(FERMENTATION_STAGE, FermentationStage.WATER), 2);
             world.playSound(null, pos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
-            world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FILL, SoundSource.BLOCKS, 0.7F, 0.8F + world.random.nextFloat()/3);
+            world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FILL.get(), SoundSource.BLOCKS, 0.7F, 0.8F + world.random.nextFloat()/3);
             if (!player.isCreative()) {
                 stack.shrink(1);
             }
@@ -134,7 +134,7 @@ public class FermentationVesselBlock extends BaseEntityBlock implements SimpleWa
                     world.setBlockAndUpdate(pos, state.setValue(FERMENTATION_STAGE, FermentationStage.FERMENTING));
                     pushEntitiesUp(state.setValue(FERMENTATION_STAGE, FermentationStage.WATER), state.setValue(FERMENTATION_STAGE, FermentationStage.FERMENTING), world, pos);
                     Item remainder = getCurrentRecipe(world, stack).get().value().getIngredient().getItems()[0].getItem().getCraftingRemainingItem();
-                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_SPLASH, SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
+                    world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_SPLASH.get(), SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
                     entity.setParticleColor(getCurrentRecipe(world, stack).get().value().getParticleColor());
                     if (!player.isCreative()) {
                         stack.shrink(1);
@@ -207,6 +207,6 @@ public class FermentationVesselBlock extends BaseEntityBlock implements SimpleWa
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
-        return createTickerHelper(type, BFBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return createTickerHelper(type, BFBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY.get(), (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

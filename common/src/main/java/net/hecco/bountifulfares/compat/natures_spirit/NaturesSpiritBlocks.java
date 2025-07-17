@@ -5,6 +5,7 @@ import net.hecco.bountifulfares.compat.block.CompatBlockItem;
 import net.hecco.bountifulfares.compat.block.CompatPicketsBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -12,28 +13,31 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
+import java.util.function.Supplier;
+
+import static net.hecco.bountifulfares.BountifulFares.APPLEDOG_MOD_ID;
 import static net.hecco.bountifulfares.BountifulFares.NATURES_SPIRIT_MOD_ID;
 import static net.hecco.bountifulfares.registry.content.BFTrellises.TRELLIS_RENDER_CUTOUT;
 import static net.hecco.bountifulfares.registry.misc.BFCompat.compatBlocks;
 
 public class NaturesSpiritBlocks {
-    public static final Block ASPEN_PICKETS = registerBlock("aspen_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block CEDAR_PICKETS = registerBlock("cedar_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block COCONUT_PICKETS = registerBlock("coconut_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block CYPRESS_PICKETS = registerBlock("cypress_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block FIR_PICKETS = registerBlock("fir_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block GHAF_PICKETS = registerBlock("ghaf_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block JOSHUA_PICKETS = registerBlock("joshua_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block LARCH_PICKETS = registerBlock("larch_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block MAHOGANY_PICKETS = registerBlock("mahogany_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block MAPLE_PICKETS = registerBlock("maple_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block OLIVE_PICKETS = registerBlock("olive_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block PALO_VERDE_PICKETS = registerBlock("palo_verde_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block REDWOOD_PICKETS = registerBlock("redwood_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block SAXAUL_PICKETS = registerBlock("saxaul_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block SUGI_PICKETS = registerBlock("sugi_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block WILLOW_PICKETS = registerBlock("willow_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
-    public static final Block WISTERIA_PICKETS = registerBlock("wisteria_pickets", new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS)));
+    public static final Supplier<Block> ASPEN_PICKETS = registerBlock("aspen_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> CEDAR_PICKETS = registerBlock("cedar_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> COCONUT_PICKETS = registerBlock("coconut_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> CYPRESS_PICKETS = registerBlock("cypress_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> FIR_PICKETS = registerBlock("fir_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> GHAF_PICKETS = registerBlock("ghaf_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> JOSHUA_PICKETS = registerBlock("joshua_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> LARCH_PICKETS = registerBlock("larch_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> MAHOGANY_PICKETS = registerBlock("mahogany_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> MAPLE_PICKETS = registerBlock("maple_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> OLIVE_PICKETS = registerBlock("olive_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> PALO_VERDE_PICKETS = registerBlock("palo_verde_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> REDWOOD_PICKETS = registerBlock("redwood_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> SAXAUL_PICKETS = registerBlock("saxaul_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> SUGI_PICKETS = registerBlock("sugi_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> WILLOW_PICKETS = registerBlock("willow_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static final Supplier<Block> WISTERIA_PICKETS = registerBlock("wisteria_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
 
     public static final TrellisVariant REDWOOD = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "redwood", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "redwood_planks"), TRELLIS_RENDER_CUTOUT);
     public static final TrellisVariant SUGI = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "sugi", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "sugi_planks"), TRELLIS_RENDER_CUTOUT);
@@ -54,13 +58,14 @@ public class NaturesSpiritBlocks {
     public static final TrellisVariant MAHOGANY = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "mahogany", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "mahogany_planks"), TRELLIS_RENDER_CUTOUT);
     public static final TrellisVariant SAXAUL = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "saxaul", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "saxaul_planks"), TRELLIS_RENDER_CUTOUT);
 
-    public static Block registerBlock(String name, Block block) {
+    public static Supplier<Block> registerBlock(String name, Supplier<Block> block) {
         registerBlockItem(name, block);
         compatBlocks.add(block);
-        return Registry.register(BuiltInRegistries.BLOCK, ResourceLocation.fromNamespaceAndPath(NATURES_SPIRIT_MOD_ID, name), block);
+        return HLServices.REGISTRY.registerBlockNoItem(NATURES_SPIRIT_MOD_ID, name, block);
     }
-    private static void registerBlockItem(String name, Block block) {
-        Registry.register(BuiltInRegistries.ITEM, ResourceLocation.fromNamespaceAndPath(NATURES_SPIRIT_MOD_ID, name), new CompatBlockItem(NATURES_SPIRIT_MOD_ID, block, new Item.Properties()));
+
+    private static void registerBlockItem(String name, Supplier<Block> block) {
+        HLServices.REGISTRY.registerItem(NATURES_SPIRIT_MOD_ID, name, () -> new CompatBlockItem(NATURES_SPIRIT_MOD_ID, block.get(), new Item.Properties()));
     }
     public static void registerNaturesSpiritBlocks() {
 

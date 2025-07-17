@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.compat.block;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.JackOStrawBlock;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
@@ -14,6 +15,6 @@ public class CompatJackOStrawBlock extends JackOStrawBlock {
 
     @Override
     public boolean isEnabled(FeatureFlagSet enabledFeatures) {
-        return BountifulFares.isModLoaded(modId) || BountifulFares.isDatagen();
+        return HLServices.PLATFORM.isModLoaded(modId) || HLServices.PLATFORM.isDatagen();
     }
 }

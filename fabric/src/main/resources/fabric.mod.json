@@ -17,6 +17,12 @@
     "entrypoints": {
         "main": [
             "net.hecco.bountifulfares.FabricBountifulFares"
+        ],
+        "fabric-datagen": [
+            "net.hecco.bountifulfares.FabricBountifulFaresDatagen"
+        ],
+        "client": [
+            "net.hecco.bountifulfares.FabricBountifulFaresClient"
         ]
     },
     "mixins": [

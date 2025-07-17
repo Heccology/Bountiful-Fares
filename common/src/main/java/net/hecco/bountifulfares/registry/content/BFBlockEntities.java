@@ -14,7 +14,7 @@ import static net.hecco.bountifulfares.registry.content.BFBlocks.*;
 
 public class BFBlockEntities {
     public static final Supplier<BlockEntityType<DyeableCeramicBlockEntity>> CERAMIC_TILES_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "ceramic_tiles_block_entity",
-            HLServices.REGISTRY.createBlockEntity(DyeableCeramicBlockEntity::new, CERAMIC_TILES.get(), CERAMIC_TILE_STAIRS.get(), CERAMIC_TILE_SLAB.get(), /*CERAMIC_TILE_WALL,*/ CERAMIC_PRESSURE_PLATE.get(), CERAMIC_BUTTON.get(), CERAMIC_LEVER.get(), CHECKERED_CERAMIC_TILES.get(), CHECKERED_CERAMIC_TILE_STAIRS.get(), CHECKERED_CERAMIC_TILE_SLAB.get(), /*CHECKERED_CERAMIC_TILE_WALL,*/ CRACKED_CERAMIC_TILES.get(), CRACKED_CHECKERED_CERAMIC_TILES.get(), CERAMIC_TILE_PILLAR.get(), CERAMIC_MOSAIC.get(), CERAMIC_MOSAIC_STAIRS.get(), CERAMIC_MOSAIC_SLAB.get(), /*CERAMIC_MOSAIC_WALL,*/ CHECKERED_CERAMIC_MOSAIC.get(), CHECKERED_CERAMIC_MOSAIC_STAIRS.get(), CHECKERED_CERAMIC_MOSAIC_SLAB.get(), /*CHECKERED_CERAMIC_MOSAIC_WALL,*/ CERAMIC_DOOR.get(), CERAMIC_TRAPDOOR.get(), SOLID_CERAMIC.get(), ExcessiveBuildingBlocks.CERAMIC_TILE_VERTICAL_STAIRS.get(), ExcessiveBuildingBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS.get(), ExcessiveBuildingBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS.get(), ExcessiveBuildingBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS.get())
+            () -> HLServices.REGISTRY.createBlockEntity(DyeableCeramicBlockEntity::new, CERAMIC_TILES.get(), CERAMIC_TILE_STAIRS.get(), CERAMIC_TILE_SLAB.get(), /*CERAMIC_TILE_WALL,*/ CERAMIC_PRESSURE_PLATE.get(), CERAMIC_BUTTON.get(), CERAMIC_LEVER.get(), CHECKERED_CERAMIC_TILES.get(), CHECKERED_CERAMIC_TILE_STAIRS.get(), CHECKERED_CERAMIC_TILE_SLAB.get(), /*CHECKERED_CERAMIC_TILE_WALL,*/ CRACKED_CERAMIC_TILES.get(), CRACKED_CHECKERED_CERAMIC_TILES.get(), CERAMIC_TILE_PILLAR.get(), CERAMIC_MOSAIC.get(), CERAMIC_MOSAIC_STAIRS.get(), CERAMIC_MOSAIC_SLAB.get(), /*CERAMIC_MOSAIC_WALL,*/ CHECKERED_CERAMIC_MOSAIC.get(), CHECKERED_CERAMIC_MOSAIC_STAIRS.get(), CHECKERED_CERAMIC_MOSAIC_SLAB.get(), /*CHECKERED_CERAMIC_MOSAIC_WALL,*/ CERAMIC_DOOR.get(), CERAMIC_TRAPDOOR.get(), SOLID_CERAMIC.get(), ExcessiveBuildingBlocks.CERAMIC_TILE_VERTICAL_STAIRS.get(), ExcessiveBuildingBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS.get(), ExcessiveBuildingBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS.get(), ExcessiveBuildingBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS.get())
     );
 
     public static final Supplier<BlockEntityType<CeramicDishBlockEntity>> CERAMIC_DISH_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "ceramic_dish_block_entity",
@@ -65,7 +65,7 @@ public class BFBlockEntities {
     public static void registerBlockEntities() {
         if (HLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID) || HLServices.PLATFORM.isDatagen()) {
             CABINET_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "cabinet_block_entity",
-                    () -> HLServices.REGISTRY.createBlockEntity(CabinetBlockEntity::new, FarmersDelightBlocks.WALNUT_CABINET.get(), FarmersDelightBlocks.HOARY_CABINET.get()).build()
+                    () -> HLServices.REGISTRY.createBlockEntity(CabinetBlockEntity::new, FarmersDelightBlocks.WALNUT_CABINET.get())
             );
         }
     }

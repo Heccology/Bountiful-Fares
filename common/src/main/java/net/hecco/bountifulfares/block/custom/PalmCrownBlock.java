@@ -25,7 +25,7 @@ public class PalmCrownBlock extends RotatedPillarBlock {
         if (stack.getItem() instanceof BoneMealItem) {
             if (hit.getDirection() != Direction.DOWN && hit.getDirection() != Direction.UP) {
                 if (world.getBlockState(pos.relative(hit.getDirection(), 1)).isAir()) {
-                    world.setBlockAndUpdate(pos.relative(hit.getDirection(), 1), BFBlocks.COCONUT.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, hit.getDirection()));
+                    world.setBlockAndUpdate(pos.relative(hit.getDirection(), 1), BFBlocks.COCONUT.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, hit.getDirection()));
                     if (!world.isClientSide) {
                         world.levelEvent(1505, pos, 0);
                     }
@@ -39,7 +39,7 @@ public class PalmCrownBlock extends RotatedPillarBlock {
                 Direction[] DIRECTIONS = new Direction[]{Direction.WEST, Direction.EAST, Direction.NORTH, Direction.SOUTH};
                 for (Direction direction : DIRECTIONS) {
                     if (world.getBlockState(pos.relative(direction)).isAir()) {
-                        world.setBlockAndUpdate(pos.relative(direction), BFBlocks.COCONUT.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction));
+                        world.setBlockAndUpdate(pos.relative(direction), BFBlocks.COCONUT.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction));
                         if (!world.isClientSide) {
                             world.levelEvent(1505, pos.below(), 0);
                         }

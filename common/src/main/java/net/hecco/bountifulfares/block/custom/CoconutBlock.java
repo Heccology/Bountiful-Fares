@@ -117,7 +117,7 @@ public class CoconutBlock extends FallingBlock implements BonemealableBlock {
 
     @Override
     public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state) {
-        return new ItemStack(BFItems.COCONUT);
+        return new ItemStack(BFItems.COCONUT.get());
     }
 
     @Override
@@ -204,16 +204,16 @@ public class CoconutBlock extends FallingBlock implements BonemealableBlock {
                         .registryOrThrow(Registries.DAMAGE_TYPE)
                         .getHolderOrThrow(BFDamageTypes.FALLING_COCONUT));
         if (world.getBlockState(pos).is(BFBlockTags.SPLITS_COCONUTS) || world.getBlockState(pos.below()).is(BFBlockTags.SPLITS_COCONUTS)) {
-            popResource(world, pos, new ItemStack(BFItems.COCONUT_HALF, 2));
+            popResource(world, pos, new ItemStack(BFItems.COCONUT_HALF.get(), 2));
         } else {
-            popResource(world, pos, new ItemStack(BFItems.COCONUT));
+            popResource(world, pos, new ItemStack(BFItems.COCONUT.get()));
         }
         if (!world.getEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE)).isEmpty()) {
             world.getEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE)).forEach((entity) ->
                     entity.hurt(damageSource, 4));
-            world.playSound(null, pos, BFSounds.COCONUT_BONK, SoundSource.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
+            world.playSound(null, pos, BFSounds.COCONUT_BONK.get(), SoundSource.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
         } else {
-            world.playSound(null, pos, BFSounds.COCONUT_LAND, SoundSource.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
+            world.playSound(null, pos, BFSounds.COCONUT_LAND.get(), SoundSource.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
         }
         fallingBlockEntity.discard();
         super.onBrokenAfterFall(world, pos, fallingBlockEntity);
@@ -226,16 +226,16 @@ public class CoconutBlock extends FallingBlock implements BonemealableBlock {
                         .registryOrThrow(Registries.DAMAGE_TYPE)
                         .getHolderOrThrow(BFDamageTypes.FALLING_COCONUT));
         if (world.getBlockState(pos).is(BFBlockTags.SPLITS_COCONUTS) || world.getBlockState(pos.below()).is(BFBlockTags.SPLITS_COCONUTS)) {
-            popResource(world, pos, new ItemStack(BFItems.COCONUT_HALF, 2));
+            popResource(world, pos, new ItemStack(BFItems.COCONUT_HALF.get(), 2));
         } else {
-            popResource(world, pos, new ItemStack(BFItems.COCONUT));
+            popResource(world, pos, new ItemStack(BFItems.COCONUT.get()));
         }
         if (!world.getEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE)).isEmpty()) {
             world.getEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE)).forEach((entity) ->
                     entity.hurt(damageSource, 4));
-            world.playSound(null, pos, BFSounds.COCONUT_BONK, SoundSource.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
+            world.playSound(null, pos, BFSounds.COCONUT_BONK.get(), SoundSource.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
         } else {
-            world.playSound(null, pos, BFSounds.COCONUT_LAND, SoundSource.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
+            world.playSound(null, pos, BFSounds.COCONUT_LAND.get(), SoundSource.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
         }
         fallingBlockEntity.discard();
         world.removeBlock(pos, false);

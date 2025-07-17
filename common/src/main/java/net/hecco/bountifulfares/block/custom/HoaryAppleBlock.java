@@ -79,6 +79,6 @@ public class HoaryAppleBlock extends FruitBlock {
 
     @Override
     public Item getFruitItem() {
-        return BFItems.HOARY_APPLE;
+        return BFItems.HOARY_APPLE.get();
     }
 }

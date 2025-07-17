@@ -48,13 +48,13 @@ public class HoaryAppleSaplingCropBlock extends CropBlock {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return BFItems.HOARY_SEEDS;
+        return BFItems.HOARY_SEEDS.get();
     }
 
     @Override
     public BlockState getStateForAge(int age) {
         if (age == 2) {
-            return BFBlocks.HOARY_APPLE_SAPLING.defaultBlockState();
+            return BFBlocks.HOARY_APPLE_SAPLING.get().defaultBlockState();
         }
         return super.getStateForAge(age);
     }

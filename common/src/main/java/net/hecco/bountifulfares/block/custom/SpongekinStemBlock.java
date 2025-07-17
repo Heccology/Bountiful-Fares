@@ -71,14 +71,14 @@ public class SpongekinStemBlock extends BushBlock implements BonemealableBlock, 
         if (isFullyGrown(state) && !state.getValue(ATTACHED) && random.nextFloat() < 0.1f) {
             BlockPos spongekinPos = pos.relative(Direction.UP);
             if ((world.getBlockState(spongekinPos).isAir() || world.getBlockState(spongekinPos).is(Blocks.WATER) && isFullyGrown(state))) {
-                world.setBlock(spongekinPos, BFBlocks.SPONGEKIN.defaultBlockState(), 2);
+                world.setBlock(spongekinPos, BFBlocks.SPONGEKIN.get().defaultBlockState(), 2);
                 world.setBlockAndUpdate(pos, this.withPropertiesOf(state).setValue(ATTACHED, true));
                 BlockPos prismarineBlossomPos = pos.relative(Direction.UP, 2);
                 if (shouldPropagatePrismarine(world, pos)) {
                     if (world.getBlockState(prismarineBlossomPos).is(Blocks.WATER)) {
-                        world.setBlock(prismarineBlossomPos, BFBlocks.PRISMARINE_BLOSSOM.defaultBlockState().setValue(PrismarineBlossomBlock.WATERLOGGED, true), 2);
+                        world.setBlock(prismarineBlossomPos, BFBlocks.PRISMARINE_BLOSSOM.get().defaultBlockState().setValue(PrismarineBlossomBlock.WATERLOGGED, true), 2);
                     } else if (world.getBlockState(prismarineBlossomPos).isAir()) {
-                        world.setBlock(prismarineBlossomPos, BFBlocks.PRISMARINE_BLOSSOM.defaultBlockState(), 2);
+                        world.setBlock(prismarineBlossomPos, BFBlocks.PRISMARINE_BLOSSOM.get().defaultBlockState(), 2);
                     }
 
                 }
@@ -132,7 +132,7 @@ public class SpongekinStemBlock extends BushBlock implements BonemealableBlock, 
         if (!blockState.isAir()) {
             world.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
         }
-        if (state.getValue(ATTACHED) && !world.getBlockState(pos.above()).is(BFBlocks.SPONGEKIN)) {
+        if (state.getValue(ATTACHED) && !world.getBlockState(pos.above()).is(BFBlocks.SPONGEKIN.get())) {
             if (state.getValue(AGE) == 3)
                 return state.setValue(ATTACHED, false);
         }

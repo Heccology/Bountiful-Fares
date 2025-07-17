@@ -26,22 +26,7 @@ public class BFConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_KEY = registerKey("palm");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GOLDEN_APPLE_KEY = registerKey("golden_apple");
 
-    public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
-        register(context, WALNUT_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(BFBlocks.WALNUT_LOG),
-                new WalnutTrunkPlacer(7, 9, 4),
-                BlockStateProvider.simple(BFBlocks.WALNUT_LEAVES),
-                new FancyFoliagePlacer(ConstantInt.of(2), ConstantInt.of(3), 4),
-//                new RandomSpreadFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(2), ConstantIntProvider.create(3), 50),
-                new TwoLayersFeatureSize(0, 0, 0)).forceDirt().build());
-    }
-
-
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, name));
-    }
-
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context,
-                                                                                   ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
-        context.register(key, new ConfiguredFeature<>(feature, configuration));
     }
 }

@@ -5,39 +5,21 @@ import net.hecco.bountifulfares.compat.appledog.AppledogBlocks;
 import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
 import net.hecco.bountifulfares.compat.dye_depot.DyeDepotBlocks;
 import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
-import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightItemGroups;
-import net.hecco.bountifulfares.compat.mint.MintBlocks;
 import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
-import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
-import net.hecco.bountifulfares.compat.twigs.TwigsBlocks;
-import net.hecco.bountifulfares.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFPotions;
-import net.hecco.bountifulfares.registry.tags.BFBlockTags;
-import net.hecco.bountifulfares.trellis.TrellisUtil;
-import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.nbt.NbtOps;
-import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.RegistryOps;
-import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.entity.decoration.PaintingVariant;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.item.component.CustomData;
 
 import java.util.Comparator;
-import java.util.Objects;
-import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class BFItemGroups {
@@ -55,7 +37,7 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.STRIPPED_APPLE_WOOD.get());
                         entries.accept(BFBlocks.APPLE_LEAVES.get());
                         entries.accept(BFBlocks.FLOWERING_APPLE_LEAVES.get());
-                        entries.accept(Items.APPLE.get());
+                        entries.accept(Items.APPLE);
                         entries.accept(BFBlocks.APPLE_BLOCK.get());
                         entries.accept(BFBlocks.APPLE_SAPLING.get());
                         entries.accept(BFBlocks.ORANGE_LOG.get());
@@ -89,7 +71,7 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.GOLDEN_APPLE_WOOD.get());
                         entries.accept(BFBlocks.GOLDEN_APPLE_LEAVES.get());
                         entries.accept(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.get());
-                        entries.accept(Items.GOLDEN_APPLE.get());
+                        entries.accept(Items.GOLDEN_APPLE);
                         entries.accept(BFBlocks.GOLDEN_APPLE_BLOCK.get());
                         entries.accept(BFBlocks.GOLDEN_APPLE_SAPLING.get());
                         entries.accept(BFBlocks.HOARY_LOG.get());
@@ -100,7 +82,7 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.HOARY_STAIRS.get());
                         entries.accept(ExcessiveBuildingBlocks.HOARY_VERTICAL_STAIRS.get());
                         entries.accept(BFBlocks.HOARY_SLAB.get());
-                        entries.accept(TwigsBlocks.HOARY_TABLE.get());
+//                        entries.accept(TwigsBlocks.HOARY_TABLE.get());
                         entries.accept(BFBlocks.HOARY_FENCE.get());
                         entries.accept(BFBlocks.HOARY_FENCE_GATE.get());
                         entries.accept(BFBlocks.HOARY_DOOR.get());
@@ -109,8 +91,8 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.HOARY_BUTTON.get());
                         entries.accept(BFItems.HOARY_SIGN.get());
                         entries.accept(BFItems.HOARY_HANGING_SIGN.get());
-                        entries.accept(BFItems.HOARY_BOAT.get());
-                        entries.accept(BFItems.HOARY_CHEST_BOAT.get());
+//                        entries.accept(BFItems.HOARY_BOAT.get());
+//                        entries.accept(BFItems.HOARY_CHEST_BOAT.get());
                         entries.accept(ExcessiveBuildingBlocks.CHISELED_HOARY_PLANKS.get());
                         entries.accept(ExcessiveBuildingBlocks.HOARY_MOSAIC.get());
                         entries.accept(ExcessiveBuildingBlocks.HOARY_MOSAIC_STAIRS.get());
@@ -129,7 +111,7 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.WALNUT_STAIRS.get());
                         entries.accept(ExcessiveBuildingBlocks.WALNUT_VERTICAL_STAIRS.get());
                         entries.accept(BFBlocks.WALNUT_SLAB.get());
-                        entries.accept(TwigsBlocks.WALNUT_TABLE.get());
+//                        entries.accept(TwigsBlocks.WALNUT_TABLE.get());
                         entries.accept(BFBlocks.WALNUT_FENCE.get());
                         entries.accept(BFBlocks.WALNUT_FENCE_GATE.get());
                         entries.accept(BFBlocks.WALNUT_DOOR.get());
@@ -138,8 +120,8 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.WALNUT_BUTTON.get());
                         entries.accept(BFItems.WALNUT_SIGN.get());
                         entries.accept(BFItems.WALNUT_HANGING_SIGN.get());
-                        entries.accept(BFItems.WALNUT_BOAT.get());
-                        entries.accept(BFItems.WALNUT_CHEST_BOAT.get());
+//                        entries.accept(BFItems.WALNUT_BOAT.get());
+//                        entries.accept(BFItems.WALNUT_CHEST_BOAT.get());
                         entries.accept(ExcessiveBuildingBlocks.CHISELED_WALNUT_PLANKS.get());
                         entries.accept(ExcessiveBuildingBlocks.WALNUT_MOSAIC.get());
                         entries.accept(ExcessiveBuildingBlocks.WALNUT_MOSAIC_STAIRS.get());
@@ -188,7 +170,7 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.BAMBOO_PICKETS.get());
                         entries.accept(BFBlocks.WALNUT_PICKETS.get());
 
-                        entries.accept(MintBlocks.WINTERGREEN_PICKETS.get());
+//                        entries.accept(MintBlocks.WINTERGREEN_PICKETS.get());
 
                         entries.accept(NaturesSpiritBlocks.REDWOOD_PICKETS.get());
                         entries.accept(NaturesSpiritBlocks.SUGI_PICKETS.get());
@@ -210,7 +192,7 @@ public class BFItemGroups {
 
                         entries.accept(ExcessiveBuildingBlocks.ANCIENT_PICKETS.get());
 
-                        entries.accept(SpawnBlocks.ROTTEN_PICKETS.get());
+//                        entries.accept(SpawnBlocks.ROTTEN_PICKETS.get());
 
                         entries.accept(ArtsAndCraftsBlocks.CORK_PICKETS.get());
 
@@ -227,7 +209,7 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.FELDSPAR_BRICK_SLAB.get());
                         entries.accept(BFBlocks.FELDSPAR_BRICK_WALL.get());
                         entries.accept(BFBlocks.FELDSPAR_LANTERN.get());
-                        entries.accept(TwigsBlocks.FELDSPAR_LAMP.get());
+//                        entries.accept(TwigsBlocks.FELDSPAR_LAMP.get());
                         entries.accept(BFBlocks.TINGED_GLASS.get());
                         entries.accept(BFItems.CERAMIC_CLAY.get());
                         entries.accept(BFBlocks.CERAMIC_CLAY_BLOCK.get());
@@ -258,53 +240,53 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.GRAY_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.BLACK_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.ACORN_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.ACORN_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.BROWN_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.MAROON_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.MAROON_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.MAROON_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.ROSE_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.RED_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.PEACH_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.VERMILION_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.PEACH_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.VERMILION_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.CORAL_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.GINGER_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.ORANGE_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.AMBER_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.AMBER_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.TAN_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.BEIGE_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.YELLOW_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.BANANA_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.ARTICHOKE_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.MOLD_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.BANANA_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.ARTICHOKE_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.MOLD_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.AMBER_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.OLIVE_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.LIME_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.SAGE_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.SAP_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.SAGE_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.SAP_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.FOREST_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.GREEN_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.SHAMROCK_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.MINT_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.SHAMROCK_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.MINT_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.VERDANT_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.TEAL_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.CYAN_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.CERULEAN_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.CERULEAN_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.MINT_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.AQUA_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.NAVY_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.NAVY_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.BLUE_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.PERIWINKLE_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.GRAPE_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.PERIWINKLE_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.GRAPE_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.SLATE_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.NAVY_JACK_O_STRAW.get());
                         entries.accept(DyeDepotBlocks.INDIGO_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.PURPLE_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.INDIGO_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.INDIGO_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.MAGENTA_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.MAUVE_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.VELVET_JACK_O_STRAW.get());
-                        entries.accept(MintBlocks.FUCHSIA_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.MAUVE_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.VELVET_JACK_O_STRAW.get());
+//                        entries.accept(MintBlocks.FUCHSIA_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.PINK_JACK_O_STRAW.get());
                         entries.accept(BFBlocks.GRASSY_DIRT.get());
                         entries.accept(BFBlocks.WILD_WHEAT.get());
@@ -324,36 +306,36 @@ public class BFItemGroups {
                         entries.accept(BFItems.HOARY_SEEDS.get());
                         entries.accept(BFItems.MAIZE.get());
                         entries.accept(BFItems.LEEK.get());
-                        for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
-                            if (Objects.equals(trellis.getModId(), BountifulFares.MOD_ID)) {
-                                if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
-                                    entries.accept(TrellisUtil.getTrellisFromVariant(trellis).get());
-                                }
-                            }
-                        }
-                        entries.accept(TrellisUtil.getTrellisFromVariant(MintBlocks.WINTERGREEN).get());
-                        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.REDWOOD).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.SUGI).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.WISTERIA).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.FIR).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.WILLOW).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.ASPEN).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.MAPLE).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.CYPRESS).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.OLIVE).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.JOSHUA).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.GHAF).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.PALO_VERDE).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.COCONUT).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.CEDAR).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.LARCH).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.MAHOGANY).get());
-                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.SAXAUL).get());
-                        }
-                        entries.accept(TrellisUtil.getTrellisFromVariant(ExcessiveBuildingBlocks.ANCIENT).get());
-                        entries.accept(TrellisUtil.getTrellisFromVariant(SpawnBlocks.ROTTEN).get());
-                        entries.accept(TrellisUtil.getTrellisFromVariant(ArtsAndCraftsBlocks.CORK).get());
+//                        for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
+//                            if (Objects.equals(trellis.getModId(), BountifulFares.MOD_ID)) {
+//                                if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
+//                                    entries.accept(TrellisUtil.getTrellisFromVariant(trellis).get());
+//                                }
+//                            }
+//                        }
+//                        entries.accept(TrellisUtil.getTrellisFromVariant(MintBlocks.WINTERGREEN).get());
+//                        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.REDWOOD).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.SUGI).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.WISTERIA).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.FIR).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.WILLOW).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.ASPEN).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.MAPLE).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.CYPRESS).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.OLIVE).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.JOSHUA).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.GHAF).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.PALO_VERDE).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.COCONUT).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.CEDAR).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.LARCH).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.MAHOGANY).get());
+//                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.SAXAUL).get());
+//                        }
+//                        entries.accept(TrellisUtil.getTrellisFromVariant(ExcessiveBuildingBlocks.ANCIENT).get());
+//                        entries.accept(TrellisUtil.getTrellisFromVariant(SpawnBlocks.ROTTEN).get());
+//                        entries.accept(TrellisUtil.getTrellisFromVariant(ArtsAndCraftsBlocks.CORK).get());
 //                        if (BountifulFares.isModLoaded(BountifulFares.WILDER_WILD_MOD_ID)) {
 //                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.BAOBAB).get());
 //                            entries.add(TrellisUtil.getTrellisFromVariant(BFTrellises.WW_CYPRESS).get());
@@ -408,26 +390,26 @@ public class BFItemGroups {
                         entries.accept(BFItems.HOARY_COMPOTE_JAR.get());
                         entries.accept(BFItems.CITRUS_ESSENCE.get());
                         entries.accept(BFItems.PICKLED_SPONGEKIN.get());
-                        entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.ACIDIC).get());
-                        entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.LONG_ACIDIC).get());
-                        entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.STRONG_ACIDIC).get());
-                        entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, BFPotions.ACIDIC).get());
-                        entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, BFPotions.LONG_ACIDIC).get());
-                        entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, BFPotions.STRONG_ACIDIC).get());
-                        entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, BFPotions.ACIDIC).get());
-                        entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, BFPotions.LONG_ACIDIC).get());
-                        entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, BFPotions.STRONG_ACIDIC).get());
-                        entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, BFPotions.ACIDIC).get());
-                        entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, BFPotions.LONG_ACIDIC).get());
-                        entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, BFPotions.STRONG_ACIDIC).get());
-                        entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.STUPOR).get());
-                        entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.LONG_STUPOR).get());
-                        entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, BFPotions.STUPOR).get());
-                        entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, BFPotions.LONG_STUPOR).get());
-                        entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, BFPotions.STUPOR).get());
-                        entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, BFPotions.LONG_STUPOR).get());
-                        entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, BFPotions.STUPOR).get());
-                        entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, BFPotions.LONG_STUPOR).get());
+                        entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.ACIDIC));
+                        entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.LONG_ACIDIC));
+                        entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.STRONG_ACIDIC));
+                        entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, BFPotions.ACIDIC));
+                        entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, BFPotions.LONG_ACIDIC));
+                        entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, BFPotions.STRONG_ACIDIC));
+                        entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, BFPotions.ACIDIC));
+                        entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, BFPotions.LONG_ACIDIC));
+                        entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, BFPotions.STRONG_ACIDIC));
+                        entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, BFPotions.ACIDIC));
+                        entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, BFPotions.LONG_ACIDIC));
+                        entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, BFPotions.STRONG_ACIDIC));
+                        entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.STUPOR));
+                        entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.LONG_STUPOR));
+                        entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, BFPotions.STUPOR));
+                        entries.accept(PotionContents.createItemStack(Items.SPLASH_POTION, BFPotions.LONG_STUPOR));
+                        entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, BFPotions.STUPOR));
+                        entries.accept(PotionContents.createItemStack(Items.LINGERING_POTION, BFPotions.LONG_STUPOR));
+                        entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, BFPotions.STUPOR));
+                        entries.accept(PotionContents.createItemStack(Items.TIPPED_ARROW, BFPotions.LONG_STUPOR));
                         entries.accept(BFBlocks.ARTISAN_BREAD.get());
                         entries.accept(BFItems.ARTISAN_COOKIE.get());
                         entries.accept(BFBlocks.APPLE_PIE.get());
@@ -435,7 +417,7 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.LEMON_PIE.get());
                         entries.accept(BFBlocks.PLUM_PIE.get());
                         entries.accept(BFBlocks.HOARY_PIE.get());
-                        entries.accept(Items.PUMPKIN_PIE.get());
+                        entries.accept(Items.PUMPKIN_PIE);
                         entries.accept(BFBlocks.MELON_PIE.get());
                         entries.accept(BFBlocks.PASSION_FRUIT_TART.get());
                         entries.accept(BFBlocks.ELDERBERRY_TART.get());
@@ -493,7 +475,11 @@ public class BFItemGroups {
 //                        }.get());
                         entries.accept(AppledogBlocks.APPLEDOG_BLOCK.get());
 
-                    }).build().get());
+                    }).build());
+
+    public static void registerItemGroups() {
+
+    }
 
 //    private static void addPaintings(CreativeModeTab.Output entries, HolderLookup.Provider registryLookup, HolderLookup.RegistryLookup<PaintingVariant> registryWrapper, Predicate<Holder<PaintingVariant>> filter, CreativeModeTab.TabVisibility stackVisibility) {
 //        RegistryOps<Tag> registryOps = registryLookup.createSerializationContext(NbtOps.INSTANCE.get());
@@ -506,12 +492,4 @@ public class BFItemGroups {
 //            entries.accept(itemStack, stackVisibility.get());
 //        }.get());
 //    }
-
-    public static void registerItemGroups() {
-        // Can be used to register item mod tabs if the mod is loaded
-        if (Services.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID)) FarmersDelightItemGroups.registerModItemTabs();
-
-        // Oh my god kaupenjoe reference        - Artyrian
-        //        BountifulFares.LOGGER.info("Registering Item Group Entries for " + BountifulFares.MOD_ID.get());
-    }
 }

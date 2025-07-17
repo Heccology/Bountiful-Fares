@@ -55,6 +55,6 @@ public class OrangeBlock extends FruitBlock {
 
     @Override
     public Item getFruitItem() {
-        return BFItems.ORANGE;
+        return BFItems.ORANGE.get();
     }
 }
