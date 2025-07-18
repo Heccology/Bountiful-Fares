@@ -34,10 +34,10 @@ public class BountifulFares {
 
 	public static void init() {
 		BountifulFares.CONFIG = BountifulFaresConfiguration.load(); //TODO: MOVE TO NEOFORGE CONFIG API(?)
-		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here
+//		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here
 		BFItems.registerModItems();
 		BFBlocks.registerModBlocks(); //TODO: UTILIZE BLOCKFAMILYCREATOR
-		BFTrellises.registerTrellisParts(); //TODO: FIX
+//		BFTrellises.registerTrellisParts(); //TODO: FIX
 //		TrellisUtil.registerTrellisParts(); //TODO: FIX
 		BFItemGroups.registerItemGroups();
 		BFItemGroupAdditions.registerItemGroupAdditions();
