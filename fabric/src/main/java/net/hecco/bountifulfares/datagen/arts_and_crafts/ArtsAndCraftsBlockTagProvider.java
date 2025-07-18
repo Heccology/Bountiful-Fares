@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
-import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
@@ -22,12 +21,12 @@ public class ArtsAndCraftsBlockTagProvider extends FabricTagProvider.BlockTagPro
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
         getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
-                .add(ArtsAndCraftsBlocks.CORK_PICKETS)
+                .add(ArtsAndCraftsBlocks.CORK_PICKETS.get())
         ;
         registerTrellisBlockTags(ArtsAndCraftsBlocks.CORK);
 
         getOrCreateTagBuilder(BFBlockTags.PICKETS)
-                .add(ArtsAndCraftsBlocks.CORK_PICKETS)
+                .add(ArtsAndCraftsBlocks.CORK_PICKETS.get())
         ;
     }
 
@@ -35,15 +34,15 @@ public class ArtsAndCraftsBlockTagProvider extends FabricTagProvider.BlockTagPro
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .addOptional(ResourceLocation.fromNamespaceAndPath(trellis.getModId(), trellis.getBlockName()))
         ;
-        for (VineCrop crop : TrellisUtil.VineCrops) {
-            tag(BlockTags.MINEABLE_WITH_AXE)
-                    .addOptional(ResourceLocation.fromNamespaceAndPath(trellis.getModId(), crop.getName() + "_" + trellis.getBlockName()))
-            ;
-        }
-        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
-            tag(BlockTags.MINEABLE_WITH_AXE)
-                    .addOptional(ResourceLocation.fromNamespaceAndPath(trellis.getModId(), vine.getName() + "_" + trellis.getBlockName()))
-            ;
-        }
+//        for (VineCrop crop : TrellisUtil.VineCrops) {
+//            tag(BlockTags.MINEABLE_WITH_AXE)
+//                    .addOptional(ResourceLocation.fromNamespaceAndPath(trellis.getModId(), crop.getName() + "_" + trellis.getBlockName()))
+//            ;
+//        }
+//        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
+//            tag(BlockTags.MINEABLE_WITH_AXE)
+//                    .addOptional(ResourceLocation.fromNamespaceAndPath(trellis.getModId(), vine.getName() + "_" + trellis.getBlockName()))
+//            ;
+//        }
     }
 }

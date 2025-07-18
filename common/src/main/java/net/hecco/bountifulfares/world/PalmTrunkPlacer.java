@@ -30,7 +30,8 @@ public class PalmTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> type() {
-        return BFTrunkPlacerTypes.PALM_TRUNK_PLACER;
+//        return BFTrunkPlacerTypes.PALM_TRUNK_PLACER; //TODO
+        return TrunkPlacerType.BENDING_TRUNK_PLACER;
     }
 
     @Override

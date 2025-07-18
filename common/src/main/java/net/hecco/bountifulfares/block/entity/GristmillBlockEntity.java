@@ -5,7 +5,7 @@ import net.hecco.bountifulfares.block.custom.GristmillBlock;
 import net.hecco.bountifulfares.recipe.MillingRecipe;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.misc.BFRecipes;
-import net.hecco.bountifulfares.screen.GristmillScreenHandler;
+//import net.hecco.bountifulfares.screen.GristmillScreenHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -198,7 +198,8 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
 
     @Override
     public @Nullable AbstractContainerMenu createMenu(int syncId, Inventory playerInventory, Player player) {
-        return new GristmillScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
+//        return new GristmillScreenHandler(syncId, playerInventory, this, this.propertyDelegate); //TODO: FIX
+        return null;
     }
 
     @Override

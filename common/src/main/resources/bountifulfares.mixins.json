@@ -19,7 +19,8 @@
     "render.ModelLoaderMixin",
     "util.BrewingRecipeRegistryMixin",
     "util.HandledScreenMixin",
-    "util.ItemRendererAccessor"
+    "util.ItemRendererAccessor",
+    "util.TrunkPlacerInvoker"
   ],
   "injectors": {
     "defaultRequire": 1

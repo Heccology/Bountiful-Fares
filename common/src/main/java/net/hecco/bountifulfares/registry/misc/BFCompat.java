@@ -1,20 +1,13 @@
 package net.hecco.bountifulfares.registry.misc;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.compat.DatagenOnlyItems;
 import net.hecco.bountifulfares.compat.appledog.AppledogBlocks;
 import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
 import net.hecco.bountifulfares.compat.delicate_dyes.DelicateDyesBlocks;
 import net.hecco.bountifulfares.compat.dungeons_delight.DungeonsDelightBlocks;
-import net.hecco.bountifulfares.compat.dye_depot.DyeDepotBlocks;
 import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
 import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks;
-import net.hecco.bountifulfares.compat.mint.MintBlocks;
 import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
-import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
-import net.hecco.bountifulfares.compat.twigs.TwigsBlocks;
-import net.hecco.bountifulfares.compat.twigs.TwigsSounds;
-import net.hecco.bountifulfares.platform.Services;
 import net.minecraft.world.level.block.Block;
 
 import java.util.HashSet;
@@ -34,7 +27,7 @@ public class BFCompat {
 //        MintBlocks.registerMintBlocks();
 
 //        dye_depot
-        DyeDepotBlocks.registerDyeDepotBlocks();
+//        DyeDepotBlocks.registerDyeDepotBlocks();
 
 //        farmersdelight
         FarmersDelightBlocks.registerFarmersDelightBlocks();

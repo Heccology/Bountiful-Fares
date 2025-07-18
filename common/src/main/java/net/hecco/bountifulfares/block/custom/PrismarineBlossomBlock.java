@@ -63,7 +63,7 @@ public class PrismarineBlossomBlock extends BushBlock implements SimpleWaterlogg
     }
 
     private static void spawnPrismarineBlossomParticles(Level world, Vec3 vec3d) {
-        world.addParticle(BFParticles.PRISMARINE_BLOSSOM, vec3d.x + world.random.nextGaussian()/8, vec3d.y + world.random.nextGaussian()/10, vec3d.z + world.random.nextGaussian()/8, world.random.nextGaussian()/60, world.random.nextFloat()/40, world.random.nextGaussian()/60);
+        world.addParticle(BFParticles.PRISMARINE_BLOSSOM.get(), vec3d.x + world.random.nextGaussian()/8, vec3d.y + world.random.nextGaussian()/10, vec3d.z + world.random.nextGaussian()/8, world.random.nextGaussian()/60, world.random.nextFloat()/40, world.random.nextGaussian()/60);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.entity.FlourProjectileEntity;
+//import net.hecco.bountifulfares.entity.FlourProjectileEntity;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -24,10 +24,10 @@ public class FlourItem extends Item {
             ItemStack itemStack = user.getItemInHand(hand);
             world.playSound(null, user.getX(), user.getY(), user.getZ(), BFSounds.FLOUR_THROW.get(), SoundSource.NEUTRAL, 0.6f, 0.9f + world.random.nextFloat() / 4);
             if (!world.isClientSide) {
-                FlourProjectileEntity flourProjectileEntity = new FlourProjectileEntity(user, world);
-                flourProjectileEntity.setItem(itemStack);
-                flourProjectileEntity.shootFromRotation(user, user.getXRot(), user.getYRot(), 0.0f, 0.35f, 7.5f);
-                world.addFreshEntity(flourProjectileEntity);
+//                FlourProjectileEntity flourProjectileEntity = new FlourProjectileEntity(user, world);
+//                flourProjectileEntity.setItem(itemStack);
+//                flourProjectileEntity.shootFromRotation(user, user.getXRot(), user.getYRot(), 0.0f, 0.35f, 7.5f);
+//                world.addFreshEntity(flourProjectileEntity); //TODO: THIS TOO
             }
             if (BountifulFares.CONFIG.getFlourThrowingCooldown() != 0) {
                 user.getCooldowns().addCooldown(this, BountifulFares.CONFIG.getFlourThrowingCooldown());

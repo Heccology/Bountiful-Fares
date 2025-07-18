@@ -5,7 +5,6 @@ import net.hecco.bountifulfares.registry.util.BFNoteBlockInstruments;
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.gen.Invoker;
 import org.spongepowered.asm.mixin.injection.At;
@@ -44,7 +43,7 @@ public abstract class NoteBlockInstrumentMixin {
     @SuppressWarnings("UnresolvedMixinReference")
     @Inject(method = "<clinit>", at = @At(
             value = "FIELD",
-            opcode = Opcodes.PUTSTATIC,
+            opcode = 179,
             target = "Lnet/minecraft/world/level/block/state/properties/NoteBlockInstrument;$VALUES:[Lnet/minecraft/world/level/block/state/properties/NoteBlockInstrument;",
             shift = At.Shift.AFTER))
     private static void customNoteBlockSFX(CallbackInfo ci)

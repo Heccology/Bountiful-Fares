@@ -6,7 +6,6 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.block.custom.PicketsBlock;
 import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
-import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
@@ -43,7 +42,7 @@ public class ArtsAndCraftsBlockLootTableProvider extends FabricBlockLootTablePro
     @Override
     public void generate() {
         registerTrellisLootTables(ArtsAndCraftsBlocks.CORK);
-        picketsDrops(ArtsAndCraftsBlocks.CORK_PICKETS);
+        picketsDrops(ArtsAndCraftsBlocks.CORK_PICKETS.get());
 
         for(ResourceLocation id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
             Block block = BuiltInRegistries.BLOCK.get(id);
@@ -53,17 +52,17 @@ public class ArtsAndCraftsBlockLootTableProvider extends FabricBlockLootTablePro
     }
 
     public void registerTrellisLootTables(TrellisVariant trellis) {
-        this.dropSelf(TrellisUtil.getTrellisFromVariant(trellis));
-        for (VineCrop crop : TrellisUtil.VineCrops) {
-            this.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(this.applyExplosionDecay(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootItem.lootTableItem(TrellisUtil.getTrellisFromVariant(trellis))))));
-        }
-        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
-            this.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(this.applyExplosionDecay(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootItem.lootTableItem(TrellisUtil.getTrellisFromVariant(trellis))))));
-        }
+//        this.dropSelf(TrellisUtil.getTrellisFromVariant(trellis));
+//        for (VineCrop crop : TrellisUtil.VineCrops) {
+//            this.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootTable.lootTable()
+//                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+//                            .add(this.applyExplosionDecay(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootItem.lootTableItem(TrellisUtil.getTrellisFromVariant(trellis))))));
+//        }
+//        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
+//            this.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootTable.lootTable()
+//                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+//                            .add(this.applyExplosionDecay(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootItem.lootTableItem(TrellisUtil.getTrellisFromVariant(trellis))))));
+//        } //TODO: FIX
     }
 
     public void picketsDrops(Block block) {

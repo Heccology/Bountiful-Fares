@@ -88,11 +88,15 @@ public class BFSounds {
     public static final SoundType COIR = new SoundType(1f, 1f, (SoundEvent) COIR_BREAK, (SoundEvent) COIR_STEP, (SoundEvent) COIR_PLACE, (SoundEvent) COIR_HIT, (SoundEvent) COIR_FALL);
 
     private static Holder<SoundEvent> registerSoundReference(String id) {
-        return HLServices.REGISTRY.registerHolder(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT.key(), SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
+//        return HLServices.REGISTRY.registerHolder(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT.key(), SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
+        return null;
+        //TODO
     }
 
     private static Supplier<SoundEvent> registerSoundEvent(String id) {
-        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT.key(), () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
+//        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT.key(), () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
+        return null;
+        //TODO: FIX??
     }
 
     public static void registerSounds() {

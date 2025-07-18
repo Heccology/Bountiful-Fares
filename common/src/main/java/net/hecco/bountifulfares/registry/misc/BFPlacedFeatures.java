@@ -52,7 +52,7 @@ public class BFPlacedFeatures {
         var configuredFeatureRegistryEntryLookup = context.lookup(Registries.CONFIGURED_FEATURE);
         register(context, WALNUT_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(BFConfiguredFeatures.WALNUT_KEY),
                 VegetationPlacements.treePlacement(
-                        PlacementUtils.countExtra(0, 0.5f, 1), BFBlocks.WALNUT_SAPLING));
+                        PlacementUtils.countExtra(0, 0.5f, 1), BFBlocks.WALNUT_SAPLING.get()));
 
     }
 

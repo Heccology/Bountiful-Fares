@@ -29,7 +29,8 @@ public class WalnutTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> type() {
-        return BFTrunkPlacerTypes.WALNUT_TRUNK_PLACER;
+//        return BFTrunkPlacerTypes.WALNUT_TRUNK_PLACER; //TODO
+        return TrunkPlacerType.FANCY_TRUNK_PLACER;
     }
 
     @Override

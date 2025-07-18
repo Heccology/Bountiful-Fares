@@ -28,7 +28,8 @@ public class HoaryTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> type() {
-        return BFTrunkPlacerTypes.HOARY_TRUNK_PLACER;
+//        return BFTrunkPlacerTypes.HOARY_TRUNK_PLACER; //TODO
+        return TrunkPlacerType.BENDING_TRUNK_PLACER;
     }
 
     @Override

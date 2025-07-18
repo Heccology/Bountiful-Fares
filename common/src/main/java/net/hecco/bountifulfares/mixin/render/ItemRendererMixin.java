@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 public abstract class ItemRendererMixin {
     @ModifyVariable(method = "render", at = @At(value = "HEAD"), argsOnly = true)
     public BakedModel renderItemTexture(BakedModel value, ItemStack stack, ItemDisplayContext renderMode, boolean leftHanded, PoseStack matrices, MultiBufferSource vertexConsumers, int light, int overlay) {
-        if (stack.is(BFItems.SUN_HAT) && renderMode == ItemDisplayContext.HEAD) {
+        if (stack.is(BFItems.SUN_HAT.get()) && renderMode == ItemDisplayContext.HEAD) {
             return ((ItemRendererAccessor) this).getModels().getModelManager().getModel(ModelResourceLocation.inventory(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "sun_hat_head")));
         }
         return value;

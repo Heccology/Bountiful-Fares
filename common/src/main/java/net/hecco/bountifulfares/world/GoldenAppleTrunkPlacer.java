@@ -36,7 +36,8 @@ public class GoldenAppleTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> type() {
-        return BFTrunkPlacerTypes.GOLDEN_APPLE_TRUNK_PLACER;
+//        return BFTrunkPlacerTypes.GOLDEN_APPLE_TRUNK_PLACER; //TODO
+        return TrunkPlacerType.CHERRY_TRUNK_PLACER;
     }
 
     @Override

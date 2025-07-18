@@ -1,9 +1,9 @@
 package net.hecco.bountifulfares;
 
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
-import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+//import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+//import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+//import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+//import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hecco.bountifulfares.block.entity.DyeableBlockEntity;
 import net.hecco.bountifulfares.block.entity.renderer.CeramicDishBlockEntityRenderer;
 import net.hecco.bountifulfares.compat.appledog.AppledogBlocks;
@@ -23,7 +23,6 @@ import net.hecco.bountifulfares.registry.misc.BFScreenHandlers;
 import net.hecco.bountifulfares.registry.util.BFTooltipEvents;
 import net.hecco.bountifulfares.registry.util.BFWoodTypes;
 import net.hecco.bountifulfares.registry.util.BlockUseEvents;
-import net.hecco.bountifulfares.screen.GristmillScreen;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BiomeColors;
@@ -50,8 +49,8 @@ public class BountifulFaresClient {
     public static void onInitializeClient() {
         BFMessages.registerS2CPackets();
         BlockUseEvents.register();
-        ItemTooltipCallback.EVENT.register(BFTooltipEvents::addTooltipsToVanillaItems);
-        BlockEntityRenderers.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, CeramicDishBlockEntityRenderer::new);
+//        ItemTooltipCallback.EVENT.register(BFTooltipEvents::addTooltipsToVanillaItems); TODO: FIND COMMON ALT
+//        BlockEntityRenderers.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, CeramicDishBlockEntityRenderer::new);
 //        ElsAndLsDyes compat
 //            HLServices.CLIENT.setBlockRenderType(MintBlocks.ACORN_JACK_O_STRAW.get(), RenderType.cutout());
 //            HLServices.CLIENT.setBlockRenderType(MintBlocks.ARTICHOKE_JACK_O_STRAW.get(), RenderType.cutout());
@@ -93,265 +92,265 @@ public class BountifulFaresClient {
 //            HLServices.CLIENT.setBlockRenderType(DyeDepotBlocks.NAVY_JACK_O_STRAW.get(), RenderType.cutout());
 //            HLServices.CLIENT.setBlockRenderType(DyeDepotBlocks.INDIGO_JACK_O_STRAW.get(), RenderType.cutout());
 //        ExcessiveBuilding compat
-            HLServices.CLIENT.setBlockRenderType(ExcessiveBuildingBlocks.ANCIENT_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(ExcessiveBuildingBlocks.WALNUT_LADDER.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(ExcessiveBuildingBlocks.HOARY_LADDER.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS.get(), RenderType.cutout());
-            registerBlockColor(ExcessiveBuildingBlocks.CERAMIC_TILE_VERTICAL_STAIRS.get());
-            registerBlockColor(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS.get());
-            registerBlockColor(ExcessiveBuildingBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS.get());
-            registerBlockColor(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS.get());
-
-//        NaturesSpirit compat
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.ASPEN_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.CEDAR_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.COCONUT_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.CYPRESS_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.FIR_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.JOSHUA_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.GHAF_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.LARCH_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.MAHOGANY_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.MAPLE_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.MAHOGANY_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.OLIVE_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.PALO_VERDE_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.REDWOOD_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.SAXAUL_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.SUGI_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.WILLOW_PICKETS.get(), RenderType.cutout());
-            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.WISTERIA_PICKETS.get(), RenderType.cutout());
-
-        //        Spawn compat
-//            HLServices.CLIENT.setBlockRenderType(SpawnBlocks.ROTTEN_PICKETS.get(), RenderType.cutout());
-        //        ArtsAndCrafts compat
-            HLServices.CLIENT.setBlockRenderType(ArtsAndCraftsBlocks.CORK_PICKETS.get(), RenderType.cutout());
-
-        //        DelicateDyes compat
-        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.CORAL_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.CANARY_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.WASABI_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.SKY_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.BLURPLE_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.SANGRIA_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.ROSE_JACK_O_STRAW.get(), RenderType.cutout());
-
-        //          Appledog compat
-        HLServices.CLIENT.setBlockRenderType(AppledogBlocks.APPLEDOG_BLOCK.get(), RenderType.cutout());
-
-        //          DungeonsDelight compat
-        HLServices.CLIENT.setBlockRenderType(DungeonsDelightBlocks.WORMWOOD_PICKETS.get(), RenderType.cutout());
-
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.APPLE_LOG.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.APPLE_WOOD.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_APPLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.APPLE_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_APPLE_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.ORANGE_LOG.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.ORANGE_WOOD.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_ORANGE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.ORANGE_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_ORANGE_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.LEMON_LOG.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.LEMON_WOOD.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_LEMON.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.LEMON_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_LEMON_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.PLUM_LOG.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.PLUM_WOOD.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_PLUM.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.PLUM_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_PLUM_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.GOLDEN_APPLE_LOG.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.GOLDEN_APPLE_WOOD.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_GOLDEN_APPLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_WITHERED_GOLDEN_APPLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.GOLDEN_APPLE_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_GOLDEN_APPLE_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HOARY_APPLE_SAPLING_CROP.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HOARY_APPLE_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_WALNUT_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_HOARY_APPLE_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_HOARY_APPLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WALNUT_SAPLING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_WALNUTS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.FALLEN_WALNUTS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_CARROTS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_POTATOES.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_WHEAT.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_BEETROOTS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_LEEKS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_MAIZE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_PASSION_FRUIT_VINE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_ELDERBERRY_VINE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.FERMENTATION_VESSEL.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.FELDSPAR_LANTERN.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.TINGED_GLASS.get(), RenderType.translucent());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_TILES.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get(), RenderType.cutout());
-        //HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_TILE_WALL, RenderLayer.getCutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_MOSAIC.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.get(), RenderType.cutout());
-        //HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, RenderLayer.getCutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CERAMIC_DOOR.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.APPLE_BLOCK.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.GOLDEN_APPLE_BLOCK.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.ORANGE_BLOCK.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.LEMON_BLOCK.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.PLUM_BLOCK.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HOARY_APPLE_BLOCK.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WALNUT_DOOR.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.TEA_SHRUB.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHAMOMILE_FLOWERS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HONEYSUCKLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_HONEYSUCKLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.VIOLET_BELLFLOWER.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_VIOLET_BELLFLOWER.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.RED_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.ORANGE_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.YELLOW_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.LIME_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.GREEN_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CYAN_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.BLUE_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.PURPLE_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.MAGENTA_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.PINK_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WHITE_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.GRAY_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.BLACK_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.BROWN_JACK_O_STRAW.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.GREEN_TEA_CANDLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.BLACK_TEA_CANDLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHAMOMILE_CANDLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HONEYSUCKLE_CANDLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.BELLFLOWER_CANDLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.TORCHFLOWER_CANDLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WALNUT_CANDLE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.LEEKS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.MAIZE_CROP.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.SPONGEKIN_STEM.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.SPONGEKIN_SPROUT.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.SPONGE_CAKE.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.PRISMARINE_BLOSSOM.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.SCORCHKIN_STEM.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.OAK_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.SPRUCE_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.BIRCH_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.JUNGLE_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.ACACIA_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.DARK_OAK_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.MANGROVE_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHERRY_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.BAMBOO_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WALNUT_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.HOARY_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.CRIMSON_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WARPED_PICKETS.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.IRON_RAILING.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.GRASSY_DIRT.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.PALM_FROND.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.WALL_PALM_FROND.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_PALM_FROND.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.COCONUT.get(), RenderType.cutout());
-        HLServices.CLIENT.setBlockRenderType(BFBlocks.PALM_SAPLING.get(), RenderType.cutout());
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-            if (stack.getComponents().has(DataComponents.DYED_COLOR) && tintIndex == 0) {
-                return FastColor.ARGB32.opaque(Objects.requireNonNull(stack.getComponents().get(DataComponents.DYED_COLOR)).rgb());
-            }
-            return ArtisanBrushItem.DEFAULT_COLOR;
-        }, ARTISAN_BRUSH);
-        registerBlockColor(BFBlocks.CERAMIC_TILES.get());
-        registerBlockColor(BFBlocks.CERAMIC_TILE_STAIRS.get());
-        registerBlockColor(BFBlocks.CERAMIC_TILE_SLAB.get());
-        //registerBlockColor(BFBlocks.CERAMIC_TILE_WALL);
-        registerBlockColor(BFBlocks.CRACKED_CERAMIC_TILES.get());
-        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILES.get());
-        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get());
-        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get());
-        //registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_WALL);
-        registerBlockColor(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.get());
-        registerBlockColor(BFBlocks.CERAMIC_MOSAIC.get());
-        registerBlockColor(BFBlocks.CERAMIC_MOSAIC_STAIRS.get());
-        registerBlockColor(BFBlocks.CERAMIC_MOSAIC_SLAB.get());
-        //registerBlockColor(BFBlocks.CERAMIC_MOSAIC_WALL);
-        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC.get());
-        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.get());
-        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.get());
-        //registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL);
-        registerBlockColor(BFBlocks.CERAMIC_TILE_PILLAR.get());
-        registerBlockColor(BFBlocks.CERAMIC_PRESSURE_PLATE.get());
-        registerBlockColor(BFBlocks.CERAMIC_BUTTON.get());
-        registerBlockColor(BFBlocks.CERAMIC_LEVER.get());
-        registerBlockColor(BFBlocks.CERAMIC_DOOR.get());
-        registerBlockColor(BFBlocks.CERAMIC_TRAPDOOR.get());
-        registerBlockColor(BFBlocks.CERAMIC_DISH.get());
-        registerBlockColor(BFBlocks.SOLID_CERAMIC.get());
-        Sheets.SIGN_MATERIALS.put(BFWoodTypes.HOARY, Sheets.getSignMaterial(BFWoodTypes.HOARY));
-        Sheets.SIGN_MATERIALS.put(BFWoodTypes.WALNUT, Sheets.getSignMaterial(BFWoodTypes.WALNUT));
-        BlockEntityRenderers.register(BFBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignRenderer::new);
-        BlockEntityRenderers.register(BFBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignRenderer::new);
+//            HLServices.CLIENT.setBlockRenderType(ExcessiveBuildingBlocks.ANCIENT_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(ExcessiveBuildingBlocks.WALNUT_LADDER.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(ExcessiveBuildingBlocks.HOARY_LADDER.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS.get(), RenderType.cutout());
+//            registerBlockColor(ExcessiveBuildingBlocks.CERAMIC_TILE_VERTICAL_STAIRS.get());
+//            registerBlockColor(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS.get());
+//            registerBlockColor(ExcessiveBuildingBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS.get());
+//            registerBlockColor(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS.get());
+//
+////        NaturesSpirit compat
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.ASPEN_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.CEDAR_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.COCONUT_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.CYPRESS_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.FIR_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.JOSHUA_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.GHAF_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.LARCH_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.MAHOGANY_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.MAPLE_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.MAHOGANY_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.OLIVE_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.PALO_VERDE_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.REDWOOD_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.SAXAUL_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.SUGI_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.WILLOW_PICKETS.get(), RenderType.cutout());
+//            HLServices.CLIENT.setBlockRenderType(NaturesSpiritBlocks.WISTERIA_PICKETS.get(), RenderType.cutout());
+//
+//        //        Spawn compat
+////            HLServices.CLIENT.setBlockRenderType(SpawnBlocks.ROTTEN_PICKETS.get(), RenderType.cutout());
+//        //        ArtsAndCrafts compat
+//            HLServices.CLIENT.setBlockRenderType(ArtsAndCraftsBlocks.CORK_PICKETS.get(), RenderType.cutout());
+//
+//        //        DelicateDyes compat
+//        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.CORAL_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.CANARY_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.WASABI_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.SKY_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.BLURPLE_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.SANGRIA_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(DelicateDyesBlocks.ROSE_JACK_O_STRAW.get(), RenderType.cutout());
+//
+//        //          Appledog compat
+//        HLServices.CLIENT.setBlockRenderType(AppledogBlocks.APPLEDOG_BLOCK.get(), RenderType.cutout());
+//
+//        //          DungeonsDelight compat
+//        HLServices.CLIENT.setBlockRenderType(DungeonsDelightBlocks.WORMWOOD_PICKETS.get(), RenderType.cutout());
+//
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.APPLE_LOG.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.APPLE_WOOD.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_APPLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.APPLE_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_APPLE_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.ORANGE_LOG.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.ORANGE_WOOD.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_ORANGE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.ORANGE_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_ORANGE_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.LEMON_LOG.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.LEMON_WOOD.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_LEMON.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.LEMON_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_LEMON_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.PLUM_LOG.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.PLUM_WOOD.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_PLUM.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.PLUM_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_PLUM_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.GOLDEN_APPLE_LOG.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.GOLDEN_APPLE_WOOD.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_GOLDEN_APPLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_WITHERED_GOLDEN_APPLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.GOLDEN_APPLE_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_GOLDEN_APPLE_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HOARY_APPLE_SAPLING_CROP.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HOARY_APPLE_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_WALNUT_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_HOARY_APPLE_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_HOARY_APPLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WALNUT_SAPLING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HANGING_WALNUTS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.FALLEN_WALNUTS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_CARROTS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_POTATOES.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_WHEAT.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_BEETROOTS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_LEEKS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_MAIZE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_PASSION_FRUIT_VINE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WILD_ELDERBERRY_VINE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.FERMENTATION_VESSEL.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.FELDSPAR_LANTERN.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.TINGED_GLASS.get(), RenderType.translucent());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_TILES.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get(), RenderType.cutout());
+//        //HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_TILE_WALL, RenderLayer.getCutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_MOSAIC.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.get(), RenderType.cutout());
+//        //HLServices.CLIENT.setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, RenderLayer.getCutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CERAMIC_DOOR.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.APPLE_BLOCK.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.GOLDEN_APPLE_BLOCK.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.ORANGE_BLOCK.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.LEMON_BLOCK.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.PLUM_BLOCK.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HOARY_APPLE_BLOCK.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WALNUT_DOOR.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.TEA_SHRUB.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHAMOMILE_FLOWERS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HONEYSUCKLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_HONEYSUCKLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.VIOLET_BELLFLOWER.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_VIOLET_BELLFLOWER.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.RED_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.ORANGE_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.YELLOW_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.LIME_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.GREEN_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CYAN_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.BLUE_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.PURPLE_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.MAGENTA_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.PINK_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WHITE_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.GRAY_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.BLACK_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.BROWN_JACK_O_STRAW.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.GREEN_TEA_CANDLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.BLACK_TEA_CANDLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHAMOMILE_CANDLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HONEYSUCKLE_CANDLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.BELLFLOWER_CANDLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.TORCHFLOWER_CANDLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WALNUT_CANDLE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.LEEKS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.MAIZE_CROP.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.SPONGEKIN_STEM.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.SPONGEKIN_SPROUT.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.SPONGE_CAKE.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.PRISMARINE_BLOSSOM.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.SCORCHKIN_STEM.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.OAK_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.SPRUCE_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.BIRCH_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.JUNGLE_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.ACACIA_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.DARK_OAK_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.MANGROVE_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CHERRY_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.BAMBOO_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WALNUT_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.HOARY_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.CRIMSON_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WARPED_PICKETS.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.IRON_RAILING.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.GRASSY_DIRT.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.PALM_FROND.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.WALL_PALM_FROND.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_PALM_FROND.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.COCONUT.get(), RenderType.cutout());
+//        HLServices.CLIENT.setBlockRenderType(BFBlocks.PALM_SAPLING.get(), RenderType.cutout());
+////        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
+////            if (stack.getComponents().has(DataComponents.DYED_COLOR) && tintIndex == 0) {
+////                return FastColor.ARGB32.opaque(Objects.requireNonNull(stack.getComponents().get(DataComponents.DYED_COLOR)).rgb());
+////            }
+////            return ArtisanBrushItem.DEFAULT_COLOR;
+////        }, ARTISAN_BRUSH); TODO: ADD METHODD TO HECCOLIB PROBABLY
+//        registerBlockColor(BFBlocks.CERAMIC_TILES.get());
+//        registerBlockColor(BFBlocks.CERAMIC_TILE_STAIRS.get());
+//        registerBlockColor(BFBlocks.CERAMIC_TILE_SLAB.get());
+//        //registerBlockColor(BFBlocks.CERAMIC_TILE_WALL);
+//        registerBlockColor(BFBlocks.CRACKED_CERAMIC_TILES.get());
+//        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILES.get());
+//        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get());
+//        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get());
+//        //registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_WALL);
+//        registerBlockColor(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.get());
+//        registerBlockColor(BFBlocks.CERAMIC_MOSAIC.get());
+//        registerBlockColor(BFBlocks.CERAMIC_MOSAIC_STAIRS.get());
+//        registerBlockColor(BFBlocks.CERAMIC_MOSAIC_SLAB.get());
+//        //registerBlockColor(BFBlocks.CERAMIC_MOSAIC_WALL);
+//        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC.get());
+//        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.get());
+//        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.get());
+//        //registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL);
+//        registerBlockColor(BFBlocks.CERAMIC_TILE_PILLAR.get());
+//        registerBlockColor(BFBlocks.CERAMIC_PRESSURE_PLATE.get());
+//        registerBlockColor(BFBlocks.CERAMIC_BUTTON.get());
+//        registerBlockColor(BFBlocks.CERAMIC_LEVER.get());
+//        registerBlockColor(BFBlocks.CERAMIC_DOOR.get());
+//        registerBlockColor(BFBlocks.CERAMIC_TRAPDOOR.get());
+//        registerBlockColor(BFBlocks.CERAMIC_DISH.get());
+//        registerBlockColor(BFBlocks.SOLID_CERAMIC.get());
+//        Sheets.SIGN_MATERIALS.put(BFWoodTypes.HOARY, Sheets.getSignMaterial(BFWoodTypes.HOARY));
+//        Sheets.SIGN_MATERIALS.put(BFWoodTypes.WALNUT, Sheets.getSignMaterial(BFWoodTypes.WALNUT));
+//        BlockEntityRenderers.register(BFBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignRenderer::new);
+//        BlockEntityRenderers.register(BFBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignRenderer::new);
 //        TerraformBoatClientHelper.registerModelLayers(BFBoats.HOARY_BOAT_ID, false);
 //        TerraformBoatClientHelper.registerModelLayers(BFBoats.WALNUT_BOAT_ID, false);
 
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos)
-                : GrassColor.getDefaultColor(), BFBlocks.CHAMOMILE_FLOWERS, BFBlocks.GRASSY_DIRT);
-        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColor.getDefaultColor()), BFBlocks.GRASSY_DIRT);
-
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos)
-                : FoliageColor.getDefaultColor(),
-                BFBlocks.APPLE_LEAVES, BFBlocks.FLOWERING_APPLE_LEAVES, BFBlocks.APPLE_LOG, BFBlocks.APPLE_WOOD,
-                BFBlocks.ORANGE_LEAVES, BFBlocks.FLOWERING_ORANGE_LEAVES, BFBlocks.ORANGE_LOG, BFBlocks.ORANGE_WOOD,
-                BFBlocks.LEMON_LEAVES, BFBlocks.FLOWERING_LEMON_LEAVES, BFBlocks.LEMON_LOG, BFBlocks.LEMON_WOOD,
-                BFBlocks.PLUM_LEAVES, BFBlocks.FLOWERING_PLUM_LEAVES, BFBlocks.PLUM_LOG, BFBlocks.PLUM_WOOD,
-                BFBlocks.WALNUT_LEAVES);
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.APPLE_LEAVES, BFBlocks.FLOWERING_APPLE_LEAVES, BFBlocks.ORANGE_LEAVES, BFBlocks.FLOWERING_ORANGE_LEAVES, BFBlocks.LEMON_LEAVES, BFBlocks.FLOWERING_LEMON_LEAVES, BFBlocks.PLUM_LEAVES, BFBlocks.FLOWERING_PLUM_LEAVES, BFBlocks.ORANGE_LEAVES);
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FastColor.ARGB32.opaque(5809764), BFBlocks.WALNUT_LEAVES);
-
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos)
-                : FoliageColor.getDefaultColor(), BFBlocks.HANGING_WALNUTS);
-
-        MenuScreens.register(BFScreenHandlers.GRISTMILL_SCREEN_HANDLER, GristmillScreen::new);
-        EntityRendererRegistry.register(BFEntities.THROWN_FLOUR_PROJECTILE, ThrownItemRenderer::new);
-        ParticleFactoryRegistry.getInstance().register(BFParticles.FLOUR_CLOUD, FlourCloudParticle.Factory::new);
-        ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM, PrismarineBlossomParticle.Factory::new);
-        ParticleFactoryRegistry.getInstance().register(BFParticles.FERMENTED_BUBBLE, FermentedBubbleParticle.Factory::new);
-        ParticleFactoryRegistry.getInstance().register(BFParticles.GOLDEN_PETAL, GoldenPetalParticle.Factory::new);
-
-        ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : FoliageColor.getDefaultColor()), BFBlocks.WILD_POTATOES, BFBlocks.WILD_CARROTS, BFBlocks.WILD_BEETROOTS, BFBlocks.WILD_LEEKS, BFBlocks.WILD_MAIZE, BFBlocks.WILD_PASSION_FRUIT_VINE, BFBlocks.WILD_ELDERBERRY_VINE);
-
-        ItemProperties.register(
-                ARTISAN_BRUSH, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "dyed"),
-                (itemStack, clientWorld, livingEntity, seed) ->
-                        itemStack.getComponents().get(DataComponents.DYED_COLOR) != null ? 1.0F : 0.0F);
-
-        for (Block block : BFTrellises.TRELLIS_RENDER_CUTOUT) {
-            HLServices.CLIENT.setBlockRenderType(block.get(), RenderType.cutout());
-        }
+//        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos)
+//                : GrassColor.getDefaultColor(), BFBlocks.CHAMOMILE_FLOWERS, BFBlocks.GRASSY_DIRT);
+//        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColor.getDefaultColor()), BFBlocks.GRASSY_DIRT);
+//
+//        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos)
+//                : FoliageColor.getDefaultColor(),
+//                BFBlocks.APPLE_LEAVES, BFBlocks.FLOWERING_APPLE_LEAVES, BFBlocks.APPLE_LOG, BFBlocks.APPLE_WOOD,
+//                BFBlocks.ORANGE_LEAVES, BFBlocks.FLOWERING_ORANGE_LEAVES, BFBlocks.ORANGE_LOG, BFBlocks.ORANGE_WOOD,
+//                BFBlocks.LEMON_LEAVES, BFBlocks.FLOWERING_LEMON_LEAVES, BFBlocks.LEMON_LOG, BFBlocks.LEMON_WOOD,
+//                BFBlocks.PLUM_LEAVES, BFBlocks.FLOWERING_PLUM_LEAVES, BFBlocks.PLUM_LOG, BFBlocks.PLUM_WOOD,
+//                BFBlocks.WALNUT_LEAVES);
+//        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.APPLE_LEAVES, BFBlocks.FLOWERING_APPLE_LEAVES, BFBlocks.ORANGE_LEAVES, BFBlocks.FLOWERING_ORANGE_LEAVES, BFBlocks.LEMON_LEAVES, BFBlocks.FLOWERING_LEMON_LEAVES, BFBlocks.PLUM_LEAVES, BFBlocks.FLOWERING_PLUM_LEAVES, BFBlocks.ORANGE_LEAVES);
+//        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FastColor.ARGB32.opaque(5809764), BFBlocks.WALNUT_LEAVES);
+//
+//        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos)
+//                : FoliageColor.getDefaultColor(), BFBlocks.HANGING_WALNUTS);
+//
+//        MenuScreens.register(BFScreenHandlers.GRISTMILL_SCREEN_HANDLER, GristmillScreen::new);
+//        EntityRendererRegistry.register(BFEntities.THROWN_FLOUR_PROJECTILE, ThrownItemRenderer::new);
+//        HLServices.CLIENT.registerParticle(BFParticles.FLOUR_CLOUD.get(), FlourCloudParticle.Factory::new);
+//        ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
+//        ParticleFactoryRegistry.getInstance().register(BFParticles.FERMENTED_BUBBLE.get(), FermentedBubbleParticle.Factory::new);
+//        ParticleFactoryRegistry.getInstance().register(BFParticles.GOLDEN_PETAL.get(), GoldenPetalParticle.Factory::new);
+//
+//        ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : FoliageColor.getDefaultColor()), BFBlocks.WILD_POTATOES, BFBlocks.WILD_CARROTS, BFBlocks.WILD_BEETROOTS, BFBlocks.WILD_LEEKS, BFBlocks.WILD_MAIZE, BFBlocks.WILD_PASSION_FRUIT_VINE, BFBlocks.WILD_ELDERBERRY_VINE);
+//
+//        ItemProperties.register(
+//                ARTISAN_BRUSH, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "dyed"),
+//                (itemStack, clientWorld, livingEntity, seed) ->
+//                        itemStack.getComponents().get(DataComponents.DYED_COLOR) != null ? 1.0F : 0.0F);
+//
+//        for (Block block : BFTrellises.TRELLIS_RENDER_CUTOUT) {
+//            HLServices.CLIENT.setBlockRenderType(block.get(), RenderType.cutout());
+//        } TODO: yeah...
     }
 
 
 
-    private void registerBlockColor(Block ModCeramicBlocksItems) {
+    private static void registerBlockColor(Block ModCeramicBlocksItems) {
 //        Registers tint for ceramic blocks
-        registerItemColor(ModCeramicBlocksItems.asItem());
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> FastColor.ARGB32.opaque(DyeableBlockEntity.getColor(world,pos)), ModCeramicBlocksItems);
+//        registerItemColor(ModCeramicBlocksItems.asItem());
+//        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> FastColor.ARGB32.opaque(DyeableBlockEntity.getColor(world,pos)), ModCeramicBlocksItems);
     }
 
-    private void registerItemColor(Item item) {
+    private static void registerItemColor(Item item) {
 //        Registers tint for ceramic items
-        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-            if (stack.getComponents().get(DataComponents.DYED_COLOR) != null && tintIndex == 0) {
-                return FastColor.ARGB32.opaque(stack.getComponents().get(DataComponents.DYED_COLOR).rgb());
-            }
-            return DyeableBlockEntity.DEFAULT_COLOR;
-        },item);
+//        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
+//            if (stack.getComponents().get(DataComponents.DYED_COLOR) != null && tintIndex == 0) {
+//                return FastColor.ARGB32.opaque(stack.getComponents().get(DataComponents.DYED_COLOR).rgb());
+//            }
+//            return DyeableBlockEntity.DEFAULT_COLOR;
+//        },item); TODO: COMMON STUFF
     }
 }

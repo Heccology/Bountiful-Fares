@@ -18,11 +18,12 @@ public class BFRecipes {
     public static final RecipeType<FermentationRecipe> FERMENTING = register("fermenting");
 
     public static <T extends Recipe<?>> RecipeType<T> register(final String id) {
-        return Registry.register(BuiltInRegistries.RECIPE_TYPE, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id), new RecipeType<T>(){
-            public String toString() {
-                return id;
-            }
-        });
+//        return Registry.register(BuiltInRegistries.RECIPE_TYPE, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id), new RecipeType<T>(){
+//            public String toString() {
+//                return id;
+//            }
+//        });
+        return null; //TODO: FIX
     }
 
     public static final Supplier<RecipeSerializer<MillingRecipe>> MILLING_SERIALIZER = registerSerializer("milling",
@@ -33,7 +34,8 @@ public class BFRecipes {
 
     @SuppressWarnings("unchecked")
     public static <S extends RecipeSerializer<?>> Supplier<S> registerSerializer(String id, Supplier<S> serializer) {
-        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, (net.minecraft.resources.ResourceKey<? extends Registry<S>>) BuiltInRegistries.RECIPE_SERIALIZER.key(), serializer);
+//        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, (net.minecraft.resources.ResourceKey<? extends Registry<S>>) BuiltInRegistries.RECIPE_SERIALIZER.key(), serializer);
+        return null; //TODO: FIX
     }
 
     public static void registerRecipes() {

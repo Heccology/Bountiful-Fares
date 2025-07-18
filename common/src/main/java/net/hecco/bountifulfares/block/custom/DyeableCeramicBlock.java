@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+//import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
+//import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.block.entity.DyeableBlockEntity;
@@ -67,9 +67,9 @@ public class DyeableCeramicBlock {
     /** Sends a color payload update to all listening clients. */
     public static void sendColorPayload(ServerLevel world, BlockEntity entity, int color)
     {
-        for (ServerPlayer targeter : PlayerLookup.tracking(world, entity.getBlockPos())) {
-            ServerPlayNetworking.send(targeter, new CeramicBlockColorPayload(entity.getBlockPos(), color));
-        }
+//        for (ServerPlayer targeter : PlayerLookup.tracking(world, entity.getBlockPos())) {
+//            ServerPlayNetworking.send(targeter, new CeramicBlockColorPayload(entity.getBlockPos(), color));
+//        } TODO: FIX THIS PLEASE
 
         /*
         if (!world.isClient() && world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity) {
@@ -81,17 +81,17 @@ public class DyeableCeramicBlock {
     /** Sends a ceramic dish payload update to all listening clients. */
     public static void sendDishPayload(ServerLevel world, BlockEntity entity, ItemStack stack)
     {
-        for (ServerPlayer targeter : PlayerLookup.tracking(world, entity.getBlockPos())) {
-            ServerPlayNetworking.send(targeter, new CeramicDishItemPayload(entity.getBlockPos(), stack));
-        }
+//        for (ServerPlayer targeter : PlayerLookup.tracking(world, entity.getBlockPos())) {
+//            ServerPlayNetworking.send(targeter, new CeramicDishItemPayload(entity.getBlockPos(), stack));
+//        } TODO: AND THIS
     }
 
     /** Sends a ceramic dish clear payload update to all listening clients. */
     public static void sendDishClearPayload(ServerLevel world, BlockEntity entity)
     {
-        for (ServerPlayer targeter : PlayerLookup.tracking(world, entity.getBlockPos())) {
-            ServerPlayNetworking.send(targeter, new CeramicDishEmptyPayload(entity.getBlockPos()));
-        }
+//        for (ServerPlayer targeter : PlayerLookup.tracking(world, entity.getBlockPos())) {
+//            ServerPlayNetworking.send(targeter, new CeramicDishEmptyPayload(entity.getBlockPos()));
+//        } //TODO: AND THIS
     }
 
     public static Block tryRevertCheckered(Block block)

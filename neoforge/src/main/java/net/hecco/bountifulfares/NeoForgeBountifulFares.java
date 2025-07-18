@@ -9,6 +9,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 @Mod(BountifulFares.MOD_ID)
 public class NeoForgeBountifulFares {
 
+
     public NeoForgeBountifulFares(IEventBus eventBus) {
         BountifulFares.init();
         eventBus.addListener(this::clientSetup);

@@ -49,7 +49,7 @@ public class PumpkinPieItemMixin {
 
     @Unique
     public InteractionResult place(BlockPlaceContext context) {
-        if (!BFBlocks.PUMPKIN_PIE.isEnabled(context.getLevel().enabledFeatures())) {
+        if (!BFBlocks.PUMPKIN_PIE.get().isEnabled(context.getLevel().enabledFeatures())) {
             return InteractionResult.FAIL;
         } else if (!context.canPlace()) {
             return InteractionResult.FAIL;
@@ -58,7 +58,7 @@ public class PumpkinPieItemMixin {
             if (itemPlacementContext == null) {
                 return InteractionResult.FAIL;
             } else {
-                BlockState blockState = BFBlocks.PUMPKIN_PIE.getStateForPlacement(context);
+                BlockState blockState = BFBlocks.PUMPKIN_PIE.get().getStateForPlacement(context);
                 if (blockState == null) {
                     return InteractionResult.FAIL;
                 } else if (!context.getLevel().setBlock(context.getClickedPos(), blockState, 11)) {
@@ -70,7 +70,7 @@ public class PumpkinPieItemMixin {
                     ItemStack itemStack = itemPlacementContext.getItemInHand();
                     BlockState blockState2 = world.getBlockState(blockPos);
                     SoundType blockSoundGroup = blockState2.getSoundType();
-                    world.playSound(playerEntity, blockPos, BFBlocks.PUMPKIN_PIE.defaultBlockState().getSoundType().getBreakSound(), SoundSource.BLOCKS, (blockSoundGroup.getVolume() + 1.0F) / 2.0F, blockSoundGroup.getPitch() * 0.8F);
+                    world.playSound(playerEntity, blockPos, BFBlocks.PUMPKIN_PIE.get().defaultBlockState().getSoundType().getBreakSound(), SoundSource.BLOCKS, (blockSoundGroup.getVolume() + 1.0F) / 2.0F, blockSoundGroup.getPitch() * 0.8F);
                     world.gameEvent(GameEvent.BLOCK_PLACE, blockPos, GameEvent.Context.of(playerEntity, blockState2));
                     itemStack.consume(1, playerEntity);
                     return InteractionResult.sidedSuccess(world.isClientSide);

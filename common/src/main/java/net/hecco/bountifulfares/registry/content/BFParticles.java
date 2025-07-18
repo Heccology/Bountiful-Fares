@@ -1,21 +1,20 @@
 package net.hecco.bountifulfares.registry.content;
 
-import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.core.Registry;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+
+import java.util.function.Supplier;
 
 public class BFParticles {
     //Might need to be loader specific
-    public static final SimpleParticleType FLOUR_CLOUD = registerParticle("flour_cloud", FabricParticleTypes.simple());
-    public static final SimpleParticleType PRISMARINE_BLOSSOM = registerParticle("prismarine_blossom", FabricParticleTypes.simple());
-    public static final SimpleParticleType FERMENTED_BUBBLE = registerParticle("fermented_bubble", FabricParticleTypes.simple());
-    public static final SimpleParticleType GOLDEN_PETAL = registerParticle("golden_petal", FabricParticleTypes.simple());
+    public static final Supplier<SimpleParticleType> FLOUR_CLOUD = registerParticle("flour_cloud");
+    public static final Supplier<SimpleParticleType> PRISMARINE_BLOSSOM = registerParticle("prismarine_blossom");
+    public static final Supplier<SimpleParticleType> FERMENTED_BUBBLE = registerParticle("fermented_bubble");
+    public static final Supplier<SimpleParticleType> GOLDEN_PETAL = registerParticle("golden_petal");
 
-    private static SimpleParticleType registerParticle(String name, SimpleParticleType particleType) {
-        return Registry.register(BuiltInRegistries.PARTICLE_TYPE, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, name), particleType);
+    private static Supplier<SimpleParticleType> registerParticle(String name) {
+        return HLServices.REGISTRY.registerParticleType(BountifulFares.MOD_ID, name);
     }
 
     public static void registerParticles() {

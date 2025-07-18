@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares;
 
 import com.google.gson.GsonBuilder;
-import net.fabricmc.loader.api.FabricLoader;
+//import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.nio.file.Files;
 
 public class BountifulFaresConfiguration {
 
-    private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(), "bountifulfares.json");
+//    private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(), "bountifulfares.json");
 
 //    private boolean enableItemGuideTooltips = true;
     private boolean fruitReplaceWhenPicked = true;
@@ -66,31 +66,31 @@ public class BountifulFaresConfiguration {
 
     public static BountifulFaresConfiguration load() {
         BountifulFaresConfiguration configuration = new BountifulFaresConfiguration();
-        if (!CONFIG_FILE.exists()) {
-            save(configuration);
-        }
+//        if (!CONFIG_FILE.exists()) {
+//            save(configuration);
+//        }
 
         Reader reader;
-        try {
-            reader = Files.newBufferedReader(CONFIG_FILE.toPath());
-            configuration = (new GsonBuilder().setPrettyPrinting().create()).fromJson(reader, BountifulFaresConfiguration.class);
-            reader.close();
-        } catch (IOException e) {
-            BountifulFares.LOGGER.error("Error while trying to load configuration file. Default configuration used.", e);
-        }
+//        try {
+//            reader = Files.newBufferedReader(CONFIG_FILE.toPath());
+//            configuration = (new GsonBuilder().setPrettyPrinting().create()).fromJson(reader, BountifulFaresConfiguration.class);
+//            reader.close();
+//        } catch (IOException e) {
+//            BountifulFares.LOGGER.error("Error while trying to load configuration file. Default configuration used.", e);
+//        }
 
         return configuration;
     }
 
     public static void save(BountifulFaresConfiguration config) {
-        try {
-            Writer writer = Files.newBufferedWriter(CONFIG_FILE.toPath());
-            (new GsonBuilder().setPrettyPrinting().create()).toJson(config, writer);
-
-            writer.close();
-        } catch (IOException e) {
-            BountifulFares.LOGGER.error("Error while trying to save configuration file.", e);
-        }
+//        try {
+//            Writer writer = Files.newBufferedWriter(CONFIG_FILE.toPath());
+//            (new GsonBuilder().setPrettyPrinting().create()).toJson(config, writer);
+//
+//            writer.close();
+//        } catch (IOException e) {
+//            BountifulFares.LOGGER.error("Error while trying to save configuration file.", e);
+//        }
     }
 
 //    public boolean isEnableItemGuideTooltips() {

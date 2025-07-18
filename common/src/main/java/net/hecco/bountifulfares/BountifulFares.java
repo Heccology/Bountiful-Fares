@@ -1,11 +1,8 @@
 package net.hecco.bountifulfares;
 
-import net.hecco.bountifulfares.networking.BFMessages;
-import net.hecco.bountifulfares.recipe.BFSpecialRecipes;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.misc.*;
 import net.hecco.bountifulfares.registry.util.BFDamageTypes;
-import net.hecco.bountifulfares.registry.util.BFLootTableModifiers;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,31 +30,31 @@ public class BountifulFares {
 	public static BountifulFaresConfiguration CONFIG = new BountifulFaresConfiguration();
 
 	public static void init() {
-		BountifulFares.CONFIG = BountifulFaresConfiguration.load(); //TODO: MOVE TO NEOFORGE CONFIG API(?)
-//		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here
-		BFItems.registerModItems();
+//		BountifulFares.CONFIG = BountifulFaresConfiguration.load(); //TODO: MOVE TO NEOFORGE CONFIG API(?)
+////		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here
 		BFBlocks.registerModBlocks(); //TODO: UTILIZE BLOCKFAMILYCREATOR
-//		BFTrellises.registerTrellisParts(); //TODO: FIX
-//		TrellisUtil.registerTrellisParts(); //TODO: FIX
-		BFItemGroups.registerItemGroups();
-		BFItemGroupAdditions.registerItemGroupAdditions();
-		BFRecipes.registerRecipes();
+		BFItems.registerModItems();
+////		BFTrellises.registerTrellisParts(); //TODO: FIX
+////		TrellisUtil.registerTrellisParts(); //TODO: FIX
+//		BFItemGroups.registerItemGroups();
+//		BFItemGroupAdditions.registerItemGroupAdditions();
+//		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
-		//BFBoats.registerBoats(); //TODO: FIX(???.. or just remove boats if all else fails)
-		BFLootTableModifiers.modifyLootTables(); //TODO: MOVE TO FABRIC (CREATE EQUIVALENT NEOFORGE LOOT MODIFIER JSONS)
-		BFParticles.registerParticles(); //TODO: MOVE TO HECCOLIB REGISTRY
-		BFPotions.registerPotions();
-		BFTrunkPlacerTypes.register(); //TODO: MOVE TO HECCOLIB REGISTRY
-		BFFeatures.register();
-		BFRegistries.RegisterModStuffs(); //TODO: FIX
-		BFBlockEntities.registerBlockEntities();
-		BFScreenHandlers.registerScreenHandlers(); //TODO: MOVE TO HECCOLIB REGISTRY
-		BFEntities.registerEntities(); //TODO: MOVE TO HECCOLIB REGISTRY
-		BFSounds.registerSounds();
-		BFDamageTypes.registerDamageTypes();
-		BFSpecialRecipes.registerSpecialRecipes(); //FIXED PROBABLY??????
-		BFCompat.registerCompatContent();
-		BFMessages.registerPayloads(); //TODO: FIX
+//		//BFBoats.registerBoats(); //TODO: FIX(???.. or just remove boats if all else fails)
+////		BFLootTableModifiers.modifyLootTables(); //TODO: MOVE TO FABRIC (CREATE EQUIVALENT NEOFORGE LOOT MODIFIER JSONS)
+//		BFParticles.registerParticles(); //TODO: MOVE TO HECCOLIB REGISTRY
+//		BFPotions.registerPotions();
+//		BFTrunkPlacerTypes.register();
+//		BFFeatures.register();
+//		BFRegistries.RegisterModStuffs(); //TODO: FIX
+//		BFBlockEntities.registerBlockEntities();
+//		BFScreenHandlers.registerScreenHandlers(); //TODO: MOVE TO HECCOLIB REGISTRY
+//		BFEntities.registerEntities(); //TODO: MOVE TO HECCOLIB REGISTRY
+//		BFSounds.registerSounds();
+//		BFDamageTypes.registerDamageTypes();
+////		BFSpecialRecipes.registerSpecialRecipes(); //FIXED PROBABLY??????
+//		BFCompat.registerCompatContent();
+////		BFMessages.registerPayloads(); //TODO: FIX
 	} //appledog - Yirmiri
 	//appledog - Hecco
 	//appledog - Diemond_Player (holy self-insert)

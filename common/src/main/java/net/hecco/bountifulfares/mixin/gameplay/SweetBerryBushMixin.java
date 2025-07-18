@@ -18,7 +18,7 @@ public class SweetBerryBushMixin {
     @Inject(method = "getCloneItemStack", at = @At("HEAD"), cancellable = true)
     private void bountifulfares_replace_pickstack(LevelReader world, BlockPos pos, BlockState state, CallbackInfoReturnable<ItemStack> cir) {
         if (BountifulFares.CONFIG.enableSweetBerryPips) {
-            cir.setReturnValue(BFItems.SWEET_BERRY_PIPS.getDefaultInstance());
+            cir.setReturnValue(BFItems.SWEET_BERRY_PIPS.get().getDefaultInstance());
             cir.cancel();
         }
     }
