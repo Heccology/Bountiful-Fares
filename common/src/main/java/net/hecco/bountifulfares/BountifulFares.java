@@ -65,4 +65,5 @@ public class BountifulFares {
 	//blueberrycat - Yirmiri
 	//hey mr bountifare
 	//hello stranger - mr bountifare
+	//snommer - Dඞ 𝕲𝖗𝕬𝖓𝕯𝕸𝖆 lOpEro𝓼𝓷𝓞𝓶
 }
