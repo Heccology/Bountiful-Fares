@@ -51,7 +51,7 @@ public class BountifulFares {
 //		BFBlockEntities.registerBlockEntities();
 //		BFScreenHandlers.registerScreenHandlers(); //TODO: MOVE TO HECCOLIB REGISTRY
 //		BFEntities.registerEntities(); //TODO: MOVE TO HECCOLIB REGISTRY
-//		BFDamageTypes.registerDamageTypes();
+		BFDamageTypes.registerDamageTypes();
 ////		BFSpecialRecipes.registerSpecialRecipes(); //FIXED PROBABLY??????
 //		BFCompat.registerCompatContent();
 ////		BFMessages.registerPayloads(); //TODO: FIX
