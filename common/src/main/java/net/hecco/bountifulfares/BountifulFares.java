@@ -36,7 +36,7 @@ public class BountifulFares {
 		BFItems.registerModItems();
 ////		BFTrellises.registerTrellisParts(); //TODO: FIX
 ////		TrellisUtil.registerTrellisParts(); //TODO: FIX
-//		BFItemGroups.registerItemGroups();
+		BFItemGroups.registerItemGroups();
 //		BFItemGroupAdditions.registerItemGroupAdditions();
 //		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
