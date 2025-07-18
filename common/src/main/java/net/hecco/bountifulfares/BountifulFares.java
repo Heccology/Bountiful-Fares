@@ -40,7 +40,7 @@ public class BountifulFares {
 		BFTrellises.registerTrellisParts(); //TODO: FIX
 //		TrellisUtil.registerTrellisParts(); //TODO: FIX
 		BFItemGroups.registerItemGroups();
-		BFItemGroupAdditions.registerItemGroupAdditions(); //TODO: MOVE TO FABRIC (CREATE EQUIVALENT ON NEOFORGE,,,, OR IG MAKE A HELPER FOR THIS IN HECCOLIB)
+		BFItemGroupAdditions.registerItemGroupAdditions();
 		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
 		//BFBoats.registerBoats(); //TODO: FIX(???.. or just remove boats if all else fails)
@@ -50,12 +50,12 @@ public class BountifulFares {
 		BFTrunkPlacerTypes.register(); //TODO: MOVE TO HECCOLIB REGISTRY
 		BFFeatures.register();
 		BFRegistries.RegisterModStuffs(); //TODO: FIX
-		BFBlockEntities.registerBlockEntities(); //TODO: MOVE TO HECCOLIB REGISTRY
+		BFBlockEntities.registerBlockEntities();
 		BFScreenHandlers.registerScreenHandlers(); //TODO: MOVE TO HECCOLIB REGISTRY
 		BFEntities.registerEntities(); //TODO: MOVE TO HECCOLIB REGISTRY
 		BFSounds.registerSounds();
 		BFDamageTypes.registerDamageTypes();
-		BFSpecialRecipes.registerSpecialRecipes(); //TODO: FIX(??????????????)
+		BFSpecialRecipes.registerSpecialRecipes(); //FIXED PROBABLY??????
 		BFCompat.registerCompatContent();
 		BFMessages.registerPayloads(); //TODO: FIX
 	} //appledog - Yirmiri
@@ -66,4 +66,5 @@ public class BountifulFares {
 	//hey mr bountifare
 	//hello stranger - mr bountifare
 	//snommer - Dඞ 𝕲𝖗𝕬𝖓𝕯𝕸𝖆 lOpEro𝓼𝓷𝓞𝓶
+	//okay.. - mr bountifare (again)
 }
