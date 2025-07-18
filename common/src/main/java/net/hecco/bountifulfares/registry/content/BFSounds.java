@@ -74,28 +74,18 @@ public class BFSounds {
 
     // Note Block sounds MUST be registered as a RegistryEntry<SoundEvent>! Using registerSoundReference() will do this.
     // The below sound is used in the example in NoteBlockInstrumentMixin. It can be deleted if necessary.
-     public static final Holder<SoundEvent> NOTE_BLOCK_OCARINA = registerSoundReference("ocarina");
-     public static final Holder<SoundEvent> NOTE_BLOCK_OLD_PIANO = registerSoundReference("old_piano");
-     public static final Holder<SoundEvent> NOTE_BLOCK_STEEL_DRUM = registerSoundReference("steel_drum");
+//     public static final Holder<SoundEvent> NOTE_BLOCK_OCARINA = registerSoundReference("ocarina");
+//     public static final Holder<SoundEvent> NOTE_BLOCK_OLD_PIANO = registerSoundReference("old_piano");
+//     public static final Holder<SoundEvent> NOTE_BLOCK_STEEL_DRUM = registerSoundReference("steel_drum"); //TODO: FIX
     //TODO: fix this stupid ass shit I wrote
-    public static final SoundType CERAMIC_TILES = new SoundType(1f, 1f, (SoundEvent) CERAMIC_TILES_BREAK, (SoundEvent) CERAMIC_TILES_STEP, (SoundEvent) CERAMIC_TILES_PLACE, (SoundEvent) CERAMIC_TILES_HIT, (SoundEvent) CERAMIC_TILES_FALL);
-    public static final SoundType CERAMIC_DECORATION = new SoundType(1f, 1f, (SoundEvent) CERAMIC_DECORATION_BREAK, (SoundEvent) CERAMIC_DECORATION_STEP, (SoundEvent) CERAMIC_DECORATION_PLACE, (SoundEvent) CERAMIC_DECORATION_HIT, (SoundEvent) CERAMIC_DECORATION_FALL);
-    public static final SoundType LIGHT_WOOD = new SoundType(1f, 1.1f, (SoundEvent) LIGHT_WOOD_BREAK, (SoundEvent) LIGHT_WOOD_STEP, (SoundEvent) LIGHT_WOOD_PLACE, (SoundEvent) LIGHT_WOOD_HIT, (SoundEvent) LIGHT_WOOD_FALL);
-    public static final SoundType JACK_O_STRAW = new SoundType(1f, 1f, (SoundEvent) JACK_O_STRAW_BREAK, (SoundEvent) LIGHT_WOOD_STEP, (SoundEvent) LIGHT_WOOD_PLACE, (SoundEvent) LIGHT_WOOD_HIT, (SoundEvent) LIGHT_WOOD_FALL);
-    public static final SoundType SILENT = new SoundType(1f, 1f, SoundEvents.EMPTY, (SoundEvent) LIGHT_WOOD_STEP, (SoundEvent) LIGHT_WOOD_PLACE, (SoundEvent) LIGHT_WOOD_HIT, (SoundEvent) LIGHT_WOOD_FALL);
-    public static final SoundType PLANTED_TRELLIS = new SoundType(1f, 1.1f, (SoundEvent) PLANTED_TRELLIS_BREAK, (SoundEvent) LIGHT_WOOD_STEP, (SoundEvent) LIGHT_WOOD_PLACE, (SoundEvent) LIGHT_WOOD_HIT, (SoundEvent) LIGHT_WOOD_FALL);
-    public static final SoundType SPONGEKIN = new SoundType(1f, 1.1f, (SoundEvent) SPONGEKIN_BREAK, (SoundEvent) SPONGEKIN_STEP, (SoundEvent) SPONGEKIN_PLACE, SoundEvents.WOOD_HIT, SoundEvents.WOOD_FALL);
-    public static final SoundType COIR = new SoundType(1f, 1f, (SoundEvent) COIR_BREAK, (SoundEvent) COIR_STEP, (SoundEvent) COIR_PLACE, (SoundEvent) COIR_HIT, (SoundEvent) COIR_FALL);
 
-    private static Holder<SoundEvent> registerSoundReference(String id) {
+//    private static Holder<SoundEvent> registerSoundReference(String id) {
 //        return HLServices.REGISTRY.registerHolder(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT.key(), SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
-        return null;
-        //TODO
-    }
+//        //TODO
+//    }
 
     private static Supplier<SoundEvent> registerSoundEvent(String id) {
-//        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT.key(), () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
-        return null;
+        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT.key(), () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
         //TODO: FIX??
     }
 

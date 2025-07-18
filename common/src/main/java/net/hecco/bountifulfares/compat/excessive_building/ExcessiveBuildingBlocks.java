@@ -3,6 +3,7 @@ package net.hecco.bountifulfares.compat.excessive_building;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.compat.block.*;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.bountifulfares.registry.content.BFSoundTypes;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.heccolib.platform.HLServices;
@@ -24,7 +25,7 @@ import static net.hecco.bountifulfares.registry.content.BFTrellises.TRELLIS_REND
 import static net.hecco.bountifulfares.registry.misc.BFCompat.compatBlocks;
 
 public class ExcessiveBuildingBlocks {
-    public static final Supplier<Block> ANCIENT_PICKETS = registerBlock("ancient_pickets", () -> new CompatPicketsBlock(EXCESSIVE_BUILDING_MOD_ID, BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.NONE).strength(0.5F).sound(BFSounds.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion()));
+    public static final Supplier<Block> ANCIENT_PICKETS = registerBlock("ancient_pickets", () -> new CompatPicketsBlock(EXCESSIVE_BUILDING_MOD_ID, BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.NONE).strength(0.5F).sound(BFSoundTypes.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion()));
     public static final Supplier<Block> WALNUT_VERTICAL_STAIRS = registerBlock("walnut_vertical_stairs", () -> new CompatVerticalStairsBlock(EXCESSIVE_BUILDING_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.WALNUT_PLANKS.get())));
     public static final Supplier<Block> CHISELED_WALNUT_PLANKS = registerBlock("chiseled_walnut_planks", () -> new CompatBlock(EXCESSIVE_BUILDING_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.WALNUT_PLANKS.get())));
     public static final Supplier<Block> WALNUT_MOSAIC = registerBlock("walnut_mosaic", () -> new CompatBlock(EXCESSIVE_BUILDING_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.WALNUT_PLANKS.get())));

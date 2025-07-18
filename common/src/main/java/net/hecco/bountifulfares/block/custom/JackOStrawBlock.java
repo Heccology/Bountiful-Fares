@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.block.custom;
 
+import net.hecco.bountifulfares.registry.content.BFSoundTypes;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.core.BlockPos;
@@ -135,9 +136,9 @@ public class JackOStrawBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public SoundType getSoundType(BlockState state) {
         if (state.getValue(HALF) == DoubleBlockHalf.LOWER) {
-            return BFSounds.JACK_O_STRAW;
+            return BFSoundTypes.JACK_O_STRAW;
         } else {
-            return BFSounds.SILENT;
+            return BFSoundTypes.SILENT;
         }
     }
 

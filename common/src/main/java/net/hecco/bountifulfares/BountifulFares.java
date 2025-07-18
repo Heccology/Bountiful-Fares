@@ -32,6 +32,7 @@ public class BountifulFares {
 	public static void init() {
 //		BountifulFares.CONFIG = BountifulFaresConfiguration.load(); //TODO: MOVE TO NEOFORGE CONFIG API(?)
 ////		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here
+		BFSounds.registerSounds();
 		BFBlocks.registerModBlocks(); //TODO: UTILIZE BLOCKFAMILYCREATOR
 		BFItems.registerModItems();
 ////		BFTrellises.registerTrellisParts(); //TODO: FIX
@@ -50,7 +51,6 @@ public class BountifulFares {
 //		BFBlockEntities.registerBlockEntities();
 //		BFScreenHandlers.registerScreenHandlers(); //TODO: MOVE TO HECCOLIB REGISTRY
 //		BFEntities.registerEntities(); //TODO: MOVE TO HECCOLIB REGISTRY
-//		BFSounds.registerSounds();
 //		BFDamageTypes.registerDamageTypes();
 ////		BFSpecialRecipes.registerSpecialRecipes(); //FIXED PROBABLY??????
 //		BFCompat.registerCompatContent();
