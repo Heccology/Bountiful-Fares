@@ -20,7 +20,7 @@ public class GoldenAppleLeavesBlock extends LeavesBlock {
         super.animateTick(state, world, pos, random);
         if (random.nextInt(16) == 0) {
             if (!isFaceFull(world.getBlockState(pos.below()).getCollisionShape(world, pos.below()), Direction.UP)) {
-                ParticleUtils.spawnParticleBelow(world, pos, random, (ParticleOptions) BFParticles.GOLDEN_PETAL.get());
+                ParticleUtils.spawnParticleBelow(world, pos, random, BFParticles.GOLDEN_PETAL.get());
             }
         }
     }

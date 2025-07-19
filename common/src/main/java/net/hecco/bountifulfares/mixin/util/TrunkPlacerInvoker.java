@@ -8,8 +8,9 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(TrunkPlacerType.class)
 public interface TrunkPlacerInvoker {
-    @Invoker("register")
-    static <P extends TrunkPlacer> TrunkPlacerType<P> register(String name, MapCodec<P> codec) {
-        throw new IllegalStateException();
+    @SuppressWarnings("unchecked")
+    @Invoker("<init>")
+    public static <P extends TrunkPlacer> TrunkPlacerType<P> register(MapCodec<P> codec) {
+        throw new AssertionError();
     }
 }

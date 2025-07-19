@@ -43,7 +43,7 @@ public class BountifulFares {
 ////		BFLootTableModifiers.modifyLootTables(); //TODO: MOVE TO FABRIC (CREATE EQUIVALENT NEOFORGE LOOT MODIFIER JSONS)
 //		BFParticles.registerParticles(); //TODO: MOVE TO HECCOLIB REGISTRY
 //		BFPotions.registerPotions();
-//		BFTrunkPlacerTypes.register();
+		BFTrunkPlacerTypes.register();
 //		BFFeatures.register();
 //		BFRegistries.RegisterModStuffs(); //TODO: FIX
 		BFBlockEntities.registerBlockEntities();
