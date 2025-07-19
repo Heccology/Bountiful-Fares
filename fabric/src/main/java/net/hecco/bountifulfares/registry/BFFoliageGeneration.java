@@ -1,8 +1,9 @@
-package net.hecco.bountifulfares.registry.misc;
+package net.hecco.bountifulfares.registry;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.registry.misc.BFPlacedFeatures;
 import net.hecco.bountifulfares.registry.tags.BFBiomeTags;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
