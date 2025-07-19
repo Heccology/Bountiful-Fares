@@ -2,11 +2,7 @@ package net.hecco.bountifulfares;
 
 
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
-import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.ItemLike;
