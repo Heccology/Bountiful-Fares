@@ -18,21 +18,21 @@ public class FarmersDelightRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void buildRecipes(RecipeOutput exporter) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, FarmersDelightBlocks.HOARY_CABINET)
-                .define('_', BFBlocks.HOARY_SLAB)
-                .define('D', BFBlocks.HOARY_TRAPDOOR)
-                .pattern("___")
-                .pattern("D D")
-                .pattern("___")
-                .unlockedBy(getHasName(BFBlocks.HOARY_TRAPDOOR), has(BFBlocks.HOARY_TRAPDOOR))
-                .save(exporter);
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, FarmersDelightBlocks.WALNUT_CABINET)
-                .define('_', BFBlocks.WALNUT_SLAB)
-                .define('D', BFBlocks.WALNUT_TRAPDOOR)
-                .pattern("___")
-                .pattern("D D")
-                .pattern("___")
-                .unlockedBy(getHasName(BFBlocks.WALNUT_TRAPDOOR), has(BFBlocks.WALNUT_TRAPDOOR))
-                .save(exporter);
+//        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, FarmersDelightBlocks.HOARY_CABINET)
+//                .define('_', BFBlocks.HOARY_SLAB)
+//                .define('D', BFBlocks.HOARY_TRAPDOOR)
+//                .pattern("___")
+//                .pattern("D D")
+//                .pattern("___")
+//                .unlockedBy(getHasName(BFBlocks.HOARY_TRAPDOOR), has(BFBlocks.HOARY_TRAPDOOR))
+//                .save(exporter);
+//        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, FarmersDelightBlocks.WALNUT_CABINET)
+//                .define('_', BFBlocks.WALNUT_SLAB)
+//                .define('D', BFBlocks.WALNUT_TRAPDOOR)
+//                .pattern("___")
+//                .pattern("D D")
+//                .pattern("___")
+//                .unlockedBy(getHasName(BFBlocks.WALNUT_TRAPDOOR), has(BFBlocks.WALNUT_TRAPDOOR))
+//                .save(exporter);
     }
 }

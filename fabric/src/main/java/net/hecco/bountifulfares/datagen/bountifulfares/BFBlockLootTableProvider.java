@@ -8,7 +8,6 @@ import net.hecco.bountifulfares.block.custom.*;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFTrellises;
-import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
@@ -70,81 +69,81 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
     public void generate() {
         HolderLookup.RegistryLookup<Enchantment> impl = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 
-        add(BFBlocks.APPLE_LEAVES, createLeavesDrops(BFBlocks.APPLE_LEAVES, BFBlocks.APPLE_SAPLING, FRUIT_SAPLING_DROP_CHANCE));
-        add(BFBlocks.FLOWERING_APPLE_LEAVES, createLeavesDrops(BFBlocks.FLOWERING_APPLE_LEAVES, BFBlocks.APPLE_SAPLING, FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
-        add(BFBlocks.ORANGE_LEAVES, createLeavesDrops(BFBlocks.ORANGE_LEAVES, BFBlocks.ORANGE_SAPLING, FRUIT_SAPLING_DROP_CHANCE));
-        add(BFBlocks.FLOWERING_ORANGE_LEAVES, createLeavesDrops(BFBlocks.FLOWERING_ORANGE_LEAVES, BFBlocks.ORANGE_SAPLING, FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
-        add(BFBlocks.LEMON_LEAVES, createLeavesDrops(BFBlocks.LEMON_LEAVES, BFBlocks.LEMON_SAPLING, FRUIT_SAPLING_DROP_CHANCE));
-        add(BFBlocks.FLOWERING_LEMON_LEAVES, createLeavesDrops(BFBlocks.FLOWERING_LEMON_LEAVES, BFBlocks.LEMON_SAPLING, FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
-        add(BFBlocks.PLUM_LEAVES, createLeavesDrops(BFBlocks.PLUM_LEAVES, BFBlocks.PLUM_SAPLING, FRUIT_SAPLING_DROP_CHANCE));
-        add(BFBlocks.FLOWERING_PLUM_LEAVES, createLeavesDrops(BFBlocks.FLOWERING_PLUM_LEAVES, BFBlocks.PLUM_SAPLING, FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
-        add(BFBlocks.GOLDEN_APPLE_LEAVES, LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+        add(BFBlocks.APPLE_LEAVES.get(), createLeavesDrops(BFBlocks.APPLE_LEAVES.get(), BFBlocks.APPLE_SAPLING.get(), FRUIT_SAPLING_DROP_CHANCE));
+        add(BFBlocks.FLOWERING_APPLE_LEAVES.get(), createLeavesDrops(BFBlocks.FLOWERING_APPLE_LEAVES.get(), BFBlocks.APPLE_SAPLING.get(), FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
+        add(BFBlocks.ORANGE_LEAVES.get(), createLeavesDrops(BFBlocks.ORANGE_LEAVES.get(), BFBlocks.ORANGE_SAPLING.get(), FRUIT_SAPLING_DROP_CHANCE));
+        add(BFBlocks.FLOWERING_ORANGE_LEAVES.get(), createLeavesDrops(BFBlocks.FLOWERING_ORANGE_LEAVES.get(), BFBlocks.ORANGE_SAPLING.get(), FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
+        add(BFBlocks.LEMON_LEAVES.get(), createLeavesDrops(BFBlocks.LEMON_LEAVES.get(), BFBlocks.LEMON_SAPLING.get(), FRUIT_SAPLING_DROP_CHANCE));
+        add(BFBlocks.FLOWERING_LEMON_LEAVES.get(), createLeavesDrops(BFBlocks.FLOWERING_LEMON_LEAVES.get(), BFBlocks.LEMON_SAPLING.get(), FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
+        add(BFBlocks.PLUM_LEAVES.get(), createLeavesDrops(BFBlocks.PLUM_LEAVES.get(), BFBlocks.PLUM_SAPLING.get(), FRUIT_SAPLING_DROP_CHANCE));
+        add(BFBlocks.FLOWERING_PLUM_LEAVES.get(), createLeavesDrops(BFBlocks.FLOWERING_PLUM_LEAVES.get(), BFBlocks.PLUM_SAPLING.get(), FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
+        add(BFBlocks.GOLDEN_APPLE_LEAVES.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                 .when(this.hasShearsOrSilkTouch())
-                .add(LootItem.lootTableItem(BFBlocks.GOLDEN_APPLE_LEAVES))));
-        add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES, LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                .add(LootItem.lootTableItem(BFBlocks.GOLDEN_APPLE_LEAVES.get()))));
+        add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                 .when(this.hasShearsOrSilkTouch())
-                .add(LootItem.lootTableItem(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES))));
+                .add(LootItem.lootTableItem(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.get()))));
 
-        dropOther(BFBlocks.HOARY_APPLE_SAPLING_CROP, BFItems.HOARY_SEEDS);
-        add(BFBlocks.HOARY_SLAB, createSlabItemTable(BFBlocks.HOARY_SLAB));
-        add(BFBlocks.HOARY_DOOR, createDoorTable(BFBlocks.HOARY_DOOR));
-        add(BFBlocks.HOARY_LEAVES, LootTable.lootTable()
+        dropOther(BFBlocks.HOARY_APPLE_SAPLING_CROP.get(), BFItems.HOARY_SEEDS.get());
+        add(BFBlocks.HOARY_SLAB.get(), createSlabItemTable(BFBlocks.HOARY_SLAB.get()));
+        add(BFBlocks.HOARY_DOOR.get(), createDoorTable(BFBlocks.HOARY_DOOR.get()));
+        add(BFBlocks.HOARY_LEAVES.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(this.doesNotHaveShearsOrSilkTouch())
-                        .add((this.applyExplosionDecay(BFBlocks.HOARY_LEAVES, LootItem.lootTableItem(Items.STICK)
+                        .add((this.applyExplosionDecay(BFBlocks.HOARY_LEAVES.get(), LootItem.lootTableItem(Items.STICK)
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(this.hasShearsOrSilkTouch())
-                        .add(LootItem.lootTableItem(BFBlocks.HOARY_LEAVES))));
-        add(BFBlocks.WALNUT_SLAB, createSlabItemTable(BFBlocks.WALNUT_SLAB));
-        add(BFBlocks.WALNUT_DOOR, createDoorTable(BFBlocks.WALNUT_DOOR));
-        add(BFBlocks.WALNUT_LEAVES, createLeavesDrops(BFBlocks.WALNUT_LEAVES, BFBlocks.WALNUT_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES));
+                        .add(LootItem.lootTableItem(BFBlocks.HOARY_LEAVES.get()))));
+        add(BFBlocks.WALNUT_SLAB.get(), createSlabItemTable(BFBlocks.WALNUT_SLAB.get()));
+        add(BFBlocks.WALNUT_DOOR.get(), createDoorTable(BFBlocks.WALNUT_DOOR.get()));
+        add(BFBlocks.WALNUT_LEAVES.get(), createLeavesDrops(BFBlocks.WALNUT_LEAVES.get(), BFBlocks.WALNUT_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
-        registerTrellisLootTables(BFTrellises.OAK);
-        registerTrellisLootTables(BFTrellises.SPRUCE);
-        registerTrellisLootTables(BFTrellises.BIRCH);
-        registerTrellisLootTables(BFTrellises.JUNGLE);
-        registerTrellisLootTables(BFTrellises.ACACIA);
-        registerTrellisLootTables(BFTrellises.DARK_OAK);
-        registerTrellisLootTables(BFTrellises.MANGROVE);
-        registerTrellisLootTables(BFTrellises.CHERRY);
-        registerTrellisLootTables(BFTrellises.BAMBOO);
-        registerTrellisLootTables(BFTrellises.WALNUT);
-        registerTrellisLootTables(BFTrellises.HOARY);
-        registerTrellisLootTables(BFTrellises.CRIMSON);
-        registerTrellisLootTables(BFTrellises.WARPED);
+//        registerTrellisLootTables(BFTrellises.OAK);
+//        registerTrellisLootTables(BFTrellises.SPRUCE);
+//        registerTrellisLootTables(BFTrellises.BIRCH);
+//        registerTrellisLootTables(BFTrellises.JUNGLE);
+//        registerTrellisLootTables(BFTrellises.ACACIA);
+//        registerTrellisLootTables(BFTrellises.DARK_OAK);
+//        registerTrellisLootTables(BFTrellises.MANGROVE);
+//        registerTrellisLootTables(BFTrellises.CHERRY);
+//        registerTrellisLootTables(BFTrellises.BAMBOO);
+//        registerTrellisLootTables(BFTrellises.WALNUT);
+//        registerTrellisLootTables(BFTrellises.HOARY);
+//        registerTrellisLootTables(BFTrellises.CRIMSON);
+//        registerTrellisLootTables(BFTrellises.WARPED); //TODO
 
-        add(BFBlocks.WILD_WHEAT, WildCropDrops(Items.WHEAT_SEEDS, BFBlocks.WILD_WHEAT));
-        add(BFBlocks.WILD_CARROTS, WildCropDrops(Items.CARROT, BFBlocks.WILD_CARROTS));
-        add(BFBlocks.WILD_POTATOES, WildCropDrops(Items.POTATO, BFBlocks.WILD_POTATOES));
-        add(BFBlocks.WILD_BEETROOTS, WildCropDrops(Items.BEETROOT_SEEDS, BFBlocks.WILD_BEETROOTS));
-        add(BFBlocks.WILD_LEEKS, WildCropDrops(BFItems.LEEK_SEEDS, BFBlocks.WILD_LEEKS));
-        add(BFBlocks.WILD_PASSION_FRUIT_VINE, WildCropDrops(BFItems.PASSION_FRUIT, BFBlocks.WILD_PASSION_FRUIT_VINE));
-        add(BFBlocks.WILD_ELDERBERRY_VINE, WildCropDrops(BFItems.ELDERBERRIES, BFBlocks.WILD_ELDERBERRY_VINE));
-        add(BFBlocks.WILD_MAIZE, LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+        add(BFBlocks.WILD_WHEAT.get(), WildCropDrops(Items.WHEAT_SEEDS, BFBlocks.WILD_WHEAT.get()));
+        add(BFBlocks.WILD_CARROTS.get(), WildCropDrops(Items.CARROT, BFBlocks.WILD_CARROTS.get()));
+        add(BFBlocks.WILD_POTATOES.get(), WildCropDrops(Items.POTATO, BFBlocks.WILD_POTATOES.get()));
+        add(BFBlocks.WILD_BEETROOTS.get(), WildCropDrops(Items.BEETROOT_SEEDS, BFBlocks.WILD_BEETROOTS.get()));
+        add(BFBlocks.WILD_LEEKS.get(), WildCropDrops(BFItems.LEEK_SEEDS.get(), BFBlocks.WILD_LEEKS.get()));
+        add(BFBlocks.WILD_PASSION_FRUIT_VINE.get(), WildCropDrops(BFItems.PASSION_FRUIT.get(), BFBlocks.WILD_PASSION_FRUIT_VINE.get()));
+        add(BFBlocks.WILD_ELDERBERRY_VINE.get(), WildCropDrops(BFItems.ELDERBERRIES.get(), BFBlocks.WILD_ELDERBERRY_VINE.get()));
+        add(BFBlocks.WILD_MAIZE.get(), LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
 //                                .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WILD_MAIZE)
 //                                        .properties(StatePredicate.Builder.create().exactMatch(WildMaizeBlock.HALF, DoubleBlockHalf.LOWER)))
-                                .when(this.doesNotHaveShearsOrSilkTouch())
-                                .add(this.applyExplosionDecay(BFBlocks.WILD_MAIZE, LootItem.lootTableItem(BFItems.MAIZE_SEEDS))))
-                        .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                        .when(this.doesNotHaveShearsOrSilkTouch())
+                        .add(this.applyExplosionDecay(BFBlocks.WILD_MAIZE.get(), LootItem.lootTableItem(BFItems.MAIZE_SEEDS.get()))))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
 //                                .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WILD_MAIZE)
 //                                        .properties(StatePredicate.Builder.create().exactMatch(WildMaizeBlock.HALF, DoubleBlockHalf.LOWER)))
-                                .when(this.hasShearsOrSilkTouch())
-                                .add(this.applyExplosionDecay(BFBlocks.WILD_MAIZE, LootItem.lootTableItem(BFBlocks.WILD_MAIZE)))));
-        add(BFBlocks.MAIZE_CROP, LootTable.lootTable()
-                        .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.MAIZE_CROP)
+                        .when(this.hasShearsOrSilkTouch())
+                        .add(this.applyExplosionDecay(BFBlocks.WILD_MAIZE.get(), LootItem.lootTableItem(BFBlocks.WILD_MAIZE.get())))));
+        add(BFBlocks.MAIZE_CROP.get(), LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.MAIZE_CROP.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MaizeCropBlock.AGE, 7)))
-                        .add(this.applyExplosionDecay(BFBlocks.MAIZE_CROP, LootItem.lootTableItem(BFItems.MAIZE)))));
-        add(BFBlocks.FELDSPAR_BRICK_SLAB, createSlabItemTable(BFBlocks.FELDSPAR_BRICK_SLAB));
-        add(BFBlocks.TINGED_GLASS, createSilkTouchOnlyTable(BFBlocks.TINGED_GLASS));
-        dropOther(BFBlocks.SPONGEKIN_SPROUT, BFItems.SPONGEKIN_SEEDS);
-        add(BFBlocks.PRISMARINE_BLOSSOM, LootTable.lootTable()
+                        .add(this.applyExplosionDecay(BFBlocks.MAIZE_CROP.get(), LootItem.lootTableItem(BFItems.MAIZE.get())))));
+        add(BFBlocks.FELDSPAR_BRICK_SLAB.get(), createSlabItemTable(BFBlocks.FELDSPAR_BRICK_SLAB.get()));
+        add(BFBlocks.TINGED_GLASS.get(), createSilkTouchOnlyTable(BFBlocks.TINGED_GLASS.get()));
+        dropOther(BFBlocks.SPONGEKIN_SPROUT.get(), BFItems.SPONGEKIN_SEEDS.get());
+        add(BFBlocks.PRISMARINE_BLOSSOM.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(3.0F))
                         .when(this.doesNotHaveSilkTouch())
-                        .add(this.applyExplosionDecay(BFBlocks.PRISMARINE_BLOSSOM, LootItem.lootTableItem(Items.PRISMARINE_CRYSTALS)).setWeight(4))
-                        .add(this.applyExplosionDecay(BFBlocks.PRISMARINE_BLOSSOM, LootItem.lootTableItem(Items.PRISMARINE_SHARD)).setWeight(2))
+                        .add(this.applyExplosionDecay(BFBlocks.PRISMARINE_BLOSSOM.get(), LootItem.lootTableItem(Items.PRISMARINE_CRYSTALS)).setWeight(4))
+                        .add(this.applyExplosionDecay(BFBlocks.PRISMARINE_BLOSSOM.get(), LootItem.lootTableItem(Items.PRISMARINE_SHARD)).setWeight(2))
                         .add(EmptyLootItem.emptyItem().setWeight(2)))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
 //                        .conditionally(WITH_FORTUNE)
@@ -155,271 +154,271 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                 )
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(this.hasSilkTouch())
-                        .add(LootItem.lootTableItem(BFBlocks.PRISMARINE_BLOSSOM))));
-        add(BFBlocks.FALLEN_WALNUTS, LootTable.lootTable()
+                        .add(LootItem.lootTableItem(BFBlocks.PRISMARINE_BLOSSOM.get()))));
+        add(BFBlocks.FALLEN_WALNUTS.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.FALLEN_WALNUTS)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.FALLEN_WALNUTS.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FallenWalnutsBlock.COUNT, 0)))
-                        .add(this.applyExplosionDecay(BFBlocks.FALLEN_WALNUTS, LootItem.lootTableItem(BFItems.WALNUT))))
+                        .add(this.applyExplosionDecay(BFBlocks.FALLEN_WALNUTS.get(), LootItem.lootTableItem(BFItems.WALNUT.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(4.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.FALLEN_WALNUTS)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.FALLEN_WALNUTS.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FallenWalnutsBlock.COUNT, 1)))
-                        .add(this.applyExplosionDecay(BFBlocks.FALLEN_WALNUTS, LootItem.lootTableItem(BFItems.WALNUT))))
+                        .add(this.applyExplosionDecay(BFBlocks.FALLEN_WALNUTS.get(), LootItem.lootTableItem(BFItems.WALNUT.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(5.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.FALLEN_WALNUTS)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.FALLEN_WALNUTS.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FallenWalnutsBlock.COUNT, 2)))
-                        .add(this.applyExplosionDecay(BFBlocks.FALLEN_WALNUTS, LootItem.lootTableItem(BFItems.WALNUT))))
+                        .add(this.applyExplosionDecay(BFBlocks.FALLEN_WALNUTS.get(), LootItem.lootTableItem(BFItems.WALNUT.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(6.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.FALLEN_WALNUTS)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.FALLEN_WALNUTS.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FallenWalnutsBlock.COUNT, 3)))
-                        .add(this.applyExplosionDecay(BFBlocks.FALLEN_WALNUTS, LootItem.lootTableItem(BFItems.WALNUT)))));
+                        .add(this.applyExplosionDecay(BFBlocks.FALLEN_WALNUTS.get(), LootItem.lootTableItem(BFItems.WALNUT.get())))));
 
-        add(BFBlocks.LEEKS, createCropDrops(BFBlocks.LEEKS, BFItems.LEEK, BFItems.LEEK_SEEDS, LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.LEEKS).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BeetrootBlock.AGE, 7))));
+        add(BFBlocks.LEEKS.get(), createCropDrops(BFBlocks.LEEKS.get(), BFItems.LEEK.get(), BFItems.LEEK_SEEDS.get(), LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.LEEKS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BeetrootBlock.AGE, 7))));
 
-        jackOStrawDrops(BFBlocks.RED_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.ORANGE_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.YELLOW_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.LIME_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.GREEN_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.CYAN_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.LIGHT_BLUE_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.BLUE_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.PURPLE_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.MAGENTA_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.PINK_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.WHITE_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.LIGHT_GRAY_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.GRAY_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.BLACK_JACK_O_STRAW);
-        jackOStrawDrops(BFBlocks.BROWN_JACK_O_STRAW);
+        jackOStrawDrops(BFBlocks.RED_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.ORANGE_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.YELLOW_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.LIME_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.GREEN_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.CYAN_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.BLUE_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.PURPLE_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.MAGENTA_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.PINK_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.WHITE_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.GRAY_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.BLACK_JACK_O_STRAW.get());
+        jackOStrawDrops(BFBlocks.BROWN_JACK_O_STRAW.get());
 
-        picketsDrops(BFBlocks.OAK_PICKETS);
-        picketsDrops(BFBlocks.BIRCH_PICKETS);
-        picketsDrops(BFBlocks.SPRUCE_PICKETS);
-        picketsDrops(BFBlocks.JUNGLE_PICKETS);
-        picketsDrops(BFBlocks.ACACIA_PICKETS);
-        picketsDrops(BFBlocks.DARK_OAK_PICKETS);
-        picketsDrops(BFBlocks.MANGROVE_PICKETS);
-        picketsDrops(BFBlocks.CHERRY_PICKETS);
-        picketsDrops(BFBlocks.BAMBOO_PICKETS);
-        picketsDrops(BFBlocks.WALNUT_PICKETS);
-        picketsDrops(BFBlocks.HOARY_PICKETS);
-        picketsDrops(BFBlocks.CRIMSON_PICKETS);
-        picketsDrops(BFBlocks.WARPED_PICKETS);
-        picketsDrops(BFBlocks.IRON_RAILING);
+        picketsDrops(BFBlocks.OAK_PICKETS.get());
+        picketsDrops(BFBlocks.BIRCH_PICKETS.get());
+        picketsDrops(BFBlocks.SPRUCE_PICKETS.get());
+        picketsDrops(BFBlocks.JUNGLE_PICKETS.get());
+        picketsDrops(BFBlocks.ACACIA_PICKETS.get());
+        picketsDrops(BFBlocks.DARK_OAK_PICKETS.get());
+        picketsDrops(BFBlocks.MANGROVE_PICKETS.get());
+        picketsDrops(BFBlocks.CHERRY_PICKETS.get());
+        picketsDrops(BFBlocks.BAMBOO_PICKETS.get());
+        picketsDrops(BFBlocks.WALNUT_PICKETS.get());
+        picketsDrops(BFBlocks.HOARY_PICKETS.get());
+        picketsDrops(BFBlocks.CRIMSON_PICKETS.get());
+        picketsDrops(BFBlocks.WARPED_PICKETS.get());
+        picketsDrops(BFBlocks.IRON_RAILING.get());
 
 
-        add(BFBlocks.WALNUT_MULCH, LootTable.lootTable()
+        add(BFBlocks.WALNUT_MULCH.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 1)))
-                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, LootItem.lootTableItem(BFBlocks.WALNUT_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 2)))
-                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, LootItem.lootTableItem(BFBlocks.WALNUT_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(3.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 3)))
-                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, LootItem.lootTableItem(BFBlocks.WALNUT_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(4.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 4)))
-                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, LootItem.lootTableItem(BFBlocks.WALNUT_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(5.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 5)))
-                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, LootItem.lootTableItem(BFBlocks.WALNUT_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(6.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 6)))
-                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, LootItem.lootTableItem(BFBlocks.WALNUT_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(7.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 7)))
-                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, LootItem.lootTableItem(BFBlocks.WALNUT_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(8.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 8)))
-                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH, LootItem.lootTableItem(BFBlocks.WALNUT_MULCH)))));
+                        .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get())))));
 
 
-        fruitBlockDrops(BFBlocks.APPLE_BLOCK, Items.APPLE);
-        fruitBlockDrops(BFBlocks.GOLDEN_APPLE_BLOCK, Items.GOLDEN_APPLE);
-        fruitBlockDrops(BFBlocks.ORANGE_BLOCK, BFItems.ORANGE);
-        fruitBlockDrops(BFBlocks.LEMON_BLOCK, BFItems.LEMON);
-        fruitBlockDrops(BFBlocks.PLUM_BLOCK, BFItems.PLUM);
-        fruitBlockDrops(BFBlocks.HOARY_APPLE_BLOCK, BFItems.HOARY_APPLE);
+        fruitBlockDrops(BFBlocks.APPLE_BLOCK.get(), Items.APPLE);
+        fruitBlockDrops(BFBlocks.GOLDEN_APPLE_BLOCK.get(), Items.GOLDEN_APPLE);
+        fruitBlockDrops(BFBlocks.ORANGE_BLOCK.get(), BFItems.ORANGE.get());
+        fruitBlockDrops(BFBlocks.LEMON_BLOCK.get(), BFItems.LEMON.get());
+        fruitBlockDrops(BFBlocks.PLUM_BLOCK.get(), BFItems.PLUM.get());
+        fruitBlockDrops(BFBlocks.HOARY_APPLE_BLOCK.get(), BFItems.HOARY_APPLE.get());
 
-        hangingFruitDrops(BFBlocks.HANGING_APPLE, Items.APPLE);
-        hangingFruitDrops(BFBlocks.HANGING_ORANGE, BFItems.ORANGE);
-        hangingFruitDrops(BFBlocks.HANGING_LEMON, BFItems.LEMON);
-        hangingFruitDrops(BFBlocks.HANGING_PLUM, BFItems.PLUM);
-        hangingFruitDrops(BFBlocks.HANGING_HOARY_APPLE, BFItems.HOARY_APPLE);
-        hangingFruitDrops(BFBlocks.HANGING_GOLDEN_APPLE, Items.GOLDEN_APPLE);
-        usedBlocks.add(BFBlocks.HANGING_WITHERED_GOLDEN_APPLE);
-        add(BFBlocks.GRASSY_DIRT, LootTable.lootTable()
+        hangingFruitDrops(BFBlocks.HANGING_APPLE.get(), Items.APPLE);
+        hangingFruitDrops(BFBlocks.HANGING_ORANGE.get(), BFItems.ORANGE.get());
+        hangingFruitDrops(BFBlocks.HANGING_LEMON.get(), BFItems.LEMON.get());
+        hangingFruitDrops(BFBlocks.HANGING_PLUM.get(), BFItems.PLUM.get());
+        hangingFruitDrops(BFBlocks.HANGING_HOARY_APPLE.get(), BFItems.HOARY_APPLE.get());
+        hangingFruitDrops(BFBlocks.HANGING_GOLDEN_APPLE.get(), Items.GOLDEN_APPLE);
+        usedBlocks.add(BFBlocks.HANGING_WITHERED_GOLDEN_APPLE.get());
+        add(BFBlocks.GRASSY_DIRT.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(this.doesNotHaveSilkTouch())
-                        .add(this.applyExplosionDecay(BFBlocks.GRASSY_DIRT, LootItem.lootTableItem(Blocks.DIRT))))
+                        .add(this.applyExplosionDecay(BFBlocks.GRASSY_DIRT.get(), LootItem.lootTableItem(Blocks.DIRT))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(this.hasSilkTouch())
-                        .add(this.applyExplosionDecay(BFBlocks.GRASSY_DIRT, LootItem.lootTableItem(BFBlocks.GRASSY_DIRT)))));
-        add(BFBlocks.TEA_SHRUB, LootTable.lootTable()
+                        .add(this.applyExplosionDecay(BFBlocks.GRASSY_DIRT.get(), LootItem.lootTableItem(BFBlocks.GRASSY_DIRT.get())))));
+        add(BFBlocks.TEA_SHRUB.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.TEA_SHRUB)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.TEA_SHRUB.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TeaShrubBlock.BERRIES, true)))
-                        .add(this.applyExplosionDecay(BFBlocks.TEA_SHRUB, LootItem.lootTableItem(BFItems.TEA_BERRIES)))
-        ));
+                        .add(this.applyExplosionDecay(BFBlocks.TEA_SHRUB.get(), LootItem.lootTableItem(BFItems.TEA_BERRIES.get())))
+                ));
 
-        add(BFBlocks.PALM_MULCH, LootTable.lootTable()
+        add(BFBlocks.PALM_MULCH.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 1)))
-                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH, LootItem.lootTableItem(BFBlocks.PALM_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 2)))
-                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH, LootItem.lootTableItem(BFBlocks.PALM_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(3.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 3)))
-                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH, LootItem.lootTableItem(BFBlocks.PALM_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(4.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 4)))
-                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH, LootItem.lootTableItem(BFBlocks.PALM_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(5.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 5)))
-                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH, LootItem.lootTableItem(BFBlocks.PALM_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(6.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 6)))
-                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH, LootItem.lootTableItem(BFBlocks.PALM_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(7.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 7)))
-                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH, LootItem.lootTableItem(BFBlocks.PALM_MULCH))))
+                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(8.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 8)))
-                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH, LootItem.lootTableItem(BFBlocks.PALM_MULCH)))));
-        add(BFBlocks.COIR_BRICK_SLAB, createSlabItemTable(BFBlocks.COIR_BRICK_SLAB));
-        add(BFBlocks.PALM_FROND, LootTable.lootTable()
+                        .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get())))));
+        add(BFBlocks.COIR_BRICK_SLAB.get(), createSlabItemTable(BFBlocks.COIR_BRICK_SLAB.get()));
+        add(BFBlocks.PALM_FROND.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_FROND)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_FROND.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PalmFrondBlock.SIZE, 0)))
-                        .add(this.applyExplosionDecay(BFBlocks.PALM_FROND, LootItem.lootTableItem(BFItems.PALM_FROND))))
+                        .add(this.applyExplosionDecay(BFBlocks.PALM_FROND.get(), LootItem.lootTableItem(BFItems.PALM_FROND.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_FROND)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_FROND.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PalmFrondBlock.SIZE, 1)))
-                        .add(this.applyExplosionDecay(BFBlocks.PALM_FROND, LootItem.lootTableItem(BFItems.PALM_FROND))))
+                        .add(this.applyExplosionDecay(BFBlocks.PALM_FROND.get(), LootItem.lootTableItem(BFItems.PALM_FROND.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(3.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_FROND)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_FROND.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PalmFrondBlock.SIZE, 2)))
-                        .add(this.applyExplosionDecay(BFBlocks.PALM_FROND, LootItem.lootTableItem(BFItems.PALM_FROND))))
+                        .add(this.applyExplosionDecay(BFBlocks.PALM_FROND.get(), LootItem.lootTableItem(BFItems.PALM_FROND.get()))))
         );
-        add(BFBlocks.WALL_PALM_FROND, LootTable.lootTable()
+        add(BFBlocks.WALL_PALM_FROND.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALL_PALM_FROND)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALL_PALM_FROND.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WallPalmFrondBlock.SIZE, 0)))
-                        .add(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND, LootItem.lootTableItem(BFItems.PALM_FROND))))
+                        .add(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND.get(), LootItem.lootTableItem(BFItems.PALM_FROND.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALL_PALM_FROND)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALL_PALM_FROND.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WallPalmFrondBlock.SIZE, 1)))
-                        .add(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND, LootItem.lootTableItem(BFItems.PALM_FROND))))
+                        .add(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND.get(), LootItem.lootTableItem(BFItems.PALM_FROND.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(3.0F))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALL_PALM_FROND)
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALL_PALM_FROND.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WallPalmFrondBlock.SIZE, 2)))
-                        .add(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND, LootItem.lootTableItem(BFItems.PALM_FROND))))
+                        .add(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND.get(), LootItem.lootTableItem(BFItems.PALM_FROND.get()))))
         );
-        add(BFBlocks.COCONUT_CANDLE, LootTable.lootTable()
+        add(BFBlocks.COCONUT_CANDLE.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1.0F))
-                        .add(this.applyExplosionDecay(BFBlocks.COCONUT_CANDLE, LootItem.lootTableItem(BFBlocks.COCONUT_CANDLE)
-                                .apply(List.of(2, 3), (candles) -> SetItemCountFunction.setCount(ConstantValue.exactly((float)candles))
-                                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.COCONUT_CANDLE)
+                        .add(this.applyExplosionDecay(BFBlocks.COCONUT_CANDLE.get(), LootItem.lootTableItem(BFBlocks.COCONUT_CANDLE.get())
+                                .apply(List.of(2, 3), (candles) -> SetItemCountFunction.setCount(ConstantValue.exactly((float) candles))
+                                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.COCONUT_CANDLE.get())
                                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CoconutCandleBlock.CANDLES, candles))))))));
-        add(BFBlocks.SPONGEKIN, (block) -> {
+        add(BFBlocks.SPONGEKIN.get(), (block) -> {
             return createSilkTouchDispatchTable(
                     block,
                     applyExplosionDecay(
                             block,
-                            LootItem.lootTableItem(BFItems.SPONGEKIN_SLICE)
+                            LootItem.lootTableItem(BFItems.SPONGEKIN_SLICE.get())
                                     .apply(SetItemCountFunction.setCount(UniformGenerator.between(3.0F, 7.0F)))
                                     .apply(ApplyBonusCount.addUniformBonusCount(impl.getOrThrow(Enchantments.FORTUNE)))
                                     .apply(LimitCount.limitCount(IntRange.upperBound(9)))));
         });
-        dropPottedContents(BFBlocks.POTTED_HONEYSUCKLE);
-        dropPottedContents(BFBlocks.POTTED_APPLE_SAPLING);
-        dropPottedContents(BFBlocks.POTTED_ORANGE_SAPLING);
-        dropPottedContents(BFBlocks.POTTED_LEMON_SAPLING);
-        dropPottedContents(BFBlocks.POTTED_PLUM_SAPLING);
-        dropPottedContents(BFBlocks.POTTED_HOARY_APPLE_SAPLING);
-        dropPottedContents(BFBlocks.POTTED_WALNUT_SAPLING);
-        dropPottedContents(BFBlocks.POTTED_VIOLET_BELLFLOWER);
-        dropPottedContents(BFBlocks.POTTED_PALM_FROND);
-        dropPottedContents(BFBlocks.POTTED_GOLDEN_APPLE_SAPLING);
-        dropOther(BFBlocks.PALM_SAPLING, BFItems.COCONUT);
-        dropSelf(BFBlocks.FELDSPAR_BRICK_WALL);
+        dropPottedContents(BFBlocks.POTTED_HONEYSUCKLE.get());
+        dropPottedContents(BFBlocks.POTTED_APPLE_SAPLING.get());
+        dropPottedContents(BFBlocks.POTTED_ORANGE_SAPLING.get());
+        dropPottedContents(BFBlocks.POTTED_LEMON_SAPLING.get());
+        dropPottedContents(BFBlocks.POTTED_PLUM_SAPLING.get());
+        dropPottedContents(BFBlocks.POTTED_HOARY_APPLE_SAPLING.get());
+        dropPottedContents(BFBlocks.POTTED_WALNUT_SAPLING.get());
+        dropPottedContents(BFBlocks.POTTED_VIOLET_BELLFLOWER.get());
+        dropPottedContents(BFBlocks.POTTED_PALM_FROND.get());
+        dropPottedContents(BFBlocks.POTTED_GOLDEN_APPLE_SAPLING.get());
+        dropOther(BFBlocks.PALM_SAPLING.get(), BFItems.COCONUT.get());
+        dropSelf(BFBlocks.FELDSPAR_BRICK_WALL.get());
 
 
-        usedBlocks.add(BFBlocks.APPLE_PIE);
-        usedBlocks.add(BFBlocks.ARTISAN_BREAD);
-        usedBlocks.add(BFBlocks.ARTISAN_COOKIE);
-        usedBlocks.add(BFBlocks.CERAMIC_BUTTON);
-        usedBlocks.add(BFBlocks.CERAMIC_DISH);
-        usedBlocks.add(BFBlocks.CERAMIC_DOOR);
-        usedBlocks.add(BFBlocks.CERAMIC_LEVER);
-        usedBlocks.add(BFBlocks.CERAMIC_MOSAIC);
-        usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_SLAB);
-        usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_STAIRS);
+        usedBlocks.add(BFBlocks.APPLE_PIE.get());
+        usedBlocks.add(BFBlocks.ARTISAN_BREAD.get());
+        usedBlocks.add(BFBlocks.ARTISAN_COOKIE.get());
+        usedBlocks.add(BFBlocks.CERAMIC_BUTTON.get());
+        usedBlocks.add(BFBlocks.CERAMIC_DISH.get());
+        usedBlocks.add(BFBlocks.CERAMIC_DOOR.get());
+        usedBlocks.add(BFBlocks.CERAMIC_LEVER.get());
+        usedBlocks.add(BFBlocks.CERAMIC_MOSAIC.get());
+        usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_SLAB.get());
+        usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_STAIRS.get());
         //usedBlocks.add(BFBlocks.CERAMIC_MOSAIC_WALL);
-        usedBlocks.add(BFBlocks.CERAMIC_PRESSURE_PLATE);
-        usedBlocks.add(BFBlocks.CERAMIC_TILE_PILLAR);
-        usedBlocks.add(BFBlocks.CERAMIC_TILE_SLAB);
-        usedBlocks.add(BFBlocks.CERAMIC_TILE_STAIRS);
+        usedBlocks.add(BFBlocks.CERAMIC_PRESSURE_PLATE.get());
+        usedBlocks.add(BFBlocks.CERAMIC_TILE_PILLAR.get());
+        usedBlocks.add(BFBlocks.CERAMIC_TILE_SLAB.get());
+        usedBlocks.add(BFBlocks.CERAMIC_TILE_STAIRS.get());
         //usedBlocks.add(BFBlocks.CERAMIC_TILE_WALL);
-        usedBlocks.add(BFBlocks.CERAMIC_TILES);
-        usedBlocks.add(BFBlocks.CERAMIC_TRAPDOOR);
-        usedBlocks.add(BFBlocks.CHAMOMILE_FLOWERS);
-        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC);
-        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB);
-        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS);
+        usedBlocks.add(BFBlocks.CERAMIC_TILES.get());
+        usedBlocks.add(BFBlocks.CERAMIC_TRAPDOOR.get());
+        usedBlocks.add(BFBlocks.CHAMOMILE_FLOWERS.get());
+        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC.get());
+        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.get());
+        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.get());
         //usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL);
-        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB);
-        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS);
+        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get());
+        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get());
         //usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL);
-        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILES);
-        usedBlocks.add(BFBlocks.COCONUT_CAKE);
-        usedBlocks.add(BFBlocks.COCONUT);
-        usedBlocks.add(BFBlocks.COCOA_CAKE);
-        usedBlocks.add(BFBlocks.CRACKED_CERAMIC_TILES);
-        usedBlocks.add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES);
-        usedBlocks.add(BFBlocks.ELDERBERRY_TART);
-        usedBlocks.add(BFBlocks.GLOW_BERRY_TART);
-        usedBlocks.add(BFBlocks.HANGING_WALNUTS);
-        usedBlocks.add(BFBlocks.HOARY_PIE);
-        usedBlocks.add(BFBlocks.LAPISBERRY_TART);
-        usedBlocks.add(BFBlocks.LEMON_PIE);
-        usedBlocks.add(BFBlocks.ORANGE_PIE);
-        usedBlocks.add(BFBlocks.PASSION_FRUIT_TART);
-        usedBlocks.add(BFBlocks.PLUM_PIE);
-        usedBlocks.add(BFBlocks.PUMPKIN_PIE);
-        usedBlocks.add(BFBlocks.MELON_PIE);
-        usedBlocks.add(BFBlocks.SWEET_BERRY_TART);
-        usedBlocks.add(BFBlocks.TEA_SHRUB);
+        usedBlocks.add(BFBlocks.CHECKERED_CERAMIC_TILES.get());
+        usedBlocks.add(BFBlocks.COCONUT_CAKE.get());
+        usedBlocks.add(BFBlocks.COCONUT.get());
+        usedBlocks.add(BFBlocks.COCOA_CAKE.get());
+        usedBlocks.add(BFBlocks.CRACKED_CERAMIC_TILES.get());
+        usedBlocks.add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.get());
+        usedBlocks.add(BFBlocks.ELDERBERRY_TART.get());
+        usedBlocks.add(BFBlocks.GLOW_BERRY_TART.get());
+        usedBlocks.add(BFBlocks.HANGING_WALNUTS.get());
+        usedBlocks.add(BFBlocks.HOARY_PIE.get());
+        usedBlocks.add(BFBlocks.LAPISBERRY_TART.get());
+        usedBlocks.add(BFBlocks.LEMON_PIE.get());
+        usedBlocks.add(BFBlocks.ORANGE_PIE.get());
+        usedBlocks.add(BFBlocks.PASSION_FRUIT_TART.get());
+        usedBlocks.add(BFBlocks.PLUM_PIE.get());
+        usedBlocks.add(BFBlocks.PUMPKIN_PIE.get());
+        usedBlocks.add(BFBlocks.MELON_PIE.get());
+        usedBlocks.add(BFBlocks.SWEET_BERRY_TART.get());
+        usedBlocks.add(BFBlocks.TEA_SHRUB.get());
 
-        usedBlocks.add(BFBlocks.HOARY_SIGN);
-        usedBlocks.add(BFBlocks.HOARY_WALL_SIGN);
-        usedBlocks.add(BFBlocks.HOARY_HANGING_SIGN);
-        usedBlocks.add(BFBlocks.HOARY_WALL_HANGING_SIGN);
-        usedBlocks.add(BFBlocks.WALNUT_SIGN);
-        usedBlocks.add(BFBlocks.WALNUT_WALL_SIGN);
-        usedBlocks.add(BFBlocks.WALNUT_HANGING_SIGN);
-        usedBlocks.add(BFBlocks.WALNUT_WALL_HANGING_SIGN);
-        usedBlocks.add(BFBlocks.SOLID_CERAMIC);
+        usedBlocks.add(BFBlocks.HOARY_SIGN.get());
+        usedBlocks.add(BFBlocks.HOARY_WALL_SIGN.get());
+        usedBlocks.add(BFBlocks.HOARY_HANGING_SIGN.get());
+        usedBlocks.add(BFBlocks.HOARY_WALL_HANGING_SIGN.get());
+        usedBlocks.add(BFBlocks.WALNUT_SIGN.get());
+        usedBlocks.add(BFBlocks.WALNUT_WALL_SIGN.get());
+        usedBlocks.add(BFBlocks.WALNUT_HANGING_SIGN.get());
+        usedBlocks.add(BFBlocks.WALNUT_WALL_HANGING_SIGN.get());
+        usedBlocks.add(BFBlocks.SOLID_CERAMIC.get());
 
         for(ResourceLocation id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.MOD_ID)) {
             Block block = BuiltInRegistries.BLOCK.get(id);
@@ -428,19 +427,19 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         }
     }
 
-    public void registerTrellisLootTables(TrellisVariant trellis) {
-        this.dropSelf(TrellisUtil.getTrellisFromVariant(trellis));
-        for (VineCrop crop : TrellisUtil.VineCrops) {
-            this.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(this.applyExplosionDecay(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootItem.lootTableItem(TrellisUtil.getTrellisFromVariant(trellis))))));
-        }
-        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
-            this.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootTable.lootTable()
-                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                            .add(this.applyExplosionDecay(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootItem.lootTableItem(TrellisUtil.getTrellisFromVariant(trellis))))));
-        }
-    }
+//    public void registerTrellisLootTables(TrellisVariant trellis) {
+//        this.dropSelf(TrellisUtil.getTrellisFromVariant(trellis));
+//        for (VineCrop crop : TrellisUtil.VineCrops) {
+//            this.add(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootTable.lootTable()
+//                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+//                            .add(this.applyExplosionDecay(TrellisUtil.getCropTrellisFromVariant(trellis, crop), LootItem.lootTableItem(TrellisUtil.getTrellisFromVariant(trellis))))));
+//        }
+//        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
+//            this.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootTable.lootTable()
+//                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+//                            .add(this.applyExplosionDecay(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootItem.lootTableItem(TrellisUtil.getTrellisFromVariant(trellis))))));
+//        }
+//    }
 
     public LootTable.Builder WildCropDrops(Item seed, Block block) {
         return LootTable.lootTable()

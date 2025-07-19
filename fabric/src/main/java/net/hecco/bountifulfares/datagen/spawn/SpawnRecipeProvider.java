@@ -2,8 +2,6 @@ package net.hecco.bountifulfares.datagen.spawn;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
-import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -19,7 +17,7 @@ public class SpawnRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void buildRecipes(RecipeOutput exporter) {
-        TrellisUtil.registerCompatTrellisRecipe(exporter, SpawnBlocks.ROTTEN);
-        offerPicketsRecipe(exporter, SpawnBlocks.ROTTEN_PICKETS, ResourceLocation.fromNamespaceAndPath(SPAWN_MOD_ID, "rotten_planks"));
+//        TrellisUtil.registerCompatTrellisRecipe(exporter, SpawnBlocks.ROTTEN);
+//        offerPicketsRecipe(exporter, SpawnBlocks.ROTTEN_PICKETS, ResourceLocation.fromNamespaceAndPath(SPAWN_MOD_ID, "rotten_planks"));
     }
 }

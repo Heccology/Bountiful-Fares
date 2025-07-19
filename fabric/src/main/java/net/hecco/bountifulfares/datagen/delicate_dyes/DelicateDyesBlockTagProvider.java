@@ -16,26 +16,26 @@ public class DelicateDyesBlockTagProvider extends FabricTagProvider.BlockTagProv
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
-                .add(DelicateDyesBlocks.CORAL_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.CANARY_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.WASABI_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.SKY_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.BLURPLE_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.SANGRIA_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.ROSE_JACK_O_STRAW)
-        ;
-
-        getOrCreateTagBuilder(BFBlockTags.JACK_O_STRAWS)
-                .add(DelicateDyesBlocks.CORAL_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.CANARY_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.WASABI_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.SKY_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.BLURPLE_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.SANGRIA_JACK_O_STRAW)
-                .add(DelicateDyesBlocks.ROSE_JACK_O_STRAW)
-        ;
+//        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
+//                .add(DelicateDyesBlocks.CORAL_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.CANARY_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.WASABI_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.SKY_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.BLURPLE_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.SANGRIA_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.ROSE_JACK_O_STRAW)
+//        ;
+//
+//        getOrCreateTagBuilder(BFBlockTags.JACK_O_STRAWS)
+//                .add(DelicateDyesBlocks.CORAL_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.CANARY_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.WASABI_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.SKY_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.BLURPLE_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.SANGRIA_JACK_O_STRAW)
+//                .add(DelicateDyesBlocks.ROSE_JACK_O_STRAW)
+//        ;
     }
 }

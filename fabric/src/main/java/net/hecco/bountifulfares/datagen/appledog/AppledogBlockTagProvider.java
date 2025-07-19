@@ -15,12 +15,12 @@ public class AppledogBlockTagProvider extends FabricTagProvider.BlockTagProvider
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
-                .add(AppledogBlocks.APPLEDOG_BLOCK)
-        ;
-
-        getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS)
-                .add(AppledogBlocks.APPLEDOG_BLOCK)
-        ;
+//        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
+//                .add(AppledogBlocks.APPLEDOG_BLOCK)
+//        ;
+//
+//        getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS)
+//                .add(AppledogBlocks.APPLEDOG_BLOCK)
+//        ;
     }
 }

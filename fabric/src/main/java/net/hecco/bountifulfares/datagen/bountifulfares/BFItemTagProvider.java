@@ -22,99 +22,99 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void addTags(HolderLookup.Provider arg) {
 
         getOrCreateTagBuilder(BFItemTags.C_FLOUR)
-                .add(BFItems.FLOUR)
+                .add(BFItems.FLOUR.get())
         ;
         getOrCreateTagBuilder(BFItemTags.C_MILKS)
                 .add(Items.MILK_BUCKET)
-                .add(BFItems.COCONUT_MILK_BOTTLE)
+                .add(BFItems.COCONUT_MILK_BOTTLE.get())
         ;
         getOrCreateTagBuilder(BFItemTags.C_COCONUT_HALVES)
-                .add(BFItems.COCONUT_HALF)
+                .add(BFItems.COCONUT_HALF.get())
         ;
 
         getOrCreateTagBuilder(BFItemTags.C_WALNUTS)
-                .add(BFItems.WALNUT)
+                .add(BFItems.WALNUT.get())
                 .addOptional(ResourceLocation.fromNamespaceAndPath("nomansland", "walnuts"))
         ;
 
         getOrCreateTagBuilder(BFItemTags.C_ORANGES)
-                .add(BFItems.ORANGE)
+                .add(BFItems.ORANGE.get())
                 .addOptional(ResourceLocation.fromNamespaceAndPath("atmospheric", "orange"))
                 .addOptional(ResourceLocation.fromNamespaceAndPath("atmospheric", "blood_orange"))
         ;
 
         getOrCreateTagBuilder(BFItemTags.C_LEMONS)
-                .add(BFItems.LEMON)
+                .add(BFItems.LEMON.get())
         ;
 
         getOrCreateTagBuilder(BFItemTags.C_PLUMS)
-                .add(BFItems.PLUM)
+                .add(BFItems.PLUM.get())
                 .addOptional(ResourceLocation.fromNamespaceAndPath("environmental", "plum"))
         ;
 
         getOrCreateTagBuilder(BFItemTags.C_PASSION_FRUIT)
-                .add(BFItems.PASSION_FRUIT)
+                .add(BFItems.PASSION_FRUIT.get())
                 .addOptional(ResourceLocation.fromNamespaceAndPath("atmospheric", "passion_fruit"))
         ;
 
         getOrCreateTagBuilder(BFItemTags.C_ELDERBERRIES)
-                .add(BFItems.ELDERBERRIES)
+                .add(BFItems.ELDERBERRIES.get())
         ;
 
         getOrCreateTagBuilder(BFItemTags.C_CORN)
-                .add(BFItems.MAIZE)
+                .add(BFItems.MAIZE.get())
                 .addOptional(ResourceLocation.fromNamespaceAndPath("hauntedharvest", "corn"))
         ;
 
         getOrCreateTagBuilder(ItemTags.CHICKEN_FOOD)
-                .add(BFItems.GRASS_SEEDS)
-                .add(BFItems.SWEET_BERRY_PIPS)
-                .add(BFItems.HOARY_SEEDS)
-                .add(BFItems.LAPISBERRY_SEEDS)
-                .add(BFItems.LEEK_SEEDS)
-                .add(BFItems.MAIZE_SEEDS)
-                .add(BFItems.SPONGEKIN_SEEDS)
+                .add(BFItems.GRASS_SEEDS.get())
+                .add(BFItems.SWEET_BERRY_PIPS.get())
+                .add(BFItems.HOARY_SEEDS.get())
+                .add(BFItems.LAPISBERRY_SEEDS.get())
+                .add(BFItems.LEEK_SEEDS.get())
+                .add(BFItems.MAIZE_SEEDS.get())
+                .add(BFItems.SPONGEKIN_SEEDS.get())
         ;
 
         getOrCreateTagBuilder(ItemTags.PARROT_FOOD)
-                .add(BFItems.GRASS_SEEDS)
-                .add(BFItems.SWEET_BERRY_PIPS)
-                .add(BFItems.HOARY_SEEDS)
-                .add(BFItems.LAPISBERRY_SEEDS)
-                .add(BFItems.LEEK_SEEDS)
-                .add(BFItems.MAIZE_SEEDS)
-                .add(BFItems.SPONGEKIN_SEEDS)
-                .add(BFItems.WALNUT)
-                .add(BFItems.ARTISAN_COOKIE)
-                .add(BFItems.WALNUT_COOKIE)
+                .add(BFItems.GRASS_SEEDS.get())
+                .add(BFItems.SWEET_BERRY_PIPS.get())
+                .add(BFItems.HOARY_SEEDS.get())
+                .add(BFItems.LAPISBERRY_SEEDS.get())
+                .add(BFItems.LEEK_SEEDS.get())
+                .add(BFItems.MAIZE_SEEDS.get())
+                .add(BFItems.SPONGEKIN_SEEDS.get())
+                .add(BFItems.WALNUT.get())
+                .add(BFItems.ARTISAN_COOKIE.get())
+                .add(BFItems.WALNUT_COOKIE.get())
         ;
 
         getOrCreateTagBuilder(ItemTags.PIG_FOOD)
-                .add(BFItems.MAIZE)
-                .add(BFItems.LEEK)
+                .add(BFItems.MAIZE.get())
+                .add(BFItems.LEEK.get())
         ;
 
         getOrCreateTagBuilder(ItemTags.SNIFFER_FOOD)
                 .add(Items.PITCHER_POD)
-                .add(BFItems.HOARY_SEEDS)
-                .add(BFItems.LAPISBERRY_SEEDS)
+                .add(BFItems.HOARY_SEEDS.get())
+                .add(BFItems.LAPISBERRY_SEEDS.get())
         ;
 
         getOrCreateTagBuilder(ItemTags.FOX_FOOD)
-                .add(BFItems.ELDERBERRIES)
-                .add(BFItems.LAPISBERRIES)
+                .add(BFItems.ELDERBERRIES.get())
+                .add(BFItems.LAPISBERRIES.get())
         ;
 
         getOrCreateTagBuilder(ItemTags.COW_FOOD)
-                .add(BFItems.MAIZE)
+                .add(BFItems.MAIZE.get())
         ;
 
         getOrCreateTagBuilder(ItemTags.SHEEP_FOOD)
-                .add(BFItems.MAIZE)
+                .add(BFItems.MAIZE.get())
         ;
 
         getOrCreateTagBuilder(ItemTags.GOAT_FOOD)
-                .add(BFItems.MAIZE)
+                .add(BFItems.MAIZE.get())
         ;
 
         getOrCreateTagBuilder(ItemTags.WOLF_FOOD)
@@ -122,32 +122,32 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(ItemTags.HORSE_FOOD)
-                .add(BFItems.ORANGE)
-                .add(BFItems.LEMON)
-                .add(BFItems.PLUM)
-                .add(BFItems.HOARY_APPLE)
-                .add(BFItems.MAIZE)
+                .add(BFItems.ORANGE.get())
+                .add(BFItems.LEMON.get())
+                .add(BFItems.PLUM.get())
+                .add(BFItems.HOARY_APPLE.get())
+                .add(BFItems.MAIZE.get())
         ;
 
         getOrCreateTagBuilder(ItemTags.FLOWERS)
-                .add(BFBlocks.FLOWERING_APPLE_LEAVES.asItem())
-                .add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.asItem())
-                .add(BFBlocks.FLOWERING_ORANGE_LEAVES.asItem())
-                .add(BFBlocks.FLOWERING_LEMON_LEAVES.asItem())
-                .add(BFBlocks.FLOWERING_PLUM_LEAVES.asItem())
+                .add(BFBlocks.FLOWERING_APPLE_LEAVES.get().asItem())
+                .add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.get().asItem())
+                .add(BFBlocks.FLOWERING_ORANGE_LEAVES.get().asItem())
+                .add(BFBlocks.FLOWERING_LEMON_LEAVES.get().asItem())
+                .add(BFBlocks.FLOWERING_PLUM_LEAVES.get().asItem())
         ;
-        getOrCreateTagBuilder(ItemTags.FENCE_GATES).add(BFBlocks.HOARY_FENCE_GATE.asItem());
-        getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS).add(BFBlocks.HONEYSUCKLE.asItem(), BFBlocks.VIOLET_BELLFLOWER.asItem());
+        getOrCreateTagBuilder(ItemTags.FENCE_GATES).add(BFBlocks.HOARY_FENCE_GATE.get().asItem());
+        getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS).add(BFBlocks.HONEYSUCKLE.get().asItem(), BFBlocks.VIOLET_BELLFLOWER.get().asItem());
         getOrCreateTagBuilder(ItemTags.LEAVES)
                 .addTag(BFItemTags.APPLE_LEAVES)
-                .add(BFBlocks.GOLDEN_APPLE_LEAVES.asItem())
-                .add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.asItem())
+                .add(BFBlocks.GOLDEN_APPLE_LEAVES.get().asItem())
+                .add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.get().asItem())
                 .addTag(BFItemTags.ORANGE_LEAVES)
                 .addTag(BFItemTags.LEMON_LEAVES)
                 .addTag(BFItemTags.PLUM_LEAVES)
                 .addTag(BFItemTags.GOLDEN_APPLE_LEAVES)
-                .add(BFBlocks.HOARY_LEAVES.asItem())
-                .add(BFBlocks.WALNUT_LEAVES.asItem());
+                .add(BFBlocks.HOARY_LEAVES.get().asItem())
+                .add(BFBlocks.WALNUT_LEAVES.get().asItem());
         getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
                 .addTag(BFItemTags.APPLE_LOGS)
                 .addTag(BFItemTags.ORANGE_LOGS)
@@ -157,35 +157,35 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(BFItemTags.WALNUT_LOGS)
                 .addTag(BFItemTags.PALM_LOGS)
                 .addTag(BFItemTags.GOLDEN_APPLE_LOGS);
-        getOrCreateTagBuilder(ItemTags.PLANKS).add(BFBlocks.HOARY_PLANKS.asItem(), BFBlocks.WALNUT_PLANKS.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS).add(BFBlocks.HOARY_BUTTON.asItem(), BFBlocks.WALNUT_BUTTON.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_DOORS).add(BFBlocks.HOARY_DOOR.asItem(), BFBlocks.WALNUT_DOOR.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_FENCES).add(BFBlocks.HOARY_FENCE.asItem(), BFBlocks.WALNUT_FENCE.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES).add(BFBlocks.HOARY_PRESSURE_PLATE.asItem(), BFBlocks.WALNUT_PRESSURE_PLATE.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_SLABS).add(BFBlocks.HOARY_SLAB.asItem(), BFBlocks.WALNUT_SLAB.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS).add(BFBlocks.HOARY_STAIRS.asItem(), BFBlocks.WALNUT_STAIRS.asItem());
-        getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS).add(BFBlocks.HOARY_TRAPDOOR.asItem(), BFBlocks.WALNUT_TRAPDOOR.asItem());
-        getOrCreateTagBuilder(ItemTags.BUTTONS).add(BFBlocks.CERAMIC_BUTTON.asItem());
+        getOrCreateTagBuilder(ItemTags.PLANKS).add(BFBlocks.HOARY_PLANKS.get().asItem(), BFBlocks.WALNUT_PLANKS.get().asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS).add(BFBlocks.HOARY_BUTTON.get().asItem(), BFBlocks.WALNUT_BUTTON.get().asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_DOORS).add(BFBlocks.HOARY_DOOR.get().asItem(), BFBlocks.WALNUT_DOOR.get().asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_FENCES).add(BFBlocks.HOARY_FENCE.get().asItem(), BFBlocks.WALNUT_FENCE.get().asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES).add(BFBlocks.HOARY_PRESSURE_PLATE.get().asItem(), BFBlocks.WALNUT_PRESSURE_PLATE.get().asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_SLABS).add(BFBlocks.HOARY_SLAB.get().asItem(), BFBlocks.WALNUT_SLAB.get().asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS).add(BFBlocks.HOARY_STAIRS.get().asItem(), BFBlocks.WALNUT_STAIRS.get().asItem());
+        getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS).add(BFBlocks.HOARY_TRAPDOOR.get().asItem(), BFBlocks.WALNUT_TRAPDOOR.get().asItem());
+        getOrCreateTagBuilder(ItemTags.BUTTONS).add(BFBlocks.CERAMIC_BUTTON.get().asItem());
 
         getOrCreateTagBuilder(ItemTags.STAIRS)
-                .add(BFBlocks.COIR_BRICK_STAIRS.asItem())
-                .add(BFBlocks.FELDSPAR_BRICK_STAIRS.asItem())
-                .add(BFBlocks.CERAMIC_TILE_STAIRS.asItem())
-                .add(BFBlocks.CERAMIC_MOSAIC_STAIRS.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.asItem())
+                .add(BFBlocks.COIR_BRICK_STAIRS.get().asItem())
+                .add(BFBlocks.FELDSPAR_BRICK_STAIRS.get().asItem())
+                .add(BFBlocks.CERAMIC_TILE_STAIRS.get().asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC_STAIRS.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.get().asItem())
         ;
         getOrCreateTagBuilder(ItemTags.SLABS)
-                .add(BFBlocks.COIR_BRICK_SLAB.asItem())
-                .add(BFBlocks.FELDSPAR_BRICK_SLAB.asItem())
-                .add(BFBlocks.CERAMIC_TILE_SLAB.asItem())
-                .add(BFBlocks.CERAMIC_MOSAIC_SLAB.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.asItem())
+                .add(BFBlocks.COIR_BRICK_SLAB.get().asItem())
+                .add(BFBlocks.FELDSPAR_BRICK_SLAB.get().asItem())
+                .add(BFBlocks.CERAMIC_TILE_SLAB.get().asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC_SLAB.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.get().asItem())
         ;
         getOrCreateTagBuilder(ItemTags.WALLS)
-                .add(BFBlocks.COIR_BRICK_WALL.asItem())
-                .add(BFBlocks.FELDSPAR_BRICK_WALL.asItem())
+                .add(BFBlocks.COIR_BRICK_WALL.get().asItem())
+                .add(BFBlocks.FELDSPAR_BRICK_WALL.get().asItem())
                 //.add(BFBlocks.CERAMIC_TILE_WALL.asItem())
                 //.add(BFBlocks.CERAMIC_MOSAIC_WALL.asItem())
                 //.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL.asItem())
@@ -193,100 +193,100 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(ItemTags.CANDLES)
-                .add(BFBlocks.GREEN_TEA_CANDLE.asItem())
-                .add(BFBlocks.BLACK_TEA_CANDLE.asItem())
-                .add(BFBlocks.CHAMOMILE_CANDLE.asItem())
-                .add(BFBlocks.HONEYSUCKLE_CANDLE.asItem())
-                .add(BFBlocks.BELLFLOWER_CANDLE.asItem())
-                .add(BFBlocks.TORCHFLOWER_CANDLE.asItem())
-                .add(BFBlocks.WALNUT_CANDLE.asItem())
-                .add(BFBlocks.COCONUT_CANDLE.asItem());
+                .add(BFBlocks.GREEN_TEA_CANDLE.get().asItem())
+                .add(BFBlocks.BLACK_TEA_CANDLE.get().asItem())
+                .add(BFBlocks.CHAMOMILE_CANDLE.get().asItem())
+                .add(BFBlocks.HONEYSUCKLE_CANDLE.get().asItem())
+                .add(BFBlocks.BELLFLOWER_CANDLE.get().asItem())
+                .add(BFBlocks.TORCHFLOWER_CANDLE.get().asItem())
+                .add(BFBlocks.WALNUT_CANDLE.get().asItem())
+                .add(BFBlocks.COCONUT_CANDLE.get().asItem());
 
         getOrCreateTagBuilder(ItemTags.PIGLIN_LOVED)
-                .add(BFBlocks.GOLDEN_APPLE_BLOCK.asItem())
-                .add(BFBlocks.GOLDEN_APPLE_LEAVES.asItem())
-                .add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.asItem());
+                .add(BFBlocks.GOLDEN_APPLE_BLOCK.get().asItem())
+                .add(BFBlocks.GOLDEN_APPLE_LEAVES.get().asItem())
+                .add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.get().asItem());
 
         getOrCreateTagBuilder(ItemTags.DYEABLE)
-                .add(BFBlocks.CERAMIC_TILES.asItem())
-                .add(BFBlocks.CERAMIC_TILE_STAIRS.asItem())
-                .add(BFBlocks.CERAMIC_TILE_SLAB.asItem())
+                .add(BFBlocks.CERAMIC_TILES.get().asItem())
+                .add(BFBlocks.CERAMIC_TILE_STAIRS.get().asItem())
+                .add(BFBlocks.CERAMIC_TILE_SLAB.get().asItem())
                 //.add(BFBlocks.CERAMIC_TILE_WALL.asItem())
-                .add(BFBlocks.CRACKED_CERAMIC_TILES.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_TILES.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.asItem())
+                .add(BFBlocks.CRACKED_CERAMIC_TILES.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILES.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get().asItem())
                 //.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL.asItem())
-                .add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.asItem())
-                .add(BFBlocks.CERAMIC_TILE_PILLAR.asItem())
-                .add(BFBlocks.CERAMIC_MOSAIC.asItem())
-                .add(BFBlocks.CERAMIC_MOSAIC_STAIRS.asItem())
-                .add(BFBlocks.CERAMIC_MOSAIC_SLAB.asItem())
+                .add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.get().asItem())
+                .add(BFBlocks.CERAMIC_TILE_PILLAR.get().asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC.get().asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC_STAIRS.get().asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC_SLAB.get().asItem())
                 //.add(BFBlocks.CERAMIC_MOSAIC_WALL.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.get().asItem())
                 //.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL.asItem())
-                .add(BFBlocks.CERAMIC_DOOR.asItem())
-                .add(BFBlocks.CERAMIC_TRAPDOOR.asItem())
-                .add(BFBlocks.CERAMIC_BUTTON.asItem())
-                .add(BFBlocks.CERAMIC_PRESSURE_PLATE.asItem())
-                .add(BFBlocks.CERAMIC_LEVER.asItem())
-                .add(BFBlocks.CERAMIC_DISH.asItem())
-                .add(BFBlocks.SOLID_CERAMIC.asItem())
-                .add(BFItems.ARTISAN_BRUSH.asItem())
+                .add(BFBlocks.CERAMIC_DOOR.get().asItem())
+                .add(BFBlocks.CERAMIC_TRAPDOOR.get().asItem())
+                .add(BFBlocks.CERAMIC_BUTTON.get().asItem())
+                .add(BFBlocks.CERAMIC_PRESSURE_PLATE.get().asItem())
+                .add(BFBlocks.CERAMIC_LEVER.get().asItem())
+                .add(BFBlocks.CERAMIC_DISH.get().asItem())
+                .add(BFBlocks.SOLID_CERAMIC.get().asItem())
+                .add(BFItems.ARTISAN_BRUSH.get().asItem())
         ;
 
-        getOrCreateTagBuilder(BFItemTags.APPLE_LEAVES).add(BFBlocks.APPLE_LEAVES.asItem(), BFBlocks.FLOWERING_APPLE_LEAVES.asItem());
-        getOrCreateTagBuilder(BFItemTags.ORANGE_LEAVES).add(BFBlocks.ORANGE_LEAVES.asItem(), BFBlocks.FLOWERING_ORANGE_LEAVES.asItem());
-        getOrCreateTagBuilder(BFItemTags.LEMON_LEAVES).add(BFBlocks.LEMON_LEAVES.asItem(), BFBlocks.FLOWERING_LEMON_LEAVES.asItem());
-        getOrCreateTagBuilder(BFItemTags.PLUM_LEAVES).add(BFBlocks.PLUM_LEAVES.asItem(), BFBlocks.FLOWERING_PLUM_LEAVES.asItem());
-        getOrCreateTagBuilder(BFItemTags.GOLDEN_APPLE_LEAVES).add(BFBlocks.GOLDEN_APPLE_LEAVES.asItem(), BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.asItem());
+        getOrCreateTagBuilder(BFItemTags.APPLE_LEAVES).add(BFBlocks.APPLE_LEAVES.get().asItem(), BFBlocks.FLOWERING_APPLE_LEAVES.get().asItem());
+        getOrCreateTagBuilder(BFItemTags.ORANGE_LEAVES).add(BFBlocks.ORANGE_LEAVES.get().asItem(), BFBlocks.FLOWERING_ORANGE_LEAVES.get().asItem());
+        getOrCreateTagBuilder(BFItemTags.LEMON_LEAVES).add(BFBlocks.LEMON_LEAVES.get().asItem(), BFBlocks.FLOWERING_LEMON_LEAVES.get().asItem());
+        getOrCreateTagBuilder(BFItemTags.PLUM_LEAVES).add(BFBlocks.PLUM_LEAVES.get().asItem(), BFBlocks.FLOWERING_PLUM_LEAVES.get().asItem());
+        getOrCreateTagBuilder(BFItemTags.GOLDEN_APPLE_LEAVES).add(BFBlocks.GOLDEN_APPLE_LEAVES.get().asItem(), BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.get().asItem());
         getOrCreateTagBuilder(BFItemTags.APPLE_LOGS)
-                .add(BFBlocks.APPLE_LOG.asItem())
-                .add(BFBlocks.STRIPPED_APPLE_LOG.asItem())
-                .add(BFBlocks.APPLE_WOOD.asItem())
-                .add(BFBlocks.STRIPPED_APPLE_WOOD.asItem())
+                .add(BFBlocks.APPLE_LOG.get().asItem())
+                .add(BFBlocks.STRIPPED_APPLE_LOG.get().asItem())
+                .add(BFBlocks.APPLE_WOOD.get().asItem())
+                .add(BFBlocks.STRIPPED_APPLE_WOOD.get().asItem())
         ;
         getOrCreateTagBuilder(BFItemTags.ORANGE_LOGS)
-                .add(BFBlocks.ORANGE_LOG.asItem())
-                .add(BFBlocks.STRIPPED_ORANGE_LOG.asItem())
-                .add(BFBlocks.ORANGE_WOOD.asItem())
-                .add(BFBlocks.STRIPPED_ORANGE_WOOD.asItem())
+                .add(BFBlocks.ORANGE_LOG.get().asItem())
+                .add(BFBlocks.STRIPPED_ORANGE_LOG.get().asItem())
+                .add(BFBlocks.ORANGE_WOOD.get().asItem())
+                .add(BFBlocks.STRIPPED_ORANGE_WOOD.get().asItem())
         ;
         getOrCreateTagBuilder(BFItemTags.LEMON_LOGS)
-                .add(BFBlocks.LEMON_LOG.asItem())
-                .add(BFBlocks.STRIPPED_LEMON_LOG.asItem())
-                .add(BFBlocks.LEMON_WOOD.asItem())
-                .add(BFBlocks.STRIPPED_LEMON_WOOD.asItem())
+                .add(BFBlocks.LEMON_LOG.get().asItem())
+                .add(BFBlocks.STRIPPED_LEMON_LOG.get().asItem())
+                .add(BFBlocks.LEMON_WOOD.get().asItem())
+                .add(BFBlocks.STRIPPED_LEMON_WOOD.get().asItem())
         ;
         getOrCreateTagBuilder(BFItemTags.PLUM_LOGS)
-                .add(BFBlocks.PLUM_LOG.asItem())
-                .add(BFBlocks.STRIPPED_PLUM_LOG.asItem())
-                .add(BFBlocks.PLUM_WOOD.asItem())
-                .add(BFBlocks.STRIPPED_PLUM_WOOD.asItem())
+                .add(BFBlocks.PLUM_LOG.get().asItem())
+                .add(BFBlocks.STRIPPED_PLUM_LOG.get().asItem())
+                .add(BFBlocks.PLUM_WOOD.get().asItem())
+                .add(BFBlocks.STRIPPED_PLUM_WOOD.get().asItem())
         ;
         getOrCreateTagBuilder(BFItemTags.HOARY_LOGS)
-                .add(BFBlocks.HOARY_LOG.asItem())
-                .add(BFBlocks.STRIPPED_HOARY_LOG.asItem())
-                .add(BFBlocks.HOARY_WOOD.asItem())
-                .add(BFBlocks.STRIPPED_HOARY_WOOD.asItem())
+                .add(BFBlocks.HOARY_LOG.get().asItem())
+                .add(BFBlocks.STRIPPED_HOARY_LOG.get().asItem())
+                .add(BFBlocks.HOARY_WOOD.get().asItem())
+                .add(BFBlocks.STRIPPED_HOARY_WOOD.get().asItem())
         ;
         getOrCreateTagBuilder(BFItemTags.PALM_LOGS)
-                .add(BFBlocks.PALM_LOG.asItem())
-                .add(BFBlocks.STRIPPED_PALM_LOG.asItem())
-                .add(BFBlocks.PALM_WOOD.asItem())
-                .add(BFBlocks.STRIPPED_PALM_WOOD.asItem())
+                .add(BFBlocks.PALM_LOG.get().asItem())
+                .add(BFBlocks.STRIPPED_PALM_LOG.get().asItem())
+                .add(BFBlocks.PALM_WOOD.get().asItem())
+                .add(BFBlocks.STRIPPED_PALM_WOOD.get().asItem())
         ;
         getOrCreateTagBuilder(BFItemTags.GOLDEN_APPLE_LOGS)
-                .add(BFBlocks.GOLDEN_APPLE_LOG.asItem())
-                .add(BFBlocks.GOLDEN_APPLE_WOOD.asItem())
+                .add(BFBlocks.GOLDEN_APPLE_LOG.get().asItem())
+                .add(BFBlocks.GOLDEN_APPLE_WOOD.get().asItem())
         ;
         getOrCreateTagBuilder(BFItemTags.WALNUT_LOGS)
-                .add(BFBlocks.WALNUT_LOG.asItem())
-                .add(BFBlocks.STRIPPED_WALNUT_LOG.asItem())
-                .add(BFBlocks.WALNUT_WOOD.asItem())
-                .add(BFBlocks.STRIPPED_WALNUT_WOOD.asItem())
+                .add(BFBlocks.WALNUT_LOG.get().asItem())
+                .add(BFBlocks.STRIPPED_WALNUT_LOG.get().asItem())
+                .add(BFBlocks.WALNUT_WOOD.get().asItem())
+                .add(BFBlocks.STRIPPED_WALNUT_WOOD.get().asItem())
         ;
         getOrCreateTagBuilder(BFItemTags.FRUIT_LOGS)
                 .addTag(BFItemTags.APPLE_LOGS)
@@ -297,31 +297,31 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(BFItemTags.PALM_LOGS)
         ;
         getOrCreateTagBuilder(BFItemTags.DYEABLE_CERAMIC_BLOCKS)
-                .add(BFBlocks.CERAMIC_TILES.asItem())
-                .add(BFBlocks.CERAMIC_TILE_STAIRS.asItem())
-                .add(BFBlocks.CERAMIC_TILE_SLAB.asItem())
+                .add(BFBlocks.CERAMIC_TILES.get().asItem())
+                .add(BFBlocks.CERAMIC_TILE_STAIRS.get().asItem())
+                .add(BFBlocks.CERAMIC_TILE_SLAB.get().asItem())
                 //.add(BFBlocks.CERAMIC_TILE_WALL.asItem())
-                .add(BFBlocks.CRACKED_CERAMIC_TILES.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_TILES.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.asItem())
+                .add(BFBlocks.CRACKED_CERAMIC_TILES.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILES.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get().asItem())
                 //.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL.asItem())
-                .add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.asItem())
-                .add(BFBlocks.CERAMIC_TILE_PILLAR.asItem())
-                .add(BFBlocks.CERAMIC_MOSAIC.asItem())
-                .add(BFBlocks.CERAMIC_MOSAIC_STAIRS.asItem())
-                .add(BFBlocks.CERAMIC_MOSAIC_SLAB.asItem())
+                .add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.get().asItem())
+                .add(BFBlocks.CERAMIC_TILE_PILLAR.get().asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC.get().asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC_STAIRS.get().asItem())
+                .add(BFBlocks.CERAMIC_MOSAIC_SLAB.get().asItem())
                 //.add(BFBlocks.CERAMIC_MOSAIC_WALL.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.asItem())
-                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.get().asItem())
+                .add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.get().asItem())
                 //.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL.asItem())
-                .add(BFBlocks.CERAMIC_DOOR.asItem())
-                .add(BFBlocks.CERAMIC_TRAPDOOR.asItem())
-                .add(BFBlocks.CERAMIC_PRESSURE_PLATE.asItem())
-                .add(BFBlocks.CERAMIC_BUTTON.asItem())
-                .add(BFBlocks.CERAMIC_LEVER.asItem())
-                .add(BFBlocks.CERAMIC_DISH.asItem())
+                .add(BFBlocks.CERAMIC_DOOR.get().asItem())
+                .add(BFBlocks.CERAMIC_TRAPDOOR.get().asItem())
+                .add(BFBlocks.CERAMIC_PRESSURE_PLATE.get().asItem())
+                .add(BFBlocks.CERAMIC_BUTTON.get().asItem())
+                .add(BFBlocks.CERAMIC_LEVER.get().asItem())
+                .add(BFBlocks.CERAMIC_DISH.get().asItem())
         ;
         getOrCreateTagBuilder(BFItemTags.FELSIC_STONES)
                 .add(Items.ANDESITE)
@@ -335,55 +335,55 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(BFItemTags.VINE_CROP_SEEDS)
-                .add(BFItems.PASSION_FRUIT)
-                .add(BFItems.ELDERBERRIES)
+                .add(BFItems.PASSION_FRUIT.get())
+                .add(BFItems.ELDERBERRIES.get())
                 .add(Items.GLOW_BERRIES)
-                .add(BFItems.LAPISBERRY_SEEDS)
+                .add(BFItems.LAPISBERRY_SEEDS.get())
         ;
         getOrCreateTagBuilder(BFItemTags.COOKED_FISHES)
                 .add(Items.COOKED_COD)
                 .add(Items.COOKED_SALMON)
         ;
         getOrCreateTagBuilder(BFItemTags.MEALS)
-                .add(BFItems.MUSHROOM_STUFFED_POTATO)
-                .add(BFItems.BERRY_STUFFED_POTATO)
-                .add(BFItems.MAIZE_STUFFED_POTATO)
-                .add(BFItems.STUFFED_HOARY_APPLE)
-                .add(BFItems.COCONUT_CRUSTED_COD)
-                .add(BFItems.PASSION_GLAZED_SALMON)
-                .add(BFItems.LEEK_STEW)
-                .add(BFItems.FISH_STEW)
-                .add(BFItems.APPLE_STEW)
-                .add(BFItems.COCONUT_STEW)
-                .add(BFItems.STONE_STEW)
-                .add(BFItems.BOUNTIFUL_STEW)
-                .add(BFItems.SEA_SALAD)
-                .add(BFItems.FOREST_MEDLEY)
-                .add(BFItems.ARID_MEDLEY)
-                .add(BFItems.MEADOW_MEDLEY)
-                .add(BFItems.MIRE_MEDLEY)
-                .add(BFItems.COASTAL_MEDLEY)
-                .add(BFItems.TROPICAL_MEDLEY)
-                .add(BFItems.CRUSTED_BEEF)
-                .add(BFItems.CRIMSON_CHOW)
-                .add(BFItems.WARPED_CHOW)
-                .add(BFItems.CUSTARD)
-                .add(BFItems.PIQUANT_CUSTARD)
-                .add(BFItems.PASSION_CUSTARD)
-                .add(BFItems.COCOA_CUSTARD)
-                .add(BFItems.ANCIENT_CUSTARD)
+                .add(BFItems.MUSHROOM_STUFFED_POTATO.get())
+                .add(BFItems.BERRY_STUFFED_POTATO.get())
+                .add(BFItems.MAIZE_STUFFED_POTATO.get())
+                .add(BFItems.STUFFED_HOARY_APPLE.get())
+                .add(BFItems.COCONUT_CRUSTED_COD.get())
+                .add(BFItems.PASSION_GLAZED_SALMON.get())
+                .add(BFItems.LEEK_STEW.get())
+                .add(BFItems.FISH_STEW.get())
+                .add(BFItems.APPLE_STEW.get())
+                .add(BFItems.COCONUT_STEW.get())
+                .add(BFItems.STONE_STEW.get())
+                .add(BFItems.BOUNTIFUL_STEW.get())
+                .add(BFItems.SEA_SALAD.get())
+                .add(BFItems.FOREST_MEDLEY.get())
+                .add(BFItems.ARID_MEDLEY.get())
+                .add(BFItems.MEADOW_MEDLEY.get())
+                .add(BFItems.MIRE_MEDLEY.get())
+                .add(BFItems.COASTAL_MEDLEY.get())
+                .add(BFItems.TROPICAL_MEDLEY.get())
+                .add(BFItems.CRUSTED_BEEF.get())
+                .add(BFItems.CRIMSON_CHOW.get())
+                .add(BFItems.WARPED_CHOW.get())
+                .add(BFItems.CUSTARD.get())
+                .add(BFItems.PIQUANT_CUSTARD.get())
+                .add(BFItems.PASSION_CUSTARD.get())
+                .add(BFItems.COCOA_CUSTARD.get())
+                .add(BFItems.ANCIENT_CUSTARD.get())
         ;
         getOrCreateTagBuilder(ItemTags.SAPLINGS)
-                .add(BFBlocks.APPLE_SAPLING.asItem())
-                .add(BFBlocks.GOLDEN_APPLE_SAPLING.asItem())
-                .add(BFBlocks.ORANGE_SAPLING.asItem())
-                .add(BFBlocks.LEMON_SAPLING.asItem())
-                .add(BFBlocks.PLUM_SAPLING.asItem())
-                .add(BFBlocks.HOARY_APPLE_SAPLING.asItem())
-                .add(BFBlocks.WALNUT_SAPLING.asItem())
+                .add(BFBlocks.APPLE_SAPLING.get().asItem())
+                .add(BFBlocks.GOLDEN_APPLE_SAPLING.get().asItem())
+                .add(BFBlocks.ORANGE_SAPLING.get().asItem())
+                .add(BFBlocks.LEMON_SAPLING.get().asItem())
+                .add(BFBlocks.PLUM_SAPLING.get().asItem())
+                .add(BFBlocks.HOARY_APPLE_SAPLING.get().asItem())
+                .add(BFBlocks.WALNUT_SAPLING.get().asItem())
         ;
         getOrCreateTagBuilder(ItemTags.DIRT)
-                .add(BFBlocks.GRASSY_DIRT.asItem())
+                .add(BFBlocks.GRASSY_DIRT.get().asItem())
         ;
         getOrCreateTagBuilder(BFItemTags.GRASS_SEEDS_PLANTABLE_ON)
                 .add(Items.DIRT)
@@ -394,26 +394,26 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(BFItemTags.PICKETS)
-                .add(BFBlocks.ACACIA_PICKETS.asItem())
-                .add(BFBlocks.BAMBOO_PICKETS.asItem())
-                .add(BFBlocks.BIRCH_PICKETS.asItem())
-                .add(BFBlocks.CHERRY_PICKETS.asItem())
-                .add(BFBlocks.CRIMSON_PICKETS.asItem())
-                .add(BFBlocks.DARK_OAK_PICKETS.asItem())
-                .add(BFBlocks.HOARY_PICKETS.asItem())
-                .add(BFBlocks.JUNGLE_PICKETS.asItem())
-                .add(BFBlocks.MANGROVE_PICKETS.asItem())
-                .add(BFBlocks.OAK_PICKETS.asItem())
-                .add(BFBlocks.SPRUCE_PICKETS.asItem())
-                .add(BFBlocks.WALNUT_PICKETS.asItem())
-                .add(BFBlocks.WARPED_PICKETS.asItem())
+                .add(BFBlocks.ACACIA_PICKETS.get().asItem())
+                .add(BFBlocks.BAMBOO_PICKETS.get().asItem())
+                .add(BFBlocks.BIRCH_PICKETS.get().asItem())
+                .add(BFBlocks.CHERRY_PICKETS.get().asItem())
+                .add(BFBlocks.CRIMSON_PICKETS.get().asItem())
+                .add(BFBlocks.DARK_OAK_PICKETS.get().asItem())
+                .add(BFBlocks.HOARY_PICKETS.get().asItem())
+                .add(BFBlocks.JUNGLE_PICKETS.get().asItem())
+                .add(BFBlocks.MANGROVE_PICKETS.get().asItem())
+                .add(BFBlocks.OAK_PICKETS.get().asItem())
+                .add(BFBlocks.SPRUCE_PICKETS.get().asItem())
+                .add(BFBlocks.WALNUT_PICKETS.get().asItem())
+                .add(BFBlocks.WARPED_PICKETS.get().asItem())
         ;
 
         getOrCreateTagBuilder(BFItemTags.MULCH)
-                .add(BFBlocks.WALNUT_MULCH.asItem())
-                .add(BFBlocks.WALNUT_MULCH_BLOCK.asItem())
-                .add(BFBlocks.PALM_MULCH.asItem())
-                .add(BFBlocks.PALM_MULCH_BLOCK.asItem())
+                .add(BFBlocks.WALNUT_MULCH.get().asItem())
+                .add(BFBlocks.WALNUT_MULCH_BLOCK.get().asItem())
+                .add(BFBlocks.PALM_MULCH.get().asItem())
+                .add(BFBlocks.PALM_MULCH_BLOCK.get().asItem())
         ;
 
         getOrCreateTagBuilder(BFItemTags.SUGAR_INGREDIENTS)
@@ -422,7 +422,7 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(ItemTags.DIRT)
-                .add(BFBlocks.WALNUT_MULCH_BLOCK.asItem())
-                .add(BFBlocks.PALM_MULCH_BLOCK.asItem());
+                .add(BFBlocks.WALNUT_MULCH_BLOCK.get().asItem())
+                .add(BFBlocks.PALM_MULCH_BLOCK.get().asItem());
     }
 }

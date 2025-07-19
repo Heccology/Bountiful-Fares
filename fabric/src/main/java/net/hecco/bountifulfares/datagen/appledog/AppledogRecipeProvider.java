@@ -19,6 +19,6 @@ public class AppledogRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void buildRecipes(RecipeOutput exporter) {
-        threeByThreePacker(exporter, RecipeCategory.MISC, AppledogBlocks.APPLEDOG_BLOCK, BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(APPLEDOG_MOD_ID, "dogapple")));
+//        threeByThreePacker(exporter, RecipeCategory.MISC, AppledogBlocks.APPLEDOG_BLOCK, BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(APPLEDOG_MOD_ID, "dogapple")));
     }
 }

@@ -7,18 +7,14 @@ import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
 import net.hecco.bountifulfares.compat.delicate_dyes.DelicateDyesBlocks;
 import net.hecco.bountifulfares.compat.dungeons_delight.DungeonsDelightBlocks;
-import net.hecco.bountifulfares.compat.dye_depot.DyeDepotBlocks;
 import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
-import net.hecco.bountifulfares.compat.mint.MintBlocks;
 import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
-import net.hecco.bountifulfares.compat.spawn.SpawnBlocks;
 import net.hecco.bountifulfares.datagen.yapping.YappingCompatLangProvider;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFTrellises;
 import net.hecco.bountifulfares.registry.misc.BFCompat;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
-import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -70,46 +66,46 @@ public class BFLangProvider extends FabricLanguageProvider {
     @Override
     public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
         generate(translationBuilder, "itemgroup.bountiful_fares", "Bountiful Fares");
-        generate(translationBuilder, BFBlocks.HANGING_APPLE, "Apple");
-        generate(translationBuilder, BFBlocks.HANGING_ORANGE, "Orange");
-        generate(translationBuilder, BFBlocks.HANGING_LEMON, "Lemon");
-        generate(translationBuilder, BFBlocks.HANGING_PLUM, "Plum");
-        generate(translationBuilder, BFBlocks.HANGING_GOLDEN_APPLE, "Golden Apple");
-        generate(translationBuilder, BFBlocks.HANGING_WITHERED_GOLDEN_APPLE, "Withered Golden Apple");
+        generate(translationBuilder, BFBlocks.HANGING_APPLE.get(), "Apple");
+        generate(translationBuilder, BFBlocks.HANGING_ORANGE.get(), "Orange");
+        generate(translationBuilder, BFBlocks.HANGING_LEMON.get(), "Lemon");
+        generate(translationBuilder, BFBlocks.HANGING_PLUM.get(), "Plum");
+        generate(translationBuilder, BFBlocks.HANGING_GOLDEN_APPLE.get(), "Golden Apple");
+        generate(translationBuilder, BFBlocks.HANGING_WITHERED_GOLDEN_APPLE.get(), "Withered Golden Apple");
 
 
 
-        generate(translationBuilder, BFBlocks.HOARY_APPLE_SAPLING_CROP, "Hoary Apple Sapling");
-        generate(translationBuilder, BFItems.HOARY_CHEST_BOAT, "Hoary Boat with Chest");
-        generate(translationBuilder, BFBlocks.HANGING_HOARY_APPLE, "Hoary Apple");
+        generate(translationBuilder, BFBlocks.HOARY_APPLE_SAPLING_CROP.get(), "Hoary Apple Sapling");
+//        generate(translationBuilder, BFItems.HOARY_CHEST_BOAT, "Hoary Boat with Chest"); TODO
+        generate(translationBuilder, BFBlocks.HANGING_HOARY_APPLE.get(), "Hoary Apple");
 
-        generate(translationBuilder, BFBlocks.CERAMIC_CLAY_BLOCK, "Block of Ceramic Clay");
+        generate(translationBuilder, BFBlocks.CERAMIC_CLAY_BLOCK.get(), "Block of Ceramic Clay");
         //generate(translationBuilder, BFBlocks.CERAMIC_MOSAIC_WALL, "Ceramic Mosaic Wall");
         //generate(translationBuilder, BFBlocks.CERAMIC_TILE_WALL, "Ceramic Tile Wall");
         //generate(translationBuilder, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, "Checkered Ceramic Mosaic Wall");
         //generate(translationBuilder, BFBlocks.CHECKERED_CERAMIC_TILE_WALL, "Checkered Ceramic Tile Wall");
 
-        generate(translationBuilder, BFItems.WALNUT_CHEST_BOAT, "Walnut Boat with Chest");
+//        generate(translationBuilder, BFItems.WALNUT_CHEST_BOAT, "Walnut Boat with Chest"); TODO
 
-        generate(translationBuilder, BFBlocks.HANGING_WALNUTS, "Walnuts");
+        generate(translationBuilder, BFBlocks.HANGING_WALNUTS.get(), "Walnuts");
 
-        generate(translationBuilder, BFBlocks.FELDSPAR_BRICK_WALL, "Feldspar Brick Wall");
+        generate(translationBuilder, BFBlocks.FELDSPAR_BRICK_WALL.get(), "Feldspar Brick Wall");
 
-        generate(translationBuilder, BFBlocks.WALL_PALM_FROND, "Palm Frond");
+        generate(translationBuilder, BFBlocks.WALL_PALM_FROND.get(), "Palm Frond");
 
-        generate(translationBuilder, BFBlocks.HOARY_SIGN, "Hoary Sign");
-        generate(translationBuilder, BFBlocks.HOARY_WALL_SIGN, "Hoary Sign");
-        generate(translationBuilder, BFItems.HOARY_SIGN, "Hoary Sign");
-        generate(translationBuilder, BFBlocks.HOARY_HANGING_SIGN, "Hoary Hanging Sign");
-        generate(translationBuilder, BFBlocks.HOARY_WALL_HANGING_SIGN, "Hoary Hanging Sign");
-        generate(translationBuilder, BFItems.HOARY_HANGING_SIGN, "Hoary Hanging Sign");
+        generate(translationBuilder, BFBlocks.HOARY_SIGN.get(), "Hoary Sign");
+        generate(translationBuilder, BFBlocks.HOARY_WALL_SIGN.get(), "Hoary Sign");
+        generate(translationBuilder, BFItems.HOARY_SIGN.get(), "Hoary Sign");
+        generate(translationBuilder, BFBlocks.HOARY_HANGING_SIGN.get(), "Hoary Hanging Sign");
+        generate(translationBuilder, BFBlocks.HOARY_WALL_HANGING_SIGN.get(), "Hoary Hanging Sign");
+        generate(translationBuilder, BFItems.HOARY_HANGING_SIGN.get(), "Hoary Hanging Sign");
 
-        generate(translationBuilder, BFBlocks.WALNUT_SIGN, "Walnut Sign");
-        generate(translationBuilder, BFBlocks.WALNUT_WALL_SIGN, "Walnut Sign");
-        generate(translationBuilder, BFItems.WALNUT_SIGN, "Walnut Sign");
-        generate(translationBuilder, BFBlocks.WALNUT_HANGING_SIGN, "Walnut Hanging Sign");
-        generate(translationBuilder, BFBlocks.WALNUT_WALL_HANGING_SIGN, "Walnut Hanging Sign");
-        generate(translationBuilder, BFItems.WALNUT_HANGING_SIGN, "Walnut Hanging Sign");
+        generate(translationBuilder, BFBlocks.WALNUT_SIGN.get(), "Walnut Sign");
+        generate(translationBuilder, BFBlocks.WALNUT_WALL_SIGN.get(), "Walnut Sign");
+        generate(translationBuilder, BFItems.WALNUT_SIGN.get(), "Walnut Sign");
+        generate(translationBuilder, BFBlocks.WALNUT_HANGING_SIGN.get(), "Walnut Hanging Sign");
+        generate(translationBuilder, BFBlocks.WALNUT_WALL_HANGING_SIGN.get(), "Walnut Hanging Sign");
+        generate(translationBuilder, BFItems.WALNUT_HANGING_SIGN.get(), "Walnut Hanging Sign");
 
         generate(translationBuilder, "effect.bountifulfares.acidic", "Acidic");
         generate(translationBuilder, "item.minecraft.potion.effect.bountifulfares.acidic", "Potion of Acidity");
@@ -144,50 +140,50 @@ public class BFLangProvider extends FabricLanguageProvider {
 
 
 
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.OAK), "Oak Trellis");
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.SPRUCE));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.BIRCH));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.JUNGLE));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.ACACIA));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.DARK_OAK));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.MANGROVE));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.CHERRY));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.BAMBOO));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.WALNUT));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.HOARY));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.CRIMSON));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.WARPED));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.OAK), "Oak Trellis");
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.SPRUCE));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.BIRCH));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.JUNGLE));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.ACACIA));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.DARK_OAK));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.MANGROVE));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.CHERRY));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.BAMBOO));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.WALNUT));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.HOARY));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.CRIMSON));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(BFTrellises.WARPED));
+//
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(ExcessiveBuildingBlocks.ANCIENT));
+//
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(MintBlocks.WINTERGREEN));
+//
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.ASPEN));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.CEDAR));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.COCONUT));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.CYPRESS));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.FIR));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.GHAF));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.JOSHUA));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.LARCH));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.MAHOGANY));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.MAPLE));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.OLIVE));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.PALO_VERDE));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.SAXAUL));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.SUGI));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.WILLOW));
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.WISTERIA));
+//
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(SpawnBlocks.ROTTEN));
+//
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(ArtsAndCraftsBlocks.CORK));
+//
+//        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(DungeonsDelightBlocks.WORMWOOD));
 
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(ExcessiveBuildingBlocks.ANCIENT));
-
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(MintBlocks.WINTERGREEN));
-
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.ASPEN));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.CEDAR));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.COCONUT));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.CYPRESS));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.FIR));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.GHAF));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.JOSHUA));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.LARCH));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.MAHOGANY));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.MAPLE));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.OLIVE));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.PALO_VERDE));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.SAXAUL));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.SUGI));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.WILLOW));
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.WISTERIA));
-
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(SpawnBlocks.ROTTEN));
-
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(ArtsAndCraftsBlocks.CORK));
-
-        generate(translationBuilder, TrellisUtil.getTrellisFromVariant(DungeonsDelightBlocks.WORMWOOD));
 
 
-
-        generate(translationBuilder, BFBlocks.MAIZE_CROP, "Maize");
+        generate(translationBuilder, BFBlocks.MAIZE_CROP.get(), "Maize");
 
 
 
@@ -196,69 +192,69 @@ public class BFLangProvider extends FabricLanguageProvider {
 //        generate(translationBuilder, "effect.bountifulfares.gorging", "Gorging");
 
 
-        generateJackOStraw(translationBuilder, BFBlocks.RED_JACK_O_STRAW, "Red");
-        generateJackOStraw(translationBuilder, BFBlocks.ORANGE_JACK_O_STRAW, "Orange");
-        generateJackOStraw(translationBuilder, BFBlocks.YELLOW_JACK_O_STRAW, "Yellow");
-        generateJackOStraw(translationBuilder, BFBlocks.LIME_JACK_O_STRAW, "Lime");
-        generateJackOStraw(translationBuilder, BFBlocks.GREEN_JACK_O_STRAW, "Green");
-        generateJackOStraw(translationBuilder, BFBlocks.CYAN_JACK_O_STRAW, "Cyan");
-        generateJackOStraw(translationBuilder, BFBlocks.LIGHT_BLUE_JACK_O_STRAW, "Light Blue");
-        generateJackOStraw(translationBuilder, BFBlocks.BLUE_JACK_O_STRAW, "Blue");
-        generateJackOStraw(translationBuilder, BFBlocks.PURPLE_JACK_O_STRAW, "Purple");
-        generateJackOStraw(translationBuilder, BFBlocks.MAGENTA_JACK_O_STRAW, "Magenta");
-        generateJackOStraw(translationBuilder, BFBlocks.PINK_JACK_O_STRAW, "Pink");
-        generateJackOStraw(translationBuilder, BFBlocks.WHITE_JACK_O_STRAW, "White");
-        generateJackOStraw(translationBuilder, BFBlocks.LIGHT_GRAY_JACK_O_STRAW, "Light Gray");
-        generateJackOStraw(translationBuilder, BFBlocks.GRAY_JACK_O_STRAW, "Gray");
-        generateJackOStraw(translationBuilder, BFBlocks.BLACK_JACK_O_STRAW, "Black");
-        generateJackOStraw(translationBuilder, BFBlocks.BROWN_JACK_O_STRAW, "Brown");
+        generateJackOStraw(translationBuilder, BFBlocks.RED_JACK_O_STRAW.get(), "Red");
+        generateJackOStraw(translationBuilder, BFBlocks.ORANGE_JACK_O_STRAW.get(), "Orange");
+        generateJackOStraw(translationBuilder, BFBlocks.YELLOW_JACK_O_STRAW.get(), "Yellow");
+        generateJackOStraw(translationBuilder, BFBlocks.LIME_JACK_O_STRAW.get(), "Lime");
+        generateJackOStraw(translationBuilder, BFBlocks.GREEN_JACK_O_STRAW.get(), "Green");
+        generateJackOStraw(translationBuilder, BFBlocks.CYAN_JACK_O_STRAW.get(), "Cyan");
+        generateJackOStraw(translationBuilder, BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get(), "Light Blue");
+        generateJackOStraw(translationBuilder, BFBlocks.BLUE_JACK_O_STRAW.get(), "Blue");
+        generateJackOStraw(translationBuilder, BFBlocks.PURPLE_JACK_O_STRAW.get(), "Purple");
+        generateJackOStraw(translationBuilder, BFBlocks.MAGENTA_JACK_O_STRAW.get(), "Magenta");
+        generateJackOStraw(translationBuilder, BFBlocks.PINK_JACK_O_STRAW.get(), "Pink");
+        generateJackOStraw(translationBuilder, BFBlocks.WHITE_JACK_O_STRAW.get(), "White");
+        generateJackOStraw(translationBuilder, BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), "Light Gray");
+        generateJackOStraw(translationBuilder, BFBlocks.GRAY_JACK_O_STRAW.get(), "Gray");
+        generateJackOStraw(translationBuilder, BFBlocks.BLACK_JACK_O_STRAW.get(), "Black");
+        generateJackOStraw(translationBuilder, BFBlocks.BROWN_JACK_O_STRAW.get(), "Brown");
 
-        generateJackOStraw(translationBuilder, MintBlocks.ACORN_JACK_O_STRAW, "Acorn");
-        generateJackOStraw(translationBuilder, MintBlocks.AMBER_JACK_O_STRAW, "Amber");
-        generateJackOStraw(translationBuilder, MintBlocks.ARTICHOKE_JACK_O_STRAW, "Artichoke");
-        generateJackOStraw(translationBuilder, MintBlocks.BANANA_JACK_O_STRAW, "Banana");
-        generateJackOStraw(translationBuilder, MintBlocks.CERULEAN_JACK_O_STRAW, "Cerulean");
-        generateJackOStraw(translationBuilder, MintBlocks.FUCHSIA_JACK_O_STRAW, "Fuchsia");
-        generateJackOStraw(translationBuilder, MintBlocks.GRAPE_JACK_O_STRAW, "Grape");
-        generateJackOStraw(translationBuilder, MintBlocks.INDIGO_JACK_O_STRAW, "Indigo");
-        generateJackOStraw(translationBuilder, MintBlocks.MAROON_JACK_O_STRAW, "Maroon");
-        generateJackOStraw(translationBuilder, MintBlocks.MAUVE_JACK_O_STRAW, "Mauve");
-        generateJackOStraw(translationBuilder, MintBlocks.MINT_JACK_O_STRAW, "Mint");
-        generateJackOStraw(translationBuilder, MintBlocks.MOLD_JACK_O_STRAW, "Mold");
-        generateJackOStraw(translationBuilder, MintBlocks.NAVY_JACK_O_STRAW, "Navy");
-        generateJackOStraw(translationBuilder, MintBlocks.PEACH_JACK_O_STRAW, "Peach");
-        generateJackOStraw(translationBuilder, MintBlocks.PERIWINKLE_JACK_O_STRAW, "Periwinkle");
-        generateJackOStraw(translationBuilder, MintBlocks.SAGE_JACK_O_STRAW, "Sage");
-        generateJackOStraw(translationBuilder, MintBlocks.SAP_JACK_O_STRAW, "Sap");
-        generateJackOStraw(translationBuilder, MintBlocks.SHAMROCK_JACK_O_STRAW, "Shamrock");
-        generateJackOStraw(translationBuilder, MintBlocks.VELVET_JACK_O_STRAW, "Velvet");
-        generateJackOStraw(translationBuilder, MintBlocks.VERMILION_JACK_O_STRAW, "Vermilion");
-
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.MAROON_JACK_O_STRAW, "Maroon");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.ROSE_JACK_O_STRAW, "Rose");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.CORAL_JACK_O_STRAW, "Coral");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.GINGER_JACK_O_STRAW, "Ginger");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.TAN_JACK_O_STRAW, "Tan");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.BEIGE_JACK_O_STRAW, "Beige");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.AMBER_JACK_O_STRAW, "Amber");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.OLIVE_JACK_O_STRAW, "Olive");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.FOREST_JACK_O_STRAW, "Forest");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.VERDANT_JACK_O_STRAW, "Verdant");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.TEAL_JACK_O_STRAW, "Teal");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.MINT_JACK_O_STRAW, "Mint");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.AQUA_JACK_O_STRAW, "Aqua");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.SLATE_JACK_O_STRAW, "Slate");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.NAVY_JACK_O_STRAW, "Navy");
-        generateJackOStraw(translationBuilder, DyeDepotBlocks.INDIGO_JACK_O_STRAW, "Indigo");
-
-        generateJackOStraw(translationBuilder, DelicateDyesBlocks.CORAL_JACK_O_STRAW, "Coral");
-        generateJackOStraw(translationBuilder, DelicateDyesBlocks.CANARY_JACK_O_STRAW, "Canary");
-        generateJackOStraw(translationBuilder, DelicateDyesBlocks.WASABI_JACK_O_STRAW, "Wasabi");
-        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW, "Sacramento");
-        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SKY_JACK_O_STRAW, "Sky");
-        generateJackOStraw(translationBuilder, DelicateDyesBlocks.BLURPLE_JACK_O_STRAW, "Blurple");
-        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SANGRIA_JACK_O_STRAW, "Sangria");
-        generateJackOStraw(translationBuilder, DelicateDyesBlocks.ROSE_JACK_O_STRAW, "Rose");
+//        generateJackOStraw(translationBuilder, MintBlocks.ACORN_JACK_O_STRAW, "Acorn");
+//        generateJackOStraw(translationBuilder, MintBlocks.AMBER_JACK_O_STRAW, "Amber");
+//        generateJackOStraw(translationBuilder, MintBlocks.ARTICHOKE_JACK_O_STRAW, "Artichoke");
+//        generateJackOStraw(translationBuilder, MintBlocks.BANANA_JACK_O_STRAW, "Banana");
+//        generateJackOStraw(translationBuilder, MintBlocks.CERULEAN_JACK_O_STRAW, "Cerulean");
+//        generateJackOStraw(translationBuilder, MintBlocks.FUCHSIA_JACK_O_STRAW, "Fuchsia");
+//        generateJackOStraw(translationBuilder, MintBlocks.GRAPE_JACK_O_STRAW, "Grape");
+//        generateJackOStraw(translationBuilder, MintBlocks.INDIGO_JACK_O_STRAW, "Indigo");
+//        generateJackOStraw(translationBuilder, MintBlocks.MAROON_JACK_O_STRAW, "Maroon");
+//        generateJackOStraw(translationBuilder, MintBlocks.MAUVE_JACK_O_STRAW, "Mauve");
+//        generateJackOStraw(translationBuilder, MintBlocks.MINT_JACK_O_STRAW, "Mint");
+//        generateJackOStraw(translationBuilder, MintBlocks.MOLD_JACK_O_STRAW, "Mold");
+//        generateJackOStraw(translationBuilder, MintBlocks.NAVY_JACK_O_STRAW, "Navy");
+//        generateJackOStraw(translationBuilder, MintBlocks.PEACH_JACK_O_STRAW, "Peach");
+//        generateJackOStraw(translationBuilder, MintBlocks.PERIWINKLE_JACK_O_STRAW, "Periwinkle");
+//        generateJackOStraw(translationBuilder, MintBlocks.SAGE_JACK_O_STRAW, "Sage");
+//        generateJackOStraw(translationBuilder, MintBlocks.SAP_JACK_O_STRAW, "Sap");
+//        generateJackOStraw(translationBuilder, MintBlocks.SHAMROCK_JACK_O_STRAW, "Shamrock");
+//        generateJackOStraw(translationBuilder, MintBlocks.VELVET_JACK_O_STRAW, "Velvet");
+//        generateJackOStraw(translationBuilder, MintBlocks.VERMILION_JACK_O_STRAW, "Vermilion");
+//
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.MAROON_JACK_O_STRAW, "Maroon");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.ROSE_JACK_O_STRAW, "Rose");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.CORAL_JACK_O_STRAW, "Coral");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.GINGER_JACK_O_STRAW, "Ginger");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.TAN_JACK_O_STRAW, "Tan");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.BEIGE_JACK_O_STRAW, "Beige");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.AMBER_JACK_O_STRAW, "Amber");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.OLIVE_JACK_O_STRAW, "Olive");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.FOREST_JACK_O_STRAW, "Forest");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.VERDANT_JACK_O_STRAW, "Verdant");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.TEAL_JACK_O_STRAW, "Teal");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.MINT_JACK_O_STRAW, "Mint");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.AQUA_JACK_O_STRAW, "Aqua");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.SLATE_JACK_O_STRAW, "Slate");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.NAVY_JACK_O_STRAW, "Navy");
+//        generateJackOStraw(translationBuilder, DyeDepotBlocks.INDIGO_JACK_O_STRAW, "Indigo");
+//
+//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.CORAL_JACK_O_STRAW, "Coral");
+//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.CANARY_JACK_O_STRAW, "Canary");
+//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.WASABI_JACK_O_STRAW, "Wasabi");
+//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW, "Sacramento");
+//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SKY_JACK_O_STRAW, "Sky");
+//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.BLURPLE_JACK_O_STRAW, "Blurple");
+//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SANGRIA_JACK_O_STRAW, "Sangria");
+//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.ROSE_JACK_O_STRAW, "Rose"); //TODO
 
 
 

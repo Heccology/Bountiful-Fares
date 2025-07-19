@@ -17,14 +17,14 @@ public class DelicateDyesBlockLootTableProvider extends FabricBlockLootTableProv
 
     @Override
     public void generate() {
-        jackOStrawDrops(DelicateDyesBlocks.CORAL_JACK_O_STRAW);
-        jackOStrawDrops(DelicateDyesBlocks.CANARY_JACK_O_STRAW);
-        jackOStrawDrops(DelicateDyesBlocks.WASABI_JACK_O_STRAW);
-        jackOStrawDrops(DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW);
-        jackOStrawDrops(DelicateDyesBlocks.SKY_JACK_O_STRAW);
-        jackOStrawDrops(DelicateDyesBlocks.BLURPLE_JACK_O_STRAW);
-        jackOStrawDrops(DelicateDyesBlocks.SANGRIA_JACK_O_STRAW);
-        jackOStrawDrops(DelicateDyesBlocks.ROSE_JACK_O_STRAW);
+//        jackOStrawDrops(DelicateDyesBlocks.CORAL_JACK_O_STRAW);
+//        jackOStrawDrops(DelicateDyesBlocks.CANARY_JACK_O_STRAW);
+//        jackOStrawDrops(DelicateDyesBlocks.WASABI_JACK_O_STRAW);
+//        jackOStrawDrops(DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW);
+//        jackOStrawDrops(DelicateDyesBlocks.SKY_JACK_O_STRAW);
+//        jackOStrawDrops(DelicateDyesBlocks.BLURPLE_JACK_O_STRAW);
+//        jackOStrawDrops(DelicateDyesBlocks.SANGRIA_JACK_O_STRAW);
+//        jackOStrawDrops(DelicateDyesBlocks.ROSE_JACK_O_STRAW);
     }
 
     public void jackOStrawDrops(Block block) {

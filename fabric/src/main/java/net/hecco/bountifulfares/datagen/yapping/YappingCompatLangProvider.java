@@ -16,9 +16,9 @@ public class YappingCompatLangProvider {
     }
 
     public static void generateTranslations(FabricLanguageProvider.TranslationBuilder translationBuilder) {
-        generate(translationBuilder, BFItems.ORANGE, "A citrus fruit found in tropical areas");
-        generate(translationBuilder, BFItems.LEMON, "A citrus fruit found near rivers");
-        generate(translationBuilder, BFItems.PLUM, "");
+        generate(translationBuilder, BFItems.ORANGE.get(), "A citrus fruit found in tropical areas");
+        generate(translationBuilder, BFItems.LEMON.get(), "A citrus fruit found near rivers");
+        generate(translationBuilder, BFItems.PLUM.get(), "");
 //        generate(translationBuilder, BFItems.HOARY_APPLE, "An ancient fruit, has a ");
 
 

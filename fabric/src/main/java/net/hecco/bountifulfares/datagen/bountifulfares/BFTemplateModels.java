@@ -3,7 +3,6 @@ package net.hecco.bountifulfares.datagen.bountifulfares;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.FruitLogBlock;
 import net.hecco.bountifulfares.block.custom.PicketsBlock;
-import net.hecco.bountifulfares.trellis.TrellisUtil;
 import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -781,20 +780,20 @@ public class BFTemplateModels {
 
 
     public static void registerTrellis(BlockModelGenerators blockStateModelGenerator, TrellisVariant trellis){
-        ResourceLocation modelID = TEMPLATE_TRELLIS.create(TrellisUtil.getTrellisFromVariant(trellis), TextureMapping.defaultTexture(TrellisUtil.getTrellisFromVariant(trellis)), blockStateModelGenerator.modelOutput);
-        blockStateModelGenerator.delegateItemModel(TrellisUtil.getTrellisFromVariant(trellis), modelID);
-        blockStateModelGenerator.skipAutoItemBlock(TrellisUtil.getTrellisFromVariant(trellis));
-        blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(TrellisUtil.getTrellisFromVariant(trellis))
-                .with(PropertyDispatch.property(BlockStateProperties.HORIZONTAL_FACING)
-                        .select(Direction.NORTH, Variant.variant()
-                                .with(VariantProperties.MODEL, modelID).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R0))
-                        .select(Direction.EAST, Variant.variant()
-                                .with(VariantProperties.MODEL, modelID).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90))
-                        .select(Direction.SOUTH, Variant.variant()
-                                .with(VariantProperties.MODEL, modelID).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180))
-                        .select(Direction.WEST, Variant.variant()
-                                .with(VariantProperties.MODEL, modelID).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270)))
-        );
+//        ResourceLocation modelID = TEMPLATE_TRELLIS.create(TrellisUtil.getTrellisFromVariant(trellis), TextureMapping.defaultTexture(TrellisUtil.getTrellisFromVariant(trellis)), blockStateModelGenerator.modelOutput);
+//        blockStateModelGenerator.delegateItemModel(TrellisUtil.getTrellisFromVariant(trellis), modelID);
+//        blockStateModelGenerator.skipAutoItemBlock(TrellisUtil.getTrellisFromVariant(trellis));
+//        blockStateModelGenerator.blockStateOutput.accept(MultiVariantGenerator.multiVariant(TrellisUtil.getTrellisFromVariant(trellis))
+//                .with(PropertyDispatch.property(BlockStateProperties.HORIZONTAL_FACING)
+//                        .select(Direction.NORTH, Variant.variant()
+//                                .with(VariantProperties.MODEL, modelID).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R0))
+//                        .select(Direction.EAST, Variant.variant()
+//                                .with(VariantProperties.MODEL, modelID).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R90))
+//                        .select(Direction.SOUTH, Variant.variant()
+//                                .with(VariantProperties.MODEL, modelID).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R180))
+//                        .select(Direction.WEST, Variant.variant()
+//                                .with(VariantProperties.MODEL, modelID).with(VariantProperties.Y_ROT, VariantProperties.Rotation.R270)))
+//        );
     }
     public static void registerCropTrellis(BlockModelGenerators blockStateModelGenerator, Block trellis, String trellisId, String vinesId, String foliageId, String modId){
         ResourceLocation modelID1 = TEMPLATE_TRELLIS_0.create(trellis, TextureMapping.defaultTexture(trellis).put(TextureSlot.TEXTURE, ResourceLocation.fromNamespaceAndPath(modId, "block/" + trellisId)).put(TextureSlot.CROP, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "block/" + vinesId + "_0")), blockStateModelGenerator.modelOutput);

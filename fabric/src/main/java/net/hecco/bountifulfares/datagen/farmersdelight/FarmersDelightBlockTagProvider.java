@@ -15,9 +15,9 @@ public class FarmersDelightBlockTagProvider extends FabricTagProvider.BlockTagPr
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
-                .add(FarmersDelightBlocks.WALNUT_CABINET)
-                .add(FarmersDelightBlocks.HOARY_CABINET)
-                ;
+//        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
+//                .add(FarmersDelightBlocks.WALNUT_CABINET)
+//                .add(FarmersDelightBlocks.HOARY_CABINET)
+//                ;
     }
 }
