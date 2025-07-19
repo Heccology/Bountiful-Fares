@@ -37,8 +37,6 @@ public class BountifulFares {
 		BFItems.registerModItems();
 ////		BFTrellises.registerTrellisParts(); //TODO: FIX
 ////		TrellisUtil.registerTrellisParts(); //TODO: FIX
-		BFItemGroups.registerItemGroups();
-//		BFItemGroupAdditions.registerItemGroupAdditions();
 //		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
 //		//BFBoats.registerBoats(); //TODO: FIX(???.. or just remove boats if all else fails)
@@ -55,6 +53,8 @@ public class BountifulFares {
 ////		BFSpecialRecipes.registerSpecialRecipes(); //FIXED PROBABLY??????
 //		BFCompat.registerCompatContent();
 ////		BFMessages.registerPayloads(); //TODO: FIX
+		BFItemGroups.registerItemGroups();
+		BFItemGroupAdditions.registerItemGroupAdditions();
 	} //appledog - Yirmiri
 	//appledog - Hecco
 	//appledog - Diemond_Player (holy self-insert)
