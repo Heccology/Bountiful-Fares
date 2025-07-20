@@ -44,7 +44,7 @@ public class BountifulFares {
 //		BFParticles.registerParticles(); //TODO: MOVE TO HECCOLIB REGISTRY
 //		BFPotions.registerPotions();
 		BFTrunkPlacerTypes.register();
-//		BFFeatures.register();
+		BFFeatures.register();
 //		BFRegistries.RegisterModStuffs(); //TODO: FIX
 		BFBlockEntities.registerBlockEntities();
 //		BFScreenHandlers.registerScreenHandlers(); //TODO: MOVE TO HECCOLIB REGISTRY
