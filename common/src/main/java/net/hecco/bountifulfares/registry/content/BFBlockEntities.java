@@ -60,6 +60,10 @@ public class BFBlockEntities {
             () -> HLServices.REGISTRY.createBlockEntity(WalnutCandleBlockEntity::new, WALNUT_CANDLE)
     );
 
+    public static final Supplier<BlockEntityType<TrellisBlockEntity>> TRELLIS_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "trellis_block_entity",
+            () -> HLServices.REGISTRY.createBlockEntity(TrellisBlockEntity::new, TRELLISES.get("oak"), TRELLISES.get("spruce"), TRELLISES.get("birch"), TRELLISES.get("jungle"), TRELLISES.get("acacia"), TRELLISES.get("dark_oak"), TRELLISES.get("mangrove"), TRELLISES.get("cherry"), TRELLISES.get("bamboo"), TRELLISES.get("walnut"), TRELLISES.get("hoary"), TRELLISES.get("crimson"), TRELLISES.get("warped"))
+    );
+
     public static Supplier<BlockEntityType<CabinetBlockEntity>> CABINET_BLOCK_ENTITY;
 
     public static void registerBlockEntities() {

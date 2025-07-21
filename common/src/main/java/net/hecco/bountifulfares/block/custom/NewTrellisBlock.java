@@ -1,10 +1,15 @@
 package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.trellis.TrellisPlantDefinition;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
@@ -18,9 +23,13 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NewTrellisBlock extends HorizontalDirectionalBlock implements EntityBlock, SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -28,6 +37,8 @@ public class NewTrellisBlock extends HorizontalDirectionalBlock implements Entit
     protected static final VoxelShape SOUTH_SHAPE = Block.box(0, 0, 0, 16, 16, 1);
     protected static final VoxelShape WEST_SHAPE = Block.box(15, 0, 0, 16, 16, 16);
     protected static final VoxelShape EAST_SHAPE = Block.box(0, 0, 0, 1, 16, 16);
+
+    public static List<TrellisPlantDefinition> PLANTS = List.of();
 
     public NewTrellisBlock(Properties settings) {
         super(settings);
@@ -46,6 +57,14 @@ public class NewTrellisBlock extends HorizontalDirectionalBlock implements Entit
             default:
                 return EAST_SHAPE;
         }
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        if (level.isClientSide()) {
+            BountifulFares.LOGGER.info(PLANTS.toString());
+        }
+        return super.useWithoutItem(state, level, pos, player, hitResult);
     }
 
     @Override

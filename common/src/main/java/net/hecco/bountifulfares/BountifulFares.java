@@ -3,7 +3,6 @@ package net.hecco.bountifulfares;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.misc.*;
 import net.hecco.bountifulfares.registry.util.BFDamageTypes;
-import net.hecco.bountifulfares.registry.util.BFRegistries;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
