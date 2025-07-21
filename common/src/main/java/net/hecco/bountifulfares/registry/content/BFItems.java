@@ -1,6 +1,8 @@
 package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.BountifulFaresUtil;
+import net.hecco.bountifulfares.block.custom.NewTrellisBlock;
 import net.hecco.bountifulfares.item.custom.*;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Direction;
@@ -13,6 +15,9 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -145,10 +150,21 @@ public class BFItems {
             .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 72000, 25, true, true), 1)
             .build())));
 
+    private static void registerTrellises() {
+        for (String wood : BountifulFaresUtil.WOOD_TYPES) {
+            if (wood != "oak") {
+                registerItem(wood + "_trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(wood).get(), new Item.Properties()));
+            } else {
+                registerItem("trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(wood).get(), new Item.Properties()));
+            }
+        }
+    }
+
     private static Supplier<Item> registerItem(String id, Supplier<Item> registry) {
         return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.ITEM.key(), registry);
     }
 
     public static void registerModItems() {
+        registerTrellises();
     }
 }

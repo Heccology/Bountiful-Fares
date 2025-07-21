@@ -5,10 +5,12 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 public class BountifulFaresUtil {
+    public static final List<String> WOOD_TYPES = List.of("oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "bamboo", "walnut", "hoary", "crimson", "warped");
     public static Set<ResourceLocation> allBlockIdsInNamespace(String namespace) {
         Set<ResourceLocation> set = BuiltInRegistries.BLOCK.keySet();
         Set<ResourceLocation> a = new HashSet<>();

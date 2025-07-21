@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.registry.content;
 
 import com.google.common.collect.Maps;
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.block.custom.*;
 import net.hecco.bountifulfares.item.custom.BlockItemWithInfo;
 import net.hecco.bountifulfares.item.custom.CeramicDishBlockItem;
@@ -33,6 +34,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
@@ -291,7 +293,17 @@ public class BFBlocks {
     public static final Supplier<Block> HANGING_GOLDEN_APPLE = registerBlockNoItem("hanging_golden_apple", () -> new HangingGoldenAppleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).dynamicShape().sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY).randomTicks().offsetType(BlockBehaviour.OffsetType.XZ).lightLevel((state) -> 7)));
     public static final Supplier<Block> HANGING_WITHERED_GOLDEN_APPLE = registerBlockNoItem("hanging_withered_golden_apple", () -> new HangingWitheredGoldenAppleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLACK).dynamicShape().sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY).offsetType(BlockBehaviour.OffsetType.XZ)));
 
+    public static final Map<String, Supplier<Block>> TRELLISES = new HashMap<>();
 
+    private static void registerTrellises() {
+        for (String wood : BountifulFaresUtil.WOOD_TYPES) {
+            if (wood != "oak") {
+                TRELLISES.put(wood, registerBlockNoItem(wood + "_trellis", () -> new NewTrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).noOcclusion())));
+            } else {
+                TRELLISES.put(wood, registerBlockNoItem("trellis", () -> new NewTrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).noOcclusion())));
+            }
+        }
+    }
 
     public static ToIntFunction<BlockState> createLightLevelFromLitBlockState(int litLevel) {
         return state -> state.getValue(BlockStateProperties.LIT) ? litLevel : 0;
@@ -328,5 +340,6 @@ public class BFBlocks {
     }
 
     public static void registerModBlocks() {
+        registerTrellises();
     }
 }
