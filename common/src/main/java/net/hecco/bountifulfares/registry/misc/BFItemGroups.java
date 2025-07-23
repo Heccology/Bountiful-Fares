@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.registry.misc;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.compat.appledog.AppledogBlocks;
 import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
 import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
@@ -9,6 +10,8 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFPotions;
 import net.hecco.heccolib.platform.HLServices;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -17,6 +20,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.level.block.Block;
 
 import java.util.Comparator;
 import java.util.function.Supplier;
@@ -231,7 +235,9 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.CERAMIC_BUTTON.get());
                         entries.accept(BFBlocks.CERAMIC_LEVER.get());
                         entries.accept(BFBlocks.CERAMIC_DISH.get());
-                        entries.accept(BFBlocks.SOLID_CERAMIC.get());
+                        if (Minecraft.getInstance().options.operatorItemsTab().get()) {
+                            entries.accept(BFBlocks.SOLID_CERAMIC.get());
+                        }
                         entries.accept(BFItems.ARTISAN_BRUSH.get());
                         entries.accept(BFItems.SUN_HAT.get());
 
@@ -305,13 +311,9 @@ public class BFItemGroups {
                         entries.accept(BFItems.HOARY_SEEDS.get());
                         entries.accept(BFItems.MAIZE.get());
                         entries.accept(BFItems.LEEK.get());
-//                        for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
-//                            if (Objects.equals(trellis.getModId(), BountifulFares.MOD_ID)) {
-//                                if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
-//                                    entries.accept(TrellisUtil.getTrellisFromVariant(trellis).get());
-//                                }
-//                            }
-//                        }
+                        for (String wood : BountifulFaresUtil.WOOD_TYPES) {
+                            entries.accept(BFBlocks.TRELLISES.get(wood).get());
+                        }
 //                        entries.accept(TrellisUtil.getTrellisFromVariant(MintBlocks.WINTERGREEN).get());
 //                        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
 //                            entries.accept(TrellisUtil.getTrellisFromVariant(NaturesSpiritBlocks.REDWOOD).get());

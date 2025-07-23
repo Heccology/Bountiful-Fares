@@ -2,24 +2,34 @@ package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.block.entity.TrellisBlockEntity;
 import net.hecco.bountifulfares.trellis.TrellisPlantDefinition;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
@@ -28,17 +38,16 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class NewTrellisBlock extends HorizontalDirectionalBlock implements EntityBlock, SimpleWaterloggedBlock {
+public class NewTrellisBlock extends HorizontalDirectionalBlock implements EntityBlock, SimpleWaterloggedBlock, BonemealableBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     protected static final VoxelShape NORTH_SHAPE = Block.box(0, 0, 15, 16, 16, 16);
     protected static final VoxelShape SOUTH_SHAPE = Block.box(0, 0, 0, 16, 16, 1);
     protected static final VoxelShape WEST_SHAPE = Block.box(15, 0, 0, 16, 16, 16);
     protected static final VoxelShape EAST_SHAPE = Block.box(0, 0, 0, 1, 16, 16);
 
-    public static List<TrellisPlantDefinition> PLANTS = List.of();
+    public static Map<Item, TrellisPlantDefinition> PLANTS = new HashMap<>();
 
     public NewTrellisBlock(Properties settings) {
         super(settings);
@@ -60,16 +69,34 @@ public class NewTrellisBlock extends HorizontalDirectionalBlock implements Entit
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (level.isClientSide()) {
-            BountifulFares.LOGGER.info(PLANTS.toString());
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        if (level.getBlockEntity(pos) instanceof TrellisBlockEntity entity) {
+            if (entity.canPlantOn()) {
+                if (PLANTS.containsKey(stack.getItem())) {
+                    entity.setPlant(stack.getItem(), PLANTS.get(stack.getItem()).texture());
+                    level.playSound(null, pos, SoundEvents.CROP_PLANTED, SoundSource.BLOCKS, 1.0f, 1.0f);
+                    level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
+                    if (!player.isCreative()) {
+                        stack.shrink(1);
+                    }
+                    return ItemInteractionResult.SUCCESS;
+                }
+            }
         }
-        return super.useWithoutItem(state, level, pos, player, hitResult);
+        return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
+    }
+
+    @Override
+    public void destroy(LevelAccessor world, BlockPos pos, BlockState state) {
+        if (world.getBlockEntity(pos) instanceof TrellisBlockEntity entity && !entity.canPlantOn()) {
+            popResource((Level) world, pos, entity.getPlant().getDefaultInstance());
+        }
+        super.destroy(world, pos, state);
     }
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return null;
+        return new TrellisBlockEntity(blockPos, blockState);
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -105,5 +132,25 @@ public class NewTrellisBlock extends HorizontalDirectionalBlock implements Entit
     @Override
     protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
         return TrellisBlock.simpleCodec(TrellisBlock::new);
+    }
+
+    @Override
+    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
+        if (levelReader.getBlockEntity(blockPos) instanceof TrellisBlockEntity entity) {
+            return !entity.canPlantOn();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isBonemealSuccess(Level level, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
+        return true;
+    }
+
+    @Override
+    public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
+        if (serverLevel.getBlockEntity(blockPos) instanceof TrellisBlockEntity entity) {
+            popResource(serverLevel, blockPos, entity.getPlant().getDefaultInstance());
+        }
     }
 }

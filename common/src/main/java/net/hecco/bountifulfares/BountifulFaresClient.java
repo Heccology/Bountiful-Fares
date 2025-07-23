@@ -42,6 +42,7 @@ import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.Block;
 
 import java.util.Objects;
+import java.util.function.Supplier;
 
 import static net.hecco.bountifulfares.registry.content.BFItems.ARTISAN_BRUSH;
 
@@ -50,7 +51,6 @@ public class BountifulFaresClient {
         BFMessages.registerS2CPackets();
         BlockUseEvents.register();
 //        ItemTooltipCallback.EVENT.register(BFTooltipEvents::addTooltipsToVanillaItems); TODO: FIND COMMON ALT
-//        BlockEntityRenderers.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY, CeramicDishBlockEntityRenderer::new);
 //        ElsAndLsDyes compat
 //            HLServices.CLIENT.setBlockRenderType(MintBlocks.ACORN_JACK_O_STRAW.get(), RenderType.cutout());
 //            HLServices.CLIENT.setBlockRenderType(MintBlocks.ARTICHOKE_JACK_O_STRAW.get(), RenderType.cutout());
@@ -261,6 +261,9 @@ public class BountifulFaresClient {
         HLServices.CLIENT.setBlockRenderType(BFBlocks.POTTED_PALM_FROND.get(), RenderType.cutout());
         HLServices.CLIENT.setBlockRenderType(BFBlocks.COCONUT.get(), RenderType.cutout());
         HLServices.CLIENT.setBlockRenderType(BFBlocks.PALM_SAPLING.get(), RenderType.cutout());
+        for (Block block : BFBlocks.TRELLISES.values().stream().map(Supplier::get).toList()) {
+            HLServices.CLIENT.setBlockRenderType(block, RenderType.cutout());
+        }
 ////        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
 ////            if (stack.getComponents().has(DataComponents.DYED_COLOR) && tintIndex == 0) {
 ////                return FastColor.ARGB32.opaque(Objects.requireNonNull(stack.getComponents().get(DataComponents.DYED_COLOR)).rgb());

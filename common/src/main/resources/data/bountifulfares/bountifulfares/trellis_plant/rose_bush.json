@@ -1,4 +1,4 @@
 {
   "plant": "minecraft:rose_bush",
-  "model": "bountifulfares:block/rose_bush_trellis"
+  "texture": "bountifulfares:block/rose_trellis"
 }

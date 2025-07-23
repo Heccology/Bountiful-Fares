@@ -40,8 +40,9 @@ public class TrellisPlantResourceLoader extends SimpleJsonResourceReloadListener
                 BountifulFares.LOGGER.error("Failed to load trellis plant '{}'", id, e);
             }
         }
-        BountifulFares.LOGGER.info(registeredPlants + "");
-        NewTrellisBlock.PLANTS = registeredPlants.values().stream().toList();
+        for (TrellisPlantDefinition plantDefinition : registeredPlants.values().stream().toList()) {
+            NewTrellisBlock.PLANTS.put(plantDefinition.plant(), plantDefinition);
+        }
     }
 
     public Collection<TrellisPlantDefinition> getAllTrellisPlants() {

@@ -1,19 +1,20 @@
 package net.hecco.bountifulfares.registry.misc;
 
-import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.heccolib.platform.HLServices;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import oshi.util.tuples.Pair;
 
 import java.util.ArrayList;
+import java.util.function.Supplier;
 
 public class BFItemGroupAdditions {
     public static ArrayList<Pair<ItemLike, ItemLike>> BUILDING_BLOCKS = new ArrayList<>();
@@ -213,19 +214,11 @@ public class BFItemGroupAdditions {
         FUNCTIONAL_BLOCKS.add(new Pair<>(BFBlocks.WALNUT_CANDLE.get(), BFBlocks.FERMENTATION_VESSEL.get()));
         FUNCTIONAL_BLOCKS.add(new Pair<>(BFBlocks.FERMENTATION_VESSEL.get(), BFBlocks.COCONUT_CANDLE.get()));
         FUNCTIONAL_BLOCKS.add(new Pair<>(BFBlocks.COCONUT_CANDLE.get(), BFBlocks.GOLDEN_APPLE_SAPLING.get()));
-////        FUNCTIONAL_BLOCKS.add(new Pair<>(Blocks.COMPOSTER, TrellisUtil.getTrellisFromVariant(BFTrellises.OAK));
-////            TrellisVariant prevTrellis = BFTrellises.OAK;
-////            for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
-////                if (Objects.equals(trellis.getModId(), BountifulFares.MOD_ID)) {
-////                    if (trellis == BFTrellises.OAK) {
-////                        continue;
-////                    }
-////                    if (TrellisUtil.getTrellisFromVariant(trellis) != null) {
-////                        entries.addAfter(TrellisUtil.getTrellisFromVariant(prevTrellis), TrellisUtil.getTrellisFromVariant(trellis));
-////                        prevTrellis = trellis;
-////                    }
-////                }
-////            }
+        Block prev = Blocks.COMPOSTER;
+        for (String wood : BountifulFaresUtil.WOOD_TYPES) {
+            FUNCTIONAL_BLOCKS.add(new Pair<>(prev, BFBlocks.TRELLISES.get(wood).get()));
+            prev = BFBlocks.TRELLISES.get(wood).get();
+        }
 ////            if (BountifulFares.isModLoaded(BountifulFares.ELS_AND_LS_DYES_MOD_ID)) {
 ////                entries.addAfter(TrellisUtil.getTrellisFromVariant(prevTrellis), TrellisUtil.getTrellisFromVariant(BFTrellises.WINTERGREEN));
 ////                prevTrellis = BFTrellises.WINTERGREEN;

@@ -1,4 +1,4 @@
 {
   "plant": "minecraft:vine",
-  "model": "bountifulfares:block/vines_trellis"
+  "texture": "bountifulfares:block/vine_trellis"
 }
