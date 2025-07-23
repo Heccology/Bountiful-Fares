@@ -69,8 +69,18 @@ public class NewTrellisBlock extends HorizontalDirectionalBlock implements Entit
     }
 
     @Override
+    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+        if (level.isClientSide()) {
+            BountifulFares.LOGGER.info("client: " + ((TrellisBlockEntity) level.getBlockEntity(pos)).getPlant());
+        } else {
+            BountifulFares.LOGGER.info("server: " + ((TrellisBlockEntity) level.getBlockEntity(pos)).getPlant());
+        }
+        return super.useWithoutItem(state, level, pos, player, hitResult);
+    }
+
+    @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (level.getBlockEntity(pos) instanceof TrellisBlockEntity entity) {
+        if (level.getBlockEntity(pos) instanceof TrellisBlockEntity entity && !level.isClientSide()) {
             if (entity.canPlantOn()) {
                 if (PLANTS.containsKey(stack.getItem())) {
                     entity.setPlant(stack.getItem(), PLANTS.get(stack.getItem()).texture());

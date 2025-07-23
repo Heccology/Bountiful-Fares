@@ -66,8 +66,8 @@ public class TrellisBlockEntityRenderer implements BlockEntityRenderer<TrellisBl
             case EAST -> this.bellBody.yRot = (float) (Math.PI * 1.5);
         }
 
-        if (entity.getTexture() != null) {
-            VertexConsumer vertexconsumer = new Material(TextureAtlas.LOCATION_BLOCKS, entity.getTexture()).buffer(multiBufferSource, RenderType::entityCutoutNoCull);
+        if (entity.getPlant() != null && NewTrellisBlock.PLANTS.get(entity.getPlant()) != null) {
+            VertexConsumer vertexconsumer = new Material(TextureAtlas.LOCATION_BLOCKS, NewTrellisBlock.PLANTS.get(entity.getPlant()).texture()).buffer(multiBufferSource, RenderType::entityCutoutNoCull);
             this.bellBody.render(poseStack, vertexconsumer, i, i1);
         }
         poseStack.popPose();

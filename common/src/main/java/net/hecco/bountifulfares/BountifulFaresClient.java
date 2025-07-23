@@ -4,51 +4,17 @@ package net.hecco.bountifulfares;
 //import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 //import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 //import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.hecco.bountifulfares.block.entity.DyeableBlockEntity;
-import net.hecco.bountifulfares.block.entity.renderer.CeramicDishBlockEntityRenderer;
-import net.hecco.bountifulfares.compat.appledog.AppledogBlocks;
-import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
-import net.hecco.bountifulfares.compat.delicate_dyes.DelicateDyesBlocks;
-import net.hecco.bountifulfares.compat.dungeons_delight.DungeonsDelightBlocks;
-import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
-import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
-import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
-import net.hecco.bountifulfares.networking.BFMessages;
-import net.hecco.bountifulfares.particle.FermentedBubbleParticle;
-import net.hecco.bountifulfares.particle.FlourCloudParticle;
-import net.hecco.bountifulfares.particle.GoldenPetalParticle;
-import net.hecco.bountifulfares.particle.PrismarineBlossomParticle;
 import net.hecco.bountifulfares.registry.content.*;
-import net.hecco.bountifulfares.registry.misc.BFScreenHandlers;
-import net.hecco.bountifulfares.registry.util.BFTooltipEvents;
-import net.hecco.bountifulfares.registry.util.BFWoodTypes;
 import net.hecco.bountifulfares.registry.util.BlockUseEvents;
 import net.hecco.heccolib.platform.HLServices;
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
-import net.minecraft.client.renderer.blockentity.SignRenderer;
-import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.FastColor;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.FoliageColor;
-import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.block.Block;
 
-import java.util.Objects;
 import java.util.function.Supplier;
-
-import static net.hecco.bountifulfares.registry.content.BFItems.ARTISAN_BRUSH;
 
 public class BountifulFaresClient {
     public static void onInitializeClient() {
-        BFMessages.registerS2CPackets();
         BlockUseEvents.register();
 //        ItemTooltipCallback.EVENT.register(BFTooltipEvents::addTooltipsToVanillaItems); TODO: FIND COMMON ALT
 //        ElsAndLsDyes compat

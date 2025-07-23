@@ -65,11 +65,8 @@ public class DyeableCeramicBlock {
     }
 
     /** Sends a color payload update to all listening clients. */
-    public static void sendColorPayload(ServerLevel world, BlockEntity entity, int color)
-    {
-//        for (ServerPlayer targeter : PlayerLookup.tracking(world, entity.getBlockPos())) {
-//            ServerPlayNetworking.send(targeter, new CeramicBlockColorPayload(entity.getBlockPos(), color));
-//        } TODO: FIX THIS PLEASE
+    public static void sendColorPayload(ServerLevel world, BlockEntity entity, int color) {
+        HLServices.NETWORK.sendToPlayersTrackingChunk(world, entity.getBlockPos(), new CeramicBlockColorPayload(entity.getBlockPos(), color));
 
         /*
         if (!world.isClient() && world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity) {
@@ -79,19 +76,13 @@ public class DyeableCeramicBlock {
     }
 
     /** Sends a ceramic dish payload update to all listening clients. */
-    public static void sendDishPayload(ServerLevel world, BlockEntity entity, ItemStack stack)
-    {
-//        for (ServerPlayer targeter : PlayerLookup.tracking(world, entity.getBlockPos())) {
-//            ServerPlayNetworking.send(targeter, new CeramicDishItemPayload(entity.getBlockPos(), stack));
-//        } TODO: AND THIS
+    public static void sendDishPayload(ServerLevel world, BlockEntity entity, ItemStack stack) {
+        HLServices.NETWORK.sendToPlayersTrackingChunk(world, entity.getBlockPos(), new CeramicDishItemPayload(entity.getBlockPos(), stack));
     }
 
     /** Sends a ceramic dish clear payload update to all listening clients. */
-    public static void sendDishClearPayload(ServerLevel world, BlockEntity entity)
-    {
-//        for (ServerPlayer targeter : PlayerLookup.tracking(world, entity.getBlockPos())) {
-//            ServerPlayNetworking.send(targeter, new CeramicDishEmptyPayload(entity.getBlockPos()));
-//        } //TODO: AND THIS
+    public static void sendDishClearPayload(ServerLevel world, BlockEntity entity) {
+        HLServices.NETWORK.sendToPlayersTrackingChunk(world, entity.getBlockPos(), new CeramicDishEmptyPayload(entity.getBlockPos()));
     }
 
     public static Block tryRevertCheckered(Block block)

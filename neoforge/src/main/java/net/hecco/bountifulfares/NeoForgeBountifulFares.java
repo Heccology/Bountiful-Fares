@@ -1,16 +1,25 @@
 package net.hecco.bountifulfares;
 
 
+import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
+import net.hecco.bountifulfares.networking.BFMessages;
+import net.hecco.bountifulfares.networking.payload.*;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import oshi.util.tuples.Pair;
 
 @Mod(BountifulFares.MOD_ID)
@@ -19,6 +28,7 @@ public class NeoForgeBountifulFares {
 
     public NeoForgeBountifulFares(IEventBus eventBus) {
         BountifulFares.init();
+        eventBus.addListener(this::payloadHandlersSetup);
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::creativeModeTabSetup);
     }
@@ -26,6 +36,61 @@ public class NeoForgeBountifulFares {
     @SubscribeEvent
     public void clientSetup(FMLClientSetupEvent event) {
         BountifulFaresClient.onInitializeClient();
+    }
+
+    @SubscribeEvent // on the mod event bus
+    public void payloadHandlersSetup(final RegisterPayloadHandlersEvent event) {
+        final PayloadRegistrar registrar = event.registrar("1");
+        registrar.playBidirectional(
+                CeramicDishEmptyPayload.ID,
+                CeramicDishEmptyPayload.CODEC,
+                new DirectionalPayloadHandler<>(
+                        (payload, ctx) -> ctx.enqueueWork(() -> {
+                            BFMessages.ceramicDishEmpty(payload);
+                        }),
+                        (payload, ctx) -> {}
+                )
+        );
+        registrar.playBidirectional(
+                CeramicDishItemPayload.ID,
+                CeramicDishItemPayload.CODEC,
+                new DirectionalPayloadHandler<>(
+                        (payload, ctx) -> ctx.enqueueWork(() -> {
+                            BFMessages.ceramicDishItem(payload);
+                        }),
+                        (payload, ctx) -> {}
+                )
+        );
+        registrar.playBidirectional(
+                CeramicBlockColorPayload.ID,
+                CeramicBlockColorPayload.CODEC,
+                new DirectionalPayloadHandler<>(
+                        (payload, ctx) -> ctx.enqueueWork(() -> {
+                            BFMessages.ceramicBlockColor(payload);
+                        }),
+                        (payload, ctx) -> {}
+                )
+        );
+        registrar.playBidirectional(
+                TrellisPlantPayload.ID,
+                TrellisPlantPayload.CODEC,
+                new DirectionalPayloadHandler<>(
+                        (payload, ctx) -> ctx.enqueueWork(() -> {
+                            BFMessages.trellisPlant(payload);
+                        }),
+                        (payload, ctx) -> {}
+                )
+        );
+        registrar.playBidirectional(
+                TrellisEmptyPayload.ID,
+                TrellisEmptyPayload.CODEC,
+                new DirectionalPayloadHandler<>(
+                        (payload, ctx) -> ctx.enqueueWork(() -> {
+                            BFMessages.trellisEmpty(payload);
+                        }),
+                        (payload, ctx) -> {}
+                )
+        );
     }
 
     @SubscribeEvent
