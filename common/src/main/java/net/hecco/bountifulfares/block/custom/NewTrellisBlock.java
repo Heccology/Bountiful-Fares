@@ -185,7 +185,11 @@ public class NewTrellisBlock extends HorizontalDirectionalBlock implements Entit
     @Override
     public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
         if (levelReader.getBlockEntity(blockPos) instanceof TrellisBlockEntity entity) {
-            return !entity.canPlantOn();
+            if (PLANTS.containsKey(entity.getPlant()) && PLANTS.get(entity.getPlant()).canDuplicate()) {
+                return true;
+            } else if (CROPS.containsKey(entity.getPlant()) && entity.getStage() < CROPS.get(entity.getPlant()).stages()) {
+                return true;
+            }
         }
         return false;
     }
@@ -198,7 +202,11 @@ public class NewTrellisBlock extends HorizontalDirectionalBlock implements Entit
     @Override
     public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
         if (serverLevel.getBlockEntity(blockPos) instanceof TrellisBlockEntity entity) {
-            popResource(serverLevel, blockPos, entity.getPlant().getDefaultInstance());
+            if (PLANTS.containsKey(entity.getPlant()) && PLANTS.get(entity.getPlant()).canDuplicate()) {
+                popResource(serverLevel, blockPos, entity.getPlant().getDefaultInstance());
+            } else if (CROPS.containsKey(entity.getPlant()) && entity.getStage() < CROPS.get(entity.getPlant()).stages()) {
+                entity.setStage(entity.getStage() + 1);
+            }
         }
     }
 }
