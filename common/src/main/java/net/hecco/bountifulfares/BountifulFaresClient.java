@@ -359,7 +359,6 @@ public class BountifulFaresClient {
 //        TerraformBoatClientHelper.registerModelLayers(BFBoats.WALNUT_BOAT_ID, false);
 
 //        MenuScreens.register(BFScreenHandlers.GRISTMILL_SCREEN_HANDLER, GristmillScreen::new);
-//        EntityRendererRegistry.register(BFEntities.THROWN_FLOUR_PROJECTILE, ThrownItemRenderer::new);
 //        HLServices.CLIENT.registerParticle(BFParticles.FLOUR_CLOUD.get(), FlourCloudParticle.Factory::new);
 //        ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
 //        ParticleFactoryRegistry.getInstance().register(BFParticles.FERMENTED_BUBBLE.get(), FermentedBubbleParticle.Factory::new);
