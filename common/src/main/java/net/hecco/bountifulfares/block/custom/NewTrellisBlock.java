@@ -96,6 +96,13 @@ public class NewTrellisBlock extends HorizontalDirectionalBlock implements Entit
                 TrellisCropDefinition crop = CROPS.get(entity.getPlant());
                 popResource(level, pos, crop.seeds().getDefaultInstance());
                 entity.removePlant();
+                level.playSound(null, pos, SoundEvents.CROP_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f + (level.random.nextFloat() / 5));
+            }
+            if (PLANTS.containsKey(entity.getPlant())) {
+                TrellisPlantDefinition crop = PLANTS.get(entity.getPlant());
+                popResource(level, pos, crop.plant().getDefaultInstance());
+                entity.removePlant();
+                level.playSound(null, pos, SoundEvents.CROP_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f + (level.random.nextFloat() / 5));
             }
         }
         super.attack(state, level, pos, player);

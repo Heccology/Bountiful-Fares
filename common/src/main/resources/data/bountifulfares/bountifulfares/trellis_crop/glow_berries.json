@@ -5,6 +5,6 @@
   "model": "default",
   "stages": 4,
   "grow_chance": 0.3,
-  "min_drops": 1,
-  "max_drops": 1
+  "min_drops": 2,
+  "max_drops": 3
 }

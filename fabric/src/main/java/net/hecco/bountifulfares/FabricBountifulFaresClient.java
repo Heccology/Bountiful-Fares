@@ -2,6 +2,7 @@ package net.hecco.bountifulfares;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.hecco.bountifulfares.block.entity.renderer.CeramicDishBlockEntityRenderer;
 import net.hecco.bountifulfares.block.entity.renderer.TrellisBlockEntityRenderer;
@@ -9,7 +10,12 @@ import net.hecco.bountifulfares.registry.BFMessages;
 import net.hecco.bountifulfares.particle.PrismarineBlossomParticle;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFParticles;
+import net.minecraft.client.color.block.BlockColor;
+import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
+import oshi.util.tuples.Pair;
 
 public class FabricBountifulFaresClient implements ClientModInitializer {
     @Override
@@ -21,5 +27,12 @@ public class FabricBountifulFaresClient implements ClientModInitializer {
         BlockEntityRenderers.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), CeramicDishBlockEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_DEFAULT, TrellisBlockEntityRenderer::createDefaultLayer);
         EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_INVERTED, TrellisBlockEntityRenderer::createInvertedLayer);
+
+        for (Pair<BlockColor, Block> pair : BountifulFaresClient.blockColors) {
+            ColorProviderRegistry.BLOCK.register(pair.getA(), pair.getB());
+        }
+        for (Pair<ItemColor, ItemLike> pair : BountifulFaresClient.itemColors) {
+            ColorProviderRegistry.ITEM.register(pair.getA(), pair.getB());
+        }
     }
 }

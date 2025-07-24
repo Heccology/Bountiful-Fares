@@ -4,16 +4,133 @@ package net.hecco.bountifulfares;
 //import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 //import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 //import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.hecco.bountifulfares.block.entity.DyeableBlockEntity;
+import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.util.BlockUseEvents;
 import net.hecco.heccolib.platform.HLServices;
+import net.minecraft.client.color.block.BlockColor;
+import net.minecraft.client.color.item.ItemColor;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.util.FastColor;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.GrassColor;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import oshi.util.tuples.Pair;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class BountifulFaresClient {
+
+    public static final List<Pair<BlockColor, Block>> blockColors = new ArrayList<>();
+    public static final List<Pair<ItemColor, ItemLike>> itemColors = new ArrayList<>();
+
+    static {
+        registerCeramicBlockColor(BFBlocks.CERAMIC_TILES.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_TILE_STAIRS.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_TILE_SLAB.get());
+        //registerCeramicBlockColor(BFBlocks.CERAMIC_TILE_WALL);
+        registerCeramicBlockColor(BFBlocks.CRACKED_CERAMIC_TILES.get());
+        registerCeramicBlockColor(BFBlocks.CHECKERED_CERAMIC_TILES.get());
+        registerCeramicBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get());
+        registerCeramicBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get());
+        //registerCeramicBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_WALL);
+        registerCeramicBlockColor(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_MOSAIC.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_MOSAIC_STAIRS.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_MOSAIC_SLAB.get());
+        //registerCeramicBlockColor(BFBlocks.CERAMIC_MOSAIC_WALL);
+        registerCeramicBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC.get());
+        registerCeramicBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.get());
+        registerCeramicBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.get());
+        //registerCeramicBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL);
+        registerCeramicBlockColor(BFBlocks.CERAMIC_TILE_PILLAR.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_PRESSURE_PLATE.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_BUTTON.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_LEVER.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_DOOR.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_TRAPDOOR.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_DISH.get());
+        registerCeramicBlockColor(BFBlocks.SOLID_CERAMIC.get());
+        itemColors.add(new Pair<>((stack, tintIndex) -> {
+            if (stack.getComponents().has(DataComponents.DYED_COLOR) && tintIndex == 0) {
+                return FastColor.ARGB32.opaque(Objects.requireNonNull(stack.getComponents().get(DataComponents.DYED_COLOR)).rgb());
+            }
+            return ArtisanBrushItem.DEFAULT_COLOR;
+        }, BFItems.ARTISAN_BRUSH.get()));
+        blockColors.add(new Pair<>((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(),
+                BFBlocks.CHAMOMILE_FLOWERS.get()));
+
+        blockColors.add(new Pair<>((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(),
+                BFBlocks.GRASSY_DIRT.get()));
+
+        itemColors.add(new Pair<>((stack, tintIndex) -> GrassColor.getDefaultColor(),
+                BFBlocks.GRASSY_DIRT.get()));
+
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.APPLE_LEAVES.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.FLOWERING_APPLE_LEAVES.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.APPLE_LOG.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.APPLE_WOOD.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.ORANGE_LEAVES.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.FLOWERING_ORANGE_LEAVES.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.ORANGE_LOG.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.ORANGE_WOOD.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.LEMON_LEAVES.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.FLOWERING_LEMON_LEAVES.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.LEMON_LOG.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.LEMON_WOOD.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.PLUM_LEAVES.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.FLOWERING_PLUM_LEAVES.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.PLUM_LOG.get());
+        registerBlockItemColor((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                (stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.PLUM_WOOD.get());
+        blockColors.add(new Pair<>((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                BFBlocks.WALNUT_LEAVES.get()));
+        itemColors.add(new Pair<>((stack, tintIndex) -> FastColor.ARGB32.opaque(5809764), BFBlocks.WALNUT_LEAVES.get()));
+        blockColors.add(new Pair<>((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) : FoliageColor.getDefaultColor(),
+                BFBlocks.HANGING_WALNUTS.get()));
+
+        blockColors.add(new Pair<>((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(),
+                BFBlocks.WILD_CARROTS.get()));
+        blockColors.add(new Pair<>((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(),
+                BFBlocks.WILD_POTATOES.get()));
+        blockColors.add(new Pair<>((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(),
+                BFBlocks.WILD_BEETROOTS.get()));
+        blockColors.add(new Pair<>((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(),
+                BFBlocks.WILD_LEEKS.get()));
+        blockColors.add(new Pair<>((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(),
+                BFBlocks.WILD_MAIZE.get()));
+        blockColors.add(new Pair<>((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(),
+                BFBlocks.WILD_ELDERBERRY_VINE.get()));
+        blockColors.add(new Pair<>((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : GrassColor.getDefaultColor(),
+                BFBlocks.WILD_PASSION_FRUIT_VINE.get()));
+    }
+
     public static void onInitializeClient() {
         BlockUseEvents.register();
 //        ItemTooltipCallback.EVENT.register(BFTooltipEvents::addTooltipsToVanillaItems); TODO: FIND COMMON ALT
@@ -230,38 +347,9 @@ public class BountifulFaresClient {
         for (Block block : BFBlocks.TRELLISES.values().stream().map(Supplier::get).toList()) {
             HLServices.CLIENT.setBlockRenderType(block, RenderType.cutout());
         }
-////        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-////            if (stack.getComponents().has(DataComponents.DYED_COLOR) && tintIndex == 0) {
-////                return FastColor.ARGB32.opaque(Objects.requireNonNull(stack.getComponents().get(DataComponents.DYED_COLOR)).rgb());
-////            }
-////            return ArtisanBrushItem.DEFAULT_COLOR;
-////        }, ARTISAN_BRUSH); TODO: ADD METHODD TO HECCOLIB PROBABLY
-//        registerBlockColor(BFBlocks.CERAMIC_TILES.get());
-//        registerBlockColor(BFBlocks.CERAMIC_TILE_STAIRS.get());
-//        registerBlockColor(BFBlocks.CERAMIC_TILE_SLAB.get());
-//        //registerBlockColor(BFBlocks.CERAMIC_TILE_WALL);
-//        registerBlockColor(BFBlocks.CRACKED_CERAMIC_TILES.get());
-//        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILES.get());
-//        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get());
-//        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get());
-//        //registerBlockColor(BFBlocks.CHECKERED_CERAMIC_TILE_WALL);
-//        registerBlockColor(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.get());
-//        registerBlockColor(BFBlocks.CERAMIC_MOSAIC.get());
-//        registerBlockColor(BFBlocks.CERAMIC_MOSAIC_STAIRS.get());
-//        registerBlockColor(BFBlocks.CERAMIC_MOSAIC_SLAB.get());
-//        //registerBlockColor(BFBlocks.CERAMIC_MOSAIC_WALL);
-//        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC.get());
-//        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.get());
-//        registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.get());
-//        //registerBlockColor(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL);
-//        registerBlockColor(BFBlocks.CERAMIC_TILE_PILLAR.get());
-//        registerBlockColor(BFBlocks.CERAMIC_PRESSURE_PLATE.get());
-//        registerBlockColor(BFBlocks.CERAMIC_BUTTON.get());
-//        registerBlockColor(BFBlocks.CERAMIC_LEVER.get());
-//        registerBlockColor(BFBlocks.CERAMIC_DOOR.get());
-//        registerBlockColor(BFBlocks.CERAMIC_TRAPDOOR.get());
-//        registerBlockColor(BFBlocks.CERAMIC_DISH.get());
-//        registerBlockColor(BFBlocks.SOLID_CERAMIC.get());
+
+
+
 //        Sheets.SIGN_MATERIALS.put(BFWoodTypes.HOARY, Sheets.getSignMaterial(BFWoodTypes.HOARY));
 //        Sheets.SIGN_MATERIALS.put(BFWoodTypes.WALNUT, Sheets.getSignMaterial(BFWoodTypes.WALNUT));
 //        BlockEntityRenderers.register(BFBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignRenderer::new);
@@ -269,23 +357,6 @@ public class BountifulFaresClient {
 //        TerraformBoatClientHelper.registerModelLayers(BFBoats.HOARY_BOAT_ID, false);
 //        TerraformBoatClientHelper.registerModelLayers(BFBoats.WALNUT_BOAT_ID, false);
 
-//        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos)
-//                : GrassColor.getDefaultColor(), BFBlocks.CHAMOMILE_FLOWERS, BFBlocks.GRASSY_DIRT);
-//        ColorProviderRegistry.ITEM.register(((stack, tintIndex) -> GrassColor.getDefaultColor()), BFBlocks.GRASSY_DIRT);
-//
-//        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos)
-//                : FoliageColor.getDefaultColor(),
-//                BFBlocks.APPLE_LEAVES, BFBlocks.FLOWERING_APPLE_LEAVES, BFBlocks.APPLE_LOG, BFBlocks.APPLE_WOOD,
-//                BFBlocks.ORANGE_LEAVES, BFBlocks.FLOWERING_ORANGE_LEAVES, BFBlocks.ORANGE_LOG, BFBlocks.ORANGE_WOOD,
-//                BFBlocks.LEMON_LEAVES, BFBlocks.FLOWERING_LEMON_LEAVES, BFBlocks.LEMON_LOG, BFBlocks.LEMON_WOOD,
-//                BFBlocks.PLUM_LEAVES, BFBlocks.FLOWERING_PLUM_LEAVES, BFBlocks.PLUM_LOG, BFBlocks.PLUM_WOOD,
-//                BFBlocks.WALNUT_LEAVES);
-//        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FastColor.ARGB32.opaque(FoliageColor.getDefaultColor()), BFBlocks.APPLE_LEAVES, BFBlocks.FLOWERING_APPLE_LEAVES, BFBlocks.ORANGE_LEAVES, BFBlocks.FLOWERING_ORANGE_LEAVES, BFBlocks.LEMON_LEAVES, BFBlocks.FLOWERING_LEMON_LEAVES, BFBlocks.PLUM_LEAVES, BFBlocks.FLOWERING_PLUM_LEAVES, BFBlocks.ORANGE_LEAVES);
-//        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> FastColor.ARGB32.opaque(5809764), BFBlocks.WALNUT_LEAVES);
-//
-//        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos)
-//                : FoliageColor.getDefaultColor(), BFBlocks.HANGING_WALNUTS);
-//
 //        MenuScreens.register(BFScreenHandlers.GRISTMILL_SCREEN_HANDLER, GristmillScreen::new);
 //        EntityRendererRegistry.register(BFEntities.THROWN_FLOUR_PROJECTILE, ThrownItemRenderer::new);
 //        HLServices.CLIENT.registerParticle(BFParticles.FLOUR_CLOUD.get(), FlourCloudParticle.Factory::new);
@@ -299,27 +370,24 @@ public class BountifulFaresClient {
 //                ARTISAN_BRUSH, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "dyed"),
 //                (itemStack, clientWorld, livingEntity, seed) ->
 //                        itemStack.getComponents().get(DataComponents.DYED_COLOR) != null ? 1.0F : 0.0F);
-//
-//        for (Block block : BFTrellises.TRELLIS_RENDER_CUTOUT) {
-//            HLServices.CLIENT.setBlockRenderType(block.get(), RenderType.cutout());
-//        } TODO: yeah...
     }
 
-
-
-    private static void registerBlockColor(Block ModCeramicBlocksItems) {
-//        Registers tint for ceramic blocks
-//        registerItemColor(ModCeramicBlocksItems.asItem());
-//        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> FastColor.ARGB32.opaque(DyeableBlockEntity.getColor(world,pos)), ModCeramicBlocksItems);
+    private static void registerBlockItemColor(BlockColor color, ItemColor itemColor, Block block) {
+        itemColors.add(new Pair<>(itemColor, block));
+        blockColors.add(new Pair<>(color, block));
     }
 
-    private static void registerItemColor(Item item) {
-//        Registers tint for ceramic items
-//        ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
-//            if (stack.getComponents().get(DataComponents.DYED_COLOR) != null && tintIndex == 0) {
-//                return FastColor.ARGB32.opaque(stack.getComponents().get(DataComponents.DYED_COLOR).rgb());
-//            }
-//            return DyeableBlockEntity.DEFAULT_COLOR;
-//        },item); TODO: COMMON STUFF
+    private static void registerCeramicBlockColor(Block block) {
+        registerCeramicItemColor(block.asItem());
+        blockColors.add(new Pair<>((state, world, pos, tintIndex) -> FastColor.ARGB32.opaque(DyeableBlockEntity.getColor(world, pos)), block));
+    }
+
+    private static void registerCeramicItemColor(Item item) {
+        itemColors.add(new Pair<>((stack, tintIndex) -> {
+            if (stack.getComponents().get(DataComponents.DYED_COLOR) != null && tintIndex == 0) {
+                return FastColor.ARGB32.opaque(stack.getComponents().get(DataComponents.DYED_COLOR).rgb());
+            }
+            return DyeableBlockEntity.DEFAULT_COLOR;
+        }, item));
     }
 }
