@@ -1,0 +1,10 @@
+{
+  "seeds": "minecraft:glow_berries",
+  "produce": "minecraft:glow_berries",
+  "texture": "bountifulfares:block/glow_berry_trellis",
+  "model": "default",
+  "stages": 4,
+  "grow_chance": 0.3,
+  "min_drops": 1,
+  "max_drops": 1
+}

@@ -17,6 +17,7 @@ public class FabricBountifulFaresClient implements ClientModInitializer {
         BountifulFaresClient.onInitializeClient();
         ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
         BlockEntityRenderers.register(BFBlockEntities.TRELLIS_BLOCK_ENTITY.get(), TrellisBlockEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_LAYER, TrellisBlockEntityRenderer::createBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_DEFAULT, TrellisBlockEntityRenderer::createDefaultLayer);
+        EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_INVERTED, TrellisBlockEntityRenderer::createInvertedLayer);
     }
 }

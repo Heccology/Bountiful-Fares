@@ -3,7 +3,10 @@ package net.hecco.bountifulfares.block.custom;
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.entity.TrellisBlockEntity;
+import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.hecco.bountifulfares.trellis.TrellisCropDefinition;
 import net.hecco.bountifulfares.trellis.TrellisPlantDefinition;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -48,6 +51,7 @@ public class NewTrellisBlock extends HorizontalDirectionalBlock implements Entit
     protected static final VoxelShape EAST_SHAPE = Block.box(0, 0, 0, 1, 16, 16);
 
     public static Map<Item, TrellisPlantDefinition> PLANTS = new HashMap<>();
+    public static Map<Item, TrellisCropDefinition> CROPS = new HashMap<>();
 
     public NewTrellisBlock(Properties settings) {
         super(settings);
@@ -70,21 +74,42 @@ public class NewTrellisBlock extends HorizontalDirectionalBlock implements Entit
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (level.isClientSide()) {
-            BountifulFares.LOGGER.info("client: " + ((TrellisBlockEntity) level.getBlockEntity(pos)).getPlant());
-        } else {
-            BountifulFares.LOGGER.info("server: " + ((TrellisBlockEntity) level.getBlockEntity(pos)).getPlant());
+        if (level.getBlockEntity(pos) instanceof TrellisBlockEntity entity) {
+            if (CROPS.containsKey(entity.getPlant())) {
+                TrellisCropDefinition crop = CROPS.get(entity.getPlant());
+                if (entity.getStage() >= crop.stages()) {
+                    entity.setStage(Math.max(entity.getStage() - 2, 0));
+                    popResource(level, pos, new ItemStack(crop.produce(), crop.minDrops() != crop.maxDrops() ? level.random.nextInt(Math.min(crop.minDrops(), crop.maxDrops()), Math.max(crop.minDrops(), crop.maxDrops())) : crop.minDrops()));
+                    level.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK.get(), SoundSource.BLOCKS, 1.0f, 1.0f + (level.random.nextFloat() / 5));
+                    level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
+                    return InteractionResult.SUCCESS;
+                }
+            }
         }
         return super.useWithoutItem(state, level, pos, player, hitResult);
     }
 
     @Override
+    protected void attack(BlockState state, Level level, BlockPos pos, Player player) {
+        if (level.getBlockEntity(pos) instanceof TrellisBlockEntity entity) {
+            if (CROPS.containsKey(entity.getPlant())) {
+                TrellisCropDefinition crop = CROPS.get(entity.getPlant());
+                popResource(level, pos, crop.seeds().getDefaultInstance());
+                entity.removePlant();
+            }
+        }
+        super.attack(state, level, pos, player);
+    }
+
+    @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (level.getBlockEntity(pos) instanceof TrellisBlockEntity entity && !level.isClientSide()) {
+        if (level.getBlockEntity(pos) instanceof TrellisBlockEntity entity) {
             if (entity.canPlantOn()) {
-                if (PLANTS.containsKey(stack.getItem())) {
-                    entity.setPlant(stack.getItem(), PLANTS.get(stack.getItem()).texture());
-                    level.playSound(null, pos, SoundEvents.CROP_PLANTED, SoundSource.BLOCKS, 1.0f, 1.0f);
+                if (level.isClientSide()) {
+                    return ItemInteractionResult.SUCCESS;
+                } else if (PLANTS.containsKey(stack.getItem()) || CROPS.containsKey(stack.getItem())) {
+                    entity.setPlant(stack.getItem());
+                    level.playSound(null, pos, SoundEvents.CROP_PLANTED, SoundSource.BLOCKS, 1.0f, 1.0f + (level.random.nextFloat() / 5));
                     level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
                     if (!player.isCreative()) {
                         stack.shrink(1);
@@ -94,6 +119,19 @@ public class NewTrellisBlock extends HorizontalDirectionalBlock implements Entit
             }
         }
         return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
+    }
+
+    @Override
+    protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (level.getBlockEntity(pos) instanceof TrellisBlockEntity entity) {
+            if (CROPS.containsKey(entity.getPlant())) {
+                TrellisCropDefinition crop = CROPS.get(entity.getPlant());
+                if (random.nextFloat() < crop.growChance() && entity.getStage() < crop.stages()) {
+                    entity.setStage(entity.getStage() + 1);
+                }
+            }
+        }
+        super.randomTick(state, level, pos, random);
     }
 
     @Override

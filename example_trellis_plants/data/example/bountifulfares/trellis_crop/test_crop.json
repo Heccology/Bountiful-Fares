@@ -1,0 +1,10 @@
+{
+  "seeds": "minecraft:beetroot_seeds",
+  "produce": "minecraft:beetroot",
+  "texture": "example:block/beetroot_trellis",
+  "model": "default",
+  "stages": 4,
+  "grow_chance": 0.2,
+  "min_drops": 2,
+  "max_drops": 6
+}

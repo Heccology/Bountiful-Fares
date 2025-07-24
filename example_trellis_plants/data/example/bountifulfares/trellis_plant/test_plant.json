@@ -1,0 +1,5 @@
+{
+  "plant": "minecraft:wither_rose",
+  "texture": "example:block/wither_trellis",
+  "model": "default"
+}

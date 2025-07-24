@@ -1,0 +1,10 @@
+{
+  "seeds": "bountifulfares:passion_fruit",
+  "produce": "bountifulfares:passion_fruit",
+  "texture": "bountifulfares:block/passion_fruit_trellis",
+  "model": "default",
+  "stages": 4,
+  "grow_chance": 0.2,
+  "min_drops": 1,
+  "max_drops": 3
+}

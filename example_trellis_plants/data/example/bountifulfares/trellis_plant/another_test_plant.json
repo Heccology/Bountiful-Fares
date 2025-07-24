@@ -1,0 +1,5 @@
+{
+  "plant": "minecraft:poppy",
+  "texture": "example:block/poppy_trellis",
+  "model": "inverted"
+}

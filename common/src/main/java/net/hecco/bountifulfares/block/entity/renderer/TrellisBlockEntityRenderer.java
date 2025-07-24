@@ -17,34 +17,50 @@ import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.*;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
+import java.util.Objects;
+
 public class TrellisBlockEntityRenderer implements BlockEntityRenderer<TrellisBlockEntity> {
 
-    private final ModelPart bellBody;
-    public static final ModelLayerLocation TRELLIS_LAYER = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "trellis"), "main");
+    private final ModelPart defaultModel;
+    private final ModelPart invertedModel;
+    public static final ModelLayerLocation TRELLIS_DEFAULT = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "trellis_default"), "main");
+    public static final ModelLayerLocation TRELLIS_INVERTED = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "trellis_inverted"), "main");
 
     public TrellisBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
-        ModelPart modelpart = context.bakeLayer(TRELLIS_LAYER);
-        this.bellBody = modelpart.getChild("vines");
+        ModelPart defaultLayer = context.bakeLayer(TRELLIS_DEFAULT);
+        ModelPart invertedLayer = context.bakeLayer(TRELLIS_INVERTED);
+        this.defaultModel = defaultLayer.getChild("vines");
+        this.invertedModel = invertedLayer.getChild("vines");
     }
 
-    public static LayerDefinition createBodyLayer() {
+    public static LayerDefinition createDefaultLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition bb_main = partdefinition.addOrReplaceChild("vines", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -16.0F, 6.975F, 16.0F, 16.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+        PartDefinition bone = partdefinition.addOrReplaceChild("vines", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-8.0F, -16.0F, 6.975F, 16.0F, 16.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-        PartDefinition twisting_bottom_r1 = bb_main.addOrReplaceChild("twisting_bottom_r1", CubeListBuilder.create().texOffs(0, 16).addBox(-8.0F, -8.0F, 0.0F, 16.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -1.0F, 6.975F, 0.3927F, 0.0F, 0.0F));
+        PartDefinition foliage_bottom_r1 = bone.addOrReplaceChild("foliage_bottom_r1", CubeListBuilder.create().texOffs(0, 24).mirror().addBox(-8.0F, 0.0F, 0.0F, 16.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -8.0F, 6.975F, -0.3927F, 0.0F, 0.0F));
 
-        PartDefinition twisting_top_r1 = bb_main.addOrReplaceChild("twisting_top_r1", CubeListBuilder.create().texOffs(0, 24).addBox(-8.0F, -8.0F, 0.0F, 16.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -8.0F, 6.975F, 0.3927F, 0.0F, 0.0F));
+        PartDefinition foliage_top_r1 = bone.addOrReplaceChild("foliage_top_r1", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-8.0F, 0.0F, 0.0F, 16.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -15.0F, 6.975F, -0.3927F, 0.0F, 0.0F));
 
-        PartDefinition foliage_top_r1 = bb_main.addOrReplaceChild("foliage_top_r1", CubeListBuilder.create().texOffs(32, 16).addBox(-8.0F, 0.0F, 0.0F, 16.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -15.0F, 6.975F, -0.3927F, 0.0F, 0.0F));
+        return LayerDefinition.create(meshdefinition, 32, 32);
+    }
 
-        PartDefinition foliage_bottom_r1 = bb_main.addOrReplaceChild("foliage_bottom_r1", CubeListBuilder.create().texOffs(32, 24).addBox(-8.0F, 0.0F, 0.0F, 16.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -8.0F, 6.975F, -0.3927F, 0.0F, 0.0F));
+    public static LayerDefinition createInvertedLayer() {
+        MeshDefinition meshdefinition = new MeshDefinition();
+        PartDefinition partdefinition = meshdefinition.getRoot();
 
-        return LayerDefinition.create(meshdefinition, 64, 32);
+        PartDefinition bone = partdefinition.addOrReplaceChild("vines", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-8.0F, -16.0F, 6.975F, 16.0F, 16.0F, 0.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, 24.0F, 0.0F));
+
+        PartDefinition foliage_bottom_r1 = bone.addOrReplaceChild("foliage_bottom_r1", CubeListBuilder.create().texOffs(0, 24).mirror().addBox(-8.0F, -8.0F, 0.0F, 16.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, -1.0F, 6.975F, 0.3927F, 0.0F, 0.0F));
+
+        PartDefinition foliage_top_r1 = bone.addOrReplaceChild("foliage_top_r1", CubeListBuilder.create().texOffs(0, 16).mirror().addBox(-8.0F, -8.0F, 0.0F, 16.0F, 8.0F, 0.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, -8.0F, 6.975F, 0.3927F, 0.0F, 0.0F));
+
+        return LayerDefinition.create(meshdefinition, 32, 32);
     }
 
     @Override
@@ -56,19 +72,33 @@ public class TrellisBlockEntityRenderer implements BlockEntityRenderer<TrellisBl
                 : Direction.NORTH;
 
         poseStack.pushPose();
+        if (entity.getPlant() != null && (NewTrellisBlock.PLANTS.containsKey(entity.getPlant()) || NewTrellisBlock.CROPS.containsKey(entity.getPlant()))) {
+            poseStack.translate(0.5, 1.5, 0.5);
+            poseStack.scale(-1, -1, -1);
 
-        poseStack.translate(0.5, -0.5, 0.5);
+            ModelPart modelPart = defaultModel;
+            ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "block/trellis");
+            if (NewTrellisBlock.PLANTS.containsKey(entity.getPlant())) {
+                if (NewTrellisBlock.PLANTS.get(entity.getPlant()).model().equalsIgnoreCase("inverted")) {
+                    modelPart = invertedModel;
+                }
+                texture = NewTrellisBlock.PLANTS.get(entity.getPlant()).texture();
+            }
+            if (NewTrellisBlock.CROPS.containsKey(entity.getPlant())) {
+                if (NewTrellisBlock.CROPS.get(entity.getPlant()).model().equalsIgnoreCase("inverted")) {
+                    modelPart = invertedModel;
+                }
+                texture = NewTrellisBlock.CROPS.get(entity.getPlant()).texture().withSuffix("_" + entity.getStage());
+            }
 
-        switch (direction) {
-            case NORTH -> this.bellBody.yRot = 0;
-            case SOUTH -> this.bellBody.yRot = (float) Math.PI;
-            case WEST -> this.bellBody.yRot = (float) (Math.PI * 0.5);
-            case EAST -> this.bellBody.yRot = (float) (Math.PI * 1.5);
-        }
-
-        if (entity.getPlant() != null && NewTrellisBlock.PLANTS.get(entity.getPlant()) != null) {
-            VertexConsumer vertexconsumer = new Material(TextureAtlas.LOCATION_BLOCKS, NewTrellisBlock.PLANTS.get(entity.getPlant()).texture()).buffer(multiBufferSource, RenderType::entityCutoutNoCull);
-            this.bellBody.render(poseStack, vertexconsumer, i, i1);
+            switch (direction) {
+                case SOUTH -> modelPart.yRot = 0;
+                case NORTH -> modelPart.yRot = (float) Math.PI;
+                case EAST -> modelPart.yRot = (float) (Math.PI * 0.5);
+                case WEST -> modelPart.yRot = (float) (Math.PI * 1.5);
+            }
+            VertexConsumer vertexconsumer = new Material(TextureAtlas.LOCATION_BLOCKS, texture).buffer(multiBufferSource, RenderType::entityCutoutNoCull);
+            modelPart.render(poseStack, vertexconsumer, i, i1);
         }
         poseStack.popPose();
     }

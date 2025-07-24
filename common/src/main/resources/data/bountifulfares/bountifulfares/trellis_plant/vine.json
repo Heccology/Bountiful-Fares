@@ -1,4 +1,6 @@
 {
   "plant": "minecraft:vine",
-  "texture": "bountifulfares:block/vine_trellis"
+  "model": "default",
+  "texture": "bountifulfares:block/vine_trellis",
+  "can_duplicate": false
 }

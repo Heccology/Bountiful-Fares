@@ -1,4 +1,6 @@
 {
   "plant": "minecraft:lilac",
-  "texture": "bountifulfares:block/lilac_trellis"
+  "model": "default",
+  "texture": "bountifulfares:block/lilac_trellis",
+  "can_duplicate": true
 }

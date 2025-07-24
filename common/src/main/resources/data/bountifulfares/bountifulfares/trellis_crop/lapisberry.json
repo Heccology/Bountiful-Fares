@@ -1,0 +1,10 @@
+{
+  "seeds": "bountifulfares:lapisberries",
+  "produce": "bountifulfares:lapisberries",
+  "texture": "bountifulfares:block/lapisberry_trellis",
+  "model": "default",
+  "stages": 4,
+  "grow_chance": 0.2,
+  "min_drops": 2,
+  "max_drops": 3
+}

@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.block.entity;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.block.custom.NewTrellisBlock;
 import net.hecco.bountifulfares.networking.payload.TrellisEmptyPayload;
 import net.hecco.bountifulfares.networking.payload.TrellisPlantPayload;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
@@ -25,6 +26,7 @@ import java.util.Objects;
 
 public class TrellisBlockEntity extends BlockEntity {
     private ItemStack plant = ItemStack.EMPTY;
+    private int stage = 1;
     public TrellisBlockEntity(BlockPos pos, BlockState blockState) {
         super(BFBlockEntities.TRELLIS_BLOCK_ENTITY.get(), pos, blockState);
     }
@@ -41,17 +43,25 @@ public class TrellisBlockEntity extends BlockEntity {
         return plant == ItemStack.EMPTY;
     }
 
-    public void setPlant(Item seed, ResourceLocation texture) {
+    public void setPlant(Item seed) {
         this.plant = seed.getDefaultInstance();
-        BountifulFares.LOGGER.info(Minecraft.getInstance().getModelManager().getModel(
-                new ModelResourceLocation(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "vine_trellis"), "")
-        ) + "");
+        this.stage = 1;
         setChanged();
     }
 
     public void removePlant() {
         this.plant = ItemStack.EMPTY;
+        this.stage = 1;
         setChanged();
+    }
+
+    public void setStage(int stage) {
+        this.stage = stage;
+        setChanged();
+    }
+
+    public int getStage() {
+        return this.stage;
     }
 
     @Override
@@ -59,7 +69,7 @@ public class TrellisBlockEntity extends BlockEntity {
         if (this.getLevel() != null && !this.getLevel().isClientSide) {
             ServerLevel level = (ServerLevel) this.getLevel();
             if (plant != ItemStack.EMPTY) {
-                HLServices.NETWORK.sendToPlayersTrackingChunk(level, this.getBlockPos(), new TrellisPlantPayload(this.getBlockPos(), this.plant));
+                HLServices.NETWORK.sendToPlayersTrackingChunk(level, this.getBlockPos(), new TrellisPlantPayload(this.getBlockPos(), this.plant, this.stage));
             } else {
                 HLServices.NETWORK.sendToPlayersTrackingChunk(level, this.getBlockPos(), new TrellisEmptyPayload(this.getBlockPos()));
             }
@@ -72,6 +82,9 @@ public class TrellisBlockEntity extends BlockEntity {
     protected void saveAdditional(CompoundTag nbt, HolderLookup.Provider registryLookup) {
         if (plant != ItemStack.EMPTY) {
             nbt.put("Plant", plant.save(registryLookup, nbt));
+        }
+        if (NewTrellisBlock.CROPS.containsKey(plant.getItem())) {
+            nbt.putInt("Stage", stage);
         }
         super.saveAdditional(nbt, registryLookup);
     }
@@ -87,13 +100,13 @@ public class TrellisBlockEntity extends BlockEntity {
         return saveWithoutMetadata(registryLookup);
     }
 
-
     @Override
     protected void loadAdditional(CompoundTag nbt, HolderLookup.Provider registryLookup) {
         if (nbt.get("Plant") != null) {
             plant = ItemStack.parse(registryLookup, Objects.requireNonNull(nbt.get("Plant"))).orElse(ItemStack.EMPTY);
-        } else {
-            plant = ItemStack.EMPTY;
+            if (nbt.contains("Stage")) {
+                stage = nbt.getInt("Stage");
+            }
         }
         super.loadAdditional(nbt, registryLookup);
     }

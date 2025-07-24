@@ -1,4 +1,6 @@
 {
   "plant": "minecraft:peony",
-  "texture": "bountifulfares:block/peony_trellis"
+  "model": "default",
+  "texture": "bountifulfares:block/peony_trellis",
+  "can_duplicate": true
 }

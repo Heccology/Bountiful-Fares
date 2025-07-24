@@ -69,7 +69,8 @@ public class BFMessages {
         ItemStack stack = payload.stack();
 
         if (world.getBlockEntity(pos) instanceof TrellisBlockEntity entity) {
-            entity.setPlant(stack.getItem(), NewTrellisBlock.PLANTS.get(stack.getItem()).texture());
+            entity.setPlant(stack.getItem());
+            entity.setStage(payload.stage());
             world.sendBlockUpdated(pos, world.getBlockState(pos), world.getBlockState(pos), 2);
         }
     }

@@ -1,4 +1,6 @@
 {
   "plant": "minecraft:rose_bush",
-  "texture": "bountifulfares:block/rose_trellis"
+  "model": "default",
+  "texture": "bountifulfares:block/rose_trellis",
+  "can_duplicate": true
 }

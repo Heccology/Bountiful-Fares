@@ -16,12 +16,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TrellisPlantResourceLoader extends SimpleJsonResourceReloadListener {
+public class TrellisCropResourceLoader extends SimpleJsonResourceReloadListener {
 
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
-    private final Map<ResourceLocation, TrellisPlantDefinition> registeredPlants = new HashMap<>();
-    public TrellisPlantResourceLoader() {
-        super(GSON, "bountifulfares/trellis_plant");
+    private final Map<ResourceLocation, TrellisCropDefinition> registeredPlants = new HashMap<>();
+    public TrellisCropResourceLoader() {
+        super(GSON, "bountifulfares/trellis_crop");
     }
 
     @Override
@@ -30,23 +30,24 @@ public class TrellisPlantResourceLoader extends SimpleJsonResourceReloadListener
         for (var entry : resourceLocationJsonElementMap.entrySet()) {
             ResourceLocation id = entry.getKey();
             try {
-                TrellisPlantDefinition def = TrellisPlantDefinition.CODEC.parse(JsonOps.INSTANCE, entry.getValue()).getOrThrow();
-                if (def.plant() == Items.AIR) {
-                    throw new NullPointerException("Plant item was not found");
+                TrellisCropDefinition def = TrellisCropDefinition.CODEC.parse(JsonOps.INSTANCE, entry.getValue()).getOrThrow();
+                if (def.seeds() == Items.AIR) {
+                    throw new NullPointerException("Seeds item was not found");
+                } else if (def.produce() == Items.AIR) {
+                    throw new NullPointerException("Produce item was not found");
                 } else {
                     registeredPlants.put(id, def);
                 }
             } catch (Exception e) {
-                BountifulFares.LOGGER.error("Failed to load trellis plant '{}'", id, e);
+                BountifulFares.LOGGER.error("Failed to load trellis crop '{}'", id, e);
             }
         }
-        for (TrellisPlantDefinition plantDefinition : registeredPlants.values().stream().toList()) {
-            BountifulFares.LOGGER.info(plantDefinition + "");
-            NewTrellisBlock.PLANTS.put(plantDefinition.plant(), plantDefinition);
+        for (TrellisCropDefinition cropDefinition : registeredPlants.values().stream().toList()) {
+            NewTrellisBlock.CROPS.put(cropDefinition.seeds(), cropDefinition);
         }
     }
 
-    public Collection<TrellisPlantDefinition> getAllTrellisPlants() {
+    public Collection<TrellisCropDefinition> getAllTrellisCrops() {
         return this.registeredPlants.values();
     }
 }

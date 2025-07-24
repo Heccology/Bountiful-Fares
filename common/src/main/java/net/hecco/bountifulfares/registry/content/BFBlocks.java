@@ -298,9 +298,9 @@ public class BFBlocks {
     private static void registerTrellises() {
         for (String wood : BountifulFaresUtil.WOOD_TYPES) {
             if (wood != "oak") {
-                TRELLISES.put(wood, registerBlockNoItem(wood + "_trellis", () -> new NewTrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).noOcclusion())));
+                TRELLISES.put(wood, registerBlockNoItem(wood + "_trellis", () -> new NewTrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).randomTicks().noOcclusion())));
             } else {
-                TRELLISES.put(wood, registerBlockNoItem("trellis", () -> new NewTrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).noOcclusion())));
+                TRELLISES.put(wood, registerBlockNoItem("trellis", () -> new NewTrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).randomTicks().noOcclusion())));
             }
         }
     }
