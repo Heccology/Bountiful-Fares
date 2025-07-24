@@ -15,6 +15,7 @@ import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockAndTintGetter;
@@ -363,13 +364,12 @@ public class BountifulFaresClient {
 //        ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
 //        ParticleFactoryRegistry.getInstance().register(BFParticles.FERMENTED_BUBBLE.get(), FermentedBubbleParticle.Factory::new);
 //        ParticleFactoryRegistry.getInstance().register(BFParticles.GOLDEN_PETAL.get(), GoldenPetalParticle.Factory::new);
-//
-//        ColorProviderRegistry.BLOCK.register(((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : FoliageColor.getDefaultColor()), BFBlocks.WILD_POTATOES, BFBlocks.WILD_CARROTS, BFBlocks.WILD_BEETROOTS, BFBlocks.WILD_LEEKS, BFBlocks.WILD_MAIZE, BFBlocks.WILD_PASSION_FRUIT_VINE, BFBlocks.WILD_ELDERBERRY_VINE);
-//
-//        ItemProperties.register(
-//                ARTISAN_BRUSH, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "dyed"),
-//                (itemStack, clientWorld, livingEntity, seed) ->
-//                        itemStack.getComponents().get(DataComponents.DYED_COLOR) != null ? 1.0F : 0.0F);
+
+        HLServices.CLIENT.registerItemModelPredicate(
+                BFItems.ARTISAN_BRUSH.get(),
+                ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "dyed"),
+                (itemStack, clientWorld, livingEntity, seed) ->
+                        itemStack.getComponents().get(DataComponents.DYED_COLOR) != null ? 1.0F : 0.0F);
     }
 
     private static void registerBlockItemColor(BlockColor color, ItemColor itemColor, Block block) {
