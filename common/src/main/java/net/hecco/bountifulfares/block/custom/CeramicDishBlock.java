@@ -141,7 +141,7 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
         if (stack.getComponents().get(DataComponents.FOOD) != null) {
             if (BountifulFares.CONFIG.isContainerFoodsEatableOnDish()) {
                 return true;
-            } else if (stack.getItem().hasCraftingRemainingItem()) {
+            } else if (!stack.getItem().hasCraftingRemainingItem()) {
                 return true;
             }
         }
