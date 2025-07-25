@@ -1,11 +1,13 @@
 package net.hecco.bountifulfares.entity;
 
+import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFParticles;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.EntityEvent;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -14,6 +16,14 @@ import net.minecraft.world.phys.HitResult;
 public class FlourProjectileEntity extends ThrowableItemProjectile {
     public FlourProjectileEntity(EntityType<? extends FlourProjectileEntity> entityType, Level world) {
         super(entityType, world);
+    }
+
+    public FlourProjectileEntity(LivingEntity livingEntity, Level world) {
+        super(BFEntities.THROWN_FLOUR_PROJECTILE.get(), livingEntity, world);
+    }
+
+    public FlourProjectileEntity(Level world, double x, double y, double z) {
+        super(BFEntities.THROWN_FLOUR_PROJECTILE.get(), x, y, z, world);
     }
 
     @Override
