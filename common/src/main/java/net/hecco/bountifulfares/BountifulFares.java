@@ -3,6 +3,7 @@ package net.hecco.bountifulfares;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.misc.*;
 import net.hecco.bountifulfares.registry.util.BFDamageTypes;
+import net.hecco.heccolib.platform.HLServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,7 +46,9 @@ public class BountifulFares {
 		BFTrunkPlacerTypes.register();
 		BFFeatures.register();
 //		BFRegistries.RegisterModStuffs(); //TODO: FIX
-		BFBlockEntities.registerBlockEntities();
+		if (!HLServices.PLATFORM.isDatagen()) { //This is needed for some reason..
+			BFBlockEntities.registerBlockEntities();
+		}
 //		BFScreenHandlers.registerScreenHandlers(); //TODO: MOVE TO HECCOLIB REGISTRY
 		BFEntities.registerEntities();
 		BFDamageTypes.registerDamageTypes();

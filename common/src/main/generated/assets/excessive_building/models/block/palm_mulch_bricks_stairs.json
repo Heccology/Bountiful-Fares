@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "excessive_building:block/palm_mulch_bricks",
-    "side": "excessive_building:block/palm_mulch_bricks",
-    "top": "excessive_building:block/palm_mulch_bricks"
-  }
-}

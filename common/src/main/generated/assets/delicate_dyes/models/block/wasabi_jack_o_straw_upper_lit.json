@@ -1,6 +1,0 @@
-{
-  "parent": "bountifulfares:block/jack_o_straw_upper",
-  "textures": {
-    "texture": "delicate_dyes:block/wasabi_jack_o_straw_lit"
-  }
-}

@@ -1230,14 +1230,14 @@ public class BFRecipeProvider extends FabricRecipeProvider {
     }
 
     public static void offerMillingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count) {
-        MillingRecipeBuilder.create(input.asItem(), output, count)
-                .unlockedBy(getHasName(input), has(input))
-                .save(exporter);
+//        MillingRecipeBuilder.create(input.asItem(), output, count)
+//                .unlockedBy(getHasName(input), has(input))
+//                .save(exporter); //TODO
     }
 
     public static void offerFermentingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, int particleColor) {
-        FermentingRecipeBuilder.create(input.asItem(), output, count, particleColor)
-                .unlockedBy(getHasName(input), has(input))
-                .save(exporter);
+//        FermentingRecipeBuilder.create(input.asItem(), output, count, particleColor)
+//                .unlockedBy(getHasName(input), has(input))
+//                .save(exporter); //TODO
     }
 }

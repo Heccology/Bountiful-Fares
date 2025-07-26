@@ -165,20 +165,6 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.PINK_JACK_O_STRAW.get())
         ;
 
-        registerTrellisBlockTags(BFTrellises.OAK);
-        registerTrellisBlockTags(BFTrellises.SPRUCE);
-        registerTrellisBlockTags(BFTrellises.BIRCH);
-        registerTrellisBlockTags(BFTrellises.JUNGLE);
-        registerTrellisBlockTags(BFTrellises.ACACIA);
-        registerTrellisBlockTags(BFTrellises.DARK_OAK);
-        registerTrellisBlockTags(BFTrellises.MANGROVE);
-        registerTrellisBlockTags(BFTrellises.CHERRY);
-        registerTrellisBlockTags(BFTrellises.BAMBOO);
-        registerTrellisBlockTags(BFTrellises.WALNUT);
-        registerTrellisBlockTags(BFTrellises.HOARY);
-        registerTrellisBlockTags(BFTrellises.CRIMSON);
-        registerTrellisBlockTags(BFTrellises.WARPED);
-
         getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_HOE)
                 .add(BFBlocks.APPLE_LEAVES.get())
                 .add(BFBlocks.FLOWERING_APPLE_LEAVES.get())
@@ -478,21 +464,5 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BFBlockTags.PRISMARINE_PROPAGATION_SUBSTRATE)
                 .add(Blocks.SEA_LANTERN);
-    }
-
-    public void registerTrellisBlockTags(TrellisVariant trellis) {
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
-                .addOptional(ResourceLocation.fromNamespaceAndPath(trellis.getModId(), trellis.getBlockName()))
-        ;
-//        for (VineCrop crop : TrellisUtil.VineCrops) {
-//            getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
-//                    .addOptional(ResourceLocation.fromNamespaceAndPath(trellis.getModId(), crop.getName() + "_" + trellis.getBlockName()))
-//            ;
-//        }
-//        for (DecorativeVine vine : TrellisUtil.DecorativeVines) {
-//            getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
-//                    .addOptional(ResourceLocation.fromNamespaceAndPath(trellis.getModId(), vine.getName() + "_" + trellis.getBlockName()))
-//            ;
-//        }
     }
 }
