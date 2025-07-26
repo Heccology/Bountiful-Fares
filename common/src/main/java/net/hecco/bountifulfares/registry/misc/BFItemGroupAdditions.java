@@ -411,12 +411,6 @@ public class BFItemGroupAdditions {
         INGREDIENTS.add(new Pair<>(BFItems.COCONUT_HALF.get(), BFItems.COCONUT_COIR.get()));
         INGREDIENTS.add(new Pair<>(BFItems.COCONUT_COIR.get(), BFItems.TEA_LEAVES.get()));
         INGREDIENTS.add(new Pair<>(BFItems.TEA_LEAVES.get(), BFItems.DRIED_TEA_LEAVES.get()));
-        INGREDIENTS.add(new Pair<>(BFItems.DRIED_TEA_LEAVES.get(), BFItems.GREEN_TEA_BLEND.get()));
-        INGREDIENTS.add(new Pair<>(BFItems.GREEN_TEA_BLEND.get(), BFItems.BLACK_TEA_BLEND.get()));
-        INGREDIENTS.add(new Pair<>(BFItems.BLACK_TEA_BLEND.get(), BFItems.CHAMOMILE_TEA_BLEND.get()));
-        INGREDIENTS.add(new Pair<>(BFItems.CHAMOMILE_TEA_BLEND.get(), BFItems.HONEYSUCKLE_TEA_BLEND.get()));
-        INGREDIENTS.add(new Pair<>(BFItems.HONEYSUCKLE_TEA_BLEND.get(), BFItems.BELLFLOWER_TEA_BLEND.get()));
-        INGREDIENTS.add(new Pair<>(BFItems.BELLFLOWER_TEA_BLEND.get(), BFItems.TORCHFLOWER_TEA_BLEND.get()));
 
         if (HLServices.PLATFORM.getPlatformName() == "Fabric") {
             HLServices.REGISTRY.addItemsToItemGroup(

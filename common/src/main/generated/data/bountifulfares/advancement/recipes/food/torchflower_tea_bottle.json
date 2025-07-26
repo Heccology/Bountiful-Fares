@@ -7,11 +7,11 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_torchflower_tea_blend": {
+    "has_torchflower": {
       "conditions": {
         "items": [
           {
-            "items": "bountifulfares:torchflower_tea_blend"
+            "items": "minecraft:torchflower"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_torchflower_tea_blend"
+      "has_torchflower"
     ]
   ],
   "rewards": {

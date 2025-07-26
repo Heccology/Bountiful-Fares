@@ -1,27 +1,27 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_bellflower_tea_blend": {
-      "conditions": {
-        "items": [
-          {
-            "items": "bountifulfares:bellflower_tea_blend"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "bountifulfares:bellflower_tea_bottle"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_violet_bellflower": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:violet_bellflower"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_bellflower_tea_blend"
+      "has_violet_bellflower"
     ]
   ],
   "rewards": {

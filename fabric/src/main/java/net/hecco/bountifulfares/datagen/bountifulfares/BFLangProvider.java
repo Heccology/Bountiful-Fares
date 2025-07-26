@@ -107,6 +107,13 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFBlocks.WALNUT_WALL_HANGING_SIGN.get(), "Walnut Hanging Sign");
         generate(translationBuilder, BFItems.WALNUT_HANGING_SIGN.get(), "Walnut Hanging Sign");
 
+        generate(translationBuilder, BFItems.GREEN_TEA_BOTTLE.get(), "Green Tea Cup");
+        generate(translationBuilder, BFItems.BLACK_TEA_BOTTLE.get(), "Black Tea Cup");
+        generate(translationBuilder, BFItems.CHAMOMILE_TEA_BOTTLE.get(), "Chamomile Tea Cup");
+        generate(translationBuilder, BFItems.HONEYSUCKLE_TEA_BOTTLE.get(), "Honeysuckle Tea Cup");
+        generate(translationBuilder, BFItems.BELLFLOWER_TEA_BOTTLE.get(), "Bellflower Tea Cup");
+        generate(translationBuilder, BFItems.TORCHFLOWER_TEA_BOTTLE.get(), "Torchflower Tea Cup");
+
         generate(translationBuilder, "effect.bountifulfares.acidic", "Acidic");
         generate(translationBuilder, "item.minecraft.potion.effect.bountifulfares.acidic", "Potion of Acidity");
         generate(translationBuilder, "item.minecraft.potion.effect.bountifulfares.long_acidic", "Potion of Acidity");
@@ -340,7 +347,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.gorge.description", "Gorge");
 
         generate(translationBuilder, "advancement.bountifulfares.obtain_tea_blends", "Tea Tea");
-        generate(translationBuilder, "advancement.bountifulfares.obtain_tea_blends.description", "Obtain every Tea Blend");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_tea_blends.description", "Obtain every Tea Item");
 
         generate(translationBuilder, "advancement.bountifulfares.place_all_tea_candles", "Fragrant!");
         generate(translationBuilder, "advancement.bountifulfares.place_all_tea_candles.description", "Place every Tea Candle");

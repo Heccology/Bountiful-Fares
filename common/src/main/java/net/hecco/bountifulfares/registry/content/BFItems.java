@@ -62,12 +62,6 @@ public class BFItems {
     public static final Supplier<Item> TEA_BERRIES = registerItem("tea_berries", () -> new TeaBerriesItem(BFBlocks.TEA_SHRUB.get(), new Item.Properties()));
     public static final Supplier<Item> TEA_LEAVES = registerItem("tea_leaves", () -> new Item(new Item.Properties()));
     public static final Supplier<Item> DRIED_TEA_LEAVES = registerItem("dried_tea_leaves", () -> new Item(new Item.Properties()));
-    public static final Supplier<Item> GREEN_TEA_BLEND = registerItem("green_tea_blend", () -> new Item(new Item.Properties()));
-    public static final Supplier<Item> BLACK_TEA_BLEND = registerItem("black_tea_blend", () -> new Item(new Item.Properties()));
-    public static final Supplier<Item> CHAMOMILE_TEA_BLEND = registerItem("chamomile_tea_blend", () -> new Item(new Item.Properties()));
-    public static final Supplier<Item> HONEYSUCKLE_TEA_BLEND = registerItem("honeysuckle_tea_blend", () -> new Item(new Item.Properties()));
-    public static final Supplier<Item> BELLFLOWER_TEA_BLEND = registerItem("bellflower_tea_blend", () -> new Item(new Item.Properties()));
-    public static final Supplier<Item> TORCHFLOWER_TEA_BLEND = registerItem("torchflower_tea_blend", () -> new Item(new Item.Properties()));
     public static final Supplier<Item> GREEN_TEA_BOTTLE = registerItem("green_tea_bottle", () -> new GreenTeaBottleItem(new Item.Properties().stacksTo(16).craftRemainder(Items.GLASS_BOTTLE).food(new FoodProperties.Builder().nutrition(4).saturationModifier(1f).effect(new MobEffectInstance(BFEffects.EBULLIENCE, 6000, 0, true, true), 1f).alwaysEdible().build())));
     public static final Supplier<Item> BLACK_TEA_BOTTLE = registerItem("black_tea_bottle", () -> new BlackTeaBottleItem(new Item.Properties().stacksTo(16).craftRemainder(Items.GLASS_BOTTLE).food(new FoodProperties.Builder().nutrition(4).saturationModifier(1f).effect(new MobEffectInstance(BFEffects.EBULLIENCE, 6000, 0, true, true), 1f).alwaysEdible().build())));
     public static final Supplier<Item> CHAMOMILE_TEA_BOTTLE = registerItem("chamomile_tea_bottle", () -> new ChamomileTeaBottleItem(new Item.Properties().stacksTo(16).craftRemainder(Items.GLASS_BOTTLE).food(new FoodProperties.Builder().nutrition(4).saturationModifier(1f).effect(new MobEffectInstance(BFEffects.EBULLIENCE, 6000, 0, true, true), 1f).alwaysEdible().build())));

@@ -21,6 +21,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.Optional;
@@ -224,12 +225,12 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         false))
                 .parent(place_gristmill)
-                .addCriterion("green", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.GREEN_TEA_BLEND.get()))
-                .addCriterion("black", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.BLACK_TEA_BLEND.get()))
-                .addCriterion("chamomile", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.CHAMOMILE_TEA_BLEND.get()))
-                .addCriterion("honeysuckle", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.HONEYSUCKLE_TEA_BLEND.get()))
-                .addCriterion("bellflower", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.BELLFLOWER_TEA_BLEND.get()))
-                .addCriterion("torchflower", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.TORCHFLOWER_TEA_BLEND.get()))
+                .addCriterion("green", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.TEA_LEAVES.get()))
+                .addCriterion("black", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.DRIED_TEA_LEAVES.get()))
+                .addCriterion("chamomile", InventoryChangeTrigger.TriggerInstance.hasItems(BFBlocks.CHAMOMILE_FLOWERS.get()))
+                .addCriterion("honeysuckle", InventoryChangeTrigger.TriggerInstance.hasItems(BFBlocks.HONEYSUCKLE.get()))
+                .addCriterion("bellflower", InventoryChangeTrigger.TriggerInstance.hasItems(BFBlocks.VIOLET_BELLFLOWER.get()))
+                .addCriterion("torchflower", InventoryChangeTrigger.TriggerInstance.hasItems(Items.TORCHFLOWER))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_tea_blends");
         AdvancementHolder place_all_tea_candles = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFBlocks.GREEN_TEA_CANDLE.get()),

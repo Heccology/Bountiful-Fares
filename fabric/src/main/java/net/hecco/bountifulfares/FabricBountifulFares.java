@@ -12,11 +12,11 @@ public class FabricBountifulFares implements ModInitializer {
     
     @Override
     public void onInitialize() {
-//        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisPlantResourceLoader());
-//        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisCropResourceLoader());
+        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisPlantResourceLoader());
+        ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisCropResourceLoader());
         BountifulFares.init();
 ////        BFLootTableModifiers.modifyLootTables();
-//        BFItemGroupAdditions.registerItemGroupAdditions();
-//        BFMessages.registerPayloads();
+        BFItemGroupAdditions.registerItemGroupAdditions();
+        BFMessages.registerPayloads();
     }
 }

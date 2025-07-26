@@ -23,21 +23,21 @@ import oshi.util.tuples.Pair;
 public class FabricBountifulFaresClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-//        BFMessages.registerS2CPackets();
-//        BountifulFaresClient.onInitializeClient();
-//        ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
-//        BlockEntityRenderers.register(BFBlockEntities.TRELLIS_BLOCK_ENTITY.get(), TrellisBlockEntityRenderer::new);
-//        BlockEntityRenderers.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), CeramicDishBlockEntityRenderer::new);
-//        EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_DEFAULT, TrellisBlockEntityRenderer::createDefaultLayer);
-//        EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_INVERTED, TrellisBlockEntityRenderer::createInvertedLayer);
-//
-//        for (Pair<BlockColor, Block> pair : BountifulFaresClient.blockColors) {
-//            ColorProviderRegistry.BLOCK.register(pair.getA(), pair.getB());
-//        }
-//        for (Pair<ItemColor, ItemLike> pair : BountifulFaresClient.itemColors) {
-//            ColorProviderRegistry.ITEM.register(pair.getA(), pair.getB());
-//        }
-//
-//        EntityRendererRegistry.register(BFEntities.THROWN_FLOUR_PROJECTILE.get(), ThrownItemRenderer::new);
+        BFMessages.registerS2CPackets();
+        BountifulFaresClient.onInitializeClient();
+        ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
+        BlockEntityRenderers.register(BFBlockEntities.TRELLIS_BLOCK_ENTITY.get(), TrellisBlockEntityRenderer::new);
+        BlockEntityRenderers.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), CeramicDishBlockEntityRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_DEFAULT, TrellisBlockEntityRenderer::createDefaultLayer);
+        EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_INVERTED, TrellisBlockEntityRenderer::createInvertedLayer);
+
+        for (Pair<BlockColor, Block> pair : BountifulFaresClient.blockColors) {
+            ColorProviderRegistry.BLOCK.register(pair.getA(), pair.getB());
+        }
+        for (Pair<ItemColor, ItemLike> pair : BountifulFaresClient.itemColors) {
+            ColorProviderRegistry.ITEM.register(pair.getA(), pair.getB());
+        }
+
+        EntityRendererRegistry.register(BFEntities.THROWN_FLOUR_PROJECTILE.get(), ThrownItemRenderer::new);
     }
 }

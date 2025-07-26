@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_honeysuckle_tea_blend": {
+    "has_honeysuckle": {
       "conditions": {
         "items": [
           {
-            "items": "bountifulfares:honeysuckle_tea_blend"
+            "items": "bountifulfares:honeysuckle"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_honeysuckle_tea_blend"
+      "has_honeysuckle"
     ]
   ],
   "rewards": {

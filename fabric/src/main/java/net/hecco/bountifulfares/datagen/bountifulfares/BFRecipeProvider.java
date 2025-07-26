@@ -713,12 +713,12 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         nineBlockStorageRecipes(exporter, RecipeCategory.FOOD, BFItems.LEMON.get(), RecipeCategory.FOOD, BFBlocks.LEMON_BLOCK.get());
         nineBlockStorageRecipes(exporter, RecipeCategory.FOOD, BFItems.PLUM.get(), RecipeCategory.FOOD, BFBlocks.PLUM_BLOCK.get());
         nineBlockStorageRecipes(exporter, RecipeCategory.FOOD, BFItems.HOARY_APPLE.get(), RecipeCategory.FOOD, BFBlocks.HOARY_APPLE_BLOCK.get());
-        offerTeaRecipes(exporter, BFItems.GREEN_TEA_BOTTLE.get(), BFBlocks.GREEN_TEA_CANDLE.get(), BFItems.GREEN_TEA_BLEND.get());
-        offerTeaRecipes(exporter, BFItems.BLACK_TEA_BOTTLE.get(), BFBlocks.BLACK_TEA_CANDLE.get(), BFItems.BLACK_TEA_BLEND.get());
-        offerTeaRecipes(exporter, BFItems.CHAMOMILE_TEA_BOTTLE.get(), BFBlocks.CHAMOMILE_CANDLE.get(), BFItems.CHAMOMILE_TEA_BLEND.get());
-        offerTeaRecipes(exporter, BFItems.HONEYSUCKLE_TEA_BOTTLE.get(), BFBlocks.HONEYSUCKLE_CANDLE.get(), BFItems.HONEYSUCKLE_TEA_BLEND.get());
-        offerTeaRecipes(exporter, BFItems.BELLFLOWER_TEA_BOTTLE.get(), BFBlocks.BELLFLOWER_CANDLE.get(), BFItems.BELLFLOWER_TEA_BLEND.get());
-        offerTeaRecipes(exporter, BFItems.TORCHFLOWER_TEA_BOTTLE.get(), BFBlocks.TORCHFLOWER_CANDLE.get(), BFItems.TORCHFLOWER_TEA_BLEND.get());
+        offerTeaRecipes(exporter, BFItems.GREEN_TEA_BOTTLE.get(), BFBlocks.GREEN_TEA_CANDLE.get(), BFItems.TEA_LEAVES.get());
+        offerTeaRecipes(exporter, BFItems.BLACK_TEA_BOTTLE.get(), BFBlocks.BLACK_TEA_CANDLE.get(), BFItems.DRIED_TEA_LEAVES.get());
+        offerTeaRecipes(exporter, BFItems.CHAMOMILE_TEA_BOTTLE.get(), BFBlocks.CHAMOMILE_CANDLE.get(), BFBlocks.CHAMOMILE_FLOWERS.get());
+        offerTeaRecipes(exporter, BFItems.HONEYSUCKLE_TEA_BOTTLE.get(), BFBlocks.HONEYSUCKLE_CANDLE.get(), BFBlocks.HONEYSUCKLE.get());
+        offerTeaRecipes(exporter, BFItems.BELLFLOWER_TEA_BOTTLE.get(), BFBlocks.BELLFLOWER_CANDLE.get(), BFBlocks.VIOLET_BELLFLOWER.get());
+        offerTeaRecipes(exporter, BFItems.TORCHFLOWER_TEA_BOTTLE.get(), BFBlocks.TORCHFLOWER_CANDLE.get(), Items.TORCHFLOWER);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.WALNUT_CANDLE.get(), 1)
                 .define('S', Items.STRING)
                 .define('H', Items.HONEYCOMB)
@@ -820,12 +820,6 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerMillingRecipe(exporter, Items.DEEPSLATE_EMERALD_ORE, Items.EMERALD, 3);
         offerMillingRecipe(exporter, Items.NETHER_QUARTZ_ORE, Items.QUARTZ, 4);
         offerMillingRecipe(exporter, Items.NETHER_GOLD_ORE, Items.GOLD_NUGGET, 8);
-        offerMillingRecipe(exporter, BFItems.TEA_LEAVES.get(), BFItems.GREEN_TEA_BLEND.get(), 1);
-        offerMillingRecipe(exporter, BFItems.DRIED_TEA_LEAVES.get(), BFItems.BLACK_TEA_BLEND.get(), 1);
-        offerMillingRecipe(exporter, BFBlocks.CHAMOMILE_FLOWERS.get(), BFItems.CHAMOMILE_TEA_BLEND.get(), 2);
-        offerMillingRecipe(exporter, BFBlocks.HONEYSUCKLE.get(), BFItems.HONEYSUCKLE_TEA_BLEND.get(), 2);
-        offerMillingRecipe(exporter, BFBlocks.VIOLET_BELLFLOWER.get(), BFItems.BELLFLOWER_TEA_BLEND.get(), 2);
-        offerMillingRecipe(exporter, Items.TORCHFLOWER, BFItems.TORCHFLOWER_TEA_BLEND.get(), 2);
 
         offerFermentingRecipe(exporter, Items.APPLE, BFItems.APPLE_CIDER_JAR.get(), 1, 16771237);
         offerFermentingRecipe(exporter, BFItems.ORANGE.get(), BFItems.CITRUS_ESSENCE.get(), 2, 15200149);

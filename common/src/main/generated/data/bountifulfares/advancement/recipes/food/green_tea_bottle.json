@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_green_tea_blend": {
+    "has_tea_leaves": {
       "conditions": {
         "items": [
           {
-            "items": "bountifulfares:green_tea_blend"
+            "items": "bountifulfares:tea_leaves"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_green_tea_blend"
+      "has_tea_leaves"
     ]
   ],
   "rewards": {

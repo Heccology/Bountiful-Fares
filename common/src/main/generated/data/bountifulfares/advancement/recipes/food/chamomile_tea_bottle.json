@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_chamomile_tea_blend": {
+    "has_chamomile_flowers": {
       "conditions": {
         "items": [
           {
-            "items": "bountifulfares:chamomile_tea_blend"
+            "items": "bountifulfares:chamomile_flowers"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_chamomile_tea_blend"
+      "has_chamomile_flowers"
     ]
   ],
   "rewards": {
