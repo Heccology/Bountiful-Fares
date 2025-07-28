@@ -1,0 +1,21 @@
+{
+  "type": "bountifulfares:add_item",
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "entity": "this",
+      "predicate": {
+        "type": "minecraft:guardian"
+      }
+    },
+    {
+      "condition": "minecraft:killed_by_player",
+      "inverse": false
+    },
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.2
+    }
+  ],
+  "item": "bountifulfares:spongekin_seeds"
+}

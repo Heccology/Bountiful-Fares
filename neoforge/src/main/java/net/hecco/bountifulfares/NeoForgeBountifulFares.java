@@ -1,25 +1,18 @@
 package net.hecco.bountifulfares;
 
 
-import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
+import net.hecco.bountifulfares.registry.BFNeoForgeLootTableModifiers;
 import net.hecco.bountifulfares.networking.BFMessages;
 import net.hecco.bountifulfares.networking.payload.*;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.color.block.BlockColor;
-import net.minecraft.client.color.item.ItemColor;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
@@ -28,10 +21,12 @@ import oshi.util.tuples.Pair;
 
 @Mod(BountifulFares.MOD_ID)
 public class NeoForgeBountifulFares {
-
+//TODO: ADD SNIFFER LOOT MODIFIERS (again cannot be bothered its like 8:30am and i have not slept)
 
     public NeoForgeBountifulFares(IEventBus eventBus) {
         BountifulFares.init();
+        BFNeoForgeLootTableModifiers.LOOT_MODIFIERS.register(eventBus); //dude the jsons for these need to be rewritten but i cannot be bothered rn - yirmiri
+
         eventBus.addListener(this::payloadHandlersSetup);
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::creativeModeTabSetup);

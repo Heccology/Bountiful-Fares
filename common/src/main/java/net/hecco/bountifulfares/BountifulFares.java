@@ -40,7 +40,6 @@ public class BountifulFares {
 //		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
 //		//BFBoats.registerBoats(); //TODO: FIX(???.. or just remove boats if all else fails)
-////		BFLootTableModifiers.modifyLootTables(); //TODO: MOVE TO FABRIC (CREATE EQUIVALENT NEOFORGE LOOT MODIFIER JSONS)
 //		BFParticles.registerParticles(); //TODO: MOVE TO HECCOLIB REGISTRY
 //		BFPotions.registerPotions();
 		BFTrunkPlacerTypes.register();

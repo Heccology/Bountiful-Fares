@@ -1,0 +1,12 @@
+{
+  "type": "bountifulfares:replace_item",
+  "conditions": [
+    {
+      "condition": "block_state_property",
+      "block": "minecraft:tall_fern"
+    }
+  ],
+  "removed_item": "minecraft:wheat_seeds",
+  "added_item": "minecraft:wheat_seeds",
+  "count": 0
+}

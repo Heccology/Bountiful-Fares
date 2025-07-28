@@ -1,0 +1,16 @@
+{
+  "type": "bountifulfares:replace_item",
+  "conditions": [
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:gameplay/sniffer_digging"
+    },
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.5
+    }
+  ],
+  "removed_item": "minecraft:pitcher_pod",
+  "added_item": "bountifulfares:hoary_seeds",
+  "count": 1
+}
