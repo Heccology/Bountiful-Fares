@@ -6,6 +6,7 @@
     "gameplay.BlockItemMixin",
     "gameplay.CampfireBlockEntityMixin",
     "gameplay.LivingEntityMixin",
+    "gameplay.LivingEntityTiffinMixin",
     "gameplay.NoteBlockInstrumentMixin",
     "gameplay.PumpkinPieItemMixin",
     "gameplay.SweetBerryBushMixin",
@@ -29,6 +30,7 @@
     "misc.SplashTextMixin",
     "misc.StonecutterScreenMixin",
     "render.BlockDustParticleMixin",
+    "render.ClientTooltipComponentMixin",
     "render.GuiHeartsMixin"
   ]
 }

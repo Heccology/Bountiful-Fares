@@ -2,21 +2,37 @@ package net.hecco.bountifulfares;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.hecco.bountifulfares.item.component.TiffinContents;
 import net.hecco.bountifulfares.registry.BFMessages;
+import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
 import net.hecco.bountifulfares.trellis.FabricTrellisCropResourceLoader;
 import net.hecco.bountifulfares.trellis.FabricTrellisPlantResourceLoader;
+import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
+
+import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 public class FabricBountifulFares implements ModInitializer {
     
     @Override
     public void onInitialize() {
+        BFComponents.TIFFIN_CONTENTS = registerComponentType(BountifulFares.MOD_ID, "tiffin_contents", (builder) ->
+                builder.persistent(TiffinContents.CODEC).networkSynchronized(TiffinContents.STREAM_CODEC).cacheEncoding());
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisPlantResourceLoader());
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisCropResourceLoader());
         BountifulFares.init();
 ////        BFLootTableModifiers.modifyLootTables();
         BFItemGroupAdditions.registerItemGroupAdditions();
         BFMessages.registerPayloads();
+    }
+
+    public <T> DataComponentType<T> registerComponentType(String modId, String name, UnaryOperator<DataComponentType.Builder<T>> builder) {
+        return Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, ResourceLocation.fromNamespaceAndPath(modId, name), (builder.apply(DataComponentType.builder())).build());
     }
 }

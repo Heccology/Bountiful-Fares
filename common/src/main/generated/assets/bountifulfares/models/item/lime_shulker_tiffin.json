@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bountifulfares:item/lime_shulker_tiffin"
+  }
+}

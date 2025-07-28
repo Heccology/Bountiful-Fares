@@ -2,20 +2,14 @@ package net.hecco.bountifulfares.datagen.bountifulfares;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
-import net.hecco.bountifulfares.compat.delicate_dyes.DelicateDyesBlocks;
-import net.hecco.bountifulfares.compat.dungeons_delight.DungeonsDelightBlocks;
-import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
-import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
+import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.hecco.bountifulfares.registry.content.BFTrellises;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TexturedModel;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 
 import static net.hecco.bountifulfares.datagen.bountifulfares.BFTemplateModels.*;
 
@@ -212,6 +206,10 @@ public class BFModelProvider extends FabricModelProvider {
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, ArtsAndCraftsBlocks.CORK);
 //
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, DungeonsDelightBlocks.WORMWOOD);
+
+        for (String wood : BountifulFaresUtil.WOOD_TYPES) {
+            BFTemplateModels.registerTrellis(blockStateModelGenerator, BFBlocks.TRELLISES.get(wood).get());
+        }
     }
 
     @Override
@@ -265,5 +263,8 @@ public class BFModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(BFBlocks.SPONGE_CAKE.get().asItem(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.POPPED_MAIZE.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.COOKED_EGG.get(), ModelTemplates.FLAT_ITEM);
+        for (DyeColor color : DyeColor.values()) {
+            itemModelGenerator.generateFlatItem(BFItems.TIFFINS.get(color).get(), ModelTemplates.FLAT_ITEM);
+        }
     }
 }
