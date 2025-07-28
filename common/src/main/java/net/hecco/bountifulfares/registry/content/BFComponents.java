@@ -11,6 +11,7 @@ import java.util.function.UnaryOperator;
 public class BFComponents {
 
     public static DataComponentType<TiffinContents> TIFFIN_CONTENTS;
+    public static DataComponentType<Boolean> TIFFIN_INTERACTABLE;
 
     private static <T> Supplier<DataComponentType<T>> registerComponent(String name, UnaryOperator<DataComponentType.Builder<T>> builder) {
         return HLServices.REGISTRY.registerComponentType(BountifulFares.MOD_ID, name, builder);

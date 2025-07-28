@@ -10,6 +10,9 @@ import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TexturedModel;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
+
+import java.util.function.Supplier;
 
 import static net.hecco.bountifulfares.datagen.bountifulfares.BFTemplateModels.*;
 
@@ -263,8 +266,8 @@ public class BFModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(BFBlocks.SPONGE_CAKE.get().asItem(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.POPPED_MAIZE.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.COOKED_EGG.get(), ModelTemplates.FLAT_ITEM);
-        for (DyeColor color : DyeColor.values()) {
-            itemModelGenerator.generateFlatItem(BFItems.TIFFINS.get(color).get(), ModelTemplates.FLAT_ITEM);
-        }
+//        for (Supplier<Item> item : BFItems.TIFFINS.values()) {
+//            itemModelGenerator.generateFlatItem(item.get(), ModelTemplates.FLAT_ITEM);
+//        }
     }
 }

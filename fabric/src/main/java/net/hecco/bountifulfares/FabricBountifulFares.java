@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares;
 
+import com.mojang.serialization.Codec;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.hecco.bountifulfares.item.component.TiffinContents;
@@ -12,6 +13,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 
@@ -24,6 +26,7 @@ public class FabricBountifulFares implements ModInitializer {
     public void onInitialize() {
         BFComponents.TIFFIN_CONTENTS = registerComponentType(BountifulFares.MOD_ID, "tiffin_contents", (builder) ->
                 builder.persistent(TiffinContents.CODEC).networkSynchronized(TiffinContents.STREAM_CODEC).cacheEncoding());
+        BFComponents.TIFFIN_INTERACTABLE = registerComponentType(BountifulFares.MOD_ID, "interactable", (builder) -> builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL));
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisPlantResourceLoader());
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisCropResourceLoader());
         BountifulFares.init();

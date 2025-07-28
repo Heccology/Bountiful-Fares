@@ -151,8 +151,9 @@ public class BFItems {
     public static final Map<DyeColor, Supplier<Item>> TIFFINS = new HashMap<>();
 
     private static void registerTiffins() {
+        TIFFINS.put(null, registerItem("shulker_tiffin", () -> new TiffinItem(new Item.Properties().stacksTo(1).component(BFComponents.TIFFIN_CONTENTS, new TiffinContents(Items.AIR, 0)).component(BFComponents.TIFFIN_INTERACTABLE, false))));
         for (DyeColor color : DyeColor.values()) {
-            TIFFINS.put(color, registerItem(color.getName() + "_shulker_tiffin", () -> new TiffinItem(new Item.Properties().component(BFComponents.TIFFIN_CONTENTS, new TiffinContents(Items.AIR, 0)))));
+            TIFFINS.put(color, registerItem(color.getName() + "_shulker_tiffin", () -> new TiffinItem(new Item.Properties().stacksTo(1).component(BFComponents.TIFFIN_CONTENTS, new TiffinContents(Items.AIR, 0)).component(BFComponents.TIFFIN_INTERACTABLE, false))));
         }
     }
 
