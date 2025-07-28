@@ -68,6 +68,8 @@ public class BFSounds {
 
     public static final Supplier<SoundEvent> POPPED_MAIZE_POP = registerSoundEvent("popped_maize_pop");
 
+    public static final Supplier<SoundEvent> TIFFIN_INSERT = registerSoundEvent("tiffin_insert");
+
     // Fallback sounds for FD sounds
     public static SoundEvent CABINET_OPEN = SoundEvents.BARREL_OPEN;
     public static SoundEvent CABINET_CLOSE = SoundEvents.BARREL_CLOSE;

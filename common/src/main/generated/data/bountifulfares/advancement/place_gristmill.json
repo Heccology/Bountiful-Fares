@@ -1,0 +1,35 @@
+{
+  "parent": "bountifulfares:bountiful_fares",
+  "criteria": {
+    "place_gristmill": {
+      "conditions": {
+        "location": [
+          {
+            "block": "bountifulfares:gristmill",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.place_gristmill.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "bountifulfares:gristmill"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.place_gristmill"
+    }
+  },
+  "requirements": [
+    [
+      "place_gristmill"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

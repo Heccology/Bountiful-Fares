@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:spongekin_slice"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:spongekin_seeds"
+  }
+}

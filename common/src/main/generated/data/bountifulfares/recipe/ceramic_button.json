@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "bountifulfares:ceramic_tile"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:ceramic_button"
+  }
+}

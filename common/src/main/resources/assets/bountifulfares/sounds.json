@@ -345,5 +345,13 @@
       "bountifulfares:popped_maize/pop3"
     ],
     "subtitle": "subtitles.block.popped_maize.pop"
+  },
+  "tiffin_insert": {
+    "sounds": [
+      "bountifulfares:tiffin/insert1",
+      "bountifulfares:tiffin/insert2",
+      "bountifulfares:tiffin/insert3"
+    ],
+    "subtitle": "subtitles.item.bountifulfares.shulker_tiffin.insert"
   }
 }

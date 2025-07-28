@@ -26,6 +26,9 @@
 		"fabric-datagen": [
 			"net.hecco.bountifulfares.FabricBountifulFaresDatagen"
 		],
+		"appleskin": [
+			"net.hecco.bountifulfares.appleskin.AppleskinEventHandler"
+		],
 		"modmenu": [
 			"net.hecco.bountifulfares.config.BountifulFaresModMenu"
 		],

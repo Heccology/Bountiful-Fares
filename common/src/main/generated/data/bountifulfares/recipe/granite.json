@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:diorite"
+    },
+    {
+      "item": "bountifulfares:feldspar"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:granite"
+  }
+}

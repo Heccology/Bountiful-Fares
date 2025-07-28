@@ -3,6 +3,7 @@ package net.hecco.bountifulfares.item.custom;
 import net.hecco.bountifulfares.item.component.TiffinContents;
 import net.hecco.bountifulfares.item.component.TiffinTooltip;
 import net.hecco.bountifulfares.registry.content.BFComponents;
+import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -133,14 +134,14 @@ public class TiffinItem extends Item {
                 if (itemstack.is(Items.BOWL)) {
                     boolean i = mutable.tryRemove(itemstack, slot, player);
                     if (i) {
-                        player.playSound(SoundEvents.SHULKER_BOX_CLOSE, 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
+                        player.playSound(SoundEvents.SHULKER_BOX_CLOSE, 0.9F, (getBarWidth(stack)/13f) + 0.8f);
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS, mutable.toImmutable());
                     return true;
                 } else if ((itemstack.has(DataComponents.FOOD) && itemstack.getItem().getCraftingRemainingItem() == Items.BOWL) || ITEM_WHITELIST.contains(itemstack.getItem())) {
                     int i = mutable.tryFill(itemstack, slot, player);
                     if (i > 0) {
-                        player.playSound(SoundEvents.SHULKER_BOX_OPEN, 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
+                        player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (getBarWidth(stack)/13f) + 0.8f);
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS, mutable.toImmutable());
                     return true;
@@ -161,14 +162,14 @@ public class TiffinItem extends Item {
                 if (other.is(Items.BOWL)) {
                     boolean i = mutable.tryRemove(other, access, player);
                     if (i) {
-                        player.playSound(SoundEvents.SHULKER_BOX_CLOSE, 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
+                        player.playSound(SoundEvents.SHULKER_BOX_CLOSE, 0.9F, (getBarWidth(stack)/13f) + 0.8f);
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS, mutable.toImmutable());
                     return true;
                 } else if ((other.has(DataComponents.FOOD) && other.getItem().getCraftingRemainingItem() == Items.BOWL) || ITEM_WHITELIST.contains(other.getItem())) {
                     int i = mutable.tryFill(other, access, player);
                     if (i > 0) {
-                        player.playSound(SoundEvents.SHULKER_BOX_OPEN, 0.8F, 0.8F + player.level().getRandom().nextFloat() * 0.4F);
+                        player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (getBarWidth(stack)/16f) + 0.8f);
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS, mutable.toImmutable());
                     return true;

@@ -1,0 +1,1001 @@
+{
+  "parent": "bountifulfares:make_first_food",
+  "criteria": {
+    "ancient_custard": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:ancient_custard"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "apple_cider_jar": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:apple_cider_jar"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "apple_compote_jar": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:apple_compote_jar"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "apple_stew": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:apple_stew"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "arid_medley": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:arid_medley"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "bellflower_tea_bottle": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:bellflower_tea_bottle"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "berry_stuffed_potato": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:berry_stuffed_potato"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "bitter_candy": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:bitter_candy"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "black_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:black_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "black_tea_bottle": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:black_tea_bottle"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "blue_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:blue_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "bountiful_stew": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:bountiful_stew"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "brown_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:brown_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "candied_apple": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:candied_apple"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "candied_lemon": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:candied_lemon"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "candied_orange": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:candied_orange"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "candied_plum": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:candied_plum"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "candy": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:candy"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "chamomile_tea_bottle": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:chamomile_tea_bottle"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "citrus_essence": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:citrus_essence"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "coastal_medley": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:coastal_medley"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cocoa_custard": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:cocoa_custard"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "coconut_crusted_cod": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:coconut_crusted_cod"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "coconut_half": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:coconut_half"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "coconut_milk_bottle": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:coconut_milk_bottle"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "coconut_stew": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:coconut_stew"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cooked_egg": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:cooked_egg"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "crimson_chow": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:crimson_chow"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "crusted_beef": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:crusted_beef"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "custard": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:custard"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "cyan_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:cyan_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "elderberries": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:elderberries"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "elderberry_wine_bottle": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:elderberry_wine_bottle"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "fish_stew": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:fish_stew"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "forest_medley": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:forest_medley"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "gray_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:gray_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "green_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:green_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "green_tea_bottle": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:green_tea_bottle"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "hoary_apple": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:hoary_apple"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "hoary_cider_jar": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:hoary_cider_jar"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "hoary_compote_jar": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:hoary_compote_jar"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "honeysuckle_tea_bottle": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:honeysuckle_tea_bottle"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "lapisberries": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:lapisberries"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "lapisberry_wine_bottle": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:lapisberry_wine_bottle"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "leek": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:leek"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "leek_stew": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:leek_stew"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "lemon": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:lemon"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "lemon_compote_jar": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:lemon_compote_jar"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "light_blue_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:light_blue_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "light_gray_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:light_gray_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "lime_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:lime_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "magenta_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:magenta_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "maize": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:maize"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "maize_bread": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:maize_bread"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "maize_stuffed_potato": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:maize_stuffed_potato"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "mead_bottle": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:mead_bottle"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "meadow_medley": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:meadow_medley"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "mire_medley": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:mire_medley"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "mushroom_stuffed_potato": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:mushroom_stuffed_potato"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "orange": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:orange"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "orange_compote_jar": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:orange_compote_jar"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "orange_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:orange_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "passion_custard": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:passion_custard"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "passion_fruit": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:passion_fruit"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "passion_glazed_salmon": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:passion_glazed_salmon"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "pickled_spongekin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:pickled_spongekin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "pink_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:pink_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "piquant_candy": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:piquant_candy"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "piquant_custard": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:piquant_custard"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "plum": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:plum"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "plum_cider_jar": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:plum_cider_jar"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "plum_compote_jar": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:plum_compote_jar"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "popped_maize": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:popped_maize"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "purple_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:purple_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "red_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:red_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "sea_salad": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:sea_salad"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "sour_candy": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:sour_candy"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "spongekin_slice": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:spongekin_slice"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "stone_stew": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:stone_stew"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "strange_candy": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:strange_candy"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "stuffed_hoary_apple": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:stuffed_hoary_apple"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "torchflower_tea_bottle": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:torchflower_tea_bottle"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "tropical_medley": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:tropical_medley"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "walnut": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:walnut"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "walnut_cookie": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:walnut_cookie"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "warped_chow": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:warped_chow"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "white_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:white_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
+    "yellow_shulker_tiffin": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:yellow_shulker_tiffin"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.eat_all_food.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "bountifulfares:crusted_beef"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.eat_all_food"
+    }
+  },
+  "requirements": [
+    [
+      "passion_fruit"
+    ],
+    [
+      "elderberries"
+    ],
+    [
+      "lapisberries"
+    ],
+    [
+      "orange"
+    ],
+    [
+      "lemon"
+    ],
+    [
+      "plum"
+    ],
+    [
+      "hoary_apple"
+    ],
+    [
+      "walnut"
+    ],
+    [
+      "coconut_half"
+    ],
+    [
+      "coconut_milk_bottle"
+    ],
+    [
+      "citrus_essence"
+    ],
+    [
+      "candied_orange"
+    ],
+    [
+      "candied_lemon"
+    ],
+    [
+      "elderberry_wine_bottle"
+    ],
+    [
+      "lapisberry_wine_bottle"
+    ],
+    [
+      "mead_bottle"
+    ],
+    [
+      "green_tea_bottle"
+    ],
+    [
+      "black_tea_bottle"
+    ],
+    [
+      "chamomile_tea_bottle"
+    ],
+    [
+      "honeysuckle_tea_bottle"
+    ],
+    [
+      "bellflower_tea_bottle"
+    ],
+    [
+      "torchflower_tea_bottle"
+    ],
+    [
+      "maize"
+    ],
+    [
+      "popped_maize"
+    ],
+    [
+      "cooked_egg"
+    ],
+    [
+      "leek"
+    ],
+    [
+      "spongekin_slice"
+    ],
+    [
+      "pickled_spongekin"
+    ],
+    [
+      "apple_compote_jar"
+    ],
+    [
+      "orange_compote_jar"
+    ],
+    [
+      "lemon_compote_jar"
+    ],
+    [
+      "plum_compote_jar"
+    ],
+    [
+      "hoary_compote_jar"
+    ],
+    [
+      "apple_cider_jar"
+    ],
+    [
+      "plum_cider_jar"
+    ],
+    [
+      "hoary_cider_jar"
+    ],
+    [
+      "candy"
+    ],
+    [
+      "sour_candy"
+    ],
+    [
+      "piquant_candy"
+    ],
+    [
+      "bitter_candy"
+    ],
+    [
+      "strange_candy"
+    ],
+    [
+      "passion_glazed_salmon"
+    ],
+    [
+      "coconut_crusted_cod"
+    ],
+    [
+      "bountiful_stew"
+    ],
+    [
+      "crusted_beef"
+    ],
+    [
+      "leek_stew"
+    ],
+    [
+      "fish_stew"
+    ],
+    [
+      "stone_stew"
+    ],
+    [
+      "apple_stew"
+    ],
+    [
+      "coconut_stew"
+    ],
+    [
+      "sea_salad"
+    ],
+    [
+      "forest_medley"
+    ],
+    [
+      "arid_medley"
+    ],
+    [
+      "meadow_medley"
+    ],
+    [
+      "mire_medley"
+    ],
+    [
+      "coastal_medley"
+    ],
+    [
+      "tropical_medley"
+    ],
+    [
+      "stuffed_hoary_apple"
+    ],
+    [
+      "crimson_chow"
+    ],
+    [
+      "warped_chow"
+    ],
+    [
+      "custard"
+    ],
+    [
+      "piquant_custard"
+    ],
+    [
+      "passion_custard"
+    ],
+    [
+      "cocoa_custard"
+    ],
+    [
+      "ancient_custard"
+    ],
+    [
+      "mushroom_stuffed_potato"
+    ],
+    [
+      "berry_stuffed_potato"
+    ],
+    [
+      "maize_stuffed_potato"
+    ],
+    [
+      "maize_bread"
+    ],
+    [
+      "walnut_cookie"
+    ],
+    [
+      "candied_apple"
+    ],
+    [
+      "candied_plum"
+    ],
+    [
+      "shulker_tiffin"
+    ],
+    [
+      "white_shulker_tiffin"
+    ],
+    [
+      "orange_shulker_tiffin"
+    ],
+    [
+      "magenta_shulker_tiffin"
+    ],
+    [
+      "light_blue_shulker_tiffin"
+    ],
+    [
+      "yellow_shulker_tiffin"
+    ],
+    [
+      "lime_shulker_tiffin"
+    ],
+    [
+      "pink_shulker_tiffin"
+    ],
+    [
+      "gray_shulker_tiffin"
+    ],
+    [
+      "light_gray_shulker_tiffin"
+    ],
+    [
+      "cyan_shulker_tiffin"
+    ],
+    [
+      "purple_shulker_tiffin"
+    ],
+    [
+      "blue_shulker_tiffin"
+    ],
+    [
+      "brown_shulker_tiffin"
+    ],
+    [
+      "green_shulker_tiffin"
+    ],
+    [
+      "red_shulker_tiffin"
+    ],
+    [
+      "black_shulker_tiffin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

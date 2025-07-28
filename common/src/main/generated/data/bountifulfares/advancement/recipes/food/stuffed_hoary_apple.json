@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hoary_apple": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:hoary_apple"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_lapisberries": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:lapisberries"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bountifulfares:stuffed_hoary_apple"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hoary_apple",
+      "has_lapisberries"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bountifulfares:stuffed_hoary_apple"
+    ]
+  }
+}

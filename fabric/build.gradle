@@ -18,6 +18,9 @@ dependencies {
     //HECCOLIB
 //    modImplementation "curse.maven:heccolib-1279113:${fabric_heccolib}"
     modImplementation files("heccolib-fabric-1.21.1-1.1.2.jar")
+
+    //APPLESKIN
+    modCompileOnly files("runs/client/mods/appleskin-fabric-mc1.21-3.0.6.jar")
 }
 
 loom {

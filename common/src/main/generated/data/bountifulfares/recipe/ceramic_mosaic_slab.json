@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "ceramic_mosaic_slab",
+  "key": {
+    "#": {
+      "item": "bountifulfares:ceramic_mosaic"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "bountifulfares:ceramic_mosaic_slab"
+  }
+}

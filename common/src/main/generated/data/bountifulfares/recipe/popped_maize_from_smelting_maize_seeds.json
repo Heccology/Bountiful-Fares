@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "popped_maize",
+  "ingredient": {
+    "item": "bountifulfares:maize_seeds"
+  },
+  "result": {
+    "id": "bountifulfares:popped_maize"
+  }
+}

@@ -41,7 +41,7 @@ public class ClientTiffinTooltip implements ClientTooltipComponent {
             }
         } else {
             font.drawInBatch("Empty", (float) mouseX + 2, (float) mouseY, ChatFormatting.DARK_GRAY.getColor(), true, matrix, bufferSource, Font.DisplayMode.NORMAL, 0, 15728880);
-        }
+        } //TODO: turn to translatable text
         ClientTooltipComponent.super.renderText(font, mouseX, mouseY, matrix, bufferSource);
     }
 }
