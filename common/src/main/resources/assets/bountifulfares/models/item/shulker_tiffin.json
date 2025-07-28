@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bountifulfares:item/shulker_tiffin"
+  },
+  "overrides": [
+    {
+      "predicate": { "bountifulfares:interactable": 1.0 }, "model": "bountifulfares:item/shulker_tiffin_open"
+    }
+  ]
+}

@@ -3,6 +3,7 @@ package net.hecco.bountifulfares.registry.content;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.block.custom.NewTrellisBlock;
+import net.hecco.bountifulfares.item.component.TiffinContents;
 import net.hecco.bountifulfares.item.custom.*;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Direction;
@@ -14,12 +15,15 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class BFItems {
@@ -144,6 +148,15 @@ public class BFItems {
             .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 72000, 25, true, true), 1)
             .build())));
 
+    public static final Map<DyeColor, Supplier<Item>> TIFFINS = new HashMap<>();
+
+    private static void registerTiffins() {
+        TIFFINS.put(null, registerItem("shulker_tiffin", () -> new TiffinItem(new Item.Properties().stacksTo(1).component(BFComponents.TIFFIN_CONTENTS, new TiffinContents(Items.AIR, 0)).component(BFComponents.TIFFIN_INTERACTABLE, false))));
+        for (DyeColor color : DyeColor.values()) {
+            TIFFINS.put(color, registerItem(color.getName() + "_shulker_tiffin", () -> new TiffinItem(new Item.Properties().stacksTo(1).component(BFComponents.TIFFIN_CONTENTS, new TiffinContents(Items.AIR, 0)).component(BFComponents.TIFFIN_INTERACTABLE, false))));
+        }
+    }
+
     private static void registerTrellises() {
         for (String wood : BountifulFaresUtil.WOOD_TYPES) {
             if (wood != "oak") {
@@ -159,6 +172,7 @@ public class BFItems {
     }
 
     public static void registerModItems() {
+        registerTiffins();
         registerTrellises();
     }
 }
