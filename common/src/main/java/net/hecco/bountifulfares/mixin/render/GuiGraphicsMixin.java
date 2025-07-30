@@ -41,7 +41,7 @@ public class GuiGraphicsMixin {
     private void bountifulfares$renderTiffinGuiItem(ItemRenderer instance, ItemStack stack, ItemDisplayContext displayContext, boolean leftHand, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay, BakedModel model) {
         if (
                 stack.getItem() instanceof TiffinItem && stack.has(BFComponents.TIFFIN_CONTENTS.get()) && //TODO: create a config that displays the food in the corner of the slot instead
-                stack.has(BFComponents.TIFFIN_INTERACTABLE.get()) &&
+                stack.has(BFComponents.TIFFIN_INTERACTABLE.get()) && //TODO: create a config that renders the food item thats inside in people's hands in their hand
                 !stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack().isEmpty() &&
                 stack.get(BFComponents.TIFFIN_INTERACTABLE.get()) &&
                 bountifulfares$getSeed != 0) {

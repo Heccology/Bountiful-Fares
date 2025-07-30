@@ -394,6 +394,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         usedBlocks.add(BFBlocks.COCONUT_CAKE.get());
         usedBlocks.add(BFBlocks.COCONUT.get());
         usedBlocks.add(BFBlocks.COCOA_CAKE.get());
+        usedBlocks.add(BFBlocks.SPONGE_CAKE.get());
         usedBlocks.add(BFBlocks.CRACKED_CERAMIC_TILES.get());
         usedBlocks.add(BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.get());
         usedBlocks.add(BFBlocks.ELDERBERRY_TART.get());
