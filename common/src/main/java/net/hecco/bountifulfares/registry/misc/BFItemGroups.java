@@ -37,7 +37,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class BFItemGroups {
-    
+
     public static final Supplier<CreativeModeTab> BOUNTIFUL_FARES = HLServices.REGISTRY.register(
             BountifulFares.MOD_ID, "bountiful_fares", BuiltInRegistries.CREATIVE_MODE_TAB.key(), () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
                     .title(Component.translatable("itemgroup.bountiful_fares"))
@@ -510,7 +510,7 @@ public class BFItemGroups {
 
     private static void addTiffin(DyeColor color, CreativeModeTab.Output entries) {
         ItemStack stack = BFItems.TIFFINS.get(color).get().getDefaultInstance();
-        stack.set(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents(Items.AIR, 0));
+        stack.set(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents());
         entries.accept(stack);
     }
 

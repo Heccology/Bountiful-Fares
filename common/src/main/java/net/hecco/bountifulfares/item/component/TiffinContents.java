@@ -4,16 +4,12 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.item.custom.TiffinItem;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
@@ -21,30 +17,28 @@ import java.util.Objects;
 
 public class TiffinContents implements TooltipComponent {
     public static final Codec<TiffinContents> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            BuiltInRegistries.ITEM.byNameCodec().fieldOf("item").forGetter(t -> t.item.asItem()),
-            Codec.INT.fieldOf("count").forGetter(t -> t.count)
+            ItemStack.OPTIONAL_CODEC.fieldOf("item").forGetter(t -> t.item)
     ).apply(instance, TiffinContents::new));
-    public static final StreamCodec<RegistryFriendlyByteBuf, TiffinContents> STREAM_CODEC = StreamCodec.composite(ResourceLocation.STREAM_CODEC.map(BuiltInRegistries.ITEM::get, BuiltInRegistries.ITEM::getKey), contents -> contents.item.asItem(), ByteBufCodecs.INT, contents -> contents.count, TiffinContents::new);
-    public static final int CAPACITY = 32;
-    final Item item;
-    final int count;
+    public static final StreamCodec<RegistryFriendlyByteBuf, TiffinContents> STREAM_CODEC = StreamCodec.composite(ItemStack.OPTIONAL_STREAM_CODEC, contents -> contents.item, TiffinContents::new);
+    public final int CAPACITY;
+    final ItemStack item;
 
-    public TiffinContents(Item item, int count) {
+    public TiffinContents(ItemStack item) {
         this.item = item;
-        this.count = count;
+        this.CAPACITY = !item.isEmpty() ? item.getItem().getDefaultMaxStackSize() == 1 ? 1 : Math.min(item.getItem().getDefaultMaxStackSize() * 2, 64) : 32;
     }
 
-    public TiffinContents(Item item) {
-        this.item = item;
-        this.count = 1;
+    public TiffinContents() {
+        this.item = ItemStack.EMPTY;
+        this.CAPACITY = !item.isEmpty() ? item.getItem().getDefaultMaxStackSize() == 1 ? 1 : Math.min(item.getItem().getDefaultMaxStackSize() * 2, 64) : 32;
     }
 
-    public Item getItem() {
+    public ItemStack getItemStack() {
         return this.item;
     }
 
     public int getCount() {
-        return this.count;
+        return this.item.getCount();
     }
 
     public String toString() {
@@ -53,7 +47,7 @@ public class TiffinContents implements TooltipComponent {
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.item, this.count);
+        return Objects.hash(this.item);
     }
 
     @Override
@@ -62,20 +56,21 @@ public class TiffinContents implements TooltipComponent {
             return true;
         } else {
             return obj instanceof TiffinContents ex
-                    && this.item == ex.item
-                    && this.count == ex.count;
+                    && this.item == ex.item;
         }
     }
 
     public static class Mutable {
-        private Item item;
-        private int count;
+        private ItemStack item;
         public Mutable(TiffinContents contents) {
             this.item = contents.item;
-            this.count = contents.count;
         }
 
-        public Item getItem() {
+        public int getCapacity() {
+            return !item.isEmpty() ? item.getItem().getDefaultMaxStackSize() == 1 ? 1 : Math.min(item.getItem().getDefaultMaxStackSize() * 2, 64) : 64;
+        }
+
+        public ItemStack getItemStack() {
             return this.item;
         }
 
@@ -84,16 +79,12 @@ public class TiffinContents implements TooltipComponent {
         }
 
         public void decrement() {
-            this.count --;
-            if (this.count <= 0) {
-                this.count = 0;
-                this.item = Items.AIR;
-            }
+            this.item.shrink(1);
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(this.item, this.count);
+            return Objects.hash(this.item);
         }
 
         @Override
@@ -102,155 +93,170 @@ public class TiffinContents implements TooltipComponent {
                 return true;
             } else {
                 return obj instanceof TiffinContents ex
-                        && this.item == ex.item
-                        && this.count == ex.count;
+                        && this.item == ex.item;
             }
         }
 
         public boolean tryRemove(ItemStack stack, Slot slot, Player player) {
-            if (item.hasCraftingRemainingItem() || TiffinItem.ITEM_WHITELIST.contains(item)) {
-                if (stack.is(Items.BOWL)) {
-                    if (stack.getCount() > count) { //cannot replace held stack, too many containers
-                        player.addItem(new ItemStack(item, count));
-                        slot.set(new ItemStack(stack.getItem(), stack.getCount() - count));
-                        count = 0;
-                        item = Items.AIR;
-                        return true;
+            if (TiffinItem.getRemainderItem(item.getItem()) != null && stack.getCount() > item.getCount()) { //cannot replace held stack, too many containers
+                slot.set(stack.copyWithCount(stack.getCount() - item.getCount()));
+                player.addItem(item);
+                item = ItemStack.EMPTY;
+                return true;
+            } else {
+                if (TiffinItem.getRemainderItem(item.getItem()) != null) {
+                    if (item.getItem().getDefaultMaxStackSize() >= stack.getCount()) {
+                        slot.set(new ItemStack(item.getItem(), stack.getCount()));
                     } else {
-                        if (item.getDefaultMaxStackSize() >= stack.getCount()) {
-                            slot.set(new ItemStack(item, stack.getCount()));
-                        } else {
-                            slot.set(new ItemStack(item, item.getDefaultMaxStackSize()));
-                            player.addItem(new ItemStack(item, stack.getCount() - item.getDefaultMaxStackSize()));
-                        }
-                        count = count - stack.getCount();
-                        if (count <= 0) {
-                            count = 0;
-                            item = Items.AIR;
-                        }
-                        return true;
+                        slot.set(new ItemStack(item.getItem(), item.getItem().getDefaultMaxStackSize()));
+                        player.addItem(item.copyWithCount(stack.getCount() - item.getItem().getDefaultMaxStackSize()));
+                    }
+                    item.shrink(stack.getCount());
+                } else {
+                    if (stack.isEmpty()) {
+                        slot.set(item.copyWithCount(Math.min(item.getCount(), item.getItem().getDefaultMaxStackSize())));
+                        item.shrink(item.getItem().getDefaultMaxStackSize());
+                    } else {
+                        return false;
                     }
                 }
+                if (item.getCount() == 0) {
+                    item = ItemStack.EMPTY;
+                }
+                return true;
             }
-            return false;
         }
 
         public int tryFill(ItemStack stack, Slot slot, Player player) {
-            if (count < CAPACITY) {
-                if (item != Items.AIR) { //putting items in full tiffin
-                    if (stack.getItem() == item) {
-                        int i = count + stack.getCount();
-                        if (i > CAPACITY) { //cannot fit all
-                            slot.set(new ItemStack(stack.getItem(), i - CAPACITY));
-                            if (stack.getItem().getCraftingRemainingItem() != null || TiffinItem.ITEM_WHITELIST.contains(stack.getItem())) {
-                                player.addItem(new ItemStack(Items.BOWL, CAPACITY - count));
-                            }
-                            count = CAPACITY;
-                            return CAPACITY - (i - stack.getCount());
-                        } else {
-                            count = i;
-                            if (stack.getItem().getCraftingRemainingItem() != null || TiffinItem.ITEM_WHITELIST.contains(stack.getItem())) {
-                                slot.set(new ItemStack(Items.BOWL, stack.getCount()));
+            if (item.getCount() < getCapacity()) {
+                if (!item.isEmpty()) { //putting items in full tiffin
+                    if (stack.is(item.getItem())) {
+                        int i = item.getCount() + stack.getCount();
+                        if (i > getCapacity()) { //cannot fit all
+                            slot.set(new ItemStack(stack.getItem(), i - getCapacity()));
+                            if (TiffinItem.getRemainderItem(stack.getItem()) != null) {
+                                player.addItem(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), getCapacity() - item.getCount()));
                             } else {
-                                slot.set(new ItemStack(Items.AIR));
+                                slot.set(ItemStack.EMPTY);
+                            }
+                            item = item.copyWithCount(getCapacity());
+                            return getCapacity() - (i - stack.getCount());
+                        } else {
+                            item = item.copyWithCount(i);
+                            if (TiffinItem.getRemainderItem(stack.getItem()) != null) {
+                                slot.set(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), stack.getCount()));
+                            } else {
+                                slot.set(ItemStack.EMPTY);
                             }
                             return stack.getCount();
                         }
                     }
                 } else { //putting items in empty tiffin
-                    item = stack.getItem();
-                    if (stack.getCount() > CAPACITY) { //cannot fit all of stack
-                        count = CAPACITY;
-                        if (stack.getItem().getCraftingRemainingItem() != null || TiffinItem.ITEM_WHITELIST.contains(stack.getItem())) {
-                            slot.set(new ItemStack(Items.BOWL, stack.getCount() - CAPACITY));
-                            player.addItem(new ItemStack(Items.BOWL, CAPACITY));
+                    if (TiffinItem.getRemainderItem(stack.getItem()) != null) {
+                        if (stack.getCount() > getCapacity()) { //cannot fit all of stack
+                            item = stack.copyWithCount(getCapacity());
+                            slot.set(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), stack.getCount() - getCapacity()));
+                            player.addItem(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), getCapacity()));
+                            return getCapacity();
                         } else {
-                            slot.set(new ItemStack(Items.AIR));
+                            item = stack.copy();
+                            slot.set(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), stack.getCount()));
+                            return item.getCount();
                         }
-                        return CAPACITY;
                     } else {
-                        count = stack.getCount();
-                        if (stack.getItem().getCraftingRemainingItem() != null || TiffinItem.ITEM_WHITELIST.contains(stack.getItem())) {
-                            slot.set(new ItemStack(Items.BOWL, stack.getCount()));
+                        item = ItemStack.EMPTY;
+                        if (stack.getCount() > getCapacity()) {
+                            item = stack.copyWithCount(getCapacity());
+                            slot.set(new ItemStack(stack.getItem(), stack.getCount() - getCapacity()));
+                            return getCapacity();
                         } else {
-                            slot.set(new ItemStack(Items.AIR));
+                            item = stack.copy();
+                            slot.set(ItemStack.EMPTY);
+                            return item.getCount();
                         }
-                        return count;
                     }
                 }
             }
             return 0;
         }
 
-        public boolean tryRemove(ItemStack stack, SlotAccess access, Player player) {
-            if (item.hasCraftingRemainingItem() || TiffinItem.ITEM_WHITELIST.contains(item)) {
-                if (stack.is(Items.BOWL)) {
-                    if (stack.getCount() > count) { //cannot replace held stack, too many containers
-                        player.addItem(new ItemStack(item, count));
-                        access.set(new ItemStack(stack.getItem(), stack.getCount() - count));
-                        count = 0;
-                        item = Items.AIR;
-                        return true;
+        public boolean tryRemove(ItemStack stack, SlotAccess slot, Player player) {
+            if (TiffinItem.getRemainderItem(item.getItem()) != null && stack.getCount() > item.getCount()) { //cannot replace held stack, too many containers
+                slot.set(stack.copyWithCount(stack.getCount() - item.getCount()));
+                player.addItem(item);
+                item = ItemStack.EMPTY;
+                return true;
+            } else {
+                if (TiffinItem.getRemainderItem(item.getItem()) != null) {
+                    if (item.getItem().getDefaultMaxStackSize() >= stack.getCount()) {
+                        slot.set(new ItemStack(item.getItem(), stack.getCount()));
                     } else {
-                        if (item.getDefaultMaxStackSize() >= stack.getCount()) {
-                            access.set(new ItemStack(item, stack.getCount()));
-                        } else {
-                            access.set(new ItemStack(item, item.getDefaultMaxStackSize()));
-                            player.addItem(new ItemStack(item, stack.getCount() - item.getDefaultMaxStackSize()));
-                        }
-                        count = count - stack.getCount();
-                        if (count <= 0) {
-                            count = 0;
-                            item = Items.AIR;
-                        }
-                        return true;
+                        slot.set(new ItemStack(item.getItem(), item.getItem().getDefaultMaxStackSize()));
+                        player.addItem(item.copyWithCount(stack.getCount() - item.getItem().getDefaultMaxStackSize()));
+                    }
+                    item.shrink(stack.getCount());
+                } else {
+                    if (stack.isEmpty()) {
+                        slot.set(item.copyWithCount(Math.min(item.getCount(), item.getItem().getDefaultMaxStackSize())));
+                        item.shrink(item.getItem().getDefaultMaxStackSize());
+                    } else {
+                        return false;
                     }
                 }
+                if (item.getCount() == 0) {
+                    item = ItemStack.EMPTY;
+                }
+                return true;
             }
-            return false;
         }
 
-        public int tryFill(ItemStack stack, SlotAccess access, Player player) {
-            if (count < CAPACITY) {
-                if (item != Items.AIR) { //putting items in full tiffin
-                    if (stack.getItem() == item) {
-                        int i = count + stack.getCount();
-                        if (i > CAPACITY) { //cannot fit all
-                            access.set(new ItemStack(stack.getItem(), i - CAPACITY));
-                            if (stack.getItem().getCraftingRemainingItem() != null || TiffinItem.ITEM_WHITELIST.contains(stack.getItem())) {
-                                player.addItem(new ItemStack(Items.BOWL, CAPACITY - count));
-                            }
-                            count = CAPACITY;
-                            return CAPACITY - (i - stack.getCount());
-                        } else {
-                            count = i;
-                            if (stack.getItem().getCraftingRemainingItem() != null || TiffinItem.ITEM_WHITELIST.contains(stack.getItem())) {
-                                access.set(new ItemStack(Items.BOWL, stack.getCount()));
+        public int tryFill(ItemStack stack, SlotAccess slot, Player player) {
+            if (item.getCount() < getCapacity()) {
+                if (!item.isEmpty()) { //putting items in full tiffin
+                    if (stack.is(item.getItem())) {
+                        int i = item.getCount() + stack.getCount();
+                        if (i > getCapacity()) { //cannot fit all
+                            slot.set(new ItemStack(stack.getItem(), i - getCapacity()));
+                            if (TiffinItem.getRemainderItem(stack.getItem()) != null) {
+                                player.addItem(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), getCapacity() - item.getCount()));
                             } else {
-                                access.set(new ItemStack(Items.AIR));
+                                slot.set(ItemStack.EMPTY);
+                            }
+                            item = item.copyWithCount(getCapacity());
+                            return getCapacity() - (i - stack.getCount());
+                        } else {
+                            item = item.copyWithCount(i);
+                            if (TiffinItem.getRemainderItem(stack.getItem()) != null) {
+                                slot.set(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), stack.getCount()));
+                            } else {
+                                slot.set(ItemStack.EMPTY);
                             }
                             return stack.getCount();
                         }
                     }
                 } else { //putting items in empty tiffin
-                    item = stack.getItem();
-                    if (stack.getCount() > CAPACITY) { //cannot fit all of stack
-                        count = CAPACITY;
-                        if (stack.getItem().getCraftingRemainingItem() != null || TiffinItem.ITEM_WHITELIST.contains(stack.getItem())) {
-                            access.set(new ItemStack(Items.BOWL, stack.getCount() - CAPACITY));
-                            player.addItem(new ItemStack(Items.BOWL, CAPACITY));
+                    if (TiffinItem.getRemainderItem(stack.getItem()) != null) {
+                        if (stack.getCount() > getCapacity()) { //cannot fit all of stack
+                            item = stack.copyWithCount(getCapacity());
+                            slot.set(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), stack.getCount() - getCapacity()));
+                            player.addItem(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), getCapacity()));
+                            return getCapacity();
                         } else {
-                            access.set(new ItemStack(Items.AIR));
+                            item = stack.copy();
+                            slot.set(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), stack.getCount()));
+                            return item.getCount();
                         }
-                        return CAPACITY;
                     } else {
-                        count = stack.getCount();
-                        if (stack.getItem().getCraftingRemainingItem() != null || TiffinItem.ITEM_WHITELIST.contains(stack.getItem())) {
-                            access.set(new ItemStack(Items.BOWL, stack.getCount()));
+                        item = ItemStack.EMPTY;
+                        if (stack.getCount() > getCapacity()) {
+                            item = stack.copyWithCount(getCapacity());
+                            slot.set(new ItemStack(stack.getItem(), stack.getCount() - getCapacity()));
+                            return getCapacity();
                         } else {
-                            access.set(new ItemStack(Items.AIR));
+                            item = stack.copy();
+                            slot.set(ItemStack.EMPTY);
+                            return item.getCount();
                         }
-                        return count;
                     }
                 }
             }
@@ -258,7 +264,7 @@ public class TiffinContents implements TooltipComponent {
         }
 
         public TiffinContents toImmutable() {
-            return new TiffinContents(this.item, this.count);
+            return new TiffinContents(this.item);
         }
     }
 }

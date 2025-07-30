@@ -424,5 +424,9 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.DIRT)
                 .add(BFBlocks.WALNUT_MULCH_BLOCK.get().asItem())
                 .add(BFBlocks.PALM_MULCH_BLOCK.get().asItem());
+
+        getOrCreateTagBuilder(BFItemTags.FOOD_CONTAINERS_TIFFINS_CAN_HOLD)
+                .add(Items.BOWL)
+        ;
     }
 }

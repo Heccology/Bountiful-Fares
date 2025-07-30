@@ -1,11 +1,11 @@
 package net.hecco.bountifulfares.item.custom;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.item.component.TiffinContents;
 import net.hecco.bountifulfares.item.component.TiffinTooltip;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFSounds;
-import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.core.component.DataComponentMap;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -22,12 +22,10 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.math.Fraction;
 
-import java.util.List;
 import java.util.Optional;
 
 public class TiffinItem extends Item {
@@ -35,16 +33,14 @@ public class TiffinItem extends Item {
         super(properties);
     }
 
-    public static final List<Item> ITEM_WHITELIST = List.of(Items.MUSHROOM_STEW, Items.RABBIT_STEW, Items.BEETROOT_SOUP);
-
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack itemstack = player.getItemInHand(usedHand);
         FoodProperties foodproperties = null;
         if (itemstack.getComponents().has(BFComponents.TIFFIN_CONTENTS.get())) {
-            Item item = itemstack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem();
-            if (item != null && item != Items.AIR && item.getDefaultInstance().has(DataComponents.FOOD)) {
-                foodproperties = itemstack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem().getDefaultInstance().get(DataComponents.FOOD);
+            ItemStack stack = itemstack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack();
+            if (!stack.isEmpty() && !(stack.getItem() instanceof TiffinItem) && stack.has(DataComponents.FOOD)) {
+                foodproperties = stack.get(DataComponents.FOOD);
             }
         }
         if (foodproperties != null) {
@@ -59,13 +55,29 @@ public class TiffinItem extends Item {
         }
     }
 
+    public static Item getRemainderItem(Item item) {
+        if (item.hasCraftingRemainingItem()) {
+            return item.getCraftingRemainingItem();
+        }
+        if (item.getDefaultInstance().has(DataComponents.FOOD)) {
+            if (item.getDefaultInstance().get(DataComponents.FOOD).usingConvertsTo().isPresent()) {
+                return item.getDefaultInstance().get(DataComponents.FOOD).usingConvertsTo().get().getItem();
+            }
+        }
+        return null;
+    }
+
+    public static boolean canInsertStack(ItemStack stack, TiffinContents contents) {
+        return !(stack.getItem() instanceof TiffinItem) && stack.has(DataComponents.FOOD) && (getRemainderItem(stack.getItem()) == null || getRemainderItem(stack.getItem()).getDefaultInstance().is(BFItemTags.FOOD_CONTAINERS_TIFFINS_CAN_HOLD)) && (ItemStack.isSameItemSameComponents(contents.getItemStack(), stack) || contents.getItemStack().isEmpty());
+    }
+
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
         FoodProperties foodproperties = null;
         if (stack.getComponents().has(BFComponents.TIFFIN_CONTENTS.get())) {
-            Item item = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem();
-            if (item != null && item != Items.AIR && item.getDefaultInstance().has(DataComponents.FOOD)) {
-                foodproperties = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem().getDefaultInstance().get(DataComponents.FOOD);
+            ItemStack item = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack();
+            if (!item.isEmpty() && !(item.getItem() instanceof TiffinItem) && item.has(DataComponents.FOOD)) {
+                foodproperties = item.get(DataComponents.FOOD);
             }
         }
         if (livingEntity instanceof Player player && player.isCreative()) {
@@ -97,11 +109,11 @@ public class TiffinItem extends Item {
 
     @Override
     public int getUseDuration(ItemStack stack, LivingEntity entity) {
-        FoodProperties foodproperties = null;
+        FoodProperties foodproperties;
         if (stack.getComponents().has(BFComponents.TIFFIN_CONTENTS.get())) {
-            Item item = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem();
-            if (item != null && item != Items.AIR && item.getDefaultInstance().has(DataComponents.FOOD)) {
-                foodproperties = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem().getDefaultInstance().get(DataComponents.FOOD);
+            ItemStack item = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack();
+            if (!item.isEmpty() && !(item.getItem() instanceof TiffinItem) && item.has(DataComponents.FOOD)) {
+                foodproperties = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack().get(DataComponents.FOOD);
                 return foodproperties.eatDurationTicks();
             }
         }
@@ -110,13 +122,12 @@ public class TiffinItem extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+        stack.set(BFComponents.TIFFIN_INTERACTABLE.get(), false);
         if (isSelected) {
             stack.set(BFComponents.TIFFIN_INTERACTABLE.get(), true);
-        } else {
-            stack.set(BFComponents.TIFFIN_INTERACTABLE.get(), false);
         }
         if (!stack.has(BFComponents.TIFFIN_CONTENTS.get())) {
-            stack.set(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents(Items.AIR, 0));
+            stack.set(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents());
         }
         super.inventoryTick(stack, level, entity, slotId, isSelected);
     }
@@ -127,26 +138,24 @@ public class TiffinItem extends Item {
 
     @Override
     public boolean overrideStackedOnOther(ItemStack stack, Slot slot, ClickAction action, Player player) {
-        ItemStack itemstack = slot.getItem();
-        if (action != ClickAction.SECONDARY) {
-            return false;
-        } else {
+        ItemStack other = slot.getItem();
+        if (action == ClickAction.SECONDARY && slot.allowModification(player)) {
             TiffinContents contents = stack.getComponents().get(BFComponents.TIFFIN_CONTENTS.get());
             if (contents == null) {
                 return false;
             } else {
                 TiffinContents.Mutable mutable = new TiffinContents.Mutable(contents);
-                if (itemstack.is(Items.BOWL)) {
-                    boolean i = mutable.tryRemove(itemstack, slot, player);
+                if (!contents.getItemStack().isEmpty() && ((getRemainderItem(contents.getItemStack().getItem()) == null && other.isEmpty()) || other.is(getRemainderItem(contents.getItemStack().getItem())))) {
+                    boolean i = mutable.tryRemove(other, slot, player);
                     if (i) {
-                        player.playSound(BFSounds.TIFFIN_REMOVE.get(), 0.9F, (Fraction.getFraction(contents.getCount(), TiffinContents.CAPACITY).floatValue() / 2) + 0.8f);
+                        player.playSound(BFSounds.TIFFIN_REMOVE.get(), 0.9F, (Fraction.getFraction(contents.getCount(), contents.CAPACITY).floatValue() / 2) + 0.8f);
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
-                } else if ((itemstack.has(DataComponents.FOOD) && itemstack.getItem().getCraftingRemainingItem() == Items.BOWL) || ITEM_WHITELIST.contains(itemstack.getItem())) {
-                    int i = mutable.tryFill(itemstack, slot, player);
+                } else if (canInsertStack(other, contents)) {
+                    int i = mutable.tryFill(other, slot, player);
                     if (i > 0) {
-                        player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (Fraction.getFraction(contents.getCount(), TiffinContents.CAPACITY).floatValue() / 2) + 0.8f);
+                        player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (Fraction.getFraction(contents.getCount(), contents.CAPACITY).floatValue() / 2) + 0.8f);
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
@@ -164,17 +173,19 @@ public class TiffinItem extends Item {
                 return false;
             } else {
                 TiffinContents.Mutable mutable = new TiffinContents.Mutable(contents);
-                if (other.is(Items.BOWL)) {
+                BountifulFares.LOGGER.info(contents.getItemStack().isEmpty() + "");
+                BountifulFares.LOGGER.info(getRemainderItem(contents.getItemStack().getItem()) + "");
+                if (!contents.getItemStack().isEmpty() && ((getRemainderItem(contents.getItemStack().getItem()) == null && other.isEmpty()) || other.is(getRemainderItem(contents.getItemStack().getItem())))) {
                     boolean i = mutable.tryRemove(other, access, player);
                     if (i) {
-                        player.playSound(BFSounds.TIFFIN_REMOVE.get(), 0.9F, (Fraction.getFraction(contents.getCount(), TiffinContents.CAPACITY).floatValue() / 2) + 0.8f);
+                        player.playSound(BFSounds.TIFFIN_REMOVE.get(), 0.9F, (Fraction.getFraction(contents.getCount(), contents.CAPACITY).floatValue() / 2) + 0.8f);
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
-                } else if ((other.has(DataComponents.FOOD) && other.getItem().getCraftingRemainingItem() == Items.BOWL) || ITEM_WHITELIST.contains(other.getItem())) {
+                } else if (canInsertStack(other, contents)) {
                     int i = mutable.tryFill(other, access, player);
                     if (i > 0) {
-                        player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (Fraction.getFraction(contents.getCount(), TiffinContents.CAPACITY).floatValue() / 2) + 0.8f);
+                        player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (Fraction.getFraction(contents.getCount(), contents.CAPACITY).floatValue() / 2) + 0.8f);
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
@@ -186,13 +197,13 @@ public class TiffinItem extends Item {
 
 
     public boolean isBarVisible(ItemStack stack) {
-        TiffinContents contents = stack.getOrDefault(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents(Items.AIR, 0));
+        TiffinContents contents = stack.getOrDefault(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents());
         return contents.getCount() > 0;
     }
 
     public int getBarWidth(ItemStack stack) {
-        TiffinContents contents = stack.getOrDefault(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents(Items.AIR, 0));
-        return Math.min(1 + Mth.mulAndTruncate(Fraction.getFraction(contents.getCount(), TiffinContents.CAPACITY), 12), 13);
+        TiffinContents contents = stack.getOrDefault(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents());
+        return Math.min(1 + Mth.mulAndTruncate(Fraction.getFraction(contents.getCount(), contents.CAPACITY), 12), 13);
     }
 
     public int getBarColor(ItemStack stack) {
