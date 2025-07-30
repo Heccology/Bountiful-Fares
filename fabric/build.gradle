@@ -20,7 +20,7 @@ dependencies {
     modImplementation files("heccolib-fabric-1.21.1-1.1.2.jar")
 
     //APPLESKIN
-    modCompileOnly files("runs/client/mods/appleskin-fabric-mc1.21-3.0.6.jar")
+    modCompileOnly files("appleskin-fabric-mc1.21-3.0.6.jar")
 }
 
 loom {

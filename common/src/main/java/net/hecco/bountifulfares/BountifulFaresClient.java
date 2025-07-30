@@ -369,12 +369,6 @@ public class BountifulFaresClient {
                 ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "dyed"),
                 (itemStack, clientWorld, livingEntity, seed) ->
                         itemStack.getComponents().get(DataComponents.DYED_COLOR) != null ? 1.0F : 0.0F);
-
-        HLServices.CLIENT.registerItemModelPredicate(
-                BFItems.TIFFINS.get(null).get(),
-                ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "interactable"),
-                (itemStack, clientWorld, livingEntity, seed) ->
-                        itemStack.getComponents().get(BFComponents.TIFFIN_INTERACTABLE) ? 1.0F : 0.0F);
     }
 
     private static void registerBlockItemColor(BlockColor color, ItemColor itemColor, Block block) {

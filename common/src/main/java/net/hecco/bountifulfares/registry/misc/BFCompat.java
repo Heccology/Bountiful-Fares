@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.registry.misc;
 
-import net.hecco.bountifulfares.compat.DatagenOnlyItems;
 import net.hecco.bountifulfares.compat.appledog.AppledogBlocks;
 import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
 import net.hecco.bountifulfares.compat.delicate_dyes.DelicateDyesBlocks;
@@ -21,7 +20,6 @@ public class BFCompat {
     public static Set<Supplier<Block>> compatBlocks = new HashSet<>();
     public static final List<String> COMPAT_IDS = List.of(ELS_AND_LS_DYES_MOD_ID, DYE_DEPOT_MOD_ID, AMENDMENTS_MOD_ID, EXCESSIVE_BUILDING_MOD_ID, NATURES_SPIRIT_MOD_ID, SPAWN_MOD_ID, FARMERS_DELIGHT_MOD_ID, TWIGS_MOD_ID, ARTS_AND_CRAFTS_MOD_ID, DELICATE_DYES_MOD_ID, APPLEDOG_MOD_ID, DUNGEONS_DELIGHT_MOD_ID);
     public static void registerCompatContent() {
-        DatagenOnlyItems.registerDatagenItems();
 
 //        mint
 //        MintBlocks.registerMintBlocks();

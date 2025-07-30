@@ -353,5 +353,12 @@
       "bountifulfares:tiffin/insert3"
     ],
     "subtitle": "subtitles.item.bountifulfares.shulker_tiffin.insert"
+  },
+  "tiffin_remove": {
+    "sounds": [
+      "bountifulfares:tiffin/remove1",
+      "bountifulfares:tiffin/remove2"
+    ],
+    "subtitle": "subtitles.item.bountifulfares.shulker_tiffin.remove"
   }
 }

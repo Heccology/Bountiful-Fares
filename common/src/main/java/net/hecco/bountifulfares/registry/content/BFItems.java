@@ -151,9 +151,9 @@ public class BFItems {
     public static final Map<DyeColor, Supplier<Item>> TIFFINS = new HashMap<>();
 
     private static void registerTiffins() {
-        TIFFINS.put(null, registerItem("shulker_tiffin", () -> new TiffinItem(new Item.Properties().stacksTo(1).component(BFComponents.TIFFIN_CONTENTS, new TiffinContents(Items.AIR, 0)).component(BFComponents.TIFFIN_INTERACTABLE, false).food(new FoodProperties.Builder().nutrition(0).saturationModifier(0).build()))));
+        TIFFINS.put(null, registerItem("shulker_tiffin", () -> new TiffinItem(createTiffinProperties())));
         for (DyeColor color : DyeColor.values()) {
-            TIFFINS.put(color, registerItem(color.getName() + "_shulker_tiffin", () -> new TiffinItem(new Item.Properties().stacksTo(1).component(BFComponents.TIFFIN_CONTENTS, new TiffinContents(Items.AIR, 0)).component(BFComponents.TIFFIN_INTERACTABLE, false).food(new FoodProperties.Builder().nutrition(0).saturationModifier(0).build()))));
+            TIFFINS.put(color, registerItem(color.getName() + "_shulker_tiffin", () -> new TiffinItem(createTiffinProperties())));
         }
     }
 
@@ -169,6 +169,12 @@ public class BFItems {
 
     private static Supplier<Item> registerItem(String id, Supplier<Item> registry) {
         return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.ITEM.key(), registry);
+    }
+
+    private static Item.Properties createTiffinProperties() {
+        return new Item.Properties()
+                .stacksTo(1)
+                .food(new FoodProperties.Builder().nutrition(0).saturationModifier(0).build());
     }
 
     public static void registerModItems() {

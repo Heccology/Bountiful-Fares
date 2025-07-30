@@ -17,6 +17,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
+import java.util.Objects;
+
 public class TiffinContents implements TooltipComponent {
     public static final Codec<TiffinContents> CODEC = RecordCodecBuilder.create(instance -> instance.group(
             BuiltInRegistries.ITEM.byNameCodec().fieldOf("item").forGetter(t -> t.item.asItem()),
@@ -49,6 +51,22 @@ public class TiffinContents implements TooltipComponent {
         return "TiffinContents" + this.item;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.item, this.count);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        } else {
+            return obj instanceof TiffinContents ex
+                    && this.item == ex.item
+                    && this.count == ex.count;
+        }
+    }
+
     public static class Mutable {
         private Item item;
         private int count;
@@ -70,6 +88,22 @@ public class TiffinContents implements TooltipComponent {
             if (this.count <= 0) {
                 this.count = 0;
                 this.item = Items.AIR;
+            }
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(this.item, this.count);
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == this) {
+                return true;
+            } else {
+                return obj instanceof TiffinContents ex
+                        && this.item == ex.item
+                        && this.count == ex.count;
             }
         }
 

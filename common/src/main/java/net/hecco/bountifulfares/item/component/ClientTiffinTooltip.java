@@ -1,6 +1,9 @@
 package net.hecco.bountifulfares.item.component;
 
+import com.mojang.blaze3d.platform.Window;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
@@ -30,6 +33,7 @@ public class ClientTiffinTooltip implements ClientTooltipComponent {
     public void renderImage(Font font, int x, int y, GuiGraphics guiGraphics) {
         Item item = this.contents.getItem();
         guiGraphics.renderItem(item.getDefaultInstance(), x, y);
+//        RenderSystem.disableScissor();
     }
 
     @Override

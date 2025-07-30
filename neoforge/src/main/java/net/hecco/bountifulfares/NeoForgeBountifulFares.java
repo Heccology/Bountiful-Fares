@@ -1,11 +1,15 @@
 package net.hecco.bountifulfares;
 
 
+import net.hecco.bountifulfares.item.component.TiffinContents;
 import net.hecco.bountifulfares.registry.BFNeoForgeLootTableModifiers;
 import net.hecco.bountifulfares.networking.BFMessages;
 import net.hecco.bountifulfares.networking.payload.*;
+import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.ItemLike;
@@ -17,13 +21,20 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import oshi.util.tuples.Pair;
+
+import java.util.function.Supplier;
 
 @Mod(BountifulFares.MOD_ID)
 public class NeoForgeBountifulFares {
 //TODO: ADD SNIFFER LOOT MODIFIERS (again cannot be bothered its like 8:30am and i have not slept)
 
     public NeoForgeBountifulFares(IEventBus eventBus) {
+//        DeferredRegister.DataComponents registrar = DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, BountifulFares.MOD_ID);
+//        Supplier<DataComponentType<TiffinContents>> tiffinContents = registrar.registerComponentType("tiffin_contents",  (builder) ->
+//                builder.persistent(TiffinContents.CODEC).networkSynchronized(TiffinContents.STREAM_CODEC).cacheEncoding());
+//        BFComponents.TIFFIN_CONTENTS = tiffinContents.get();
         BountifulFares.init();
         BFNeoForgeLootTableModifiers.LOOT_MODIFIERS.register(eventBus); //dude the jsons for these need to be rewritten but i cannot be bothered rn - yirmiri
 

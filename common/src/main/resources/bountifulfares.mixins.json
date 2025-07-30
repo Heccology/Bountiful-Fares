@@ -15,14 +15,15 @@
     "misc.WoodlandMansionSecondFloorMixin",
     "render.AbstractBlockStateMixin",
     "render.AbstractInventoryMixin",
+    "render.ClientTooltipComponentMixin",
     "render.GuiMixin",
     "render.ItemRendererMixin",
+    "render.LivingEntityMixin",
     "render.ModelLoaderMixin",
     "util.BrewingRecipeRegistryMixin",
     "util.HandledScreenMixin",
     "util.ItemRendererAccessor",
-    "util.TrunkPlacerInvoker",
-    "render.ClientTooltipComponentMixin"
+    "util.TrunkPlacerInvoker"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -31,6 +32,7 @@
     "misc.SplashTextMixin",
     "misc.StonecutterScreenMixin",
     "render.BlockDustParticleMixin",
+    "render.GuiGraphicsMixin",
     "render.GuiHeartsMixin"
   ],
   "refmap": "bountifulfares.refmap.json"

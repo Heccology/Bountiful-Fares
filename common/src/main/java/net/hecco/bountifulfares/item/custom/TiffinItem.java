@@ -4,6 +4,8 @@ import net.hecco.bountifulfares.item.component.TiffinContents;
 import net.hecco.bountifulfares.item.component.TiffinTooltip;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -39,10 +41,10 @@ public class TiffinItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand) {
         ItemStack itemstack = player.getItemInHand(usedHand);
         FoodProperties foodproperties = null;
-        if (itemstack.getComponents().has(BFComponents.TIFFIN_CONTENTS)) {
-            Item item = itemstack.get(BFComponents.TIFFIN_CONTENTS).getItem();
+        if (itemstack.getComponents().has(BFComponents.TIFFIN_CONTENTS.get())) {
+            Item item = itemstack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem();
             if (item != null && item != Items.AIR && item.getDefaultInstance().has(DataComponents.FOOD)) {
-                foodproperties = itemstack.get(BFComponents.TIFFIN_CONTENTS).getItem().getDefaultInstance().get(DataComponents.FOOD);
+                foodproperties = itemstack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem().getDefaultInstance().get(DataComponents.FOOD);
             }
         }
         if (foodproperties != null) {
@@ -60,18 +62,18 @@ public class TiffinItem extends Item {
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
         FoodProperties foodproperties = null;
-        if (stack.getComponents().has(BFComponents.TIFFIN_CONTENTS)) {
-            Item item = stack.get(BFComponents.TIFFIN_CONTENTS).getItem();
+        if (stack.getComponents().has(BFComponents.TIFFIN_CONTENTS.get())) {
+            Item item = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem();
             if (item != null && item != Items.AIR && item.getDefaultInstance().has(DataComponents.FOOD)) {
-                foodproperties = stack.get(BFComponents.TIFFIN_CONTENTS).getItem().getDefaultInstance().get(DataComponents.FOOD);
+                foodproperties = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem().getDefaultInstance().get(DataComponents.FOOD);
             }
         }
         if (livingEntity instanceof Player player && player.isCreative()) {
         } else {
-            if (stack.has(BFComponents.TIFFIN_CONTENTS)) {
-                TiffinContents.Mutable contents = new TiffinContents.Mutable(stack.get(BFComponents.TIFFIN_CONTENTS));
+            if (stack.has(BFComponents.TIFFIN_CONTENTS.get())) {
+                TiffinContents.Mutable contents = new TiffinContents.Mutable(stack.get(BFComponents.TIFFIN_CONTENTS.get()));
                 contents.decrement();
-                stack.set(BFComponents.TIFFIN_CONTENTS, contents.toImmutable());
+                stack.set(BFComponents.TIFFIN_CONTENTS.get(), contents.toImmutable());
             }
         }
         return foodproperties != null ? livingEntity.eat(level, stack, foodproperties) : stack;
@@ -79,7 +81,7 @@ public class TiffinItem extends Item {
 
     @Override
     public UseAnim getUseAnimation(ItemStack stack) {
-        return UseAnim.DRINK;
+        return UseAnim.EAT;
     }
 
     @Override
@@ -96,10 +98,10 @@ public class TiffinItem extends Item {
     @Override
     public int getUseDuration(ItemStack stack, LivingEntity entity) {
         FoodProperties foodproperties = null;
-        if (stack.getComponents().has(BFComponents.TIFFIN_CONTENTS)) {
-            Item item = stack.get(BFComponents.TIFFIN_CONTENTS).getItem();
+        if (stack.getComponents().has(BFComponents.TIFFIN_CONTENTS.get())) {
+            Item item = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem();
             if (item != null && item != Items.AIR && item.getDefaultInstance().has(DataComponents.FOOD)) {
-                foodproperties = stack.get(BFComponents.TIFFIN_CONTENTS).getItem().getDefaultInstance().get(DataComponents.FOOD);
+                foodproperties = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem().getDefaultInstance().get(DataComponents.FOOD);
                 return foodproperties.eatDurationTicks();
             }
         }
@@ -109,15 +111,18 @@ public class TiffinItem extends Item {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if (isSelected) {
-            stack.set(BFComponents.TIFFIN_INTERACTABLE, true);
+            stack.set(BFComponents.TIFFIN_INTERACTABLE.get(), true);
         } else {
-            stack.set(BFComponents.TIFFIN_INTERACTABLE, false);
+            stack.set(BFComponents.TIFFIN_INTERACTABLE.get(), false);
+        }
+        if (!stack.has(BFComponents.TIFFIN_CONTENTS.get())) {
+            stack.set(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents(Items.AIR, 0));
         }
         super.inventoryTick(stack, level, entity, slotId, isSelected);
     }
 
     public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {
-        return !stack.has(DataComponents.HIDE_TOOLTIP) && !stack.has(DataComponents.HIDE_ADDITIONAL_TOOLTIP) ? Optional.ofNullable(stack.get(BFComponents.TIFFIN_CONTENTS)).map(TiffinTooltip::new) : Optional.empty();
+        return !stack.has(DataComponents.HIDE_TOOLTIP) && !stack.has(DataComponents.HIDE_ADDITIONAL_TOOLTIP) ? Optional.ofNullable(stack.get(BFComponents.TIFFIN_CONTENTS.get())).map(TiffinTooltip::new) : Optional.empty();
     }
 
     @Override
@@ -126,7 +131,7 @@ public class TiffinItem extends Item {
         if (action != ClickAction.SECONDARY) {
             return false;
         } else {
-            TiffinContents contents = stack.getComponents().get(BFComponents.TIFFIN_CONTENTS);
+            TiffinContents contents = stack.getComponents().get(BFComponents.TIFFIN_CONTENTS.get());
             if (contents == null) {
                 return false;
             } else {
@@ -134,16 +139,16 @@ public class TiffinItem extends Item {
                 if (itemstack.is(Items.BOWL)) {
                     boolean i = mutable.tryRemove(itemstack, slot, player);
                     if (i) {
-                        player.playSound(SoundEvents.SHULKER_BOX_CLOSE, 0.9F, (getBarWidth(stack)/13f) + 0.8f);
+                        player.playSound(BFSounds.TIFFIN_REMOVE.get(), 0.9F, (Fraction.getFraction(contents.getCount(), TiffinContents.CAPACITY).floatValue() / 2) + 0.8f);
                     }
-                    stack.set(BFComponents.TIFFIN_CONTENTS, mutable.toImmutable());
+                    stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
                 } else if ((itemstack.has(DataComponents.FOOD) && itemstack.getItem().getCraftingRemainingItem() == Items.BOWL) || ITEM_WHITELIST.contains(itemstack.getItem())) {
                     int i = mutable.tryFill(itemstack, slot, player);
                     if (i > 0) {
-                        player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (getBarWidth(stack)/13f) + 0.8f);
+                        player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (Fraction.getFraction(contents.getCount(), TiffinContents.CAPACITY).floatValue() / 2) + 0.8f);
                     }
-                    stack.set(BFComponents.TIFFIN_CONTENTS, mutable.toImmutable());
+                    stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
                 }
             }
@@ -154,7 +159,7 @@ public class TiffinItem extends Item {
     @Override
     public boolean overrideOtherStackedOnMe(ItemStack stack, ItemStack other, Slot slot, ClickAction action, Player player, SlotAccess access) {
         if (action == ClickAction.SECONDARY && slot.allowModification(player)) {
-            TiffinContents contents = stack.getComponents().get(BFComponents.TIFFIN_CONTENTS);
+            TiffinContents contents = stack.getComponents().get(BFComponents.TIFFIN_CONTENTS.get());
             if (contents == null) {
                 return false;
             } else {
@@ -162,16 +167,16 @@ public class TiffinItem extends Item {
                 if (other.is(Items.BOWL)) {
                     boolean i = mutable.tryRemove(other, access, player);
                     if (i) {
-                        player.playSound(SoundEvents.SHULKER_BOX_CLOSE, 0.9F, (getBarWidth(stack)/13f) + 0.8f);
+                        player.playSound(BFSounds.TIFFIN_REMOVE.get(), 0.9F, (Fraction.getFraction(contents.getCount(), TiffinContents.CAPACITY).floatValue() / 2) + 0.8f);
                     }
-                    stack.set(BFComponents.TIFFIN_CONTENTS, mutable.toImmutable());
+                    stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
                 } else if ((other.has(DataComponents.FOOD) && other.getItem().getCraftingRemainingItem() == Items.BOWL) || ITEM_WHITELIST.contains(other.getItem())) {
                     int i = mutable.tryFill(other, access, player);
                     if (i > 0) {
-                        player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (getBarWidth(stack)/16f) + 0.8f);
+                        player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (Fraction.getFraction(contents.getCount(), TiffinContents.CAPACITY).floatValue() / 2) + 0.8f);
                     }
-                    stack.set(BFComponents.TIFFIN_CONTENTS, mutable.toImmutable());
+                    stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
                 }
             }
@@ -181,12 +186,12 @@ public class TiffinItem extends Item {
 
 
     public boolean isBarVisible(ItemStack stack) {
-        TiffinContents contents = stack.getOrDefault(BFComponents.TIFFIN_CONTENTS, new TiffinContents(Items.AIR, 0));
+        TiffinContents contents = stack.getOrDefault(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents(Items.AIR, 0));
         return contents.getCount() > 0;
     }
 
     public int getBarWidth(ItemStack stack) {
-        TiffinContents contents = stack.getOrDefault(BFComponents.TIFFIN_CONTENTS, new TiffinContents(Items.AIR, 0));
+        TiffinContents contents = stack.getOrDefault(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents(Items.AIR, 0));
         return Math.min(1 + Mth.mulAndTruncate(Fraction.getFraction(contents.getCount(), TiffinContents.CAPACITY), 12), 13);
     }
 

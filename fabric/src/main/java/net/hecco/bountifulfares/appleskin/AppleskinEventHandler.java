@@ -13,8 +13,8 @@ public class AppleskinEventHandler implements AppleSkinApi {
     public void registerEvents() {
         FoodValuesEvent.EVENT.register(foodValuesEvent -> {
             ItemStack stack = foodValuesEvent.itemStack;
-            if (stack.getItem() instanceof TiffinItem tiffinItem && tiffinItem.getDefaultInstance().has(BFComponents.TIFFIN_CONTENTS) && stack.get(BFComponents.TIFFIN_CONTENTS).getItem() != Items.AIR) {
-                foodValuesEvent.modifiedFoodComponent = stack.get(BFComponents.TIFFIN_CONTENTS).getItem().getDefaultInstance().get(DataComponents.FOOD);
+            if (stack.getItem() instanceof TiffinItem tiffinItem && tiffinItem.getDefaultInstance().has(BFComponents.TIFFIN_CONTENTS.get()) && stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem() != Items.AIR && stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem().getDefaultInstance().has(DataComponents.FOOD)) {
+                foodValuesEvent.modifiedFoodComponent = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItem().getDefaultInstance().get(DataComponents.FOOD);
             }
         });
     }

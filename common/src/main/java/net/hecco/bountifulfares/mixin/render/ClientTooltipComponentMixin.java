@@ -1,9 +1,7 @@
 package net.hecco.bountifulfares.mixin.render;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.item.component.ClientTiffinTooltip;
 import net.hecco.bountifulfares.item.component.TiffinTooltip;
-import net.minecraft.client.gui.screens.inventory.tooltip.ClientActivePlayersTooltip;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import org.spongepowered.asm.mixin.Mixin;

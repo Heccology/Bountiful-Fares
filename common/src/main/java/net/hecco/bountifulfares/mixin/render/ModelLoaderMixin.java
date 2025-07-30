@@ -4,6 +4,7 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,5 +19,11 @@ public abstract class ModelLoaderMixin {
     @Inject(method = "<init>", at = {@At(value = "INVOKE", ordinal = 0, target = "net/minecraft/client/resources/model/ModelBakery.loadSpecialItemModelAndDependencies (Lnet/minecraft/client/resources/model/ModelResourceLocation;)V")})
     private void addModels(CallbackInfo info) {
         this.loadSpecialItemModelAndDependencies(ModelResourceLocation.inventory(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "sun_hat_head")));
+        this.loadSpecialItemModelAndDependencies(ModelResourceLocation.inventory(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "shulker_tiffin_back")));
+        this.loadSpecialItemModelAndDependencies(ModelResourceLocation.inventory(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "shulker_tiffin_front")));
+        for (DyeColor color : DyeColor.values()) {
+            this.loadSpecialItemModelAndDependencies(ModelResourceLocation.inventory(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, color.getName() + "_shulker_tiffin_back")));
+            this.loadSpecialItemModelAndDependencies(ModelResourceLocation.inventory(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, color.getName() + "_shulker_tiffin_front")));
+        }
     }
 }

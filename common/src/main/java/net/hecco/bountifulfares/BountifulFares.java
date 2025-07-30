@@ -34,7 +34,7 @@ public class BountifulFares {
 ////		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here
 		BFSounds.registerSounds();
 		BFBlocks.registerModBlocks(); //TODO: UTILIZE BLOCKFAMILYCREATOR
-//		BFComponents.registerComponents();
+		BFComponents.registerComponents();
 		BFItems.registerModItems();
 ////		BFTrellises.registerTrellisParts(); //TODO: FIX
 ////		TrellisUtil.registerTrellisParts(); //TODO: FIX

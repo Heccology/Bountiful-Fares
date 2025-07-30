@@ -17,8 +17,10 @@ import net.hecco.bountifulfares.registry.misc.BFCompat;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
@@ -113,6 +115,11 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFItems.HONEYSUCKLE_TEA_BOTTLE.get(), "Honeysuckle Tea Cup");
         generate(translationBuilder, BFItems.BELLFLOWER_TEA_BOTTLE.get(), "Bellflower Tea Cup");
         generate(translationBuilder, BFItems.TORCHFLOWER_TEA_BOTTLE.get(), "Torchflower Tea Cup");
+
+        for (DyeColor color : DyeColor.values()) {
+            usedTranslationKeys.add("item.bountifulfares." + color.getName() + "_shulker_tiffin_back");
+            usedTranslationKeys.add("item.bountifulfares." + color.getName() + "_shulker_tiffin_front");
+        }
 
         generate(translationBuilder, "effect.bountifulfares.acidic", "Acidic");
         generate(translationBuilder, "item.minecraft.potion.effect.bountifulfares.acidic", "Potion of Acidity");
@@ -384,8 +391,8 @@ public class BFLangProvider extends FabricLanguageProvider {
 
         generate(translationBuilder, "subtitles.block.popped_maize.pop", "Maize pops");
 
-        generate(translationBuilder, "subtitles.block.bountifulfares.shulker_tiffin.insert", "Shulker Tiffin fills");
-        generate(translationBuilder, "subtitles.block.bountifulfares.shulker_tiffin.remove", "Shulker Tiffin empties");
+        generate(translationBuilder, "subtitles.item.bountifulfares.shulker_tiffin.insert", "Shulker Tiffin fills");
+        generate(translationBuilder, "subtitles.item.bountifulfares.shulker_tiffin.remove", "Shulker Tiffin empties");
 
         generate(translationBuilder, "jei.info.appledog_block", "appledog is full of joy, appledog is full of more joy when clicked!");
         generate(translationBuilder, "jei.info.golden_apple_sapling", "Golden Apple Trees are highly sensitive to light, and will wither and die if exposed to any higher than level 8. Additionally, no more fruit can be created after a tree is grown from a sapling.\n" +
