@@ -165,6 +165,7 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.COIR_BRICK_STAIRS.get());
                         entries.accept(BFBlocks.COIR_BRICK_SLAB.get());
                         entries.accept(BFBlocks.COIR_BRICK_WALL.get());
+                        entries.accept(BFBlocks.COIR_BED.get());
                         entries.accept(BFBlocks.PALM_MULCH.get());
                         entries.accept(BFBlocks.PALM_MULCH_BLOCK.get());
 //                        entries.accept(ExcessiveBuildingBlocks.PALM_MULCH_BRICKS.get());

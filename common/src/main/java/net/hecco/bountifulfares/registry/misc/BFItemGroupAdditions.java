@@ -221,6 +221,7 @@ public class BFItemGroupAdditions {
         FUNCTIONAL_BLOCKS.add(new Pair<>(BFBlocks.WALNUT_CANDLE.get(), BFBlocks.FERMENTATION_VESSEL.get().asItem().getDefaultInstance()));
         FUNCTIONAL_BLOCKS.add(new Pair<>(BFBlocks.FERMENTATION_VESSEL.get(), BFBlocks.COCONUT_CANDLE.get().asItem().getDefaultInstance()));
         FUNCTIONAL_BLOCKS.add(new Pair<>(BFBlocks.COCONUT_CANDLE.get(), BFBlocks.GOLDEN_APPLE_SAPLING.get().asItem().getDefaultInstance()));
+        FUNCTIONAL_BLOCKS.add(new Pair<>(Items.PINK_BED, BFBlocks.COIR_BED.get().asItem().getDefaultInstance()));
         Block prev = Blocks.COMPOSTER;
         for (String wood : BountifulFaresUtil.WOOD_TYPES) {
             FUNCTIONAL_BLOCKS.add(new Pair<>(prev, BFBlocks.TRELLISES.get(wood).get().asItem().getDefaultInstance()));

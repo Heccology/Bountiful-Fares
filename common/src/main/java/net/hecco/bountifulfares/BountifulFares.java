@@ -29,6 +29,9 @@ public class BountifulFares {
 
 	public static BountifulFaresConfiguration CONFIG = new BountifulFaresConfiguration();
 
+	//TODO: create fd tomato trellis crop
+
+
 	public static void init() {
 //		BountifulFares.CONFIG = BountifulFaresConfiguration.load(); //TODO: MOVE TO NEOFORGE CONFIG API(?)
 ////		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here
