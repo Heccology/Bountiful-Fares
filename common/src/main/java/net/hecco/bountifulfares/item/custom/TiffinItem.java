@@ -51,7 +51,7 @@ public class TiffinItem extends Item {
                 return InteractionResultHolder.fail(itemstack);
             }
         } else {
-            return InteractionResultHolder.pass(player.getItemInHand(usedHand));
+            return InteractionResultHolder.fail(itemstack);
         }
     }
 
@@ -117,7 +117,7 @@ public class TiffinItem extends Item {
                 return foodproperties.eatDurationTicks();
             }
         }
-        return super.getUseDuration(stack, entity);
+        return 0;
     }
 
     @Override

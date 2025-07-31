@@ -508,7 +508,7 @@ public class BFItemGroups {
     }
 
 
-    private static void addTiffin(DyeColor color, CreativeModeTab.Output entries) {
+    public static void addTiffin(DyeColor color, CreativeModeTab.Output entries) {
         ItemStack stack = BFItems.TIFFINS.get(color).get().getDefaultInstance();
         stack.set(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents());
         entries.accept(stack);
