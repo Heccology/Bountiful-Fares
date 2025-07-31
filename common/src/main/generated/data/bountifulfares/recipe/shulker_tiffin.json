@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "minecraft:bowl"
+    },
+    "S": {
+      "item": "minecraft:shulker_shell"
+    }
+  },
+  "pattern": [
+    "S",
+    "B",
+    "S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "bountifulfares:shulker_tiffin"
+  }
+}

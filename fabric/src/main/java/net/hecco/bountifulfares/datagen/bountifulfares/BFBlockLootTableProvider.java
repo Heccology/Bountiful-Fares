@@ -20,9 +20,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.BeetrootBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.IntRange;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -305,6 +307,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 8)))
                         .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get())))));
         add(BFBlocks.COIR_BRICK_SLAB.get(), createSlabItemTable(BFBlocks.COIR_BRICK_SLAB.get()));
+        add(BFBlocks.COIR_BED.get(), (block) -> this.createSinglePropConditionTable(block, BedBlock.PART, BedPart.HEAD));
         add(BFBlocks.PALM_FROND.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_FROND.get())

@@ -658,6 +658,14 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         generateRecipes(exporter, coirBricksFamily, FeatureFlagSet.of(FeatureFlags.VANILLA));
         carpet(exporter, BFBlocks.COIR_CARPET.get(), BFBlocks.PACKED_COCONUT_COIR.get());
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, BFBlocks.COIR_BED.get())
+                .pattern("###")
+                .pattern("PPP")
+                .define('#', BFItems.COCONUT_COIR.get())
+                .define('P', ItemTags.PLANKS)
+                .unlockedBy(getHasName(BFItems.COCONUT_COIR.get()), has(BFItems.COCONUT_COIR.get()))
+                .save(exporter);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.COCONUT_CANDLE.get(), 1)
                 .define('S', Items.STRING)
                 .define('H', Items.HONEYCOMB)
@@ -771,6 +779,15 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(BFBlocks.CERAMIC_TILES.get()), has(BFBlocks.CERAMIC_TILES.get()))
                 .save(exporter);
         twoByTwoPacker(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_MOSAIC.get(), BFBlocks.CERAMIC_TILES.get());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, BFItems.TIFFINS.get(null).get())
+                .pattern("S")
+                .pattern("B")
+                .pattern("S")
+                .define('S', Items.SHULKER_SHELL)
+                .define('B', Items.BOWL)
+                .unlockedBy(getHasName(Items.SHULKER_SHELL), has(Items.SHULKER_SHELL))
+                .save(exporter);
 
 
         offerJackOStrawRecipes(exporter, BFBlocks.WHITE_JACK_O_STRAW.get(), Items.WHITE_WOOL);

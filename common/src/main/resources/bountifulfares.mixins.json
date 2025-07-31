@@ -9,6 +9,7 @@
     "gameplay.LivingEntityTiffinMixin",
     "gameplay.NoteBlockInstrumentMixin",
     "gameplay.PumpkinPieItemMixin",
+    "gameplay.ServerPlayerEntityMixin",
     "gameplay.SweetBerryBushMixin",
     "misc.StonecutterScreenHandlerMixin",
     "misc.WoodlandMansionFirstFloorMixin",
@@ -32,6 +33,7 @@
     "misc.SplashTextMixin",
     "misc.StonecutterScreenMixin",
     "render.BlockDustParticleMixin",
+    "render.BuiltinItemModelMixin",
     "render.GuiGraphicsMixin",
     "render.GuiHeartsMixin"
   ],

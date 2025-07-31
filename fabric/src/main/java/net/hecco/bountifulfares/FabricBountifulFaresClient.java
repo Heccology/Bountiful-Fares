@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hecco.bountifulfares.block.entity.renderer.CeramicDishBlockEntityRenderer;
+import net.hecco.bountifulfares.block.entity.renderer.CoirBedBlockEntityRenderer;
 import net.hecco.bountifulfares.block.entity.renderer.TrellisBlockEntityRenderer;
 import net.hecco.bountifulfares.registry.BFMessages;
 import net.hecco.bountifulfares.particle.PrismarineBlossomParticle;
@@ -27,6 +28,7 @@ public class FabricBountifulFaresClient implements ClientModInitializer {
         BountifulFaresClient.onInitializeClient();
         ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
         BlockEntityRenderers.register(BFBlockEntities.TRELLIS_BLOCK_ENTITY.get(), TrellisBlockEntityRenderer::new);
+        BlockEntityRenderers.register(BFBlockEntities.COIR_BED_BLOCK_ENTITY.get(), CoirBedBlockEntityRenderer::new);
         BlockEntityRenderers.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), CeramicDishBlockEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_DEFAULT, TrellisBlockEntityRenderer::createDefaultLayer);
         EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_INVERTED, TrellisBlockEntityRenderer::createInvertedLayer);

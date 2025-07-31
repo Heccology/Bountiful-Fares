@@ -1,4 +1,4 @@
-// 1.21.1	2025-07-30T11:44:15.2645834	Bountiful Fares/Block Loot Tables
+// 1.21.1	2025-07-31T00:48:51.1826741	Bountiful Fares/Block Loot Tables
 86b295eff38d2e00737d0335639f8369622fdc2f data\bountifulfares\loot_table\blocks\birch_pickets.json
 210f1057bcc10f5ea29fbf5a989c5ce8ea92c848 data\bountifulfares\loot_table\blocks\potted_walnut_sapling.json
 179e10deb183993282f1a51ff35fff05ac260a15 data\bountifulfares\loot_table\blocks\wild_potatoes.json
@@ -58,6 +58,7 @@ f63a4fbfa697dc928cbdbd7552ee94cd0550b4d7 data\bountifulfares\loot_table\blocks\g
 4748850603ea02d8be71eb525a159a79a2dc4ac2 data\bountifulfares\loot_table\blocks\bamboo_pickets.json
 fdfea92b41cba7d3082ae4908f87143a38af3d2c data\bountifulfares\loot_table\blocks\warped_pickets.json
 4df5b8a06898231394be1031fe4b66f6f84cd60d data\bountifulfares\loot_table\blocks\lime_jack_o_straw.json
+8c5d4b168fbc210f51017a9c39a60a11b308584e data\bountifulfares\loot_table\blocks\coir_bed.json
 e1a8391256dd977a8a31c4310272999ace7ecb4e data\bountifulfares\loot_table\blocks\black_jack_o_straw.json
 f619d36f4ff5038a74cc37e0bd07311c7823eba8 data\bountifulfares\loot_table\blocks\palm_mulch.json
 cb5dcd68a2f2d7b07013fd6e667954ec04f27a7a data\bountifulfares\loot_table\blocks\golden_apple_leaves.json

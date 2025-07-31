@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/template_bed",
+  "textures": {
+    "particle": "bountifulfares:block/stripped_palm_log"
+  }
+}
