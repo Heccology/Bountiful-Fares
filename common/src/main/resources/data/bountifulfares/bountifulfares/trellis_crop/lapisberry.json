@@ -1,5 +1,5 @@
 {
-  "seeds": "bountifulfares:lapisberries",
+  "seeds": "bountifulfares:lapisberry_seeds",
   "produce": "bountifulfares:lapisberries",
   "texture": "bountifulfares:block/lapisberry_trellis",
   "model": "default",
