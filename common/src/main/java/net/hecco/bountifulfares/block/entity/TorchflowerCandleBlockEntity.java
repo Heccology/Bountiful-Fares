@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.block.entity;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.block.custom.TorchflowerCandleBlock;
+import net.hecco.bountifulfares.block.custom.InfusedCandleBlock;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -19,7 +19,7 @@ public class TorchflowerCandleBlockEntity extends BlockEntity {
     private static BooleanProperty isLit;
     public TorchflowerCandleBlockEntity(BlockPos pos, BlockState state) {
         super(BFBlockEntities.TORCHFLOWER_CANDLE_BLOCK_ENTITY.get(), pos, state);
-        isLit = ((TorchflowerCandleBlock)state.getBlock()).getLit();
+        isLit = ((InfusedCandleBlock<?>)state.getBlock()).getLit();
     }
     public static void tick(Level world, BlockPos pos, BlockState state, TorchflowerCandleBlockEntity blockEntity) {
         if (world.getGameTime() % 25L == 0L) {

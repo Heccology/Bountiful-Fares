@@ -36,6 +36,9 @@ public class BountifulFares {
 //		BountifulFares.CONFIG = BountifulFaresConfiguration.load(); //TODO: MOVE TO NEOFORGE CONFIG API(?)
 ////		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here
 		BFSounds.registerSounds();
+		if (!HLServices.PLATFORM.isDatagen()) { //This is needed for some reason..
+			BFBlockEntities.registerBlockEntities();
+		}
 		BFBlocks.registerModBlocks(); //TODO: UTILIZE BLOCKFAMILYCREATOR
 		BFComponents.registerComponents();
 		BFItems.registerModItems();
@@ -49,9 +52,6 @@ public class BountifulFares {
 		BFTrunkPlacerTypes.register();
 		BFFeatures.register();
 //		BFRegistries.RegisterModStuffs(); //TODO: FIX
-		if (!HLServices.PLATFORM.isDatagen()) { //This is needed for some reason..
-			BFBlockEntities.registerBlockEntities();
-		}
 //		BFScreenHandlers.registerScreenHandlers(); //TODO: MOVE TO HECCOLIB REGISTRY
 		BFEntities.registerEntities();
 		BFDamageTypes.registerDamageTypes();

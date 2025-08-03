@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.block.entity;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.block.custom.BlackTeaCandleBlock;
+import net.hecco.bountifulfares.block.custom.InfusedCandleBlock;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -19,9 +19,9 @@ public class BlackTeaCandleBlockEntity extends BlockEntity {
     private static BooleanProperty isLit;
     public BlackTeaCandleBlockEntity(BlockPos pos, BlockState state) {
         super(BFBlockEntities.BLACK_TEA_CANDLE_BLOCK_ENTITY.get(), pos, state);
-        isLit = ((BlackTeaCandleBlock)state.getBlock()).getLit();
+        isLit = ((InfusedCandleBlock<?>)state.getBlock()).getLit();
     }
-    public static void tick(Level world, BlockPos pos, BlockState state, BlackTeaCandleBlockEntity blockEntity) {
+    public static void tick(Level world, BlockPos pos, BlockState state, BlockEntity blockEntity) {
         if (world.getGameTime() % 25L == 0L) {
             AABB box = new AABB(pos).inflate(BountifulFares.CONFIG.getInfusedCandleRadius());
             List<Player> list = world.getEntitiesOfClass(Player.class, box);

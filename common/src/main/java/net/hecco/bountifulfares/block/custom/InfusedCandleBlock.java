@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.hecco.bountifulfares.block.entity.ChamomileCandleBlockEntity;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -47,18 +48,36 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.BiFunction;
+import java.util.function.Supplier;
 
-public class InfusedCandleBlock extends BaseEntityBlock implements EntityBlock, SimpleWaterloggedBlock {
+public class InfusedCandleBlock<E extends BlockEntity> extends BaseEntityBlock implements EntityBlock, SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty LIT = AbstractCandleBlock.LIT;
     public static boolean canBeLit;
     private Holder<MobEffect> effect;
+    private final Supplier<BlockEntityType<E>> clientType;
+    private final BlockEntityTicker<? super E> ticker;
+    private final BiFunction<BlockPos, BlockState, BlockEntity> blockEntityFactory;
 
-    public InfusedCandleBlock(Holder<MobEffect> effect, Properties settings) {
+    public InfusedCandleBlock(Holder<MobEffect> effect, BiFunction<BlockPos, BlockState, BlockEntity> blockEntityFactory, Supplier<BlockEntityType<E>> clientType, BlockEntityTicker<? super E> ticker, Properties settings) {
         super(settings);
+        this.clientType = clientType;
+        this.ticker = ticker;
         this.effect = effect;
+        this.blockEntityFactory = blockEntityFactory;
         canBeLit = canBeLit(defaultBlockState());
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false).setValue(WATERLOGGED, false));
+    }
+
+    @Nullable
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return blockEntityFactory.apply(pos, state);
+    }
+
+    @Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
+        return createTickerHelper(type, clientType.get(), ticker);
     }
 
     @Override
@@ -109,11 +128,6 @@ public class InfusedCandleBlock extends BaseEntityBlock implements EntityBlock, 
         builder.add(WATERLOGGED, LIT);
     }
 
-    @Nullable
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
-        return null;
-    }
-
     @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
@@ -124,10 +138,6 @@ public class InfusedCandleBlock extends BaseEntityBlock implements EntityBlock, 
         if (!world.isClientSide && projectile.isOnFire() && !state.getValue(LIT)) {
             setLit(world, state, hit.getBlockPos(), true);
         }
-    }
-    @Nullable
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return null;
     }
 
     @Override

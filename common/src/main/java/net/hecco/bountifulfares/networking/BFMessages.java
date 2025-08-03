@@ -3,7 +3,6 @@ package net.hecco.bountifulfares.networking;
 //import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 //import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.block.custom.NewTrellisBlock;
 import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.block.entity.TrellisBlockEntity;

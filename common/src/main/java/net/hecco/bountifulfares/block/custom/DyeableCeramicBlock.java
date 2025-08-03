@@ -1,7 +1,5 @@
 package net.hecco.bountifulfares.block.custom;
 
-//import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
-//import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.block.entity.DyeableBlockEntity;

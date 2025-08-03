@@ -1,7 +1,6 @@
 package net.hecco.bountifulfares.item.custom;
 
-import net.hecco.bountifulfares.block.custom.NewTrellisBlock;
-import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.bountifulfares.block.custom.TrellisBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;
@@ -22,7 +21,7 @@ public class TrellisBlockItem extends BlockItem {
     public InteractionResult place(BlockPlaceContext context) {
         BlockPos pos = context.getClickedPos().relative(context.getClickedFace().getOpposite());
         BlockState block = context.getLevel().getBlockState(pos);
-        if (block.getBlock() instanceof NewTrellisBlock) {
+        if (block.getBlock() instanceof TrellisBlock) {
             Direction facing = block.getValue(BlockStateProperties.HORIZONTAL_FACING);
             if (context.getClickedFace() == facing) {
                 Vec3 clickPos = context.getClickLocation().subtract(Vec3.atCenterOf(pos)).add(0.5, 0.5, 0.5);

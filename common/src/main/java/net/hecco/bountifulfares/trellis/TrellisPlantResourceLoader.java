@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.block.custom.NewTrellisBlock;
+import net.hecco.bountifulfares.block.custom.TrellisBlock;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
@@ -42,7 +42,7 @@ public class TrellisPlantResourceLoader extends SimpleJsonResourceReloadListener
         }
         for (TrellisPlantDefinition plantDefinition : registeredPlants.values().stream().toList()) {
             BountifulFares.LOGGER.info(plantDefinition + "");
-            NewTrellisBlock.PLANTS.put(plantDefinition.plant(), plantDefinition);
+            TrellisBlock.PLANTS.put(plantDefinition.plant(), plantDefinition);
         }
     }
 

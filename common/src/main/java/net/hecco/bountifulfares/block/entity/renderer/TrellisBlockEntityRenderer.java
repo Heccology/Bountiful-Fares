@@ -3,7 +3,7 @@ package net.hecco.bountifulfares.block.entity.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.block.custom.NewTrellisBlock;
+import net.hecco.bountifulfares.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.block.entity.TrellisBlockEntity;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -17,11 +17,8 @@ import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.*;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-
-import java.util.Objects;
 
 public class TrellisBlockEntityRenderer implements BlockEntityRenderer<TrellisBlockEntity> {
 
@@ -72,23 +69,23 @@ public class TrellisBlockEntityRenderer implements BlockEntityRenderer<TrellisBl
                 : Direction.NORTH;
 
         poseStack.pushPose();
-        if (entity.getPlant() != null && (NewTrellisBlock.PLANTS.containsKey(entity.getPlant()) || NewTrellisBlock.CROPS.containsKey(entity.getPlant()))) {
+        if (entity.getPlant() != null && (TrellisBlock.PLANTS.containsKey(entity.getPlant()) || TrellisBlock.CROPS.containsKey(entity.getPlant()))) {
             poseStack.translate(0.5, 1.5, 0.5);
             poseStack.scale(-1, -1, -1);
 
             ModelPart modelPart = defaultModel;
             ResourceLocation texture = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "block/trellis");
-            if (NewTrellisBlock.PLANTS.containsKey(entity.getPlant())) {
-                if (NewTrellisBlock.PLANTS.get(entity.getPlant()).model().equalsIgnoreCase("inverted")) {
+            if (TrellisBlock.PLANTS.containsKey(entity.getPlant())) {
+                if (TrellisBlock.PLANTS.get(entity.getPlant()).model().equalsIgnoreCase("inverted")) {
                     modelPart = invertedModel;
                 }
-                texture = NewTrellisBlock.PLANTS.get(entity.getPlant()).texture();
+                texture = TrellisBlock.PLANTS.get(entity.getPlant()).texture();
             }
-            if (NewTrellisBlock.CROPS.containsKey(entity.getPlant())) {
-                if (NewTrellisBlock.CROPS.get(entity.getPlant()).model().equalsIgnoreCase("inverted")) {
+            if (TrellisBlock.CROPS.containsKey(entity.getPlant())) {
+                if (TrellisBlock.CROPS.get(entity.getPlant()).model().equalsIgnoreCase("inverted")) {
                     modelPart = invertedModel;
                 }
-                texture = NewTrellisBlock.CROPS.get(entity.getPlant()).texture().withSuffix("_" + entity.getStage());
+                texture = TrellisBlock.CROPS.get(entity.getPlant()).texture().withSuffix("_" + entity.getStage());
             }
 
             switch (direction) {

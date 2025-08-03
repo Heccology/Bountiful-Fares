@@ -1,20 +1,16 @@
 package net.hecco.bountifulfares.block.entity;
 
-import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.block.custom.NewTrellisBlock;
+import net.hecco.bountifulfares.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.networking.payload.TrellisEmptyPayload;
 import net.hecco.bountifulfares.networking.payload.TrellisPlantPayload;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.heccolib.platform.HLServices;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -83,7 +79,7 @@ public class TrellisBlockEntity extends BlockEntity {
         if (plant != ItemStack.EMPTY) {
             nbt.put("Plant", plant.save(registryLookup, nbt));
         }
-        if (NewTrellisBlock.CROPS.containsKey(plant.getItem())) {
+        if (TrellisBlock.CROPS.containsKey(plant.getItem())) {
             nbt.putInt("Stage", stage);
         }
         super.saveAdditional(nbt, registryLookup);

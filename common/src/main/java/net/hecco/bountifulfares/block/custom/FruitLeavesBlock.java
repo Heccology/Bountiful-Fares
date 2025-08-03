@@ -10,10 +10,13 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class OrangeLeavesBlock extends LeavesBlock implements BonemealableBlock {
+public class FruitLeavesBlock extends LeavesBlock implements BonemealableBlock {
 
-    public OrangeLeavesBlock(Properties settings) {
+    public final BlockState hangingFruitBlockstate;
+
+    public FruitLeavesBlock(BlockState hangingFruitBlockstate, Properties settings) {
         super(settings);
+        this.hangingFruitBlockstate = hangingFruitBlockstate;
     }
     @Override
     public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state) {
@@ -25,6 +28,6 @@ public class OrangeLeavesBlock extends LeavesBlock implements BonemealableBlock 
     }
     @Override
     public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
-        world.setBlock(pos.below(), BFBlocks.HANGING_ORANGE.get().defaultBlockState(), 2);
+        world.setBlock(pos.below(), hangingFruitBlockstate, 2);
     }
 }
