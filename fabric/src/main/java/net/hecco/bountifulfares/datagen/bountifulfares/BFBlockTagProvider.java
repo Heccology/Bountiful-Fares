@@ -3,13 +3,8 @@ package net.hecco.bountifulfares.datagen.bountifulfares;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.hecco.bountifulfares.registry.content.BFTrellises;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
-import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
-import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
-import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Blocks;
 
