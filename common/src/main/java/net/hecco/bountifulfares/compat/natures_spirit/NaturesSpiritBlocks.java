@@ -4,7 +4,6 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.compat.block.CompatBlockItem;
 import net.hecco.bountifulfares.compat.block.CompatPicketsBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -39,24 +38,24 @@ public class NaturesSpiritBlocks {
     public static final Supplier<Block> WILLOW_PICKETS = registerBlock("willow_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
     public static final Supplier<Block> WISTERIA_PICKETS = registerBlock("wisteria_pickets", () -> new CompatPicketsBlock(BountifulFares.NATURES_SPIRIT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
 
-    public static final TrellisVariant REDWOOD = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "redwood", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "redwood_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant SUGI = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "sugi", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "sugi_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant WISTERIA = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "wisteria", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "wisteria_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant FIR = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "fir", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "fir_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant WILLOW = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "willow", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "willow_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant ASPEN = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "aspen", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "aspen_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant MAPLE = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "maple", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "maple_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant CYPRESS = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "cypress", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "cypress_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant OLIVE = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "olive", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "olive_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant JOSHUA = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "joshua", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "joshua_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant GHAF = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "ghaf", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "ghaf_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant PALO_VERDE = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "palo_verde", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "palo_verde_planks"), TRELLIS_RENDER_CUTOUT);
-
-    public static final TrellisVariant COCONUT = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "coconut", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "coconut_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant CEDAR = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "cedar", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "cedar_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant LARCH = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "larch", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "larch_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant MAHOGANY = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "mahogany", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "mahogany_planks"), TRELLIS_RENDER_CUTOUT);
-    public static final TrellisVariant SAXAUL = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "saxaul", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "saxaul_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant REDWOOD = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "redwood", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "redwood_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant SUGI = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "sugi", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "sugi_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant WISTERIA = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "wisteria", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "wisteria_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant FIR = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "fir", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "fir_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant WILLOW = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "willow", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "willow_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant ASPEN = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "aspen", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "aspen_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant MAPLE = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "maple", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "maple_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant CYPRESS = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "cypress", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "cypress_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant OLIVE = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "olive", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "olive_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant JOSHUA = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "joshua", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "joshua_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant GHAF = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "ghaf", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "ghaf_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant PALO_VERDE = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "palo_verde", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "palo_verde_planks"), TRELLIS_RENDER_CUTOUT);
+//
+//    public static final TrellisVariant COCONUT = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "coconut", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "coconut_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant CEDAR = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "cedar", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "cedar_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant LARCH = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "larch", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "larch_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant MAHOGANY = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "mahogany", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "mahogany_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant SAXAUL = new TrellisVariant(BountifulFares.NATURES_SPIRIT_MOD_ID, "saxaul", ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "saxaul_planks"), TRELLIS_RENDER_CUTOUT);
 
     public static Supplier<Block> registerBlock(String name, Supplier<Block> block) {
         registerBlockItem(name, block);

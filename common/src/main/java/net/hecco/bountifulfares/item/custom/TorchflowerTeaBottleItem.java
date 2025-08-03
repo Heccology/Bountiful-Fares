@@ -9,7 +9,7 @@ import net.minecraft.world.effect.MobEffects;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TorchflowerTeaBottleItem extends TeaBottleItem{
+public class TorchflowerTeaBottleItem extends TeaBottleItem {
     public TorchflowerTeaBottleItem(Properties settings) {
         super(List.of(new MobEffectInstance(MobEffects.DARKNESS), new MobEffectInstance(MobEffects.BLINDNESS), new MobEffectInstance(BFEffects.ACIDIC)), settings);
     }

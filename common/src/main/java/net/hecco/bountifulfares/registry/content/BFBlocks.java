@@ -11,8 +11,6 @@ import net.hecco.bountifulfares.registry.misc.BFSaplingGenerators;
 import net.hecco.bountifulfares.registry.util.BFBlockSetTypes;
 import net.hecco.bountifulfares.registry.util.BFNoteBlockInstruments;
 import net.hecco.bountifulfares.registry.util.BFWoodTypes;
-import net.hecco.bountifulfares.trellis.trellis_parts.DecorativeVine;
-import net.hecco.bountifulfares.trellis.trellis_parts.VineCrop;
 import net.hecco.heccolib.lib.publicBlocks.PublicButtonBlock;
 import net.hecco.heccolib.lib.publicBlocks.PublicDoorBlock;
 import net.hecco.heccolib.lib.publicBlocks.PublicPressurePlateBlock;
@@ -36,8 +34,6 @@ import java.util.function.ToIntFunction;
 
 public class BFBlocks {
 //    public static final Map<Item, CropTrellisBlock> CROPS_TO_CROP_TRELLISES = Maps.newHashMap();
-    public static final Map<Item, VineCrop> CROPS_TO_VINE_CROPS = Maps.newHashMap();
-    public static final Map<Item, DecorativeVine> PLANTS_TO_DECORATIVE_VINES = Maps.newHashMap();
 //    public static final Map<Item, DecorativeTrellisBlock> PLANTS_TO_DECORATIVE_TRELLISES = Maps.newHashMap();
 //    public static final Map<DecorativeTrellisBlock, Item> DECORATIVE_TRELLISES_TO_PLANTS = Maps.newHashMap();
     public static final Map<Block, Block> CERAMIC_TO_CHECKERED_CERAMIC = Maps.newHashMap();
@@ -127,7 +123,7 @@ public class BFBlocks {
     public static final Supplier<Block> WALNUT_MULCH = registerBlock("walnut_mulch", () -> new MulchBlock(BlockBehaviour.Properties.of().forceSolidOff().mapColor(MapColor.COLOR_BROWN).forceSolidOff().strength(0.4f).sound(SoundType.ROOTED_DIRT).ignitedByLava()));
     public static final Supplier<Block> WALNUT_MULCH_BLOCK = registerBlock("walnut_mulch_block", () -> new MulchBlockBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.4f).sound(SoundType.ROOTED_DIRT).ignitedByLava()));
 
-    public static final Supplier<Block> WALNUT_CANDLE = registerBlock("walnut_candle", () -> new InfusedCandleBlock<>(BFEffects.ENRICHMENT, WalnutCandleBlockEntity::new, BFBlockEntities.WALNUT_CANDLE_BLOCK_ENTITY, WalnutCandleBlockEntity::tick, BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
+    public static final Supplier<Block> WALNUT_CANDLE = registerBlock("walnut_candle", () -> new WalnutCandleBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
 
     public static final Supplier<Block> PALM_SAPLING = registerBlockNoItem("palm_sapling", () -> new PalmSaplingBlock(BFSaplingGenerators.PALM_SAPLING_GENERATOR, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).sound(SoundType.CROP)));
     public static final Supplier<Block> PALM_LOG = registerBlock("palm_log", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_LOG.get())));
@@ -237,12 +233,12 @@ public class BFBlocks {
     public static final Supplier<Block> PINK_JACK_O_STRAW = registerBlock("pink_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
 
     public static final Supplier<Block> GRISTMILL = registerBlock("gristmill", () -> new GristmillBlock(BlockBehaviour.Properties.of().destroyTime(2.5f).instrument(NoteBlockInstrument.DIDGERIDOO).mapColor(MapColor.WOOD).sound(SoundType.WOOD)));
-    public static final Supplier<Block> GREEN_TEA_CANDLE = registerBlock("green_tea_candle", () -> new InfusedCandleBlock<>(MobEffects.DIG_SPEED, GreenTeaCandleBlockEntity::new, BFBlockEntities.GREEN_TEA_CANDLE_BLOCK_ENTITY, GreenTeaCandleBlockEntity::tick, BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> BLACK_TEA_CANDLE = registerBlock("black_tea_candle", () -> new InfusedCandleBlock<>(MobEffects.DAMAGE_RESISTANCE, ChamomileCandleBlockEntity::new, BFBlockEntities.BLACK_TEA_CANDLE_BLOCK_ENTITY, BlackTeaCandleBlockEntity::tick, BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> CHAMOMILE_CANDLE = registerBlock("chamomile_candle", () -> new InfusedCandleBlock<>(BFEffects.EBULLIENCE, ChamomileCandleBlockEntity::new, BFBlockEntities.CHAMOMILE_CANDLE_BLOCK_ENTITY, ChamomileCandleBlockEntity::tick, BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> HONEYSUCKLE_CANDLE = registerBlock("honeysuckle_candle", () -> new InfusedCandleBlock<>(MobEffects.REGENERATION, HoneysuckleCandleBlockEntity::new, BFBlockEntities.HONEYSUCKLE_CANDLE_BLOCK_ENTITY, HoneysuckleCandleBlockEntity::tick, BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> BELLFLOWER_CANDLE = registerBlock("bellflower_candle", () -> new InfusedCandleBlock<>(MobEffects.MOVEMENT_SPEED, BellflowerCandleBlockEntity::new, BFBlockEntities.BELLFLOWER_CANDLE_BLOCK_ENTITY, BellflowerCandleBlockEntity::tick, BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> TORCHFLOWER_CANDLE = registerBlock("torchflower_candle", () -> new InfusedCandleBlock<>(MobEffects.DAMAGE_BOOST, TorchflowerCandleBlockEntity::new, BFBlockEntities.TORCHFLOWER_CANDLE_BLOCK_ENTITY, TorchflowerCandleBlockEntity::tick, BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
+    public static final Supplier<Block> GREEN_TEA_CANDLE = registerBlock("green_tea_candle", () -> new GreenTeaCandleBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
+    public static final Supplier<Block> BLACK_TEA_CANDLE = registerBlock("black_tea_candle", () -> new BlackTeaCandleBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
+    public static final Supplier<Block> CHAMOMILE_CANDLE = registerBlock("chamomile_candle", () -> new ChamomileCandleBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
+    public static final Supplier<Block> HONEYSUCKLE_CANDLE = registerBlock("honeysuckle_candle", () -> new HoneysuckleCandleBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
+    public static final Supplier<Block> BELLFLOWER_CANDLE = registerBlock("bellflower_candle", () -> new BellflowerCandleBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
+    public static final Supplier<Block> TORCHFLOWER_CANDLE = registerBlock("torchflower_candle", () -> new TorchflowerCandleBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
 
     public static final Supplier<Block> PASSION_FRUIT_TART = registerBlock("passion_fruit_tart", () -> new TartBlock(BlockBehaviour.Properties.of().noOcclusion().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)), new Item.Properties().stacksTo(16));
     public static final Supplier<Block> ELDERBERRY_TART = registerBlock("elderberry_tart", () -> new TartBlock(BlockBehaviour.Properties.of().noOcclusion().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)), new Item.Properties().stacksTo(16));

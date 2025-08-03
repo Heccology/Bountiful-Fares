@@ -9,17 +9,19 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.AABB;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class HoneysuckleCandleBlockEntity extends BlockEntity {
     private static BooleanProperty isLit;
     public HoneysuckleCandleBlockEntity(BlockPos pos, BlockState state) {
         super(BFBlockEntities.HONEYSUCKLE_CANDLE_BLOCK_ENTITY.get(), pos, state);
-        isLit = ((InfusedCandleBlock<?>)state.getBlock()).getLit();
+        isLit = ((InfusedCandleBlock)state.getBlock()).getLit();
     }
     public static void tick(Level world, BlockPos pos, BlockState state, HoneysuckleCandleBlockEntity blockEntity) {
         if (world.getGameTime() % 25L == 0L) {
@@ -38,5 +40,9 @@ public class HoneysuckleCandleBlockEntity extends BlockEntity {
                 }
             }
         }
+    }
+
+    public static Supplier<BlockEntityType<HoneysuckleCandleBlockEntity>> getEntityType() {
+        return BFBlockEntities.HONEYSUCKLE_CANDLE_BLOCK_ENTITY;
     }
 }

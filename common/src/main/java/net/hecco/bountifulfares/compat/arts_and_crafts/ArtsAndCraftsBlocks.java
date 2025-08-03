@@ -4,7 +4,6 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.compat.block.CompatBlockItem;
 import net.hecco.bountifulfares.compat.block.CompatPicketsBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -22,7 +21,7 @@ public class ArtsAndCraftsBlocks {
 
     public static Supplier<Block> CORK_PICKETS = registerBlock("cork_pickets", () -> new CompatPicketsBlock(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
 
-    public static final TrellisVariant CORK = new TrellisVariant(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, "cork", ResourceLocation.fromNamespaceAndPath(ARTS_AND_CRAFTS_MOD_ID, "cork_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant CORK = new TrellisVariant(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, "cork", ResourceLocation.fromNamespaceAndPath(ARTS_AND_CRAFTS_MOD_ID, "cork_planks"), TRELLIS_RENDER_CUTOUT);
 
 
     public static Supplier<Block> registerBlock(String name, Supplier<Block> block) {

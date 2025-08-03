@@ -1,0 +1,5 @@
+{
+  "soil": "minecraft:mycelium",
+  "result": "minecraft:grass_block",
+  "on_top": false
+}

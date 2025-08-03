@@ -36,14 +36,12 @@ public class BountifulFares {
 //		BountifulFares.CONFIG = BountifulFaresConfiguration.load(); //TODO: MOVE TO NEOFORGE CONFIG API(?)
 ////		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here
 		BFSounds.registerSounds();
+		BFBlocks.registerModBlocks(); //TODO: UTILIZE BLOCKFAMILYCREATOR
 		if (!HLServices.PLATFORM.isDatagen()) { //This is needed for some reason..
 			BFBlockEntities.registerBlockEntities();
 		}
-		BFBlocks.registerModBlocks(); //TODO: UTILIZE BLOCKFAMILYCREATOR
 		BFComponents.registerComponents();
 		BFItems.registerModItems();
-////		BFTrellises.registerTrellisParts(); //TODO: FIX
-////		TrellisUtil.registerTrellisParts(); //TODO: FIX
 //		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
 //		//BFBoats.registerBoats(); //TODO: FIX(???.. or just remove boats if all else fails)

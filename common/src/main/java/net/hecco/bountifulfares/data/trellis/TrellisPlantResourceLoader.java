@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.trellis;
+package net.hecco.bountifulfares.data.trellis;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

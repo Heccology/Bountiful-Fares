@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.trellis;
+package net.hecco.bountifulfares.data.trellis;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

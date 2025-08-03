@@ -2,24 +2,28 @@ package net.hecco.bountifulfares.block.entity;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.block.custom.InfusedCandleBlock;
+import net.hecco.bountifulfares.block.custom.WalnutCandleBlock;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFEffects;
+import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.AABB;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class WalnutCandleBlockEntity extends BlockEntity {
     private static BooleanProperty isLit;
     public WalnutCandleBlockEntity(BlockPos pos, BlockState state) {
         super(BFBlockEntities.WALNUT_CANDLE_BLOCK_ENTITY.get(), pos, state);
-        isLit = ((InfusedCandleBlock<?>)state.getBlock()).getLit();
+        isLit = ((WalnutCandleBlock)state.getBlock()).getLit();
     }
     public static void tick(Level world, BlockPos pos, BlockState state, WalnutCandleBlockEntity blockEntity) {
         if (world.getGameTime() % 25L == 0L) {

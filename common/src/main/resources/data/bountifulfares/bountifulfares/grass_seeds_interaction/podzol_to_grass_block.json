@@ -1,0 +1,5 @@
+{
+  "soil": "minecraft:podzol",
+  "result": "minecraft:grass_block",
+  "on_top": false
+}

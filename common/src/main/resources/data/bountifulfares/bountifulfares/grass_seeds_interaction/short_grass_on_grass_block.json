@@ -1,0 +1,5 @@
+{
+  "soil": "minecraft:grass_block",
+  "result": "minecraft:short_grass",
+  "on_top": true
+}

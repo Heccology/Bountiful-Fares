@@ -1,0 +1,5 @@
+{
+  "soil": "minecraft:coarse_dirt",
+  "result": "minecraft:grass_block",
+  "on_top": false
+}

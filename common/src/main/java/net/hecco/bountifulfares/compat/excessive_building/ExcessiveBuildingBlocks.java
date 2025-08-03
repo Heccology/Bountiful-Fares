@@ -4,11 +4,7 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.compat.block.*;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFSoundTypes;
-import net.hecco.bountifulfares.registry.content.BFSounds;
-import net.hecco.bountifulfares.trellis.trellis_parts.TrellisVariant;
 import net.hecco.heccolib.platform.HLServices;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -20,7 +16,6 @@ import net.minecraft.world.level.material.MapColor;
 import java.util.function.Supplier;
 
 import static net.hecco.bountifulfares.BountifulFares.*;
-import static net.hecco.bountifulfares.BountifulFares.DYE_DEPOT_MOD_ID;
 import static net.hecco.bountifulfares.registry.content.BFTrellises.TRELLIS_RENDER_CUTOUT;
 import static net.hecco.bountifulfares.registry.misc.BFCompat.compatBlocks;
 
@@ -58,7 +53,7 @@ public class ExcessiveBuildingBlocks {
     public static final Supplier<Block> PALM_MULCH_BRICK_SLAB = registerBlock("palm_mulch_bricks_slab", () -> new CompatSlabBlock(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.PALM_MULCH_BLOCK.get())));
     public static final Supplier<Block> PALM_MULCH_BRICK_WALL = registerBlock("palm_mulch_bricks_wall", () -> new CompatWallBlock(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.PALM_MULCH_BLOCK.get())));
 
-    public static final TrellisVariant ANCIENT = new TrellisVariant(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "ancient", ResourceLocation.fromNamespaceAndPath(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "ancient_planks"), TRELLIS_RENDER_CUTOUT);
+//    public static final TrellisVariant ANCIENT = new TrellisVariant(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "ancient", ResourceLocation.fromNamespaceAndPath(BountifulFares.EXCESSIVE_BUILDING_MOD_ID, "ancient_planks"), TRELLIS_RENDER_CUTOUT);
 
     public static Supplier<Block> registerBlock(String name, Supplier<Block> block) {
         registerBlockItem(name, block);

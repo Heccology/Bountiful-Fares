@@ -51,33 +51,17 @@ import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
-public class InfusedCandleBlock<E extends BlockEntity> extends BaseEntityBlock implements EntityBlock, SimpleWaterloggedBlock {
+public abstract class InfusedCandleBlock extends BaseEntityBlock implements EntityBlock, SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty LIT = AbstractCandleBlock.LIT;
     public static boolean canBeLit;
     private Holder<MobEffect> effect;
-    private final Supplier<BlockEntityType<E>> clientType;
-    private final BlockEntityTicker<? super E> ticker;
-    private final BiFunction<BlockPos, BlockState, BlockEntity> blockEntityFactory;
 
-    public InfusedCandleBlock(Holder<MobEffect> effect, BiFunction<BlockPos, BlockState, BlockEntity> blockEntityFactory, Supplier<BlockEntityType<E>> clientType, BlockEntityTicker<? super E> ticker, Properties settings) {
+    public InfusedCandleBlock(Holder<MobEffect> effect, Properties settings) {
         super(settings);
-        this.clientType = clientType;
-        this.ticker = ticker;
         this.effect = effect;
-        this.blockEntityFactory = blockEntityFactory;
         canBeLit = canBeLit(defaultBlockState());
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false).setValue(WATERLOGGED, false));
-    }
-
-    @Nullable
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return blockEntityFactory.apply(pos, state);
-    }
-
-    @Nullable
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
-        return createTickerHelper(type, clientType.get(), ticker);
     }
 
     @Override
