@@ -2,8 +2,11 @@ package net.hecco.bountifulfares;
 
 import net.hecco.bountifulfares.block.entity.renderer.CoirBedBlockEntityRenderer;
 import net.hecco.bountifulfares.block.entity.renderer.TrellisBlockEntityRenderer;
+import net.hecco.bountifulfares.particle.FlourCloudParticle;
+import net.hecco.bountifulfares.particle.PrismarineBlossomParticle;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFEntities;
+import net.hecco.bountifulfares.registry.content.BFParticles;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -14,6 +17,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import oshi.util.tuples.Pair;
 
 @EventBusSubscriber(modid = BountifulFares.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -43,5 +47,11 @@ public class NeoForgeClientEvents {
     public static void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(TrellisBlockEntityRenderer.TRELLIS_DEFAULT, TrellisBlockEntityRenderer::createDefaultLayer);
         event.registerLayerDefinition(TrellisBlockEntityRenderer.TRELLIS_INVERTED, TrellisBlockEntityRenderer::createInvertedLayer);
+    }
+
+    @SubscribeEvent
+    public static void onRegisterParticles(RegisterParticleProvidersEvent event) {
+        event.registerSpriteSet(BFParticles.FLOUR_CLOUD.get(), FlourCloudParticle.Factory::new);
+        event.registerSpriteSet(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
     }
 }

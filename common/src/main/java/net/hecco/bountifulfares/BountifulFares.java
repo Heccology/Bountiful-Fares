@@ -47,7 +47,7 @@ public class BountifulFares {
 //		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
 //		//BFBoats.registerBoats(); //TODO: FIX(???.. or just remove boats if all else fails)
-//		BFParticles.registerParticles(); //TODO: MOVE TO HECCOLIB REGISTRY
+		BFParticles.registerParticles();
 //		BFPotions.registerPotions();
 		BFTrunkPlacerTypes.register();
 		BFFeatures.register();
