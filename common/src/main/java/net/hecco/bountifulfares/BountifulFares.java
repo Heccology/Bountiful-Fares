@@ -52,7 +52,7 @@ public class BountifulFares {
 //		BFPotions.registerPotions();
 		BFTrunkPlacerTypes.register();
 		BFFeatures.register();
-		BFRegistries.RegisterModStuffs(); //TODO: FIX
+		BFRegistries.registerModStuffs(); //TODO: FIX
 		BFMenus.registerScreenHandlers();
 		BFEntities.registerEntities();
 		BFDamageTypes.registerDamageTypes();
