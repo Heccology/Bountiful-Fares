@@ -97,20 +97,6 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         add(BFBlocks.WALNUT_DOOR.get(), createDoorTable(BFBlocks.WALNUT_DOOR.get()));
         add(BFBlocks.WALNUT_LEAVES.get(), createLeavesDrops(BFBlocks.WALNUT_LEAVES.get(), BFBlocks.WALNUT_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
-//        registerTrellisLootTables(BFTrellises.OAK);
-//        registerTrellisLootTables(BFTrellises.SPRUCE);
-//        registerTrellisLootTables(BFTrellises.BIRCH);
-//        registerTrellisLootTables(BFTrellises.JUNGLE);
-//        registerTrellisLootTables(BFTrellises.ACACIA);
-//        registerTrellisLootTables(BFTrellises.DARK_OAK);
-//        registerTrellisLootTables(BFTrellises.MANGROVE);
-//        registerTrellisLootTables(BFTrellises.CHERRY);
-//        registerTrellisLootTables(BFTrellises.BAMBOO);
-//        registerTrellisLootTables(BFTrellises.WALNUT);
-//        registerTrellisLootTables(BFTrellises.HOARY);
-//        registerTrellisLootTables(BFTrellises.CRIMSON);
-//        registerTrellisLootTables(BFTrellises.WARPED); //TODO
-
         add(BFBlocks.WILD_WHEAT.get(), WildCropDrops(Items.WHEAT_SEEDS, BFBlocks.WILD_WHEAT.get()));
         add(BFBlocks.WILD_CARROTS.get(), WildCropDrops(Items.CARROT, BFBlocks.WILD_CARROTS.get()));
         add(BFBlocks.WILD_POTATOES.get(), WildCropDrops(Items.POTATO, BFBlocks.WILD_POTATOES.get()));

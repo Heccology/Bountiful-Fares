@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:spongekin_seeds_from_spongekin_slice"
+        "recipe": "bountifulfares:spongekin_seeds_from_spongekin_slice"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:spongekin_seeds_from_spongekin_slice"
+      "bountifulfares:spongekin_seeds_from_spongekin_slice"
     ]
   }
 }

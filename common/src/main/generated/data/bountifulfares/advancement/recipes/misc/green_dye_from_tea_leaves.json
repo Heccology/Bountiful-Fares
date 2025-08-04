@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:green_dye_from_tea_leaves"
+        "recipe": "bountifulfares:green_dye_from_tea_leaves"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:green_dye_from_tea_leaves"
+      "bountifulfares:green_dye_from_tea_leaves"
     ]
   }
 }

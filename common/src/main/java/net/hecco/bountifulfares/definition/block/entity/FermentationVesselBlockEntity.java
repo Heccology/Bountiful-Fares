@@ -168,7 +168,7 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
     }
 
     public Optional<RecipeHolder<FermentationRecipe>> getCurrentRecipe() {
-        Optional<RecipeHolder<FermentationRecipe>> recipe = Objects.requireNonNull(this.getLevel()).getRecipeManager().getRecipeFor(BFRecipes.FERMENTING, new SingleRecipeInput(inventory.get(0)), this.level);
+        Optional<RecipeHolder<FermentationRecipe>> recipe = Objects.requireNonNull(this.getLevel()).getRecipeManager().getRecipeFor(BFRecipes.FERMENTING.get(), new SingleRecipeInput(inventory.get(0)), this.level);
         return recipe.isEmpty() ? Optional.empty() : recipe;
     }
     public ItemInteractionResult tryExtractItem(Level world, BlockPos pos, BlockState state, Player player, InteractionHand hand) {

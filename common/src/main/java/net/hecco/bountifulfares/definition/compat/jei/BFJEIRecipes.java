@@ -19,13 +19,13 @@ public class BFJEIRecipes {
         if (world != null) {
             this.recipeManager = world.getRecipeManager();
         } else {
-            throw new NullPointerException("minecraft world must not be null.");
+            throw new NullPointerException("Minecraft world must not be null.");
         }
     }
     public List<MillingRecipe> getMillingRecipes() {
-        return this.recipeManager.getAllRecipesFor(BFRecipes.MILLING).stream().map(RecipeHolder::value).toList();
+        return this.recipeManager.getAllRecipesFor(BFRecipes.MILLING.get()).stream().map(RecipeHolder::value).toList();
     }
     public List<FermentationRecipe> getFermentationRecipes() {
-        return this.recipeManager.getAllRecipesFor(BFRecipes.FERMENTING).stream().map(RecipeHolder::value).toList();
+        return this.recipeManager.getAllRecipesFor(BFRecipes.FERMENTING.get()).stream().map(RecipeHolder::value).toList();
     }
 }

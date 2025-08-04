@@ -71,7 +71,7 @@ public class MillingRecipe implements Recipe<RecipeInput> {
 
     @Override
     public RecipeType<?> getType() {
-        return BFRecipes.MILLING;
+        return BFRecipes.MILLING.get();
     }
 
     public Ingredient getIngredient() {

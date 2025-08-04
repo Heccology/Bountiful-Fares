@@ -79,7 +79,7 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
         return this.inventory;
     }
 
-//
+
     @Override
     protected void saveAdditional(CompoundTag nbt, HolderLookup.Provider registryLookup) {
         super.saveAdditional(nbt, registryLookup);
@@ -97,7 +97,7 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
         if (BountifulFares.CONFIG.getMillingTime() * 20 != this.maxProgress) {
             this.maxProgress = BountifulFares.CONFIG.getMillingTime() * 20;
         }
-        //BountifulFares.LOGGER.info(state.get(millingState) + "" + !blockEntity.hasRecipe() + (blockEntity.progress != 0));
+        BountifulFares.LOGGER.info(state.getValue(millingState) + "" + !blockEntity.hasRecipe() + (blockEntity.progress != 0));
         if (!state.getValue(millingState) && !blockEntity.inventory.get(0).isEmpty() && blockEntity.hasRecipe() && blockEntity.canInsertOutputSlot()) {
             world.setBlockAndUpdate(pos, state.setValue(millingState, true));
         }
@@ -159,10 +159,11 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
     }
 
     private Optional<RecipeHolder<MillingRecipe>> getCurrentRecipe() {
+        BountifulFares.LOGGER.info(this.getLevel().getRecipeManager().getAllRecipesFor(BFRecipes.MILLING.get()).toString());
         if (this.getLevel() != null) {
             return this.getLevel()
                     .getRecipeManager()
-                    .getRecipeFor(BFRecipes.MILLING, new SingleRecipeInput(this.inventory.get(INPUT_SLOT)), this.level);
+                    .getRecipeFor(BFRecipes.MILLING.get(), new SingleRecipeInput(this.inventory.getFirst()), this.level);
         } else {
             return Optional.empty();
         }

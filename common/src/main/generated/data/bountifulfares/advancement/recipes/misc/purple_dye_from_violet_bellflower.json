@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:purple_dye_from_violet_bellflower"
+        "recipe": "bountifulfares:purple_dye_from_violet_bellflower"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:purple_dye_from_violet_bellflower"
+      "bountifulfares:purple_dye_from_violet_bellflower"
     ]
   }
 }

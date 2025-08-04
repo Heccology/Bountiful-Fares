@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:popped_maize_from_smelting_maize_seeds"
+        "recipe": "bountifulfares:popped_maize_from_smelting_maize_seeds"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:popped_maize_from_smelting_maize_seeds"
+      "bountifulfares:popped_maize_from_smelting_maize_seeds"
     ]
   }
 }

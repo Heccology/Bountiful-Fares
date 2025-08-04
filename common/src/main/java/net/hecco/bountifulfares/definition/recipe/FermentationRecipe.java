@@ -79,7 +79,7 @@ public class FermentationRecipe implements Recipe<RecipeInput> {
 
     @Override
     public RecipeType<?> getType() {
-        return BFRecipes.FERMENTING;
+        return BFRecipes.FERMENTING.get();
     }
 
     public Ingredient getIngredient() {

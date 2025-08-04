@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:packed_mud"
+        "recipe": "bountifulfares:packed_mud"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:packed_mud"
+      "bountifulfares:packed_mud"
     ]
   }
 }

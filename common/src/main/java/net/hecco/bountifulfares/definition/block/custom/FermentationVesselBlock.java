@@ -94,7 +94,7 @@ public class FermentationVesselBlock extends BaseEntityBlock implements SimpleWa
     }
 
     public Optional<RecipeHolder<FermentationRecipe>> getCurrentRecipe(Level world, ItemStack input) {
-        Optional<RecipeHolder<FermentationRecipe>> recipe = Objects.requireNonNull(world).getRecipeManager().getRecipeFor(BFRecipes.FERMENTING, new SingleRecipeInput(input), world);
+        Optional<RecipeHolder<FermentationRecipe>> recipe = Objects.requireNonNull(world).getRecipeManager().getRecipeFor(BFRecipes.FERMENTING.get(), new SingleRecipeInput(input), world);
         return recipe.isEmpty() ? Optional.empty() : recipe;
     }
 

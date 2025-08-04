@@ -42,7 +42,7 @@ public class BountifulFares {
 		}
 		BFComponents.registerComponents();
 		BFItems.registerModItems();
-//		BFRecipes.registerRecipes();
+		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
 //		//BFBoats.registerBoats(); //TODO: FIX(???.. or just remove boats if all else fails)
 		BFParticles.registerParticles();
@@ -55,7 +55,6 @@ public class BountifulFares {
 		BFDamageTypes.registerDamageTypes();
 ////		BFSpecialRecipes.registerSpecialRecipes(); //FIXED PROBABLY??????
 //		BFCompat.registerCompatContent();
-////		BFMessages.registerPayloads(); //TODO: FIX
 		BFItemGroups.registerItemGroups();
 	} //appledog - Yirmiri
 	//appledog - Hecco

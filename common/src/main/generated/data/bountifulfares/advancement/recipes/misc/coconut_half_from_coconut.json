@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:coconut_half_from_coconut"
+        "recipe": "bountifulfares:coconut_half_from_coconut"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:coconut_half_from_coconut"
+      "bountifulfares:coconut_half_from_coconut"
     ]
   }
 }
