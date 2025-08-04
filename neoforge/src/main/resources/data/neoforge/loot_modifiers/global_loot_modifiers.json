@@ -4,14 +4,12 @@
     "bountifulfares:add_spongekin_seeds_from_guardian",
     "bountifulfares:add_spongekin_seeds_from_elder_guardian",
 
-    "bountifulfares:add_grass_seeds_from_short_grass",
-    "bountifulfares:add_grass_seeds_from_tall_grass",
-    "bountifulfares:add_grass_seeds_from_fern",
-    "bountifulfares:add_grass_seeds_from_tall_fern",
-
     "bountifulfares:remove_wheat_seeds_from_short_grass",
     "bountifulfares:remove_wheat_seeds_from_tall_grass",
     "bountifulfares:remove_wheat_seeds_from_fern",
-    "bountifulfares:remove_wheat_seeds_from_tall_grass"
+    "bountifulfares:remove_wheat_seeds_from_tall_grass",
+
+    "bountifulfares:replace_pitcher_seeds_with_hoary_seeds",
+    "bountifulfares:replace_torchflower_seeds_with_lapisberry_seeds"
   ]
 }

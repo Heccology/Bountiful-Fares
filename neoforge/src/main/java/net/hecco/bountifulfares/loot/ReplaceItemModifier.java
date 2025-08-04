@@ -18,43 +18,40 @@ import java.util.function.Supplier;
 
 public class ReplaceItemModifier extends LootModifier {
     public static final Supplier<MapCodec<ReplaceItemModifier>> CODEC = Suppliers.memoize(() -> RecordCodecBuilder.mapCodec(modifierInstance -> codecStart(modifierInstance).and(modifierInstance.group(BuiltInRegistries.ITEM.byNameCodec().fieldOf("removed_item").forGetter((m) -> m.removedItem), BuiltInRegistries.ITEM.byNameCodec().fieldOf("added_item").forGetter((m) -> m.addedItem), Codec.INT.optionalFieldOf("count", 1).forGetter((m) -> m.addedCount))).apply(modifierInstance, ReplaceItemModifier::new)));
-
     private final Item removedItem;
     private final Item addedItem;
     private final int addedCount;
 
-    protected ReplaceItemModifier(LootItemCondition[] lootItemConditions, Item removeditem, Item addedItem, int count) {
+    protected ReplaceItemModifier(LootItemCondition[] lootItemConditions, Item removedItem, Item addedItem, int count) {
         super(lootItemConditions);
-        this.removedItem = removeditem;
+        this.removedItem = removedItem;
         this.addedItem = addedItem;
         this.addedCount = count;
     }
 
     @Override
-    protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> stacks, LootContext ctx) {
-        ItemStack addedStack = new ItemStack(addedItem, addedCount);
-        stacks.forEach((item) -> {
-            if (item.is(removedItem)) {
-                stacks.remove(item);
-            }
-        });
-        if (addedStack.getCount() < addedStack.getMaxStackSize()) {
-            stacks.add(addedStack);
-        } else {
-            int i = addedStack.getCount();
-
-            while (i > 0) {
-                ItemStack subStack = addedStack.copy();
-                subStack.setCount(Math.min(addedStack.getMaxStackSize(), i));
-                i -= subStack.getCount();
-                stacks.add(subStack);
-            }
-        }
-        return stacks;
+    public MapCodec<? extends IGlobalLootModifier> codec() {
+        return CODEC.get();
     }
 
     @Override
-    public MapCodec<? extends IGlobalLootModifier> codec() {
-        return CODEC.get();
+    protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> stacks, LootContext ctx) {
+        ObjectArrayList<ItemStack> result = new ObjectArrayList<>();
+        for (ItemStack stack : stacks) {
+            if (stack.is(removedItem)) {
+                int count = stack.getCount();
+                int total = count * addedCount;
+                int maxSize = new ItemStack(addedItem).getMaxStackSize();
+
+                while (total > 0) {
+                    int toAdd = Math.min(maxSize, total);
+                    result.add(new ItemStack(addedItem, toAdd));
+                    total -= toAdd;
+                }
+            } else {
+                result.add(stack);
+            }
+        }
+        return result;
     }
 }

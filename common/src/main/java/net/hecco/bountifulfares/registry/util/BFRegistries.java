@@ -17,7 +17,7 @@ public class BFRegistries {
 //        registerStrippables();
 //        registerCeramicCheckeredConversions();
 //        registerFuels();
-        registerModCompostables();
+//        registerModCompostables();
 //        registerFermentationRecipes();
 //        registerFlammables(); TODO: YEAH>>>>>...
 //        DispenserBlock.registerBehavior(BFItems.FLOUR.get(), new FlourDispenserBehavior() {

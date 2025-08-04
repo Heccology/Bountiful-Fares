@@ -28,6 +28,11 @@ public class AddItemModifier extends LootModifier {
     }
 
     @Override
+    public MapCodec<? extends IGlobalLootModifier> codec() {
+        return CODEC.get();
+    }
+
+    @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> stacks, LootContext ctx) {
         ItemStack addedStack = new ItemStack(addedItem, count);
         if (addedStack.getCount() < addedStack.getMaxStackSize()) {
@@ -43,10 +48,5 @@ public class AddItemModifier extends LootModifier {
             }
         }
         return stacks;
-    }
-
-    @Override
-    public MapCodec<? extends IGlobalLootModifier> codec() {
-        return CODEC.get();
     }
 }

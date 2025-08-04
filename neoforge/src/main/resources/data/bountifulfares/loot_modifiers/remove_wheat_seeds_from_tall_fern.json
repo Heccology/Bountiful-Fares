@@ -7,6 +7,5 @@
     }
   ],
   "removed_item": "minecraft:wheat_seeds",
-  "added_item": "minecraft:wheat_seeds",
-  "count": 0
+  "added_item": "bountifulfares:grass_seeds"
 }
