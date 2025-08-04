@@ -11,6 +11,7 @@
     "gameplay.PumpkinPieItemMixin",
     "gameplay.ServerPlayerEntityMixin",
     "gameplay.SweetBerryBushMixin",
+    "misc.OceanMonumentPiecesMixin",
     "misc.StonecutterScreenHandlerMixin",
     "misc.WoodlandMansionFirstFloorMixin",
     "misc.WoodlandMansionSecondFloorMixin",
