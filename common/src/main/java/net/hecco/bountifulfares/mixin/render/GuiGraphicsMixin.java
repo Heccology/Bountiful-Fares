@@ -1,8 +1,8 @@
 package net.hecco.bountifulfares.mixin.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.hecco.bountifulfares.item.component.TiffinContents;
-import net.hecco.bountifulfares.item.custom.TiffinItem;
+import net.hecco.bountifulfares.definition.item.component.TiffinContents;
+import net.hecco.bountifulfares.definition.item.custom.TiffinItem;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -13,7 +13,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;

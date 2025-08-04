@@ -5,17 +5,20 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.hecco.bountifulfares.block.entity.renderer.CeramicDishBlockEntityRenderer;
-import net.hecco.bountifulfares.block.entity.renderer.CoirBedBlockEntityRenderer;
-import net.hecco.bountifulfares.block.entity.renderer.TrellisBlockEntityRenderer;
-import net.hecco.bountifulfares.particle.FlourCloudParticle;
+import net.hecco.bountifulfares.definition.block.entity.renderer.CeramicDishBlockEntityRenderer;
+import net.hecco.bountifulfares.definition.block.entity.renderer.CoirBedBlockEntityRenderer;
+import net.hecco.bountifulfares.definition.block.entity.renderer.TrellisBlockEntityRenderer;
+import net.hecco.bountifulfares.definition.particle.FlourCloudParticle;
 import net.hecco.bountifulfares.registry.BFMessages;
-import net.hecco.bountifulfares.particle.PrismarineBlossomParticle;
+import net.hecco.bountifulfares.definition.particle.PrismarineBlossomParticle;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.hecco.bountifulfares.registry.content.BFParticles;
+import net.hecco.bountifulfares.registry.content.BFMenus;
+import net.hecco.bountifulfares.definition.screen.GristmillScreen;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.level.ItemLike;
@@ -43,5 +46,6 @@ public class FabricBountifulFaresClient implements ClientModInitializer {
         }
 
         EntityRendererRegistry.register(BFEntities.THROWN_FLOUR_PROJECTILE.get(), ThrownItemRenderer::new);
+        MenuScreens.register(BFMenus.GRISTMILL_SCREEN_HANDLER.get(), GristmillScreen::new);
     }
 }

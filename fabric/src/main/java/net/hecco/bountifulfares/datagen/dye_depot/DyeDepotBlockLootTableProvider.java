@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.BountifulFaresUtil;
-import net.hecco.bountifulfares.block.custom.JackOStrawBlock;
+import net.hecco.bountifulfares.definition.block.custom.JackOStrawBlock;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;

@@ -2,24 +2,15 @@ package net.hecco.bountifulfares.datagen.excessive_building;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
-import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.BlockFamily;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.flag.FeatureFlagSet;
-import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 
 import java.util.concurrent.CompletableFuture;
 
-import static net.hecco.bountifulfares.BountifulFares.EXCESSIVE_BUILDING_MOD_ID;
 import static net.hecco.bountifulfares.datagen.bountifulfares.BFRecipeProvider.offerPicketsRecipe;
-import static net.minecraft.data.BlockFamilies.familyBuilder;
 
 public class ExcessiveBuildingRecipeProvider extends FabricRecipeProvider {
     public ExcessiveBuildingRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {

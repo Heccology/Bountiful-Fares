@@ -1,10 +1,9 @@
 package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.block.entity.*;
-import net.hecco.bountifulfares.block.entity.compat.CabinetBlockEntity;
-import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
-import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks;
+import net.hecco.bountifulfares.definition.block.entity.*;
+import net.hecco.bountifulfares.definition.block.entity.compat.CabinetBlockEntity;
+import net.hecco.bountifulfares.definition.compat.farmersdelight.FarmersDelightBlocks;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 

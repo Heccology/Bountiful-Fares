@@ -2,14 +2,11 @@ package net.hecco.bountifulfares.datagen.natures_spirit;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.resources.ResourceLocation;
 
 import java.util.concurrent.CompletableFuture;
 
-import static net.hecco.bountifulfares.BountifulFares.NATURES_SPIRIT_MOD_ID;
 import static net.hecco.bountifulfares.datagen.bountifulfares.BFRecipeProvider.offerPicketsRecipe;
 
 public class NaturesSpiritRecipeProvider extends FabricRecipeProvider {

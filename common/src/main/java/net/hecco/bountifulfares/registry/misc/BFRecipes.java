@@ -1,12 +1,7 @@
 package net.hecco.bountifulfares.registry.misc;
 
-import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.recipe.FermentationRecipe;
-import net.hecco.bountifulfares.recipe.MillingRecipe;
-import net.hecco.heccolib.platform.HLServices;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.hecco.bountifulfares.definition.recipe.FermentationRecipe;
+import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;

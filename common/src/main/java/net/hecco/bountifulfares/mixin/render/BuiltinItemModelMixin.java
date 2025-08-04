@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.mixin.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.hecco.bountifulfares.block.entity.CoirBedBlockEntity;
+import net.hecco.bountifulfares.definition.block.entity.CoirBedBlockEntity;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;

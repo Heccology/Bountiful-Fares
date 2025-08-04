@@ -2,12 +2,8 @@ package net.hecco.bountifulfares.datagen.farmersdelight;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks;
-import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
 
 import java.util.concurrent.CompletableFuture;
 

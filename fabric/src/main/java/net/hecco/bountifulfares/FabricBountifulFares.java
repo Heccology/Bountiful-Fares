@@ -3,7 +3,6 @@ package net.hecco.bountifulfares;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.hecco.bountifulfares.data.FabricGrassSeedsInteractionResourceLoader;
-import net.hecco.bountifulfares.data.grass_seeds.GrassSeedsInteractionResourceLoader;
 import net.hecco.bountifulfares.datagen.DatagenOnlyItems;
 import net.hecco.bountifulfares.registry.BFMessages;
 import net.hecco.bountifulfares.registry.content.BFItems;

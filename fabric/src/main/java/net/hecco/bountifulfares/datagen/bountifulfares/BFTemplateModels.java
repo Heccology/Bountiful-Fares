@@ -1,8 +1,8 @@
 package net.hecco.bountifulfares.datagen.bountifulfares;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.block.custom.FruitLogBlock;
-import net.hecco.bountifulfares.block.custom.PicketsBlock;
+import net.hecco.bountifulfares.definition.block.custom.FruitLogBlock;
+import net.hecco.bountifulfares.definition.block.custom.PicketsBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.models.BlockModelGenerators;

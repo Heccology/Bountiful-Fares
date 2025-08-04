@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.platform;
 
-import net.hecco.bountifulfares.platform.services.IPlatformHelper;
+import net.hecco.bountifulfares.definition.platform.services.IPlatformHelper;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
 

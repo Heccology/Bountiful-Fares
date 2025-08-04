@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.appleskin;
 
-import net.hecco.bountifulfares.item.custom.TiffinItem;
+import net.hecco.bountifulfares.definition.item.custom.TiffinItem;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;

@@ -1,12 +1,12 @@
 package net.hecco.bountifulfares.registry.misc;
 
-import net.hecco.bountifulfares.compat.appledog.AppledogBlocks;
-import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
-import net.hecco.bountifulfares.compat.delicate_dyes.DelicateDyesBlocks;
-import net.hecco.bountifulfares.compat.dungeons_delight.DungeonsDelightBlocks;
-import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
-import net.hecco.bountifulfares.compat.farmersdelight.FarmersDelightBlocks;
-import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
+import net.hecco.bountifulfares.definition.compat.appledog.AppledogBlocks;
+import net.hecco.bountifulfares.definition.compat.arts_and_crafts.ArtsAndCraftsBlocks;
+import net.hecco.bountifulfares.definition.compat.delicate_dyes.DelicateDyesBlocks;
+import net.hecco.bountifulfares.definition.compat.dungeons_delight.DungeonsDelightBlocks;
+import net.hecco.bountifulfares.definition.compat.excessive_building.ExcessiveBuildingBlocks;
+import net.hecco.bountifulfares.definition.compat.farmersdelight.FarmersDelightBlocks;
+import net.hecco.bountifulfares.definition.compat.natures_spirit.NaturesSpiritBlocks;
 import net.minecraft.world.level.block.Block;
 
 import java.util.HashSet;

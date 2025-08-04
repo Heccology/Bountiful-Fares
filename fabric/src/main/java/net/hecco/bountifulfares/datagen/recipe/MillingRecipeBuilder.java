@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.datagen.recipe;
 
-import net.hecco.bountifulfares.recipe.MillingRecipe;
+import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;

@@ -4,8 +4,8 @@ package net.hecco.bountifulfares;
 //import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 //import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 //import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.hecco.bountifulfares.block.entity.DyeableBlockEntity;
-import net.hecco.bountifulfares.item.custom.ArtisanBrushItem;
+import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
+import net.hecco.bountifulfares.definition.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.util.BlockUseEvents;
 import net.hecco.heccolib.platform.HLServices;
@@ -13,12 +13,10 @@ import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.GrassColor;
 import net.minecraft.world.level.ItemLike;
@@ -27,7 +25,6 @@ import oshi.util.tuples.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.function.Supplier;
 
@@ -357,8 +354,6 @@ public class BountifulFaresClient {
 //        BlockEntityRenderers.register(BFBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignRenderer::new);
 //        TerraformBoatClientHelper.registerModelLayers(BFBoats.HOARY_BOAT_ID, false);
 //        TerraformBoatClientHelper.registerModelLayers(BFBoats.WALNUT_BOAT_ID, false);
-
-//        MenuScreens.register(BFScreenHandlers.GRISTMILL_SCREEN_HANDLER, GristmillScreen::new);
 //        HLServices.CLIENT.registerParticle(BFParticles.FLOUR_CLOUD.get(), FlourCloudParticle.Factory::new);
 //        ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
 //        ParticleFactoryRegistry.getInstance().register(BFParticles.FERMENTED_BUBBLE.get(), FermentedBubbleParticle.Factory::new);

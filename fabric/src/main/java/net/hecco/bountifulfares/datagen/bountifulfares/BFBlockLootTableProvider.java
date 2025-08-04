@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.BountifulFaresUtil;
-import net.hecco.bountifulfares.block.custom.*;
+import net.hecco.bountifulfares.definition.block.custom.PalmFrondBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -132,7 +132,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         add(BFBlocks.MAIZE_CROP.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.MAIZE_CROP.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MaizeCropBlock.AGE, 7)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MaizeCropBlock.AGE, 7)))
                         .add(this.applyExplosionDecay(BFBlocks.MAIZE_CROP.get(), LootItem.lootTableItem(BFItems.MAIZE.get())))));
         add(BFBlocks.FELDSPAR_BRICK_SLAB.get(), createSlabItemTable(BFBlocks.FELDSPAR_BRICK_SLAB.get()));
         add(BFBlocks.TINGED_GLASS.get(), createSilkTouchOnlyTable(BFBlocks.TINGED_GLASS.get()));
@@ -156,19 +156,19 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         add(BFBlocks.FALLEN_WALNUTS.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.FALLEN_WALNUTS.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FallenWalnutsBlock.COUNT, 0)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.FallenWalnutsBlock.COUNT, 0)))
                         .add(this.applyExplosionDecay(BFBlocks.FALLEN_WALNUTS.get(), LootItem.lootTableItem(BFItems.WALNUT.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(4.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.FALLEN_WALNUTS.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FallenWalnutsBlock.COUNT, 1)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.FallenWalnutsBlock.COUNT, 1)))
                         .add(this.applyExplosionDecay(BFBlocks.FALLEN_WALNUTS.get(), LootItem.lootTableItem(BFItems.WALNUT.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(5.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.FALLEN_WALNUTS.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FallenWalnutsBlock.COUNT, 2)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.FallenWalnutsBlock.COUNT, 2)))
                         .add(this.applyExplosionDecay(BFBlocks.FALLEN_WALNUTS.get(), LootItem.lootTableItem(BFItems.WALNUT.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(6.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.FALLEN_WALNUTS.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FallenWalnutsBlock.COUNT, 3)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.FallenWalnutsBlock.COUNT, 3)))
                         .add(this.applyExplosionDecay(BFBlocks.FALLEN_WALNUTS.get(), LootItem.lootTableItem(BFItems.WALNUT.get())))));
 
         add(BFBlocks.LEEKS.get(), createCropDrops(BFBlocks.LEEKS.get(), BFItems.LEEK.get(), BFItems.LEEK_SEEDS.get(), LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.LEEKS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BeetrootBlock.AGE, 7))));
@@ -209,35 +209,35 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         add(BFBlocks.WALNUT_MULCH.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 1)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 1)))
                         .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 2)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 2)))
                         .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(3.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 3)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 3)))
                         .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(4.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 4)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 4)))
                         .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(5.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 5)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 5)))
                         .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(6.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 6)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 6)))
                         .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(7.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 7)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 7)))
                         .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(8.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALNUT_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 8)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 8)))
                         .add(this.applyExplosionDecay(BFBlocks.WALNUT_MULCH.get(), LootItem.lootTableItem(BFBlocks.WALNUT_MULCH.get())))));
 
 
@@ -265,53 +265,53 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         add(BFBlocks.TEA_SHRUB.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.TEA_SHRUB.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(TeaShrubBlock.BERRIES, true)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.TeaShrubBlock.BERRIES, true)))
                         .add(this.applyExplosionDecay(BFBlocks.TEA_SHRUB.get(), LootItem.lootTableItem(BFItems.TEA_BERRIES.get())))
                 ));
 
         add(BFBlocks.PALM_MULCH.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 1)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 1)))
                         .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 2)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 2)))
                         .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(3.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 3)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 3)))
                         .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(4.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 4)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 4)))
                         .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(5.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 5)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 5)))
                         .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(6.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 6)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 6)))
                         .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(7.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 7)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 7)))
                         .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(8.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_MULCH.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MulchBlock.LAYERS, 8)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.MulchBlock.LAYERS, 8)))
                         .add(this.applyExplosionDecay(BFBlocks.PALM_MULCH.get(), LootItem.lootTableItem(BFBlocks.PALM_MULCH.get())))));
         add(BFBlocks.COIR_BRICK_SLAB.get(), createSlabItemTable(BFBlocks.COIR_BRICK_SLAB.get()));
         add(BFBlocks.COIR_BED.get(), (block) -> this.createSinglePropConditionTable(block, BedBlock.PART, BedPart.HEAD));
         add(BFBlocks.PALM_FROND.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_FROND.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PalmFrondBlock.SIZE, 0)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.PalmFrondBlock.SIZE, 0)))
                         .add(this.applyExplosionDecay(BFBlocks.PALM_FROND.get(), LootItem.lootTableItem(BFItems.PALM_FROND.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_FROND.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PalmFrondBlock.SIZE, 1)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.PalmFrondBlock.SIZE, 1)))
                         .add(this.applyExplosionDecay(BFBlocks.PALM_FROND.get(), LootItem.lootTableItem(BFItems.PALM_FROND.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(3.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.PALM_FROND.get())
@@ -321,15 +321,15 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         add(BFBlocks.WALL_PALM_FROND.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALL_PALM_FROND.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WallPalmFrondBlock.SIZE, 0)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.WallPalmFrondBlock.SIZE, 0)))
                         .add(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND.get(), LootItem.lootTableItem(BFItems.PALM_FROND.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALL_PALM_FROND.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WallPalmFrondBlock.SIZE, 1)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.WallPalmFrondBlock.SIZE, 1)))
                         .add(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND.get(), LootItem.lootTableItem(BFItems.PALM_FROND.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(3.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.WALL_PALM_FROND.get())
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WallPalmFrondBlock.SIZE, 2)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.WallPalmFrondBlock.SIZE, 2)))
                         .add(this.applyExplosionDecay(BFBlocks.WALL_PALM_FROND.get(), LootItem.lootTableItem(BFItems.PALM_FROND.get()))))
         );
         add(BFBlocks.COCONUT_CANDLE.get(), LootTable.lootTable()
@@ -338,7 +338,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .add(this.applyExplosionDecay(BFBlocks.COCONUT_CANDLE.get(), LootItem.lootTableItem(BFBlocks.COCONUT_CANDLE.get())
                                 .apply(List.of(2, 3), (candles) -> SetItemCountFunction.setCount(ConstantValue.exactly((float) candles))
                                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.COCONUT_CANDLE.get())
-                                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CoconutCandleBlock.CANDLES, candles))))))));
+                                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.CoconutCandleBlock.CANDLES, candles))))))));
         add(BFBlocks.SPONGEKIN.get(), (block) -> {
             return createSilkTouchDispatchTable(
                     block,
@@ -455,7 +455,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         this.add(block, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HangingFruitBlock.AGE, 4)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.HangingFruitBlock.AGE, 4)))
                         .add(this.applyExplosionDecay(block, LootItem.lootTableItem(drop))))
         );
     }
@@ -465,22 +465,22 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         this.add(block, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FruitBlock.SLICES, 0)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.FruitBlock.SLICES, 0)))
                         .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block))))
 
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(4.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FruitBlock.SLICES, 1)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.FruitBlock.SLICES, 1)))
                         .add(this.applyExplosionDecay(block, LootItem.lootTableItem(fruitItem))))
 
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FruitBlock.SLICES, 2)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.FruitBlock.SLICES, 2)))
                         .add(this.applyExplosionDecay(block, LootItem.lootTableItem(fruitItem))))
 
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(FruitBlock.SLICES, 3)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.FruitBlock.SLICES, 3)))
                         .add(this.applyExplosionDecay(block, LootItem.lootTableItem(fruitItem)))));
         usedBlocks.add(block);
     }
@@ -489,23 +489,23 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         this.add(block, LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PicketsBlock.NORTH, true)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.PicketsBlock.NORTH, true)))
                         .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PicketsBlock.EAST, true)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.PicketsBlock.EAST, true)))
                         .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PicketsBlock.SOUTH, true)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.PicketsBlock.SOUTH, true)))
                         .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PicketsBlock.WEST, true)))
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(net.hecco.bountifulfares.definition.block.custom.PicketsBlock.WEST, true)))
                         .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block)))));
     }
 
     public void jackOStrawDrops(Block block) {
-        this.add(block, this.createSinglePropConditionTable(block, JackOStrawBlock.HALF, DoubleBlockHalf.LOWER));
+        this.add(block, this.createSinglePropConditionTable(block, net.hecco.bountifulfares.definition.block.custom.JackOStrawBlock.HALF, DoubleBlockHalf.LOWER));
     }
 }

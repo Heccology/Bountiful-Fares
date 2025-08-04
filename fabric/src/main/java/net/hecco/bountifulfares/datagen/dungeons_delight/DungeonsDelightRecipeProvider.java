@@ -3,7 +3,7 @@ package net.hecco.bountifulfares.datagen.dungeons_delight;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.compat.dungeons_delight.DungeonsDelightBlocks;
+import net.hecco.bountifulfares.definition.compat.dungeons_delight.DungeonsDelightBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;

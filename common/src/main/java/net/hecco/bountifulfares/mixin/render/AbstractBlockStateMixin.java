@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.mixin.render;
 
-import net.hecco.bountifulfares.block.entity.DyeableBlockEntity;
-import net.hecco.bountifulfares.block.entity.DyeableCeramicBlockEntity;
+import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
+import net.hecco.bountifulfares.definition.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;

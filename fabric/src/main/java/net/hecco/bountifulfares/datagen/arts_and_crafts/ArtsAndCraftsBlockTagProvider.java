@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.datagen.arts_and_crafts;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
+import net.hecco.bountifulfares.definition.compat.arts_and_crafts.ArtsAndCraftsBlocks;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;

@@ -2,8 +2,8 @@ package net.hecco.bountifulfares.datagen.mint;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.hecco.bountifulfares.block.custom.JackOStrawBlock;
-import net.hecco.bountifulfares.block.custom.PicketsBlock;
+import net.hecco.bountifulfares.definition.block.custom.JackOStrawBlock;
+import net.hecco.bountifulfares.definition.block.custom.PicketsBlock;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.level.block.Block;

@@ -1,8 +1,7 @@
 package net.hecco.bountifulfares.mixin.gameplay;
 
-import net.hecco.bountifulfares.item.custom.TiffinItem;
+import net.hecco.bountifulfares.definition.item.custom.TiffinItem;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;

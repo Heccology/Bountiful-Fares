@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.datagen.dungeons_delight;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.hecco.bountifulfares.compat.dungeons_delight.DungeonsDelightBlocks;
+import net.hecco.bountifulfares.definition.compat.dungeons_delight.DungeonsDelightBlocks;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;

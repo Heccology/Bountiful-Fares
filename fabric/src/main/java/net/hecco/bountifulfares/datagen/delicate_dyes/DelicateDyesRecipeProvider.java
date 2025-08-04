@@ -2,20 +2,16 @@ package net.hecco.bountifulfares.datagen.delicate_dyes;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.hecco.bountifulfares.compat.delicate_dyes.DelicateDyesBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 
 import java.util.concurrent.CompletableFuture;
 
-import static net.hecco.bountifulfares.BountifulFares.DELICATE_DYES_MOD_ID;
 import static net.minecraft.data.recipes.RecipeBuilder.getDefaultRecipeId;
 
 public class DelicateDyesRecipeProvider extends FabricRecipeProvider {

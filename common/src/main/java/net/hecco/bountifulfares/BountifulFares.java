@@ -50,7 +50,7 @@ public class BountifulFares {
 		BFTrunkPlacerTypes.register();
 		BFFeatures.register();
 //		BFRegistries.RegisterModStuffs(); //TODO: FIX
-//		BFScreenHandlers.registerScreenHandlers(); //TODO: MOVE TO HECCOLIB REGISTRY
+		BFMenus.registerScreenHandlers();
 		BFEntities.registerEntities();
 		BFDamageTypes.registerDamageTypes();
 ////		BFSpecialRecipes.registerSpecialRecipes(); //FIXED PROBABLY??????

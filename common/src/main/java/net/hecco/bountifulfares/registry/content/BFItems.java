@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.BountifulFaresUtil;
-import net.hecco.bountifulfares.item.custom.*;
+import net.hecco.bountifulfares.definition.item.custom.*;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.Blocks;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Supplier;
 
 public class BFItems {
@@ -151,7 +152,7 @@ public class BFItems {
 
     private static void registerTrellises() {
         for (String wood : BountifulFaresUtil.WOOD_TYPES) {
-            if (wood != "oak") {
+            if (!Objects.equals(wood, "oak")) {
                 registerItem(wood + "_trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(wood).get(), new Item.Properties()));
             } else {
                 registerItem("trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(wood).get(), new Item.Properties()));

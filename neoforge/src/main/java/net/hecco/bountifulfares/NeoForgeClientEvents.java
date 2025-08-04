@@ -1,12 +1,14 @@
 package net.hecco.bountifulfares;
 
-import net.hecco.bountifulfares.block.entity.renderer.CoirBedBlockEntityRenderer;
-import net.hecco.bountifulfares.block.entity.renderer.TrellisBlockEntityRenderer;
-import net.hecco.bountifulfares.particle.FlourCloudParticle;
-import net.hecco.bountifulfares.particle.PrismarineBlossomParticle;
+import net.hecco.bountifulfares.definition.block.entity.renderer.CoirBedBlockEntityRenderer;
+import net.hecco.bountifulfares.definition.block.entity.renderer.TrellisBlockEntityRenderer;
+import net.hecco.bountifulfares.definition.particle.FlourCloudParticle;
+import net.hecco.bountifulfares.definition.particle.PrismarineBlossomParticle;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.hecco.bountifulfares.registry.content.BFParticles;
+import net.hecco.bountifulfares.registry.content.BFMenus;
+import net.hecco.bountifulfares.definition.screen.GristmillScreen;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -17,6 +19,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import oshi.util.tuples.Pair;
 
@@ -53,5 +56,10 @@ public class NeoForgeClientEvents {
     public static void onRegisterParticles(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(BFParticles.FLOUR_CLOUD.get(), FlourCloudParticle.Factory::new);
         event.registerSpriteSet(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
+    }
+
+    @SubscribeEvent
+    public static void onRegisterScreens(RegisterMenuScreensEvent event) {
+        event.register(BFMenus.GRISTMILL_SCREEN_HANDLER.get(), GristmillScreen::new);
     }
 }

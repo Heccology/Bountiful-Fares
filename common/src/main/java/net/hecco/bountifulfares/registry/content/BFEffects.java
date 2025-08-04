@@ -1,10 +1,9 @@
 package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.effect.*;
+import net.hecco.bountifulfares.definition.effect.*;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;

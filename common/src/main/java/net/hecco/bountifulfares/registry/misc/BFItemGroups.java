@@ -2,38 +2,21 @@ package net.hecco.bountifulfares.registry.misc;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.BountifulFaresUtil;
-import net.hecco.bountifulfares.compat.appledog.AppledogBlocks;
-import net.hecco.bountifulfares.compat.arts_and_crafts.ArtsAndCraftsBlocks;
-import net.hecco.bountifulfares.compat.excessive_building.ExcessiveBuildingBlocks;
-import net.hecco.bountifulfares.compat.natures_spirit.NaturesSpiritBlocks;
-import net.hecco.bountifulfares.item.component.TiffinContents;
+import net.hecco.bountifulfares.definition.item.component.TiffinContents;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.hecco.bountifulfares.registry.content.BFPotions;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.nbt.NbtOps;
-import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.RegistryOps;
-import net.minecraft.world.entity.decoration.Painting;
-import net.minecraft.world.entity.decoration.PaintingVariant;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.CustomData;
-import net.minecraft.world.level.block.Block;
 
-import java.util.Comparator;
-import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class BFItemGroups {

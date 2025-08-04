@@ -1,15 +1,11 @@
 package net.hecco.bountifulfares;
 
 
-import net.hecco.bountifulfares.item.component.TiffinContents;
+import net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPayload;
 import net.hecco.bountifulfares.registry.BFNeoForgeLootTableModifiers;
-import net.hecco.bountifulfares.networking.BFMessages;
-import net.hecco.bountifulfares.networking.payload.*;
-import net.hecco.bountifulfares.registry.content.BFComponents;
+import net.hecco.bountifulfares.definition.networking.BFMessages;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.component.DataComponentType;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
@@ -22,10 +18,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
-import net.neoforged.neoforge.registries.DeferredRegister;
 import oshi.util.tuples.Pair;
-
-import java.util.function.Supplier;
 
 @Mod(BountifulFares.MOD_ID)
 public class NeoForgeBountifulFares {
@@ -53,7 +46,7 @@ public class NeoForgeBountifulFares {
     public void payloadHandlersSetup(final RegisterPayloadHandlersEvent event) {
         final PayloadRegistrar registrar = event.registrar("1");
         registrar.playBidirectional(
-                CeramicDishEmptyPayload.ID,
+                net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPayload.ID,
                 CeramicDishEmptyPayload.CODEC,
                 new DirectionalPayloadHandler<>(
                         (payload, ctx) -> ctx.enqueueWork(() -> {
@@ -63,8 +56,8 @@ public class NeoForgeBountifulFares {
                 )
         );
         registrar.playBidirectional(
-                CeramicDishItemPayload.ID,
-                CeramicDishItemPayload.CODEC,
+                net.hecco.bountifulfares.definition.networking.payload.CeramicDishItemPayload.ID,
+                net.hecco.bountifulfares.definition.networking.payload.CeramicDishItemPayload.CODEC,
                 new DirectionalPayloadHandler<>(
                         (payload, ctx) -> ctx.enqueueWork(() -> {
                             BFMessages.ceramicDishItem(payload);
@@ -73,8 +66,8 @@ public class NeoForgeBountifulFares {
                 )
         );
         registrar.playBidirectional(
-                CeramicBlockColorPayload.ID,
-                CeramicBlockColorPayload.CODEC,
+                net.hecco.bountifulfares.definition.networking.payload.CeramicBlockColorPayload.ID,
+                net.hecco.bountifulfares.definition.networking.payload.CeramicBlockColorPayload.CODEC,
                 new DirectionalPayloadHandler<>(
                         (payload, ctx) -> ctx.enqueueWork(() -> {
                             BFMessages.ceramicBlockColor(payload);
@@ -83,8 +76,8 @@ public class NeoForgeBountifulFares {
                 )
         );
         registrar.playBidirectional(
-                TrellisPlantPayload.ID,
-                TrellisPlantPayload.CODEC,
+                net.hecco.bountifulfares.definition.networking.payload.TrellisPlantPayload.ID,
+                net.hecco.bountifulfares.definition.networking.payload.TrellisPlantPayload.CODEC,
                 new DirectionalPayloadHandler<>(
                         (payload, ctx) -> ctx.enqueueWork(() -> {
                             BFMessages.trellisPlant(payload);
@@ -93,8 +86,8 @@ public class NeoForgeBountifulFares {
                 )
         );
         registrar.playBidirectional(
-                TrellisEmptyPayload.ID,
-                TrellisEmptyPayload.CODEC,
+                net.hecco.bountifulfares.definition.networking.payload.TrellisEmptyPayload.ID,
+                net.hecco.bountifulfares.definition.networking.payload.TrellisEmptyPayload.CODEC,
                 new DirectionalPayloadHandler<>(
                         (payload, ctx) -> ctx.enqueueWork(() -> {
                             BFMessages.trellisEmpty(payload);

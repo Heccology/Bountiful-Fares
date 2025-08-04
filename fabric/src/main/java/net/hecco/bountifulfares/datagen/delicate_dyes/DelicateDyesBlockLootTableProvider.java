@@ -2,8 +2,7 @@ package net.hecco.bountifulfares.datagen.delicate_dyes;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.hecco.bountifulfares.block.custom.JackOStrawBlock;
-import net.hecco.bountifulfares.compat.delicate_dyes.DelicateDyesBlocks;
+import net.hecco.bountifulfares.definition.block.custom.JackOStrawBlock;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;

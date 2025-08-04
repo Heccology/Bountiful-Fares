@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.registry.misc;
 
 import net.hecco.bountifulfares.BountifulFaresUtil;
-import net.hecco.bountifulfares.item.component.TiffinContents;
+import net.hecco.bountifulfares.definition.item.component.TiffinContents;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFItems;
@@ -9,7 +9,6 @@ import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -19,7 +18,6 @@ import net.minecraft.world.level.block.Blocks;
 import oshi.util.tuples.Pair;
 
 import java.util.ArrayList;
-import java.util.function.Supplier;
 
 public class BFItemGroupAdditions {
     public static ArrayList<Pair<ItemLike, ItemStack>> BUILDING_BLOCKS = new ArrayList<>();

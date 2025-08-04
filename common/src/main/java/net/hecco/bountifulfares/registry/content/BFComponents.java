@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.registry.content;
 
 import com.mojang.serialization.Codec;
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.item.component.TiffinContents;
+import net.hecco.bountifulfares.definition.item.component.TiffinContents;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.codec.ByteBufCodecs;

@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.entity.FlourProjectileEntity;
+import net.hecco.bountifulfares.definition.entity.FlourProjectileEntity;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
