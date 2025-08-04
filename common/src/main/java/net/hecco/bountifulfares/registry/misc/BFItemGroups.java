@@ -295,6 +295,7 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.WILD_LEEKS.get());
                         entries.accept(BFBlocks.WILD_PASSION_FRUIT_VINE.get());
                         entries.accept(BFBlocks.WILD_ELDERBERRY_VINE.get());
+                        entries.accept(BFBlocks.SPONGEKIN_SPROUT.get());
                         entries.accept(BFItems.GRASS_SEEDS.get());
                         entries.accept(BFItems.SWEET_BERRY_PIPS.get());
                         entries.accept(BFItems.MAIZE_SEEDS.get());

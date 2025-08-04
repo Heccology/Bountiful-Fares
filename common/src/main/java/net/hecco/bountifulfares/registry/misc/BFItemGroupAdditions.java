@@ -185,7 +185,8 @@ public class BFItemGroupAdditions {
         NATURAL_BLOCKS.add(new Pair<>(BFBlocks.WILD_LEEKS.get(), BFBlocks.WILD_MAIZE.get().asItem().getDefaultInstance()));
         NATURAL_BLOCKS.add(new Pair<>(BFBlocks.WILD_MAIZE.get(), BFBlocks.WILD_PASSION_FRUIT_VINE.get().asItem().getDefaultInstance()));
         NATURAL_BLOCKS.add(new Pair<>(BFBlocks.WILD_PASSION_FRUIT_VINE.get(), BFBlocks.WILD_ELDERBERRY_VINE.get().asItem().getDefaultInstance()));
-        NATURAL_BLOCKS.add(new Pair<>(BFBlocks.WILD_ELDERBERRY_VINE.get(), BFItems.GRASS_SEEDS.get().asItem().getDefaultInstance()));
+        NATURAL_BLOCKS.add(new Pair<>(BFBlocks.WILD_ELDERBERRY_VINE.get(), BFBlocks.SPONGEKIN_SPROUT.get().asItem().getDefaultInstance()));
+        NATURAL_BLOCKS.add(new Pair<>(BFBlocks.SPONGEKIN_SPROUT.get(), BFItems.GRASS_SEEDS.get().asItem().getDefaultInstance()));
         NATURAL_BLOCKS.add(new Pair<>(BFItems.GRASS_SEEDS.get(), BFItems.SWEET_BERRY_PIPS.get().asItem().getDefaultInstance()));
         NATURAL_BLOCKS.add(new Pair<>(Items.KELP, BFBlocks.SPONGEKIN.get().asItem().getDefaultInstance()));
         NATURAL_BLOCKS.add(new Pair<>(BFBlocks.SPONGEKIN.get(), BFBlocks.PRISMARINE_BLOSSOM.get().asItem().getDefaultInstance()));
