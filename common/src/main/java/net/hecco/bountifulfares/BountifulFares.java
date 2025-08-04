@@ -4,6 +4,7 @@ import net.hecco.bountifulfares.definition.recipe.BFSpecialRecipes;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.misc.*;
 import net.hecco.bountifulfares.registry.util.BFDamageTypes;
+import net.hecco.bountifulfares.registry.util.BFRegistries;
 import net.hecco.heccolib.platform.HLServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,7 +52,7 @@ public class BountifulFares {
 //		BFPotions.registerPotions();
 		BFTrunkPlacerTypes.register();
 		BFFeatures.register();
-//		BFRegistries.RegisterModStuffs(); //TODO: FIX
+		BFRegistries.RegisterModStuffs(); //TODO: FIX
 		BFMenus.registerScreenHandlers();
 		BFEntities.registerEntities();
 		BFDamageTypes.registerDamageTypes();
