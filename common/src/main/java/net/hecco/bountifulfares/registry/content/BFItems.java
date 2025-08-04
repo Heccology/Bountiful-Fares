@@ -161,7 +161,7 @@ public class BFItems {
     }
 
     private static Supplier<Item> registerItem(String id, Supplier<Item> registry) {
-        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.ITEM.key(), registry);
+        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.ITEM, registry);
     }
 
     private static Item.Properties createTiffinProperties() {

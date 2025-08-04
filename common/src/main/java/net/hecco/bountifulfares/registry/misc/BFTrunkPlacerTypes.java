@@ -21,7 +21,7 @@ public class BFTrunkPlacerTypes {
     public static final Supplier<TrunkPlacerType<?>> GOLDEN_APPLE_TRUNK_PLACER = registerTrunkPlacer("golden_apple_trunk_placer", GoldenAppleTrunkPlacer.CODEC);
 
     private static <P extends TrunkPlacer> Supplier<TrunkPlacerType<?>> registerTrunkPlacer(String id, MapCodec<P> codec) {
-        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.TRUNK_PLACER_TYPE.key(), () -> TrunkPlacerInvoker.register(codec));
+        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.TRUNK_PLACER_TYPE, () -> TrunkPlacerInvoker.register(codec));
     }
     public static void register() {
     }

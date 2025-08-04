@@ -27,7 +27,7 @@ public class BFEffects {
     );
     public static final Holder<MobEffect> RESTORATION = registerStatusEffect("restoration", new RestorationEffect(MobEffectCategory.BENEFICIAL, 0xFF4B19));
     private static Holder<MobEffect> registerStatusEffect(String name, MobEffect statusEffect) {
-        return HLServices.REGISTRY.registerHolder(BountifulFares.MOD_ID, name, BuiltInRegistries.MOB_EFFECT.key(), statusEffect);
+        return HLServices.REGISTRY.registerForHolder(BountifulFares.MOD_ID, name, BuiltInRegistries.MOB_EFFECT, statusEffect);
     }
     public static void registerEffects() {
     }

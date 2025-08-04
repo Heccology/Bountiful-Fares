@@ -15,8 +15,7 @@ public class BFFeatures {
     public static final Supplier<Feature<WildVineFeatureConfig>> WILD_VINE_FEATURE = register("wild_vine", () -> new WildVineFeature(WildVineFeatureConfig.CODEC));
 
     private static <C extends FeatureConfiguration, T extends Feature<C>> Supplier<T> register(String name, Supplier<T> feature) {
-        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, name, (net.minecraft.resources.ResourceKey<? extends Registry<T>>) BuiltInRegistries.FEATURE.key(), feature);
-        //TODO: FIX
+        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, name, (Registry<T>) BuiltInRegistries.FEATURE, feature);
     }
 
     public static void register() {
