@@ -52,13 +52,13 @@ public class BountifulFares {
 //		BFPotions.registerPotions();
 		BFTrunkPlacerTypes.register();
 		BFFeatures.register();
-		BFRegistries.registerModStuffs(); //TODO: FIX
 		BFMenus.registerScreenHandlers();
 		BFEntities.registerEntities();
 		BFDamageTypes.registerDamageTypes();
-////		BFSpecialRecipes.registerSpecialRecipes(); //FIXED PROBABLY??????
+		BFSpecialRecipes.registerSpecialRecipes();
 //		BFCompat.registerCompatContent();
 		BFItemGroups.registerItemGroups();
+		BFRegistries.registerModStuffs(); //TODO: FIX
 	} //appledog - Yirmiri
 	//appledog - Hecco
 	//appledog - Diemond_Player (holy self-insert)

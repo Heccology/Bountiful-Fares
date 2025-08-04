@@ -18,4 +18,4 @@ public class BFSpecialRecipes {
     private static Supplier<RecipeSerializer<?>> registerSpecialRecipe(String name, Function<CraftingBookCategory, CustomRecipe> toRecipe){
         return HLServices.REGISTRY.register(BountifulFares.MOD_ID, name, BuiltInRegistries.RECIPE_SERIALIZER, () -> new SimpleCraftingRecipeSerializer<>(toRecipe::apply));
     }
-} //TODO: FIX
+}
