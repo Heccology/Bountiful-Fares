@@ -49,7 +49,7 @@ public class BountifulFares {
 		BFEffects.registerEffects();
 //		//BFBoats.registerBoats(); //TODO: FIX(???.. or just remove boats if all else fails)
 		BFParticles.registerParticles();
-//		BFPotions.registerPotions();
+		BFPotions.registerPotions();
 		BFTrunkPlacerTypes.register();
 		BFFeatures.register();
 		BFMenus.registerScreenHandlers();
