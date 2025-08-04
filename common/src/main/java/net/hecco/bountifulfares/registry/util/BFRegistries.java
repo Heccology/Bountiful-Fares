@@ -1,9 +1,15 @@
 package net.hecco.bountifulfares.registry.util;
 
 //import net.hecco.bountifulfares.entity.FlourProjectileEntity;
+import net.hecco.bountifulfares.definition.entity.FlourProjectileEntity;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.minecraft.core.Position;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DispenserBlock;
 
 import static net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES;
 
@@ -12,16 +18,11 @@ public class BFRegistries {
 //        registerStrippables();
 //        registerCeramicCheckeredConversions();
 //        registerFuels();
-//        registerModCompostables();
+        registerModCompostables();
 //        registerFermentationRecipes();
 //        registerFlammables();
 
-//        DispenserBlock.registerBehavior(BFItems.FLOUR.get(), new FlourDispenserBehavior() {
-//            @Override
-//            protected Projectile createProjectile(Level world, Position position, ItemStack stack) {
-//                return new FlourProjectileEntity(world, position.x(), position.y(), position.z());
-//            }
-//        });
+        DispenserBlock.registerBehavior(BFItems.FLOUR.get(), new FlourDispenserBehavior() {});
 
 //        DispenserBlock.registerBehavior(BFItems.GRASS_SEEDS.get(), new GrassSeedsDispenserBehavior() {
 //            @Override

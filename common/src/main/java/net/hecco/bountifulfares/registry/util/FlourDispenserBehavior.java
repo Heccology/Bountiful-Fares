@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.registry.util;
 
+import net.hecco.bountifulfares.definition.entity.FlourProjectileEntity;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
@@ -11,7 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
 
-public abstract class FlourDispenserBehavior extends DefaultDispenseItemBehavior {
+public class FlourDispenserBehavior extends DefaultDispenseItemBehavior {
     public FlourDispenserBehavior() {
     }
 
@@ -27,11 +28,13 @@ public abstract class FlourDispenserBehavior extends DefaultDispenseItemBehavior
         return stack;
     }
 
+    protected Projectile createProjectile(Level world, Position position, ItemStack stack) {
+        return new FlourProjectileEntity(world, position.x(), position.y(), position.z());
+    }
+
     protected void playSound(BlockSource pointer) {
         pointer.level().levelEvent(1002, pointer.pos(), 0);
     }
-
-    protected abstract Projectile createProjectile(Level world, Position position, ItemStack stack);
 
     protected float getVariation() {
         return 10.0F;
