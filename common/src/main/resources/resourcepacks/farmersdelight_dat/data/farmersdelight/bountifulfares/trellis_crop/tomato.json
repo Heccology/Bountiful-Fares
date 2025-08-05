@@ -1,0 +1,10 @@
+{
+  "seeds": "farmersdelight:tomato_seeds",
+  "produce": "farmersdelight:tomato",
+  "texture": "farmersdelight:block/tomato_trellis",
+  "model": "default",
+  "stages": 4,
+  "grow_chance": 0.2,
+  "min_drops": 1,
+  "max_drops": 2
+}
