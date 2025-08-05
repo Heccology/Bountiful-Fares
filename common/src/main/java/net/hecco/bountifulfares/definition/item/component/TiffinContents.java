@@ -31,6 +31,10 @@ public class TiffinContents implements TooltipComponent {
         this.CAPACITY = !item.isEmpty() ? item.getItem().getDefaultMaxStackSize() == 1 ? 1 : Math.min(item.getItem().getDefaultMaxStackSize() * 2, 64) : 32;
     }
 
+    public boolean isFull() {
+        return item.getCount() >= CAPACITY;
+    }
+
     public ItemStack getItemStack() {
         return this.item;
     }
@@ -59,7 +63,7 @@ public class TiffinContents implements TooltipComponent {
     }
 
     public static class Mutable {
-        private ItemStack item;
+        public ItemStack item;
         public Mutable(TiffinContents contents) {
             this.item = contents.item;
         }

@@ -1,10 +1,7 @@
 package net.hecco.bountifulfares.registry.misc;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.definition.recipe.CeramicMassDyeingRecipe;
-import net.hecco.bountifulfares.definition.recipe.FermentationRecipe;
-import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
-import net.hecco.bountifulfares.definition.recipe.TiffinColoringRecipe;
+import net.hecco.bountifulfares.definition.recipe.*;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -35,6 +32,7 @@ public class BFRecipes {
 
     public static final Supplier<RecipeSerializer<?>> CERAMIC_MASS_DYEING = registerSpecialRecipe("ceramic_mass_dyeing", CeramicMassDyeingRecipe::new);
     public static final Supplier<RecipeSerializer<?>> TIFFIN_COLORING = registerSpecialRecipe("tiffin_coloring", TiffinColoringRecipe::new);
+    public static final Supplier<RecipeSerializer<?>> TIFFIN_FOOD_CRAFTING = registerSpecialRecipe("tiffin_food_crafting", TiffinFoodCraftingRecipe::new);
 
     private static Supplier<RecipeSerializer<?>> registerSpecialRecipe(String name, Function<CraftingBookCategory, CustomRecipe> toRecipe){
         return HLServices.REGISTRY.register(BountifulFares.MOD_ID, name, BuiltInRegistries.RECIPE_SERIALIZER, () -> new SimpleCraftingRecipeSerializer<>(toRecipe::apply));

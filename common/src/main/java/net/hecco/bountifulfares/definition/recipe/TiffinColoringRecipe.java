@@ -4,14 +4,13 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.item.custom.TiffinItem;
 import net.hecco.bountifulfares.registry.misc.BFRecipes;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.CraftingBookCategory;
-import net.minecraft.world.item.crafting.CraftingInput;
-import net.minecraft.world.item.crafting.CustomRecipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
@@ -22,28 +21,28 @@ public class TiffinColoringRecipe extends CustomRecipe {
     }
 
     public boolean matches(CraftingInput input, Level level) {
-        int i = 0;
-        int j = 0;
+        int tiffins = 0;
+        int dyes = 0;
 
         for(int k = 0; k < input.size(); ++k) {
             ItemStack itemstack = input.getItem(k);
             if (!itemstack.isEmpty()) {
                 if (itemstack.getItem() instanceof TiffinItem) {
-                    ++i;
+                    ++tiffins;
                 } else {
-                    if (!(itemstack.getItem() instanceof DyeItem)) {
+                    if (!(itemstack.getItem() instanceof DyeItem) || BuiltInRegistries.ITEM.getKey(itemstack.getItem()).equals(ResourceLocation.fromNamespaceAndPath("unidye", "custom_dye"))) {
                         return false;
                     }
 
-                    ++j;
+                    ++dyes;
                 }
 
-                if (j > 1 || i > 1) {
+                if (dyes > 1 || tiffins > 1) {
                     return false;
                 }
             }
         }
-        return i == 1 && j == 1;
+        return tiffins == 1 && dyes == 1;
     }
 
     public ItemStack assemble(CraftingInput input, HolderLookup.Provider registries) {
