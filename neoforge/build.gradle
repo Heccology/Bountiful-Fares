@@ -44,6 +44,9 @@ dependencies {
     //HECCOLIB
 //    implementation "curse.maven:heccolib-1279113:${neoforge_heccolib}"
     implementation files("heccolib-neoforge-1.21.1-1.1.2.jar")
+
+    //APPLESKIN
+    compileOnly files("appleskin-neoforge-mc1.21-3.0.7.jar")
 }
 
 sourceSets.main.resources { srcDir project(":common").file('src/main/generated/').getAbsolutePath() }

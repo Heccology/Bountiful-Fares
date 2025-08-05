@@ -1,10 +1,12 @@
 package net.hecco.bountifulfares;
 
 
+import net.hecco.bountifulfares.appleskin.AppleskinEventHandler;
 import net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPayload;
 import net.hecco.bountifulfares.registry.BFNeoForgeLootTableModifiers;
 import net.hecco.bountifulfares.definition.networking.BFMessages;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -12,8 +14,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
@@ -40,6 +44,9 @@ public class NeoForgeBountifulFares {
     @SubscribeEvent
     public void clientSetup(FMLClientSetupEvent event) {
         BountifulFaresClient.onInitializeClient();
+        if (HLServices.PLATFORM.isModLoaded("appleskin")) {
+            NeoForge.EVENT_BUS.register(new AppleskinEventHandler());
+        }
     }
 
     @SubscribeEvent // on the mod event bus
