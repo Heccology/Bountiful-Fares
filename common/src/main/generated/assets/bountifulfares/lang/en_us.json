@@ -571,6 +571,8 @@
   "tooltip.bountifulfares.dyeable": "Dyeable",
   "tooltip.bountifulfares.removes": "Removes:",
   "tooltip.bountifulfares.removes_all_effects": "Removes all Effects",
+  "tooltip.bountifulfares.shulker_tiffin.empty": "Empty",
+  "tooltip.bountifulfares.shulker_tiffin.full": "Full",
   "tooltip.bountifulfares.when_drunk": "When Drank:",
   "tooltip.bountifulfares.when_eaten": "When Consumed:",
   "tooltip.bountifulfares.when_lit": "While Lit:",

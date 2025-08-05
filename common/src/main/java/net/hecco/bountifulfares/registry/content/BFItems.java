@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.BountifulFaresUtil;
+import net.hecco.bountifulfares.definition.item.component.TiffinContents;
 import net.hecco.bountifulfares.definition.item.custom.*;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Direction;
@@ -144,9 +145,9 @@ public class BFItems {
     public static final Map<DyeColor, Supplier<Item>> TIFFINS = new HashMap<>();
 
     private static void registerTiffins() {
-        TIFFINS.put(null, registerItem("shulker_tiffin", () -> new TiffinItem(createTiffinProperties())));
+        TIFFINS.put(null, registerItem("shulker_tiffin", () -> new TiffinItem(null, createTiffinProperties())));
         for (DyeColor color : DyeColor.values()) {
-            TIFFINS.put(color, registerItem(color.getName() + "_shulker_tiffin", () -> new TiffinItem(createTiffinProperties())));
+            TIFFINS.put(color, registerItem(color.getName() + "_shulker_tiffin", () -> new TiffinItem(color, createTiffinProperties())));
         }
     }
 
@@ -167,6 +168,7 @@ public class BFItems {
     private static Item.Properties createTiffinProperties() {
         return new Item.Properties()
                 .stacksTo(1)
+                .component(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents())
                 .food(new FoodProperties.Builder().nutrition(0).saturationModifier(0).build());
     }
 

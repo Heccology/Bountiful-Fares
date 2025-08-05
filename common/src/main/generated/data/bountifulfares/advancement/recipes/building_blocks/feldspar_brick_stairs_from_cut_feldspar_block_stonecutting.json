@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:feldspar_brick_stairs_from_cut_feldspar_block_stonecutting"
+        "recipe": "bountifulfares:feldspar_brick_stairs_from_cut_feldspar_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:feldspar_brick_stairs_from_cut_feldspar_block_stonecutting"
+      "bountifulfares:feldspar_brick_stairs_from_cut_feldspar_block_stonecutting"
     ]
   }
 }

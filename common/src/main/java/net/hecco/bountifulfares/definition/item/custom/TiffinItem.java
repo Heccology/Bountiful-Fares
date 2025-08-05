@@ -20,17 +20,26 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.math.Fraction;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 public class TiffinItem extends Item {
-    public TiffinItem(Properties properties) {
+    private static final Map<DyeColor, TiffinItem> DYE_TO_TIFFIN = new HashMap<>();
+    public TiffinItem(DyeColor color, Properties properties) {
         super(properties);
+        DYE_TO_TIFFIN.put(color, this);
+    }
+
+    public static TiffinItem getItemFromDye(DyeColor color) {
+        return DYE_TO_TIFFIN.get(color);
     }
 
     @Override
@@ -173,8 +182,6 @@ public class TiffinItem extends Item {
                 return false;
             } else {
                 TiffinContents.Mutable mutable = new TiffinContents.Mutable(contents);
-                BountifulFares.LOGGER.info(contents.getItemStack().isEmpty() + "");
-                BountifulFares.LOGGER.info(getRemainderItem(contents.getItemStack().getItem()) + "");
                 if (!contents.getItemStack().isEmpty() && ((getRemainderItem(contents.getItemStack().getItem()) == null && other.isEmpty()) || other.is(getRemainderItem(contents.getItemStack().getItem())))) {
                     boolean i = mutable.tryRemove(other, access, player);
                     if (i) {

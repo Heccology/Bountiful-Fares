@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:dried_tea_leaves_from_smelting_tea_leaves"
+        "recipe": "bountifulfares:dried_tea_leaves_from_smelting_tea_leaves"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:dried_tea_leaves_from_smelting_tea_leaves"
+      "bountifulfares:dried_tea_leaves_from_smelting_tea_leaves"
     ]
   }
 }

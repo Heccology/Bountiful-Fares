@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:checkered_ceramic_mosaic_slab_from_checkered_ceramic_mosaic_stonecutting"
+        "recipe": "bountifulfares:checkered_ceramic_mosaic_slab_from_checkered_ceramic_mosaic_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:checkered_ceramic_mosaic_slab_from_checkered_ceramic_mosaic_stonecutting"
+      "bountifulfares:checkered_ceramic_mosaic_slab_from_checkered_ceramic_mosaic_stonecutting"
     ]
   }
 }

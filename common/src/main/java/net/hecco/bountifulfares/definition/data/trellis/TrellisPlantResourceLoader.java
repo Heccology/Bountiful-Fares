@@ -41,7 +41,6 @@ public class TrellisPlantResourceLoader extends SimpleJsonResourceReloadListener
             }
         }
         for (TrellisPlantDefinition plantDefinition : registeredPlants.values().stream().toList()) {
-            BountifulFares.LOGGER.info(plantDefinition + "");
             TrellisBlock.PLANTS.put(plantDefinition.plant(), plantDefinition);
         }
     }

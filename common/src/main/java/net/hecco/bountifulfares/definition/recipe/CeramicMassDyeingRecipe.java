@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import net.hecco.bountifulfares.definition.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.definition.item.custom.CeramicDishBlockItem;
 import net.hecco.bountifulfares.definition.item.custom.DyeableCeramicBlockItem;
+import net.hecco.bountifulfares.registry.misc.BFRecipes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -99,6 +100,6 @@ public class CeramicMassDyeingRecipe extends CustomRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return BFSpecialRecipes.CERAMIC_MASS_DYEING.get();
+        return BFRecipes.CERAMIC_MASS_DYEING.get();
     }
 } //TODO: FIX

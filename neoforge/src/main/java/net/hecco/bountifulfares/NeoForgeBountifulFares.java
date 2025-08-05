@@ -147,12 +147,10 @@ public class NeoForgeBountifulFares {
             }
         } else if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
             for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.FOOD_AND_DRINKS) {
-                BountifulFares.LOGGER.info(entry.getA() + " " + entry.getB());
                 event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }
             for (Pair<ItemStack, ItemStack> entry : BFItemGroupAdditions.FOOD_AND_DRINKS_FORGE) {
                 try {
-                    BountifulFares.LOGGER.info(entry.getA() + " " + entry.getB());
                     event.insertAfter(entry.getA(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 } catch (Exception ignored) {}
             }

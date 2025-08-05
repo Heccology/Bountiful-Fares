@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cracked_ceramic_tiles_from_smelting_ceramic_tiles"
+        "recipe": "bountifulfares:cracked_ceramic_tiles_from_smelting_ceramic_tiles"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cracked_ceramic_tiles_from_smelting_ceramic_tiles"
+      "bountifulfares:cracked_ceramic_tiles_from_smelting_ceramic_tiles"
     ]
   }
 }

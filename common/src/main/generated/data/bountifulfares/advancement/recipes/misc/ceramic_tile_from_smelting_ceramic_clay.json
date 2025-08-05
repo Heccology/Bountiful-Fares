@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:ceramic_tile_from_smelting_ceramic_clay"
+        "recipe": "bountifulfares:ceramic_tile_from_smelting_ceramic_clay"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:ceramic_tile_from_smelting_ceramic_clay"
+      "bountifulfares:ceramic_tile_from_smelting_ceramic_clay"
     ]
   }
 }

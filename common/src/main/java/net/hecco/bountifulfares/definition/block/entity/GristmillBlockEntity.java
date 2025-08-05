@@ -97,7 +97,6 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
         if (BountifulFares.CONFIG.getMillingTime() * 20 != this.maxProgress) {
             this.maxProgress = BountifulFares.CONFIG.getMillingTime() * 20;
         }
-        BountifulFares.LOGGER.info(state.getValue(millingState) + "" + !blockEntity.hasRecipe() + (blockEntity.progress != 0));
         if (!state.getValue(millingState) && !blockEntity.inventory.get(0).isEmpty() && blockEntity.hasRecipe() && blockEntity.canInsertOutputSlot()) {
             world.setBlockAndUpdate(pos, state.setValue(millingState, true));
         }
@@ -159,7 +158,6 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
     }
 
     private Optional<RecipeHolder<MillingRecipe>> getCurrentRecipe() {
-        BountifulFares.LOGGER.info(this.getLevel().getRecipeManager().getAllRecipesFor(BFRecipes.MILLING.get()).toString());
         if (this.getLevel() != null) {
             return this.getLevel()
                     .getRecipeManager()

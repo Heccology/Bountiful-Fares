@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares;
 
-import net.hecco.bountifulfares.definition.recipe.BFSpecialRecipes;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.misc.*;
 import net.hecco.bountifulfares.registry.util.BFDamageTypes;
@@ -45,7 +44,6 @@ public class BountifulFares {
 		BFComponents.registerComponents();
 		BFItems.registerModItems();
 		BFRecipes.registerRecipes();
-		BFSpecialRecipes.registerSpecialRecipes();
 		BFEffects.registerEffects();
 //		//BFBoats.registerBoats(); //TODO: FIX(???.. or just remove boats if all else fails)
 		BFParticles.registerParticles();
@@ -55,7 +53,6 @@ public class BountifulFares {
 		BFMenus.registerScreenHandlers();
 		BFEntities.registerEntities();
 		BFDamageTypes.registerDamageTypes();
-		BFSpecialRecipes.registerSpecialRecipes();
 //		BFCompat.registerCompatContent();
 		BFItemGroups.registerItemGroups();
 		BFRegistries.registerModStuffs(); //TODO: FIX
