@@ -22,7 +22,7 @@ public class ClientTiffinTooltip implements ClientTooltipComponent {
 
     @Override
     public int getWidth(Font font) {
-        return 128;
+        return 48;
     }
 
     @Override

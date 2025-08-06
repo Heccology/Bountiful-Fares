@@ -6,6 +6,7 @@ import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
@@ -79,7 +80,9 @@ public class GristmillBlock extends BaseEntityBlock implements EntityBlock {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof GristmillBlockEntity) {
-                Containers.dropContents(world, pos, (GristmillBlockEntity)blockEntity);
+                if (world instanceof ServerLevel) {
+                    Containers.dropContents(world, pos, (GristmillBlockEntity) blockEntity);
+                }
                 world.updateNeighbourForOutputSignal(pos,this);
             }
             super.onRemove(state, world, pos, newState, moved);
