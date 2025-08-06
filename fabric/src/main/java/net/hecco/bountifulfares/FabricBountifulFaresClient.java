@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -16,6 +17,7 @@ import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.hecco.bountifulfares.registry.content.BFParticles;
 import net.hecco.bountifulfares.registry.content.BFMenus;
 import net.hecco.bountifulfares.definition.screen.GristmillScreen;
+import net.hecco.bountifulfares.registry.util.BFTooltipEvents;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -29,6 +31,7 @@ public class FabricBountifulFaresClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BFMessages.registerS2CPackets();
+        ItemTooltipCallback.EVENT.register(BFTooltipEvents::addTooltipsToVanillaItemsFabric);
         BountifulFaresClient.onInitializeClient();
         ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(BFParticles.FLOUR_CLOUD.get(), FlourCloudParticle.Factory::new);

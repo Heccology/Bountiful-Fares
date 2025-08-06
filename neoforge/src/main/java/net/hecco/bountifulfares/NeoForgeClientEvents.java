@@ -9,6 +9,7 @@ import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.hecco.bountifulfares.registry.content.BFParticles;
 import net.hecco.bountifulfares.registry.content.BFMenus;
 import net.hecco.bountifulfares.definition.screen.GristmillScreen;
+import net.hecco.bountifulfares.registry.util.BFTooltipEvents;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -21,6 +22,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import oshi.util.tuples.Pair;
 
 @EventBusSubscriber(modid = BountifulFares.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

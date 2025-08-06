@@ -14,7 +14,11 @@ import net.minecraft.world.item.TooltipFlag;
 import java.util.List;
 
 public class BFTooltipEvents {
-    public static void addTooltipsToVanillaItems(ItemStack itemStack, Item.TooltipContext tooltipContext, TooltipFlag tooltipType, List<Component> tooltip) {
+    public static void addTooltipsToVanillaItemsFabric(ItemStack itemStack, Item.TooltipContext tooltipContext, TooltipFlag tooltipType, List<Component> tooltip) {
+        addTooltipsToVanillaItems(itemStack, tooltip);
+    }
+
+    public static void addTooltipsToVanillaItems(ItemStack itemStack, List<Component> tooltip) {
         if (BountifulFares.CONFIG.effectTooltips) {
             if (itemStack.getItem() == Items.MILK_BUCKET) {
                 tooltip.add(1, CommonComponents.EMPTY);
