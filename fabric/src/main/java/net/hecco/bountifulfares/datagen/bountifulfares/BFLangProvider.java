@@ -102,6 +102,10 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFBlocks.WALNUT_WALL_HANGING_SIGN.get(), "Walnut Hanging Sign");
         generate(translationBuilder, BFItems.WALNUT_HANGING_SIGN.get(), "Walnut Hanging Sign");
 
+        generate(translationBuilder, BFItems.JAR.get(), "Cup");
+        generate(translationBuilder, BFItems.APPLE_CIDER_JAR.get(), "Apple Cider Cup");
+        generate(translationBuilder, BFItems.PLUM_CIDER_JAR.get(), "Plum Cider Cup");
+        generate(translationBuilder, BFItems.HOARY_CIDER_JAR.get(), "Hoary Cider Cup");
         generate(translationBuilder, BFItems.GREEN_TEA_BOTTLE.get(), "Green Tea Cup");
         generate(translationBuilder, BFItems.BLACK_TEA_BOTTLE.get(), "Black Tea Cup");
         generate(translationBuilder, BFItems.CHAMOMILE_TEA_BOTTLE.get(), "Chamomile Tea Cup");
