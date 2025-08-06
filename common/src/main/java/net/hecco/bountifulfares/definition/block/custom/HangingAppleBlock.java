@@ -3,6 +3,7 @@ package net.hecco.bountifulfares.definition.block.custom;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -69,9 +70,7 @@ public class HangingAppleBlock extends HangingFruitBlock {
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
-        return Block.canSupportCenter(world, pos.above(), Direction.DOWN) && !world.isWaterAt(pos)
-                || world.getBlockState(pos.above()).is(BFBlocks.APPLE_LEAVES.get()) && !world.isWaterAt(pos)
-                || world.getBlockState(pos.above()).is(BFBlocks.FLOWERING_APPLE_LEAVES.get()) && !world.isWaterAt(pos);
+        return (Block.canSupportCenter(world, pos.above(), Direction.DOWN) || world.getBlockState(pos.above()).is(BFBlockTags.APPLE_LEAVES)) && !world.isWaterAt(pos);
     }
 
     @Override
