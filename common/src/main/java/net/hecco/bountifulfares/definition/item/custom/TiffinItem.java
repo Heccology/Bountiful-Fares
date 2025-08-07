@@ -20,10 +20,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.math.Fraction;
 
@@ -87,6 +84,7 @@ public class TiffinItem extends Item {
             ItemStack item = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack();
             if (!item.isEmpty() && !(item.getItem() instanceof TiffinItem) && item.has(DataComponents.FOOD)) {
                 foodproperties = item.get(DataComponents.FOOD);
+                item.finishUsingItem(level, livingEntity);
             }
         }
         if (livingEntity instanceof Player player && player.isCreative()) {
@@ -127,18 +125,6 @@ public class TiffinItem extends Item {
             }
         }
         return 0;
-    }
-
-    @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
-        stack.set(BFComponents.TIFFIN_INTERACTABLE.get(), false);
-        if (isSelected) {
-            stack.set(BFComponents.TIFFIN_INTERACTABLE.get(), true);
-        }
-        if (!stack.has(BFComponents.TIFFIN_CONTENTS.get())) {
-            stack.set(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents());
-        }
-        super.inventoryTick(stack, level, entity, slotId, isSelected);
     }
 
     public Optional<TooltipComponent> getTooltipImage(ItemStack stack) {

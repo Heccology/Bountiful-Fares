@@ -10,7 +10,9 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -40,9 +42,9 @@ public class GuiGraphicsMixin {
     private void bountifulfares$renderTiffinGuiItem(ItemRenderer instance, ItemStack stack, ItemDisplayContext displayContext, boolean leftHand, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay, BakedModel model) {
         if (
                 stack.getItem() instanceof TiffinItem && stack.has(BFComponents.TIFFIN_CONTENTS.get()) && //TODO: create a config that displays the food in the corner of the slot instead
-                stack.has(BFComponents.TIFFIN_INTERACTABLE.get()) && //TODO: create a config that renders the food item thats inside in people's hands in their hand
+                bountifulfares$getEntity != null && bountifulfares$getEntity instanceof Player player && (player.getItemInHand(InteractionHand.MAIN_HAND) == stack || player.getItemInHand(InteractionHand.OFF_HAND) == stack) &&
+                 //TODO: create a config that renders the food item thats inside in people's hands in their hand
                 !stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack().isEmpty() &&
-                stack.get(BFComponents.TIFFIN_INTERACTABLE.get()) &&
                 bountifulfares$getSeed != 0) {
             TiffinContents contents = stack.get(BFComponents.TIFFIN_CONTENTS.get());
             instance.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, instance.getItemModelShaper().getModelManager().getModel(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(stack.getItem()).withSuffix("_back"))));
