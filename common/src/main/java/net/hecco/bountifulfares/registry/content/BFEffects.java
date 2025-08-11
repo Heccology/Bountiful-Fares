@@ -24,8 +24,7 @@ public class BFEffects {
     public static final Holder<MobEffect> ENRICHMENT = registerStatusEffect("enrichment", () -> new EnrichmentEffect(MobEffectCategory.BENEFICIAL, 0xffd48f)
             .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "effect.speed"), 0.08, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
             .addAttributeModifier(Attributes.ATTACK_SPEED, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "effect.attack_speed"), 0.08, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-            .addAttributeModifier(Attributes.ATTACK_DAMAGE, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "effect.attack"), 0.2, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-            .addAttributeModifier(Attributes.LUCK, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "effect.luck"), 1.0, AttributeModifier.Operation.ADD_VALUE)
+            .addAttributeModifier(Attributes.ATTACK_DAMAGE, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "effect.attack"), 1, AttributeModifier.Operation.ADD_VALUE)
     );
     public static final Holder<MobEffect> RESTORATION = registerStatusEffect("restoration", () -> new RestorationEffect(MobEffectCategory.BENEFICIAL, 0xFF4B19));
     private static Holder<MobEffect> registerStatusEffect(String name, Supplier<MobEffect> statusEffect) {
