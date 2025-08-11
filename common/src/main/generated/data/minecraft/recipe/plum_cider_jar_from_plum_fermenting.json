@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:fermenting",
+  "ingredient": {
+    "item": "bountifulfares:plum"
+  },
+  "particle_color": 14532546,
+  "result": {
+    "id": "bountifulfares:plum_cider_jar"
+  },
+  "result_count": 1
+}

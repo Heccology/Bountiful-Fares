@@ -1,0 +1,10 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:deepslate_redstone_ore"
+  },
+  "result": {
+    "id": "minecraft:redstone"
+  },
+  "result_count": 6
+}

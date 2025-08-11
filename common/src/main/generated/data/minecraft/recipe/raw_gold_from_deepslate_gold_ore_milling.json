@@ -1,0 +1,10 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:deepslate_gold_ore"
+  },
+  "result": {
+    "id": "minecraft:raw_gold"
+  },
+  "result_count": 2
+}

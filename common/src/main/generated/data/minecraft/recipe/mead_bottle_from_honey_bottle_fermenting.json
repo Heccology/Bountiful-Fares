@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:fermenting",
+  "ingredient": {
+    "item": "minecraft:honey_bottle"
+  },
+  "particle_color": 16774088,
+  "result": {
+    "id": "bountifulfares:mead_bottle"
+  },
+  "result_count": 1
+}
