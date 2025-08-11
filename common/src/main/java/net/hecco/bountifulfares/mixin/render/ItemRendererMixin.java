@@ -66,8 +66,8 @@ public abstract class ItemRendererMixin {
 //    private void bountifulfares$renderTiffinGuiModel(LivingEntity entity, ItemStack stack, ItemDisplayContext displayContext, boolean leftHand, PoseStack poseStack, MultiBufferSource bufferSource, Level level, int combinedLight, int combinedOverlay, int seed, CallbackInfo ci) {
 //        if (
 //                displayContext == ItemDisplayContext.GUI &&
-//                stack.getItem() instanceof TiffinItem && stack.has(BFComponents.TIFFIN_CONTENTS.get()) && //TODO: create a config that displays the food in the corner of the slot instead
-//                        stack.has(BFComponents.TIFFIN_INTERACTABLE.get()) && //TODO: create a config that renders the food item thats inside in people's hands in their hand
+//                stack.getItem() instanceof TiffinItem && stack.has(BFComponents.TIFFIN_CONTENTS.get()) &&
+//                        stack.has(BFComponents.TIFFIN_INTERACTABLE.get()) &&
 //                        !stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack().isEmpty() &&
 //                        stack.get(BFComponents.TIFFIN_INTERACTABLE.get()) &&
 //                        seed != 0) {

@@ -102,4 +102,4 @@ public class CeramicMassDyeingRecipe extends CustomRecipe {
     public RecipeSerializer<?> getSerializer() {
         return BFRecipes.CERAMIC_MASS_DYEING.get();
     }
-} //TODO: FIX
+}

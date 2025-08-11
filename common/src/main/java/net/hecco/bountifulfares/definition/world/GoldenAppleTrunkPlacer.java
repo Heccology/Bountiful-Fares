@@ -5,6 +5,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.hecco.bountifulfares.definition.block.custom.FruitLogBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.bountifulfares.registry.misc.BFTrunkPlacerTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -35,8 +36,7 @@ public class GoldenAppleTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> type() {
-//        return BFTrunkPlacerTypes.GOLDEN_APPLE_TRUNK_PLACER; //TODO
-        return TrunkPlacerType.CHERRY_TRUNK_PLACER;
+        return BFTrunkPlacerTypes.GOLDEN_APPLE_TRUNK_PLACER.get();
     }
 
     @Override

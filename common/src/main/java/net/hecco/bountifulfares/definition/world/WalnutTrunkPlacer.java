@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.bountifulfares.registry.misc.BFTrunkPlacerTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -28,8 +29,7 @@ public class WalnutTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> type() {
-//        return BFTrunkPlacerTypes.WALNUT_TRUNK_PLACER; //TODO
-        return TrunkPlacerType.FANCY_TRUNK_PLACER;
+        return BFTrunkPlacerTypes.WALNUT_TRUNK_PLACER.get();
     }
 
     @Override

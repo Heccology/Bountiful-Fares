@@ -7,6 +7,7 @@ import net.hecco.bountifulfares.definition.block.custom.CoconutBlock;
 import net.hecco.bountifulfares.definition.block.custom.PalmFrondParentBlock;
 import net.hecco.bountifulfares.definition.block.custom.WallPalmFrondBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.bountifulfares.registry.misc.BFTrunkPlacerTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -29,8 +30,7 @@ public class PalmTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> type() {
-//        return BFTrunkPlacerTypes.PALM_TRUNK_PLACER; //TODO
-        return TrunkPlacerType.BENDING_TRUNK_PLACER;
+        return BFTrunkPlacerTypes.PALM_TRUNK_PLACER.get();
     }
 
     @Override
