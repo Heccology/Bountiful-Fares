@@ -1,9 +1,5 @@
 package net.hecco.bountifulfares;
 
-//import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
-//import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
-//import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-//import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
 import net.hecco.bountifulfares.definition.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.registry.content.*;
@@ -350,17 +346,8 @@ public class BountifulFaresClient {
         }
 
 
-
-//        Sheets.SIGN_MATERIALS.put(BFWoodTypes.HOARY, Sheets.getSignMaterial(BFWoodTypes.HOARY));
-//        Sheets.SIGN_MATERIALS.put(BFWoodTypes.WALNUT, Sheets.getSignMaterial(BFWoodTypes.WALNUT));
-//        BlockEntityRenderers.register(BFBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignRenderer::new);
-//        BlockEntityRenderers.register(BFBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignRenderer::new);
 //        TerraformBoatClientHelper.registerModelLayers(BFBoats.HOARY_BOAT_ID, false);
 //        TerraformBoatClientHelper.registerModelLayers(BFBoats.WALNUT_BOAT_ID, false);
-//        HLServices.CLIENT.registerParticle(BFParticles.FLOUR_CLOUD.get(), FlourCloudParticle.Factory::new);
-//        ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
-//        ParticleFactoryRegistry.getInstance().register(BFParticles.FERMENTED_BUBBLE.get(), FermentedBubbleParticle.Factory::new);
-//        ParticleFactoryRegistry.getInstance().register(BFParticles.GOLDEN_PETAL.get(), GoldenPetalParticle.Factory::new);
 
         HLServices.CLIENT.registerItemModelPredicate(
                 BFItems.ARTISAN_BRUSH.get(),
