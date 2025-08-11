@@ -8,12 +8,15 @@ import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
 import net.hecco.bountifulfares.definition.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.util.BFTooltipEvents;
+import net.hecco.bountifulfares.registry.util.BFWoodTypes;
 import net.hecco.bountifulfares.registry.util.BlockUseEvents;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.resources.model.Material;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
@@ -364,6 +367,11 @@ public class BountifulFaresClient {
                 ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "dyed"),
                 (itemStack, clientWorld, livingEntity, seed) ->
                         itemStack.getComponents().get(DataComponents.DYED_COLOR) != null ? 1.0F : 0.0F);
+
+        Sheets.SIGN_MATERIALS.put(BFWoodTypes.HOARY, new Material(Sheets.SIGN_SHEET, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "entity/signs/hoary")));
+        Sheets.HANGING_SIGN_MATERIALS.put(BFWoodTypes.HOARY, new Material(Sheets.SIGN_SHEET, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "entity/signs/hanging/hoary")));
+        Sheets.SIGN_MATERIALS.put(BFWoodTypes.WALNUT, new Material(Sheets.SIGN_SHEET, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "entity/signs/walnut")));
+        Sheets.HANGING_SIGN_MATERIALS.put(BFWoodTypes.WALNUT, new Material(Sheets.SIGN_SHEET, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "entity/signs/hanging/walnut")));
     }
 
     private static void registerBlockItemColor(BlockColor color, ItemColor itemColor, Block block) {
