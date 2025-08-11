@@ -99,7 +99,6 @@ public class TiffinFoodCraftingRecipe extends CustomRecipe {
             contents.item.grow(matchedFoodItem.getCount());
             ItemStack newTiffin = tiffin.copy();
             newTiffin.set(BFComponents.TIFFIN_CONTENTS.get(), contents.toImmutable());
-            newTiffin.set(BFComponents.TIFFIN_INTERACTABLE.get(), false);
             return newTiffin;
         }
         return ItemStack.EMPTY;

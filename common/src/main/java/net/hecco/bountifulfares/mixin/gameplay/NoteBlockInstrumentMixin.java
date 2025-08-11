@@ -76,32 +76,32 @@ public abstract class NoteBlockInstrumentMixin {
                 "BOUNTIFUL_FARES_OCARINA",
                 last.ordinal() + i,
                 "bountiful_fares_ocarina",
-                SoundEvents.NOTE_BLOCK_BANJO,
+                BFSounds.NOTE_BLOCK_OCARINA,
                 NoteBlockInstrument.Type.BASE_BLOCK
         );
         BFNoteBlockInstruments.OCARINA = bf_ocarina;
         notesounds.add(bf_ocarina);
         i++;
-//        var bf_old_piano = newNoteType(
-//                "BOUNTIFUL_FARES_OLD_PIANO",
-//                last.ordinal() + i, //TODO: ADD BACK
-//                "bountiful_fares_old_piano",
-//                BFSounds.NOTE_BLOCK_OLD_PIANO,
-//                NoteBlockInstrument.Type.BASE_BLOCK
-//        );
-//        BFNoteBlockInstruments.OLD_PIANO = bf_old_piano;
-//        notesounds.add(bf_old_piano);
-//        i++;
-//        var bf_steel_drum = newNoteType(
-//                "BOUNTIFUL_FARES_STEEL_DRUM",
-//                last.ordinal() + i,
-//                "bountiful_fares_steel_drum",
-//                BFSounds.NOTE_BLOCK_STEEL_DRUM,
-//                NoteBlockInstrument.Type.BASE_BLOCK
-//        );
-//        BFNoteBlockInstruments.STEEL_DRUM = bf_steel_drum;
-//        notesounds.add(bf_steel_drum);
-//        i++;
+        var bf_old_piano = newNoteType(
+                "BOUNTIFUL_FARES_OLD_PIANO",
+                last.ordinal() + i,
+                "bountiful_fares_old_piano",
+                BFSounds.NOTE_BLOCK_OLD_PIANO,
+                NoteBlockInstrument.Type.BASE_BLOCK
+        );
+        BFNoteBlockInstruments.OLD_PIANO = bf_old_piano;
+        notesounds.add(bf_old_piano);
+        i++;
+        var bf_steel_drum = newNoteType(
+                "BOUNTIFUL_FARES_STEEL_DRUM",
+                last.ordinal() + i,
+                "bountiful_fares_steel_drum",
+                BFSounds.NOTE_BLOCK_STEEL_DRUM,
+                NoteBlockInstrument.Type.BASE_BLOCK
+        );
+        BFNoteBlockInstruments.STEEL_DRUM = bf_steel_drum;
+        notesounds.add(bf_steel_drum);
+        i++;
 
         // Complete the injection.
         // This must ALWAYS be executed at the end of this method - no more code beyond this.

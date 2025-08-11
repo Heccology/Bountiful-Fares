@@ -182,7 +182,7 @@ public class TiffinItem extends Item {
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
-                }
+                } //TODO FIX STACKING NON CONTIANER FOOD ON ALMOST FULL TIFFIN EATING THE EXCESS
             }
         }
         return false;

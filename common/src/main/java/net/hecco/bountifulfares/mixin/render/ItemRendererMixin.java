@@ -62,21 +62,21 @@ public abstract class ItemRendererMixin {
 //        }
 //    }
 
-    @Inject(method = "renderStatic(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemDisplayContext;ZLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;Lnet/minecraft/world/level/Level;III)V", at = @At("HEAD"), cancellable = true)
-    private void bountifulfares$renderTiffinGuiModel(LivingEntity entity, ItemStack stack, ItemDisplayContext displayContext, boolean leftHand, PoseStack poseStack, MultiBufferSource bufferSource, Level level, int combinedLight, int combinedOverlay, int seed, CallbackInfo ci) {
-        if (
-                displayContext == ItemDisplayContext.GUI &&
-                stack.getItem() instanceof TiffinItem && stack.has(BFComponents.TIFFIN_CONTENTS.get()) && //TODO: create a config that displays the food in the corner of the slot instead
-                        stack.has(BFComponents.TIFFIN_INTERACTABLE.get()) && //TODO: create a config that renders the food item thats inside in people's hands in their hand
-                        !stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack().isEmpty() &&
-                        stack.get(BFComponents.TIFFIN_INTERACTABLE.get()) &&
-                        seed != 0) {
-            TiffinContents contents = stack.get(BFComponents.TIFFIN_CONTENTS.get());
-            render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, ((ItemRenderer)(Object)this).getItemModelShaper().getModelManager().getModel(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(stack.getItem()).withSuffix("_back"))));
-            if (level != null && entity != null) {
-                render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, ((ItemRenderer)(Object)this).getModel(contents.getItemStack(), level, entity, seed));
-            }
-            render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, ((ItemRenderer)(Object)this).getItemModelShaper().getModelManager().getModel(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(stack.getItem()).withSuffix("_front"))));
-        }
-    }
+//    @Inject(method = "renderStatic(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemDisplayContext;ZLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;Lnet/minecraft/world/level/Level;III)V", at = @At("HEAD"), cancellable = true)
+//    private void bountifulfares$renderTiffinGuiModel(LivingEntity entity, ItemStack stack, ItemDisplayContext displayContext, boolean leftHand, PoseStack poseStack, MultiBufferSource bufferSource, Level level, int combinedLight, int combinedOverlay, int seed, CallbackInfo ci) {
+//        if (
+//                displayContext == ItemDisplayContext.GUI &&
+//                stack.getItem() instanceof TiffinItem && stack.has(BFComponents.TIFFIN_CONTENTS.get()) && //TODO: create a config that displays the food in the corner of the slot instead
+//                        stack.has(BFComponents.TIFFIN_INTERACTABLE.get()) && //TODO: create a config that renders the food item thats inside in people's hands in their hand
+//                        !stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack().isEmpty() &&
+//                        stack.get(BFComponents.TIFFIN_INTERACTABLE.get()) &&
+//                        seed != 0) {
+//            TiffinContents contents = stack.get(BFComponents.TIFFIN_CONTENTS.get());
+//            render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, ((ItemRenderer)(Object)this).getItemModelShaper().getModelManager().getModel(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(stack.getItem()).withSuffix("_back"))));
+//            if (level != null && entity != null) {
+//                render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, ((ItemRenderer)(Object)this).getModel(contents.getItemStack(), level, entity, seed));
+//            }
+//            render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, ((ItemRenderer)(Object)this).getItemModelShaper().getModelManager().getModel(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(stack.getItem()).withSuffix("_front"))));
+//        }
+//    }
 }
