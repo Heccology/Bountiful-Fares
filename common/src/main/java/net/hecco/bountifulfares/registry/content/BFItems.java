@@ -33,16 +33,16 @@ public class BFItems {
     public static final Supplier<Item> HOARY_SEEDS = registerItem("hoary_seeds", () -> new ItemNameBlockItem(BFBlocks.HOARY_APPLE_SAPLING_CROP.get(), new Item.Properties()));
     public static final Supplier<Item> HOARY_SIGN = registerItem("hoary_sign", () -> new SignItem(new Item.Properties().stacksTo(16), BFBlocks.HOARY_SIGN.get(), BFBlocks.HOARY_WALL_SIGN.get()));
     public static final Supplier<Item> HOARY_HANGING_SIGN = registerItem("hoary_hanging_sign", () -> new HangingSignItem(BFBlocks.HOARY_HANGING_SIGN.get(), BFBlocks.HOARY_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
-    //public static final Supplier<Item> HOARY_BOAT = TerraformBoatItemHelper.registerBoatItem(BFBoats.HOARY_BOAT_ID, BFBoats.HOARY_BOAT_KEY, false);
-    //public static final Supplier<Item> HOARY_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(BFBoats.HOARY_CHEST_BOAT_ID, BFBoats.HOARY_BOAT_KEY, true);
+    //public static final Supplier<Item> HOARY_BOAT = registerItem("hoary_boat", () -> new BoatItem(false, BFBoats.HOARY, new Item.Properties().stacksTo(1)));
+    //public static final Supplier<Item> HOARY_CHEST_BOAT = registerItem("hoary_chest_boat", () -> new BoatItem(true, BFBoats.HOARY, new Item.Properties().stacksTo(1)));
 
     public static final Supplier<Item> SWEET_BERRY_PIPS = registerItem("sweet_berry_pips", () -> new SweetBerryPipsItem(Blocks.SWEET_BERRY_BUSH, new Item.Properties()));
 
     public static final Supplier<Item> WALNUT = registerItem("walnut", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(0).fast().build())));
     public static final Supplier<Item> WALNUT_SIGN = registerItem("walnut_sign", () -> new SignItem(new Item.Properties().stacksTo(16), BFBlocks.WALNUT_SIGN.get(), BFBlocks.WALNUT_WALL_SIGN.get()));
     public static final Supplier<Item> WALNUT_HANGING_SIGN = registerItem("walnut_hanging_sign", () -> new HangingSignItem(BFBlocks.WALNUT_HANGING_SIGN.get(), BFBlocks.WALNUT_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
-    //public static final Supplier<Item> WALNUT_BOAT = TerraformBoatItemHelper.registerBoatItem(BFBoats.WALNUT_BOAT_ID, BFBoats.WALNUT_BOAT_KEY, false);
-    //public static final Supplier<Item> WALNUT_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(BFBoats.WALNUT_CHEST_BOAT_ID, BFBoats.WALNUT_BOAT_KEY, true);
+    //public static final Supplier<Item> WALNUT_BOAT = registerItem("walnut_boat", () -> new BoatItem(false, BFBoats.WALNUT, new Item.Properties().stacksTo(1)));
+    //public static final Supplier<Item> WALNUT_CHEST_BOAT = registerItem("walnut_chest_boat", () -> new BoatItem(true, BFBoats.WALNUT, new Item.Properties().stacksTo(1)));
     public static final Supplier<Item> PALM_FROND = registerItem("palm_frond", () -> new StandingAndWallBlockItem(BFBlocks.PALM_FROND.get(), BFBlocks.WALL_PALM_FROND.get(), new Item.Properties(), Direction.DOWN));
     public static final Supplier<Item> COCONUT = registerItem("coconut", () -> new ItemNameBlockItem(BFBlocks.PALM_SAPLING.get(), new Item.Properties()));
     public static final Supplier<Item> COCONUT_COIR = registerItem("coconut_coir", () -> new Item(new Item.Properties()));
