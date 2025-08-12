@@ -3,6 +3,8 @@ package net.hecco.bountifulfares.definition.item.custom;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -11,13 +13,14 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.inventory.ClickAction;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.apache.commons.lang3.math.Fraction;
 
 import java.util.List;
 
@@ -69,6 +72,20 @@ public class ArtisanBrushItem extends Item {
 //        }
 //        return super.useOnBlock(context);
 //    }
+
+
+    @Override
+    public boolean overrideStackedOnOther(ItemStack stack, Slot slot, ClickAction action, Player player) {
+        if (action == ClickAction.SECONDARY && slot.allowModification(player)) {
+            ItemStack other = slot.getItem();
+            if ((other.has(DataComponents.DYED_COLOR) || (other.getItem() instanceof ArmorItem armorItem && (armorItem.getMaterial() == ArmorMaterials.LEATHER || armorItem.getMaterial() == ArmorMaterials.ARMADILLO)) || other.is(BFItemTags.DYEABLE_CERAMIC_BLOCKS)) && stack.has(DataComponents.DYED_COLOR)) {
+                other.set(DataComponents.DYED_COLOR, stack.get(DataComponents.DYED_COLOR));
+                player.playSound(SoundEvents.DYE_USE, 0.9F, 1.0f);
+                return true;
+            }
+        }
+        return super.overrideStackedOnOther(stack, slot, action, player);
+    }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {

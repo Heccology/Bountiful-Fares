@@ -3,9 +3,7 @@ package net.hecco.bountifulfares;
 import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
 import net.hecco.bountifulfares.definition.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.registry.content.*;
-import net.hecco.bountifulfares.registry.util.BFTooltipEvents;
 import net.hecco.bountifulfares.registry.util.BFWoodTypes;
-import net.hecco.bountifulfares.registry.util.BlockUseEvents;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
@@ -130,7 +128,6 @@ public class BountifulFaresClient {
     }
 
     public static void onInitializeClient() {
-        BlockUseEvents.register();
 //        ElsAndLsDyes compat
 //            HLServices.CLIENT.setBlockRenderType(MintBlocks.ACORN_JACK_O_STRAW.get(), RenderType.cutout());
 //            HLServices.CLIENT.setBlockRenderType(MintBlocks.ARTICHOKE_JACK_O_STRAW.get(), RenderType.cutout());
