@@ -52,7 +52,7 @@ public class BountifulFares {
 		BFDamageTypes.registerDamageTypes();
 //		BFCompat.registerCompatContent();
 		BFItemGroups.registerItemGroups();
-		BFRegistries.registerModStuffs(); //TODO: FIX
+		BFRegistries.registerModStuffs();
 	} //appledog - Yirmiri
 	//appledog - Hecco
 	//appledog - Diemond_Player (holy self-insert)

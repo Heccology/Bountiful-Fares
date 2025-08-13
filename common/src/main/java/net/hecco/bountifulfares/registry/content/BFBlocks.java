@@ -120,7 +120,7 @@ public class BFBlocks {
     public static final Supplier<Block> WALNUT_MULCH_BLOCK = registerBlock("walnut_mulch_block", () -> new MulchBlockBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.4f).sound(SoundType.ROOTED_DIRT).ignitedByLava()));
 
     public static final Supplier<Block> WALNUT_CANDLE = registerBlock("walnut_candle", () -> new WalnutCandleBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
-//TODO
+
     public static final Supplier<Block> PALM_SAPLING = registerBlockNoItem("palm_sapling", () -> new PalmSaplingBlock(BFSaplingGenerators.PALM_SAPLING_GENERATOR, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).sound(SoundType.CROP)));
     public static final Supplier<Block> PALM_LOG = registerBlock("palm_log", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_LOG.get())));
     public static final Supplier<Block> PALM_WOOD = registerBlock("palm_wood", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_WOOD.get())));
