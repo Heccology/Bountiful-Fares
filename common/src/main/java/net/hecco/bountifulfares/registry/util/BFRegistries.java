@@ -169,40 +169,40 @@ public class BFRegistries {
     }
 
     public static void registerFlammables() {
-        HLServices.REGISTRY.setFlammable(BFBlockTags.APPLE_LEAVES, 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.ORANGE_LEAVES, 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.LEMON_LEAVES, 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.PLUM_LEAVES, 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_LEAVES.get(), 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_FROND.get(), 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALL_PALM_FROND.get(), 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.APPLE_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.ORANGE_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.LEMON_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.PLUM_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_CROWN.get(), 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.PALM_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.HOARY_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.WALNUT_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_PLANKS.get(), 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_STAIRS.get(), 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_SLAB.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_FENCE.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_FENCE_GATE.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_DOOR.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_TRAPDOOR.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_PLANKS.get(), 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_STAIRS.get(), 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_SLAB.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_FENCE.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_FENCE_GATE.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_DOOR.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_TRAPDOOR.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH.get(), 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH_BLOCK.get(), 20, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH.get(), 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH_BLOCK.get(), 20, 30);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.PICKETS, 20, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlockTags.APPLE_LEAVES, 60, 30); //TODO
+//        HLServices.REGISTRY.setFlammable(BFBlockTags.ORANGE_LEAVES, 60, 30);
+//        HLServices.REGISTRY.setFlammable(BFBlockTags.LEMON_LEAVES, 60, 30);
+//        HLServices.REGISTRY.setFlammable(BFBlockTags.PLUM_LEAVES, 60, 30);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_LEAVES.get(), 60, 30);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_FROND.get(), 60, 30);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.WALL_PALM_FROND.get(), 60, 30);
+//        HLServices.REGISTRY.setFlammable(BFBlockTags.APPLE_LOGS, 10, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlockTags.ORANGE_LOGS, 10, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlockTags.LEMON_LOGS, 10, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlockTags.PLUM_LOGS, 10, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_CROWN.get(), 10, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlockTags.PALM_LOGS, 10, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlockTags.HOARY_LOGS, 10, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlockTags.WALNUT_LOGS, 10, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_PLANKS.get(), 10, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_STAIRS.get(), 10, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_SLAB.get(), 20, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_FENCE.get(), 20, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_FENCE_GATE.get(), 20, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_DOOR.get(), 20, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_TRAPDOOR.get(), 20, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_PLANKS.get(), 10, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_STAIRS.get(), 10, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_SLAB.get(), 20, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_FENCE.get(), 20, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_FENCE_GATE.get(), 20, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_DOOR.get(), 20, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_TRAPDOOR.get(), 20, 5);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH.get(), 60, 30);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH_BLOCK.get(), 20, 30);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH.get(), 60, 30);
+//        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH_BLOCK.get(), 20, 30);
+//        HLServices.REGISTRY.setFlammable(BFBlockTags.PICKETS, 20, 5);
     }
 
 //    public static void registerFuels() {
