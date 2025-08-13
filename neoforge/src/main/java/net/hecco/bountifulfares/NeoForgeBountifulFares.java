@@ -26,7 +26,6 @@ import oshi.util.tuples.Pair;
 
 @Mod(BountifulFares.MOD_ID)
 public class NeoForgeBountifulFares {
-//TODO: ADD SNIFFER LOOT MODIFIERS (again cannot be bothered its like 8:30am and i have not slept)
 
     public NeoForgeBountifulFares(IEventBus eventBus) {
         BountifulFares.init();
