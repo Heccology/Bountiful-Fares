@@ -3,6 +3,7 @@ package net.hecco.bountifulfares;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.data.FabricGrassSeedsInteractionResourceLoader;
 import net.hecco.bountifulfares.datagen.DatagenOnlyItems;
 import net.hecco.bountifulfares.registry.BFMessages;
@@ -80,7 +81,7 @@ public class FabricBountifulFares implements ModInitializer {
         BFItemGroupAdditions.registerItemGroupAdditions();
         BFMessages.registerPayloads();
         DatagenOnlyItems.registerDatagenItems();
-
+        FabricLoader.getInstance().getConfigDir().toFile();
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
             if (player.canEat(false) && BountifulFares.CONFIG.isCakeEatSounds() && !player.isSpectator()) {
                 BlockPos pos = hitResult.getBlockPos();

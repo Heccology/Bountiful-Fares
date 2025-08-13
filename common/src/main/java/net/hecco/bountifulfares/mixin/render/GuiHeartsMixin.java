@@ -25,7 +25,7 @@ import java.util.Arrays;
 public abstract class GuiHeartsMixin
 {
     // Allows new entries.
-    @SuppressWarnings("InvokerTarget") //TODO: FIX
+    @SuppressWarnings("InvokerTarget")
     @Invoker("<init>")
     private static Gui.HeartType newHeartType(String internalName,
                                                     int ordinal,

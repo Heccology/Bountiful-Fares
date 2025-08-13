@@ -5,6 +5,12 @@ plugins {
 
 repositories {
     maven { url = "https://cursemaven.com" }
+    maven {
+        name = "Terraformers"
+        url = "https://maven.terraformersmc.com/"
+    }
+    maven { url "https://maven.shedaniel.me/" }
+    maven { url "https://maven.terraformersmc.com/releases/" }
 }
 
 dependencies {
@@ -21,6 +27,9 @@ dependencies {
 
     //APPLESKIN
     modCompileOnly files("appleskin-fabric-mc1.21-3.0.6.jar")
+
+    modApi "me.shedaniel.cloth:cloth-config-fabric:15.0.140"
+    modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 }
 
 loom {
