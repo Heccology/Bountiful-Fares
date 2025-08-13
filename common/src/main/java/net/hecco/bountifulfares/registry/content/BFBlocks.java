@@ -32,9 +32,6 @@ import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
 public class BFBlocks {
-//    public static final Map<Item, CropTrellisBlock> CROPS_TO_CROP_TRELLISES = Maps.newHashMap();
-//    public static final Map<Item, DecorativeTrellisBlock> PLANTS_TO_DECORATIVE_TRELLISES = Maps.newHashMap();
-//    public static final Map<DecorativeTrellisBlock, Item> DECORATIVE_TRELLISES_TO_PLANTS = Maps.newHashMap();
     public static final Map<Block, Block> CERAMIC_TO_CHECKERED_CERAMIC = Maps.newHashMap();
     public static final Map<Block, Block> REVERT_CHECKERED_CERAMIC = Maps.newHashMap();
 

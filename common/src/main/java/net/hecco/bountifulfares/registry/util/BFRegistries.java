@@ -1,10 +1,13 @@
 package net.hecco.bountifulfares.registry.util;
 
 //import net.hecco.bountifulfares.entity.FlourProjectileEntity;
+import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.compat.excessive_building.ExcessiveBuildingBlocks;
 import net.hecco.bountifulfares.definition.entity.FlourProjectileEntity;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.heccolib.platform.HLServices;
 import net.hecco.heccolib.platform.services.HLRegistryHelper;
 import net.minecraft.core.Position;
@@ -15,15 +18,16 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DispenserBlock;
 
+import java.util.Objects;
+
 import static net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES;
 
 public class BFRegistries {
     public static void registerModStuffs() {
 //        registerStrippables();
-//        registerCeramicCheckeredConversions();
+        registerCeramicCheckeredConversions();
 //        registerFuels();
         registerModCompostables();
-        registerFlammables();
 
         DispenserBlock.registerBehavior(BFItems.FLOUR.get(), new FlourDispenserBehavior() {});
 
@@ -31,31 +35,31 @@ public class BFRegistries {
 //            @Override
 //            public ItemStack execute(BlockSource pointer, ItemStack stack) {
 //                return super.execute(pointer, stack);
-//            }
+//            } TODO
 //        });
     }
 
-//    public static void registerCeramicCheckeredConversions() {
-//        registerCheckeredCeramic(BFBlocks.CERAMIC_TILES.get(), BFBlocks.CHECKERED_CERAMIC_TILES.get());
-//        registerCheckeredCeramic(BFBlocks.CERAMIC_TILE_STAIRS.get(), BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get());
-//        registerCheckeredCeramic(BFBlocks.CERAMIC_TILE_SLAB.get(), BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get());
-        //registerCheckeredCeramic(BFBlocks.CERAMIC_TILE_WALL, BFBlocks.CHECKERED_CERAMIC_TILE_WALL);
-//        registerCheckeredCeramic(BFBlocks.CRACKED_CERAMIC_TILES.get(), BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.get());
-//        registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC.get(), BFBlocks.CHECKERED_CERAMIC_MOSAIC.get());
-//        registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_STAIRS.get(), BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.get());
-//        registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_SLAB.get(), BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.get());
-        //registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_WALL, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL);
+    public static void registerCeramicCheckeredConversions() {
+        registerCheckeredCeramic(BFBlocks.CERAMIC_TILES.get(), BFBlocks.CHECKERED_CERAMIC_TILES.get());
+        registerCheckeredCeramic(BFBlocks.CERAMIC_TILE_STAIRS.get(), BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get());
+        registerCheckeredCeramic(BFBlocks.CERAMIC_TILE_SLAB.get(), BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get());
+//        registerCheckeredCeramic(BFBlocks.CERAMIC_TILE_WALL, BFBlocks.CHECKERED_CERAMIC_TILE_WALL);
+        registerCheckeredCeramic(BFBlocks.CRACKED_CERAMIC_TILES.get(), BFBlocks.CRACKED_CHECKERED_CERAMIC_TILES.get());
+        registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC.get(), BFBlocks.CHECKERED_CERAMIC_MOSAIC.get());
+        registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_STAIRS.get(), BFBlocks.CHECKERED_CERAMIC_MOSAIC_STAIRS.get());
+        registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_SLAB.get(), BFBlocks.CHECKERED_CERAMIC_MOSAIC_SLAB.get());
+//        registerCheckeredCeramic(BFBlocks.CERAMIC_MOSAIC_WALL, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL);
 //        if (BountifulFares.isModLoaded(BountifulFares.EXCESSIVE_BUILDING_MOD_ID)) {
 //            registerCheckeredCeramic(ExcessiveBuildingBlocks.CERAMIC_TILE_VERTICAL_STAIRS, ExcessiveBuildingBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS);
 //            registerCheckeredCeramic(ExcessiveBuildingBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS, ExcessiveBuildingBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS);
 //        }
-//    }
+    }
 
-//    public static void registerCheckeredCeramic(Block normal, Block checkered) {
-//        BFBlocks.CERAMIC_TO_CHECKERED_CERAMIC.put(normal, checkered);
-//        BFBlocks.CERAMIC_TO_CHECKERED_CERAMIC.put(checkered, normal);
-//        BFBlocks.REVERT_CHECKERED_CERAMIC.put(checkered, normal);
-//    }
+    public static void registerCheckeredCeramic(Block normal, Block checkered) {
+        BFBlocks.CERAMIC_TO_CHECKERED_CERAMIC.put(normal, checkered);
+        BFBlocks.CERAMIC_TO_CHECKERED_CERAMIC.put(checkered, normal);
+        BFBlocks.REVERT_CHECKERED_CERAMIC.put(checkered, normal);
+    }
 
     public static void registerStrippables() {
 //        register(BFBlocks.APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
@@ -170,129 +174,39 @@ public class BFRegistries {
     }
 
     public static void registerFlammables() {
-//        HLServices.REGISTRY.setFlammable(BFBlockTags.APPLE_LEAVES, 60, 30); //TODO
-//        HLServices.REGISTRY.setFlammable(BFBlockTags.ORANGE_LEAVES, 60, 30);
-//        HLServices.REGISTRY.setFlammable(BFBlockTags.LEMON_LEAVES, 60, 30);
-//        HLServices.REGISTRY.setFlammable(BFBlockTags.PLUM_LEAVES, 60, 30);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_LEAVES.get(), 60, 30);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_FROND.get(), 60, 30);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.WALL_PALM_FROND.get(), 60, 30);
-//        HLServices.REGISTRY.setFlammable(BFBlockTags.APPLE_LOGS, 10, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlockTags.ORANGE_LOGS, 10, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlockTags.LEMON_LOGS, 10, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlockTags.PLUM_LOGS, 10, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_CROWN.get(), 10, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlockTags.PALM_LOGS, 10, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlockTags.HOARY_LOGS, 10, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlockTags.WALNUT_LOGS, 10, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_PLANKS.get(), 10, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_STAIRS.get(), 10, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_SLAB.get(), 20, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_FENCE.get(), 20, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_FENCE_GATE.get(), 20, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_DOOR.get(), 20, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_TRAPDOOR.get(), 20, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_PLANKS.get(), 10, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_STAIRS.get(), 10, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_SLAB.get(), 20, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_FENCE.get(), 20, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_FENCE_GATE.get(), 20, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_DOOR.get(), 20, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_TRAPDOOR.get(), 20, 5);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH.get(), 60, 30);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH_BLOCK.get(), 20, 30);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH.get(), 60, 30);
-//        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH_BLOCK.get(), 20, 30);
-//        HLServices.REGISTRY.setFlammable(BFBlockTags.PICKETS, 20, 5);
+        HLServices.REGISTRY.setFlammable(BFBlockTags.APPLE_LEAVES, 60, 30);
+        HLServices.REGISTRY.setFlammable(BFBlockTags.ORANGE_LEAVES, 60, 30);
+        HLServices.REGISTRY.setFlammable(BFBlockTags.LEMON_LEAVES, 60, 30);
+        HLServices.REGISTRY.setFlammable(BFBlockTags.PLUM_LEAVES, 60, 30);
+        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_LEAVES.get(), 60, 30);
+        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_FROND.get(), 60, 30);
+        HLServices.REGISTRY.setFlammable(BFBlocks.WALL_PALM_FROND.get(), 60, 30);
+        HLServices.REGISTRY.setFlammable(BFBlockTags.APPLE_LOGS, 10, 5);
+        HLServices.REGISTRY.setFlammable(BFBlockTags.ORANGE_LOGS, 10, 5);
+        HLServices.REGISTRY.setFlammable(BFBlockTags.LEMON_LOGS, 10, 5);
+        HLServices.REGISTRY.setFlammable(BFBlockTags.PLUM_LOGS, 10, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_CROWN.get(), 10, 5);
+        HLServices.REGISTRY.setFlammable(BFBlockTags.PALM_LOGS, 10, 5);
+        HLServices.REGISTRY.setFlammable(BFBlockTags.HOARY_LOGS, 10, 5);
+        HLServices.REGISTRY.setFlammable(BFBlockTags.WALNUT_LOGS, 10, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_PLANKS.get(), 10, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_STAIRS.get(), 10, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_SLAB.get(), 20, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_FENCE.get(), 20, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_FENCE_GATE.get(), 20, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_DOOR.get(), 20, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_TRAPDOOR.get(), 20, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_PLANKS.get(), 10, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_STAIRS.get(), 10, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_SLAB.get(), 20, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_FENCE.get(), 20, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_FENCE_GATE.get(), 20, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_DOOR.get(), 20, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_TRAPDOOR.get(), 20, 5);
+        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH.get(), 60, 30);
+        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH_BLOCK.get(), 20, 30);
+        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH.get(), 60, 30);
+        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH_BLOCK.get(), 20, 30);
+        HLServices.REGISTRY.setFlammable(BFBlockTags.PICKETS, 20, 5);
     }
-
-//    public static void registerFuels() {
-//        FuelRegistry registry = FuelRegistry.INSTANCE;
-//        registry.add(BFItemTags.FRUIT_LOGS, 200);
-//        registry.add(BFItemTags.HOARY_LOGS, 300);
-//        registry.add(BFItemTags.WALNUT_LOGS, 300);
-//        registry.add(BFItemTags.PICKETS, 200);
-
-//        for (TrellisVariant trellis : TrellisUtil.TrellisVariants) {
-//            if (!(Objects.equals(trellis.getBlockName(), "warped_trellis") || Objects.equals(trellis.getBlockName(), "crimson_trellis")))
-//            registry.add(TrellisUtil.getTrellisFromVariant(trellis), 300);
-//        }
-
-//        registry.add(BFBlocks.GRISTMILL, 300);
-//        registry.add(BFBlocks.WHITE_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.GRAY_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.BLACK_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.BROWN_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.RED_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.ORANGE_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.YELLOW_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.LIME_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.GREEN_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.CYAN_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.LIGHT_BLUE_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.BLUE_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.PURPLE_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.MAGENTA_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.PINK_JACK_O_STRAW, 400);
-//        registry.add(BFBlocks.PALM_FROND, 100);
-//        registry.add(BFItems.COCONUT_COIR, 100);
-//        registry.add(BFBlocks.PACKED_COCONUT_COIR, 400);
-//        registry.add(BFBlocks.COIR_CARPET, 200);
-//        registry.add(BFBlocks.COIR_BRICKS, 400);
-//        registry.add(BFBlocks.COIR_BRICK_SLAB, 400);
-//        registry.add(BFBlocks.COIR_BRICK_STAIRS, 400);
-//        registry.add(BFBlocks.COIR_BRICK_WALL, 400);
-//            registry.add(MintBlocks.ACORN_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.AMBER_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.ARTICHOKE_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.BANANA_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.CERULEAN_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.FUCHSIA_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.GRAPE_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.INDIGO_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.MAROON_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.MAUVE_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.MINT_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.MOLD_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.NAVY_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.PEACH_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.PERIWINKLE_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.SAGE_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.SAP_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.SHAMROCK_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.VELVET_JACK_O_STRAW, 400);
-//            registry.add(MintBlocks.VERMILION_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.MAROON_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.ROSE_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.CORAL_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.GINGER_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.TAN_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.BEIGE_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.AMBER_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.OLIVE_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.FOREST_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.VERDANT_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.TEAL_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.MINT_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.AQUA_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.SLATE_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.NAVY_JACK_O_STRAW, 400);
-//            registry.add(DyeDepotBlocks.INDIGO_JACK_O_STRAW, 400);
-//            registry.add(ExcessiveBuildingBlocks.WALNUT_VERTICAL_STAIRS, 300);
-//            registry.add(ExcessiveBuildingBlocks.CHISELED_WALNUT_PLANKS, 300);
-//            registry.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC, 300);
-//            registry.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC_SLAB, 300);
-//            registry.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC_STAIRS, 300);
-//            registry.add(ExcessiveBuildingBlocks.WALNUT_MOSAIC_VERTICAL_STAIRS, 300);
-//            registry.add(ExcessiveBuildingBlocks.WALNUT_LADDER, 300);
-//            registry.add(ExcessiveBuildingBlocks.HOARY_VERTICAL_STAIRS, 300);
-//            registry.add(ExcessiveBuildingBlocks.CHISELED_HOARY_PLANKS, 300);
-//            registry.add(ExcessiveBuildingBlocks.HOARY_MOSAIC, 300);
-//            registry.add(ExcessiveBuildingBlocks.HOARY_MOSAIC_SLAB, 300);
-//            registry.add(ExcessiveBuildingBlocks.HOARY_MOSAIC_STAIRS, 300);
-//            registry.add(ExcessiveBuildingBlocks.HOARY_MOSAIC_VERTICAL_STAIRS, 300);
-//            registry.add(ExcessiveBuildingBlocks.HOARY_LADDER, 300);
-//
-//    }
 }
