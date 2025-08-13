@@ -9,6 +9,7 @@ import net.hecco.heccolib.platform.HLServices;
 import net.hecco.heccolib.platform.services.HLRegistryHelper;
 import net.minecraft.core.Position;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -56,7 +57,7 @@ public class BFRegistries {
 //        BFBlocks.REVERT_CHECKERED_CERAMIC.put(checkered, normal);
 //    }
 
-//    public static void registerStrippables() {
+    public static void registerStrippables() {
 //        register(BFBlocks.APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
 //        register(BFBlocks.APPLE_WOOD, BFBlocks.STRIPPED_APPLE_WOOD);
 //        register(BFBlocks.GOLDEN_APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
@@ -73,7 +74,7 @@ public class BFRegistries {
 //        register(BFBlocks.WALNUT_WOOD, BFBlocks.STRIPPED_WALNUT_WOOD);
 //        register(BFBlocks.PALM_LOG, BFBlocks.STRIPPED_PALM_LOG);
 //        register(BFBlocks.PALM_WOOD, BFBlocks.STRIPPED_PALM_WOOD);
-//    }
+    }
 
     private static void registerModCompostables() {
         COMPOSTABLES.put(BFBlocks.APPLE_LEAVES.get().asItem(), 0.3f);

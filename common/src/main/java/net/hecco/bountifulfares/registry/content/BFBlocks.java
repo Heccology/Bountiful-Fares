@@ -38,8 +38,8 @@ public class BFBlocks {
     public static final Map<Block, Block> CERAMIC_TO_CHECKERED_CERAMIC = Maps.newHashMap();
     public static final Map<Block, Block> REVERT_CHECKERED_CERAMIC = Maps.newHashMap();
 
-    public static final Supplier<Block> APPLE_LOG = registerBlock("apple_log", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).noOcclusion().forceSolidOff()));
-    public static final Supplier<Block> APPLE_WOOD = registerBlock("apple_wood", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).noOcclusion().forceSolidOff()));
+    public static final Supplier<Block> APPLE_LOG = registerBlock("apple_log", () -> new StrippableFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).noOcclusion().forceSolidOff(), BFBlocks.STRIPPED_APPLE_LOG));
+    public static final Supplier<Block> APPLE_WOOD = registerBlock("apple_wood", () -> new StrippableFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).noOcclusion().forceSolidOff(), BFBlocks.STRIPPED_APPLE_WOOD));
     public static final Supplier<Block> STRIPPED_APPLE_LOG = registerBlock("stripped_apple_log", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).noOcclusion().forceSolidOff()));
     public static final Supplier<Block> STRIPPED_APPLE_WOOD = registerBlock("stripped_apple_wood", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).noOcclusion().forceSolidOff()));
     public static final Supplier<Block> HANGING_APPLE = registerBlockNoItem("hanging_apple", () -> new HangingAppleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).dynamicShape().sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY).randomTicks().offsetType(BlockBehaviour.OffsetType.XZ)));
@@ -47,8 +47,8 @@ public class BFBlocks {
     public static final Supplier<Block> FLOWERING_APPLE_LEAVES = registerBlock("flowering_apple_leaves", () -> new FruitLeavesBlock(HANGING_APPLE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)));
     public static final Supplier<Block> APPLE_SAPLING = registerBlock("apple_sapling", () -> new PublicSaplingBlock(BFSaplingGenerators.APPLE_SAPLING_GENERATOR, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).sound(SoundType.CHERRY_SAPLING)));
     public static final Supplier<Block> POTTED_APPLE_SAPLING = registerBlockNoItem("potted_apple_sapling", () -> new FlowerPotBlock(BFBlocks.APPLE_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> ORANGE_LOG = registerBlock("orange_log", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_LOG.get())));
-    public static final Supplier<Block> ORANGE_WOOD = registerBlock("orange_wood", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_WOOD.get())));
+    public static final Supplier<Block> ORANGE_LOG = registerBlock("orange_log", () -> new StrippableFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_LOG.get()), BFBlocks.STRIPPED_ORANGE_LOG));
+    public static final Supplier<Block> ORANGE_WOOD = registerBlock("orange_wood", () -> new StrippableFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_WOOD.get()), BFBlocks.STRIPPED_ORANGE_WOOD));
     public static final Supplier<Block> STRIPPED_ORANGE_LOG = registerBlock("stripped_orange_log", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.STRIPPED_APPLE_LOG.get())));
     public static final Supplier<Block> STRIPPED_ORANGE_WOOD = registerBlock("stripped_orange_wood", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.STRIPPED_APPLE_WOOD.get())));
     public static final Supplier<Block> HANGING_ORANGE = registerBlockNoItem("hanging_orange", () -> new HangingOrangeBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.HANGING_APPLE.get())));
@@ -56,8 +56,8 @@ public class BFBlocks {
     public static final Supplier<Block> FLOWERING_ORANGE_LEAVES = registerBlock("flowering_orange_leaves", () -> new FruitLeavesBlock(HANGING_ORANGE.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(BFBlocks.FLOWERING_APPLE_LEAVES.get())));
     public static final Supplier<Block> ORANGE_SAPLING = registerBlock("orange_sapling", () -> new PublicSaplingBlock(BFSaplingGenerators.ORANGE_SAPLING_GENERATOR, BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_SAPLING.get())));
     public static final Supplier<Block> POTTED_ORANGE_SAPLING = registerBlockNoItem("potted_orange_sapling", () -> new FlowerPotBlock(BFBlocks.ORANGE_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(BFBlocks.POTTED_APPLE_SAPLING.get())));
-    public static final Supplier<Block> LEMON_LOG = registerBlock("lemon_log", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_LOG.get())));
-    public static final Supplier<Block> LEMON_WOOD = registerBlock("lemon_wood", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_WOOD.get())));
+    public static final Supplier<Block> LEMON_LOG = registerBlock("lemon_log", () -> new StrippableFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_LOG.get()), BFBlocks.STRIPPED_LEMON_LOG));
+    public static final Supplier<Block> LEMON_WOOD = registerBlock("lemon_wood", () -> new StrippableFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_WOOD.get()), BFBlocks.STRIPPED_LEMON_WOOD));
     public static final Supplier<Block> STRIPPED_LEMON_LOG = registerBlock("stripped_lemon_log", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.STRIPPED_APPLE_LOG.get())));
     public static final Supplier<Block> STRIPPED_LEMON_WOOD = registerBlock("stripped_lemon_wood", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.STRIPPED_APPLE_WOOD.get())));
     public static final Supplier<Block> HANGING_LEMON = registerBlockNoItem("hanging_lemon", () -> new HangingLemonBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.HANGING_APPLE.get())));
@@ -65,8 +65,8 @@ public class BFBlocks {
     public static final Supplier<Block> FLOWERING_LEMON_LEAVES = registerBlock("flowering_lemon_leaves", () -> new FruitLeavesBlock(HANGING_LEMON.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(BFBlocks.FLOWERING_APPLE_LEAVES.get())));
     public static final Supplier<Block> LEMON_SAPLING = registerBlock("lemon_sapling", () -> new PublicSaplingBlock(BFSaplingGenerators.LEMON_SAPLING_GENERATOR, BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_SAPLING.get())));
     public static final Supplier<Block> POTTED_LEMON_SAPLING = registerBlockNoItem("potted_lemon_sapling", () -> new FlowerPotBlock(BFBlocks.LEMON_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(BFBlocks.POTTED_APPLE_SAPLING.get())));
-    public static final Supplier<Block> PLUM_LOG = registerBlock("plum_log", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_LOG.get())));
-    public static final Supplier<Block> PLUM_WOOD = registerBlock("plum_wood", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_WOOD.get())));
+    public static final Supplier<Block> PLUM_LOG = registerBlock("plum_log", () -> new StrippableFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_LOG.get()), BFBlocks.STRIPPED_PLUM_LOG));
+    public static final Supplier<Block> PLUM_WOOD = registerBlock("plum_wood", () -> new StrippableFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_WOOD.get()), BFBlocks.STRIPPED_PLUM_WOOD));
     public static final Supplier<Block> STRIPPED_PLUM_LOG = registerBlock("stripped_plum_log", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.STRIPPED_APPLE_LOG.get())));
     public static final Supplier<Block> STRIPPED_PLUM_WOOD = registerBlock("stripped_plum_wood", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.STRIPPED_APPLE_WOOD.get())));
     public static final Supplier<Block> HANGING_PLUM = registerBlockNoItem("hanging_plum", () -> new HangingPlumBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.HANGING_APPLE.get())));
@@ -77,8 +77,8 @@ public class BFBlocks {
     public static final Supplier<Block> HOARY_APPLE_SAPLING_CROP = registerBlockNoItem("hoary_apple_sapling_crop", () -> new HoaryAppleSaplingCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).randomTicks().noCollission().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
     public static final Supplier<Block> HOARY_APPLE_SAPLING = registerBlock("hoary_apple_sapling", () -> new PublicSaplingBlock(BFSaplingGenerators.HOARY_SAPLING_GENERATOR, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).randomTicks().noCollission().instabreak().sound(SoundType.CHERRY_SAPLING).pushReaction(PushReaction.DESTROY)));
     public static final Supplier<Block> POTTED_HOARY_APPLE_SAPLING = registerBlockNoItem("potted_hoary_apple_sapling", () -> new FlowerPotBlock(BFBlocks.HOARY_APPLE_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_OAK_SAPLING)));
-    public static final Supplier<Block> HOARY_LOG = registerBlock("hoary_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).mapColor(MapColor.TERRACOTTA_GRAY)));
-    public static final Supplier<Block> HOARY_WOOD = registerBlock("hoary_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).mapColor(MapColor.TERRACOTTA_GRAY)));
+    public static final Supplier<Block> HOARY_LOG = registerBlock("hoary_log", () -> new BFLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).mapColor(MapColor.TERRACOTTA_GRAY), BFBlocks.STRIPPED_HOARY_LOG));
+    public static final Supplier<Block> HOARY_WOOD = registerBlock("hoary_wood", () -> new BFLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).mapColor(MapColor.TERRACOTTA_GRAY), BFBlocks.STRIPPED_HOARY_WOOD));
     public static final Supplier<Block> STRIPPED_HOARY_LOG = registerBlock("stripped_hoary_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).mapColor(MapColor.TERRACOTTA_GRAY)));
     public static final Supplier<Block> STRIPPED_HOARY_WOOD = registerBlock("stripped_hoary_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).mapColor(MapColor.TERRACOTTA_GRAY)));
     public static final Supplier<Block> HOARY_PLANKS = registerBlock("hoary_planks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0f, 5.0f).mapColor(MapColor.TERRACOTTA_GRAY)));
@@ -99,8 +99,8 @@ public class BFBlocks {
 
     public static final Supplier<Block> WALNUT_SAPLING = registerBlock("walnut_sapling", () -> new PublicSaplingBlock(BFSaplingGenerators.WALNUT_SAPLING_GENERATOR, BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollission().instabreak().sound(SoundType.GRASS).pushReaction(PushReaction.DESTROY)));
     public static final Supplier<Block> POTTED_WALNUT_SAPLING = registerBlockNoItem("potted_walnut_sapling", () -> new FlowerPotBlock(BFBlocks.WALNUT_SAPLING.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
-    public static final Supplier<Block> WALNUT_LOG = registerBlock("walnut_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).mapColor(MapColor.COLOR_BROWN)));
-    public static final Supplier<Block> WALNUT_WOOD = registerBlock("walnut_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).mapColor(MapColor.COLOR_BROWN)));
+    public static final Supplier<Block> WALNUT_LOG = registerBlock("walnut_log", () -> new BFLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).mapColor(MapColor.COLOR_BROWN), BFBlocks.STRIPPED_WALNUT_LOG));
+    public static final Supplier<Block> WALNUT_WOOD = registerBlock("walnut_wood", () -> new BFLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).mapColor(MapColor.COLOR_BROWN), BFBlocks.STRIPPED_WALNUT_WOOD));
     public static final Supplier<Block> STRIPPED_WALNUT_LOG = registerBlock("stripped_walnut_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG).mapColor(MapColor.COLOR_BROWN)));
     public static final Supplier<Block> STRIPPED_WALNUT_WOOD = registerBlock("stripped_walnut_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD).mapColor(MapColor.COLOR_BROWN)));
     public static final Supplier<Block> WALNUT_PLANKS = registerBlock("walnut_planks", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0f, 5.0f).mapColor(MapColor.COLOR_BROWN)));
@@ -123,7 +123,7 @@ public class BFBlocks {
     public static final Supplier<Block> WALNUT_MULCH_BLOCK = registerBlock("walnut_mulch_block", () -> new MulchBlockBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(0.4f).sound(SoundType.ROOTED_DIRT).ignitedByLava()));
 
     public static final Supplier<Block> WALNUT_CANDLE = registerBlock("walnut_candle", () -> new WalnutCandleBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
-
+//TODO
     public static final Supplier<Block> PALM_SAPLING = registerBlockNoItem("palm_sapling", () -> new PalmSaplingBlock(BFSaplingGenerators.PALM_SAPLING_GENERATOR, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).sound(SoundType.CROP)));
     public static final Supplier<Block> PALM_LOG = registerBlock("palm_log", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_LOG.get())));
     public static final Supplier<Block> PALM_WOOD = registerBlock("palm_wood", () -> new StrippedFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_WOOD.get())));
@@ -274,8 +274,8 @@ public class BFBlocks {
     public static final Supplier<Block> GRASSY_DIRT = registerBlock("grassy_dirt", () -> new GrassyDirtBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT).randomTicks()));
 
 
-    public static final Supplier<Block> GOLDEN_APPLE_LOG = registerBlock("golden_apple_log", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).noOcclusion().forceSolidOff()), new Item.Properties().rarity(Rarity.UNCOMMON));
-    public static final Supplier<Block> GOLDEN_APPLE_WOOD = registerBlock("golden_apple_wood", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).noOcclusion().forceSolidOff()), new Item.Properties().rarity(Rarity.UNCOMMON));
+    public static final Supplier<Block> GOLDEN_APPLE_LOG = registerBlock("golden_apple_log", () -> new StrippableFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).noOcclusion().forceSolidOff(), BFBlocks.STRIPPED_APPLE_LOG), new Item.Properties().rarity(Rarity.UNCOMMON));
+    public static final Supplier<Block> GOLDEN_APPLE_WOOD = registerBlock("golden_apple_wood", () -> new StrippableFruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).noOcclusion().forceSolidOff(), BFBlocks.STRIPPED_APPLE_WOOD), new Item.Properties().rarity(Rarity.UNCOMMON));
     public static final Supplier<Block> GOLDEN_APPLE_LEAVES = registerBlock("golden_apple_leaves", () -> new GoldenAppleLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(MapColor.GOLD)), new Item.Properties().rarity(Rarity.UNCOMMON));
     public static final Supplier<Block> FLOWERING_GOLDEN_APPLE_LEAVES = registerBlock("flowering_golden_apple_leaves", () -> new GoldenAppleLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES).mapColor(MapColor.GOLD)), new Item.Properties().rarity(Rarity.UNCOMMON));
     public static final Supplier<Block> GOLDEN_APPLE_SAPLING = registerBlock("golden_apple_sapling", () -> new PublicSaplingBlock(BFSaplingGenerators.GOLDEN_APPLE_SAPLING_GENERATOR, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING).lightLevel(state -> 7)), new Item.Properties().rarity(Rarity.RARE));
