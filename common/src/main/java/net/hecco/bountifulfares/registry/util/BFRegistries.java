@@ -25,7 +25,6 @@ import static net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES;
 public class BFRegistries {
     public static void registerModStuffs() {
 //        registerStrippables();
-        registerCeramicCheckeredConversions();
 //        registerFuels();
         registerModCompostables();
 
