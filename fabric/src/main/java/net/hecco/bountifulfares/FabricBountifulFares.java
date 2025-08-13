@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.data.FabricGrassSeedsInteractionResourceLoader;
 import net.hecco.bountifulfares.datagen.DatagenOnlyItems;
+import net.hecco.bountifulfares.registry.BFFabricLootTableModifiers;
 import net.hecco.bountifulfares.registry.BFMessages;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
@@ -41,17 +42,14 @@ public class FabricBountifulFares implements ModInitializer {
 
     @Override
     public void onInitialize() {
-//        BFComponents.TIFFIN_CONTENTS = () -> registerComponentType(BountifulFares.MOD_ID, "tiffin_contents", (builder) ->
-//                builder.persistent(TiffinContents.CODEC).networkSynchronized(TiffinContents.STREAM_CODEC).cacheEncoding());
-//        BFComponents.TIFFIN_INTERACTABLE = () -> registerComponentType(BountifulFares.MOD_ID, "interactable", (builder) ->
-//                builder.persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL).cacheEncoding());
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisPlantResourceLoader());
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisCropResourceLoader());
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricGrassSeedsInteractionResourceLoader());
         BountifulFares.init();
         BFRegistries.registerFlammables();
         registerFuels();
-////        BFLootTableModifiers.modifyLootTables();
+        BFRegistries.registerCeramicCheckeredConversions();
+        BFFabricLootTableModifiers.modifyLootTables();
         addTiffin(TOOLS_AND_UTILITIES, BFItems.SUN_HAT.get(), null);
         addTiffin(TOOLS_AND_UTILITIES, BFItems.TIFFINS.get(null).get(), DyeColor.WHITE);
         addTiffin(TOOLS_AND_UTILITIES, BFItems.TIFFINS.get(DyeColor.WHITE).get(), DyeColor.LIGHT_GRAY);
