@@ -11,6 +11,7 @@ import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.heccolib.platform.HLServices;
 import net.hecco.heccolib.platform.services.HLRegistryHelper;
 import net.minecraft.core.Position;
+import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
@@ -28,15 +29,18 @@ public class BFRegistries {
         registerCeramicCheckeredConversions();
 //        registerFuels();
         registerModCompostables();
+        registerDispenserBehaviors();
+    }
 
+    public static void registerDispenserBehaviors() {
         DispenserBlock.registerBehavior(BFItems.FLOUR.get(), new FlourDispenserBehavior() {});
 
-//        DispenserBlock.registerBehavior(BFItems.GRASS_SEEDS.get(), new GrassSeedsDispenserBehavior() {
-//            @Override
-//            public ItemStack execute(BlockSource pointer, ItemStack stack) {
-//                return super.execute(pointer, stack);
-//            } TODO
-//        });
+        DispenserBlock.registerBehavior(BFItems.GRASS_SEEDS.get(), new GrassSeedsDispenserBehavior() {
+            @Override
+            public ItemStack execute(BlockSource pointer, ItemStack stack) {
+                return super.execute(pointer, stack);
+            }
+        });
     }
 
     public static void registerCeramicCheckeredConversions() {

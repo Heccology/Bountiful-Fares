@@ -51,7 +51,7 @@ public class NeoForgeBountifulFares {
     public void commonSetup(FMLCommonSetupEvent event) {
         BFRegistries.registerFlammables();
         BFRegistries.registerCeramicCheckeredConversions();
-        BFRegistries.registerDispenerBehavior();
+        BFRegistries.registerDispenserBehaviors();
     }
 
     @SubscribeEvent // on the mod event bus
