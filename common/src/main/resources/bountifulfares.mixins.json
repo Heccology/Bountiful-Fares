@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "gameplay.ArmorStandMixin",
+    "gameplay.AxeItemMixin",
     "gameplay.BlockItemMixin",
     "gameplay.CampfireBlockEntityMixin",
     "gameplay.LivingEntityMixin",

@@ -70,4 +70,6 @@ public class BountifulFares {
 	//okay.. - mr bountifare (again)
 	//im neoing my forge rn...haheh....who else??
 	//imagine recreating a port to make the port the same codebase as the original but then you remove the thing that makes it the same as the original - a salty biRCH TREE ENJOYER
+	/* ill reset it all to zero - artyrian
+											also what the sigma */
 }

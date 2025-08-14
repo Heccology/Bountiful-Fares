@@ -107,6 +107,9 @@ public class FabricBountifulFares implements ModInitializer {
             }
             return InteractionResult.PASS;
         });
+
+        // ignore me x3c
+        BFRegistries.getStrippables();
     }
 
     public static void registerFuels() {
