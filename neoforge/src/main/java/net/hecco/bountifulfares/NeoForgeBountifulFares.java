@@ -32,7 +32,8 @@ public class NeoForgeBountifulFares {
 
     public NeoForgeBountifulFares(IEventBus eventBus) {
         BountifulFares.init();
-        BFNeoForgeLootTableModifiers.LOOT_MODIFIERS.register(eventBus); //dude the jsons for these need to be rewritten but i cannot be bothered rn - yirmiri
+        BFNeoForgeLootTableModifiers.LOOT_MODIFIERS.register(eventBus);
+        BountifulFares.CONFIG = BountifulFaresConfiguration.load();
 
         eventBus.addListener(this::payloadHandlersSetup);
         eventBus.addListener(this::clientSetup);
