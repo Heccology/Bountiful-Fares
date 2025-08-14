@@ -39,18 +39,23 @@ public class BFBlockEntities {
     public static final Supplier<BlockEntityType<GreenTeaCandleBlockEntity>> GREEN_TEA_CANDLE_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "green_tea_candle_entity",
             () -> HLServices.REGISTRY.createBlockEntity(GreenTeaCandleBlockEntity::new, GREEN_TEA_CANDLE)
     );
+
     public static final Supplier<BlockEntityType<BlackTeaCandleBlockEntity>> BLACK_TEA_CANDLE_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "black_tea_candle_entity",
             () -> HLServices.REGISTRY.createBlockEntity(BlackTeaCandleBlockEntity::new, BLACK_TEA_CANDLE)
     );
+
     public static final Supplier<BlockEntityType<ChamomileCandleBlockEntity>> CHAMOMILE_CANDLE_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "chamomile_candle_entity",
             () -> HLServices.REGISTRY.createBlockEntity(ChamomileCandleBlockEntity::new, CHAMOMILE_CANDLE)
     );
+
     public static final Supplier<BlockEntityType<HoneysuckleCandleBlockEntity>> HONEYSUCKLE_CANDLE_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "honeysuckle_candle_entity",
             () -> HLServices.REGISTRY.createBlockEntity(HoneysuckleCandleBlockEntity::new, HONEYSUCKLE_CANDLE)
     );
+
     public static final Supplier<BlockEntityType<BellflowerCandleBlockEntity>> BELLFLOWER_CANDLE_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "bellflower_candle_entity",
             () -> HLServices.REGISTRY.createBlockEntity(BellflowerCandleBlockEntity::new, BELLFLOWER_CANDLE)
     );
+
     public static final Supplier<BlockEntityType<TorchflowerCandleBlockEntity>> TORCHFLOWER_CANDLE_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "torchflower_candle_entity",
             () -> HLServices.REGISTRY.createBlockEntity(TorchflowerCandleBlockEntity::new, TORCHFLOWER_CANDLE)
     );

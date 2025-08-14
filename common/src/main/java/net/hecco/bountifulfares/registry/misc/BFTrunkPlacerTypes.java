@@ -23,7 +23,7 @@ public class BFTrunkPlacerTypes {
     private static <P extends TrunkPlacer> Supplier<TrunkPlacerType<?>> registerTrunkPlacer(String id, MapCodec<P> codec) {
         return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.TRUNK_PLACER_TYPE, () -> TrunkPlacerInvoker.register(codec));
     }
-    public static void register() {
+    public static void registerTrunkPlacers() {
     }
 
 }

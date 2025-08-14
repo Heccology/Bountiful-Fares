@@ -5,6 +5,7 @@ import net.hecco.bountifulfares.registry.misc.*;
 import net.hecco.bountifulfares.registry.util.BFDamageTypes;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
 import net.hecco.heccolib.platform.HLServices;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,29 +32,34 @@ public class BountifulFares {
 	public static BountifulFaresConfiguration CONFIG = new BountifulFaresConfiguration();
 
 	public static void init() {
-//		BountifulFares.CONFIG = BountifulFaresConfiguration.load(); //TODO: MOVE TO NEOFORGE CONFIG API(?)
-////		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here
+//		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here.. me neither
 		BFSounds.registerSounds();
-		BFBlocks.registerModBlocks(); //TODO: UTILIZE BLOCKFAMILYCREATOR
-		if (!HLServices.PLATFORM.isDatagen()) { //This is needed for some reason..
+		BFBlocks.registerBlocks(); //TODO: UTILIZE BLOCKFAMILYCREATOR... unless you already done that Hecco?
+		if (!HLServices.PLATFORM.isDatagen()) {
 			BFBlockEntities.registerBlockEntities();
 		}
 		BFComponents.registerComponents();
-		BFItems.registerModItems();
+		BFItems.registerItems();
 		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
-//		//BFBoats.registerBoats(); //TODO: FIX(???.. or just remove boats if all else fails)
+//		//BFBoats.registerBoats(); //TODO: Some issue with HeccoLib loading???? idk but if that is solved then we can add boats
 		BFParticles.registerParticles();
 		BFPotions.registerPotions();
-		BFTrunkPlacerTypes.register();
+		BFTrunkPlacerTypes.registerTrunkPlacers();
 		BFFeatures.register();
 		BFMenus.registerScreenHandlers();
 		BFEntities.registerEntities();
 		BFDamageTypes.registerDamageTypes();
-//		BFCompat.registerCompatContent();
+//		BFCompat.registerCompatContent(); //TODO: LAST BECAUSE THERE IS SO MUCH WORK AND THIS IS NOT PRIORITY AT ALL
 		BFItemGroups.registerItemGroups();
-		BFRegistries.registerModStuffs();
-	} //appledog - Yirmiri
+		BFRegistries.registerMiscRegistries();
+	}
+
+	public static ResourceLocation modid(String id) {
+		return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
+	}
+
+	//appledog - Yirmiri
 	//appledog - Hecco
 	//appledog - Diemond_Player (holy self-insert)
 	//appledog - Artyrian (ew)
@@ -63,4 +69,5 @@ public class BountifulFares {
 	//snommer - Dඞ 𝕲𝖗𝕬𝖓𝕯𝕸𝖆 lOpEro𝓼𝓷𝓞𝓶
 	//okay.. - mr bountifare (again)
 	//im neoing my forge rn...haheh....who else??
+	//imagine recreating a port to make the port the same codebase as the original but then you remove the thing that makes it the same as the original - a salty biRCH TREE ENJOYER
 }

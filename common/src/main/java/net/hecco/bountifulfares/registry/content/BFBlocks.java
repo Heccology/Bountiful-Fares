@@ -326,7 +326,7 @@ public class BFBlocks {
         return block1;
     }
 
-    public static void registerModBlocks() {
+    public static void registerBlocks() {
         registerTrellises();
     }
 }

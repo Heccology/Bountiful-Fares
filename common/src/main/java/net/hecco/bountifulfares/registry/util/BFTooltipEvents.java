@@ -25,6 +25,7 @@ public class BFTooltipEvents {
                 tooltip.add(2, Component.translatable("tooltip.bountifulfares.when_drunk").withStyle(ChatFormatting.GRAY));
                 tooltip.add(3, Component.translatable("tooltip.bountifulfares.removes_all_effects").withStyle(ChatFormatting.BLUE));
             }
+
             if (itemStack.getItem() == Items.HONEY_BOTTLE) {
                 tooltip.add(1, CommonComponents.EMPTY);
                 tooltip.add(2, Component.translatable("tooltip.bountifulfares.removes").withStyle(ChatFormatting.GRAY));

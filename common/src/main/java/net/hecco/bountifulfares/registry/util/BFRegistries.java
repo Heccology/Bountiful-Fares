@@ -1,30 +1,19 @@
 package net.hecco.bountifulfares.registry.util;
 
 //import net.hecco.bountifulfares.entity.FlourProjectileEntity;
-import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.definition.compat.excessive_building.ExcessiveBuildingBlocks;
-import net.hecco.bountifulfares.definition.entity.FlourProjectileEntity;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
-import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.heccolib.platform.HLServices;
-import net.hecco.heccolib.platform.services.HLRegistryHelper;
-import net.minecraft.core.Position;
 import net.minecraft.core.dispenser.BlockSource;
-import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DispenserBlock;
-
-import java.util.Objects;
 
 import static net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES;
 
 public class BFRegistries {
-    public static void registerModStuffs() {
+    public static void registerMiscRegistries() {
 //        registerStrippables();
         registerCeramicCheckeredConversions();
 //        registerFuels();

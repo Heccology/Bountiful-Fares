@@ -172,7 +172,7 @@ public class BFItems {
                 .food(new FoodProperties.Builder().nutrition(0).saturationModifier(0).build());
     }
 
-    public static void registerModItems() {
+    public static void registerItems() {
         registerTiffins();
         registerTrellises();
     }

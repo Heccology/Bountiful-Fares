@@ -9,6 +9,7 @@ import java.util.List;
 
 public class CompatUtil {
     public static final List<String> VANILLA_COLORS = List.of("red", "orange", "yellow", "lime", "green", "cyan", "light_blue", "blue", "purple", "magenta", "pink", "brown", "white", "light_gray", "gray", "black");
+
     public static boolean isItemPaintbrush(Item item) {
         for (String color : VANILLA_COLORS) {
             if (item == BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, color + "_paintbrush"))) {
@@ -20,6 +21,7 @@ public class CompatUtil {
         }
         return false;
     }
+    //TODO: Delicate Dyes :^)?
     public static int getIntColorFromPaintbrush(Item item) {
         if (item == BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, "red_paintbrush"))) {
             return 11546150;
