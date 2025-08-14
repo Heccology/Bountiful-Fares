@@ -2,6 +2,7 @@ package net.hecco.bountifulfares;
 
 
 import net.hecco.bountifulfares.appleskin.AppleskinEventHandler;
+import net.hecco.bountifulfares.definition.networking.BFPackets;
 import net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPayload;
 import net.hecco.bountifulfares.registry.BFNeoForgeLootTableModifiers;
 import net.hecco.bountifulfares.definition.networking.BFMessages;
@@ -54,59 +55,66 @@ public class NeoForgeBountifulFares {
         BFRegistries.registerDispenserBehaviors();
     }
 
-    @SubscribeEvent // on the mod event bus
+    @SubscribeEvent
     public void payloadHandlersSetup(final RegisterPayloadHandlersEvent event) {
         final PayloadRegistrar registrar = event.registrar("1");
-        registrar.playBidirectional(
-                net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPayload.ID,
-                CeramicDishEmptyPayload.CODEC,
-                new DirectionalPayloadHandler<>(
-                        (payload, ctx) -> ctx.enqueueWork(() -> {
-                            BFMessages.ceramicDishEmpty(payload);
-                        }),
-                        (payload, ctx) -> {}
-                )
-        );
-        registrar.playBidirectional(
-                net.hecco.bountifulfares.definition.networking.payload.CeramicDishItemPayload.ID,
-                net.hecco.bountifulfares.definition.networking.payload.CeramicDishItemPayload.CODEC,
-                new DirectionalPayloadHandler<>(
-                        (payload, ctx) -> ctx.enqueueWork(() -> {
-                            BFMessages.ceramicDishItem(payload);
-                        }),
-                        (payload, ctx) -> {}
-                )
-        );
-        registrar.playBidirectional(
-                net.hecco.bountifulfares.definition.networking.payload.CeramicBlockColorPayload.ID,
-                net.hecco.bountifulfares.definition.networking.payload.CeramicBlockColorPayload.CODEC,
-                new DirectionalPayloadHandler<>(
-                        (payload, ctx) -> ctx.enqueueWork(() -> {
-                            BFMessages.ceramicBlockColor(payload);
-                        }),
-                        (payload, ctx) -> {}
-                )
-        );
-        registrar.playBidirectional(
-                net.hecco.bountifulfares.definition.networking.payload.TrellisPlantPayload.ID,
-                net.hecco.bountifulfares.definition.networking.payload.TrellisPlantPayload.CODEC,
-                new DirectionalPayloadHandler<>(
-                        (payload, ctx) -> ctx.enqueueWork(() -> {
-                            BFMessages.trellisPlant(payload);
-                        }),
-                        (payload, ctx) -> {}
-                )
-        );
-        registrar.playBidirectional(
-                net.hecco.bountifulfares.definition.networking.payload.TrellisEmptyPayload.ID,
-                net.hecco.bountifulfares.definition.networking.payload.TrellisEmptyPayload.CODEC,
-                new DirectionalPayloadHandler<>(
-                        (payload, ctx) -> ctx.enqueueWork(() -> {
-                            BFMessages.trellisEmpty(payload);
-                        }),
-                        (payload, ctx) -> {}
-                )
-        );
+        if (true) {
+            registrar.playBidirectional(
+                    net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPayload.ID,
+                    CeramicDishEmptyPayload.CODEC,
+                    new DirectionalPayloadHandler<>(
+                            (payload, ctx) -> ctx.enqueueWork(() -> {
+                                BFPackets.ceramicDishEmpty(payload);
+                            }),
+                            (payload, ctx) -> {
+                            }
+                    )
+            );
+            registrar.playBidirectional(
+                    net.hecco.bountifulfares.definition.networking.payload.CeramicDishItemPayload.ID,
+                    net.hecco.bountifulfares.definition.networking.payload.CeramicDishItemPayload.CODEC,
+                    new DirectionalPayloadHandler<>(
+                            (payload, ctx) -> ctx.enqueueWork(() -> {
+                                BFPackets.ceramicDishItem(payload);
+                            }),
+                            (payload, ctx) -> {
+                            }
+                    )
+            );
+            registrar.playBidirectional(
+                    net.hecco.bountifulfares.definition.networking.payload.CeramicBlockColorPayload.ID,
+                    net.hecco.bountifulfares.definition.networking.payload.CeramicBlockColorPayload.CODEC,
+                    new DirectionalPayloadHandler<>(
+                            (payload, ctx) -> ctx.enqueueWork(() -> {
+                                BFPackets.ceramicBlockColor(payload);
+                            }),
+                            (payload, ctx) -> {
+                            }
+                    )
+            );
+            registrar.playBidirectional(
+                    net.hecco.bountifulfares.definition.networking.payload.TrellisPlantPayload.ID,
+                    net.hecco.bountifulfares.definition.networking.payload.TrellisPlantPayload.CODEC,
+                    new DirectionalPayloadHandler<>(
+                            (payload, ctx) -> ctx.enqueueWork(() -> {
+                                BFPackets.trellisPlant(payload);
+                            }),
+                            (payload, ctx) -> {
+                            }
+                    )
+            );
+            registrar.playBidirectional(
+                    net.hecco.bountifulfares.definition.networking.payload.TrellisEmptyPayload.ID,
+                    net.hecco.bountifulfares.definition.networking.payload.TrellisEmptyPayload.CODEC,
+                    new DirectionalPayloadHandler<>(
+                            (payload, ctx) -> ctx.enqueueWork(() -> {
+                                BFPackets.trellisEmpty(payload);
+                            }),
+                            (payload, ctx) -> {
+                            }
+                    )
+            );
+        }
     }
 
     @SubscribeEvent

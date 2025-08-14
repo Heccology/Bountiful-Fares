@@ -67,7 +67,9 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .parent(make_first_food);
         for (Item i : BuiltInRegistries.ITEM) {
             if (BuiltInRegistries.ITEM.getKey(i).getNamespace() == BountifulFares.MOD_ID && i.components().has(DataComponents.FOOD) && i != BFItems.DIRT_STEW.get()) {
-                eat_all_food.addCriterion(BuiltInRegistries.ITEM.getKey(i).getPath(), ConsumeItemTrigger.TriggerInstance.usedItem(ItemPredicate.Builder.item().of(i)));
+                if (!BuiltInRegistries.ITEM.getKey(i).getPath().contains("tiffin")) {
+                    eat_all_food.addCriterion(BuiltInRegistries.ITEM.getKey(i).getPath(), ConsumeItemTrigger.TriggerInstance.usedItem(ItemPredicate.Builder.item().of(i)));
+                }
             }
         }
         eat_all_food.save(consumer, BountifulFares.MOD_ID + ":eat_all_food");

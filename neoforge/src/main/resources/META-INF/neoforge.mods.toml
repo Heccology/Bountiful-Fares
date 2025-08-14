@@ -37,7 +37,7 @@ side = "BOTH"
 modId = "heccolib"
 type="required" #mandatory (Can be one of "required", "optional", "incompatible" or "discouraged")
 versionRange = "[1.0.0,)"
-ordering = "NONE"
+ordering = "BEFORE"
 side = "BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
