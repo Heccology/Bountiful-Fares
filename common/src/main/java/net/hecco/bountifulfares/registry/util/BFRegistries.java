@@ -4,6 +4,7 @@ package net.hecco.bountifulfares.registry.util;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
+import net.hecco.heccolib.lib.strippable.HLStrippableRegistry;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.world.item.ItemStack;
@@ -17,6 +18,7 @@ import static net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES;
 public class BFRegistries {
     public static void registerMiscRegistries() {
         registerCeramicCheckeredConversions();
+        registerStrippables();
 //        registerFuels();
         registerModCompostables();
         registerDispenserBehaviors();
@@ -55,25 +57,23 @@ public class BFRegistries {
         BFBlocks.REVERT_CHECKERED_CERAMIC.put(checkered, normal);
     }
 
-    public static Map<Block, Block> getStrippables() {
-        return Map.ofEntries(
-                Map.entry(BFBlocks.APPLE_LOG.get(), BFBlocks.STRIPPED_APPLE_LOG.get()),
-                Map.entry(BFBlocks.APPLE_WOOD.get(), BFBlocks.STRIPPED_APPLE_WOOD.get()),
-                Map.entry(BFBlocks.GOLDEN_APPLE_LOG.get(), BFBlocks.STRIPPED_APPLE_LOG.get()),
-                Map.entry(BFBlocks.GOLDEN_APPLE_WOOD.get(), BFBlocks.STRIPPED_APPLE_WOOD.get()),
-                Map.entry(BFBlocks.ORANGE_LOG.get(), BFBlocks.STRIPPED_ORANGE_LOG.get()),
-                Map.entry(BFBlocks.ORANGE_WOOD.get(), BFBlocks.STRIPPED_ORANGE_WOOD.get()),
-                Map.entry(BFBlocks.LEMON_LOG.get(), BFBlocks.STRIPPED_LEMON_LOG.get()),
-                Map.entry(BFBlocks.LEMON_WOOD.get(), BFBlocks.STRIPPED_LEMON_WOOD.get()),
-                Map.entry(BFBlocks.PLUM_LOG.get(), BFBlocks.STRIPPED_PLUM_LOG.get()),
-                Map.entry(BFBlocks.PLUM_WOOD.get(), BFBlocks.STRIPPED_PLUM_WOOD.get()),
-                Map.entry(BFBlocks.HOARY_LOG.get(), BFBlocks.STRIPPED_HOARY_LOG.get()),
-                Map.entry(BFBlocks.HOARY_WOOD.get(), BFBlocks.STRIPPED_HOARY_WOOD.get()),
-                Map.entry(BFBlocks.WALNUT_LOG.get(), BFBlocks.STRIPPED_WALNUT_LOG.get()),
-                Map.entry(BFBlocks.WALNUT_WOOD.get(), BFBlocks.STRIPPED_WALNUT_WOOD.get()),
-                Map.entry(BFBlocks.PALM_LOG.get(), BFBlocks.STRIPPED_PALM_LOG.get()),
-                Map.entry(BFBlocks.PALM_WOOD.get(), BFBlocks.STRIPPED_PALM_WOOD.get())
-        );
+    public static void registerStrippables() {
+        HLStrippableRegistry.add(BFBlocks.APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
+        HLStrippableRegistry.add(BFBlocks.APPLE_WOOD, BFBlocks.STRIPPED_APPLE_WOOD);
+        HLStrippableRegistry.add(BFBlocks.GOLDEN_APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
+        HLStrippableRegistry.add(BFBlocks.GOLDEN_APPLE_WOOD, BFBlocks.STRIPPED_APPLE_WOOD);
+        HLStrippableRegistry.add(BFBlocks.ORANGE_LOG, BFBlocks.STRIPPED_ORANGE_LOG);
+        HLStrippableRegistry.add(BFBlocks.ORANGE_WOOD, BFBlocks.STRIPPED_ORANGE_WOOD);
+        HLStrippableRegistry.add(BFBlocks.LEMON_LOG, BFBlocks.STRIPPED_LEMON_LOG);
+        HLStrippableRegistry.add(BFBlocks.LEMON_WOOD, BFBlocks.STRIPPED_LEMON_WOOD);
+        HLStrippableRegistry.add(BFBlocks.PLUM_LOG, BFBlocks.STRIPPED_PLUM_LOG);
+        HLStrippableRegistry.add(BFBlocks.PLUM_WOOD, BFBlocks.STRIPPED_PLUM_WOOD);
+        HLStrippableRegistry.add(BFBlocks.HOARY_LOG, BFBlocks.STRIPPED_HOARY_LOG);
+        HLStrippableRegistry.add(BFBlocks.HOARY_WOOD, BFBlocks.STRIPPED_HOARY_WOOD);
+        HLStrippableRegistry.add(BFBlocks.WALNUT_LOG, BFBlocks.STRIPPED_WALNUT_LOG);
+        HLStrippableRegistry.add(BFBlocks.WALNUT_WOOD, BFBlocks.STRIPPED_WALNUT_WOOD);
+        HLStrippableRegistry.add(BFBlocks.PALM_LOG, BFBlocks.STRIPPED_PALM_LOG);
+        HLStrippableRegistry.add(BFBlocks.PALM_WOOD, BFBlocks.STRIPPED_PALM_WOOD);
     }
 
     private static void registerModCompostables() {
