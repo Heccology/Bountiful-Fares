@@ -54,7 +54,7 @@ public class NeoForgeBountifulFares {
         BFRegistries.registerFlammables();
         BFRegistries.registerCeramicCheckeredConversions();
         BFRegistries.registerDispenserBehaviors();
-        BFRegistries.getStrippables();
+        BFRegistries.registerStrippables();
     }
 
     @SubscribeEvent
