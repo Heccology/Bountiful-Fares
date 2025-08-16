@@ -107,6 +107,16 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
         return this.particleColor == 0 ? Optional.empty() : Optional.of(this.particleColor);
     }
 
+    public int getProgress() {
+        return this.progress;
+    }
+
+    public int getMaxProgress() {
+        // lazy failsafe thing, bad artyrian bad
+        int max = BountifulFares.CONFIG.getFermentationTime() * 20;
+        return (this.maxProgress == max) ? this.maxProgress : max;
+    }
+
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider registryLookup) {
         return saveWithoutMetadata(registryLookup);

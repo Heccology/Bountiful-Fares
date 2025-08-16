@@ -3,7 +3,9 @@ package net.hecco.bountifulfares.definition.block.custom;
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.entity.FermentationVesselBlockEntity;
+import net.hecco.bountifulfares.definition.block.entity.TrellisBlockEntity;
 import net.hecco.bountifulfares.definition.block.enums.FermentationStage;
+import net.hecco.bountifulfares.definition.data.trellis.TrellisCropDefinition;
 import net.hecco.bountifulfares.definition.recipe.FermentationRecipe;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFParticles;
@@ -11,6 +13,7 @@ import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.misc.BFRecipes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -209,5 +212,24 @@ public class FermentationVesselBlock extends BaseEntityBlock implements SimpleWa
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level world, BlockState state, BlockEntityType<T> type) {
         return createTickerHelper(type, BFBlockEntities.FERMENTATION_VESSEL_BLOCK_ENTITY.get(), (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+    }
+
+    protected boolean hasAnalogOutputSignal(BlockState state) {
+        return true;
+    }
+
+    protected int getAnalogOutputSignal(BlockState blockState, Level level, BlockPos pos) {
+        int MAX_COMP = 15;
+        if (level.getBlockEntity(pos) instanceof FermentationVesselBlockEntity entity) {
+            if (
+                    blockState.getValue(FermentationVesselBlock.FERMENTATION_STAGE) == FermentationStage.FERMENTED ||
+                    blockState.getValue(FermentationVesselBlock.FERMENTATION_STAGE) == FermentationStage.FERMENTING
+            ) {
+                float amnt = ((float) entity.getProgress() / (float) entity.getMaxProgress());
+                return Math.clamp(Math.round(MAX_COMP * amnt), 1, MAX_COMP);
+            }
+        }
+
+        return 0;
     }
 }

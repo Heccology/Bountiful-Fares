@@ -7,6 +7,7 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -45,6 +46,8 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
+
+import javax.xml.crypto.Data;
 
 public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterloggedBlock, CeramicDishBlockInterface {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -196,6 +199,27 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
             return Fluids.WATER.getSource(false);
         }
         return super.getFluidState(state);
+    }
+
+    protected boolean hasAnalogOutputSignal(BlockState state) {
+        return true;
+    }
+
+    protected int getAnalogOutputSignal(BlockState blockState, Level level, BlockPos pos) {
+        if (level.getBlockEntity(pos) instanceof CeramicDishBlockEntity blockEntity) {
+            ItemStack dishItem = blockEntity.getItem(0);
+
+            if (!dishItem.isEmpty()) {
+                if (dishItem.has(DataComponents.FOOD)) {
+                    int MAX_COMP = 15;
+                    float amnt = ((float)dishItem.get(DataComponents.FOOD).nutrition() / 20.0F);
+                    return Math.clamp(Math.round(MAX_COMP * amnt), 1, MAX_COMP);
+                }
+                else return 1;
+            }
+            else return 0;
+        }
+        else return 0;
     }
 
     public void chorusTeleport(Level world, LivingEntity user) {

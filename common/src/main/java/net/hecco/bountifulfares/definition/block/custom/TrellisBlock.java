@@ -1,12 +1,14 @@
 package net.hecco.bountifulfares.definition.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.hecco.bountifulfares.definition.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.TrellisBlockEntity;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisCropDefinition;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisPlantDefinition;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -212,5 +214,26 @@ public class TrellisBlock extends HorizontalDirectionalBlock implements EntityBl
                 entity.setStage(entity.getStage() + 1);
             }
         }
+    }
+
+    protected boolean hasAnalogOutputSignal(BlockState state) {
+        return true;
+    }
+
+    protected int getAnalogOutputSignal(BlockState blockState, Level level, BlockPos pos) {
+        if (level.getBlockEntity(pos) instanceof TrellisBlockEntity blockEntity && !blockEntity.canPlantOn()) {
+            if (CROPS.containsKey(blockEntity.getPlant())) {
+                TrellisCropDefinition crop = CROPS.get(blockEntity.getPlant());
+
+                int MAX_COMP = 15;
+                float amnt = ((float)blockEntity.getStage() / (float)crop.stages());
+                return Math.clamp(Math.round(MAX_COMP * amnt), 1, MAX_COMP);
+            }
+            else if (PLANTS.containsKey(blockEntity.getPlant())) {
+                return 15;
+            }
+        }
+
+        return 0;
     }
 }
