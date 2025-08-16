@@ -6,11 +6,19 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
@@ -427,6 +435,21 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(BFItemTags.FOOD_CONTAINERS_TIFFINS_CAN_HOLD)
                 .add(Items.BOWL)
+        ;
+
+        // Adds all tiffins automatically
+        List<ResourceKey<Item>> tiffins = new ArrayList<>();
+        for (Supplier<Item> item : BFItems.TIFFINS.values()) {
+            Optional<ResourceKey<Item>> key = BuiltInRegistries.ITEM.getResourceKey(item.get());
+            key.ifPresent(tiffins::add);
+        }
+        getOrCreateTagBuilder(BFItemTags.TIFFINS)
+                .addAll(tiffins)
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.CERAMIC_DISH_BLACKLIST)
+                .addTag(BFItemTags.TIFFINS)
+                .addOptional(ResourceLocation.fromNamespaceAndPath("supplementaries", "lunch_basket"))
         ;
     }
 }

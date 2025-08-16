@@ -3,8 +3,10 @@ package net.hecco.bountifulfares.definition.block.custom;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.definition.block.interfaces.CeramicDishBlockInterface;
+import net.hecco.bountifulfares.definition.item.custom.StackableBowlFoodItem;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -15,6 +17,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -25,6 +28,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -131,7 +135,13 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
                             itementity.setDeltaMovement(0.0, 0.2, 0.0);
                             world.addFreshEntity(itementity);
                         }
-                        else if (stackEntity.getItem().hasCraftingRemainingItem()) {
+                        /*
+                            NOTE ABOUT `!(stackEntity.getItem() instanceof StackableBowlFoodItem)`:
+                                You should probably make the food data component actually just return a bowl.
+                                If you do that, remove the check for StackableBowlFoodItemm
+                                - Artyrian
+                        */
+                        else if (stackEntity.getItem().hasCraftingRemainingItem() && !(stackEntity.getItem() instanceof StackableBowlFoodItem)) {
                             ItemEntity itementity = new ItemEntity(world, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, new ItemStack(stackEntity.getItem().getCraftingRemainingItem()));
                             itementity.setDeltaMovement(0.0, 0.2, 0.0);
                             world.addFreshEntity(itementity);
@@ -151,13 +161,26 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
 
     public static boolean canEatOnDish(ItemStack stack) {
         if (stack.getComponents().get(DataComponents.FOOD) != null) {
-            if (BountifulFares.CONFIG.isContainerFoodsEatableOnDish()) {
-                return true;
-            } else if (!stack.getItem().hasCraftingRemainingItem()) {
-                return true;
-            }
+            Item item = stack.getItem();
+            boolean eatOnDishEnabled = BountifulFares.CONFIG.isContainerFoodsEatableOnDish();
+            boolean hasRemainder = stack.getItem().hasCraftingRemainingItem();
+            boolean hasFoodTransform = (stack.getComponents().get(DataComponents.FOOD).usingConvertsTo().isPresent());
+
+            if (!eatOnDishEnabled && (hasRemainder || hasFoodTransform)) { return false; }
+            else if (stack.is(Items.PUMPKIN_PIE) && BountifulFares.CONFIG.enablePlaceablePumpkinPie) { return false; }
+            else if (!stack.is(BFItemTags.CERAMIC_DISH_BLACKLIST)) { return true; }
         }
         return false;
+
+        // old code prior to this - artyrian
+        //if (stack.getComponents().get(DataComponents.FOOD) != null) {
+        //    if (BountifulFares.CONFIG.isContainerFoodsEatableOnDish()) {
+        //        return true;
+        //    } else if (!stack.getItem().hasCraftingRemainingItem()) {
+        //        return true;
+        //    }
+        //}
+        //return false;
     }
 
 
@@ -220,7 +243,7 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
             ItemStack dishItem = blockEntity.getItem(0);
 
             if (!dishItem.isEmpty()) {
-                if (dishItem.has(DataComponents.FOOD)) {
+                if (dishItem.has(DataComponents.FOOD) && canEatOnDish(dishItem)) {
                     int MAX_COMP = 15;
                     float amnt = ((float)dishItem.get(DataComponents.FOOD).nutrition() / 20.0F);
                     return Math.clamp(Math.round(MAX_COMP * amnt), 1, MAX_COMP);

@@ -65,14 +65,6 @@
       },
       "trigger": "minecraft:consume_item"
     },
-    "black_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:black_shulker_tiffin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
     "black_tea_bottle": {
       "conditions": {
         "item": {
@@ -81,26 +73,10 @@
       },
       "trigger": "minecraft:consume_item"
     },
-    "blue_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:blue_shulker_tiffin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
     "bountiful_stew": {
       "conditions": {
         "item": {
           "items": "bountifulfares:bountiful_stew"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "brown_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:brown_shulker_tiffin"
         }
       },
       "trigger": "minecraft:consume_item"
@@ -241,14 +217,6 @@
       },
       "trigger": "minecraft:consume_item"
     },
-    "cyan_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:cyan_shulker_tiffin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
     "elderberries": {
       "conditions": {
         "item": {
@@ -277,22 +245,6 @@
       "conditions": {
         "item": {
           "items": "bountifulfares:forest_medley"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "gray_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:gray_shulker_tiffin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "green_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:green_shulker_tiffin"
         }
       },
       "trigger": "minecraft:consume_item"
@@ -385,38 +337,6 @@
       },
       "trigger": "minecraft:consume_item"
     },
-    "light_blue_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:light_blue_shulker_tiffin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "light_gray_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:light_gray_shulker_tiffin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "lime_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:lime_shulker_tiffin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "magenta_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:magenta_shulker_tiffin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
     "maize": {
       "conditions": {
         "item": {
@@ -489,14 +409,6 @@
       },
       "trigger": "minecraft:consume_item"
     },
-    "orange_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:orange_shulker_tiffin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
     "passion_custard": {
       "conditions": {
         "item": {
@@ -525,14 +437,6 @@
       "conditions": {
         "item": {
           "items": "bountifulfares:pickled_spongekin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "pink_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:pink_shulker_tiffin"
         }
       },
       "trigger": "minecraft:consume_item"
@@ -585,34 +489,10 @@
       },
       "trigger": "minecraft:consume_item"
     },
-    "purple_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:purple_shulker_tiffin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "red_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:red_shulker_tiffin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
     "sea_salad": {
       "conditions": {
         "item": {
           "items": "bountifulfares:sea_salad"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:shulker_tiffin"
         }
       },
       "trigger": "minecraft:consume_item"
@@ -693,22 +573,6 @@
       "conditions": {
         "item": {
           "items": "bountifulfares:warped_chow"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "white_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:white_shulker_tiffin"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "yellow_shulker_tiffin": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:yellow_shulker_tiffin"
         }
       },
       "trigger": "minecraft:consume_item"
@@ -944,57 +808,6 @@
     ],
     [
       "candied_plum"
-    ],
-    [
-      "shulker_tiffin"
-    ],
-    [
-      "white_shulker_tiffin"
-    ],
-    [
-      "orange_shulker_tiffin"
-    ],
-    [
-      "magenta_shulker_tiffin"
-    ],
-    [
-      "light_blue_shulker_tiffin"
-    ],
-    [
-      "yellow_shulker_tiffin"
-    ],
-    [
-      "lime_shulker_tiffin"
-    ],
-    [
-      "pink_shulker_tiffin"
-    ],
-    [
-      "gray_shulker_tiffin"
-    ],
-    [
-      "light_gray_shulker_tiffin"
-    ],
-    [
-      "cyan_shulker_tiffin"
-    ],
-    [
-      "purple_shulker_tiffin"
-    ],
-    [
-      "blue_shulker_tiffin"
-    ],
-    [
-      "brown_shulker_tiffin"
-    ],
-    [
-      "green_shulker_tiffin"
-    ],
-    [
-      "red_shulker_tiffin"
-    ],
-    [
-      "black_shulker_tiffin"
     ]
   ],
   "sends_telemetry_event": true

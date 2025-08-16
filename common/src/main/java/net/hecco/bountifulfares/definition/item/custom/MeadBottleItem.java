@@ -26,23 +26,10 @@ public class MeadBottleItem extends LiquidBottleItem {
         this.effects = effects;
     }
     public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity user) {
-        super.finishUsingItem(stack, world, user);
         if (user.getEffect(MobEffects.POISON) != null) {
             user.removeEffect(MobEffects.POISON);
         }
-        if (stack.isEmpty()) {
-            return new ItemStack(Items.GLASS_BOTTLE);
-        } else {
-            if (user instanceof Player && !((Player)user).getAbilities().instabuild) {
-                ItemStack itemStack = new ItemStack(Items.GLASS_BOTTLE);
-                Player playerEntity = (Player)user;
-                if (!playerEntity.getInventory().add(itemStack)) {
-                    playerEntity.drop(itemStack, false);
-                }
-            }
-
-            return stack;
-        }
+        return super.finishUsingItem(stack, world, user);
     }
 
     @Override

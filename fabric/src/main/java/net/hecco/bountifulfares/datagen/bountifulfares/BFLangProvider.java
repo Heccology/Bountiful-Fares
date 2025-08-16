@@ -306,7 +306,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "painting.bountifulfares.unpleasant_tiles.author", "Hecco");
 
         generate(translationBuilder, "warning.bountifulfares.fermentation_vessel.minecraft:glass_bottle", "Use a Glass Bottle to collect this");
-        generate(translationBuilder, "warning.bountifulfares.fermentation_vessel.bountifulfares:jar", "Use a Jar to collect this");
+        generate(translationBuilder, "warning.bountifulfares.fermentation_vessel.bountifulfares:jar", "Use a Cup to collect this");
         generate(translationBuilder, "warning.bountifulfares.fermentation_vessel.minecraft:bucket", "Use a Bucket to collect this");
         generate(translationBuilder, "warning.bountifulfares.fermentation_vessel.minecraft:bowl", "Use a Bowl to collect this");
 
@@ -535,6 +535,8 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateTag(translationBuilder, BFItemTags.PICKETS, "Pickets");
         generateTag(translationBuilder, BFItemTags.MULCH, "Mulches");
         generateTag(translationBuilder, BFItemTags.SUGAR_INGREDIENTS, "Sugar Ingredients");
+        generateTag(translationBuilder, BFItemTags.CERAMIC_DISH_BLACKLIST, "Inedible On Ceramic Dish");
+        generateTag(translationBuilder, BFItemTags.TIFFINS, "Tiffins");
 
         generate(translationBuilder, "emi.category.bountifulfares.milling", "Milling");
         generate(translationBuilder, "emi.category.bountifulfares.fermenting", "Fermenting");
