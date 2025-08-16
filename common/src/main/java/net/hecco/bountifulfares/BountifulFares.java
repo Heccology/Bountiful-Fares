@@ -68,4 +68,5 @@ public class BountifulFares {
 	/* ill reset it all to zero - artyrian
 											also what the sigma */
 	//🍎
+	//if you spell appledog with a b... you can call that bappledog
 }
