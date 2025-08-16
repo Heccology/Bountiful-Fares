@@ -25,8 +25,8 @@ import java.util.List;
 @Mixin(EffectRenderingInventoryScreen.class)
 public class AbstractInventoryMixin {
 
-    @Shadow @Final private static ResourceLocation EFFECT_BACKGROUND_LARGE_SPRITE = ResourceLocation.withDefaultNamespace("container/inventory/effect_background_large");
-    @Shadow @Final private static ResourceLocation EFFECT_BACKGROUND_SMALL_SPRITE = ResourceLocation.withDefaultNamespace("container/inventory/effect_background_small");
+    @Shadow private static final ResourceLocation EFFECT_BACKGROUND_LARGE_SPRITE = ResourceLocation.withDefaultNamespace("container/inventory/effect_background_large");
+    @Shadow private static final ResourceLocation EFFECT_BACKGROUND_SMALL_SPRITE = ResourceLocation.withDefaultNamespace("container/inventory/effect_background_small");
     @Unique
     private static final ResourceLocation ACIDFIED_EFFECT_BACKGROUND_SMALL_TEXTURE = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "container/inventory/acidified_effect_background_small");
     @Unique

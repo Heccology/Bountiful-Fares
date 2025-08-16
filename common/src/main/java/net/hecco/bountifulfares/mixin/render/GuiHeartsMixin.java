@@ -21,7 +21,7 @@ import java.util.Arrays;
 // private final static synthetic [Lnet/minecraft/client/gui/hud/InGameHud$HeartType; field_33952
 // If the field is a different number, change the field ID here to match.
 @Debug(export = true)
-@Mixin(targets = "net.minecraft.client.gui.Gui$HeartType")
+@Mixin(Gui.HeartType.class)
 public abstract class GuiHeartsMixin
 {
     // Allows new entries.
