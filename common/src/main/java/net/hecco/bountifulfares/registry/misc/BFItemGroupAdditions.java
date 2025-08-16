@@ -6,6 +6,7 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.heccolib.platform.HLServices;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -500,7 +501,9 @@ public class BFItemGroupAdditions {
             );
         }
 
-        OP_BLOCKS.add(new Pair<>(Items.BARRIER, BFBlocks.SOLID_CERAMIC.get().asItem().getDefaultInstance()));
+        if (HLServices.PLATFORM.getPlatformName() == "Fabric" || Minecraft.getInstance().options.operatorItemsTab().get()) {
+            OP_BLOCKS.add(new Pair<>(Items.BARRIER, BFBlocks.SOLID_CERAMIC.get().asItem().getDefaultInstance()));
+        }
 
         if (HLServices.PLATFORM.getPlatformName() == "Fabric") {
             HLServices.REGISTRY.addItemsToItemGroup(

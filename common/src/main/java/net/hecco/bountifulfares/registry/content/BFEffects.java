@@ -22,9 +22,9 @@ public class BFEffects {
     //    public static final StatusEffect GORGING = registerStatusEffect("gorging", new GorgingEffect(StatusEffectCategory.NEUTRAL, 0x8d6f3a).addAttributeModifier(EntityAttributes.GENERIC_MOVEMENT_SPEED, "91AEAA56-376B-4498-935B-2F7F68070635", 0.13, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
 
     public static final Holder<MobEffect> ENRICHMENT = registerStatusEffect("enrichment", () -> new EnrichmentEffect(MobEffectCategory.BENEFICIAL, 0xffd48f)
-            .addAttributeModifier(Attributes.MOVEMENT_SPEED, BountifulFares.modid("effect.speed"), 0.08, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-            .addAttributeModifier(Attributes.ATTACK_SPEED, BountifulFares.modid("effect.attack_speed"), 0.08, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
-            .addAttributeModifier(Attributes.ATTACK_DAMAGE, BountifulFares.modid("effect.attack"), 1, AttributeModifier.Operation.ADD_VALUE)
+            .addAttributeModifier(Attributes.MOVEMENT_SPEED, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "effect.speed"), 0.08, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+            .addAttributeModifier(Attributes.ATTACK_SPEED, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "effect.attack_speed"), 0.08, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL)
+            .addAttributeModifier(Attributes.ATTACK_DAMAGE, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "effect.attack"), 1, AttributeModifier.Operation.ADD_VALUE)
     );
 
     public static final Holder<MobEffect> RESTORATION = registerStatusEffect("restoration", () -> new RestorationEffect(MobEffectCategory.BENEFICIAL, 0xFF4B19));

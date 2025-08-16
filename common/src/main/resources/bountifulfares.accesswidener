@@ -5,5 +5,3 @@ accessible class net/minecraft/world/level/levelgen/structure/structures/Woodlan
 accessible class net/minecraft/world/level/levelgen/structure/structures/WoodlandMansionPieces$SecondFloorRoomCollection
 accessible class net/minecraft/world/level/block/state/properties/NoteBlockInstrument$Type
 accessible field net/minecraft/world/item/AxeItem STRIPPABLES Ljava/util/Map;
-
-accessible method java/lang/Enum ordinal ()I

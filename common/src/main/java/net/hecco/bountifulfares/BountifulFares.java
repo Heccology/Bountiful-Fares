@@ -5,7 +5,6 @@ import net.hecco.bountifulfares.registry.misc.*;
 import net.hecco.bountifulfares.registry.util.BFDamageTypes;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
 import net.hecco.heccolib.platform.HLServices;
-import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,10 +54,6 @@ public class BountifulFares {
 		BFRegistries.registerMiscRegistries();
 	}
 
-	public static ResourceLocation modid(String id) {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, id);
-	}
-
 	//appledog - Yirmiri
 	//appledog - Hecco
 	//appledog - Diemond_Player (holy self-insert)
@@ -72,4 +67,5 @@ public class BountifulFares {
 	//imagine recreating a port to make the port the same codebase as the original but then you remove the thing that makes it the same as the original - a salty biRCH TREE ENJOYER
 	/* ill reset it all to zero - artyrian
 											also what the sigma */
+	//🍎
 }
