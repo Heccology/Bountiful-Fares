@@ -20,8 +20,10 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Fox;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -123,13 +125,21 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
                                     (world.random.nextFloat() - 0.5) / 8);
                         }
 
+                        if (check != null && check.usingConvertsTo().isPresent()) {
+                            Item item = check.usingConvertsTo().get().getItem();
+                            ItemEntity itementity = new ItemEntity(world, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, new ItemStack(item));
+                            itementity.setDeltaMovement(0.0, 0.2, 0.0);
+                            world.addFreshEntity(itementity);
+                        }
+                        else if (stackEntity.getItem().hasCraftingRemainingItem()) {
+                            ItemEntity itementity = new ItemEntity(world, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, new ItemStack(stackEntity.getItem().getCraftingRemainingItem()));
+                            itementity.setDeltaMovement(0.0, 0.2, 0.0);
+                            world.addFreshEntity(itementity);
+                        }
+
                         stackEntity.getItem().finishUsingItem(stackEntity, world, player);
 
-                        if (stackEntity.getItem().hasCraftingRemainingItem()) {
-                            blockEntity.insertItem(new ItemStack(stackEntity.getItem().getCraftingRemainingItem()));
-                        } else {
-                            blockEntity.removeItem();
-                        }
+                        blockEntity.removeItem();
                         blockEntity.setChanged();
                         return ItemInteractionResult.SUCCESS;
                     }
