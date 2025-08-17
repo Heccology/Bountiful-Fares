@@ -71,6 +71,7 @@ public class BFItems {
     public static final Supplier<Item> MAIZE_SEEDS = registerItem("maize_seeds", () -> new ItemNameBlockItem(BFBlocks.MAIZE_CROP.get(), new Item.Properties()));
     public static final Supplier<Item> POPPED_MAIZE = registerItem("popped_maize", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.5f).fast().build())));
     public static final Supplier<Item> COOKED_EGG = registerItem("cooked_egg", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(1.0f).fast().build())));
+    public static final Supplier<Item> PICKLED_BEETROOT = registerItem("pickled_beetroot", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.8f).build())));
     public static final Supplier<Item> LEEK = registerItem("leek", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(3).saturationModifier(0.6f).build())));
     public static final Supplier<Item> LEEK_SEEDS = registerItem("leek_seeds", () -> new ItemNameBlockItem(BFBlocks.LEEKS.get(), new Item.Properties()));
     public static final Supplier<Item> SPONGEKIN_SEEDS = registerItem("spongekin_seeds", () -> new ItemNameBlockItem(BFBlocks.SPONGEKIN_STEM.get(), new Item.Properties()));

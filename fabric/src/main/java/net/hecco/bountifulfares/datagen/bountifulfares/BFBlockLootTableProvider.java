@@ -122,6 +122,15 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .add(this.applyExplosionDecay(BFBlocks.MAIZE_CROP.get(), LootItem.lootTableItem(BFItems.MAIZE.get())))));
         add(BFBlocks.FELDSPAR_BRICK_SLAB.get(), createSlabItemTable(BFBlocks.FELDSPAR_BRICK_SLAB.get()));
         add(BFBlocks.TINGED_GLASS.get(), createSilkTouchOnlyTable(BFBlocks.TINGED_GLASS.get()));
+        add(BFBlocks.SPONGEKIN_SPROUT.get(), block -> this.createSilkTouchOrShearsDispatchTable(
+                    block,
+                    this.applyExplosionDecay(
+                            block,
+                            LootItem.lootTableItem(BFItems.SPONGEKIN_SEEDS.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))
+                            )
+                    )
+            )
+        );
         dropOther(BFBlocks.SPONGEKIN_SPROUT.get(), BFItems.SPONGEKIN_SEEDS.get());
         add(BFBlocks.PRISMARINE_BLOSSOM.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(3.0F))

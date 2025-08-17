@@ -433,6 +433,14 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "pickled_beetroot": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:pickled_beetroot"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "pickled_spongekin": {
       "conditions": {
         "item": {
@@ -667,6 +675,9 @@
     ],
     [
       "cooked_egg"
+    ],
+    [
+      "pickled_beetroot"
     ],
     [
       "leek"

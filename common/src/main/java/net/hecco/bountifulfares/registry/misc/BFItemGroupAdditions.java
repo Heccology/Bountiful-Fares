@@ -363,10 +363,12 @@ public class BFItemGroupAdditions {
         FOOD_AND_DRINKS.add(new Pair<>(Items.BAKED_POTATO, BFItems.MUSHROOM_STUFFED_POTATO.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.MUSHROOM_STUFFED_POTATO.get(), BFItems.BERRY_STUFFED_POTATO.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.BERRY_STUFFED_POTATO.get(), BFItems.MAIZE_STUFFED_POTATO.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(Items.BEETROOT, BFItems.MAIZE.get().asItem().getDefaultInstance()));
+        FOOD_AND_DRINKS.add(new Pair<>(Items.BEETROOT, BFItems.PICKLED_BEETROOT.get().asItem().getDefaultInstance()));
+        FOOD_AND_DRINKS.add(new Pair<>(BFItems.PICKLED_BEETROOT.get(), BFItems.MAIZE.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.MAIZE.get(), BFItems.LEEK.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.LEEK.get(), BFItems.WALNUT.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.WALNUT.get(), BFItems.POPPED_MAIZE.get().asItem().getDefaultInstance()));
+        FOOD_AND_DRINKS.add(new Pair<>(Items.PUFFERFISH, BFItems.COOKED_EGG.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(Items.BREAD, BFItems.MAIZE_BREAD.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.MAIZE_BREAD.get(), BFBlocks.ARTISAN_BREAD.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(Items.COOKIE, BFItems.WALNUT_COOKIE.get().asItem().getDefaultInstance()));
