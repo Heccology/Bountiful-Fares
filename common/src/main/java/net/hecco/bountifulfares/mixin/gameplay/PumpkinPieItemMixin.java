@@ -35,10 +35,12 @@ public class PumpkinPieItemMixin {
         }
     }
 
+
     @ModifyVariable(method = "use", at = @At(
             value = "STORE",
             target = "Lnet/minecraft/item/ItemStack;get(Lnet/minecraft/component/ComponentType;)Ljava/lang/Object;",
-            shift = At.Shift.AFTER)
+            shift = At.Shift.AFTER,
+            remap = false)
     )
     private FoodProperties bf_pumpkinPiePass(FoodProperties original) {
         if (original == Foods.PUMPKIN_PIE && BountifulFares.CONFIG.enablePlaceablePumpkinPie) {
