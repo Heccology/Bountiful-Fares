@@ -4,11 +4,12 @@ package net.hecco.bountifulfares.registry.util;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
-import net.hecco.heccolib.lib.strippable.HLStrippableRegistry;
+import net.hecco.heccolib.lib.toolAction.HLToolActions;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 
 import java.util.Map;
@@ -19,6 +20,8 @@ public class BFRegistries {
     public static void registerMiscRegistries() {
         registerCeramicCheckeredConversions();
         registerStrippables();
+        registerTillables();
+        registerPathables();
 //        registerFuels();
         registerModCompostables();
         registerDispenserBehaviors();
@@ -58,22 +61,30 @@ public class BFRegistries {
     }
 
     public static void registerStrippables() {
-        HLStrippableRegistry.add(BFBlocks.APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
-        HLStrippableRegistry.add(BFBlocks.APPLE_WOOD, BFBlocks.STRIPPED_APPLE_WOOD);
-        HLStrippableRegistry.add(BFBlocks.GOLDEN_APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
-        HLStrippableRegistry.add(BFBlocks.GOLDEN_APPLE_WOOD, BFBlocks.STRIPPED_APPLE_WOOD);
-        HLStrippableRegistry.add(BFBlocks.ORANGE_LOG, BFBlocks.STRIPPED_ORANGE_LOG);
-        HLStrippableRegistry.add(BFBlocks.ORANGE_WOOD, BFBlocks.STRIPPED_ORANGE_WOOD);
-        HLStrippableRegistry.add(BFBlocks.LEMON_LOG, BFBlocks.STRIPPED_LEMON_LOG);
-        HLStrippableRegistry.add(BFBlocks.LEMON_WOOD, BFBlocks.STRIPPED_LEMON_WOOD);
-        HLStrippableRegistry.add(BFBlocks.PLUM_LOG, BFBlocks.STRIPPED_PLUM_LOG);
-        HLStrippableRegistry.add(BFBlocks.PLUM_WOOD, BFBlocks.STRIPPED_PLUM_WOOD);
-        HLStrippableRegistry.add(BFBlocks.HOARY_LOG, BFBlocks.STRIPPED_HOARY_LOG);
-        HLStrippableRegistry.add(BFBlocks.HOARY_WOOD, BFBlocks.STRIPPED_HOARY_WOOD);
-        HLStrippableRegistry.add(BFBlocks.WALNUT_LOG, BFBlocks.STRIPPED_WALNUT_LOG);
-        HLStrippableRegistry.add(BFBlocks.WALNUT_WOOD, BFBlocks.STRIPPED_WALNUT_WOOD);
-        HLStrippableRegistry.add(BFBlocks.PALM_LOG, BFBlocks.STRIPPED_PALM_LOG);
-        HLStrippableRegistry.add(BFBlocks.PALM_WOOD, BFBlocks.STRIPPED_PALM_WOOD);
+        HLToolActions.addStrippable(BFBlocks.APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
+        HLToolActions.addStrippable(BFBlocks.APPLE_WOOD, BFBlocks.STRIPPED_APPLE_WOOD);
+        HLToolActions.addStrippable(BFBlocks.GOLDEN_APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
+        HLToolActions.addStrippable(BFBlocks.GOLDEN_APPLE_WOOD, BFBlocks.STRIPPED_APPLE_WOOD);
+        HLToolActions.addStrippable(BFBlocks.ORANGE_LOG, BFBlocks.STRIPPED_ORANGE_LOG);
+        HLToolActions.addStrippable(BFBlocks.ORANGE_WOOD, BFBlocks.STRIPPED_ORANGE_WOOD);
+        HLToolActions.addStrippable(BFBlocks.LEMON_LOG, BFBlocks.STRIPPED_LEMON_LOG);
+        HLToolActions.addStrippable(BFBlocks.LEMON_WOOD, BFBlocks.STRIPPED_LEMON_WOOD);
+        HLToolActions.addStrippable(BFBlocks.PLUM_LOG, BFBlocks.STRIPPED_PLUM_LOG);
+        HLToolActions.addStrippable(BFBlocks.PLUM_WOOD, BFBlocks.STRIPPED_PLUM_WOOD);
+        HLToolActions.addStrippable(BFBlocks.HOARY_LOG, BFBlocks.STRIPPED_HOARY_LOG);
+        HLToolActions.addStrippable(BFBlocks.HOARY_WOOD, BFBlocks.STRIPPED_HOARY_WOOD);
+        HLToolActions.addStrippable(BFBlocks.WALNUT_LOG, BFBlocks.STRIPPED_WALNUT_LOG);
+        HLToolActions.addStrippable(BFBlocks.WALNUT_WOOD, BFBlocks.STRIPPED_WALNUT_WOOD);
+        HLToolActions.addStrippable(BFBlocks.PALM_LOG, BFBlocks.STRIPPED_PALM_LOG);
+        HLToolActions.addStrippable(BFBlocks.PALM_WOOD, BFBlocks.STRIPPED_PALM_WOOD);
+    }
+
+    public static void registerPathables() {
+        HLToolActions.addPathable(BFBlocks.GRASSY_DIRT.get(), Blocks.DIRT_PATH);
+    }
+
+    public static void registerTillables() {
+        HLToolActions.addTillable(BFBlocks.GRASSY_DIRT.get(), Blocks.FARMLAND);
     }
 
     private static void registerModCompostables() {
