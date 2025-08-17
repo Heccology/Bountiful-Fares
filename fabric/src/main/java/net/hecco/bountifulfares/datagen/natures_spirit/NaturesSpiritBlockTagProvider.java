@@ -3,8 +3,6 @@ package net.hecco.bountifulfares.datagen.natures_spirit;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 
 import java.util.concurrent.CompletableFuture;
 

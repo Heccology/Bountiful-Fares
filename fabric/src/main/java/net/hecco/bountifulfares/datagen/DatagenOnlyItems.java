@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.datagen;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

@@ -7,8 +7,6 @@ import net.minecraft.data.recipes.RecipeOutput;
 
 import java.util.concurrent.CompletableFuture;
 
-import static net.hecco.bountifulfares.datagen.bountifulfares.BFRecipeProvider.offerPicketsRecipe;
-
 public class NaturesSpiritRecipeProvider extends FabricRecipeProvider {
     public NaturesSpiritRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);

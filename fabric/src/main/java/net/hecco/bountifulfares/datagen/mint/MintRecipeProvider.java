@@ -2,21 +2,11 @@ package net.hecco.bountifulfares.datagen.mint;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 
 import java.util.concurrent.CompletableFuture;
-
-import static net.hecco.bountifulfares.BountifulFares.ELS_AND_LS_DYES_MOD_ID;
-import static net.hecco.bountifulfares.datagen.bountifulfares.BFRecipeProvider.offerPicketsRecipe;
-import static net.minecraft.data.recipes.RecipeBuilder.getDefaultRecipeId;
 
 public class MintRecipeProvider extends FabricRecipeProvider {
     public MintRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {

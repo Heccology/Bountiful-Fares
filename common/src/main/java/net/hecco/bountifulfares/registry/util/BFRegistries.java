@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.registry.util;
 
 //import net.hecco.bountifulfares.entity.FlourProjectileEntity;
+
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
@@ -11,8 +12,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
-
-import java.util.Map;
 
 import static net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES;
 

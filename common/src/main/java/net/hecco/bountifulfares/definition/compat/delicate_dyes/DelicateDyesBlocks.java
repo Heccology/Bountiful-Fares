@@ -10,7 +10,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Supplier;
 
-import static net.hecco.bountifulfares.BountifulFares.*;
+import static net.hecco.bountifulfares.BountifulFares.DELICATE_DYES_MOD_ID;
+import static net.hecco.bountifulfares.BountifulFares.DUNGEONS_DELIGHT_MOD_ID;
 import static net.hecco.bountifulfares.registry.misc.BFCompat.compatBlocks;
 
 public class DelicateDyesBlocks {

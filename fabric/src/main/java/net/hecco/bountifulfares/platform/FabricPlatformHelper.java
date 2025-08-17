@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.platform;
 
-import net.hecco.bountifulfares.definition.platform.services.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;
+import net.hecco.bountifulfares.definition.platform.services.IPlatformHelper;
 
 public class FabricPlatformHelper implements IPlatformHelper {
 

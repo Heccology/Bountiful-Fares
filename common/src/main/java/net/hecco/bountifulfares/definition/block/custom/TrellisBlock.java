@@ -1,14 +1,12 @@
 package net.hecco.bountifulfares.definition.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.hecco.bountifulfares.definition.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.TrellisBlockEntity;
-import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisCropDefinition;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisPlantDefinition;
+import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -39,7 +37,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TrellisBlock extends HorizontalDirectionalBlock implements EntityBlock, SimpleWaterloggedBlock, BonemealableBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;

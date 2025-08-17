@@ -14,7 +14,7 @@ import net.minecraft.world.level.material.MapColor;
 
 import java.util.function.Supplier;
 
-import static net.hecco.bountifulfares.BountifulFares.*;
+import static net.hecco.bountifulfares.BountifulFares.EXCESSIVE_BUILDING_MOD_ID;
 import static net.hecco.bountifulfares.registry.misc.BFCompat.compatBlocks;
 
 public class ExcessiveBuildingBlocks {

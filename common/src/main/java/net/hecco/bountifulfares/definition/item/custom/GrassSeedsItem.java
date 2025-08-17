@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.definition.item.custom;
 
-import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -12,11 +11,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import org.apache.commons.lang3.tuple.Triple;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class GrassSeedsItem extends Item {
 

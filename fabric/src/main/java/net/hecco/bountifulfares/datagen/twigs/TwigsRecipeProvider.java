@@ -2,13 +2,9 @@ package net.hecco.bountifulfares.datagen.twigs;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.world.item.Items;
+
 import java.util.concurrent.CompletableFuture;
 
 public class TwigsRecipeProvider extends FabricRecipeProvider {

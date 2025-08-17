@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.definition.block.custom;
 
-import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;

@@ -2,11 +2,11 @@ package net.hecco.bountifulfares.registry.misc;
 
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.mixin.util.TrunkPlacerInvoker;
 import net.hecco.bountifulfares.definition.world.GoldenAppleTrunkPlacer;
 import net.hecco.bountifulfares.definition.world.HoaryTrunkPlacer;
 import net.hecco.bountifulfares.definition.world.PalmTrunkPlacer;
 import net.hecco.bountifulfares.definition.world.WalnutTrunkPlacer;
+import net.hecco.bountifulfares.mixin.util.TrunkPlacerInvoker;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;

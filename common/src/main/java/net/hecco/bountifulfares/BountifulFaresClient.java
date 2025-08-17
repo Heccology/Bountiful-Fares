@@ -2,7 +2,8 @@ package net.hecco.bountifulfares;
 
 import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
 import net.hecco.bountifulfares.definition.item.custom.ArtisanBrushItem;
-import net.hecco.bountifulfares.registry.content.*;
+import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.util.BFWoodTypes;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.client.color.block.BlockColor;

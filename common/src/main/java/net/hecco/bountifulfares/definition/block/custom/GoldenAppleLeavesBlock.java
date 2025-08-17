@@ -3,7 +3,6 @@ package net.hecco.bountifulfares.definition.block.custom;
 import net.hecco.bountifulfares.registry.content.BFParticles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;

@@ -3,9 +3,7 @@ package net.hecco.bountifulfares.registry.misc;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.recipe.*;
 import net.hecco.heccolib.platform.HLServices;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.*;
 
 import java.util.function.Function;

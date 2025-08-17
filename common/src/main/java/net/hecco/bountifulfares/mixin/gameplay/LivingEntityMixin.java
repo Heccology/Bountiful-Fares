@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.mixin.gameplay;
 
-import com.google.common.collect.Maps;
 import net.hecco.bountifulfares.registry.content.BFEffects;
 import net.hecco.bountifulfares.registry.tags.BFEffectTags;
 import net.minecraft.core.Holder;

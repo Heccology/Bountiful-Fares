@@ -4,12 +4,6 @@ package net.hecco.bountifulfares.registry.misc;
 //import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 //import net.fabricmc.loader.api.FabricLoader;
 //import net.fabricmc.loader.api.ModContainer;
-import net.hecco.bountifulfares.BountifulFares;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-
-import java.util.Calendar;
-import java.util.Optional;
 
 public class BFResourcePacks {
     //Yikes

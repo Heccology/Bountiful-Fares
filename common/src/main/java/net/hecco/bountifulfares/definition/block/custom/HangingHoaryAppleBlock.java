@@ -4,7 +4,6 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFSounds;
-import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

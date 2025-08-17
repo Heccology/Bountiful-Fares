@@ -4,11 +4,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.resources.ResourceLocation;
-import java.util.concurrent.CompletableFuture;
 
-import static net.hecco.bountifulfares.BountifulFares.SPAWN_MOD_ID;
-import static net.hecco.bountifulfares.datagen.bountifulfares.BFRecipeProvider.offerPicketsRecipe;
+import java.util.concurrent.CompletableFuture;
 
 public class SpawnRecipeProvider extends FabricRecipeProvider {
     public SpawnRecipeProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {

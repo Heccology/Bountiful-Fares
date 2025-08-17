@@ -1,7 +1,10 @@
 package net.hecco.bountifulfares;
 
 import net.hecco.bountifulfares.registry.content.*;
-import net.hecco.bountifulfares.registry.misc.*;
+import net.hecco.bountifulfares.registry.misc.BFFeatures;
+import net.hecco.bountifulfares.registry.misc.BFItemGroups;
+import net.hecco.bountifulfares.registry.misc.BFRecipes;
+import net.hecco.bountifulfares.registry.misc.BFTrunkPlacerTypes;
 import net.hecco.bountifulfares.registry.util.BFDamageTypes;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
 import net.hecco.heccolib.platform.HLServices;

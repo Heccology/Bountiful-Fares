@@ -1,7 +1,6 @@
 package net.hecco.bountifulfares;
 
 import com.google.gson.GsonBuilder;
-//import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.File;
 import java.io.IOException;

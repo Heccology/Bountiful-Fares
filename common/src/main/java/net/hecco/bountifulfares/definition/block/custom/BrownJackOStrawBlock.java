@@ -1,7 +1,6 @@
 package net.hecco.bountifulfares.definition.block.custom;
 
 import net.hecco.bountifulfares.registry.content.BFSoundTypes;
-import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.LivingEntity;
