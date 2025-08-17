@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:fermenting",
+  "ingredient": {
+    "item": "minecraft:beetroot"
+  },
+  "particle_color": 12135488,
+  "result": {
+    "id": "bountifulfares:pickled_beetroot"
+  },
+  "result_count": 1
+}

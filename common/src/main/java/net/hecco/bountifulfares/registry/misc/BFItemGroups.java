@@ -381,6 +381,7 @@ public class BFItemGroups {
                         entries.accept(BFItems.HOARY_COMPOTE_JAR.get());
                         entries.accept(BFItems.CITRUS_ESSENCE.get());
                         entries.accept(BFItems.PICKLED_SPONGEKIN.get());
+                        entries.accept(BFItems.PICKLED_BEETROOT.get());
                         entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.ACIDIC));
                         entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.LONG_ACIDIC));
                         entries.accept(PotionContents.createItemStack(Items.POTION, BFPotions.STRONG_ACIDIC));
