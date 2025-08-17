@@ -168,8 +168,7 @@ public class BFItems {
     private static Item.Properties createTiffinProperties() {
         return new Item.Properties()
                 .stacksTo(1)
-                .component(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents())
-                .food(new FoodProperties.Builder().nutrition(0).saturationModifier(0).build());
+                .component(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents());
     }
 
     public static void registerItems() {

@@ -1,7 +1,6 @@
 package net.hecco.bountifulfares;
 
 
-import net.hecco.bountifulfares.appleskin.AppleskinEventHandler;
 import net.hecco.bountifulfares.definition.networking.BFPackets;
 import net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPayload;
 import net.hecco.bountifulfares.registry.BFNeoForgeLootTableModifiers;
@@ -42,9 +41,6 @@ public class NeoForgeBountifulFares {
     @SubscribeEvent
     public void clientSetup(FMLClientSetupEvent event) {
         BountifulFaresClient.onInitializeClient();
-        if (HLServices.PLATFORM.isModLoaded("appleskin")) {
-            NeoForge.EVENT_BUS.register(new AppleskinEventHandler());
-        }
     }
 
     @SubscribeEvent

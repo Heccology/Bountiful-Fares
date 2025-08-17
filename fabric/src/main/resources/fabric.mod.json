@@ -26,9 +26,6 @@
 		"fabric-datagen": [
 			"net.hecco.bountifulfares.FabricBountifulFaresDatagen"
 		],
-		"appleskin": [
-			"net.hecco.bountifulfares.appleskin.AppleskinEventHandler"
-		],
 		"modmenu": [
 			"net.hecco.bountifulfares.config.BountifulFaresModMenu"
 		],
@@ -40,7 +37,8 @@
 		]
 	},
 	"mixins": [
-		"bountifulfares.mixins.json"
+		"bountifulfares.mixins.json",
+		"bountifulfares.fabric.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.7",

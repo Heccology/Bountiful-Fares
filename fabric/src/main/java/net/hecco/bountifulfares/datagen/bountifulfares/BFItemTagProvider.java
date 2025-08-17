@@ -448,7 +448,6 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(BFItemTags.CERAMIC_DISH_BLACKLIST)
-                .addTag(BFItemTags.TIFFINS)
                 .addOptional(ResourceLocation.fromNamespaceAndPath("supplementaries", "lunch_basket"))
         ;
     }
