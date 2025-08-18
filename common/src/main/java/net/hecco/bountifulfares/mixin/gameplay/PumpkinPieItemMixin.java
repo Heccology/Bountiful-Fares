@@ -30,7 +30,7 @@ public class PumpkinPieItemMixin {
     @Inject(method = "useOn", at = @At("HEAD"), cancellable = true)
     public void bf_useOnBlock(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
         if (context.getItemInHand().is(Items.PUMPKIN_PIE) && BountifulFares.CONFIG.enablePlaceablePumpkinPie) {
-            InteractionResult ar = place(new BlockPlaceContext(context));
+            InteractionResult ar = bountifulfares$place(new BlockPlaceContext(context));
             cir.setReturnValue(ar);
         }
     }
@@ -50,7 +50,7 @@ public class PumpkinPieItemMixin {
     }
 
     @Unique
-    public InteractionResult place(BlockPlaceContext context) {
+    public InteractionResult bountifulfares$place(BlockPlaceContext context) {
         if (!BFBlocks.PUMPKIN_PIE.get().isEnabled(context.getLevel().enabledFeatures())) {
             return InteractionResult.FAIL;
         } else if (!context.canPlace()) {

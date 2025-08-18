@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.definition.item.custom;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.item.component.TiffinContents;
 import net.hecco.bountifulfares.definition.item.component.TiffinTooltip;
 import net.hecco.bountifulfares.registry.content.BFComponents;
@@ -18,10 +19,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import org.apache.commons.lang3.math.Fraction;
 
@@ -75,6 +73,7 @@ public class TiffinItem extends Item {
     }
 
     public static boolean canInsertStack(ItemStack stack, TiffinContents contents) {
+        if(stack.is(Items.PUMPKIN_PIE) && BountifulFares.CONFIG.enablePlaceablePumpkinPie) return false;
         return !(stack.getItem() instanceof TiffinItem) && stack.has(DataComponents.FOOD) && (getRemainderItem(stack.getItem()) == null || getRemainderItem(stack.getItem()).getDefaultInstance().is(BFItemTags.FOOD_CONTAINERS_TIFFINS_CAN_HOLD)) && (ItemStack.isSameItemSameComponents(contents.getItemStack(), stack) || contents.getItemStack().isEmpty());
     }
 

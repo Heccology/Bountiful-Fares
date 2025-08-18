@@ -1,11 +1,13 @@
 package net.hecco.bountifulfares.mixin.compat.appleskin;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.item.custom.TiffinItem;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -28,6 +30,13 @@ public abstract class TooltipOverlayHandlerMixin {
                 && !hoveredStack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack().isEmpty()
                 && hoveredStack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack().has(DataComponents.FOOD)){
             onItemTooltip(hoveredStack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack(), player, context, type, tooltip);
+            ci.cancel();
+        }
+    }
+
+    @Inject(method = "onItemTooltip", at = @At("HEAD"), cancellable = true)
+    public void bountifulfares$gatherTooltips(ItemStack hoveredStack, Player player, Item.TooltipContext context, TooltipFlag type, List tooltip, CallbackInfo ci) {
+        if (hoveredStack.is(Items.PUMPKIN_PIE) && BountifulFares.CONFIG.enablePlaceablePumpkinPie) {
             ci.cancel();
         }
     }
