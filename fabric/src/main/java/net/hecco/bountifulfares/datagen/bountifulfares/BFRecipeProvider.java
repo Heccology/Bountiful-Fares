@@ -3,6 +3,7 @@ package net.hecco.bountifulfares.datagen.bountifulfares;
 import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.datagen.recipe.FermentingRecipeBuilder;
 import net.hecco.bountifulfares.datagen.recipe.MillingRecipeBuilder;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
@@ -60,6 +61,19 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 
         oneToOneConversionRecipe(exporter, BFItems.SWEET_BERRY_PIPS.get(), Items.SWEET_BERRIES, "sweet_berry_seeds");
 
+        for (String wood : BountifulFaresUtil.WOOD_TYPES) {
+            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.TRELLISES.get(wood).get())
+                    .pattern("# #")
+                    .pattern(" P ")
+                    .pattern("# #")
+                    .define('#', Items.STICK)
+                    .define('P', BountifulFaresUtil.WOOD_PLANKS.get(BountifulFaresUtil.WOOD_TYPES.indexOf(wood)))
+                    .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+                    .unlockedBy(getHasName(BountifulFaresUtil.WOOD_PLANKS.get(BountifulFaresUtil.WOOD_TYPES.indexOf(wood))), has(BountifulFaresUtil.WOOD_PLANKS.get(BountifulFaresUtil.WOOD_TYPES.indexOf(wood))))
+                    .group("trellis")
+                    .save(exporter);
+        }
+
 //        for (TrellisVariant trellis : TrellisVariants.TrellisVariants) {
 //            if (Objects.equals(trellis.getId(), BountifulFares.MOD_ID)) {
 //                if (trellis.getPlanks() != Items.STICK) {
@@ -97,7 +111,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 //        TrellisUtil.registerTrellisRecipe(exporter, BFTrellises.WALNUT);
 //        TrellisUtil.registerTrellisRecipe(exporter, BFTrellises.HOARY);
 //        TrellisUtil.registerTrellisRecipe(exporter, BFTrellises.CRIMSON);
-//        TrellisUtil.registerTrellisRecipe(exporter, BFTrellises.WARPED); //TODO: AHH
+//        TrellisUtil.registerTrellisRecipe(exporter, BFTrellises.WARPED);
 
 
 

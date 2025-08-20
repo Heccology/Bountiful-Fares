@@ -118,6 +118,8 @@ public class BFLangProvider extends FabricLanguageProvider {
             usedTranslationKeys.add("item.bountifulfares." + color.getName() + "_shulker_tiffin_front");
         }
 
+        generate(translationBuilder, "entity.bountifulfares.flour", "Flour");
+
         generate(translationBuilder, "effect.bountifulfares.acidic", "Acidic");
         generate(translationBuilder, "item.minecraft.potion.effect.bountifulfares.acidic", "Potion of Acidity");
         generate(translationBuilder, "item.minecraft.potion.effect.bountifulfares.long_acidic", "Potion of Acidity");

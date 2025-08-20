@@ -139,8 +139,6 @@ public class TiffinContents implements TooltipComponent {
                             slot.set(new ItemStack(stack.getItem(), i - getCapacity()));
                             if (TiffinItem.getRemainderItem(stack.getItem()) != null) {
                                 player.addItem(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), getCapacity() - item.getCount()));
-                            } else {
-                                slot.set(ItemStack.EMPTY);
                             }
                             item = item.copyWithCount(getCapacity());
                             return getCapacity() - (i - stack.getCount());
@@ -222,8 +220,6 @@ public class TiffinContents implements TooltipComponent {
                             slot.set(new ItemStack(stack.getItem(), i - getCapacity()));
                             if (TiffinItem.getRemainderItem(stack.getItem()) != null) {
                                 player.addItem(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), getCapacity() - item.getCount()));
-                            } else {
-                                slot.set(ItemStack.EMPTY);
                             }
                             item = item.copyWithCount(getCapacity());
                             return getCapacity() - (i - stack.getCount());
