@@ -25,10 +25,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -44,6 +41,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.BiConsumer;
 
 public abstract class InfusedCandleBlock extends BaseEntityBlock implements EntityBlock, SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -168,6 +166,13 @@ public abstract class InfusedCandleBlock extends BaseEntityBlock implements Enti
         world.setBlock(pos, state.setValue(LIT, lit), Block.UPDATE_ALL | Block.UPDATE_IMMEDIATE);
     }
 
+    protected void onExplosionHit(BlockState state, Level level, BlockPos pos, Explosion explosion, BiConsumer<ItemStack, BlockPos> dropConsumer) {
+        if (explosion.canTriggerBlocks() && state.getValue(LIT)) {
+            extinguish(null, state, level, pos);
+        }
+
+        super.onExplosionHit(state, level, pos, explosion, dropConsumer);
+    }
 
     private static void spawnCandleParticles(Level world, Vec3 vec3d, RandomSource random) {
         float f = random.nextFloat();

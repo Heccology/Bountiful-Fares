@@ -14,10 +14,7 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.AbstractCandleBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -34,6 +31,8 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.function.BiConsumer;
 
 public class CoconutCandleBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -108,6 +107,14 @@ public class CoconutCandleBlock extends Block implements SimpleWaterloggedBlock 
         setLit(world, state, pos, false);
         world.playSound(null, pos, SoundEvents.CANDLE_EXTINGUISH, SoundSource.BLOCKS, 1.0f, 1.0f);
         world.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
+    }
+
+    protected void onExplosionHit(BlockState state, Level level, BlockPos pos, Explosion explosion, BiConsumer<ItemStack, BlockPos> dropConsumer) {
+        if (explosion.canTriggerBlocks() && state.getValue(LIT)) {
+            extinguish(null, state, level, pos);
+        }
+
+        super.onExplosionHit(state, level, pos, explosion, dropConsumer);
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {

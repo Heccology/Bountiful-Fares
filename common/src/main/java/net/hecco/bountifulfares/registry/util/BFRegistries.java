@@ -18,9 +18,9 @@ import static net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES;
 public class BFRegistries {
     public static void registerMiscRegistries() {
         registerCeramicCheckeredConversions();
-        registerStrippables();
-        registerTillables();
-        registerPathables();
+        // registerStrippables();
+        // registerTillables();  // Done in NF & Fabric inits respectively
+        // registerPathables();
 //        registerFuels();
         registerModCompostables();
         registerDispenserBehaviors();
