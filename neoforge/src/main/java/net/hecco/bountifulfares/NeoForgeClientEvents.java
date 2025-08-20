@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares;
 
+import net.hecco.bountifulfares.definition.block.entity.renderer.CeramicDishBlockEntityRenderer;
 import net.hecco.bountifulfares.definition.block.entity.renderer.CoirBedBlockEntityRenderer;
 import net.hecco.bountifulfares.definition.block.entity.renderer.TrellisBlockEntityRenderer;
 import net.hecco.bountifulfares.definition.particle.FlourCloudParticle;
@@ -44,6 +45,7 @@ public class NeoForgeClientEvents {
         event.registerEntityRenderer(BFEntities.THROWN_FLOUR_PROJECTILE.get(), ThrownItemRenderer::new);
         event.registerBlockEntityRenderer(BFBlockEntities.TRELLIS_BLOCK_ENTITY.get(), TrellisBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(BFBlockEntities.COIR_BED_BLOCK_ENTITY.get(), CoirBedBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), CeramicDishBlockEntityRenderer::new);
     }
 
     @SubscribeEvent

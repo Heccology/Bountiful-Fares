@@ -12,7 +12,7 @@
 		"sources": "https://github.com/Heccology/Bountiful-Fares",
 		"issues": "https://github.com/Heccology/Bountiful-Fares/issues"
 	},
-	"license": "MIT License",
+	"license": "Custom License",
 	"icon": "assets/bountifulfares/icon.png",
 	"environment": "*",
 	"accessWidener": "bountifulfares.accesswidener",
