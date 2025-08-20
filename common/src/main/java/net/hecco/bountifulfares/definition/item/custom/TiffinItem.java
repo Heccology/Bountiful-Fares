@@ -73,7 +73,7 @@ public class TiffinItem extends Item {
     }
 
     public static boolean canInsertStack(ItemStack stack, TiffinContents contents) {
-        if(stack.is(Items.PUMPKIN_PIE) && BountifulFares.CONFIG.enablePlaceablePumpkinPie) return false;
+        if (stack.is(Items.PUMPKIN_PIE) && BountifulFares.CONFIG.enablePlaceablePumpkinPie) return false;
         return !(stack.getItem() instanceof TiffinItem) && stack.has(DataComponents.FOOD) && (getRemainderItem(stack.getItem()) == null || getRemainderItem(stack.getItem()).getDefaultInstance().is(BFItemTags.FOOD_CONTAINERS_TIFFINS_CAN_HOLD)) && (ItemStack.isSameItemSameComponents(contents.getItemStack(), stack) || contents.getItemStack().isEmpty());
     }
 
@@ -182,7 +182,7 @@ public class TiffinItem extends Item {
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
-                } //TODO FIX STACKING NON CONTIANER FOOD ON ALMOST FULL TIFFIN EATING THE EXCESS
+                }
             }
         }
         return false;
