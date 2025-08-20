@@ -784,6 +784,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(BFBlocks.FELDSPAR_BLOCK.get()), has(BFBlocks.FELDSPAR_BLOCK.get()))
                 .save(exporter);
         nineBlockStorageRecipes(exporter, RecipeCategory.MISC, BFItems.CERAMIC_CLAY.get(), RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_CLAY_BLOCK.get(), "ceramic_clay_block", null, "ceramic_clay_from_block", "ceramic_clay");
+        nineBlockStorageRecipes(exporter, RecipeCategory.MISC, BFItems.FLOUR.get(), RecipeCategory.MISC, BFBlocks.FLOUR_BLOCK.get(), "flour_block", null, "flour_from_block", "flour");
         twoByTwoPacker(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILES.get(), BFItems.CERAMIC_TILE.get());
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.CERAMIC_TILE_PILLAR.get(), 2)
                 .pattern("#")

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "flour",
+  "ingredients": [
+    {
+      "item": "bountifulfares:flour_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "bountifulfares:flour"
+  }
+}

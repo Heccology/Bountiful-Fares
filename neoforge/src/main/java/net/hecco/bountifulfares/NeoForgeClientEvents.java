@@ -3,7 +3,9 @@ package net.hecco.bountifulfares;
 import net.hecco.bountifulfares.definition.block.entity.renderer.CeramicDishBlockEntityRenderer;
 import net.hecco.bountifulfares.definition.block.entity.renderer.CoirBedBlockEntityRenderer;
 import net.hecco.bountifulfares.definition.block.entity.renderer.TrellisBlockEntityRenderer;
+import net.hecco.bountifulfares.definition.particle.FermentedBubbleParticle;
 import net.hecco.bountifulfares.definition.particle.FlourCloudParticle;
+import net.hecco.bountifulfares.definition.particle.GoldenPetalParticle;
 import net.hecco.bountifulfares.definition.particle.PrismarineBlossomParticle;
 import net.hecco.bountifulfares.definition.screen.GristmillScreen;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
@@ -58,6 +60,8 @@ public class NeoForgeClientEvents {
     public static void onRegisterParticles(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(BFParticles.FLOUR_CLOUD.get(), FlourCloudParticle.Factory::new);
         event.registerSpriteSet(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
+        event.registerSpriteSet(BFParticles.FERMENTED_BUBBLE.get(), FermentedBubbleParticle.Factory::new);
+        event.registerSpriteSet(BFParticles.GOLDEN_PETAL.get(), GoldenPetalParticle.Factory::new);
     }
 
     @SubscribeEvent

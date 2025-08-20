@@ -352,6 +352,7 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.PRISMARINE_BLOSSOM.get());
                         entries.accept(BFBlocks.GRISTMILL.get());
                         entries.accept(BFItems.FLOUR.get());
+                        entries.accept(BFBlocks.FLOUR_BLOCK.get());
                         entries.accept(BFItems.GREEN_TEA_BOTTLE.get());
                         entries.accept(BFItems.BLACK_TEA_BOTTLE.get());
                         entries.accept(BFItems.CHAMOMILE_TEA_BOTTLE.get());

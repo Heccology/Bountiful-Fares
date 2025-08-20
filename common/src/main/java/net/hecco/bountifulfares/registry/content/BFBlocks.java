@@ -269,6 +269,7 @@ public class BFBlocks {
     public static final Supplier<Block> IRON_RAILING = registerBlock("iron_railing", () -> new PicketsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(1.0F, 2.0f).sound(SoundType.METAL).forceSolidOff().noOcclusion()));
 
     public static final Supplier<Block> GRASSY_DIRT = registerBlock("grassy_dirt", () -> new GrassyDirtBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT).randomTicks()));
+    public static final Supplier<Block> FLOUR_BLOCK = registerBlock("flour_block", () -> new FlourBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND).sound(SoundType.POWDER_SNOW).mapColor(MapColor.TERRACOTTA_WHITE)));
 
 
     public static final Supplier<Block> GOLDEN_APPLE_LOG = registerBlock("golden_apple_log", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).noOcclusion().forceSolidOff()), new Item.Properties().rarity(Rarity.UNCOMMON));

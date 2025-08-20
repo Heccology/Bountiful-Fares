@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-19T19:20:17.7372796	Bountiful Fares/Block Loot Tables
+// 1.21.1	2025-08-20T18:09:05.1382226	Bountiful Fares/Block Loot Tables
 86b295eff38d2e00737d0335639f8369622fdc2f data\bountifulfares\loot_table\blocks\birch_pickets.json
 210f1057bcc10f5ea29fbf5a989c5ce8ea92c848 data\bountifulfares\loot_table\blocks\potted_walnut_sapling.json
 179e10deb183993282f1a51ff35fff05ac260a15 data\bountifulfares\loot_table\blocks\wild_potatoes.json
@@ -60,6 +60,7 @@ fdfea92b41cba7d3082ae4908f87143a38af3d2c data\bountifulfares\loot_table\blocks\w
 4df5b8a06898231394be1031fe4b66f6f84cd60d data\bountifulfares\loot_table\blocks\lime_jack_o_straw.json
 8c5d4b168fbc210f51017a9c39a60a11b308584e data\bountifulfares\loot_table\blocks\coir_bed.json
 e1a8391256dd977a8a31c4310272999ace7ecb4e data\bountifulfares\loot_table\blocks\black_jack_o_straw.json
+c6d49c4866ffdd5609455a930acdba9b8f9ef4fc data\bountifulfares\loot_table\blocks\flour_block.json
 f619d36f4ff5038a74cc37e0bd07311c7823eba8 data\bountifulfares\loot_table\blocks\palm_mulch.json
 cb5dcd68a2f2d7b07013fd6e667954ec04f27a7a data\bountifulfares\loot_table\blocks\golden_apple_leaves.json
 c0a34086907cf10fbce270e77c6ddb7dfdec5459 data\bountifulfares\loot_table\blocks\walnut_candle.json
@@ -181,8 +182,8 @@ e3b94ea4a87c47175693cda7dc059dbba3c030e7 data\bountifulfares\loot_table\blocks\w
 a2815bb90afdbcf6f464a3acd0e80b5a161c66f9 data\bountifulfares\loot_table\blocks\orange_sapling.json
 8c8cbdf565f0886b0514e1f35a58ddd43fa0f536 data\bountifulfares\loot_table\blocks\walnut_mulch_block.json
 4d7b70f272284dfc09974bc36ecdd2d061d41a4c data\bountifulfares\loot_table\blocks\golden_apple_block.json
-066b2855f2b279a08b8f439084ffa858e4a750e4 data\bountifulfares\loot_table\blocks\crimson_trellis.json
 65fb021e36d5803a77eae0defefda56287dae0b5 data\bountifulfares\loot_table\blocks\hoary_log.json
+066b2855f2b279a08b8f439084ffa858e4a750e4 data\bountifulfares\loot_table\blocks\crimson_trellis.json
 41259322fbe6f0ab96c208450f23d8f43669a8b4 data\bountifulfares\loot_table\blocks\birch_trellis.json
 2d106427af54e107bdb1448ac8fe35bb099aa73c data\bountifulfares\loot_table\blocks\orange_wood.json
 278fc1697915b24606388517c3dd93cf26122c9e data\bountifulfares\loot_table\blocks\walnut_planks.json

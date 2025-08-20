@@ -75,6 +75,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFBlocks.HANGING_HOARY_APPLE.get(), "Hoary Apple");
 
         generate(translationBuilder, BFBlocks.CERAMIC_CLAY_BLOCK.get(), "Block of Ceramic Clay");
+        generate(translationBuilder, BFBlocks.FLOUR_BLOCK.get(), "Block of Flour");
         //generate(translationBuilder, BFBlocks.CERAMIC_MOSAIC_WALL, "Ceramic Mosaic Wall");
         //generate(translationBuilder, BFBlocks.CERAMIC_TILE_WALL, "Ceramic Tile Wall");
         //generate(translationBuilder, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, "Checkered Ceramic Mosaic Wall");

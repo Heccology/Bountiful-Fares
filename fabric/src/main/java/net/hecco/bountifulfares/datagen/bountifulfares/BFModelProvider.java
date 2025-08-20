@@ -216,6 +216,8 @@ public class BFModelProvider extends FabricModelProvider {
         for (String wood : BountifulFaresUtil.WOOD_TYPES) {
             BFTemplateModels.registerTrellis(blockStateModelGenerator, BFBlocks.TRELLISES.get(wood).get());
         }
+
+        blockStateModelGenerator.createTrivialCube(BFBlocks.FLOUR_BLOCK.get());
     }
 
     @Override
