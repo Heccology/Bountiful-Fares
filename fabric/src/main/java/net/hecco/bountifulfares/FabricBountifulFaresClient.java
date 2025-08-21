@@ -19,6 +19,7 @@ import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.hecco.bountifulfares.registry.content.BFMenus;
 import net.hecco.bountifulfares.registry.content.BFParticles;
+import net.hecco.bountifulfares.registry.misc.BFModelLayers;
 import net.hecco.bountifulfares.registry.util.BFTooltipEvents;
 import net.hecco.bountifulfares.registry.util.BFWoodTypes;
 import net.minecraft.client.color.block.BlockColor;
@@ -48,12 +49,12 @@ public class FabricBountifulFaresClient implements ClientModInitializer {
         BlockEntityRenderers.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), CeramicDishBlockEntityRenderer::new);
         BlockEntityRenderers.register(BFBlockEntities.MOD_SIGN_BLOCK_ENTITY.get(), ModSignRenderer::new);
         BlockEntityRenderers.register(BFBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY.get(), ModHangingSignRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(ModelLayers.createSignModelName(BFWoodTypes.HOARY), ModSignRenderer::createSignLayer);
-        EntityModelLayerRegistry.registerModelLayer(ModelLayers.createHangingSignModelName(BFWoodTypes.HOARY), ModHangingSignRenderer::createHangingSignLayer);
-        EntityModelLayerRegistry.registerModelLayer(ModelLayers.createSignModelName(BFWoodTypes.WALNUT), ModSignRenderer::createSignLayer);
-        EntityModelLayerRegistry.registerModelLayer(ModelLayers.createHangingSignModelName(BFWoodTypes.WALNUT), ModHangingSignRenderer::createHangingSignLayer);
-        EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_DEFAULT, TrellisBlockEntityRenderer::createDefaultLayer);
-        EntityModelLayerRegistry.registerModelLayer(TrellisBlockEntityRenderer.TRELLIS_INVERTED, TrellisBlockEntityRenderer::createInvertedLayer);
+        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.HOARY_SIGN, ModSignRenderer::createSignLayer);
+        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.HOARY_HANGING_SIGN, ModHangingSignRenderer::createHangingSignLayer);
+        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.WALNUT_SIGN, ModSignRenderer::createSignLayer);
+        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.WALNUT_HANGING_SIGN, ModHangingSignRenderer::createHangingSignLayer);
+        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.TRELLIS_DEFAULT, TrellisBlockEntityRenderer::createDefaultLayer);
+        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.TRELLIS_INVERTED, TrellisBlockEntityRenderer::createInvertedLayer);
 
         for (Pair<BlockColor, Block> pair : BountifulFaresClient.blockColors) {
             ColorProviderRegistry.BLOCK.register(pair.getA(), pair.getB());

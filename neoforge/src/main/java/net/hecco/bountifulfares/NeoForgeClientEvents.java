@@ -1,8 +1,6 @@
 package net.hecco.bountifulfares;
 
-import net.hecco.bountifulfares.definition.block.entity.renderer.CeramicDishBlockEntityRenderer;
-import net.hecco.bountifulfares.definition.block.entity.renderer.CoirBedBlockEntityRenderer;
-import net.hecco.bountifulfares.definition.block.entity.renderer.TrellisBlockEntityRenderer;
+import net.hecco.bountifulfares.definition.block.entity.renderer.*;
 import net.hecco.bountifulfares.definition.particle.FermentedBubbleParticle;
 import net.hecco.bountifulfares.definition.particle.FlourCloudParticle;
 import net.hecco.bountifulfares.definition.particle.GoldenPetalParticle;
@@ -12,6 +10,7 @@ import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.hecco.bountifulfares.registry.content.BFMenus;
 import net.hecco.bountifulfares.registry.content.BFParticles;
+import net.hecco.bountifulfares.registry.misc.BFModelLayers;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -52,8 +51,12 @@ public class NeoForgeClientEvents {
 
     @SubscribeEvent
     public static void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(TrellisBlockEntityRenderer.TRELLIS_DEFAULT, TrellisBlockEntityRenderer::createDefaultLayer);
-        event.registerLayerDefinition(TrellisBlockEntityRenderer.TRELLIS_INVERTED, TrellisBlockEntityRenderer::createInvertedLayer);
+        event.registerLayerDefinition(BFModelLayers.HOARY_SIGN, ModSignRenderer::createSignLayer);
+        event.registerLayerDefinition(BFModelLayers.HOARY_HANGING_SIGN, ModHangingSignRenderer::createHangingSignLayer);
+        event.registerLayerDefinition(BFModelLayers.WALNUT_SIGN, ModSignRenderer::createSignLayer);
+        event.registerLayerDefinition(BFModelLayers.WALNUT_HANGING_SIGN, ModHangingSignRenderer::createHangingSignLayer);
+        event.registerLayerDefinition(BFModelLayers.TRELLIS_DEFAULT, TrellisBlockEntityRenderer::createDefaultLayer);
+        event.registerLayerDefinition(BFModelLayers.TRELLIS_INVERTED, TrellisBlockEntityRenderer::createInvertedLayer);
     }
 
     @SubscribeEvent

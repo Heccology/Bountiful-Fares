@@ -5,6 +5,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.block.entity.TrellisBlockEntity;
+import net.hecco.bountifulfares.registry.misc.BFModelLayers;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -24,12 +25,10 @@ public class TrellisBlockEntityRenderer implements BlockEntityRenderer<TrellisBl
 
     private final ModelPart defaultModel;
     private final ModelPart invertedModel;
-    public static final ModelLayerLocation TRELLIS_DEFAULT = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "trellis_default"), "main");
-    public static final ModelLayerLocation TRELLIS_INVERTED = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "trellis_inverted"), "main");
 
     public TrellisBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
-        ModelPart defaultLayer = context.bakeLayer(TRELLIS_DEFAULT);
-        ModelPart invertedLayer = context.bakeLayer(TRELLIS_INVERTED);
+        ModelPart defaultLayer = context.bakeLayer(BFModelLayers.TRELLIS_DEFAULT);
+        ModelPart invertedLayer = context.bakeLayer(BFModelLayers.TRELLIS_INVERTED);
         this.defaultModel = defaultLayer.getChild("vines");
         this.invertedModel = invertedLayer.getChild("vines");
     }

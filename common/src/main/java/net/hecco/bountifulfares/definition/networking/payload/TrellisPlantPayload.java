@@ -20,7 +20,7 @@ public record TrellisPlantPayload(BlockPos pos, ItemStack stack, int stage) impl
             );
 
     @Override
-    public Type<? extends CustomPacketPayload> type()
+    public CustomPacketPayload.Type<? extends CustomPacketPayload> type()
     {
         return ID;
     }
