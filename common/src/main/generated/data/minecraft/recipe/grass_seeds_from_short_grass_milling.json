@@ -1,0 +1,10 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:short_grass"
+  },
+  "result": {
+    "id": "bountifulfares:grass_seeds"
+  },
+  "result_count": 2
+}

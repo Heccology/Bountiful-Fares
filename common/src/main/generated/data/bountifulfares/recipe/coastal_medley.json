@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "bountifulfares:spongekin_slice"
+      "tag": "bountifulfares:spongekin_ingredients"
     },
     {
       "item": "minecraft:dried_kelp"

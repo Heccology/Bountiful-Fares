@@ -6,7 +6,7 @@
       "item": "minecraft:cooked_mutton"
     },
     {
-      "item": "minecraft:beetroot"
+      "tag": "bountifulfares:beetroot_ingredients"
     },
     {
       "item": "bountifulfares:violet_bellflower"

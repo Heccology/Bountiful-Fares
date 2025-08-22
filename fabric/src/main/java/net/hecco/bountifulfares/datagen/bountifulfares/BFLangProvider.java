@@ -540,6 +540,8 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateTag(translationBuilder, BFItemTags.SUGAR_INGREDIENTS, "Sugar Ingredients");
         generateTag(translationBuilder, BFItemTags.CERAMIC_DISH_BLACKLIST, "Inedible On Ceramic Dish");
         generateTag(translationBuilder, BFItemTags.TIFFINS, "Tiffins");
+        generateTag(translationBuilder, BFItemTags.SPONGEKIN_INGREDIENTS, "Spongekin Ingredients");
+        generateTag(translationBuilder, BFItemTags.BEETROOT_INGREDIENTS, "Beetroot Ingredient");
 
         generate(translationBuilder, "emi.category.bountifulfares.milling", "Milling");
         generate(translationBuilder, "emi.category.bountifulfares.fermenting", "Fermenting");

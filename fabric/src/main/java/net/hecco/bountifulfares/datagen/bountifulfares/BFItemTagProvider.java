@@ -449,5 +449,15 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(BFItemTags.CERAMIC_DISH_BLACKLIST)
                 .addOptional(ResourceLocation.fromNamespaceAndPath("supplementaries", "lunch_basket"))
         ;
+
+        getOrCreateTagBuilder(BFItemTags.SPONGEKIN_INGREDIENTS)
+                .add(BFItems.SPONGEKIN_SLICE.get())
+                .add(BFItems.PICKLED_SPONGEKIN.get())
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.BEETROOT_INGREDIENTS)
+                .add(BFItems.PICKLED_BEETROOT.get())
+                .add(Items.BEETROOT)
+        ;
     }
 }

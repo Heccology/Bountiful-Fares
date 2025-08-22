@@ -362,11 +362,11 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.MEADOW_MEDLEY.get())
                 .requires(Items.COOKED_MUTTON)
-                .requires(Items.BEETROOT)
+                .requires(BFItemTags.BEETROOT_INGREDIENTS)
                 .requires(BFBlocks.VIOLET_BELLFLOWER.get())
                 .requires(BFItems.LEEK.get())
                 .unlockedBy(getHasName(Items.COOKED_MUTTON), has(Items.COOKED_MUTTON))
-                .unlockedBy(getHasName(Items.BEETROOT), has(Items.BEETROOT))
+                .unlockedBy(getHasName(Items.BEETROOT), has(BFItemTags.BEETROOT_INGREDIENTS))
                 .unlockedBy(getHasName(BFBlocks.VIOLET_BELLFLOWER.get()), has(BFBlocks.VIOLET_BELLFLOWER.get()))
                 .unlockedBy(getHasName(BFItems.LEEK.get()), has(BFItems.LEEK.get()))
                 .save(exporter);
@@ -383,10 +383,10 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .save(exporter);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.COASTAL_MEDLEY.get())
-                .requires(BFItems.SPONGEKIN_SLICE.get())
+                .requires(BFItemTags.SPONGEKIN_INGREDIENTS)
                 .requires(Items.DRIED_KELP, 2)
                 .requires(BFItemTags.COOKED_FISHES)
-                .unlockedBy(getHasName(BFItems.SPONGEKIN_SLICE.get()), has(BFItems.SPONGEKIN_SLICE.get()))
+                .unlockedBy(getHasName(BFItems.SPONGEKIN_SLICE.get()), has(BFItemTags.SPONGEKIN_INGREDIENTS))
                 .unlockedBy(getHasName(Items.DRIED_KELP), has(Items.DRIED_KELP))
                 .unlockedBy("has_fish", has(BFItemTags.COOKED_FISHES))
                 .save(exporter);
@@ -851,6 +851,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerMillingRecipe(exporter, Items.DEEPSLATE_EMERALD_ORE, Items.EMERALD, 3);
         offerMillingRecipe(exporter, Items.NETHER_QUARTZ_ORE, Items.QUARTZ, 4);
         offerMillingRecipe(exporter, Items.NETHER_GOLD_ORE, Items.GOLD_NUGGET, 8);
+        offerMillingRecipe(exporter, Items.SHORT_GRASS, BFItems.GRASS_SEEDS.get(), 2);
 
         offerFermentingRecipe(exporter, Items.APPLE, BFItems.APPLE_CIDER_JAR.get(), 1, 16771237);
         offerFermentingRecipe(exporter, BFItems.ORANGE.get(), BFItems.CITRUS_ESSENCE.get(), 2, 15200149);

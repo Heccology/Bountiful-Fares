@@ -50,4 +50,6 @@ public class BFItemTags {
     public static final TagKey<Item> TIFFIN_FOOD_WHITELIST = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "tiffin_food_whitelist"));
     public static final TagKey<Item> TIFFINS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "tiffins"));
     public static final TagKey<Item> CERAMIC_DISH_BLACKLIST = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "ceramic_dish_blacklist"));
+    public static final TagKey<Item> SPONGEKIN_INGREDIENTS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "spongekin_ingredients"));
+    public static final TagKey<Item> BEETROOT_INGREDIENTS = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "beetroot_ingredients"));
 }
