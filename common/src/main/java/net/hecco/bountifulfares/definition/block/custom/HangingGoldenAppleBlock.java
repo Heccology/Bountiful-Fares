@@ -5,9 +5,11 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.heccolib.platform.HLServices;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
@@ -125,11 +127,13 @@ public class HangingGoldenAppleBlock extends BushBlock {
             if (!world.isClientSide()) {
                 if (BountifulFares.CONFIG.isFruitReplaceWhenPicked()) {
                     BlockState blockState = state.setValue(AGE, 0);
-                    world.setBlock(pos, blockState, Block.UPDATE_CLIENTS);
+                    world.setBlock(pos, blockState, Block.UPDATE_ALL);
                     world.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));
                 } else {
+                    world.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
                     world.removeBlock(pos, false);
                 }
+                CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer) player, pos, ItemStack.EMPTY);
             }
             return InteractionResult.SUCCESS;
         }

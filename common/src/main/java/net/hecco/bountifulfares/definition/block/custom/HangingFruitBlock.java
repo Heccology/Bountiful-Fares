@@ -3,8 +3,10 @@ package net.hecco.bountifulfares.definition.block.custom;
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
@@ -69,6 +71,7 @@ public class HangingFruitBlock extends BushBlock implements BonemealableBlock {
                 } else {
                     world.removeBlock(pos, false);
                 }
+                CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer) player, pos, ItemStack.EMPTY);
             }
             return InteractionResult.SUCCESS;
         }

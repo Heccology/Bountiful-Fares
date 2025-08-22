@@ -4,8 +4,10 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.hecco.heccolib.platform.HLServices;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -86,6 +88,7 @@ public class HangingAppleBlock extends HangingFruitBlock {
                 } else {
                     world.removeBlock(pos, false);
                 }
+                CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer) player, pos, ItemStack.EMPTY);
             }
             return InteractionResult.SUCCESS;
         }

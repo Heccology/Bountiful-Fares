@@ -1,0 +1,35 @@
+{
+  "parent": "bountifulfares:bountiful_fares",
+  "criteria": {
+    "obtain_golden_apple_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:golden_apple_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.obtain_golden_apple_sapling.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "bountifulfares:golden_apple_sapling"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.obtain_golden_apple_sapling"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_golden_apple_sapling"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

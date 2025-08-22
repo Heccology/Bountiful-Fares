@@ -6,19 +6,14 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementHolder;
-import net.minecraft.advancements.AdvancementType;
-import net.minecraft.advancements.DisplayInfo;
-import net.minecraft.advancements.critereon.ConsumeItemTrigger;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.ItemUsedOnLocationTrigger;
+import net.minecraft.advancements.*;
+import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -73,6 +68,23 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
             }
         }
         eat_all_food.save(consumer, BountifulFares.MOD_ID + ":eat_all_food");
+
+        Advancement.Builder eat_all_bad_foods = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(Items.CHICKEN),
+                        Component.translatable("advancement.bountifulfares.eat_all_bad_foods"),
+                        Component.translatable("advancement.bountifulfares.eat_all_bad_foods.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.CHALLENGE,
+                        true,
+                        true,
+                        true))
+                .parent(make_first_food);
+        for (Item i : BuiltInRegistries.ITEM) {
+            if (i.components().has(DataComponents.FOOD) && i != BFItems.DIRT_STEW.get()) {
+                if (i.components().get(DataComponents.FOOD).effects().stream().anyMatch((effect) -> effect.effect().getEffect().value().getCategory() == MobEffectCategory.HARMFUL)) {
+                    eat_all_bad_foods.addCriterion(BuiltInRegistries.ITEM.getKey(i).getPath(), ConsumeItemTrigger.TriggerInstance.usedItem(ItemPredicate.Builder.item().of(i)));
+                }
+            }
+        }
+        eat_all_bad_foods.save(consumer, BountifulFares.MOD_ID + ":eat_all_bad_foods");
 
         AdvancementHolder obtain_lemon_block = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFItems.LEMON.get()),
@@ -198,7 +210,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false))
-                .parent(root_advancement)
+                .parent(make_first_food)
                 .addCriterion("candy", ConsumeItemTrigger.TriggerInstance.usedItem(BFItems.CANDY.get()))
                 .addCriterion("piquant", ConsumeItemTrigger.TriggerInstance.usedItem(BFItems.PIQUANT_CANDY.get()))
                 .addCriterion("sour", ConsumeItemTrigger.TriggerInstance.usedItem(BFItems.SOUR_CANDY.get()))
@@ -280,6 +292,45 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .parent(obtain_spongekin_seeds)
                 .addCriterion("obtain_spongekin", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(BFItems.SPONGEKIN_SLICE.get(), BFBlocks.SPONGEKIN.get()).build()))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_spongekin");
+        AdvancementHolder obtain_prismarine_blossom = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(BFBlocks.PRISMARINE_BLOSSOM.get()),
+                        Component.translatable("advancement.bountifulfares.obtain_prismarine_blossom"),
+                        Component.translatable("advancement.bountifulfares.obtain_prismarine_blossom.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
+                        true,
+                        true,
+                        false))
+                .parent(obtain_spongekin)
+                .addCriterion("obtain_prismarine_blossom", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(BFBlocks.PRISMARINE_BLOSSOM.get()).build()))
+                .save(consumer, BountifulFares.MOD_ID + ":obtain_prismarine_blossom");
+
+        AdvancementHolder obtain_golden_apple_sapling = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(BFBlocks.GOLDEN_APPLE_SAPLING.get()),
+                        Component.translatable("advancement.bountifulfares.obtain_golden_apple_sapling"),
+                        Component.translatable("advancement.bountifulfares.obtain_golden_apple_sapling.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.CHALLENGE,
+                        true,
+                        true,
+                        false))
+                .parent(root_advancement)
+                .addCriterion("obtain_golden_apple_sapling", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(BFBlocks.GOLDEN_APPLE_SAPLING.get()).build()))
+                .save(consumer, BountifulFares.MOD_ID + ":obtain_golden_apple_sapling");
+        AdvancementHolder obtain_golden_apple = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(Items.GOLDEN_APPLE),
+                        Component.translatable("advancement.bountifulfares.obtain_golden_apple"),
+                        Component.translatable("advancement.bountifulfares.obtain_golden_apple.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
+                        true,
+                        true,
+                        false))
+                .parent(obtain_golden_apple_sapling)
+                .addCriterion("obtain_golden_apple",
+                        ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(
+                                LocationPredicate.Builder.location()
+                                        .setBlock(BlockPredicate.Builder.block()
+                                                .of(BFBlocks.HANGING_GOLDEN_APPLE.get())),
+                                ItemPredicate.Builder.item()
+                        )
+
+                )
+                .save(consumer, BountifulFares.MOD_ID + ":obtain_golden_apple");
 //        AdvancementEntry breedWolvesWithMulch = Advancement.Builder.create()
 //                .display(new AdvancementDisplay(new ItemStack(ModBlocks.WALNUT_MULCH),
 //                        Text.translatable("advancement.bountifulfares.breed_wolves_with_mulch"),

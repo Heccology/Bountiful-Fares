@@ -140,6 +140,7 @@ public class BFRegistries {
         COMPOSTABLES.put(BFItems.LEEK_SEEDS.get(), 0.3f);
         COMPOSTABLES.put(BFItems.LEEK.get(), 0.65f);
         COMPOSTABLES.put(BFItems.FLOUR.get(), 0.3f);
+        COMPOSTABLES.put(BFBlocks.FLOUR_BLOCK.get(), 1.0f);
         COMPOSTABLES.put(BFItems.SPONGEKIN_SEEDS.get(), 0.3f);
         COMPOSTABLES.put(BFBlocks.SPONGEKIN.get().asItem(), 1f);
         COMPOSTABLES.put(BFItems.SPONGEKIN_SLICE.get(), 0.65f);
@@ -213,6 +214,7 @@ public class BFRegistries {
         HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH_BLOCK.get(), 20, 30);
         HLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH.get(), 60, 30);
         HLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH_BLOCK.get(), 20, 30);
+        HLServices.REGISTRY.setFlammable(BFBlocks.FLOUR_BLOCK.get(), 10, 5);
         HLServices.REGISTRY.setFlammable(BFBlockTags.PICKETS, 20, 5);
     }
 }

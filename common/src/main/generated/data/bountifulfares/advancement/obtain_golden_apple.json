@@ -1,0 +1,43 @@
+{
+  "parent": "bountifulfares:obtain_golden_apple_sapling",
+  "criteria": {
+    "obtain_golden_apple": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": "bountifulfares:hanging_golden_apple"
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {}
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.obtain_golden_apple.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:golden_apple"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.obtain_golden_apple"
+    }
+  },
+  "requirements": [
+    [
+      "obtain_golden_apple"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

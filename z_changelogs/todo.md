@@ -5,7 +5,6 @@ MULTILOADER PORT TODO:
 ========================================================
 - Add coconut advancements
 - Add urban decor compat, stainless steel railings
-- Normal candy removes poison
 - Add splitting coconut dripstone sound
 - checkered ceramic pillar
 - Add 3-way compat with a&c, el's and l's, paintbrushes

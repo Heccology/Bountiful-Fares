@@ -1,74 +1,66 @@
 {
   "parent": "bountifulfares:make_first_food",
   "criteria": {
-    "bitter": {
+    "chicken": {
       "conditions": {
         "item": {
-          "items": "bountifulfares:bitter_candy"
+          "items": "minecraft:chicken"
         }
       },
       "trigger": "minecraft:consume_item"
     },
-    "candied_apple": {
+    "elderberry_wine_bottle": {
       "conditions": {
         "item": {
-          "items": "bountifulfares:candied_apple"
+          "items": "bountifulfares:elderberry_wine_bottle"
         }
       },
       "trigger": "minecraft:consume_item"
     },
-    "candied_lemon": {
+    "lapisberry_wine_bottle": {
       "conditions": {
         "item": {
-          "items": "bountifulfares:candied_lemon"
+          "items": "bountifulfares:lapisberry_wine_bottle"
         }
       },
       "trigger": "minecraft:consume_item"
     },
-    "candied_orange": {
+    "mead_bottle": {
       "conditions": {
         "item": {
-          "items": "bountifulfares:candied_orange"
+          "items": "bountifulfares:mead_bottle"
         }
       },
       "trigger": "minecraft:consume_item"
     },
-    "candied_plum": {
+    "poisonous_potato": {
       "conditions": {
         "item": {
-          "items": "bountifulfares:candied_plum"
+          "items": "minecraft:poisonous_potato"
         }
       },
       "trigger": "minecraft:consume_item"
     },
-    "candy": {
+    "pufferfish": {
       "conditions": {
         "item": {
-          "items": "bountifulfares:candy"
+          "items": "minecraft:pufferfish"
         }
       },
       "trigger": "minecraft:consume_item"
     },
-    "piquant": {
+    "rotten_flesh": {
       "conditions": {
         "item": {
-          "items": "bountifulfares:piquant_candy"
+          "items": "minecraft:rotten_flesh"
         }
       },
       "trigger": "minecraft:consume_item"
     },
-    "sour": {
+    "spider_eye": {
       "conditions": {
         "item": {
-          "items": "bountifulfares:sour_candy"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "strange": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:strange_candy"
+          "items": "minecraft:spider_eye"
         }
       },
       "trigger": "minecraft:consume_item"
@@ -77,43 +69,42 @@
   "display": {
     "background": "minecraft:textures/block/farmland_moist.png",
     "description": {
-      "translate": "advancement.bountifulfares.eat_all_candy.description"
+      "translate": "advancement.bountifulfares.eat_all_bad_foods.description"
     },
+    "frame": "challenge",
+    "hidden": true,
     "icon": {
       "count": 1,
-      "id": "bountifulfares:candy"
+      "id": "minecraft:chicken"
     },
     "title": {
-      "translate": "advancement.bountifulfares.eat_all_candy"
+      "translate": "advancement.bountifulfares.eat_all_bad_foods"
     }
   },
   "requirements": [
     [
-      "candy"
+      "pufferfish"
     ],
     [
-      "piquant"
+      "chicken"
     ],
     [
-      "sour"
+      "rotten_flesh"
     ],
     [
-      "bitter"
+      "spider_eye"
     ],
     [
-      "strange"
+      "poisonous_potato"
     ],
     [
-      "candied_apple"
+      "elderberry_wine_bottle"
     ],
     [
-      "candied_orange"
+      "lapisberry_wine_bottle"
     ],
     [
-      "candied_lemon"
-    ],
-    [
-      "candied_plum"
+      "mead_bottle"
     ]
   ],
   "sends_telemetry_event": true
