@@ -48,6 +48,8 @@ public class BountifulFaresConfiguration {
     private boolean generateForestTeaShrubs = false;
     private boolean generateForestWalnutTrees = false;
     private boolean generateGoldenAppleTreeRooms = true;
+    public boolean tiffinCornerFoodIcon = false;
+    public boolean showTiffinFoodInHand = false;
     private int fermentationTime = 300;
     private int millingTime = 4;
     private int infusedCandleRadius = 3;

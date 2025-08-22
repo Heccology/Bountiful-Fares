@@ -77,7 +77,7 @@ public class TrellisBlock extends HorizontalDirectionalBlock implements EntityBl
                 if (entity.getStage() >= crop.stages()) {
                     entity.setStage(Math.max(entity.getStage() - 2, 0));
                     popResource(level, pos, new ItemStack(crop.produce(), crop.minDrops() != crop.maxDrops() ? level.random.nextInt(Math.min(crop.minDrops(), crop.maxDrops()), Math.max(crop.minDrops(), crop.maxDrops())) : crop.minDrops()));
-                    //TODO: let definition pass a loot table and use that instead, allows for things such as multiple drops and chances
+                    //let definition pass a loot table and use that instead, allows for things such as multiple drops and chances
                     level.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK.get(), SoundSource.BLOCKS, 1.0f, 1.0f + (level.random.nextFloat() / 5));
                     level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
                     return InteractionResult.SUCCESS;

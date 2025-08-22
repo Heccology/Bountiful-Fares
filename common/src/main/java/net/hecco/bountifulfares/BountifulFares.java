@@ -36,7 +36,7 @@ public class BountifulFares {
 	public static void init() {
 //		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here.. me neither
 		BFSounds.registerSounds();
-		BFBlocks.registerBlocks(); //TODO: UTILIZE BLOCKFAMILYCREATOR... unless you already done that Hecco?
+		BFBlocks.registerBlocks();
 		if (!HLServices.PLATFORM.isDatagen()) {
 			BFBlockEntities.registerBlockEntities();
 		}
@@ -45,6 +45,7 @@ public class BountifulFares {
 		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
 //		//BFBoats.registerBoats(); //TODO: Some issue with HeccoLib loading???? idk but if that is solved then we can add boats
+		//TODO move block item registry to specific methods instead of generic method
 		BFParticles.registerParticles();
 		BFPotions.registerPotions();
 		BFTrunkPlacerTypes.registerTrunkPlacers();
@@ -72,4 +73,5 @@ public class BountifulFares {
 											also what the sigma */
 	//🍎
 	//if you spell appledog with a b... you can call that bappledog
+	//RIP diemant yunidieer :(
 }

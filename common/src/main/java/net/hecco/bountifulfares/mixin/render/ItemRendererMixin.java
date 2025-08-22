@@ -2,19 +2,27 @@ package net.hecco.bountifulfares.mixin.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.item.component.TiffinContents;
+import net.hecco.bountifulfares.definition.item.custom.TiffinItem;
 import net.hecco.bountifulfares.mixin.util.ItemRendererAccessor;
+import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ItemRenderer.class)
 public abstract class ItemRendererMixin {
@@ -54,21 +62,24 @@ public abstract class ItemRendererMixin {
 //        }
 //    }
 
-//    @Inject(method = "renderStatic(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemDisplayContext;ZLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;Lnet/minecraft/world/level/Level;III)V", at = @At("HEAD"), cancellable = true)
-//    private void bountifulfares$renderTiffinGuiModel(LivingEntity entity, ItemStack stack, ItemDisplayContext displayContext, boolean leftHand, PoseStack poseStack, MultiBufferSource bufferSource, Level level, int combinedLight, int combinedOverlay, int seed, CallbackInfo ci) {
-//        if (
-//                displayContext == ItemDisplayContext.GUI &&
-//                stack.getItem() instanceof TiffinItem && stack.has(BFComponents.TIFFIN_CONTENTS.get()) &&
-//                        stack.has(BFComponents.TIFFIN_INTERACTABLE.get()) &&
-//                        !stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack().isEmpty() &&
-//                        stack.get(BFComponents.TIFFIN_INTERACTABLE.get()) &&
-//                        seed != 0) {
-//            TiffinContents contents = stack.get(BFComponents.TIFFIN_CONTENTS.get());
-//            render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, ((ItemRenderer)(Object)this).getItemModelShaper().getModelManager().getModel(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(stack.getItem()).withSuffix("_back"))));
-//            if (level != null && entity != null) {
-//                render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, ((ItemRenderer)(Object)this).getModel(contents.getItemStack(), level, entity, seed));
-//            }
-//            render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, ((ItemRenderer)(Object)this).getItemModelShaper().getModelManager().getModel(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(stack.getItem()).withSuffix("_front"))));
-//        }
-//    }
+    @Inject(method = "renderStatic(Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemDisplayContext;ZLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;Lnet/minecraft/world/level/Level;III)V", at = @At("HEAD"), cancellable = true)
+    private void bountifulfares$renderTiffinGuiModel(LivingEntity entity, ItemStack stack, ItemDisplayContext displayContext, boolean leftHand, PoseStack poseStack, MultiBufferSource bufferSource, Level level, int combinedLight, int combinedOverlay, int seed, CallbackInfo ci) {
+        if (
+                BountifulFares.CONFIG.showTiffinFoodInHand &&
+                (
+                        displayContext == ItemDisplayContext.FIRST_PERSON_LEFT_HAND ||
+                        displayContext == ItemDisplayContext.FIRST_PERSON_RIGHT_HAND ||
+                        displayContext == ItemDisplayContext.THIRD_PERSON_LEFT_HAND ||
+                        displayContext == ItemDisplayContext.THIRD_PERSON_RIGHT_HAND
+                ) &&
+                stack.getItem() instanceof TiffinItem && stack.has(BFComponents.TIFFIN_CONTENTS.get()) &&
+                        !stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack().isEmpty() &&
+                        seed != 0) {
+            TiffinContents contents = stack.get(BFComponents.TIFFIN_CONTENTS.get());
+            if (level != null && entity != null) {
+                render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, ((ItemRenderer)(Object)this).getModel(contents.getItemStack(), level, entity, seed));
+                ci.cancel();
+            }
+        }
+    }
 }

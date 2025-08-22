@@ -117,7 +117,11 @@ public enum Category {
             Entry.booleanEntry("config.bountifulfares.acidified_effect_icon_effects", () -> BountifulFares.CONFIG.isAcidifiedEffectIconEffects(),
                     newValue -> BountifulFares.CONFIG.setAcidifiedEffectIconEffects(newValue), true),
             Entry.booleanEntry("config.bountifulfares.effect_tooltips", () -> BountifulFares.CONFIG.effectTooltips,
-                    newValue -> BountifulFares.CONFIG.effectTooltips = newValue, true)
+                    newValue -> BountifulFares.CONFIG.effectTooltips = newValue, true),
+            Entry.booleanEntry("config.bountifulfares.tiffin_corner_food_icon", () -> BountifulFares.CONFIG.tiffinCornerFoodIcon,
+                    newValue -> BountifulFares.CONFIG.tiffinCornerFoodIcon = newValue, false),
+            Entry.booleanEntry("config.bountifulfares.show_tiffin_food_in_hand", () -> BountifulFares.CONFIG.showTiffinFoodInHand,
+                    newValue -> BountifulFares.CONFIG.showTiffinFoodInHand = newValue, false)
     )
     ;
 //    MINT("config.bountifulfares.category.mint", true,

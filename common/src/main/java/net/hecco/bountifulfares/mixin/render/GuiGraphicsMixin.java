@@ -1,6 +1,8 @@
 package net.hecco.bountifulfares.mixin.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.MatrixUtil;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.item.component.TiffinContents;
 import net.hecco.bountifulfares.definition.item.custom.TiffinItem;
 import net.hecco.bountifulfares.registry.content.BFComponents;
@@ -42,16 +44,30 @@ public class GuiGraphicsMixin {
     private void bountifulfares$renderTiffinGuiItem(ItemRenderer instance, ItemStack stack, ItemDisplayContext displayContext, boolean leftHand, PoseStack poseStack, MultiBufferSource bufferSource, int combinedLight, int combinedOverlay, BakedModel model) {
         if (
                 stack.getItem() instanceof TiffinItem && stack.has(BFComponents.TIFFIN_CONTENTS.get()) && //TODO: create a config that displays the food in the corner of the slot instead
-                bountifulfares$getEntity != null && bountifulfares$getEntity instanceof Player player && (player.getItemInHand(InteractionHand.MAIN_HAND) == stack || player.getItemInHand(InteractionHand.OFF_HAND) == stack) &&
                  //TODO: create a config that renders the food item thats inside in people's hands in their hand
                 !stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack().isEmpty() &&
                 bountifulfares$getSeed != 0) {
             TiffinContents contents = stack.get(BFComponents.TIFFIN_CONTENTS.get());
-            instance.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, instance.getItemModelShaper().getModelManager().getModel(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(stack.getItem()).withSuffix("_back"))));
-            if (bountifulfares$getLevel != null && bountifulfares$getEntity != null) {
-                instance.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, instance.getModel(contents.getItemStack(), bountifulfares$getLevel, bountifulfares$getEntity, bountifulfares$getSeed));
+            if (!BountifulFares.CONFIG.tiffinCornerFoodIcon) {
+                if (bountifulfares$getEntity != null && bountifulfares$getEntity instanceof Player player && (player.getItemInHand(InteractionHand.MAIN_HAND) == stack || player.getItemInHand(InteractionHand.OFF_HAND) == stack)) {
+                    instance.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, instance.getItemModelShaper().getModelManager().getModel(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(stack.getItem()).withSuffix("_back"))));
+                    if (bountifulfares$getLevel != null && bountifulfares$getEntity != null) {
+                        instance.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, instance.getModel(contents.getItemStack(), bountifulfares$getLevel, bountifulfares$getEntity, bountifulfares$getSeed));
+                    }
+                    instance.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, instance.getItemModelShaper().getModelManager().getModel(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(stack.getItem()).withSuffix("_front"))));
+                } else {
+                    instance.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, model);
+                }
+            } else {
+                instance.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, model);
+                if (bountifulfares$getLevel != null && bountifulfares$getEntity != null) {
+                    poseStack.pushPose();
+                    poseStack.scale(0.5f, 0.5f, 1f);
+                    poseStack.translate(0.5f, -0.3f, 0);
+                    instance.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, instance.getModel(contents.getItemStack(), bountifulfares$getLevel, bountifulfares$getEntity, bountifulfares$getSeed));
+                    poseStack.popPose();
+                }
             }
-            instance.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, instance.getItemModelShaper().getModelManager().getModel(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(stack.getItem()).withSuffix("_front"))));
         } else {
             instance.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, model);
         }

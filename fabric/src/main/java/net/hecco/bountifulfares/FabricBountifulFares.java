@@ -128,7 +128,7 @@ public class FabricBountifulFares implements ModInitializer {
         HLFuelRegistry.add(BFBlocks.GRISTMILL.get(), 300);
         HLFuelRegistry.add(BFBlocks.WHITE_JACK_O_STRAW.get(), 400);
         HLFuelRegistry.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.GRAY_JACK_O_STRAW.get(), 400);
+        HLFuelRegistry.add(BFBlocks.GRAY_JACK_O_STRAW.get(), 400); //TODO; Fuels on neo
         HLFuelRegistry.add(BFBlocks.BLACK_JACK_O_STRAW.get(), 400);
         HLFuelRegistry.add(BFBlocks.BROWN_JACK_O_STRAW.get(), 400);
         HLFuelRegistry.add(BFBlocks.RED_JACK_O_STRAW.get(), 400);
