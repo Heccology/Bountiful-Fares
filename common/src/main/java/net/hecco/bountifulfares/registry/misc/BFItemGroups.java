@@ -371,7 +371,7 @@ public class BFItemGroups {
                         entries.accept(BFItems.LAPISBERRY_WINE_BOTTLE.get());
                         entries.accept(BFItems.MEAD_BOTTLE.get());
                         entries.accept(BFItems.COCONUT_MILK_BOTTLE.get());
-                        entries.accept(BFItems.JAR.get());
+                        entries.accept(BFItems.CUP.get());
                         entries.accept(BFItems.APPLE_CIDER_JAR.get());
                         entries.accept(BFItems.PLUM_CIDER_JAR.get());
                         entries.accept(BFItems.HOARY_CIDER_JAR.get());

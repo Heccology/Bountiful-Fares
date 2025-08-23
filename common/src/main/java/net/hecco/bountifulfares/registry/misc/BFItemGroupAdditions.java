@@ -455,7 +455,7 @@ public class BFItemGroupAdditions {
         INGREDIENTS.add(new Pair<>(BFItems.FELDSPAR.get(), BFItems.CERAMIC_CLAY.get().asItem().getDefaultInstance()));
         INGREDIENTS.add(new Pair<>(BFItems.CERAMIC_CLAY.get(), BFItems.CERAMIC_TILE.get().asItem().getDefaultInstance()));
         INGREDIENTS.add(new Pair<>(Items.BOWL, BFBlocks.CERAMIC_DISH.get().asItem().getDefaultInstance()));
-        INGREDIENTS.add(new Pair<>(BFBlocks.CERAMIC_DISH.get(), BFItems.JAR.get().asItem().getDefaultInstance()));
+        INGREDIENTS.add(new Pair<>(BFBlocks.CERAMIC_DISH.get(), BFItems.CUP.get().asItem().getDefaultInstance()));
         INGREDIENTS.add(new Pair<>(Items.FIREWORK_STAR, BFItems.COCONUT.get().asItem().getDefaultInstance()));
         INGREDIENTS.add(new Pair<>(BFItems.COCONUT.get(), BFItems.COCONUT_HALF.get().asItem().getDefaultInstance()));
         INGREDIENTS.add(new Pair<>(BFItems.COCONUT_HALF.get(), BFItems.COCONUT_COIR.get().asItem().getDefaultInstance()));

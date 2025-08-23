@@ -170,7 +170,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(BFItems.CERAMIC_TILE.get()), has(BFItems.CERAMIC_TILE.get()))
                 .save(exporter);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, BFItems.JAR.get(), 3)
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, BFItems.CUP.get(), 3)
                 .pattern("# #")
                 .pattern(" # ")
                 .define('#', BFItems.CERAMIC_CLAY.get())
@@ -1157,8 +1157,8 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output)
                 .requires(input, 2)
                 .requires(BFItems.CITRUS_ESSENCE.get())
-                .requires(BFItems.JAR.get())
-                .unlockedBy(getHasName(BFItems.JAR.get()), has(BFItems.JAR.get()))
+                .requires(BFItems.CUP.get())
+                .unlockedBy(getHasName(BFItems.CUP.get()), has(BFItems.CUP.get()))
                 .unlockedBy(getHasName(input), has(input))
                 .save(exporter);
     }
@@ -1167,8 +1167,8 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .requires(tag)
                 .requires(tag)
                 .requires(BFItems.CITRUS_ESSENCE.get())
-                .requires(BFItems.JAR.get())
-                .unlockedBy(getHasName(BFItems.JAR.get()), has(BFItems.JAR.get()))
+                .requires(BFItems.CUP.get())
+                .unlockedBy(getHasName(BFItems.CUP.get()), has(BFItems.CUP.get()))
                 .unlockedBy(getHasName(input), has(tag))
                 .save(exporter);
     }

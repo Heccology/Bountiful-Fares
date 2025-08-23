@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.definition.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFEffects;
+import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.Holder;
@@ -42,10 +43,10 @@ public class TeaBottleItem extends Item {
             }
         }
         if (stack.isEmpty()) {
-            return new ItemStack(Items.GLASS_BOTTLE);
+            return new ItemStack(BFItems.CUP.get());
         } else {
             if (user instanceof Player && !((Player)user).getAbilities().instabuild) {
-                ItemStack itemStack = new ItemStack(Items.GLASS_BOTTLE);
+                ItemStack itemStack = new ItemStack(BFItems.CUP.get());
                 Player playerEntity = (Player)user;
                 if (!playerEntity.getInventory().add(itemStack)) {
                     playerEntity.drop(itemStack, false);
