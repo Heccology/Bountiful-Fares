@@ -17,6 +17,7 @@ import net.hecco.heccolib.lib.publicBlocks.PublicSaplingBlock;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -248,7 +249,7 @@ public class BFBlocks {
     public static final Supplier<Block> HOARY_PIE = registerBlock("hoary_pie", () -> new PieBlock(BlockBehaviour.Properties.of().noOcclusion().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)), new Item.Properties().stacksTo(16));
     public static final Supplier<Block> PUMPKIN_PIE = registerBlockNoItem("pumpkin_pie", () -> new PumpkinPieBlock(BlockBehaviour.Properties.of().noOcclusion().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)));
     public static final Supplier<Block> MELON_PIE = registerBlock("melon_pie", () -> new PieBlock(BlockBehaviour.Properties.of().noOcclusion().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)), new Item.Properties().stacksTo(16));
-    public static final Supplier<Block> COCOA_CAKE = registerBlock("cocoa_cake", () -> new NoCandleCakeBlock(BlockBehaviour.Properties.of().noOcclusion().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)), new Item.Properties().stacksTo(16));
+    public static final Supplier<Block> COCOA_CAKE = registerBlock("cocoa_cake", () -> new CakeWithToppingBlock(() -> Items.SWEET_BERRIES, BlockBehaviour.Properties.of().noOcclusion().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)), new Item.Properties().stacksTo(16));
     public static final Supplier<Block> SPONGE_CAKE = registerBlock("sponge_cake", () -> new SpongeCakeBlock(BlockBehaviour.Properties.of().noOcclusion().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY).lightLevel((state) -> state.getValue(SpongeCakeBlock.PICKLED) && state.getValue(BlockStateProperties.BITES) == 0 ? 5 : 0)), new Item.Properties().stacksTo(16));
     public static final Supplier<Block> ARTISAN_BREAD = registerBlock("artisan_bread", () -> new ArtisanBreadBlock(BlockBehaviour.Properties.of().noOcclusion().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)), new Item.Properties().stacksTo(16));
     public static final Supplier<Block> ARTISAN_COOKIE = registerBlockNoItem("artisan_cookies", () -> new ArtisanCookiesBlock(BlockBehaviour.Properties.of().noOcclusion().forceSolidOn().strength(0.5F).sound(SoundType.WOOL).pushReaction(PushReaction.DESTROY)));

@@ -107,12 +107,12 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFItems.APPLE_CIDER_JAR.get(), "Apple Cider Cup");
         generate(translationBuilder, BFItems.PLUM_CIDER_JAR.get(), "Plum Cider Cup");
         generate(translationBuilder, BFItems.HOARY_CIDER_JAR.get(), "Hoary Cider Cup");
-        generate(translationBuilder, BFItems.GREEN_TEA_BOTTLE.get(), "Green Tea Cup");
-        generate(translationBuilder, BFItems.BLACK_TEA_BOTTLE.get(), "Black Tea Cup");
-        generate(translationBuilder, BFItems.CHAMOMILE_TEA_BOTTLE.get(), "Chamomile Tea Cup");
-        generate(translationBuilder, BFItems.HONEYSUCKLE_TEA_BOTTLE.get(), "Honeysuckle Tea Cup");
-        generate(translationBuilder, BFItems.BELLFLOWER_TEA_BOTTLE.get(), "Bellflower Tea Cup");
-        generate(translationBuilder, BFItems.TORCHFLOWER_TEA_BOTTLE.get(), "Torchflower Tea Cup");
+        generate(translationBuilder, BFItems.GREEN_TEA_CUP.get(), "Green Tea Cup");
+        generate(translationBuilder, BFItems.BLACK_TEA_CUP.get(), "Black Tea Cup");
+        generate(translationBuilder, BFItems.CHAMOMILE_TEA_CUP.get(), "Chamomile Tea Cup");
+        generate(translationBuilder, BFItems.HONEYSUCKLE_TEA_CUP.get(), "Honeysuckle Tea Cup");
+        generate(translationBuilder, BFItems.BELLFLOWER_TEA_CUP.get(), "Bellflower Tea Cup");
+        generate(translationBuilder, BFItems.TORCHFLOWER_TEA_CUP.get(), "Torchflower Tea Cup");
 
         for (DyeColor color : DyeColor.values()) {
             usedTranslationKeys.add("item.bountifulfares." + color.getName() + "_shulker_tiffin_back");
@@ -455,7 +455,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "config.bountifulfares.infused_candle_radius", "Size of area where Infused Candles give effects");
         generate(translationBuilder, "config.bountifulfares.show_compat_items_in_recipe_viewers", "Show compatibility items in recipe viewers");
         generate(translationBuilder, "config.bountifulfares.tiffin_corner_food_icon", "Show food inside Shulker Tiffins in the corner of the slot");
-        generate(translationBuilder, "config.bountifulfares.show_tiffin_food_in_hand", "Show food inside SHulker Tiffins in players' hands");
+        generate(translationBuilder, "config.bountifulfares.show_tiffin_food_in_hand", "Show food inside Shulker Tiffins in players' hands");
 //        generate(translationBuilder, "config.bountifulfares.bountiful_painting", "Allow \"Bountiful\" painting to be placed");
 //        generate(translationBuilder, "config.bountifulfares.citrus_dish_painting", "Allow \"Citrus Dish\" painting to be placed");
 //        generate(translationBuilder, "config.bountifulfares.hazel_floret_painting", "Allow \"Hazel Floret\" painting to be placed");

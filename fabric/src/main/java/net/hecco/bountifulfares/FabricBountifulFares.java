@@ -70,7 +70,7 @@ public class FabricBountifulFares implements ModInitializer {
         addTiffin(TOOLS_AND_UTILITIES, BFItems.TIFFINS.get(DyeColor.BLUE).get(), DyeColor.PURPLE);
         addTiffin(TOOLS_AND_UTILITIES, BFItems.TIFFINS.get(DyeColor.PURPLE).get(), DyeColor.MAGENTA);
         addTiffin(TOOLS_AND_UTILITIES, BFItems.TIFFINS.get(DyeColor.MAGENTA).get(), DyeColor.PINK);
-        addTiffin(FOOD_AND_DRINKS, BFItems.TORCHFLOWER_TEA_BOTTLE.get(), null);
+        addTiffin(FOOD_AND_DRINKS, BFItems.TORCHFLOWER_TEA_CUP.get(), null);
         addTiffin(FOOD_AND_DRINKS, BFItems.TIFFINS.get(null).get(), DyeColor.WHITE);
         addTiffin(FOOD_AND_DRINKS, BFItems.TIFFINS.get(DyeColor.WHITE).get(), DyeColor.LIGHT_GRAY);
         addTiffin(FOOD_AND_DRINKS, BFItems.TIFFINS.get(DyeColor.LIGHT_GRAY).get(), DyeColor.GRAY);

@@ -353,12 +353,12 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.GRISTMILL.get());
                         entries.accept(BFItems.FLOUR.get());
                         entries.accept(BFBlocks.FLOUR_BLOCK.get());
-                        entries.accept(BFItems.GREEN_TEA_BOTTLE.get());
-                        entries.accept(BFItems.BLACK_TEA_BOTTLE.get());
-                        entries.accept(BFItems.CHAMOMILE_TEA_BOTTLE.get());
-                        entries.accept(BFItems.HONEYSUCKLE_TEA_BOTTLE.get());
-                        entries.accept(BFItems.BELLFLOWER_TEA_BOTTLE.get());
-                        entries.accept(BFItems.TORCHFLOWER_TEA_BOTTLE.get());
+                        entries.accept(BFItems.GREEN_TEA_CUP.get());
+                        entries.accept(BFItems.BLACK_TEA_CUP.get());
+                        entries.accept(BFItems.CHAMOMILE_TEA_CUP.get());
+                        entries.accept(BFItems.HONEYSUCKLE_TEA_CUP.get());
+                        entries.accept(BFItems.BELLFLOWER_TEA_CUP.get());
+                        entries.accept(BFItems.TORCHFLOWER_TEA_CUP.get());
                         entries.accept(BFBlocks.GREEN_TEA_CANDLE.get());
                         entries.accept(BFBlocks.BLACK_TEA_CANDLE.get());
                         entries.accept(BFBlocks.CHAMOMILE_CANDLE.get());

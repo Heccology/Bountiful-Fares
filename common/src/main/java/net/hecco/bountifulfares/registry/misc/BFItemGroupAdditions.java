@@ -354,12 +354,12 @@ public class BFItemGroupAdditions {
         FOOD_AND_DRINKS.add(new Pair<>(Items.GLOW_BERRIES, BFItems.LAPISBERRIES.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.LAPISBERRIES.get(), BFItems.LAPISBERRY_WINE_BOTTLE.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(Items.MILK_BUCKET, BFItems.COCONUT_MILK_BOTTLE.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(BFItems.COCONUT_MILK_BOTTLE.get(), BFItems.GREEN_TEA_BOTTLE.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(BFItems.GREEN_TEA_BOTTLE.get(), BFItems.BLACK_TEA_BOTTLE.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(BFItems.BLACK_TEA_BOTTLE.get(), BFItems.CHAMOMILE_TEA_BOTTLE.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(BFItems.CHAMOMILE_TEA_BOTTLE.get(), BFItems.HONEYSUCKLE_TEA_BOTTLE.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(BFItems.HONEYSUCKLE_TEA_BOTTLE.get(), BFItems.BELLFLOWER_TEA_BOTTLE.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(BFItems.BELLFLOWER_TEA_BOTTLE.get(), BFItems.TORCHFLOWER_TEA_BOTTLE.get().asItem().getDefaultInstance()));
+        FOOD_AND_DRINKS.add(new Pair<>(BFItems.COCONUT_MILK_BOTTLE.get(), BFItems.GREEN_TEA_CUP.get().asItem().getDefaultInstance()));
+        FOOD_AND_DRINKS.add(new Pair<>(BFItems.GREEN_TEA_CUP.get(), BFItems.BLACK_TEA_CUP.get().asItem().getDefaultInstance()));
+        FOOD_AND_DRINKS.add(new Pair<>(BFItems.BLACK_TEA_CUP.get(), BFItems.CHAMOMILE_TEA_CUP.get().asItem().getDefaultInstance()));
+        FOOD_AND_DRINKS.add(new Pair<>(BFItems.CHAMOMILE_TEA_CUP.get(), BFItems.HONEYSUCKLE_TEA_CUP.get().asItem().getDefaultInstance()));
+        FOOD_AND_DRINKS.add(new Pair<>(BFItems.HONEYSUCKLE_TEA_CUP.get(), BFItems.BELLFLOWER_TEA_CUP.get().asItem().getDefaultInstance()));
+        FOOD_AND_DRINKS.add(new Pair<>(BFItems.BELLFLOWER_TEA_CUP.get(), BFItems.TORCHFLOWER_TEA_CUP.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(Items.HONEY_BOTTLE, BFItems.MEAD_BOTTLE.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(Items.BAKED_POTATO, BFItems.MUSHROOM_STUFFED_POTATO.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.MUSHROOM_STUFFED_POTATO.get(), BFItems.BERRY_STUFFED_POTATO.get().asItem().getDefaultInstance()));
@@ -421,7 +421,7 @@ public class BFItemGroupAdditions {
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.PASSION_CUSTARD.get(), BFItems.COCOA_CUSTARD.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.COCOA_CUSTARD.get(), BFItems.ANCIENT_CUSTARD.get().asItem().getDefaultInstance()));
 
-        addTiffinForge(FOOD_AND_DRINKS_FORGE, BFItems.TORCHFLOWER_TEA_BOTTLE.get(), null);
+        addTiffinForge(FOOD_AND_DRINKS_FORGE, BFItems.TORCHFLOWER_TEA_CUP.get(), null);
         addTiffin(FOOD_AND_DRINKS_FORGE, null, DyeColor.WHITE);
         addTiffin(FOOD_AND_DRINKS_FORGE, DyeColor.WHITE, DyeColor.LIGHT_GRAY);
         addTiffin(FOOD_AND_DRINKS_FORGE, DyeColor.LIGHT_GRAY, DyeColor.GRAY);

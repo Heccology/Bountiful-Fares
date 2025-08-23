@@ -15,7 +15,7 @@ import net.minecraft.network.chat.Component;
 
 import java.util.Arrays;
 
-public class BountifulFaresModMenu implements ModMenuApi {
+public class BountifulFaresModMenu implements ModMenuApi { //TODO: Fix config values not being saved when reloading
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return this::buildConfigScreen;

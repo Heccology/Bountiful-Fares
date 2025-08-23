@@ -734,12 +734,12 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         nineBlockStorageRecipes(exporter, RecipeCategory.FOOD, BFItems.LEMON.get(), RecipeCategory.FOOD, BFBlocks.LEMON_BLOCK.get());
         nineBlockStorageRecipes(exporter, RecipeCategory.FOOD, BFItems.PLUM.get(), RecipeCategory.FOOD, BFBlocks.PLUM_BLOCK.get());
         nineBlockStorageRecipes(exporter, RecipeCategory.FOOD, BFItems.HOARY_APPLE.get(), RecipeCategory.FOOD, BFBlocks.HOARY_APPLE_BLOCK.get());
-        offerTeaRecipes(exporter, BFItems.GREEN_TEA_BOTTLE.get(), BFBlocks.GREEN_TEA_CANDLE.get(), BFItems.TEA_LEAVES.get());
-        offerTeaRecipes(exporter, BFItems.BLACK_TEA_BOTTLE.get(), BFBlocks.BLACK_TEA_CANDLE.get(), BFItems.DRIED_TEA_LEAVES.get());
-        offerTeaRecipes(exporter, BFItems.CHAMOMILE_TEA_BOTTLE.get(), BFBlocks.CHAMOMILE_CANDLE.get(), BFBlocks.CHAMOMILE_FLOWERS.get());
-        offerTeaRecipes(exporter, BFItems.HONEYSUCKLE_TEA_BOTTLE.get(), BFBlocks.HONEYSUCKLE_CANDLE.get(), BFBlocks.HONEYSUCKLE.get());
-        offerTeaRecipes(exporter, BFItems.BELLFLOWER_TEA_BOTTLE.get(), BFBlocks.BELLFLOWER_CANDLE.get(), BFBlocks.VIOLET_BELLFLOWER.get());
-        offerTeaRecipes(exporter, BFItems.TORCHFLOWER_TEA_BOTTLE.get(), BFBlocks.TORCHFLOWER_CANDLE.get(), Items.TORCHFLOWER);
+        offerTeaRecipes(exporter, BFItems.GREEN_TEA_CUP.get(), BFBlocks.GREEN_TEA_CANDLE.get(), BFItems.TEA_LEAVES.get());
+        offerTeaRecipes(exporter, BFItems.BLACK_TEA_CUP.get(), BFBlocks.BLACK_TEA_CANDLE.get(), BFItems.DRIED_TEA_LEAVES.get());
+        offerTeaRecipes(exporter, BFItems.CHAMOMILE_TEA_CUP.get(), BFBlocks.CHAMOMILE_CANDLE.get(), BFBlocks.CHAMOMILE_FLOWERS.get());
+        offerTeaRecipes(exporter, BFItems.HONEYSUCKLE_TEA_CUP.get(), BFBlocks.HONEYSUCKLE_CANDLE.get(), BFBlocks.HONEYSUCKLE.get());
+        offerTeaRecipes(exporter, BFItems.BELLFLOWER_TEA_CUP.get(), BFBlocks.BELLFLOWER_CANDLE.get(), BFBlocks.VIOLET_BELLFLOWER.get());
+        offerTeaRecipes(exporter, BFItems.TORCHFLOWER_TEA_CUP.get(), BFBlocks.TORCHFLOWER_CANDLE.get(), Items.TORCHFLOWER);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.WALNUT_CANDLE.get(), 1)
                 .define('S', Items.STRING)
                 .define('H', Items.HONEYCOMB)

@@ -1,24 +1,45 @@
 {
   "variants": {
-    "bites=0": {
+    "bites=0,topping=false": {
       "model": "bountifulfares:block/cocoa_cake"
     },
-    "bites=1": {
+    "bites=1,topping=false": {
       "model": "bountifulfares:block/cocoa_cake_1"
     },
-    "bites=2": {
+    "bites=2,topping=false": {
       "model": "bountifulfares:block/cocoa_cake_2"
     },
-    "bites=3": {
+    "bites=3,topping=false": {
       "model": "bountifulfares:block/cocoa_cake_3"
     },
-    "bites=4": {
+    "bites=4,topping=false": {
       "model": "bountifulfares:block/cocoa_cake_4"
     },
-    "bites=5": {
+    "bites=5,topping=false": {
       "model": "bountifulfares:block/cocoa_cake_5"
     },
-    "bites=6": {
+    "bites=6,topping=false": {
+      "model": "bountifulfares:block/cocoa_cake_6"
+    },
+    "bites=0,topping=true": {
+      "model": "bountifulfares:block/cocoa_berry_cake"
+    },
+    "bites=1,topping=true": {
+      "model": "bountifulfares:block/cocoa_cake_1"
+    },
+    "bites=2,topping=true": {
+      "model": "bountifulfares:block/cocoa_cake_2"
+    },
+    "bites=3,topping=true": {
+      "model": "bountifulfares:block/cocoa_cake_3"
+    },
+    "bites=4,topping=true": {
+      "model": "bountifulfares:block/cocoa_cake_4"
+    },
+    "bites=5,topping=true": {
+      "model": "bountifulfares:block/cocoa_cake_5"
+    },
+    "bites=6,topping=true": {
       "model": "bountifulfares:block/cocoa_cake_6"
     }
   }
