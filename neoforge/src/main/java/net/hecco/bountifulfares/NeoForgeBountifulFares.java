@@ -4,13 +4,20 @@ package net.hecco.bountifulfares;
 import net.hecco.bountifulfares.definition.networking.BFPackets;
 import net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPayload;
 import net.hecco.bountifulfares.registry.BFNeoForgeLootTableModifiers;
+import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -22,8 +29,15 @@ import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import oshi.util.tuples.Pair;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
+
 @Mod(BountifulFares.MOD_ID)
 public class NeoForgeBountifulFares {
+
+    public static final Map<ItemLike, Integer> FUELS = new HashMap<>();
+    public static final Map<TagKey<Item>, Integer> TAG_FUELS = new HashMap<>();
 
     public NeoForgeBountifulFares(IEventBus eventBus) {
         BountifulFares.init();
@@ -50,6 +64,44 @@ public class NeoForgeBountifulFares {
         BFRegistries.registerStrippables();
         BFRegistries.registerTillables();
         BFRegistries.registerPathables();
+
+
+        TAG_FUELS.put(BFItemTags.FRUIT_LOGS, 200);
+        TAG_FUELS.put(BFItemTags.HOARY_LOGS, 300);
+        TAG_FUELS.put(BFItemTags.WALNUT_LOGS, 300);
+        TAG_FUELS.put(BFItemTags.PICKETS, 200);
+
+        for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
+            if (!(BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "crimson_trellis" || BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "warped_trellis")) {
+                FUELS.put(block.get(), 300);
+            }
+        }
+
+        FUELS.put(BFBlocks.GRISTMILL.get(), 300);
+        FUELS.put(BFBlocks.WHITE_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.GRAY_JACK_O_STRAW.get(), 400); //TODO; Fuels on neo
+        FUELS.put(BFBlocks.BLACK_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.BROWN_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.RED_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.ORANGE_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.YELLOW_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.LIME_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.GREEN_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.CYAN_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.BLUE_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.PURPLE_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.MAGENTA_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.PINK_JACK_O_STRAW.get(), 400);
+        FUELS.put(BFBlocks.PALM_FROND.get(), 100);
+        FUELS.put(BFItems.COCONUT_COIR.get(), 100);
+        FUELS.put(BFBlocks.PACKED_COCONUT_COIR.get(), 400);
+        FUELS.put(BFBlocks.COIR_CARPET.get(), 200);
+        FUELS.put(BFBlocks.COIR_BRICKS.get(), 400);
+        FUELS.put(BFBlocks.COIR_BRICK_SLAB.get(), 400);
+        FUELS.put(BFBlocks.COIR_BRICK_STAIRS.get(), 400);
+        FUELS.put(BFBlocks.COIR_BRICK_WALL.get(), 400);
     }
 
     @SubscribeEvent

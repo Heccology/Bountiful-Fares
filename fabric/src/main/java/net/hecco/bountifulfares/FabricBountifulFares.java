@@ -121,35 +121,35 @@ public class FabricBountifulFares implements ModInitializer {
 
         for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
             if (!(BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "crimson_trellis" || BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "warped_trellis")) {
-                HLFuelRegistry.add(block.get(), 300);
+                registry.add(block.get(), 300);
             }
         }
 
-        HLFuelRegistry.add(BFBlocks.GRISTMILL.get(), 300);
-        HLFuelRegistry.add(BFBlocks.WHITE_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.GRAY_JACK_O_STRAW.get(), 400); //TODO; Fuels on neo
-        HLFuelRegistry.add(BFBlocks.BLACK_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.BROWN_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.RED_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.ORANGE_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.YELLOW_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.LIME_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.GREEN_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.CYAN_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.BLUE_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.PURPLE_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.MAGENTA_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.PINK_JACK_O_STRAW.get(), 400);
-        HLFuelRegistry.add(BFBlocks.PALM_FROND.get(), 100);
-        HLFuelRegistry.add(BFItems.COCONUT_COIR.get(), 100);
-        HLFuelRegistry.add(BFBlocks.PACKED_COCONUT_COIR.get(), 400);
-        HLFuelRegistry.add(BFBlocks.COIR_CARPET.get(), 200);
-        HLFuelRegistry.add(BFBlocks.COIR_BRICKS.get(), 400);
-        HLFuelRegistry.add(BFBlocks.COIR_BRICK_SLAB.get(), 400);
-        HLFuelRegistry.add(BFBlocks.COIR_BRICK_STAIRS.get(), 400);
-        HLFuelRegistry.add(BFBlocks.COIR_BRICK_WALL.get(), 400);
+        registry.add(BFBlocks.GRISTMILL.get(), 300);
+        registry.add(BFBlocks.WHITE_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.GRAY_JACK_O_STRAW.get(), 400); //TODO; Fuels on neo
+        registry.add(BFBlocks.BLACK_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.BROWN_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.RED_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.ORANGE_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.YELLOW_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.LIME_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.GREEN_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.CYAN_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.BLUE_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.PURPLE_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.MAGENTA_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.PINK_JACK_O_STRAW.get(), 400);
+        registry.add(BFBlocks.PALM_FROND.get(), 100);
+        registry.add(BFItems.COCONUT_COIR.get(), 100);
+        registry.add(BFBlocks.PACKED_COCONUT_COIR.get(), 400);
+        registry.add(BFBlocks.COIR_CARPET.get(), 200);
+        registry.add(BFBlocks.COIR_BRICKS.get(), 400);
+        registry.add(BFBlocks.COIR_BRICK_SLAB.get(), 400);
+        registry.add(BFBlocks.COIR_BRICK_STAIRS.get(), 400);
+        registry.add(BFBlocks.COIR_BRICK_WALL.get(), 400);
 //        registry.add(MintBlocks.ACORN_JACK_O_STRAW, 400);
 //        registry.add(MintBlocks.AMBER_JACK_O_STRAW, 400);
 //        registry.add(MintBlocks.ARTICHOKE_JACK_O_STRAW, 400);
@@ -201,10 +201,5 @@ public class FabricBountifulFares implements ModInitializer {
 //        registry.add(ExcessiveBuildingBlocks.HOARY_MOSAIC_VERTICAL_STAIRS, 300);
 //        registry.add(ExcessiveBuildingBlocks.HOARY_LADDER, 300);
 
-    }
-
-
-    public <T> DataComponentType<T> registerComponentType(String modId, String name, UnaryOperator<DataComponentType.Builder<T>> builder) {
-        return Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, ResourceLocation.fromNamespaceAndPath(modId, name), (builder.apply(DataComponentType.builder())).build());
     }
 }

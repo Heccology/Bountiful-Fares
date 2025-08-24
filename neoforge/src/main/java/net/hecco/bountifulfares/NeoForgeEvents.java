@@ -9,8 +9,11 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -23,6 +26,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
 
 @EventBusSubscriber(modid = BountifulFares.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class NeoForgeEvents {
@@ -31,6 +35,19 @@ public class NeoForgeEvents {
         event.addListener(new TrellisPlantResourceLoader());
         event.addListener(new TrellisCropResourceLoader());
         event.addListener(new GrassSeedsInteractionResourceLoader());
+    }
+
+    @SubscribeEvent
+    public static void onFuels(FurnaceFuelBurnTimeEvent event) {
+        for (TagKey<Item> tag : NeoForgeBountifulFares.TAG_FUELS.keySet()) {
+            if (event.getItemStack().is(tag)) {
+                event.setBurnTime(NeoForgeBountifulFares.TAG_FUELS.get(tag));
+                return;
+            }
+        }
+        if (NeoForgeBountifulFares.FUELS.keySet().stream().anyMatch((item) -> event.getItemStack().is(item.asItem()))) {
+            event.setBurnTime(NeoForgeBountifulFares.FUELS.get(event.getItemStack().getItem()));
+        }
     }
 
     @SubscribeEvent

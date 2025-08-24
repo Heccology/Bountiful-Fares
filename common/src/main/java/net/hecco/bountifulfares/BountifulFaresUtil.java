@@ -14,7 +14,6 @@ import java.util.Set;
 
 public class BountifulFaresUtil {
     public static final List<String> WOOD_TYPES = List.of("oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "bamboo", "walnut", "hoary", "crimson", "warped");
-    public static final List<Block> WOOD_PLANKS = List.of(Blocks.OAK_PLANKS, Blocks.SPRUCE_PLANKS, Blocks.BIRCH_PLANKS, Blocks.JUNGLE_PLANKS, Blocks.ACACIA_PLANKS, Blocks.DARK_OAK_PLANKS, Blocks.MANGROVE_PLANKS, Blocks.CHERRY_PLANKS, Blocks.BAMBOO_PLANKS, BFBlocks.WALNUT_PLANKS.get(), BFBlocks.HOARY_PLANKS.get(), Blocks.CRIMSON_PLANKS, Blocks.WARPED_PLANKS);
     public static Set<ResourceLocation> allBlockIdsInNamespace(String namespace) {
         Set<ResourceLocation> set = BuiltInRegistries.BLOCK.keySet();
         Set<ResourceLocation> a = new HashSet<>();

@@ -28,7 +28,10 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.SmokingRecipe;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static net.minecraft.data.BlockFamilies.familyBuilder;
@@ -62,14 +65,15 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         oneToOneConversionRecipe(exporter, BFItems.SWEET_BERRY_PIPS.get(), Items.SWEET_BERRIES, "sweet_berry_seeds");
 
         for (String wood : BountifulFaresUtil.WOOD_TYPES) {
+            List<Block> WOOD_PLANKS = List.of(Blocks.OAK_PLANKS, Blocks.SPRUCE_PLANKS, Blocks.BIRCH_PLANKS, Blocks.JUNGLE_PLANKS, Blocks.ACACIA_PLANKS, Blocks.DARK_OAK_PLANKS, Blocks.MANGROVE_PLANKS, Blocks.CHERRY_PLANKS, Blocks.BAMBOO_PLANKS, BFBlocks.WALNUT_PLANKS.get(), BFBlocks.HOARY_PLANKS.get(), Blocks.CRIMSON_PLANKS, Blocks.WARPED_PLANKS);
             ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.TRELLISES.get(wood).get())
                     .pattern("# #")
                     .pattern(" P ")
                     .pattern("# #")
                     .define('#', Items.STICK)
-                    .define('P', BountifulFaresUtil.WOOD_PLANKS.get(BountifulFaresUtil.WOOD_TYPES.indexOf(wood)))
+                    .define('P', WOOD_PLANKS.get(BountifulFaresUtil.WOOD_TYPES.indexOf(wood)))
                     .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
-                    .unlockedBy(getHasName(BountifulFaresUtil.WOOD_PLANKS.get(BountifulFaresUtil.WOOD_TYPES.indexOf(wood))), has(BountifulFaresUtil.WOOD_PLANKS.get(BountifulFaresUtil.WOOD_TYPES.indexOf(wood))))
+                    .unlockedBy(getHasName(WOOD_PLANKS.get(BountifulFaresUtil.WOOD_TYPES.indexOf(wood))), has(WOOD_PLANKS.get(BountifulFaresUtil.WOOD_TYPES.indexOf(wood))))
                     .group("trellis")
                     .save(exporter);
         }
