@@ -40,7 +40,7 @@ public abstract class LivingEntityMixin {
     private void bountifulfares_acidicApply(MobEffectInstance effectInstance, CallbackInfoReturnable<Boolean> cir) {
         if (effectInstance.getEffect() == BFEffects.STUPOR) {
             Iterator<Map.Entry<Holder<MobEffect>, MobEffectInstance>> iterator = this.activeEffects.entrySet().iterator();
-            ArrayList<MobEffectInstance> removedEffects = new ArrayList<>();
+            ArrayList<MobEffectInstance> removedEffects = new ArrayList<>(); //TODO Fix acidic on neo, large bg on fabric
             while (iterator.hasNext()) {
                 Map.Entry<Holder<MobEffect>, MobEffectInstance> entry = iterator.next();
                 if (entry.getKey() != BFEffects.STUPOR && !entry.getKey().is(BFEffectTags.STUPOR_BLACKLIST)) {

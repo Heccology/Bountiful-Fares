@@ -45,7 +45,6 @@ public class BountifulFares {
 		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
 //		//BFBoats.registerBoats(); //TODO: Some issue with HeccoLib loading???? idk but if that is solved then we can add boats
-		//TODO move block item registry to specific methods instead of generic method
 		BFParticles.registerParticles();
 		BFPotions.registerPotions();
 		BFTrunkPlacerTypes.registerTrunkPlacers();
