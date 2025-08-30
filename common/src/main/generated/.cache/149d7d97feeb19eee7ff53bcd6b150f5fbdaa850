@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-30T00:23:59.279444	Bountiful Fares/Recipes
+// 1.21.1	2025-08-30T00:36:17.7851866	Bountiful Fares/Recipes
 69f37ffca45f5be3303a92671d27f32d7111ddb1 data\bountifulfares\advancement\recipes\redstone\ceramic_button.json
 b4d83263de9cd3240e91034f80d2a70384579533 data\minecraft\recipe\flour_from_wheat_milling.json
 eec031e3766db0cd7e5ca529887c16f4d5b12c32 data\bountifulfares\recipe\ceramic_clay_from_block.json
@@ -581,6 +581,7 @@ d7c53928c4c512fa6b69b3df8a810d6134678a7f data\bountifulfares\recipe\black_dye_fr
 73ee61222b37f4e870f1bbf2b52b51274049cc53 data\bountifulfares\recipe\packed_mud.json
 304c9f79dd9a584811f96112dbf6e5d1048c879a data\bountifulfares\advancement\recipes\food\apple_block.json
 19fbd36718c026951f4f4c138bd58ebf9b585d08 data\bountifulfares\advancement\recipes\building_blocks\palm_wood.json
+d0d022bd7ea6120ec5d498fa1dbf7efdb9e817f9 data\bountifulfares\recipe\blue_dye_from_lapisberries.json
 f203347453665dd9f6a3292063fc047d3b1a2299 data\bountifulfares\advancement\recipes\food\bitter_candy.json
 902c1c60328e46afdd908ec4180d48cac1ea5566 data\bountifulfares\recipe\stone_stew.json
 b4e8afd205844b05c878e482854dd2cd2c567621 data\bountifulfares\advancement\recipes\building_blocks\ceramic_mosaic.json
@@ -615,6 +616,7 @@ f423f2b311523eab9498acc43cd35e03549dc6ab data\bountifulfares\advancement\recipes
 2fc1c12675560e901f18ab67bd06729ebb26bf06 data\bountifulfares\recipe\ceramic_tiles.json
 ca970089b45559caa16513811f36b14eb2370e53 data\bountifulfares\recipe\hoary_fence_gate.json
 2eb5cffac87cf865735e30696af5b9ef28c7ba30 data\bountifulfares\advancement\recipes\decorations\gray_jack_o_straw_with_pumpkin.json
+208b24084bcb63be8e65f119299e2cb2516714ef data\bountifulfares\advancement\recipes\misc\blue_dye_from_lapisberries.json
 56ea785f08a4398fe66473645937541de73e434c data\bountifulfares\advancement\recipes\food\strange_candy.json
 6d73700bee3f5c0a4fbb339eebee0d4c2f4c7ff3 data\minecraft\recipe\pickled_spongekin_from_spongekin_slice_fermenting.json
 2b87d2f46478c29973a2cf341c2da7c0a9f0b2da data\bountifulfares\recipe\ceramic_door_undying.json

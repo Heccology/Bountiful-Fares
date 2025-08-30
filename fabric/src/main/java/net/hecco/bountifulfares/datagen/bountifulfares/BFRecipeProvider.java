@@ -726,6 +726,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 
         oneToOneConversionRecipe(exporter, BFItems.MAIZE_SEEDS.get(), BFItems.MAIZE.get(), null, 2);
         oneToOneConversionRecipe(exporter, BFItems.SPONGEKIN_SEEDS.get(), BFItems.SPONGEKIN_SLICE.get(), null, 1);
+        oneToOneConversionRecipe(exporter, Items.BLUE_DYE, BFItems.LAPISBERRIES.get(), "blue_dye", 1);
         oneToOneConversionRecipe(exporter, Items.GREEN_DYE, BFItems.TEA_LEAVES.get(), "green_dye", 1);
         oneToOneConversionRecipe(exporter, Items.BLACK_DYE, BFItems.DRIED_TEA_LEAVES.get(), "black_dye", 1);
         oneToOneConversionRecipe(exporter, Items.LIGHT_GRAY_DYE, BFBlocks.CHAMOMILE_FLOWERS.get(), "light_gray_dye", 1);
