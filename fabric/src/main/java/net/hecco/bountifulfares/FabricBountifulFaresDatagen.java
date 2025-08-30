@@ -7,7 +7,7 @@ import net.hecco.bountifulfares.datagen.bountifulfares.*;
 public class FabricBountifulFaresDatagen implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-        FabricDataGenerator.Pack pack = fabricDataGenerator.createPack(); //TODO: USE HL PROVIDERS
+        FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
         pack.addProvider(BFRecipeProvider::new);
         pack.addProvider(BFBlockLootTableProvider::new);
         pack.addProvider(BFBlockTagProvider::new);

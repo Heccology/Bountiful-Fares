@@ -80,7 +80,7 @@ public class NeoForgeBountifulFares {
         FUELS.put(BFBlocks.GRISTMILL.get(), 300);
         FUELS.put(BFBlocks.WHITE_JACK_O_STRAW.get(), 400);
         FUELS.put(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.GRAY_JACK_O_STRAW.get(), 400); //TODO; Fuels on neo
+        FUELS.put(BFBlocks.GRAY_JACK_O_STRAW.get(), 400);
         FUELS.put(BFBlocks.BLACK_JACK_O_STRAW.get(), 400);
         FUELS.put(BFBlocks.BROWN_JACK_O_STRAW.get(), 400);
         FUELS.put(BFBlocks.RED_JACK_O_STRAW.get(), 400);

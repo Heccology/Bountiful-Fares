@@ -128,7 +128,7 @@ public class FabricBountifulFares implements ModInitializer {
         registry.add(BFBlocks.GRISTMILL.get(), 300);
         registry.add(BFBlocks.WHITE_JACK_O_STRAW.get(), 400);
         registry.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.GRAY_JACK_O_STRAW.get(), 400); //TODO; Fuels on neo
+        registry.add(BFBlocks.GRAY_JACK_O_STRAW.get(), 400);
         registry.add(BFBlocks.BLACK_JACK_O_STRAW.get(), 400);
         registry.add(BFBlocks.BROWN_JACK_O_STRAW.get(), 400);
         registry.add(BFBlocks.RED_JACK_O_STRAW.get(), 400);

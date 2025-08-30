@@ -44,7 +44,7 @@ public class BountifulFares {
 		BFItems.registerItems();
 		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
-//		//BFBoats.registerBoats(); //TODO: Some issue with HeccoLib loading???? idk but if that is solved then we can add boats
+//		//BFBoats.registerBoats();
 		BFParticles.registerParticles();
 		BFPotions.registerPotions();
 		BFTrunkPlacerTypes.registerTrunkPlacers();

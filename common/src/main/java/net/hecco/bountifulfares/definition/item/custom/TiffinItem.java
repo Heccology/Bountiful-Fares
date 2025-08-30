@@ -82,12 +82,11 @@ public class TiffinItem extends Item {
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
-        FoodProperties foodproperties = null;
+        ItemStack itemStack = null;
         if (stack.getComponents().has(BFComponents.TIFFIN_CONTENTS.get())) {
             ItemStack item = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack();
             if (!item.isEmpty() && !(item.getItem() instanceof TiffinItem) && item.has(DataComponents.FOOD)) {
-                foodproperties = item.get(DataComponents.FOOD);
-                item.finishUsingItem(level, livingEntity);
+                itemStack = item.finishUsingItem(level, livingEntity);
             }
         }
         if (livingEntity instanceof Player player && player.isCreative()) {
@@ -98,7 +97,7 @@ public class TiffinItem extends Item {
                 stack.set(BFComponents.TIFFIN_CONTENTS.get(), contents.toImmutable());
             }
         }
-        return foodproperties != null ? livingEntity.eat(level, stack, foodproperties) : stack;
+        return itemStack != null ? itemStack : stack;
     }
 
     @Override
