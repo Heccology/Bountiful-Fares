@@ -216,10 +216,6 @@ public class NeoForgeBountifulFares {
                     event.insertAfter(entry.getA(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 } catch (Exception ignored) {}
             }
-        } else if (event.getTabKey() == CreativeModeTabs.OP_BLOCKS && Minecraft.getInstance().options.operatorItemsTab().get()) {
-            for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.OP_BLOCKS) {
-                event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            }
         }
 
     }

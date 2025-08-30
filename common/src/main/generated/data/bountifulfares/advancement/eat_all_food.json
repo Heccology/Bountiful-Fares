@@ -1,14 +1,6 @@
 {
   "parent": "bountifulfares:make_first_food",
   "criteria": {
-    "ancient_custard": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:ancient_custard"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
     "apple_cider_jar": {
       "conditions": {
         "item": {
@@ -145,14 +137,6 @@
       },
       "trigger": "minecraft:consume_item"
     },
-    "cocoa_custard": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:cocoa_custard"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
     "coconut_crusted_cod": {
       "conditions": {
         "item": {
@@ -205,14 +189,6 @@
       "conditions": {
         "item": {
           "items": "bountifulfares:crusted_beef"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "custard": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:custard"
         }
       },
       "trigger": "minecraft:consume_item"
@@ -409,14 +385,6 @@
       },
       "trigger": "minecraft:consume_item"
     },
-    "passion_custard": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:passion_custard"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
     "passion_fruit": {
       "conditions": {
         "item": {
@@ -453,14 +421,6 @@
       "conditions": {
         "item": {
           "items": "bountifulfares:piquant_candy"
-        }
-      },
-      "trigger": "minecraft:consume_item"
-    },
-    "piquant_custard": {
-      "conditions": {
-        "item": {
-          "items": "bountifulfares:piquant_custard"
         }
       },
       "trigger": "minecraft:consume_item"
@@ -650,6 +610,30 @@
       "mead_bottle"
     ],
     [
+      "apple_compote_jar"
+    ],
+    [
+      "orange_compote_jar"
+    ],
+    [
+      "lemon_compote_jar"
+    ],
+    [
+      "plum_compote_jar"
+    ],
+    [
+      "hoary_compote_jar"
+    ],
+    [
+      "apple_cider_jar"
+    ],
+    [
+      "plum_cider_jar"
+    ],
+    [
+      "hoary_cider_jar"
+    ],
+    [
       "green_tea_bottle"
     ],
     [
@@ -687,30 +671,6 @@
     ],
     [
       "pickled_spongekin"
-    ],
-    [
-      "apple_compote_jar"
-    ],
-    [
-      "orange_compote_jar"
-    ],
-    [
-      "lemon_compote_jar"
-    ],
-    [
-      "plum_compote_jar"
-    ],
-    [
-      "hoary_compote_jar"
-    ],
-    [
-      "apple_cider_jar"
-    ],
-    [
-      "plum_cider_jar"
-    ],
-    [
-      "hoary_cider_jar"
     ],
     [
       "candy"
@@ -783,21 +743,6 @@
     ],
     [
       "warped_chow"
-    ],
-    [
-      "custard"
-    ],
-    [
-      "piquant_custard"
-    ],
-    [
-      "passion_custard"
-    ],
-    [
-      "cocoa_custard"
-    ],
-    [
-      "ancient_custard"
     ],
     [
       "mushroom_stuffed_potato"

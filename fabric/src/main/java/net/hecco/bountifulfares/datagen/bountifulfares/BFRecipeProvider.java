@@ -517,58 +517,58 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(Items.DRIED_KELP), has(Items.DRIED_KELP))
                 .save(exporter);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.CUSTARD.get())
-                .requires(BFItemTags.C_MILKS)
-                .requires(Items.SUGAR)
-                .requires(Items.BOWL)
-                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
-                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
-                .save(exporter);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.PIQUANT_CUSTARD.get())
-                .requires(BFItemTags.C_MILKS)
-                .requires(Items.SUGAR)
-                .requires(Items.SWEET_BERRIES)
-                .requires(Items.BOWL)
-                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
-                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
-                .unlockedBy(getHasName(Items.SWEET_BERRIES), has(Items.SWEET_BERRIES))
-                .save(exporter);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.PASSION_CUSTARD.get())
-                .requires(BFItemTags.C_MILKS)
-                .requires(Items.SUGAR)
-                .requires(BFItemTags.C_PASSION_FRUIT)
-                .requires(Items.BOWL)
-                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
-                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
-                .unlockedBy(getHasName(BFItems.PASSION_FRUIT.get()), has(BFItemTags.C_PASSION_FRUIT))
-                .save(exporter);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.COCOA_CUSTARD.get())
-                .requires(BFItemTags.C_MILKS)
-                .requires(Items.SUGAR)
-                .requires(Items.COCOA_BEANS)
-                .requires(BFItemTags.C_WALNUTS)
-                .requires(Items.BOWL)
-                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
-                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
-                .unlockedBy(getHasName(Items.COCOA_BEANS), has(Items.COCOA_BEANS))
-                .unlockedBy(getHasName(BFItems.WALNUT.get()), has(BFItemTags.C_WALNUTS))
-                .save(exporter);
-
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.ANCIENT_CUSTARD.get())
-                .requires(BFItemTags.C_MILKS)
-                .requires(Items.SUGAR)
-                .requires(BFItems.LAPISBERRIES.get())
-                .requires(BFItems.HOARY_APPLE.get())
-                .requires(Items.BOWL)
-                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
-                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
-                .unlockedBy(getHasName(BFItems.HOARY_APPLE.get()), has(BFItems.HOARY_APPLE.get()))
-                .unlockedBy(getHasName(BFItems.LAPISBERRIES.get()), has(BFItems.LAPISBERRIES.get()))
-                .save(exporter);
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.CUSTARD.get())
+//                .requires(BFItemTags.C_MILKS)
+//                .requires(Items.SUGAR)
+//                .requires(Items.BOWL)
+//                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
+//                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
+//                .save(exporter);
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.PIQUANT_CUSTARD.get())
+//                .requires(BFItemTags.C_MILKS)
+//                .requires(Items.SUGAR)
+//                .requires(Items.SWEET_BERRIES)
+//                .requires(Items.BOWL)
+//                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
+//                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
+//                .unlockedBy(getHasName(Items.SWEET_BERRIES), has(Items.SWEET_BERRIES))
+//                .save(exporter);
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.PASSION_CUSTARD.get())
+//                .requires(BFItemTags.C_MILKS)
+//                .requires(Items.SUGAR)
+//                .requires(BFItemTags.C_PASSION_FRUIT)
+//                .requires(Items.BOWL)
+//                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
+//                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
+//                .unlockedBy(getHasName(BFItems.PASSION_FRUIT.get()), has(BFItemTags.C_PASSION_FRUIT))
+//                .save(exporter);
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.COCOA_CUSTARD.get())
+//                .requires(BFItemTags.C_MILKS)
+//                .requires(Items.SUGAR)
+//                .requires(Items.COCOA_BEANS)
+//                .requires(BFItemTags.C_WALNUTS)
+//                .requires(Items.BOWL)
+//                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
+//                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
+//                .unlockedBy(getHasName(Items.COCOA_BEANS), has(Items.COCOA_BEANS))
+//                .unlockedBy(getHasName(BFItems.WALNUT.get()), has(BFItemTags.C_WALNUTS))
+//                .save(exporter);
+//
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.ANCIENT_CUSTARD.get())
+//                .requires(BFItemTags.C_MILKS)
+//                .requires(Items.SUGAR)
+//                .requires(BFItems.LAPISBERRIES.get())
+//                .requires(BFItems.HOARY_APPLE.get())
+//                .requires(Items.BOWL)
+//                .unlockedBy("has_milk", has(BFItemTags.C_MILKS))
+//                .unlockedBy(getHasName(Items.SUGAR), has(Items.SUGAR))
+//                .unlockedBy(getHasName(BFItems.HOARY_APPLE.get()), has(BFItems.HOARY_APPLE.get()))
+//                .unlockedBy(getHasName(BFItems.LAPISBERRIES.get()), has(BFItems.LAPISBERRIES.get()))
+//                .save(exporter);
 
         offerCandiedFruitRecipe(exporter, Items.APPLE, BFItems.CANDIED_APPLE.get(), 1);
         offerCandiedFruitRecipe(exporter, BFItems.PLUM.get(), BFItemTags.C_PLUMS, BFItems.CANDIED_PLUM.get(), 1);

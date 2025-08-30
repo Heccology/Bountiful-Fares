@@ -381,6 +381,7 @@ public class BFItemGroupAdditions {
         FOOD_AND_DRINKS.add(new Pair<>(BFBlocks.SWEET_BERRY_TART.get(), BFBlocks.LAPISBERRY_TART.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(Items.CAKE, BFBlocks.COCOA_CAKE.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFBlocks.COCOA_CAKE.get(), BFBlocks.COCONUT_CAKE.get().asItem().getDefaultInstance()));
+        FOOD_AND_DRINKS.add(new Pair<>(BFBlocks.COCONUT_CAKE.get(), BFBlocks.SPONGE_CAKE.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(Items.PUMPKIN_PIE, BFBlocks.MELON_PIE.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFBlocks.MELON_PIE.get(), BFBlocks.APPLE_PIE.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFBlocks.APPLE_PIE.get(), BFBlocks.ORANGE_PIE.get().asItem().getDefaultInstance()));
@@ -415,11 +416,11 @@ public class BFItemGroupAdditions {
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.PASSION_GLAZED_SALMON.get(), BFItems.CRUSTED_BEEF.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.CRUSTED_BEEF.get(), BFItems.CRIMSON_CHOW.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.CRIMSON_CHOW.get(), BFItems.WARPED_CHOW.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(BFItems.WARPED_CHOW.get(), BFItems.CUSTARD.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(BFItems.CUSTARD.get(), BFItems.PIQUANT_CUSTARD.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(BFItems.PIQUANT_CUSTARD.get(), BFItems.PASSION_CUSTARD.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(BFItems.PASSION_CUSTARD.get(), BFItems.COCOA_CUSTARD.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(BFItems.COCOA_CUSTARD.get(), BFItems.ANCIENT_CUSTARD.get().asItem().getDefaultInstance()));
+//        FOOD_AND_DRINKS.add(new Pair<>(BFItems.WARPED_CHOW.get(), BFItems.CUSTARD.get().asItem().getDefaultInstance()));
+//        FOOD_AND_DRINKS.add(new Pair<>(BFItems.CUSTARD.get(), BFItems.PIQUANT_CUSTARD.get().asItem().getDefaultInstance()));
+//        FOOD_AND_DRINKS.add(new Pair<>(BFItems.PIQUANT_CUSTARD.get(), BFItems.PASSION_CUSTARD.get().asItem().getDefaultInstance()));
+//        FOOD_AND_DRINKS.add(new Pair<>(BFItems.PASSION_CUSTARD.get(), BFItems.COCOA_CUSTARD.get().asItem().getDefaultInstance()));
+//        FOOD_AND_DRINKS.add(new Pair<>(BFItems.COCOA_CUSTARD.get(), BFItems.ANCIENT_CUSTARD.get().asItem().getDefaultInstance()));
 
         addTiffinForge(FOOD_AND_DRINKS_FORGE, BFItems.TORCHFLOWER_TEA_CUP.get(), null);
         addTiffin(FOOD_AND_DRINKS_FORGE, null, DyeColor.WHITE);
@@ -501,17 +502,6 @@ public class BFItemGroupAdditions {
             HLServices.REGISTRY.addItemsToItemGroup(
                     ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("colored_blocks")),
                     COLORED_BLOCKS
-            );
-        }
-
-        if (HLServices.PLATFORM.getPlatformName() == "Fabric" || Minecraft.getInstance().options.operatorItemsTab().get()) {
-            OP_BLOCKS.add(new Pair<>(Items.BARRIER, BFBlocks.SOLID_CERAMIC.get().asItem().getDefaultInstance()));
-        }
-
-        if (HLServices.PLATFORM.getPlatformName() == "Fabric") {
-            HLServices.REGISTRY.addItemsToItemGroup(
-                    ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("op_blocks")),
-                    OP_BLOCKS
             );
         }
 

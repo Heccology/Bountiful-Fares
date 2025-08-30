@@ -242,11 +242,11 @@ public class BFModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(BFItems.MAIZE_STUFFED_POTATO.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.MAIZE_BREAD.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.WALNUT_COOKIE.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(BFItems.CUSTARD.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(BFItems.PIQUANT_CUSTARD.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(BFItems.PASSION_CUSTARD.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(BFItems.COCOA_CUSTARD.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(BFItems.ANCIENT_CUSTARD.get(), ModelTemplates.FLAT_ITEM);
+//        itemModelGenerator.generateFlatItem(BFItems.CUSTARD.get(), ModelTemplates.FLAT_ITEM);
+//        itemModelGenerator.generateFlatItem(BFItems.PIQUANT_CUSTARD.get(), ModelTemplates.FLAT_ITEM);
+//        itemModelGenerator.generateFlatItem(BFItems.PASSION_CUSTARD.get(), ModelTemplates.FLAT_ITEM);
+//        itemModelGenerator.generateFlatItem(BFItems.COCOA_CUSTARD.get(), ModelTemplates.FLAT_ITEM);
+//        itemModelGenerator.generateFlatItem(BFItems.ANCIENT_CUSTARD.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.CANDIED_APPLE.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.CANDIED_PLUM.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.GRASS_SEEDS.get(), ModelTemplates.FLAT_ITEM);

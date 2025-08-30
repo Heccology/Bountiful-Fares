@@ -463,11 +463,11 @@ public class BFItemGroups {
                         entries.accept(BFItems.CRUSTED_BEEF.get());
                         entries.accept(BFItems.CRIMSON_CHOW.get());
                         entries.accept(BFItems.WARPED_CHOW.get());
-                        entries.accept(BFItems.CUSTARD.get());
-                        entries.accept(BFItems.PIQUANT_CUSTARD.get());
-                        entries.accept(BFItems.PASSION_CUSTARD.get());
-                        entries.accept(BFItems.COCOA_CUSTARD.get());
-                        entries.accept(BFItems.ANCIENT_CUSTARD.get());
+//                        entries.accept(BFItems.CUSTARD.get());
+//                        entries.accept(BFItems.PIQUANT_CUSTARD.get());
+//                        entries.accept(BFItems.PASSION_CUSTARD.get());
+//                        entries.accept(BFItems.COCOA_CUSTARD.get());
+//                        entries.accept(BFItems.ANCIENT_CUSTARD.get());
                         entries.accept(BFItems.CANDY.get());
                         entries.accept(BFItems.PIQUANT_CANDY.get());
                         entries.accept(BFItems.SOUR_CANDY.get());
