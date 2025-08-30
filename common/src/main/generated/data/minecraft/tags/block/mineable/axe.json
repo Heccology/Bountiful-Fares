@@ -96,6 +96,19 @@
     "bountifulfares:blue_jack_o_straw",
     "bountifulfares:purple_jack_o_straw",
     "bountifulfares:magenta_jack_o_straw",
-    "bountifulfares:pink_jack_o_straw"
+    "bountifulfares:pink_jack_o_straw",
+    "bountifulfares:trellis",
+    "bountifulfares:spruce_trellis",
+    "bountifulfares:birch_trellis",
+    "bountifulfares:jungle_trellis",
+    "bountifulfares:acacia_trellis",
+    "bountifulfares:dark_oak_trellis",
+    "bountifulfares:mangrove_trellis",
+    "bountifulfares:cherry_trellis",
+    "bountifulfares:bamboo_trellis",
+    "bountifulfares:walnut_trellis",
+    "bountifulfares:hoary_trellis",
+    "bountifulfares:crimson_trellis",
+    "bountifulfares:warped_trellis"
   ]
 }
