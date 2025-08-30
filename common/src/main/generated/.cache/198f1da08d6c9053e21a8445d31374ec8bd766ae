@@ -1,4 +1,4 @@
-// 1.21.1	2025-08-24T20:48:00.455441	Bountiful Fares/Advancements
+// 1.21.1	2025-08-29T21:11:32.1719247	Bountiful Fares/Advancements
 8543842314d4b75d6843e2aabfad856ffbbae786 data\bountifulfares\advancement\obtain_feldspar.json
 2e6a3516fea3563e9a6a9469cdab0bcd7acd8481 data\bountifulfares\advancement\obtain_sun_hat.json
 f14af0adca8ac338599881832593d9109af4d1cb data\bountifulfares\advancement\obtain_walnut.json
@@ -6,8 +6,8 @@ f14af0adca8ac338599881832593d9109af4d1cb data\bountifulfares\advancement\obtain_
 4c205ac57d16160e63d8b9b14ec3586caa412812 data\bountifulfares\advancement\eat_all_candy.json
 eef19c3489d7a1b78d6b5bd9b2030f20a0ae9d36 data\bountifulfares\advancement\obtain_prismarine_blossom.json
 02a100473d85a6f8f2f4136783008f9345d73826 data\bountifulfares\advancement\place_all_tea_candles.json
-bbe39e2bcc661bc357dab4c8658caa79161c2882 data\bountifulfares\advancement\eat_all_bad_foods.json
-527b00f873bd112c9d695b182eb50cadaf968ce8 data\bountifulfares\advancement\eat_all_food.json
+bde71416d3ad1960970c26a1ccd2369d7b9f605c data\bountifulfares\advancement\eat_all_bad_foods.json
+1710674dbe819be06b692f1347b3291f1d00596d data\bountifulfares\advancement\eat_all_food.json
 dd4dc1b9ac88a34b9ea2eb90747c696327a26753 data\bountifulfares\advancement\obtain_ceramic_tiles.json
 34da47e543ede7382affda646d75798e20dd6bdf data\bountifulfares\advancement\obtain_tea_blends.json
 3e41c2a95f1781472a4cb1dd80c430f443aaf7a7 data\bountifulfares\advancement\make_first_food.json

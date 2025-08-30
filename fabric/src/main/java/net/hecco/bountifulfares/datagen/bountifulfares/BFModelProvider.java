@@ -272,6 +272,7 @@ public class BFModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(BFItems.POPPED_MAIZE.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.COOKED_EGG.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.PICKLED_BEETROOT.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.FOUL_FLESH.get(), ModelTemplates.FLAT_ITEM);
         for (Supplier<Item> item : BFItems.TIFFINS.values()) {
             itemModelGenerator.generateFlatItem(item.get(), ModelTemplates.FLAT_ITEM);
         }

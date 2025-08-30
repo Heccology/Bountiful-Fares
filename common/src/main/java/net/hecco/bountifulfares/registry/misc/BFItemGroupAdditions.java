@@ -388,6 +388,7 @@ public class BFItemGroupAdditions {
         FOOD_AND_DRINKS.add(new Pair<>(BFBlocks.ORANGE_PIE.get(), BFBlocks.LEMON_PIE.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFBlocks.LEMON_PIE.get(), BFBlocks.PLUM_PIE.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFBlocks.PLUM_PIE.get(), BFBlocks.HOARY_PIE.get().asItem().getDefaultInstance()));
+        FOOD_AND_DRINKS.add(new Pair<>(Items.ROTTEN_FLESH, BFItems.FOUL_FLESH.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(Items.SPIDER_EYE, BFItems.CITRUS_ESSENCE.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.CITRUS_ESSENCE.get(), BFItems.CANDY.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.CANDY.get(), BFItems.PIQUANT_CANDY.get().asItem().getDefaultInstance()));

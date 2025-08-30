@@ -7,9 +7,11 @@ import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
@@ -458,6 +460,10 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(BFItemTags.BEETROOT_INGREDIENTS)
                 .add(BFItems.PICKLED_BEETROOT.get())
                 .add(Items.BEETROOT)
+        ;
+
+        getOrCreateTagBuilder(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("dungeonsdelight", "fleshes")))
+                .add(BFItems.FOUL_FLESH.get())
         ;
     }
 }

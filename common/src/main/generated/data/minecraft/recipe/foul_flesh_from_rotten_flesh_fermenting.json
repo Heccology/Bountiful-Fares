@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:fermenting",
+  "ingredient": {
+    "item": "minecraft:rotten_flesh"
+  },
+  "particle_color": 4270367,
+  "result": {
+    "id": "bountifulfares:foul_flesh"
+  },
+  "result_count": 1
+}

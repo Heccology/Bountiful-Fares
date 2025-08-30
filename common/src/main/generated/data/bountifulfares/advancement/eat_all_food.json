@@ -225,6 +225,14 @@
       },
       "trigger": "minecraft:consume_item"
     },
+    "foul_flesh": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:foul_flesh"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    },
     "green_tea_bottle": {
       "conditions": {
         "item": {
@@ -608,6 +616,9 @@
     ],
     [
       "mead_bottle"
+    ],
+    [
+      "foul_flesh"
     ],
     [
       "apple_compote_jar"

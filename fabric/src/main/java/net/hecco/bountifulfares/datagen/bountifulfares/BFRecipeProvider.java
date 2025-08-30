@@ -868,7 +868,8 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerFermentingRecipe(exporter, BFItems.SPONGEKIN_SLICE.get(), BFItems.PICKLED_SPONGEKIN.get(), 2, 3916203);
         offerFermentingRecipe(exporter, BFItems.PLUM.get(), BFItems.PLUM_CIDER_JAR.get(), 1, 14532546);
         offerFermentingRecipe(exporter, BFItems.COCONUT_HALF.get(), BFItems.COCONUT_MILK_BOTTLE.get(), 1, 13747902);
-        offerFermentingRecipe(exporter, Items.BEETROOT, BFItems.PICKLED_BEETROOT.get(), 1, 12135488);
+        offerFermentingRecipe(exporter, Items.BEETROOT, BFItems.PICKLED_BEETROOT.get(), 2, 12135488);
+        offerFermentingRecipe(exporter, Items.ROTTEN_FLESH, BFItems.FOUL_FLESH.get(), 1, 4270367);
 //        new MillingRecipeBuilder(Items.GRANITE, ModItems.FELDSPAR, 2, "granite")
 //                .group("feldspar")
 //                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
