@@ -2,6 +2,7 @@ package net.hecco.bountifulfares;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
@@ -9,6 +10,9 @@ import net.hecco.bountifulfares.data.FabricGrassSeedsInteractionResourceLoader;
 import net.hecco.bountifulfares.data.FabricTrellisCropResourceLoader;
 import net.hecco.bountifulfares.data.FabricTrellisPlantResourceLoader;
 import net.hecco.bountifulfares.datagen.DatagenOnlyItems;
+import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
+import net.hecco.bountifulfares.definition.data.trellis.TrellisCropDefinition;
+import net.hecco.bountifulfares.definition.networking.payload.TrellisSyncPayload;
 import net.hecco.bountifulfares.registry.BFFabricLootTableModifiers;
 import net.hecco.bountifulfares.registry.BFMessages;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
@@ -22,6 +26,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -33,8 +38,10 @@ import net.minecraft.world.level.block.CakeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
+import java.util.Map;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
 
 import static net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions.*;
 
@@ -109,6 +116,18 @@ public class FabricBountifulFares implements ModInitializer {
                 }
             }
             return InteractionResult.PASS;
+        });
+
+        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+            Map<ResourceLocation, TrellisCropDefinition> crops =
+                    TrellisBlock.CROPS.values().stream()
+                            .collect(Collectors.toMap(
+                                    def -> BuiltInRegistries.ITEM.getKey(def.seeds()),
+                                    def -> def
+                            ));
+
+            TrellisSyncPayload payload = new TrellisSyncPayload(crops);
+            sender.sendPacket(payload);
         });
     }
 

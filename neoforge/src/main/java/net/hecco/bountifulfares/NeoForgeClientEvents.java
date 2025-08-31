@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares;
 
 import net.hecco.bountifulfares.definition.block.entity.renderer.*;
+import net.hecco.bountifulfares.definition.block.entity.renderer.model.TrellisBlockEntityModel;
 import net.hecco.bountifulfares.definition.particle.FermentedBubbleParticle;
 import net.hecco.bountifulfares.definition.particle.FlourCloudParticle;
 import net.hecco.bountifulfares.definition.particle.GoldenPetalParticle;
@@ -55,8 +56,8 @@ public class NeoForgeClientEvents {
         event.registerLayerDefinition(BFModelLayers.HOARY_HANGING_SIGN, ModHangingSignRenderer::createHangingSignLayer);
         event.registerLayerDefinition(BFModelLayers.WALNUT_SIGN, ModSignRenderer::createSignLayer);
         event.registerLayerDefinition(BFModelLayers.WALNUT_HANGING_SIGN, ModHangingSignRenderer::createHangingSignLayer);
-        event.registerLayerDefinition(BFModelLayers.TRELLIS_DEFAULT, TrellisBlockEntityRenderer::createDefaultLayer);
-        event.registerLayerDefinition(BFModelLayers.TRELLIS_INVERTED, TrellisBlockEntityRenderer::createInvertedLayer);
+        event.registerLayerDefinition(BFModelLayers.TRELLIS_DEFAULT, TrellisBlockEntityModel::createDefaultLayer);
+        event.registerLayerDefinition(BFModelLayers.TRELLIS_INVERTED, TrellisBlockEntityModel::createInvertedLayer);
     }
 
     @SubscribeEvent

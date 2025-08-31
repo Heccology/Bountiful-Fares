@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.hecco.bountifulfares.definition.block.entity.renderer.*;
+import net.hecco.bountifulfares.definition.block.entity.renderer.model.TrellisBlockEntityModel;
 import net.hecco.bountifulfares.definition.particle.FermentedBubbleParticle;
 import net.hecco.bountifulfares.definition.particle.FlourCloudParticle;
 import net.hecco.bountifulfares.definition.particle.GoldenPetalParticle;
@@ -53,8 +54,8 @@ public class FabricBountifulFaresClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(BFModelLayers.HOARY_HANGING_SIGN, ModHangingSignRenderer::createHangingSignLayer);
         EntityModelLayerRegistry.registerModelLayer(BFModelLayers.WALNUT_SIGN, ModSignRenderer::createSignLayer);
         EntityModelLayerRegistry.registerModelLayer(BFModelLayers.WALNUT_HANGING_SIGN, ModHangingSignRenderer::createHangingSignLayer);
-        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.TRELLIS_DEFAULT, TrellisBlockEntityRenderer::createDefaultLayer);
-        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.TRELLIS_INVERTED, TrellisBlockEntityRenderer::createInvertedLayer);
+        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.TRELLIS_DEFAULT, TrellisBlockEntityModel::createDefaultLayer);
+        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.TRELLIS_INVERTED, TrellisBlockEntityModel::createInvertedLayer);
 
         for (Pair<BlockColor, Block> pair : BountifulFaresClient.blockColors) {
             ColorProviderRegistry.BLOCK.register(pair.getA(), pair.getB());

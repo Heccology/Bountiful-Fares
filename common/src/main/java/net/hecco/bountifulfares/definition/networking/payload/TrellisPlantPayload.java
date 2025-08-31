@@ -8,8 +8,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.world.item.ItemStack;
 
-public record TrellisPlantPayload(BlockPos pos, ItemStack stack, int stage) implements CustomPacketPayload
-{
+public record TrellisPlantPayload(BlockPos pos, ItemStack stack, int stage) implements CustomPacketPayload {
     public static final Type<TrellisPlantPayload> ID = new Type<>(BFMessages.TRELLIS_PLANT);
     public static final StreamCodec<RegistryFriendlyByteBuf, TrellisPlantPayload> CODEC =
             StreamCodec.composite(

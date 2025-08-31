@@ -10,4 +10,5 @@ public class BFMessages {
     public static final ResourceLocation CERAMIC_BLOCK_COLOR = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "ceramic_block_color");
     public static final ResourceLocation TRELLIS_PLANT = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "trellis_plant");
     public static final ResourceLocation TRELLIS_EMPTY = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "trellis_empty");
+    public static final ResourceLocation TRELLIS_SYNC = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "trellis_sync");
 }

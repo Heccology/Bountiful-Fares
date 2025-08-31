@@ -3,31 +3,35 @@ package net.hecco.bountifulfares.registry;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.hecco.bountifulfares.definition.networking.BFPackets;
-import net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPayload;
+import net.hecco.bountifulfares.definition.networking.payload.*;
 
 public class BFMessages {
     public static void registerS2CPackets() {
-        ClientPlayNetworking.registerGlobalReceiver(net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPayload.ID, (payload, context) ->
+        ClientPlayNetworking.registerGlobalReceiver(CeramicDishEmptyPayload.ID, (payload, context) ->
                 context.client().execute(() -> BFPackets.ceramicDishEmpty(payload)));
 
-        ClientPlayNetworking.registerGlobalReceiver(net.hecco.bountifulfares.definition.networking.payload.CeramicDishItemPayload.ID, (payload, context) ->
+        ClientPlayNetworking.registerGlobalReceiver(CeramicDishItemPayload.ID, (payload, context) ->
                 context.client().execute(() -> BFPackets.ceramicDishItem(payload)));
 
-        ClientPlayNetworking.registerGlobalReceiver(net.hecco.bountifulfares.definition.networking.payload.CeramicBlockColorPayload.ID, (payload, context) ->
+        ClientPlayNetworking.registerGlobalReceiver(CeramicBlockColorPayload.ID, (payload, context) ->
                 context.client().execute(() -> BFPackets.ceramicBlockColor(payload)));
 
-        ClientPlayNetworking.registerGlobalReceiver(net.hecco.bountifulfares.definition.networking.payload.TrellisPlantPayload.ID, (payload, context) ->
+        ClientPlayNetworking.registerGlobalReceiver(TrellisPlantPayload.ID, (payload, context) ->
                 context.client().execute(() -> BFPackets.trellisPlant(payload)));
 
-        ClientPlayNetworking.registerGlobalReceiver(net.hecco.bountifulfares.definition.networking.payload.TrellisEmptyPayload.ID, (payload, context) ->
+        ClientPlayNetworking.registerGlobalReceiver(TrellisEmptyPayload.ID, (payload, context) ->
                 context.client().execute(() -> BFPackets.trellisEmpty(payload)));
+
+        ClientPlayNetworking.registerGlobalReceiver(TrellisSyncPayload.ID, (payload, context) ->
+                context.client().execute(() -> BFPackets.trellisSync(payload)));
     }
 
     public static void registerPayloads() {
-        PayloadTypeRegistry.playS2C().register(net.hecco.bountifulfares.definition.networking.payload.CeramicDishItemPayload.ID, net.hecco.bountifulfares.definition.networking.payload.CeramicDishItemPayload.CODEC);
-        PayloadTypeRegistry.playS2C().register(net.hecco.bountifulfares.definition.networking.payload.CeramicBlockColorPayload.ID, net.hecco.bountifulfares.definition.networking.payload.CeramicBlockColorPayload.CODEC);
-        PayloadTypeRegistry.playS2C().register(net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPayload.ID, CeramicDishEmptyPayload.CODEC);
-        PayloadTypeRegistry.playS2C().register(net.hecco.bountifulfares.definition.networking.payload.TrellisPlantPayload.ID, net.hecco.bountifulfares.definition.networking.payload.TrellisPlantPayload.CODEC);
-        PayloadTypeRegistry.playS2C().register(net.hecco.bountifulfares.definition.networking.payload.TrellisEmptyPayload.ID, net.hecco.bountifulfares.definition.networking.payload.TrellisEmptyPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(CeramicDishItemPayload.ID, CeramicDishItemPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(CeramicBlockColorPayload.ID, CeramicBlockColorPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(CeramicDishEmptyPayload.ID, CeramicDishEmptyPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(TrellisPlantPayload.ID, TrellisPlantPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(TrellisEmptyPayload.ID, TrellisEmptyPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(TrellisSyncPayload.ID, TrellisSyncPayload.CODEC);
     }
 }

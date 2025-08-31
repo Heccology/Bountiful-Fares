@@ -1,12 +1,17 @@
 package net.hecco.bountifulfares;
 
+import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.data.grass_seeds.GrassSeedsInteractionResourceLoader;
+import net.hecco.bountifulfares.definition.data.trellis.TrellisCropDefinition;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisCropResourceLoader;
+import net.hecco.bountifulfares.definition.data.trellis.TrellisPlantDefinition;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisPlantResourceLoader;
+import net.hecco.bountifulfares.definition.networking.payload.TrellisSyncPayload;
 import net.hecco.bountifulfares.registry.util.BFTooltipEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
@@ -24,8 +29,13 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
+
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @EventBusSubscriber(modid = BountifulFares.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class NeoForgeEvents {
@@ -77,5 +87,27 @@ public class NeoForgeEvents {
         } else {
             event.setCancellationResult(InteractionResult.PASS);
         }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) return;
+
+        Map<ResourceLocation, TrellisCropDefinition> crops =
+                TrellisBlock.CROPS.values().stream()
+                        .collect(Collectors.toMap(
+                                def -> BuiltInRegistries.ITEM.getKey(def.seeds()),
+                                def -> def
+                        ));
+
+        Map<ResourceLocation, TrellisPlantDefinition> plants =
+                TrellisBlock.PLANTS.values().stream()
+                        .collect(Collectors.toMap(
+                                def -> BuiltInRegistries.ITEM.getKey(def.plant()),
+                                def -> def
+                        ));
+
+        TrellisSyncPayload payload = new TrellisSyncPayload(crops, plants);
+        PacketDistributor.sendToPlayer(player, payload);
     }
 }

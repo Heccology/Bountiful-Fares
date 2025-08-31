@@ -6,11 +6,13 @@ import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.item.Items;
+import net.neoforged.api.distmarker.Dist;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -42,8 +44,14 @@ public class TrellisCropResourceLoader extends SimpleJsonResourceReloadListener 
                 BountifulFares.LOGGER.error("Failed to load trellis crop '{}'", id, e);
             }
         }
-        for (TrellisCropDefinition cropDefinition : registeredPlants.values().stream().toList()) {
-            TrellisBlock.CROPS.put(cropDefinition.seeds(), cropDefinition);
+//        for (TrellisCropDefinition cropDefinition : registeredPlants.values().stream().toList()) {
+//            TrellisBlock.CROPS.put(cropDefinition.seeds(), cropDefinition);
+//        }
+        if (!HLServices.PLATFORM.isClientSide()) {
+            TrellisBlock.CROPS.clear();
+            for (TrellisCropDefinition cropDefinition : registeredPlants.values()) {
+                TrellisBlock.CROPS.put(cropDefinition.seeds(), cropDefinition);
+            }
         }
     }
 

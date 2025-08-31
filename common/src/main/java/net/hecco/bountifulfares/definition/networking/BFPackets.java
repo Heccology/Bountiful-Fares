@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.definition.networking;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.TrellisBlockEntity;
@@ -83,6 +84,20 @@ public class BFPackets {
                 entity.removePlant();
                 world.sendBlockUpdated(pos, world.getBlockState(pos), world.getBlockState(pos), 2);
             }
+        }
+    }
+
+    public static void trellisSync(TrellisSyncPayload payload) {
+        if (HLServices.PLATFORM.isClientSide()) {
+            TrellisBlock.CROPS.clear();
+            payload.crops().forEach((id, def) ->
+                    TrellisBlock.CROPS.put(def.seeds(), def)
+            );
+
+            TrellisBlock.PLANTS.clear();
+            payload.plants().forEach((id, def) ->
+                    TrellisBlock.PLANTS.put(def.plant(), def)
+            );
         }
     }
 }
