@@ -12,6 +12,7 @@ import net.hecco.bountifulfares.data.FabricTrellisPlantResourceLoader;
 import net.hecco.bountifulfares.datagen.DatagenOnlyItems;
 import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisCropDefinition;
+import net.hecco.bountifulfares.definition.data.trellis.TrellisPlantDefinition;
 import net.hecco.bountifulfares.definition.networking.payload.TrellisSyncPayload;
 import net.hecco.bountifulfares.registry.BFFabricLootTableModifiers;
 import net.hecco.bountifulfares.registry.BFMessages;
@@ -126,7 +127,14 @@ public class FabricBountifulFares implements ModInitializer {
                                     def -> def
                             ));
 
-            TrellisSyncPayload payload = new TrellisSyncPayload(crops);
+            Map<ResourceLocation, TrellisPlantDefinition> plants =
+                    TrellisBlock.PLANTS.values().stream()
+                            .collect(Collectors.toMap(
+                                    def -> BuiltInRegistries.ITEM.getKey(def.plant()),
+                                    def -> def
+                            ));
+
+            TrellisSyncPayload payload = new TrellisSyncPayload(crops, plants);
             sender.sendPacket(payload);
         });
     }

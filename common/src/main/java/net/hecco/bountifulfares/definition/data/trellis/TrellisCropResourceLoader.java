@@ -12,7 +12,6 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.item.Items;
-import net.neoforged.api.distmarker.Dist;
 
 import java.util.Collection;
 import java.util.HashMap;

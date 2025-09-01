@@ -36,14 +36,6 @@ public class TrellisBlockEntityRenderer implements BlockEntityRenderer<TrellisBl
     @Override
     public void render(TrellisBlockEntity entity, float v, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int i1) {
 
-        BountifulFares.LOGGER.info(entity.toString());
-        BountifulFares.LOGGER.info(TrellisBlock.PLANTS.toString());
-        BountifulFares.LOGGER.info(TrellisBlock.CROPS.toString());
-        BountifulFares.LOGGER.info(this.defaultModel.toString());
-        BountifulFares.LOGGER.info(this.invertedModel.toString());
-        BountifulFares.LOGGER.info(entity.getPlant().toString());
-        BountifulFares.LOGGER.info(entity.getStage() + "");
-
         BlockState state = entity.getBlockState();
 
         Direction direction = state.hasProperty(BlockStateProperties.HORIZONTAL_FACING)
@@ -78,9 +70,6 @@ public class TrellisBlockEntityRenderer implements BlockEntityRenderer<TrellisBl
             }
             VertexConsumer vertexconsumer = new Material(TextureAtlas.LOCATION_BLOCKS, texture).buffer(multiBufferSource, RenderType::entityCutoutNoCull);
             modelPart.render(poseStack, vertexconsumer, i, i1);
-
-            BountifulFares.LOGGER.info(texture.toString());
-            BountifulFares.LOGGER.info(modelPart.toString());
 
         }
         poseStack.popPose();
