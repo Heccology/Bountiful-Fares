@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "lit=false": {
       "model":  "bountifulfares:block/solid_ceramic"
+    },
+    "lit=true": {
+      "model":  "bountifulfares:block/solid_ceramic_lit"
     }
   }
 }
