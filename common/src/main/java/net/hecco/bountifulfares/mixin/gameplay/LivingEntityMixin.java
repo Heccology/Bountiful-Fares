@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.mixin.gameplay;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFEffects;
 import net.hecco.bountifulfares.registry.tags.BFEffectTags;
 import net.minecraft.core.Holder;
@@ -18,6 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -36,23 +38,24 @@ public abstract class LivingEntityMixin {
 
     @Shadow public abstract boolean addEffect(MobEffectInstance effectInstance, @Nullable Entity entity);
 
-    @Inject(method = "addEffect(Lnet/minecraft/world/effect/MobEffectInstance;)Z", at = @At("HEAD"))
-    private void bountifulfares_acidicApply(MobEffectInstance effectInstance, CallbackInfoReturnable<Boolean> cir) {
+    @Shadow public abstract Collection<MobEffectInstance> getActiveEffects();
+
+    @Inject(method = "addEffect(Lnet/minecraft/world/effect/MobEffectInstance;Lnet/minecraft/world/entity/Entity;)Z", at = @At("HEAD"))
+    private void bountifulfares_acidicApply(MobEffectInstance effectInstance, Entity entity, CallbackInfoReturnable<Boolean> cir) {
         if (effectInstance.getEffect() == BFEffects.STUPOR) {
-            Iterator<Map.Entry<Holder<MobEffect>, MobEffectInstance>> iterator = this.activeEffects.entrySet().iterator();
-            ArrayList<MobEffectInstance> removedEffects = new ArrayList<>(); //TODO Fix acidic on neo, large bg on fabric
-            while (iterator.hasNext()) {
-                Map.Entry<Holder<MobEffect>, MobEffectInstance> entry = iterator.next();
-                if (entry.getKey() != BFEffects.STUPOR && !entry.getKey().is(BFEffectTags.STUPOR_BLACKLIST)) {
-                    removedEffects.add(entry.getValue());
+            ArrayList<Holder<MobEffect>> removedEffects = new ArrayList<>(); //TODO Fix acidic on neo, large bg on fabric
+            for (Holder<MobEffect> effect : this.activeEffects.keySet()) {
+                if (effect != BFEffects.STUPOR && !effect.is(BFEffectTags.STUPOR_BLACKLIST)) {
+                    removedEffects.add(effect);
                 }
             }
 
-            for (MobEffectInstance instance : removedEffects) {
-                this.removeEffect(instance.getEffect());
-                this.effectsDirty = true;
+            for (Holder<MobEffect> effect : removedEffects) {
+                this.removeEffect(effect);
             }
-        } else if (!this.activeEffects.containsKey(BFEffects.ACIDIC) && effectInstance.getEffect() == BFEffects.ACIDIC) {
+            this.effectsDirty = true;
+        } else
+        if (!this.activeEffects.containsKey(BFEffects.ACIDIC) && effectInstance.getEffect() == BFEffects.ACIDIC) {
             int acidicAmplifier = effectInstance.getAmplifier();
             Iterator<Map.Entry<Holder<MobEffect>, MobEffectInstance>> iterator = this.activeEffects.entrySet().iterator();
             ArrayList<MobEffectInstance> newEffects = new ArrayList<>();

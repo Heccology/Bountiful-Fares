@@ -195,10 +195,10 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.WALLS)
                 .add(BFBlocks.COIR_BRICK_WALL.get().asItem())
                 .add(BFBlocks.FELDSPAR_BRICK_WALL.get().asItem())
-                //.add(BFBlocks.CERAMIC_TILE_WALL.asItem())
-                //.add(BFBlocks.CERAMIC_MOSAIC_WALL.asItem())
-                //.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL.asItem())
-                //.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL.asItem())
+        //.add(BFBlocks.CERAMIC_TILE_WALL.asItem())
+        //.add(BFBlocks.CERAMIC_MOSAIC_WALL.asItem())
+        //.add(BFBlocks.CHECKERED_CERAMIC_TILE_WALL.asItem())
+        //.add(BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.CANDLES)
@@ -465,5 +465,11 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("dungeonsdelight", "fleshes")))
                 .add(BFItems.FOUL_FLESH.get())
         ;
+
+        for (Supplier<Item> item : BFItems.TIFFINS.values()) {
+            getOrCreateTagBuilder(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("supplementaries", "lunch_basket_blacklist")))
+                    .add(item.get())
+            ;
+        }
     }
 }
