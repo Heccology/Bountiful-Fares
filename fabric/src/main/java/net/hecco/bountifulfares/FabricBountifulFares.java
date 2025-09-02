@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.mixin.lookup.BlockEntityTypeAccessor;
 import net.fabricmc.loader.api.FabricLoader;
 import net.hecco.bountifulfares.data.FabricGrassSeedsInteractionResourceLoader;
 import net.hecco.bountifulfares.data.FabricTrellisCropResourceLoader;
@@ -14,6 +15,7 @@ import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisCropDefinition;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisPlantDefinition;
 import net.hecco.bountifulfares.definition.networking.payload.TrellisSyncPayload;
+import net.hecco.bountifulfares.mixin.util.BlockEntityAccessor;
 import net.hecco.bountifulfares.registry.BFFabricLootTableModifiers;
 import net.hecco.bountifulfares.registry.BFMessages;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
@@ -36,10 +38,14 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CakeBlock;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
@@ -137,6 +143,22 @@ public class FabricBountifulFares implements ModInitializer {
             TrellisSyncPayload payload = new TrellisSyncPayload(crops, plants);
             sender.sendPacket(payload);
         });
+
+        Set<Block> signs = new HashSet<>(((BlockEntityAccessor) BlockEntityType.SIGN).getValidBlocks());
+        signs.add(BFBlocks.WALNUT_SIGN.get());
+        signs.add(BFBlocks.WALNUT_WALL_SIGN.get());
+        signs.add(BFBlocks.HOARY_SIGN.get());
+        signs.add(BFBlocks.HOARY_WALL_SIGN.get());
+        ((BlockEntityAccessor) BlockEntityType.SIGN).setValidBlocks(signs);
+
+        Set<Block> hangingSigns = new HashSet<>(((BlockEntityAccessor) BlockEntityType.HANGING_SIGN).getValidBlocks());
+        hangingSigns.add(BFBlocks.WALNUT_HANGING_SIGN.get());
+        hangingSigns.add(BFBlocks.WALNUT_WALL_HANGING_SIGN.get());
+        hangingSigns.add(BFBlocks.HOARY_HANGING_SIGN.get());
+        hangingSigns.add(BFBlocks.HOARY_WALL_HANGING_SIGN.get());
+        ((BlockEntityAccessor) BlockEntityType.HANGING_SIGN).setValidBlocks(hangingSigns);
+
+
     }
 
     public static void registerFuels() {

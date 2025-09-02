@@ -1,5 +1,5 @@
 Also try Appledog!
-Also try El's and L's Dyes!
+Also try Desire!
 Also try Excessive Building!
 Also try Subterrous!
 Also try Dungeon's Delight!
@@ -24,7 +24,7 @@ WARNING: CONTAINS APPLEDOGS
 Joyous!
 If the shoe fish!
 The Big One!
-I HATE GRISTMILLS
+I HATE GRISTMILLS!
 Everyone say thank you Keke!
 Thank you Artyrian!
 Thank you Diemant!
@@ -38,7 +38,7 @@ Lemon blocks included!
 Very spongy!
 WARNING: CONTAINS NUTS
 Now THESE are some bountiful fares!
-/give @p bountifulfares:dirt_stew 99
+/give @p bountifulfares:dirt_stew 64
 "I like the old feldspar though" LEAVE ME ALONE
 Grab the popped maize!
 Totally synced ceramic tiles!
@@ -53,4 +53,9 @@ Bountiful Leeks!
 LEEKING 4.0.0!!
 Bountiful Freights!
 Did you know that leek stew is the best food in the game?
+Try the leek stew!
 Bountifare!
+Was the cake a lie..?
+...
+bappledog!
+🍎🐶!

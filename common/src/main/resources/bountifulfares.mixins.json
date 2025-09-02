@@ -19,12 +19,13 @@
     "misc.WoodlandMansionFirstFloorMixin",
     "misc.WoodlandMansionSecondFloorMixin",
     "render.AbstractBlockStateMixin",
+    "render.AcidifiedEffectBackgroundMixin",
     "render.AcidifiedInventoryEffectBackgroundMixin",
     "render.ClientTooltipComponentMixin",
-    "render.AcidifiedEffectBackgroundMixin",
     "render.ItemRendererMixin",
     "render.LivingEntityMixin",
     "render.ModelLoaderMixin",
+    "util.BlockEntityAccessor",
     "util.BrewingRecipeRegistryMixin",
     "util.HandledScreenMixin",
     "util.ItemRendererAccessor",
@@ -39,7 +40,9 @@
     "render.BlockDustParticleMixin",
     "render.BuiltinItemModelMixin",
     "render.GuiGraphicsMixin",
-    "render.GuiHeartsMixin"
+    "render.GuiHeartsMixin",
+    "render.HangingSignRendererMixin",
+    "render.SignRendererMixin"
   ],
   "refmap": "bountifulfares.refmap.json"
 }

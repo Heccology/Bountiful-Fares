@@ -3,6 +3,7 @@ package net.hecco.bountifulfares;
 
 import net.hecco.bountifulfares.definition.networking.BFPackets;
 import net.hecco.bountifulfares.definition.networking.payload.*;
+import net.hecco.bountifulfares.mixin.util.BlockEntityAccessor;
 import net.hecco.bountifulfares.registry.BFNeoForgeLootTableModifiers;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
@@ -17,6 +18,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -28,8 +30,7 @@ import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import oshi.util.tuples.Pair;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Supplier;
 
 @Mod(BountifulFares.MOD_ID)
@@ -101,6 +102,22 @@ public class NeoForgeBountifulFares {
         FUELS.put(BFBlocks.COIR_BRICK_SLAB.get(), 400);
         FUELS.put(BFBlocks.COIR_BRICK_STAIRS.get(), 400);
         FUELS.put(BFBlocks.COIR_BRICK_WALL.get(), 400);
+
+
+
+        Set<Block> signs = new HashSet<>(((BlockEntityAccessor) BlockEntityType.SIGN).getValidBlocks());
+        signs.add(BFBlocks.WALNUT_SIGN.get());
+        signs.add(BFBlocks.WALNUT_WALL_SIGN.get());
+        signs.add(BFBlocks.HOARY_SIGN.get());
+        signs.add(BFBlocks.HOARY_WALL_SIGN.get());
+        ((BlockEntityAccessor) BlockEntityType.SIGN).setValidBlocks(signs);
+
+        Set<Block> hangingSigns = new HashSet<>(((BlockEntityAccessor) BlockEntityType.HANGING_SIGN).getValidBlocks());
+        hangingSigns.add(BFBlocks.WALNUT_HANGING_SIGN.get());
+        hangingSigns.add(BFBlocks.WALNUT_WALL_HANGING_SIGN.get());
+        hangingSigns.add(BFBlocks.HOARY_HANGING_SIGN.get());
+        hangingSigns.add(BFBlocks.HOARY_WALL_HANGING_SIGN.get());
+        ((BlockEntityAccessor) BlockEntityType.HANGING_SIGN).setValidBlocks(hangingSigns);
     }
 
     @SubscribeEvent

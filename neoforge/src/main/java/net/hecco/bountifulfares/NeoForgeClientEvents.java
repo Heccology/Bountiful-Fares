@@ -14,6 +14,8 @@ import net.hecco.bountifulfares.registry.content.BFParticles;
 import net.hecco.bountifulfares.registry.misc.BFModelLayers;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -52,10 +54,10 @@ public class NeoForgeClientEvents {
 
     @SubscribeEvent
     public static void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(BFModelLayers.HOARY_SIGN, ModSignRenderer::createSignLayer);
-        event.registerLayerDefinition(BFModelLayers.HOARY_HANGING_SIGN, ModHangingSignRenderer::createHangingSignLayer);
-        event.registerLayerDefinition(BFModelLayers.WALNUT_SIGN, ModSignRenderer::createSignLayer);
-        event.registerLayerDefinition(BFModelLayers.WALNUT_HANGING_SIGN, ModHangingSignRenderer::createHangingSignLayer);
+        event.registerLayerDefinition(BFModelLayers.HOARY_SIGN, SignRenderer::createSignLayer);
+        event.registerLayerDefinition(BFModelLayers.HOARY_HANGING_SIGN, HangingSignRenderer::createHangingSignLayer);
+        event.registerLayerDefinition(BFModelLayers.WALNUT_SIGN, SignRenderer::createSignLayer);
+        event.registerLayerDefinition(BFModelLayers.WALNUT_HANGING_SIGN, HangingSignRenderer::createHangingSignLayer);
         event.registerLayerDefinition(BFModelLayers.TRELLIS_DEFAULT, TrellisBlockEntityModel::createDefaultLayer);
         event.registerLayerDefinition(BFModelLayers.TRELLIS_INVERTED, TrellisBlockEntityModel::createInvertedLayer);
     }
