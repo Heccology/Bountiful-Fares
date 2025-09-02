@@ -43,7 +43,7 @@ public abstract class LivingEntityMixin {
     @Inject(method = "addEffect(Lnet/minecraft/world/effect/MobEffectInstance;Lnet/minecraft/world/entity/Entity;)Z", at = @At("HEAD"))
     private void bountifulfares_acidicApply(MobEffectInstance effectInstance, Entity entity, CallbackInfoReturnable<Boolean> cir) {
         if (effectInstance.getEffect() == BFEffects.STUPOR) {
-            ArrayList<Holder<MobEffect>> removedEffects = new ArrayList<>(); //TODO Fix acidic on neo, large bg on fabric
+            ArrayList<Holder<MobEffect>> removedEffects = new ArrayList<>();
             for (Holder<MobEffect> effect : this.activeEffects.keySet()) {
                 if (effect != BFEffects.STUPOR && !effect.is(BFEffectTags.STUPOR_BLACKLIST)) {
                     removedEffects.add(effect);

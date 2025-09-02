@@ -21,7 +21,6 @@ public class CompatUtil {
         }
         return false;
     }
-    //TODO: Delicate Dyes :^)?
     public static int getIntColorFromPaintbrush(Item item) {
         if (item == BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, "red_paintbrush"))) {
             return 11546150;

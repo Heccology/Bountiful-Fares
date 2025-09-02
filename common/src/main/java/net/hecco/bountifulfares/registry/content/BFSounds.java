@@ -67,6 +67,8 @@ public class BFSounds {
     public static final Supplier<SoundEvent> TIFFIN_INSERT = registerSoundEvent("tiffin_insert");
     public static final Supplier<SoundEvent> TIFFIN_REMOVE = registerSoundEvent("tiffin_remove");
 
+    public static final Supplier<SoundEvent> GOLDEN_APPLE_SAPLING_AMBIENT = registerSoundEvent("golden_apple_sapling_ambient");
+
     // Fallback sounds for FD sounds
     public static SoundEvent CABINET_OPEN = SoundEvents.BARREL_OPEN;
     public static SoundEvent CABINET_CLOSE = SoundEvents.BARREL_CLOSE;

@@ -360,5 +360,13 @@
       "bountifulfares:tiffin/remove2"
     ],
     "subtitle": "subtitles.item.bountifulfares.shulker_tiffin.remove"
+  },
+  "golden_apple_sapling_ambient": {
+    "sounds": [
+      "bountifulfares:golden_apple_sapling/ambient1",
+      "bountifulfares:golden_apple_sapling/ambient2",
+      "bountifulfares:golden_apple_sapling/ambient3"
+    ],
+    "subtitle": "subtitles.item.bountifulfares.golden_apple_sapling.ambient"
   }
 }
