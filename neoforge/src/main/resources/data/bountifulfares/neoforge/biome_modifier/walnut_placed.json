@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes":
+    "#bountifulfares:has_walnut_trees"
+  ,
+  "features": [
+    "bountifulfares:walnut_placed"
+  ],
+  "step": "vegetal_decoration"
+}

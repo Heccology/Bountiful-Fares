@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes":
+    "#bountifulfares:has_wild_leeks"
+  ,
+  "features": [
+    "bountifulfares:wild_leeks_placed"
+  ],
+  "step": "vegetal_decoration"
+}

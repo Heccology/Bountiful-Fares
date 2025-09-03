@@ -31,4 +31,5 @@ public class BFBiomeTags {
     public static final TagKey<Biome> HAS_WILD_MAIZE = TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "has_wild_maize"));
     public static final TagKey<Biome> HAS_LARGE_WILD_MAIZE = TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "has_large_wild_maize"));
     public static final TagKey<Biome> HAS_TEA_SHRUB = TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "has_tea_shrub"));
+    public static final TagKey<Biome> HAS_GRASSY_DIRT_PATCHES = TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "has_grassy_dirt_patches"));
 }

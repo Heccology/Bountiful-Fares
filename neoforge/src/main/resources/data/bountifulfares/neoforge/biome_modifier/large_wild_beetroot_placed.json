@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes":
+    "#bountifulfares:has_large_wild_beetroot"
+  ,
+  "features": [
+    "bountifulfares:large_wild_beetroots_placed"
+  ],
+  "step": "vegetal_decoration"
+}

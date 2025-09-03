@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_features",
+  "biomes":
+    "#bountifulfares:has_large_wild_leeks",
+  "features": [
+    "bountifulfares:large_wild_leeks_placed"
+  ],
+  "step": "vegetal_decoration"
+}

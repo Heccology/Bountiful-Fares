@@ -11,7 +11,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 public class BFFoliageGeneration {
     public static void generateFlowers() {
         if (BountifulFares.CONFIG.generateGrassyDirtPatches) {
-            BiomeModifications.addFeature(BiomeSelectors.includeByKey(Biomes.FOREST, Biomes.FLOWER_FOREST, Biomes.BIRCH_FOREST, Biomes.DARK_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST),
+            BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_GRASSY_DIRT_PATCHES),
                     GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BFPlacedFeatures.PATCH_GRASSY_DIRT_KEY);
         }
         BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_HONEYSUCKLE),
@@ -73,11 +73,6 @@ public class BFFoliageGeneration {
         if (BountifulFares.CONFIG.generateWildElderberries) {
             BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_WILD_ELDERBERRIES),
                     GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.WILD_ELDERBERRY_PLACED_KEY);
-        }
-
-        if (BountifulFares.CONFIG.isGenerateForestTeaShrubs()) {
-            BiomeModifications.addFeature(BiomeSelectors.includeByKey(Biomes.FOREST),
-                    GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.FOREST_TEA_SHRUB_PLACED_KEY);
         }
     }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes":
+    "#bountifulfares:has_tea_shrub"
+  ,
+  "features": [
+    "bountifulfares:tea_shrub_placed"
+  ],
+  "step": "vegetal_decoration"
+}

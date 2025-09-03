@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_features",
+  "biomes":
+    "#bountifulfares:has_honeysuckle"
+  ,
+  "features": [
+    "bountifulfares:honeysuckle_placed"
+  ],
+  "step": "vegetal_decoration"
+}
