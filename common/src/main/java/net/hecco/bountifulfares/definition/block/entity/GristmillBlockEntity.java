@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.definition.block.entity;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.GristmillBlock;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
 import net.hecco.bountifulfares.definition.screen.GristmillMenu;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
@@ -100,8 +101,8 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
     }
 
     public void tick(Level world, BlockPos pos, BlockState state, GristmillBlockEntity blockEntity) {
-        if (BountifulFares.CONFIG.getMillingTime() * 20 != this.maxProgress) {
-            this.maxProgress = BountifulFares.CONFIG.getMillingTime() * 20;
+        if (Services.PLATFORM.getIntConfigValue("millingTime") * 20 != this.maxProgress) {
+            this.maxProgress = Services.PLATFORM.getIntConfigValue("millingTime") * 20;
         }
         if (!state.getValue(millingState) && !blockEntity.inventory.get(0).isEmpty() && blockEntity.hasRecipe() && blockEntity.canInsertOutputSlot()) {
             world.setBlockAndUpdate(pos, state.setValue(millingState, true));

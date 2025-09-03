@@ -2,7 +2,6 @@
   "replace": false,
   "entries": [
     "bountifulfares:add_spongekin_seeds_from_guardian",
-    "bountifulfares:add_spongekin_seeds_from_elder_guardian",
 
     "bountifulfares:remove_wheat_seeds_from_short_grass",
     "bountifulfares:remove_wheat_seeds_from_tall_grass",

@@ -7,6 +7,7 @@ import net.hecco.bountifulfares.definition.data.trellis.TrellisCropResourceLoade
 import net.hecco.bountifulfares.definition.data.trellis.TrellisPlantDefinition;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisPlantResourceLoader;
 import net.hecco.bountifulfares.definition.networking.payload.TrellisSyncPayload;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.util.BFTooltipEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -69,7 +70,7 @@ public class NeoForgeEvents {
         Player player = event.getEntity();
         BlockHitResult hitResult = event.getHitVec();
         Level world = event.getLevel();
-        if (player.canEat(false) && BountifulFares.CONFIG.isCakeEatSounds() && !player.isSpectator()) {
+        if (player.canEat(false) && Services.PLATFORM.getBoolConfigValue("cakeEatSounds") && !player.isSpectator()) {
             BlockPos pos = hitResult.getBlockPos();
             BlockState state = world.getBlockState(pos);
             Block target = state.getBlock();

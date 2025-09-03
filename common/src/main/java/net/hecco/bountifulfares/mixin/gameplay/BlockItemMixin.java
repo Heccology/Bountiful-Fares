@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.mixin.gameplay;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -15,7 +16,7 @@ public class BlockItemMixin {
 
     @Inject(method = "canPlace", at = @At("HEAD"), cancellable = true)
     private void bountifulfares_replace_pickstack(BlockPlaceContext context, BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        if (BountifulFares.CONFIG.enableSweetBerryPips) {
+        if (Services.PLATFORM.getBoolConfigValue("enableSweetBerryPips")) {
             if (context.getPlayer() != null && context.getItemInHand().is(Items.SWEET_BERRIES)) {
                 cir.setReturnValue(false);
                 cir.cancel();

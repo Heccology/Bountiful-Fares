@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.definition.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.network.chat.CommonComponents;
@@ -47,7 +48,7 @@ public class AirTimeIncreasingItem extends EffectFoodItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
         super.appendHoverText(stack, context, tooltip, type);
-        if (BountifulFares.CONFIG.effectTooltips) {
+        if (Services.PLATFORM.getBoolConfigValue("effectTooltips")) {
             tooltip.add(CommonComponents.EMPTY);
             tooltip.add(Component.translatable("tooltip.bountifulfares.when_eaten").withStyle(ChatFormatting.GRAY));
             tooltip.add(Component.translatable("+" + airTickIncrease / 20 + " ").append(Component.translatable("tooltip.bountifulfares.air_time")).withStyle(ChatFormatting.BLUE));

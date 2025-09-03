@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.mixin.gameplay;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
@@ -17,7 +18,7 @@ public class SweetBerryBushMixin {
 
     @Inject(method = "getCloneItemStack", at = @At("HEAD"), cancellable = true)
     private void bountifulfares_replace_pickstack(LevelReader world, BlockPos pos, BlockState state, CallbackInfoReturnable<ItemStack> cir) {
-        if (BountifulFares.CONFIG.enableSweetBerryPips) {
+        if (Services.PLATFORM.getBoolConfigValue("enableSweetBerryPips")) {
             cir.setReturnValue(BFItems.SWEET_BERRY_PIPS.get().getDefaultInstance());
             cir.cancel();
         }

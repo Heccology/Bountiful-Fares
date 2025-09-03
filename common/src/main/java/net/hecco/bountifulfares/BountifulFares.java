@@ -31,8 +31,6 @@ public class BountifulFares {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static BountifulFaresConfiguration CONFIG = new BountifulFaresConfiguration();
-
 	public static void init() {
 //		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here.. me neither
 		BFSounds.registerSounds();

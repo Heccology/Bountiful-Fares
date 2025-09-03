@@ -8,8 +8,7 @@ import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import me.shedaniel.clothconfig2.gui.entries.SubCategoryListEntry;
 import me.shedaniel.clothconfig2.impl.builders.SubCategoryBuilder;
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.BountifulFaresConfiguration;
-import net.hecco.bountifulfares.definition.config.Category;
+import net.hecco.bountifulfares.FabricBountifulFares;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
@@ -24,7 +23,7 @@ public class BountifulFaresModMenu implements ModMenuApi { //TODO: Fix config va
     private Screen buildConfigScreen(Screen parent) {
         ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)
-                .setSavingRunnable(() -> BountifulFaresConfiguration.save(BountifulFares.CONFIG))
+                .setSavingRunnable(() -> net.hecco.bountifulfares.config.FabricBFConfig.save(FabricBountifulFares.CONFIG))
                 .setTitle(Component.translatable("config.bountifulfares.title"));
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
         Arrays.stream(Category.values()).filter(category -> !category.isChild()).forEach(category -> buildCategory(builder, entryBuilder, category));

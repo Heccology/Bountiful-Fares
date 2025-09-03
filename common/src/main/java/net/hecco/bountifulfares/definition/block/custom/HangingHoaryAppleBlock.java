@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.definition.block.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFSounds;
@@ -85,7 +86,7 @@ public class HangingHoaryAppleBlock extends HangingFruitBlock {
             HangingFruitBlock.popResource(world, pos, new ItemStack(BFItems.HOARY_APPLE.get(), 1));
             world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK.get(), SoundSource.BLOCKS, 1.0f, 0.7f + world.random.nextFloat() * 0.4f);
             if (!world.isClientSide()) {
-                if (BountifulFares.CONFIG.isFruitReplaceWhenPicked()) {
+                if (Services.PLATFORM.getBoolConfigValue("fruitReplaceWhenPicked")) {
                     BlockState blockState = state.setValue(AGE, 0);
                     world.setBlock(pos, blockState, Block.UPDATE_CLIENTS);
                     world.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));

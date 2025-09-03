@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.registry;
 
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.advancements.critereon.BlockPredicate;
@@ -45,18 +46,15 @@ public class BFFabricLootTableModifiers {
 
     private static final ResourceKey<LootTable> GUARDIAN_ID = ResourceKey.create(
             Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/guardian"));
-    private static final ResourceKey<LootTable> ELDER_GUARDIAN_ID = ResourceKey.create(
-            Registries.LOOT_TABLE, ResourceLocation.withDefaultNamespace("entities/elder_guardian"));
 
     private static final ResourceKey<LootTable> SNIFFER_DIGGING_ID = BuiltInLootTables.SNIFFER_DIGGING;
 
     public static void modifyLootTables() {
         // Prefetch all config settings for easier read
-        boolean do_lapisberries =                   BountifulFares.CONFIG.isEnableLapisberrySeeds();
-        boolean do_hoaryseeds =                     BountifulFares.CONFIG.isEnableHoarySeeds();
-        boolean do_spongekinseed_guardian =         BountifulFares.CONFIG.isEnableElderGuardianSpongekinSeeds();
-        boolean do_spongekinseed_elderguardian =    BountifulFares.CONFIG.isEnableElderGuardianSpongekinSeeds();
-        boolean do_grass_override =                 BountifulFares.CONFIG.isGrassLootTableOverride();
+        boolean do_lapisberries =                   Services.PLATFORM.getBoolConfigValue("enableLapisberrySeeds");
+        boolean do_hoaryseeds =                     Services.PLATFORM.getBoolConfigValue("enableHoarySeeds");
+        boolean do_spongekinseed_guardian =         Services.PLATFORM.getBoolConfigValue("enableGuardianSpongekinSeeds");
+        boolean do_grass_override =                 Services.PLATFORM.getBoolConfigValue("grassLootTableOverride");
 
         // Short Grass
         LootTableEvents.REPLACE.register((key, original, source, wrapperLookup) -> {
@@ -121,15 +119,15 @@ public class BFFabricLootTableModifiers {
                 });
             }
         });
-        // Elder Guardian
-        LootTableEvents.MODIFY.register((key, original, source, wrapperLookup) -> {
-            if (ELDER_GUARDIAN_ID.equals(key) && do_spongekinseed_elderguardian) {
-                original.withPool(LootPool.lootPool()
-                        .setRolls(ConstantValue.exactly(1.0F))
-                        .add(LootItem.lootTableItem(BFItems.SPONGEKIN_SEEDS.get()))
-                );
-            }
-        });
+//        // Elder Guardian
+//        LootTableEvents.MODIFY.register((key, original, source, wrapperLookup) -> {
+//            if (ELDER_GUARDIAN_ID.equals(key) && do_spongekinseed_elderguardian) {
+//                original.withPool(LootPool.lootPool()
+//                        .setRolls(ConstantValue.exactly(1.0F))
+//                        .add(LootItem.lootTableItem(BFItems.SPONGEKIN_SEEDS.get()))
+//                );
+//            }
+//        });
         // Guardian
         LootTableEvents.MODIFY.register((key, original, source, wrapperLookup) -> {
             if (GUARDIAN_ID.equals(key) && do_spongekinseed_guardian) {

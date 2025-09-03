@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.mixin.gameplay;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundSource;
@@ -29,7 +30,7 @@ public class PumpkinPieItemMixin {
 
     @Inject(method = "useOn", at = @At("HEAD"), cancellable = true)
     public void bf_useOnBlock(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
-        if (context.getItemInHand().is(Items.PUMPKIN_PIE) && BountifulFares.CONFIG.enablePlaceablePumpkinPie) {
+        if (context.getItemInHand().is(Items.PUMPKIN_PIE) && Services.PLATFORM.getBoolConfigValue("enablePlaceablePumpkinPie")) {
             InteractionResult ar = bountifulfares$place(new BlockPlaceContext(context));
             cir.setReturnValue(ar);
         }
@@ -43,7 +44,7 @@ public class PumpkinPieItemMixin {
             remap = false)
     )
     private FoodProperties bf_pumpkinPiePass(FoodProperties original) {
-        if (original == Foods.PUMPKIN_PIE && BountifulFares.CONFIG.enablePlaceablePumpkinPie) {
+        if (original == Foods.PUMPKIN_PIE && Services.PLATFORM.getBoolConfigValue("enablePlaceablePumpkinPie")) {
             return null;
         }
         return original;

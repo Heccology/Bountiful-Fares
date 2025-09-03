@@ -3,6 +3,7 @@ package net.hecco.bountifulfares.definition.block.entity;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.FermentationVesselBlock;
 import net.hecco.bountifulfares.definition.block.enums.FermentationStage;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.definition.recipe.FermentationRecipe;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFSounds;
@@ -113,7 +114,7 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
 
     public int getMaxProgress() {
         // lazy failsafe thing, bad artyrian bad
-        int max = BountifulFares.CONFIG.getFermentationTime() * 20;
+        int max = Services.PLATFORM.getIntConfigValue("fermentationTime") * 20;
         return (this.maxProgress == max) ? this.maxProgress : max;
     }
 
@@ -142,8 +143,8 @@ public class FermentationVesselBlockEntity extends BlockEntity implements Implem
 
     public void tick(Level world, BlockPos pos, BlockState state) {
         if (!world.isClientSide) {
-            if (this.maxProgress != (BountifulFares.CONFIG.getFermentationTime() * 20)) {
-                this.maxProgress = BountifulFares.CONFIG.getFermentationTime() * 20;
+            if (this.maxProgress != (Services.PLATFORM.getIntConfigValue("fermentationTime") * 20)) {
+                this.maxProgress = Services.PLATFORM.getIntConfigValue("fermentationTime") * 20;
             }
             if (this.progress < this.maxProgress && !this.inventory.get(0).isEmpty()) {
                 this.progress++;

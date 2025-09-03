@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.entity.FermentationVesselBlockEntity;
 import net.hecco.bountifulfares.definition.block.enums.FermentationStage;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.definition.recipe.FermentationRecipe;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFParticles;
@@ -160,7 +161,7 @@ public class FermentationVesselBlock extends BaseEntityBlock implements SimpleWa
     @Override
     public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
         if (world.getBlockEntity(pos) instanceof FermentationVesselBlockEntity entity) {
-            if (BountifulFares.CONFIG.isFermentationBubbleParticles() && state.getValue(FermentationVesselBlock.FERMENTATION_STAGE) == FermentationStage.FERMENTING && entity.getParticleColor().isPresent()) {
+            if (Services.PLATFORM.getBoolConfigValue("fermentationBubbleParticles") && state.getValue(FermentationVesselBlock.FERMENTATION_STAGE) == FermentationStage.FERMENTING && entity.getParticleColor().isPresent()) {
                 Vector3f color = Vec3.fromRGB24(entity.getParticleColor().orElse(16777215)).toVector3f();
                 for (int i = 0; i < random.nextIntBetweenInclusive(1, 3); i++) {
                     world.addParticle(BFParticles.FERMENTED_BUBBLE.get(), pos.getX() + 0.20 + (world.random.nextFloat() * 0.6), pos.getY() + 0.85, pos.getZ() + 0.20 + (world.random.nextFloat() * 0.6), color.x, color.y, color.z);

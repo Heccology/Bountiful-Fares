@@ -4,6 +4,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.item.custom.TiffinItem;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
@@ -26,7 +27,7 @@ public abstract class TooltipOverlayHandlerMixin {
             ItemStack tiffinFoodStack = itemStack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack();
             if(!tiffinFoodStack.isEmpty()
                     && tiffinFoodStack.has(DataComponents.FOOD)
-                    && !(tiffinFoodStack.is(Items.PUMPKIN_PIE) && BountifulFares.CONFIG.enablePlaceablePumpkinPie)){
+                    && !(tiffinFoodStack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.getBoolConfigValue("enablePlaceablePumpkinPie"))){
                 return tiffinFoodStack;
             }
         }
@@ -35,7 +36,7 @@ public abstract class TooltipOverlayHandlerMixin {
 
     @Inject(method = "gatherTooltips", at = @At("HEAD"), cancellable = true)
     public void bountifulfares$gatherTooltips(RenderTooltipEvent.GatherComponents event, CallbackInfo ci) {
-        if (event.getItemStack().is(Items.PUMPKIN_PIE) && BountifulFares.CONFIG.enablePlaceablePumpkinPie) {
+        if (event.getItemStack().is(Items.PUMPKIN_PIE) && Services.PLATFORM.getBoolConfigValue("enablePlaceablePumpkinPie")) {
             ci.cancel();
         }
     }

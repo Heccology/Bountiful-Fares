@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class WoodlandMansionFirstFloorMixin {
     @Inject(method = "get2x2", at = @At("HEAD"), cancellable = true)
     public void addGoldenTreeRoom(RandomSource random, CallbackInfoReturnable<String> cir) {
-        if (BountifulFares.CONFIG.isGenerateGoldenAppleTreeRooms() && random.nextFloat() < 0.3) {
+        if (random.nextFloat() < 0.3) {
             cir.setReturnValue("bountifulfares_golden_tree");
             cir.cancel();
         }
@@ -20,9 +20,7 @@ public class WoodlandMansionFirstFloorMixin {
 
     @Inject(method = "get1x2Secret", at = @At("HEAD"), cancellable = true)
     public void addSaplingNurseryRoom(RandomSource random, CallbackInfoReturnable<String> cir) {
-        if (BountifulFares.CONFIG.isGenerateGoldenAppleTreeRooms()) {
-            cir.setReturnValue("bountifulfares_sapling_nursery");
-            cir.cancel();
-        }
+        cir.setReturnValue("bountifulfares_sapling_nursery");
+        cir.cancel();
     }
 }

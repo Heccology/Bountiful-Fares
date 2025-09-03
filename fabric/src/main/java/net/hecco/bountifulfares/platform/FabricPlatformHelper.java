@@ -1,24 +1,16 @@
 package net.hecco.bountifulfares.platform;
 
-import net.fabricmc.loader.api.FabricLoader;
+import net.hecco.bountifulfares.FabricBountifulFares;
 import net.hecco.bountifulfares.definition.platform.services.IPlatformHelper;
 
 public class FabricPlatformHelper implements IPlatformHelper {
 
     @Override
-    public String getPlatformName() {
-        return "Fabric";
+    public boolean getBoolConfigValue(String id) {
+        return FabricBountifulFares.CONFIG.getBoolValue(id);
     }
-
     @Override
-    public boolean isModLoaded(String modId) {
-
-        return FabricLoader.getInstance().isModLoaded(modId);
-    }
-
-    @Override
-    public boolean isDevelopmentEnvironment() {
-
-        return FabricLoader.getInstance().isDevelopmentEnvironment();
+    public int getIntConfigValue(String id) {
+        return FabricBountifulFares.CONFIG.getIntValue(id);
     }
 }

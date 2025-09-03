@@ -2,7 +2,9 @@ package net.hecco.bountifulfares.mixin.render;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFEffects;
+import net.hecco.bountifulfares.registry.tags.BFEffectTags;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.resources.ResourceLocation;
@@ -64,9 +66,9 @@ public class AcidifiedEffectBackgroundMixin {
 
     @ModifyArg(method = "renderEffects", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;blitSprite(Lnet/minecraft/resources/ResourceLocation;IIII)V"), index = 0)
     private ResourceLocation bountifulfares$renderAcidifiedBackgrounds(ResourceLocation sprite, @Local MobEffectInstance effect) {
-        if (BountifulFares.CONFIG.isAcidifiedEffectIconEffects()) {
+        if (Services.PLATFORM.getBoolConfigValue("acidifiedEffectIconEffects")) {
             Collection<MobEffectInstance> collection = this.minecraft.player.getActiveEffects();
-            if (collection.stream().map(MobEffectInstance::getEffect).collect(Collectors.toSet()).contains(BFEffects.ACIDIC) && effect.getEffect().value() != BFEffects.ACIDIC.value()) {
+            if (collection.stream().map(MobEffectInstance::getEffect).collect(Collectors.toSet()).contains(BFEffects.ACIDIC) && effect.getEffect().value() != BFEffects.ACIDIC.value() && !effect.getEffect().is(BFEffectTags.ACIDIC_BLACKLIST)) {
                 if (sprite.equals(EFFECT_BACKGROUND_AMBIENT_SPRITE)) {
                     return ACIDFIED_EFFECT_BACKGROUND_AMBIENT_TEXTURE;
                 }

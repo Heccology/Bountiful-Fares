@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.definition.config;
+package net.hecco.bountifulfares.config;
 
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import me.shedaniel.clothconfig2.gui.entries.TooltipListEntry;

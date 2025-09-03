@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.definition.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -49,7 +50,7 @@ public class StackableBowlFoodItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
         super.appendHoverText(stack, context, tooltip, type);
-        if (effects != null && !effects.isEmpty() && BountifulFares.CONFIG.effectTooltips) {
+        if (effects != null && !effects.isEmpty() && Services.PLATFORM.getBoolConfigValue("effectTooltips")) {
             PotionContents.addPotionTooltip(effects, tooltip::add, 1.0F, context.tickRate());
         }
     }

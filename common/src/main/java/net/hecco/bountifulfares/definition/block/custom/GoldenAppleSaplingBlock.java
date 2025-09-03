@@ -22,7 +22,7 @@ public class GoldenAppleSaplingBlock extends SaplingBlock {
 
     public static void playAmbiance(Level level, BlockPos pos, RandomSource random) {
         if (random.nextFloat() < 0.25) {
-            level.playLocalSound(pos.getX() + (double)0.5F, pos.getY() + (double)0.5F, pos.getZ() + (double)0.5F, BFSounds.GOLDEN_APPLE_SAPLING_AMBIENT.get(), SoundSource.BLOCKS, 5.0f, random.nextFloat(), false);
+            level.playLocalSound(pos.getX() + (double)0.5F, pos.getY() + (double)0.5F, pos.getZ() + (double)0.5F, BFSounds.GOLDEN_APPLE_SAPLING_AMBIENT.get(), SoundSource.BLOCKS, 0.8f + random.nextFloat(), 1.0f, false);
         }
     }
 }

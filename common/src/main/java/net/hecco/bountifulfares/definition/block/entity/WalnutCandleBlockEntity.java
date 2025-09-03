@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.definition.block.entity;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.WalnutCandleBlock;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFEffects;
 import net.minecraft.core.BlockPos;
@@ -23,7 +24,7 @@ public class WalnutCandleBlockEntity extends BlockEntity {
     }
     public static void tick(Level world, BlockPos pos, BlockState state, WalnutCandleBlockEntity blockEntity) {
         if (world.getGameTime() % 25L == 0L) {
-            AABB box = new AABB(pos).inflate(BountifulFares.CONFIG.getInfusedCandleRadius());
+            AABB box = new AABB(pos).inflate(Services.PLATFORM.getIntConfigValue("infusedCandleRadius"));
             List<Player> list = world.getEntitiesOfClass(Player.class, box);
             if (state.getValue(isLit)) {
                 if (!world.isClientSide() && !list.isEmpty()) {

@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.registry.util;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
@@ -19,7 +20,7 @@ public class BFTooltipEvents {
     }
 
     public static void addTooltipsToVanillaItems(ItemStack itemStack, List<Component> tooltip) {
-        if (BountifulFares.CONFIG.effectTooltips) {
+        if (Services.PLATFORM.getBoolConfigValue("effectTooltips")) {
             if (itemStack.getItem() == Items.MILK_BUCKET) {
                 tooltip.add(1, CommonComponents.EMPTY);
                 tooltip.add(2, Component.translatable("tooltip.bountifulfares.when_drunk").withStyle(ChatFormatting.GRAY));

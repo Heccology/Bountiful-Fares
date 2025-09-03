@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.mixin.render;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFEffects;
 import net.hecco.bountifulfares.registry.util.BFHeartTypes;
 import net.minecraft.client.gui.Gui;
@@ -98,7 +99,7 @@ public abstract class GuiHeartsMixin
     @Inject(method = "forPlayer", at = @At("TAIL"), cancellable = true)
     private static void bfPlayerStateCheck(Player player, CallbackInfoReturnable<Gui.HeartType> cir) {
         // Prefetch config values.
-        boolean useRestorationHeart = BountifulFares.CONFIG.isRestorationHeartOverlay();
+        boolean useRestorationHeart = Services.PLATFORM.getBoolConfigValue("restorationHeartOverlay");
 
         // Check for if the normal heart type is the candidate for return.
         boolean isNormal = (cir.getReturnValue() == Gui.HeartType.NORMAL);

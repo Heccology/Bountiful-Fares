@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.definition.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFEffects;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.ChatFormatting;
@@ -79,7 +80,7 @@ public class TeaBottleItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
         super.appendHoverText(stack, context, tooltip, type);
-        if (BountifulFares.CONFIG.effectTooltips) {
+        if (Services.PLATFORM.getBoolConfigValue("effectTooltips")) {
             PotionContents.addPotionTooltip(List.of(new MobEffectInstance(BFEffects.EBULLIENCE, 3600, 0, true, true)), tooltip::add, 1.0F, context.tickRate());
             tooltip.add(CommonComponents.EMPTY);
             tooltip.add(Component.translatable("tooltip.bountifulfares.removes").withStyle(ChatFormatting.GRAY));

@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.definition.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -64,7 +65,7 @@ public class HangingFruitBlock extends BushBlock implements BonemealableBlock {
             HangingFruitBlock.popResource(world, pos, new ItemStack(Items.APPLE, 1));
             world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK.get(), SoundSource.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
             if (!world.isClientSide()) {
-                if (BountifulFares.CONFIG.isFruitReplaceWhenPicked()) {
+                if (Services.PLATFORM.getBoolConfigValue("fruitReplaceWhenPicked")) {
                     BlockState blockState = state.setValue(AGE, 0);
                     world.setBlock(pos, blockState, Block.UPDATE_CLIENTS);
                     world.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));

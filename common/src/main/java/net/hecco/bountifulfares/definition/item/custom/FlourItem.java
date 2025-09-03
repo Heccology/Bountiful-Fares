@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.definition.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.entity.FlourProjectileEntity;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -20,7 +21,7 @@ public class FlourItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
-        if (BountifulFares.CONFIG.isEnableFlourThrowing()) {
+        if (Services.PLATFORM.getBoolConfigValue("enableFlourThrowing")) {
             ItemStack itemStack = user.getItemInHand(hand);
             world.playSound(null, user.getX(), user.getY(), user.getZ(), BFSounds.FLOUR_THROW.get(), SoundSource.NEUTRAL, 0.6f, 0.9f + world.random.nextFloat() / 4);
             if (!world.isClientSide) {
@@ -29,8 +30,8 @@ public class FlourItem extends Item {
                 flourProjectileEntity.shootFromRotation(user, user.getXRot(), user.getYRot(), 0.0f, 0.35f, 7.5f);
                 world.addFreshEntity(flourProjectileEntity);
             }
-            if (BountifulFares.CONFIG.getFlourThrowingCooldown() != 0) {
-                user.getCooldowns().addCooldown(this, BountifulFares.CONFIG.getFlourThrowingCooldown());
+            if (Services.PLATFORM.getIntConfigValue("flourThrowingCooldown") != 0) {
+                user.getCooldowns().addCooldown(this, Services.PLATFORM.getIntConfigValue("flourThrowingCooldown"));
             }
             user.awardStat(Stats.ITEM_USED.get(this));
             if (!user.isCreative()) {

@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares;
 
 
+import net.hecco.bountifulfares.config.NeoForgeBFConfig;
 import net.hecco.bountifulfares.definition.networking.BFPackets;
 import net.hecco.bountifulfares.definition.networking.payload.*;
 import net.hecco.bountifulfares.mixin.util.BlockEntityAccessor;
@@ -21,9 +22,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.gui.ConfigurationScreen;
+import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
@@ -39,10 +44,12 @@ public class NeoForgeBountifulFares {
     public static final Map<ItemLike, Integer> FUELS = new HashMap<>();
     public static final Map<TagKey<Item>, Integer> TAG_FUELS = new HashMap<>();
 
-    public NeoForgeBountifulFares(IEventBus eventBus) {
+    public NeoForgeBountifulFares(IEventBus eventBus, ModContainer container) {
         BountifulFares.init();
         BFNeoForgeLootTableModifiers.LOOT_MODIFIERS.register(eventBus);
-        BountifulFares.CONFIG = BountifulFaresConfiguration.load();
+        container.registerConfig(ModConfig.Type.COMMON, NeoForgeBFConfig.COMMON_SPEC);
+        container.registerConfig(ModConfig.Type.CLIENT, NeoForgeBFConfig.CLIENT_SPEC);
+        container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
 
         eventBus.addListener(this::payloadHandlersSetup);
         eventBus.addListener(this::clientSetup);

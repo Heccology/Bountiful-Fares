@@ -5,8 +5,7 @@ import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.mixin.lookup.BlockEntityTypeAccessor;
-import net.fabricmc.loader.api.FabricLoader;
+import net.hecco.bountifulfares.config.FabricBFConfig;
 import net.hecco.bountifulfares.data.FabricGrassSeedsInteractionResourceLoader;
 import net.hecco.bountifulfares.data.FabricTrellisCropResourceLoader;
 import net.hecco.bountifulfares.data.FabricTrellisPlantResourceLoader;
@@ -15,6 +14,7 @@ import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisCropDefinition;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisPlantDefinition;
 import net.hecco.bountifulfares.definition.networking.payload.TrellisSyncPayload;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.mixin.util.BlockEntityAccessor;
 import net.hecco.bountifulfares.registry.BFFabricLootTableModifiers;
 import net.hecco.bountifulfares.registry.BFMessages;
@@ -23,13 +23,9 @@ import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
-import net.hecco.heccolib.lib.fuelRegistry.HLFuelRegistry;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -43,19 +39,20 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Supplier;
-import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
 import static net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions.*;
 
 public class FabricBountifulFares implements ModInitializer {
 
+    public static FabricBFConfig CONFIG = new FabricBFConfig();
+
     @Override
     public void onInitialize() {
+        FabricBountifulFares.CONFIG = FabricBFConfig.load();
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisPlantResourceLoader());
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisCropResourceLoader());
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricGrassSeedsInteractionResourceLoader());
@@ -104,9 +101,9 @@ public class FabricBountifulFares implements ModInitializer {
         BFItemGroupAdditions.registerItemGroupAdditions();
         BFMessages.registerPayloads();
         DatagenOnlyItems.registerDatagenItems();
-        FabricLoader.getInstance().getConfigDir().toFile();
+
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
-            if (player.canEat(false) && BountifulFares.CONFIG.isCakeEatSounds() && !player.isSpectator()) {
+            if (player.canEat(false) && Services.PLATFORM.getBoolConfigValue("cakeEatSounds") && !player.isSpectator()) {
                 BlockPos pos = hitResult.getBlockPos();
                 BlockState state = world.getBlockState(pos);
                 Block target = state.getBlock();

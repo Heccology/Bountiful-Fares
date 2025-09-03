@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.mixin.compat.appleskin;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.item.custom.TiffinItem;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.player.Player;
@@ -36,7 +37,7 @@ public abstract class TooltipOverlayHandlerMixin {
 
     @Inject(method = "onItemTooltip", at = @At("HEAD"), cancellable = true)
     public void bountifulfares$gatherTooltips(ItemStack hoveredStack, Player player, Item.TooltipContext context, TooltipFlag type, List tooltip, CallbackInfo ci) {
-        if (hoveredStack.is(Items.PUMPKIN_PIE) && BountifulFares.CONFIG.enablePlaceablePumpkinPie) {
+        if (hoveredStack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.getBoolConfigValue("enablePlaceablePumpkinPie")) {
             ci.cancel();
         }
     }

@@ -4,6 +4,7 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.definition.block.interfaces.CeramicDishBlockInterface;
 import net.hecco.bountifulfares.definition.item.custom.StackableBowlFoodItem;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
@@ -158,12 +159,12 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
     public static boolean canEatOnDish(ItemStack stack) {
         if (stack.getComponents().get(DataComponents.FOOD) != null) {
             Item item = stack.getItem();
-            boolean eatOnDishEnabled = BountifulFares.CONFIG.isContainerFoodsEatableOnDish();
+            boolean eatOnDishEnabled = Services.PLATFORM.getBoolConfigValue("containerFoodsEatableOnDish");
             boolean hasRemainder = stack.getItem().hasCraftingRemainingItem();
             boolean hasFoodTransform = (stack.getComponents().get(DataComponents.FOOD).usingConvertsTo().isPresent());
 
             if (!eatOnDishEnabled && (hasRemainder || hasFoodTransform)) { return false; }
-            else if (stack.is(Items.PUMPKIN_PIE) && BountifulFares.CONFIG.enablePlaceablePumpkinPie) { return false; }
+            else if (stack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.getBoolConfigValue("enablePlaceablePumpkinPie")) { return false; }
             else if (!stack.is(BFItemTags.CERAMIC_DISH_BLACKLIST)) { return true; }
         }
         return false;
