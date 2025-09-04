@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -45,25 +46,25 @@ public class NeoForgeBountifulFares {
     public static final Map<ItemLike, Integer> FUELS = new HashMap<>();
     public static final Map<TagKey<Item>, Integer> TAG_FUELS = new HashMap<>();
 
+    public static ModContainer modContainer;
+
     public NeoForgeBountifulFares(IEventBus eventBus, ModContainer container) {
         BountifulFares.init();
         BFNeoForgeLootTableModifiers.LOOT_MODIFIERS.register(eventBus);
         container.registerConfig(ModConfig.Type.COMMON, NeoForgeBFConfig.COMMON_SPEC);
         container.registerConfig(ModConfig.Type.CLIENT, NeoForgeBFConfig.CLIENT_SPEC);
-        container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
 
         eventBus.addListener(this::payloadHandlersSetup);
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::creativeModeTabSetup);
         eventBus.addListener(this::commonSetup);
+        this.modContainer = container;
     }
 
-    @SubscribeEvent
     public void clientSetup(FMLClientSetupEvent event) {
         BountifulFaresClient.onInitializeClient();
     }
 
-    @SubscribeEvent
     public void commonSetup(FMLCommonSetupEvent event) {
         BFRegistries.registerFlammables();
         BFRegistries.registerCeramicCheckeredConversions();

@@ -43,14 +43,8 @@ public class TrellisCropResourceLoader extends SimpleJsonResourceReloadListener 
                 BountifulFares.LOGGER.error("Failed to load trellis crop '{}'", id, e);
             }
         }
-//        for (TrellisCropDefinition cropDefinition : registeredPlants.values().stream().toList()) {
-//            TrellisBlock.CROPS.put(cropDefinition.seeds(), cropDefinition);
-//        }
-        if (!HLServices.PLATFORM.isClientSide()) {
-            TrellisBlock.CROPS.clear();
-            for (TrellisCropDefinition cropDefinition : registeredPlants.values()) {
-                TrellisBlock.CROPS.put(cropDefinition.seeds(), cropDefinition);
-            }
+        for (TrellisCropDefinition cropDefinition : registeredPlants.values().stream().toList()) {
+            TrellisBlock.CROPS.put(cropDefinition.seeds(), cropDefinition);
         }
     }
 

@@ -6,9 +6,11 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
@@ -158,20 +160,11 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.PURPLE_JACK_O_STRAW.get())
                 .add(BFBlocks.MAGENTA_JACK_O_STRAW.get())
                 .add(BFBlocks.PINK_JACK_O_STRAW.get())
-                .add(BFBlocks.TRELLISES.get("oak").get())
-                .add(BFBlocks.TRELLISES.get("spruce").get())
-                .add(BFBlocks.TRELLISES.get("birch").get())
-                .add(BFBlocks.TRELLISES.get("jungle").get())
-                .add(BFBlocks.TRELLISES.get("acacia").get())
-                .add(BFBlocks.TRELLISES.get("dark_oak").get())
-                .add(BFBlocks.TRELLISES.get("mangrove").get())
-                .add(BFBlocks.TRELLISES.get("cherry").get())
-                .add(BFBlocks.TRELLISES.get("bamboo").get())
-                .add(BFBlocks.TRELLISES.get("walnut").get())
-                .add(BFBlocks.TRELLISES.get("hoary").get())
-                .add(BFBlocks.TRELLISES.get("crimson").get())
-                .add(BFBlocks.TRELLISES.get("warped").get())
         ;
+
+        for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
+            getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE).add(block.get());
+        }
 
         getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_HOE)
                 .add(BFBlocks.APPLE_LEAVES.get())

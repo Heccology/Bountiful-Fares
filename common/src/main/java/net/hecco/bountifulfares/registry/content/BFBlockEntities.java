@@ -65,7 +65,36 @@ public class BFBlockEntities {
     );
 
     public static final Supplier<BlockEntityType<TrellisBlockEntity>> TRELLIS_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "trellis_block_entity",
-            () -> HLServices.REGISTRY.createBlockEntity(TrellisBlockEntity::new, TRELLISES.get("oak"), TRELLISES.get("spruce"), TRELLISES.get("birch"), TRELLISES.get("jungle"), TRELLISES.get("acacia"), TRELLISES.get("dark_oak"), TRELLISES.get("mangrove"), TRELLISES.get("cherry"), TRELLISES.get("bamboo"), TRELLISES.get("walnut"), TRELLISES.get("hoary"), TRELLISES.get("crimson"), TRELLISES.get("warped"))
+            () -> HLServices.REGISTRY.createBlockEntity(TrellisBlockEntity::new,
+                    TRELLISES.get("oak"),
+                    TRELLISES.get("spruce"),
+                    TRELLISES.get("birch"),
+                    TRELLISES.get("jungle"),
+                    TRELLISES.get("acacia"),
+                    TRELLISES.get("dark_oak"),
+                    TRELLISES.get("mangrove"),
+                    TRELLISES.get("cherry"),
+                    TRELLISES.get("bamboo"),
+                    TRELLISES.get("walnut"),
+                    TRELLISES.get("hoary"),
+                    TRELLISES.get("crimson"),
+                    TRELLISES.get("warped"),
+                    TRELLISES.get("aspen"),
+                    TRELLISES.get("cedar"),
+                    TRELLISES.get("coconut"),
+                    TRELLISES.get("cypress"),
+                    TRELLISES.get("fir"),
+                    TRELLISES.get("ghaf"),
+                    TRELLISES.get("joshua"),
+                    TRELLISES.get("larch"),
+                    TRELLISES.get("mahogany"),
+                    TRELLISES.get("maple"),
+                    TRELLISES.get("olive"),
+                    TRELLISES.get("palo_verde"),
+                    TRELLISES.get("sugi"),
+                    TRELLISES.get("willow"),
+                    TRELLISES.get("wisteria")
+            )
     );
 
     public static final Supplier<BlockEntityType<CoirBedBlockEntity>> COIR_BED_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "coir_bed_block_entity",

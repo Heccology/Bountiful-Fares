@@ -14,7 +14,9 @@ import net.minecraft.data.models.model.TexturedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
+import java.util.Map;
 import java.util.function.Supplier;
 
 import static net.hecco.bountifulfares.datagen.bountifulfares.BFTemplateModels.*;
@@ -213,8 +215,8 @@ public class BFModelProvider extends FabricModelProvider {
 //
 //        TrellisUtil.registerTrellisModels(blockStateModelGenerator, DungeonsDelightBlocks.WORMWOOD);
 
-        for (String wood : BountifulFaresUtil.WOOD_TYPES) {
-            BFTemplateModels.registerTrellis(blockStateModelGenerator, BFBlocks.TRELLISES.get(wood).get());
+        for (Map.Entry<String, Supplier<Block>> entry : BFBlocks.TRELLISES.entrySet()) {
+            BFTemplateModels.registerTrellis(blockStateModelGenerator, entry.getValue().get());
         }
 
         blockStateModelGenerator.createTrivialCube(BFBlocks.FLOUR_BLOCK.get());

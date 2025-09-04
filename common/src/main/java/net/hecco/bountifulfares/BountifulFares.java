@@ -37,6 +37,7 @@ public class BountifulFares {
 //		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here.. me neither
 		BFSounds.registerSounds();
 		BFBlocks.registerBlocks();
+		BFCompat.register();
 		if (!HLServices.PLATFORM.isDatagen()) {
 			BFBlockEntities.registerBlockEntities();
 		}
@@ -56,7 +57,6 @@ public class BountifulFares {
 		BFItemGroups.registerItemGroups();
 		BFRegistries.registerMiscRegistries();
 		BFCriteriaTriggers.register();
-		BFCompat.register();
 	}
 
 	//appledog - Yirmiri

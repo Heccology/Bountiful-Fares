@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.Block;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 import static net.hecco.bountifulfares.BountifulFaresUtil.toSentenceCase;
 
@@ -594,11 +595,11 @@ public class BFLangProvider extends FabricLanguageProvider {
             translationBuilder.add(key, toSentenceCase(id.getPath()));
         }
 
-//      for compat
-        for(ResourceLocation id : BountifulFaresUtil.allCompatBlockIds()) {
+        var compat_content = BountifulFares.COMPAT_MANAGER.CONTENT.keySet().stream().map(Supplier::get).toList();
+        for(ResourceLocation id : BuiltInRegistries.BLOCK.keySet()) {
             String key = BuiltInRegistries.BLOCK.get(id).getDescriptionId();
             if(usedTranslationKeys.contains(key)) { continue; }
-            if (BFCompat.compatBlocks.contains(BuiltInRegistries.BLOCK.get(id))) {
+            if (compat_content.contains(BuiltInRegistries.BLOCK.get(id))) {
                 usedTranslationKeys.add(key);
                 translationBuilder.add(key, toSentenceCase(id.getPath()));
             }

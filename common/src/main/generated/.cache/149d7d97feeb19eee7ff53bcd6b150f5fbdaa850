@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-03T22:31:26.3680047	Bountiful Fares/Recipes
+// 1.21.1	2025-09-04T17:25:40.3650513	Bountiful Fares/Recipes
 69f37ffca45f5be3303a92671d27f32d7111ddb1 data\bountifulfares\advancement\recipes\redstone\ceramic_button.json
 b4d83263de9cd3240e91034f80d2a70384579533 data\minecraft\recipe\flour_from_wheat_milling.json
 eec031e3766db0cd7e5ca529887c16f4d5b12c32 data\bountifulfares\recipe\ceramic_clay_from_block.json
@@ -259,8 +259,8 @@ ff147b5313cee584ddddff578948bc04b30076fb data\bountifulfares\advancement\recipes
 c03119a8cc8bd795b2ecbfa6aa008b8e2c5781dd data\bountifulfares\advancement\recipes\building_blocks\iron_railing.json
 09b121525f888ba61462a6667c1324ce5f58be6a data\bountifulfares\advancement\recipes\food\torchflower_tea_bottle.json
 e07bb7090918bba3ff5dd4fc8db40140d864eb36 data\bountifulfares\advancement\recipes\building_blocks\spongekin.json
-1d0f0b07b57f5d48b25e0750e43e9727af42baef data\bountifulfares\advancement\recipes\building_blocks\feldspar_bricks.json
 84335c106113e9f581f0d63eb99da852b249f89a data\bountifulfares\recipe\feldspar_bricks.json
+1d0f0b07b57f5d48b25e0750e43e9727af42baef data\bountifulfares\advancement\recipes\building_blocks\feldspar_bricks.json
 bb5cc1a3b2ecc9c6ce6a17b3c714bab4f4b93c14 data\bountifulfares\advancement\recipes\building_blocks\feldspar_brick_slab_from_cut_feldspar_block_stonecutting.json
 e5cc0238e86d9d1a36288a1d99f1511187bf2a32 data\bountifulfares\recipe\ceramic_door.json
 f6a04cf1c4e4e4e7b4cd754e4388b1dd9b3089db data\minecraft\advancement\recipes\emerald_from_emerald_ore_milling.json
