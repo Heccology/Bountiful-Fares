@@ -1,13 +1,17 @@
 package net.hecco.bountifulfares.definition.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.entity.TrellisBlockEntity;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisCropDefinition;
 import net.hecco.bountifulfares.definition.data.trellis.TrellisPlantDefinition;
+import net.hecco.bountifulfares.definition.trigger.PlantOnTrellisTrigger;
 import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -109,11 +113,16 @@ public class TrellisBlock extends HorizontalDirectionalBlock implements EntityBl
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof TrellisBlockEntity entity) {
+            BountifulFares.LOGGER.info(PLANTS.toString());
+            BountifulFares.LOGGER.info(CROPS.toString());
             if (entity.canPlantOn()) {
                 if (level.isClientSide()) {
                     return ItemInteractionResult.SUCCESS;
                 } else if (PLANTS.containsKey(stack.getItem()) || CROPS.containsKey(stack.getItem())) {
                     entity.setPlant(stack.getItem());
+                    if (!level.isClientSide()) {
+                        ((PlantOnTrellisTrigger) BFCriteriaTriggers.PLANT_ON_TRELLIS.get()).trigger((ServerPlayer) player, stack);
+                    }
                     level.playSound(null, pos, SoundEvents.CROP_PLANTED, SoundSource.BLOCKS, 1.0f, 1.0f + (level.random.nextFloat() / 5));
                     level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
                     if (!player.isCreative()) {

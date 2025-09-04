@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.trigger.FillTiffinTrigger;
 import net.hecco.bountifulfares.definition.trigger.PickFruitInteractionTrigger;
+import net.hecco.bountifulfares.definition.trigger.PlantOnTrellisTrigger;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
@@ -129,6 +130,18 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .parent(pick_fruit)
                 .addCriterion("obtain_lemon_block", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(BFBlocks.LEMON_BLOCK.get()))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_lemon_block");
+
+        AdvancementHolder plant_on_trellis = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(BFBlocks.TRELLISES.get("oak").get()),
+                        Component.translatable("advancement.bountifulfares.plant_on_trellis"),
+                        Component.translatable("advancement.bountifulfares.plant_on_trellis.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
+                        true,
+                        true,
+                        false))
+                .parent(root_advancement)
+                .addCriterion("plant_on_trellis", PlantOnTrellisTrigger.TriggerInstance.plantedAnyPlant())
+                .save(consumer, BountifulFares.MOD_ID + ":plant_on_trellis");
+
         AdvancementHolder place_gristmill = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFBlocks.GRISTMILL.get()),
                         Component.translatable("advancement.bountifulfares.place_gristmill"),

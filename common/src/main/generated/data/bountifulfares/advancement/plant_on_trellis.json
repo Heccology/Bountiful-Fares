@@ -1,0 +1,27 @@
+{
+  "parent": "bountifulfares:bountiful_fares",
+  "criteria": {
+    "plant_on_trellis": {
+      "trigger": "bountifulfares:plant_on_trellis"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.plant_on_trellis.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "bountifulfares:elderberries"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.plant_on_trellis"
+    }
+  },
+  "requirements": [
+    [
+      "plant_on_trellis"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -322,6 +322,9 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.obtain_all_fruit", "Exotic!");
         generate(translationBuilder, "advancement.bountifulfares.obtain_all_fruit.description", "Obtain every type of fruit from fruit trees");
 
+        generate(translationBuilder, "advancement.bountifulfares.plant_on_trellis", "Trellising it");
+        generate(translationBuilder, "advancement.bountifulfares.plant_on_trellis.description", "Plant a vine crop or decorative plant on a Trellis");
+
         generate(translationBuilder, "advancement.bountifulfares.place_gristmill", "On The Grind");
         generate(translationBuilder, "advancement.bountifulfares.place_gristmill.description", "Place a Gristmill, which is used to grind down materials");
 
