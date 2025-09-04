@@ -230,9 +230,6 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.CERAMIC_BUTTON.get());
                         entries.accept(BFBlocks.CERAMIC_LEVER.get());
                         entries.accept(BFBlocks.CERAMIC_DISH.get());
-                        if (Minecraft.getInstance().options.operatorItemsTab().get()) {
-                            entries.accept(BFBlocks.SOLID_CERAMIC.get());
-                        }
                         entries.accept(BFItems.ARTISAN_BRUSH.get());
                         entries.accept(BFItems.SUN_HAT.get());
 

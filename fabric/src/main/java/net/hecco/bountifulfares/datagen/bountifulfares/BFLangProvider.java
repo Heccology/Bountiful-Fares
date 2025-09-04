@@ -451,14 +451,12 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "bountifulfares.configuration.restoration_overlay", "Restoration effect changes health icons");
         generate(translationBuilder, "bountifulfares.configuration.acidified_effect_icon_effects", "Status Effects modified by Acidity have visual effects");
         generate(translationBuilder, "bountifulfares.configuration.effect_tooltips", "Foods have effect tooltips");
-        generate(translationBuilder, "config.subterrous.particle_tint_override_msg", "Disable this if it is causing issues.");
         generate(translationBuilder, "bountifulfares.configuration.placeable_pumpkin_pie", "Pumpkin Pie can be placed as a block");
         generate(translationBuilder, "bountifulfares.configuration.cake_eating_sounds", "Cakes make eating sounds");
         generate(translationBuilder, "bountifulfares.configuration.sweet_berry_pips", "Sweet Berries cannot place Sweet Berry Bushes");
         generate(translationBuilder, "bountifulfares.configuration.lapisberry_seeds", "Sniffers can dig up Lapisberry Seeds");
         generate(translationBuilder, "bountifulfares.configuration.hoary_seeds", "Sniffers can dig up Hoary Seeds");
         generate(translationBuilder, "bountifulfares.configuration.grass_loot_table_override", "Grass loot tables are overridden");
-        generate(translationBuilder, "bountifulfares.configuration.spongekin_seeds_elder_guardian", "Elder Guardians drop Spongekin Seeds");
         generate(translationBuilder, "bountifulfares.configuration.spongekin_seeds_guardian", "Guardians drop Spongekin Seeds");
         generate(translationBuilder, "bountifulfares.configuration.milling_time", "Gristmill milling time, in seconds");
         generate(translationBuilder, "bountifulfares.configuration.fermentation_time", "Fermentation time, in seconds");
