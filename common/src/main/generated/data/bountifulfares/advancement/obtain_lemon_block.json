@@ -1,5 +1,5 @@
 {
-  "parent": "bountifulfares:bountiful_fares",
+  "parent": "bountifulfares:pick_fruit",
   "criteria": {
     "obtain_lemon_block": {
       "conditions": {

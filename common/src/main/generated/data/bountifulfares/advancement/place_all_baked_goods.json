@@ -1,5 +1,5 @@
 {
-  "parent": "bountifulfares:bountiful_fares",
+  "parent": "bountifulfares:place_gristmill",
   "criteria": {
     "apple_pie": {
       "conditions": {

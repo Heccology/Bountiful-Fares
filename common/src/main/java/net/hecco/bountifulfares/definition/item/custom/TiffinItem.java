@@ -3,11 +3,16 @@ package net.hecco.bountifulfares.definition.item.custom;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.item.component.TiffinContents;
 import net.hecco.bountifulfares.definition.item.component.TiffinTooltip;
+import net.hecco.bountifulfares.definition.networking.payload.TiffinFillPayload;
 import net.hecco.bountifulfares.definition.platform.Services;
+import net.hecco.bountifulfares.definition.trigger.FillTiffinTrigger;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -82,7 +87,7 @@ public class TiffinItem extends Item {
     }
 
     @Override
-    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
+    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) { //TODO: Fix eating tiffin
         ItemStack itemStack = null;
         if (stack.getComponents().has(BFComponents.TIFFIN_CONTENTS.get())) {
             ItemStack item = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack();
@@ -154,6 +159,7 @@ public class TiffinItem extends Item {
                     int i = mutable.tryFill(other, slot, player);
                     if (i > 0) {
                         player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (Fraction.getFraction(contents.getCount(), contents.CAPACITY).floatValue() / 2) + 0.8f);
+                        HLServices.NETWORK.sentToServer(new TiffinFillPayload((double) mutable.getCount() / mutable.getCapacity()));
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
@@ -182,6 +188,7 @@ public class TiffinItem extends Item {
                     int i = mutable.tryFill(other, access, player);
                     if (i > 0) {
                         player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (Fraction.getFraction(contents.getCount(), contents.CAPACITY).floatValue() / 2) + 0.8f);
+                        HLServices.NETWORK.sentToServer(new TiffinFillPayload((double) mutable.getCount() / mutable.getCapacity()));
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;

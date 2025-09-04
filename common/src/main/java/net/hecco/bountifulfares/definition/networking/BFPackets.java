@@ -6,13 +6,15 @@ import net.hecco.bountifulfares.definition.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.TrellisBlockEntity;
 import net.hecco.bountifulfares.definition.networking.payload.*;
+import net.hecco.bountifulfares.definition.trigger.FillTiffinTrigger;
+import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 
 public class BFPackets {
     public static void ceramicDishEmpty(CeramicDishEmptyPayload payload) {
@@ -99,5 +101,9 @@ public class BFPackets {
                     TrellisBlock.PLANTS.put(def.plant(), def)
             );
         }
+    }
+
+    public static void tiffinFill(TiffinFillPayload payload, ServerPlayer player) {
+        ((FillTiffinTrigger) BFCriteriaTriggers.FILL_TIFFIN.get()).trigger(player, payload.fullness());
     }
 }

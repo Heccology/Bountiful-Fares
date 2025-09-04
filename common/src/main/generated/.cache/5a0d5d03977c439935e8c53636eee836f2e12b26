@@ -1,6 +1,6 @@
-// 1.21.1	2025-09-02T18:26:45.3321046	Bountiful Fares/Tags for minecraft:item
+// 1.21.1	2025-09-03T19:39:56.4254026	Bountiful Fares/Tags for minecraft:item
 3600499237b56fc333eb30cc71081d26744f9ef0 data\minecraft\tags\item\wooden_slabs.json
-55e78b7bf2f9ab521da7729fb3532688acee4511 data\bountifulfares\tags\item\tiffins.json
+4c98f533d102f2688ee26e21042432c8669a7a98 data\bountifulfares\tags\item\tiffins.json
 3f8b6b98a264616e0dbdf5742c67d9260ed555a8 data\minecraft\tags\item\horse_food.json
 acda8de43bf692f317304333d560cb02fd8a32c7 data\bountifulfares\tags\item\palm_logs.json
 f0a47a2081154dc5fa0a97e5de487cc4a81870b8 data\bountifulfares\tags\item\plum_logs.json
@@ -61,7 +61,7 @@ f98f504f8f5ee9739e2d926fe5b08aa161c61161 data\c\tags\item\foods\corn.json
 36b433bb8a21386d4fc6f005577885fa78746cd3 data\minecraft\tags\item\buttons.json
 d2f57baf0932fcdd53c9431db86586b44175c9e8 data\minecraft\tags\item\parrot_food.json
 d7d2e1c92ce1714554e1000d5f1824eb7c704572 data\minecraft\tags\item\pig_food.json
-55e78b7bf2f9ab521da7729fb3532688acee4511 data\supplementaries\tags\item\lunch_basket_blacklist.json
+3c23ca50894e697641eeded33386de554b0a21e8 data\supplementaries\tags\item\lunch_basket_blacklist.json
 cad3686043046de5b20ccddd9944ff6f2b38b0d4 data\c\tags\item\foods\plums.json
 cd1b6f25da9fea518e7b8480d66cbc0c6498df48 data\minecraft\tags\item\piglin_loved.json
 1eae8497abacdecb0573fc214bf2737da5e14e65 data\bountifulfares\tags\item\meals.json

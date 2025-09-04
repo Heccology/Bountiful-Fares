@@ -2,7 +2,9 @@ package net.hecco.bountifulfares.definition.block.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.platform.Services;
+import net.hecco.bountifulfares.definition.trigger.PickFruitInteractionTrigger;
 import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -89,7 +91,7 @@ public class HangingAppleBlock extends HangingFruitBlock {
                 } else {
                     world.removeBlock(pos, false);
                 }
-                CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer) player, pos, ItemStack.EMPTY);
+                ((PickFruitInteractionTrigger) BFCriteriaTriggers.PICK_FRUIT.get()).trigger((ServerPlayer) player, pos);
             }
             return InteractionResult.SUCCESS;
         }

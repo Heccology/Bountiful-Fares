@@ -12,6 +12,7 @@ import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -194,6 +195,17 @@ public class NeoForgeBountifulFares {
                                 BFPackets.trellisSync(payload);
                             }),
                             (payload, ctx) -> {
+                            }
+                    )
+            );
+            registrar.playBidirectional(
+                    TiffinFillPayload.ID,
+                    TiffinFillPayload.CODEC,
+                    new DirectionalPayloadHandler<>(
+                            (payload, ctx) -> ctx.enqueueWork(() -> {
+                            }),
+                            (payload, ctx) -> {
+                                BFPackets.tiffinFill(payload, (ServerPlayer) ctx.player());
                             }
                     )
             );

@@ -3,7 +3,9 @@ package net.hecco.bountifulfares.definition.block.custom;
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.platform.Services;
+import net.hecco.bountifulfares.definition.trigger.PickFruitInteractionTrigger;
 import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -56,27 +58,6 @@ public class HangingFruitBlock extends BushBlock implements BonemealableBlock {
 
     public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
         return false;
-    }
-
-    @Override
-    public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
-        int i = state.getValue(AGE);
-        if (i == 4) {
-            HangingFruitBlock.popResource(world, pos, new ItemStack(Items.APPLE, 1));
-            world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK.get(), SoundSource.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
-            if (!world.isClientSide()) {
-                if (Services.PLATFORM.getBoolConfigValue("fruitReplaceWhenPicked")) {
-                    BlockState blockState = state.setValue(AGE, 0);
-                    world.setBlock(pos, blockState, Block.UPDATE_CLIENTS);
-                    world.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));
-                } else {
-                    world.removeBlock(pos, false);
-                }
-                CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer) player, pos, ItemStack.EMPTY);
-            }
-            return InteractionResult.SUCCESS;
-        }
-        return super.useWithoutItem(state, world, pos, player, hit);
     }
 
     @Override

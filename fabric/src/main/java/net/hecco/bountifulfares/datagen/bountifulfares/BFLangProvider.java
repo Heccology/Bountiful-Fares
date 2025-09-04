@@ -316,6 +316,9 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.bountiful_fares", "Bountiful Fares");
         generate(translationBuilder, "advancement.bountifulfares.bountiful_fares.description", "The world is filled with more food!");
 
+        generate(translationBuilder, "advancement.bountifulfares.pick_fruit", "Green Thumb");
+        generate(translationBuilder, "advancement.bountifulfares.pick_fruit.description", "Pick a ripe fruit from a fruit tree");
+
         generate(translationBuilder, "advancement.bountifulfares.place_gristmill", "On The Grind");
         generate(translationBuilder, "advancement.bountifulfares.place_gristmill.description", "Place a Gristmill, which is used to grind down materials");
 
@@ -353,7 +356,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.eat_all_candy.description", "Eat every Candy");
 
         generate(translationBuilder, "advancement.bountifulfares.obtain_tea_blends", "Tea Tea");
-        generate(translationBuilder, "advancement.bountifulfares.obtain_tea_blends.description", "Obtain every Tea Item");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_tea_blends.description", "Obtain every cup of tea");
 
         generate(translationBuilder, "advancement.bountifulfares.place_all_tea_candles", "Fragrant!");
         generate(translationBuilder, "advancement.bountifulfares.place_all_tea_candles.description", "Place every Infused Candle");
@@ -379,11 +382,17 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.eat_all_bad_foods", "An Aquired Taste");
         generate(translationBuilder, "advancement.bountifulfares.eat_all_bad_foods.description", "Eat every food that isn't exactly good for you...");
 
-        generate(translationBuilder, "advancement.bountifulfares.obtain_golden_apple_sapling", "Money Does Grow on Trees!");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_golden_apple_sapling", "Money Does Grow On Trees!");
         generate(translationBuilder, "advancement.bountifulfares.obtain_golden_apple_sapling.description", "Find a Golden Apple Sapling, hidden away in the walls of Woodland Mansions");
 
         generate(translationBuilder, "advancement.bountifulfares.obtain_golden_apple", "Golden Thumb");
         generate(translationBuilder, "advancement.bountifulfares.obtain_golden_apple.description", "Cultivate a Golden Apple Tree in a dark environment and pick one of its golden fruit");
+
+        generate(translationBuilder, "advancement.bountifulfares.obtain_tiffin", "Chef's Bundle");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_tiffin.description", "Craft a Shulker Tiffin");
+
+        generate(translationBuilder, "advancement.bountifulfares.fill_tiffin", "Meal Prepping");
+        generate(translationBuilder, "advancement.bountifulfares.fill_tiffin.description", "Completely fill a Shulker Tiffin with food");
 
         generate(translationBuilder, "subtitles.block.gristmill.grind", "Gristmill mills");
         generate(translationBuilder, "subtitles.entity.flour.throw", "Flour flies");

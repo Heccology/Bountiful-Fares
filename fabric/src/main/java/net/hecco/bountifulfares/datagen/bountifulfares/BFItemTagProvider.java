@@ -466,10 +466,8 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFItems.FOUL_FLESH.get())
         ;
 
-        for (Supplier<Item> item : BFItems.TIFFINS.values()) {
-            getOrCreateTagBuilder(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("supplementaries", "lunch_basket_blacklist")))
-                    .add(item.get())
-            ;
-        }
+        getOrCreateTagBuilder(TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("supplementaries", "lunch_basket_blacklist")))
+                .addTag(BFItemTags.TIFFINS)
+        ;
     }
 }

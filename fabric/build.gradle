@@ -23,7 +23,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     //HECCOLIB
 //    modImplementation "curse.maven:heccolib-1279113:${fabric_heccolib}"
-    modImplementation files("heccolib-fabric-1.21.1-1.1.2-BETA3.jar")
+    modImplementation files("heccolib-fabric-1.21.1-1.1.2-BETA4.jar")
 
     //APPLESKIN
     modCompileOnly files("appleskin-fabric-mc1.21-3.0.6.jar")

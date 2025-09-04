@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.registry;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.hecco.bountifulfares.definition.networking.BFPackets;
 import net.hecco.bountifulfares.definition.networking.payload.*;
 
@@ -24,6 +25,9 @@ public class BFMessages {
 
         ClientPlayNetworking.registerGlobalReceiver(TrellisSyncPayload.ID, (payload, context) ->
                 context.client().execute(() -> BFPackets.trellisSync(payload)));
+
+        ServerPlayNetworking.registerGlobalReceiver(TiffinFillPayload.ID, (payload, context) ->
+                context.server().execute(() -> BFPackets.tiffinFill(payload, context.player())));
     }
 
     public static void registerPayloads() {
@@ -33,5 +37,6 @@ public class BFMessages {
         PayloadTypeRegistry.playS2C().register(TrellisPlantPayload.ID, TrellisPlantPayload.CODEC);
         PayloadTypeRegistry.playS2C().register(TrellisEmptyPayload.ID, TrellisEmptyPayload.CODEC);
         PayloadTypeRegistry.playS2C().register(TrellisSyncPayload.ID, TrellisSyncPayload.CODEC);
+        PayloadTypeRegistry.playC2S().register(TiffinFillPayload.ID, TiffinFillPayload.CODEC);
     }
 }

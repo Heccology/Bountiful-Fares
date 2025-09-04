@@ -78,7 +78,7 @@ public class TiffinContents implements TooltipComponent {
         }
 
         public int getCount() {
-            return this.getCount();
+            return this.item.getCount();
         }
 
         public void decrement() {

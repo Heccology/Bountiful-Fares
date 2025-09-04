@@ -66,11 +66,11 @@ public class FabricBFConfig {
     }
 
     public boolean getBoolValue(String id) {
-        return BOOL_CONFIGS.stream().anyMatch((value) -> Objects.equals(value.getA(), id));
+        return BOOL_CONFIGS.stream().filter(pair -> Objects.equals(pair.getA(), id)).map(Pair::getB).findFirst().orElse(false);
     }
 
     public int getIntValue(String id) {
-        return INT_CONFIGS.stream().filter((value) -> Objects.equals(value.id(), id)).map(LimitedIntValue::value).toList().getFirst();
+        return INT_CONFIGS.stream().filter(value -> Objects.equals(value.id(), id)).map(LimitedIntValue::value).findFirst().orElse(0);
     }
 
     public void setIntValue(String id, int value) {

@@ -3,8 +3,11 @@ package net.hecco.bountifulfares.datagen.bountifulfares;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.trigger.FillTiffinTrigger;
+import net.hecco.bountifulfares.definition.trigger.PickFruitInteractionTrigger;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
@@ -14,6 +17,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -85,7 +89,18 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
             }
         }
         eat_all_bad_foods.save(consumer, BountifulFares.MOD_ID + ":eat_all_bad_foods");
-
+        AdvancementHolder pick_fruit = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(Items.APPLE),
+                        Component.translatable("advancement.bountifulfares.pick_fruit"),
+                        Component.translatable("advancement.bountifulfares.pick_fruit.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
+                        true,
+                        true,
+                        false))
+                .parent(root_advancement)
+                .addCriterion("pick_fruit",
+                        PickFruitInteractionTrigger.TriggerInstance.pickedAnyFruit()
+                )
+                .save(consumer, BountifulFares.MOD_ID + ":pick_fruit");
         AdvancementHolder obtain_lemon_block = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFItems.LEMON.get()),
                         Component.translatable("advancement.bountifulfares.how_easy"),
@@ -93,7 +108,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         true))
-                .parent(root_advancement)
+                .parent(pick_fruit)
                 .addCriterion("obtain_lemon_block", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(BFBlocks.LEMON_BLOCK.get()))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_lemon_block");
         AdvancementHolder place_gristmill = Advancement.Builder.advancement()
@@ -155,7 +170,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false))
-                .parent(root_advancement)
+                .parent(place_gristmill)
                 .addCriterion("cake", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(Blocks.CAKE))
                 .addCriterion("cocoa_cake", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(BFBlocks.COCOA_CAKE.get()))
                 .addCriterion("artisan_bread", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(BFBlocks.ARTISAN_BREAD.get()))
@@ -238,13 +253,13 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false))
-                .parent(place_gristmill)
-                .addCriterion("green", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.TEA_LEAVES.get()))
-                .addCriterion("black", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.DRIED_TEA_LEAVES.get()))
-                .addCriterion("chamomile", InventoryChangeTrigger.TriggerInstance.hasItems(BFBlocks.CHAMOMILE_FLOWERS.get()))
-                .addCriterion("honeysuckle", InventoryChangeTrigger.TriggerInstance.hasItems(BFBlocks.HONEYSUCKLE.get()))
-                .addCriterion("bellflower", InventoryChangeTrigger.TriggerInstance.hasItems(BFBlocks.VIOLET_BELLFLOWER.get()))
-                .addCriterion("torchflower", InventoryChangeTrigger.TriggerInstance.hasItems(Items.TORCHFLOWER))
+                .parent(root_advancement)
+                .addCriterion("green", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.GREEN_TEA_CUP.get()))
+                .addCriterion("black", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.BLACK_TEA_CUP.get()))
+                .addCriterion("chamomile", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.CHAMOMILE_TEA_CUP.get()))
+                .addCriterion("honeysuckle", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.HONEYSUCKLE_TEA_CUP.get()))
+                .addCriterion("bellflower", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.BELLFLOWER_TEA_CUP.get()))
+                .addCriterion("torchflower", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.TORCHFLOWER_TEA_CUP.get()))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_tea_blends");
         AdvancementHolder place_all_tea_candles = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFBlocks.GREEN_TEA_CANDLE.get()),
@@ -322,15 +337,35 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         false))
                 .parent(obtain_golden_apple_sapling)
                 .addCriterion("obtain_golden_apple",
-                        ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(
-                                LocationPredicate.Builder.location()
-                                        .setBlock(BlockPredicate.Builder.block()
-                                                .of(BFBlocks.HANGING_GOLDEN_APPLE.get())),
-                                ItemPredicate.Builder.item()
-                        )
-
+                        PickFruitInteractionTrigger.TriggerInstance.pickedFruit(LocationPredicate.Builder.location()
+                                .setBlock(BlockPredicate.Builder.block()
+                                        .of(BFBlocks.HANGING_GOLDEN_APPLE.get())))
                 )
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_golden_apple");
+        AdvancementHolder obtain_tiffin = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(BFItems.TIFFINS.get(null).get()),
+                        Component.translatable("advancement.bountifulfares.obtain_tiffin"),
+                        Component.translatable("advancement.bountifulfares.obtain_tiffin.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
+                        true,
+                        true,
+                        false))
+                .parent(root_advancement)
+                .addCriterion("obtain_tiffin",
+                        InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(BFItemTags.TIFFINS))
+                )
+                .save(consumer, BountifulFares.MOD_ID + ":obtain_tiffin");
+        AdvancementHolder fill_tiffin = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(BFItems.TIFFINS.get(DyeColor.PURPLE).get()),
+                        Component.translatable("advancement.bountifulfares.fill_tiffin"),
+                        Component.translatable("advancement.bountifulfares.fill_tiffin.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.CHALLENGE,
+                        true,
+                        true,
+                        false))
+                .parent(obtain_tiffin)
+                .addCriterion("fill_tiffin",
+                        FillTiffinTrigger.TriggerInstance.filledTo(MinMaxBounds.Doubles.atLeast(0.999d))
+                )
+                .save(consumer, BountifulFares.MOD_ID + ":fill_tiffin");
 //        AdvancementEntry breedWolvesWithMulch = Advancement.Builder.create()
 //                .display(new AdvancementDisplay(new ItemStack(ModBlocks.WALNUT_MULCH),
 //                        Text.translatable("advancement.bountifulfares.breed_wolves_with_mulch"),
