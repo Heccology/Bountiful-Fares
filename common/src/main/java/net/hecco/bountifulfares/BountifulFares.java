@@ -1,9 +1,12 @@
 package net.hecco.bountifulfares;
 
 import net.hecco.bountifulfares.registry.content.*;
+import net.hecco.bountifulfares.registry.integration.BFCompat;
 import net.hecco.bountifulfares.registry.misc.*;
 import net.hecco.bountifulfares.registry.util.BFDamageTypes;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
+import net.hecco.heccolib.lib.compat.CompatManager;
+import net.hecco.heccolib.lib.compat.HLCompatAPI;
 import net.hecco.heccolib.platform.HLServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +31,8 @@ public class BountifulFares {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
+	public static final CompatManager COMPAT_MANAGER = HLCompatAPI.createCompatManager(MOD_ID);
+
 	public static void init() {
 //		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here.. me neither
 		BFSounds.registerSounds();
@@ -51,6 +56,7 @@ public class BountifulFares {
 		BFItemGroups.registerItemGroups();
 		BFRegistries.registerMiscRegistries();
 		BFCriteriaTriggers.register();
+		BFCompat.register();
 	}
 
 	//appledog - Yirmiri

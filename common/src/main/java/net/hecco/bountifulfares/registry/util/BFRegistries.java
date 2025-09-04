@@ -1,11 +1,10 @@
 package net.hecco.bountifulfares.registry.util;
 
-//import net.hecco.bountifulfares.entity.FlourProjectileEntity;
-
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.hecco.heccolib.lib.toolAction.HLToolActions;
+import net.hecco.heccolib.lib.untintedParticleRegistry.HLUntintedParticleRegistry;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.world.item.ItemStack;
@@ -24,6 +23,12 @@ public class BFRegistries {
 //        registerFuels();
         registerModCompostables();
         registerDispenserBehaviors();
+        registerUntintedParticleBlocks();
+    }
+
+    private static void registerUntintedParticleBlocks() {
+        HLUntintedParticleRegistry.add(BFBlocks.APPLE_LOG.get());
+        HLUntintedParticleRegistry.add(BFBlocks.APPLE_WOOD.get()); //TODO: finish
     }
 
     public static void registerDispenserBehaviors() {

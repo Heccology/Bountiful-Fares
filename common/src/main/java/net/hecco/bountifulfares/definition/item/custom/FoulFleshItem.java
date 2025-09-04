@@ -26,8 +26,8 @@ public class FoulFleshItem extends Item {
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
         if (level.getDifficulty() != Difficulty.PEACEFUL) {
             if (livingEntity instanceof Player player) {
-                player.getFoodData().setFoodLevel(Math.max(player.getFoodData().getFoodLevel() - 2, 0));
-                player.getFoodData().setSaturation(Math.max(player.getFoodData().getSaturationLevel() - 4, 0));
+                player.getFoodData().setFoodLevel(Math.max(player.getFoodData().getFoodLevel() - 4, 0));
+                player.getFoodData().setSaturation(Math.max(player.getFoodData().getSaturationLevel() - 6, 0));
             }
         }
         return super.finishUsingItem(stack, level, livingEntity);
