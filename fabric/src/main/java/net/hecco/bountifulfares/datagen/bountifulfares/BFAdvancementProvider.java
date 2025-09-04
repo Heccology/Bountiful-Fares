@@ -162,6 +162,17 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .addCriterion("obtain_flour", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.FLOUR.get()))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_flour");
 
+        AdvancementHolder throw_flour_as_cover = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(BFItems.FLOUR.get()),
+                        Component.translatable("advancement.bountifulfares.throw_flour_as_cover"),
+                        Component.translatable("advancement.bountifulfares.throw_flour_as_cover.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
+                        true,
+                        true,
+                        false))
+                .parent(obtain_flour)
+                .addCriterion("throw_flour_as_cover", CriteriaTriggers.USING_ITEM.createCriterion(new UsingItemTrigger.TriggerInstance(Optional.empty(), Optional.of(ItemPredicate.Builder.item().of(BFItems.FLOUR.get()).build()))))
+                .save(consumer, BountifulFares.MOD_ID + ":throw_flour_as_cover");
+
         AdvancementHolder obtain_ceramic_tiles = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFBlocks.CERAMIC_TILES.get()),
                         Component.translatable("advancement.bountifulfares.obtain_ceramic_tiles"),
@@ -172,6 +183,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .parent(obtain_feldspar)
                 .addCriterion("obtain_ceramic_tiles", ConsumeItemTrigger.TriggerInstance.usedItem(ItemPredicate.Builder.item().of(BFItemTags.DYEABLE_CERAMIC_BLOCKS)))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_ceramic_tiles");
+
         AdvancementHolder obtain_fermentation_vessel = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFBlocks.FERMENTATION_VESSEL.get()),
                         Component.translatable("advancement.bountifulfares.obtain_fermentation_vessel"),

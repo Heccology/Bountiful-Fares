@@ -331,6 +331,9 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.obtain_flour", "Not Sugar");
         generate(translationBuilder, "advancement.bountifulfares.obtain_flour.description", "Mill grains into Flour, a basis for many baked goods");
 
+        generate(translationBuilder, "advancement.bountifulfares.throw_flour_as_cover", "Poof!");
+        generate(translationBuilder, "advancement.bountifulfares.throw_flour_as_cover.description", "Throw Flour at your feet to make a quick escape!");
+
         generate(translationBuilder, "advancement.bountifulfares.obtain_ceramic_tiles", "Roy G Biv");
         generate(translationBuilder, "advancement.bountifulfares.obtain_ceramic_tiles.description", "Craft any dyeable ceramic block");
 
@@ -351,9 +354,6 @@ public class BFLangProvider extends FabricLanguageProvider {
 
         generate(translationBuilder, "advancement.bountifulfares.eat_citrus_essence", "Pass The Antacid");
         generate(translationBuilder, "advancement.bountifulfares.eat_citrus_essence.description", "Eat Citric Essence");
-
-//        generate(translationBuilder, "advancement.bountifulfares.throw_flour", "Great Escape");
-//        generate(translationBuilder, "advancement.bountifulfares.throw_flour.description", "Throw Flour");
 
         generate(translationBuilder, "advancement.bountifulfares.obtain_sun_hat", "Who's The Farmer Now?");
         generate(translationBuilder, "advancement.bountifulfares.obtain_sun_hat.description", "Obtain a Sun Hat");

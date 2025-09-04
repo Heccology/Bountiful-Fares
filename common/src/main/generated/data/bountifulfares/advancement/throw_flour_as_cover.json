@@ -1,0 +1,32 @@
+{
+  "parent": "bountifulfares:obtain_flour",
+  "criteria": {
+    "throw_flour_as_cover": {
+      "conditions": {
+        "item": {
+          "items": "bountifulfares:flour"
+        }
+      },
+      "trigger": "minecraft:using_item"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.throw_flour_as_cover.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "bountifulfares:flour"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.throw_flour_as_cover"
+    }
+  },
+  "requirements": [
+    [
+      "throw_flour_as_cover"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

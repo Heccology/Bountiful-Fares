@@ -84,7 +84,6 @@
     "description": {
       "translate": "advancement.bountifulfares.place_all_tea_candles.description"
     },
-    "frame": "challenge",
     "icon": {
       "count": 1,
       "id": "bountifulfares:green_tea_candle"
