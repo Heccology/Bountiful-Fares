@@ -1,0 +1,112 @@
+{
+  "parent": "bountifulfares:pick_fruit",
+  "criteria": {
+    "apple": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:apple"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "coconut": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:coconut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "golden_apple": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:golden_apple"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "hoary_apple": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:hoary_apple"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "lemon": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:lemon"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "orange": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:orange"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "plum": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:plum"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.obtain_all_fruit.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "bountifulfares:plum"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.obtain_all_fruit"
+    }
+  },
+  "requirements": [
+    [
+      "apple"
+    ],
+    [
+      "orange"
+    ],
+    [
+      "lemon"
+    ],
+    [
+      "plum"
+    ],
+    [
+      "hoary_apple"
+    ],
+    [
+      "golden_apple"
+    ],
+    [
+      "coconut"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

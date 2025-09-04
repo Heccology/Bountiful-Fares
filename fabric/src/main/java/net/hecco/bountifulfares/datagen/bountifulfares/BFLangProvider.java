@@ -319,11 +319,17 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.pick_fruit", "Green Thumb");
         generate(translationBuilder, "advancement.bountifulfares.pick_fruit.description", "Pick a ripe fruit from a fruit tree");
 
+        generate(translationBuilder, "advancement.bountifulfares.obtain_all_fruit", "Exotic!");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_all_fruit.description", "Obtain every type of fruit from fruit trees");
+
         generate(translationBuilder, "advancement.bountifulfares.place_gristmill", "On The Grind");
         generate(translationBuilder, "advancement.bountifulfares.place_gristmill.description", "Place a Gristmill, which is used to grind down materials");
 
         generate(translationBuilder, "advancement.bountifulfares.obtain_feldspar", "Felsic Forager");
         generate(translationBuilder, "advancement.bountifulfares.obtain_feldspar.description", "Collect Feldspar from milling stones");
+
+        generate(translationBuilder, "advancement.bountifulfares.obtain_flour", "Not Sugar");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_flour.description", "Mill grains into Flour, a basis for many baked goods");
 
         generate(translationBuilder, "advancement.bountifulfares.obtain_ceramic_tiles", "Roy G Biv");
         generate(translationBuilder, "advancement.bountifulfares.obtain_ceramic_tiles.description", "Craft any dyeable ceramic block");
@@ -376,7 +382,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.make_first_food", "Anyone Can Cook");
         generate(translationBuilder, "advancement.bountifulfares.make_first_food.description", "Make your first meal");
 
-        generate(translationBuilder, "advancement.bountifulfares.eat_all_food", "Bountiful Fares");
+        generate(translationBuilder, "advancement.bountifulfares.eat_all_food", "Bountiful Cuisine");
         generate(translationBuilder, "advancement.bountifulfares.eat_all_food.description", "Eat every food - what a connoisseur!");
 
         generate(translationBuilder, "advancement.bountifulfares.eat_all_bad_foods", "An Aquired Taste");

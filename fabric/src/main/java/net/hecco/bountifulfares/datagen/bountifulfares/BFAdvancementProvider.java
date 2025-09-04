@@ -46,7 +46,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .addCriterion("consume_item", ConsumeItemTrigger.TriggerInstance.usedItem())
                 .save(consumer, BountifulFares.MOD_ID + ":bountiful_fares");
         AdvancementHolder make_first_food = Advancement.Builder.advancement()
-                .display(new DisplayInfo(new ItemStack(BFItems.BOUNTIFUL_STEW.get()),
+                .display(new DisplayInfo(new ItemStack(BFItems.LEEK_STEW.get()),
                         Component.translatable("advancement.bountifulfares.make_first_food"),
                         Component.translatable("advancement.bountifulfares.make_first_food.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
                         true,
@@ -101,6 +101,24 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         PickFruitInteractionTrigger.TriggerInstance.pickedAnyFruit()
                 )
                 .save(consumer, BountifulFares.MOD_ID + ":pick_fruit");
+
+        AdvancementHolder obtain_all_fruit = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(BFItems.PLUM.get()),
+                        Component.translatable("advancement.bountifulfares.obtain_all_fruit"),
+                        Component.translatable("advancement.bountifulfares.obtain_all_fruit.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.CHALLENGE,
+                        true,
+                        true,
+                        false))
+                .parent(pick_fruit)
+                .addCriterion("apple", InventoryChangeTrigger.TriggerInstance.hasItems(Items.APPLE))
+                .addCriterion("orange", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.ORANGE.get()))
+                .addCriterion("lemon", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.LEMON.get()))
+                .addCriterion("plum", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.PLUM.get()))
+                .addCriterion("hoary_apple", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.HOARY_APPLE.get()))
+                .addCriterion("golden_apple", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLDEN_APPLE))
+                .addCriterion("coconut", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.COCONUT.get()))
+                .save(consumer, BountifulFares.MOD_ID + ":obtain_all_fruit");
+
         AdvancementHolder obtain_lemon_block = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFItems.LEMON.get()),
                         Component.translatable("advancement.bountifulfares.how_easy"),
@@ -133,6 +151,17 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .addCriterion("obtain_feldspar", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.FELDSPAR.get()))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_feldspar");
 
+        AdvancementHolder obtain_flour = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(BFItems.FLOUR.get()),
+                        Component.translatable("advancement.bountifulfares.obtain_flour"),
+                        Component.translatable("advancement.bountifulfares.obtain_flour.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
+                        true,
+                        true,
+                        false))
+                .parent(place_gristmill)
+                .addCriterion("obtain_flour", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.FLOUR.get()))
+                .save(consumer, BountifulFares.MOD_ID + ":obtain_flour");
+
         AdvancementHolder obtain_ceramic_tiles = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFBlocks.CERAMIC_TILES.get()),
                         Component.translatable("advancement.bountifulfares.obtain_ceramic_tiles"),
@@ -160,7 +189,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false))
-                .parent(root_advancement)
+                .parent(pick_fruit)
                 .addCriterion("eat_ancient_fruit", ConsumeItemTrigger.TriggerInstance.usedItem(ItemPredicate.Builder.item().of(BFItems.HOARY_APPLE.get(), BFItems.LAPISBERRIES.get())))
                 .save(consumer, BountifulFares.MOD_ID + ":eat_ancient_fruit");
         AdvancementHolder place_all_baked_goods = Advancement.Builder.advancement()
@@ -170,7 +199,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false))
-                .parent(place_gristmill)
+                .parent(obtain_flour)
                 .addCriterion("cake", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(Blocks.CAKE))
                 .addCriterion("cocoa_cake", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(BFBlocks.COCOA_CAKE.get()))
                 .addCriterion("artisan_bread", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(BFBlocks.ARTISAN_BREAD.get()))
@@ -249,7 +278,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
         AdvancementHolder obtain_tea_blends = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFItems.TEA_LEAVES.get()),
                         Component.translatable("advancement.bountifulfares.obtain_tea_blends"),
-                        Component.translatable("advancement.bountifulfares.obtain_tea_blends.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.CHALLENGE,
+                        Component.translatable("advancement.bountifulfares.obtain_tea_blends.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
                         true,
                         true,
                         false))
@@ -264,7 +293,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
         AdvancementHolder place_all_tea_candles = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFBlocks.GREEN_TEA_CANDLE.get()),
                         Component.translatable("advancement.bountifulfares.place_all_tea_candles"),
-                        Component.translatable("advancement.bountifulfares.place_all_tea_candles.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.CHALLENGE,
+                        Component.translatable("advancement.bountifulfares.place_all_tea_candles.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
                         true,
                         true,
                         false))

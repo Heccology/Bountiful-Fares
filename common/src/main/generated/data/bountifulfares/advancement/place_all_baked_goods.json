@@ -1,5 +1,5 @@
 {
-  "parent": "bountifulfares:place_gristmill",
+  "parent": "bountifulfares:obtain_flour",
   "criteria": {
     "apple_pie": {
       "conditions": {
