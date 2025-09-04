@@ -1,5 +1,5 @@
 {
-  "parent": "bountifulfares:obtain_feldspar",
+  "parent": "bountifulfares:obtain_ceramic_clay",
   "criteria": {
     "obtain_ceramic_tiles": {
       "conditions": {

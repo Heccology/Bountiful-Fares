@@ -328,7 +328,10 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.obtain_feldspar", "Felsic Forager");
         generate(translationBuilder, "advancement.bountifulfares.obtain_feldspar.description", "Collect Feldspar from milling stones");
 
-        generate(translationBuilder, "advancement.bountifulfares.obtain_flour", "Not Sugar");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_ceramic_clay", "Tofu!!!");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_ceramic_clay.description", "Craft Ceramic Clay from Feldspar and Clay Balls, which is used for many decorations and useful blocks");
+
+        generate(translationBuilder, "advancement.bountifulfares.obtain_flour", "Stop and Smell the Flours");
         generate(translationBuilder, "advancement.bountifulfares.obtain_flour.description", "Mill grains into Flour, a basis for many baked goods");
 
         generate(translationBuilder, "advancement.bountifulfares.throw_flour_as_cover", "Poof!");
@@ -352,7 +355,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.place_all_baked_goods", "Baker's Dozen");
         generate(translationBuilder, "advancement.bountifulfares.place_all_baked_goods.description", "Place every baked good");
 
-        generate(translationBuilder, "advancement.bountifulfares.eat_citrus_essence", "Pass The Antacid");
+        generate(translationBuilder, "advancement.bountifulfares.eat_citrus_essence", "Agh, Heartburn!");
         generate(translationBuilder, "advancement.bountifulfares.eat_citrus_essence.description", "Eat Citric Essence");
 
         generate(translationBuilder, "advancement.bountifulfares.obtain_sun_hat", "Who's The Farmer Now?");

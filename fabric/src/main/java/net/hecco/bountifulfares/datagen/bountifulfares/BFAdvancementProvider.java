@@ -151,6 +151,17 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .addCriterion("obtain_feldspar", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.FELDSPAR.get()))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_feldspar");
 
+        AdvancementHolder obtain_ceramic_clay = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(BFItems.CERAMIC_CLAY.get()),
+                        Component.translatable("advancement.bountifulfares.obtain_ceramic_clay"),
+                        Component.translatable("advancement.bountifulfares.obtain_ceramic_clay.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
+                        true,
+                        true,
+                        false))
+                .parent(place_gristmill)
+                .addCriterion("obtain_ceramic_clay", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.CERAMIC_CLAY.get()))
+                .save(consumer, BountifulFares.MOD_ID + ":obtain_ceramic_clay");
+
         AdvancementHolder obtain_flour = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFItems.FLOUR.get()),
                         Component.translatable("advancement.bountifulfares.obtain_flour"),
@@ -180,7 +191,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false))
-                .parent(obtain_feldspar)
+                .parent(obtain_ceramic_clay)
                 .addCriterion("obtain_ceramic_tiles", ConsumeItemTrigger.TriggerInstance.usedItem(ItemPredicate.Builder.item().of(BFItemTags.DYEABLE_CERAMIC_BLOCKS)))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_ceramic_tiles");
 
