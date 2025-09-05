@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-05T00:10:01.8493989	Bountiful Fares/Block Loot Tables
+// 1.21.1	2025-09-05T00:46:31.3812036	Bountiful Fares/Block Loot Tables
 86b295eff38d2e00737d0335639f8369622fdc2f data\bountifulfares\loot_table\blocks\birch_pickets.json
 210f1057bcc10f5ea29fbf5a989c5ce8ea92c848 data\bountifulfares\loot_table\blocks\potted_walnut_sapling.json
 179e10deb183993282f1a51ff35fff05ac260a15 data\bountifulfares\loot_table\blocks\wild_potatoes.json
@@ -182,8 +182,8 @@ e3b94ea4a87c47175693cda7dc059dbba3c030e7 data\bountifulfares\loot_table\blocks\w
 a2815bb90afdbcf6f464a3acd0e80b5a161c66f9 data\bountifulfares\loot_table\blocks\orange_sapling.json
 8c8cbdf565f0886b0514e1f35a58ddd43fa0f536 data\bountifulfares\loot_table\blocks\walnut_mulch_block.json
 4d7b70f272284dfc09974bc36ecdd2d061d41a4c data\bountifulfares\loot_table\blocks\golden_apple_block.json
-066b2855f2b279a08b8f439084ffa858e4a750e4 data\bountifulfares\loot_table\blocks\crimson_trellis.json
 65fb021e36d5803a77eae0defefda56287dae0b5 data\bountifulfares\loot_table\blocks\hoary_log.json
+066b2855f2b279a08b8f439084ffa858e4a750e4 data\bountifulfares\loot_table\blocks\crimson_trellis.json
 41259322fbe6f0ab96c208450f23d8f43669a8b4 data\bountifulfares\loot_table\blocks\birch_trellis.json
 2d106427af54e107bdb1448ac8fe35bb099aa73c data\bountifulfares\loot_table\blocks\orange_wood.json
 278fc1697915b24606388517c3dd93cf26122c9e data\bountifulfares\loot_table\blocks\walnut_planks.json

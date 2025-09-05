@@ -1,0 +1,6 @@
+{
+  "plant": "minecraft:diamond",
+  "model": "default",
+  "texture": "frontiers:block/super_epic_trellis",
+  "can_duplicate": true
+}

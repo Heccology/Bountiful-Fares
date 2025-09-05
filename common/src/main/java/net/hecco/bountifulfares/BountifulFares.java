@@ -28,6 +28,7 @@ public class BountifulFares {
 	public static final String ARTS_AND_CRAFTS_MOD_ID = "arts_and_crafts";
 	public static final String APPLEDOG_MOD_ID = "appledog";
 	public static final String DUNGEONS_DELIGHT_MOD_ID = "dungeonsdelight";
+	public static final String FRONTIERS_MOD_ID = "frontiers";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
