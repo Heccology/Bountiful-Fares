@@ -1,0 +1,6 @@
+{
+  "plant": "frontiers:ancient_rose_bush",
+  "model": "default",
+  "texture": "frontiers:block/ancient_rose_trellis",
+  "can_duplicate": true
+}

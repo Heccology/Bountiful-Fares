@@ -1,0 +1,6 @@
+{
+  "plant": "frontiers:violet_rose_bush",
+  "model": "default",
+  "texture": "frontiers:block/violet_rose_trellis",
+  "can_duplicate": true
+}
