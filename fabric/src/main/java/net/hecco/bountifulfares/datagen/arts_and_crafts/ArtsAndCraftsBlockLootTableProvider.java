@@ -59,7 +59,7 @@ public class ArtsAndCraftsBlockLootTableProvider extends FabricBlockLootTablePro
 //            this.add(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootTable.lootTable()
 //                    .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
 //                            .add(this.applyExplosionDecay(TrellisUtil.getDecorTrellisFromVariant(trellis, vine), LootItem.lootTableItem(TrellisUtil.getTrellisFromVariant(trellis))))));
-//        } //TODO: FIX
+//        }
 //    }
 
     public void picketsDrops(Block block) {

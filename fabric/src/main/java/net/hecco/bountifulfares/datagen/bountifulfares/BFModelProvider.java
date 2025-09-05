@@ -92,7 +92,7 @@ public class BFModelProvider extends FabricModelProvider {
 //        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.SKY_JACK_O_STRAW);
 //        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.BLURPLE_JACK_O_STRAW);
 //        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.SANGRIA_JACK_O_STRAW);
-//        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.ROSE_JACK_O_STRAW); TODO
+//        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.ROSE_JACK_O_STRAW);
 
         registerPicketsModels(blockStateModelGenerator, BFBlocks.OAK_PICKETS.get());
         registerPicketsModels(blockStateModelGenerator, BFBlocks.SPRUCE_PICKETS.get());
@@ -123,7 +123,7 @@ public class BFModelProvider extends FabricModelProvider {
 //        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.REDWOOD_PICKETS);
 //        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.SAXAUL_PICKETS);
 //        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.SUGI_PICKETS);
-//        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.WILLOW_PICKETS); TODO
+//        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.WILLOW_PICKETS);
 //        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.WISTERIA_PICKETS);
 //        registerPicketsModels(blockStateModelGenerator, SpawnBlocks.ROTTEN_PICKETS);
 //        registerPicketsModels(blockStateModelGenerator, ArtsAndCraftsBlocks.CORK_PICKETS);

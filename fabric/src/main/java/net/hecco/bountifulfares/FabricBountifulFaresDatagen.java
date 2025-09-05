@@ -24,7 +24,7 @@ public class FabricBountifulFaresDatagen implements DataGeneratorEntrypoint {
 //        FabricDataGenerator.Pack mintDataPack = fabricDataGenerator.createBuiltinResourcePack(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, BountifulFares.ELS_AND_LS_DYES_MOD_ID + "_dat"));
 //        mintDataPack.addProvider(MintBlockLootTableProvider::new);
 //        mintDataPack.addProvider(MintBlockTagProvider::new);
-//        mintDataPack.addProvider(MintRecipeProvider::new); //TODO: MOVE TO COMPATMODULES
+//        mintDataPack.addProvider(MintRecipeProvider::new);
 //
 //        FabricDataGenerator.Pack artsAndCraftsDataPack = fabricDataGenerator.createBuiltinResourcePack(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, BountifulFares.ARTS_AND_CRAFTS_MOD_ID + "_dat"));
 //        artsAndCraftsDataPack.addProvider(ArtsAndCraftsBlockLootTableProvider::new);

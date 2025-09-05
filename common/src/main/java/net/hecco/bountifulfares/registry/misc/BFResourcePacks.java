@@ -103,5 +103,5 @@ public class BFResourcePacks {
 //                        ResourcePackActivationType.ALWAYS_ENABLED);
 //            }
 //        }
-//    } TODO: FIX,,,,COMBLAPT
+//    }
 }

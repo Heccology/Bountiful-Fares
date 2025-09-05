@@ -33,5 +33,6 @@ public class FrontiersIntegration implements ModIntegration {
     @Override
     public void registerContent() {
         //content goes here, make sure to wrap anything you register with registerContent(...)
+        //if you do a trellis type add it to the TRELLISES map in BFBlocks, it does all the data stuff besides recipes for you
     }
 }

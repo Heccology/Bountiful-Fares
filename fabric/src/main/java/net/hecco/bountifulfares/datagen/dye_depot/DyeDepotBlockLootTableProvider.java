@@ -41,7 +41,7 @@ public class DyeDepotBlockLootTableProvider extends FabricBlockLootTableProvider
 //        jackOStrawDrops(DyeDepotBlocks.BEIGE_JACK_O_STRAW);
 //        jackOStrawDrops(DyeDepotBlocks.AMBER_JACK_O_STRAW);
 //        jackOStrawDrops(DyeDepotBlocks.OLIVE_JACK_O_STRAW);
-//        jackOStrawDrops(DyeDepotBlocks.FOREST_JACK_O_STRAW); TODO
+//        jackOStrawDrops(DyeDepotBlocks.FOREST_JACK_O_STRAW);
 //        jackOStrawDrops(DyeDepotBlocks.VERDANT_JACK_O_STRAW);
 //        jackOStrawDrops(DyeDepotBlocks.TEAL_JACK_O_STRAW);
 //        jackOStrawDrops(DyeDepotBlocks.MINT_JACK_O_STRAW);

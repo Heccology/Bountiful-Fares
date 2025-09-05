@@ -53,7 +53,6 @@ public class BountifulFares {
 		BFMenus.registerScreenHandlers();
 		BFEntities.registerEntities();
 		BFDamageTypes.registerDamageTypes();
-//		BFCompat.registerCompatContent(); //TODO: LAST BECAUSE THERE IS SO MUCH WORK AND THIS IS NOT PRIORITY AT ALL
 		BFItemGroups.registerItemGroups();
 		BFRegistries.registerMiscRegistries();
 		BFCriteriaTriggers.register();

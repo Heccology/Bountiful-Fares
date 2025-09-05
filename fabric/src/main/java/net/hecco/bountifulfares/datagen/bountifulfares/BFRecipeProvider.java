@@ -701,7 +701,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 //        woodenBoat(exporter, BFItems.HOARY_BOAT.get(), BFBlocks.HOARY_PLANKS.get());
 //        woodenBoat(exporter, BFItems.WALNUT_BOAT.get(), BFBlocks.WALNUT_PLANKS.get());
 //        chestBoat(exporter, BFItems.HOARY_CHEST_BOAT.get(), BFItems.HOARY_BOAT.get());
-//        chestBoat(exporter, BFItems.WALNUT_CHEST_BOAT.get(), BFItems.WALNUT_BOAT.get()); //TODO
+//        chestBoat(exporter, BFItems.WALNUT_CHEST_BOAT.get(), BFItems.WALNUT_BOAT.get());
 
         offerPicketsRecipe(exporter, BFBlocks.OAK_PICKETS.get(), Items.OAK_PLANKS);
         offerPicketsRecipe(exporter, BFBlocks.SPRUCE_PICKETS.get(), Items.SPRUCE_PLANKS);

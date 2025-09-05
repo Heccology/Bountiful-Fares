@@ -72,7 +72,7 @@ public class BFLangProvider extends FabricLanguageProvider {
 
 
         generate(translationBuilder, BFBlocks.HOARY_APPLE_SAPLING_CROP.get(), "Hoary Apple Sapling");
-//        generate(translationBuilder, BFItems.HOARY_CHEST_BOAT, "Hoary Boat with Chest"); TODO
+//        generate(translationBuilder, BFItems.HOARY_CHEST_BOAT, "Hoary Boat with Chest");
         generate(translationBuilder, BFBlocks.HANGING_HOARY_APPLE.get(), "Hoary Apple");
 
         generate(translationBuilder, BFBlocks.CERAMIC_CLAY_BLOCK.get(), "Block of Ceramic Clay");
@@ -82,7 +82,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         //generate(translationBuilder, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, "Checkered Ceramic Mosaic Wall");
         //generate(translationBuilder, BFBlocks.CHECKERED_CERAMIC_TILE_WALL, "Checkered Ceramic Tile Wall");
 
-//        generate(translationBuilder, BFItems.WALNUT_CHEST_BOAT, "Walnut Boat with Chest"); TODO
+//        generate(translationBuilder, BFItems.WALNUT_CHEST_BOAT, "Walnut Boat with Chest");
 
         generate(translationBuilder, BFBlocks.HANGING_WALNUTS.get(), "Walnuts");
 
@@ -269,7 +269,7 @@ public class BFLangProvider extends FabricLanguageProvider {
 //        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SKY_JACK_O_STRAW, "Sky");
 //        generateJackOStraw(translationBuilder, DelicateDyesBlocks.BLURPLE_JACK_O_STRAW, "Blurple");
 //        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SANGRIA_JACK_O_STRAW, "Sangria");
-//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.ROSE_JACK_O_STRAW, "Rose"); //TODO
+//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.ROSE_JACK_O_STRAW, "Rose");
 
 
 
