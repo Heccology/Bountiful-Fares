@@ -6,6 +6,7 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.integration.NoMansLandIntegration;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
@@ -272,5 +273,12 @@ public class BFModelProvider extends FabricModelProvider {
             itemModelGenerator.generateFlatItem(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, color.getName() + "_shulker_tiffin_back")), ModelTemplates.FLAT_ITEM);
             itemModelGenerator.generateFlatItem(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, color.getName() + "_shulker_tiffin_front")), ModelTemplates.FLAT_ITEM);
         }
+
+
+
+        //COMPAT
+        itemModelGenerator.generateFlatItem(NoMansLandIntegration.CANDIED_PEAR.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(NoMansLandIntegration.MAPLE_MEAD_BOTTLE.get(), ModelTemplates.FLAT_ITEM);
+
     }
 }

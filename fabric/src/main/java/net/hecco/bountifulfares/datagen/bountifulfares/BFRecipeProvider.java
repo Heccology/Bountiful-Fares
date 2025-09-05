@@ -4,8 +4,8 @@ import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.hecco.bountifulfares.BountifulFaresUtil;
-import net.hecco.bountifulfares.datagen.recipe.FermentingRecipeBuilder;
-import net.hecco.bountifulfares.datagen.recipe.MillingRecipeBuilder;
+import net.hecco.bountifulfares.definition.recipe.FermentingRecipeBuilder;
+import net.hecco.bountifulfares.definition.recipe.MillingRecipeBuilder;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
@@ -32,9 +32,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 import static net.minecraft.data.BlockFamilies.familyBuilder;
 import static net.minecraft.data.recipes.RecipeBuilder.getDefaultRecipeId;

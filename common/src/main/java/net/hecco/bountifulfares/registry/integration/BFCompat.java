@@ -8,6 +8,7 @@ public class BFCompat {
         COMPAT_MANAGER.addIntegration(new FrontiersIntegration());
         COMPAT_MANAGER.addIntegration(new FarmersDelightIntegration());
         COMPAT_MANAGER.addIntegration(new AmendmentsIntegration());
+        COMPAT_MANAGER.addIntegration(new NoMansLandIntegration());
 
         COMPAT_MANAGER.registerCompatContent();
     }

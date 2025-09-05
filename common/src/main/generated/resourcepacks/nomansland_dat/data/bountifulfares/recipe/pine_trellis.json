@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "trellis",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "P": {
+      "item": "nomansland:pine_planks"
+    }
+  },
+  "pattern": [
+    "# #",
+    " P ",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nomansland:pine_trellis"
+  }
+}

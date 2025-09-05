@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "nomansland:pear"
+    },
+    {
+      "tag": "bountifulfares:sugar_ingredients"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "nomansland:candied_pear"
+  }
+}

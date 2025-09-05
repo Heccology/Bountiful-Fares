@@ -73,7 +73,7 @@ public class FrontiersIntegration implements ModIntegration {
     @Override
     public void recipeGeneration(RecipeOutput exporter) {
 //        for (String wood : WOOD_TYPES) {
-//            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.TRELLISES.get(wood).get())
+//            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.TRELLISES.get(FRONTIERS_MOD_ID + "_" + wood).get())
 //                    .pattern("# #")
 //                    .pattern(" P ")
 //                    .pattern("# #")
@@ -83,7 +83,7 @@ public class FrontiersIntegration implements ModIntegration {
 //                    .unlockedBy("has_planks", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(FRONTIERS_MOD_ID, wood + "_planks"))).build()))))
 //                    .group("trellis")
 //                    .save(exporter);
-//            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.PICKETS.get(wood).get(), 4).define('#', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(FRONTIERS_MOD_ID, wood + "_planks"))).define('S', Items.STICK)
+//            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.PICKETS.get(FRONTIERS_MOD_ID + "_" + wood).get(), 4).define('#', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(FRONTIERS_MOD_ID, wood + "_planks"))).define('S', Items.STICK)
 //                    .pattern("#S#").unlockedBy("has_planks", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(FRONTIERS_MOD_ID, wood + "_planks"))).build())))).save(exporter);
 //        }
     }

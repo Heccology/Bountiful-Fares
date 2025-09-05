@@ -3,6 +3,7 @@ package net.hecco.bountifulfares.datagen.bountifulfares;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.bountifulfares.registry.integration.FarmersDelightIntegration;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.core.HolderLookup;
@@ -148,6 +149,8 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.PURPLE_JACK_O_STRAW.get())
                 .add(BFBlocks.MAGENTA_JACK_O_STRAW.get())
                 .add(BFBlocks.PINK_JACK_O_STRAW.get())
+                .add(FarmersDelightIntegration.WALNUT_CABINET.get())
+                .add(FarmersDelightIntegration.HOARY_CABINET.get())
         ;
 
         for (Supplier<Block> block : BFBlocks.PICKETS.values()) {

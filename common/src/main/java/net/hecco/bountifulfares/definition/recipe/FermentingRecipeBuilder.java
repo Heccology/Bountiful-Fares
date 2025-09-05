@@ -1,6 +1,5 @@
-package net.hecco.bountifulfares.datagen.recipe;
+package net.hecco.bountifulfares.definition.recipe;
 
-import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
@@ -20,25 +19,27 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class MillingRecipeBuilder implements RecipeBuilder {
+public class FermentingRecipeBuilder implements RecipeBuilder {
     private final Item result;
     private final Ingredient ingredient;
     private final int count;
+    private final int particleColor;
     private final Map<String, Criterion<?>> criteria = new LinkedHashMap();
-    private final MillingRecipe.RecipeFactory<?> recipeFactory;
+    private final FermentationRecipe.RecipeFactory<?> recipeFactory;
 
-    public MillingRecipeBuilder(ItemLike ingredient, ItemLike output, int count, MillingRecipe.RecipeFactory<?> recipeFactory) {
+    public FermentingRecipeBuilder(ItemLike ingredient, ItemLike output, int count, int particleColor, FermentationRecipe.RecipeFactory<?> recipeFactory) {
         this.ingredient = Ingredient.of(ingredient);
         this.result = output.asItem();
         this.count = count;
+        this.particleColor = particleColor;
         this.recipeFactory = recipeFactory;
     }
 
-    public static <T extends MillingRecipe> MillingRecipeBuilder create(Item input, ItemLike output, int count) {
-        return new MillingRecipeBuilder(input, output, count, MillingRecipe::new);
+    public static <T extends FermentationRecipe> FermentingRecipeBuilder create(Item input, ItemLike output, int count, int particleColor) {
+        return new FermentingRecipeBuilder(input, output, count, particleColor, FermentationRecipe::new);
     }
 
-    public MillingRecipeBuilder unlockedBy(String string, Criterion<?> advancementCriterion) {
+    public FermentingRecipeBuilder unlockedBy(String string, Criterion<?> advancementCriterion) {
         this.criteria.put(string, advancementCriterion);
         return this;
     }
@@ -57,12 +58,12 @@ public class MillingRecipeBuilder implements RecipeBuilder {
     public void save(RecipeOutput exporter, ResourceLocation recipeId) {
         Advancement.Builder builder = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId)).rewards(AdvancementRewards.Builder.recipe(recipeId)).requirements(AdvancementRequirements.Strategy.OR);
         Objects.requireNonNull(builder);
-        MillingRecipe millingRecipe = this.recipeFactory.create(this.ingredient, new ItemStack(this.result), this.count);
-        exporter.accept(recipeId, millingRecipe, builder.build(recipeId.withPrefix("recipes/")));
+        FermentationRecipe fermentationRecipe = this.recipeFactory.create(this.ingredient, new ItemStack(this.result), this.count, this.particleColor);
+        exporter.accept(recipeId, fermentationRecipe, builder.build(recipeId.withPrefix("recipes/")));
     }
 
     @Override
     public void save(RecipeOutput exporter) {
-        this.save(exporter, BuiltInRegistries.ITEM.getKey(getResult()).getPath() + "_from_" + BuiltInRegistries.ITEM.getKey(this.ingredient.getItems()[0].getItem()).getPath() + "_milling");
+        this.save(exporter, BuiltInRegistries.ITEM.getKey(getResult()).getPath() + "_from_" + BuiltInRegistries.ITEM.getKey(this.ingredient.getItems()[0].getItem()).getPath() + "_fermenting");
     }
 }

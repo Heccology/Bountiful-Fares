@@ -93,7 +93,11 @@ public class BFBlockEntities {
                     TRELLISES.get("natures_spirit_palo_verde"),
                     TRELLISES.get("natures_spirit_sugi"),
                     TRELLISES.get("natures_spirit_willow"),
-                    TRELLISES.get("natures_spirit_wisteria")
+                    TRELLISES.get("natures_spirit_wisteria"),
+                    TRELLISES.get("nomansland_pine"),
+                    TRELLISES.get("nomansland_maple"),
+                    TRELLISES.get("nomansland_walnut"),
+                    TRELLISES.get("nomansland_willow")
             )
     );
 

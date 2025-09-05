@@ -604,6 +604,14 @@ public class BFLangProvider extends FabricLanguageProvider {
                 translationBuilder.add(key, toSentenceCase(id.getPath()));
             }
         }
+        for(ResourceLocation id : BuiltInRegistries.ITEM.keySet()) {
+            String key = BuiltInRegistries.ITEM.get(id).getDescriptionId();
+            if(usedTranslationKeys.contains(key)) { continue; }
+            if (compat_content.contains(BuiltInRegistries.ITEM.get(id))) {
+                usedTranslationKeys.add(key);
+                translationBuilder.add(key, toSentenceCase(id.getPath()));
+            }
+        }
 
         YappingCompatLangProvider.generateTranslations(translationBuilder);
     }

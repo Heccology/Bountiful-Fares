@@ -4,8 +4,11 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.PicketsBlock;
 import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.item.custom.TrellisBlockItem;
+import net.hecco.bountifulfares.definition.item.integration.MapleMeadBottleItem;
+import net.hecco.bountifulfares.definition.recipe.FermentingRecipeBuilder;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFSoundTypes;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.heccolib.lib.compat.CompatManager;
 import net.hecco.heccolib.lib.compat.ModIntegration;
 import net.hecco.heccolib.platform.HLServices;
@@ -16,7 +19,10 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -64,6 +70,14 @@ public class NoMansLandIntegration implements ModIntegration {
         }
 
         CANDIED_PEAR = (Supplier<Item>) registerContent(HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, "candied_pear", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.5F).build()))));
+        MAPLE_MEAD_BOTTLE = (Supplier<Item>) registerContent(HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, "maple_mead_bottle", () -> new MapleMeadBottleItem(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.4f).effect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1).effect(new MobEffectInstance(MobEffects.CONFUSION, 600, 0), 0.3f).alwaysEdible().build()).stacksTo(16))));
+
+
+        //DATAGEN DUMMY ITEMS
+        if (HLServices.PLATFORM.isDatagen()) {
+            HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID,  "pear", () -> new Item(new Item.Properties()));
+            HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID,  "maple_syrup_bottle", () -> new Item(new Item.Properties()));
+        }
     }
 
     @Override
@@ -92,5 +106,15 @@ public class NoMansLandIntegration implements ModIntegration {
             ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.PICKETS.get(NO_MANS_LAND_MOD_ID + "_" + wood).get(), 4).define('#', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, wood + "_planks"))).define('S', Items.STICK)
                     .pattern("#S#").unlockedBy("has_planks", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, wood + "_planks"))).build())))).save(exporter);
         }
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, CANDIED_PEAR.get(), 1)
+                .requires(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "pear")))
+                .requires(BFItemTags.SUGAR_INGREDIENTS)
+                .unlockedBy("has_pear", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "pear"))).build()))))
+                .save(exporter);
+
+        FermentingRecipeBuilder.create(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "maple_syrup_bottle")), MAPLE_MEAD_BOTTLE.get(), 1, 13529674)
+                .unlockedBy("has_maple_syrup", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "maple_syrup_bottle"))).build()))))
+                .save(exporter);
     }
 }
