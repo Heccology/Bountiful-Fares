@@ -34,7 +34,6 @@ public class BountifulFares {
 	public static final CompatManager COMPAT_MANAGER = HLCompatAPI.createCompatManager(MOD_ID);
 
 	public static void init() {
-//		BFResourcePacks.registerBuiltinResourcePacks(); //TODO: FIX..... idk what to do here.. me neither
 		BFSounds.registerSounds();
 		BFBlocks.registerBlocks();
 		BFCompat.register();

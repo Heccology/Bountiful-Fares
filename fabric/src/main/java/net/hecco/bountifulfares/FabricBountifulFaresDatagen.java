@@ -2,7 +2,11 @@ package net.hecco.bountifulfares;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.hecco.bountifulfares.config.FabricBFConfig;
+import net.hecco.bountifulfares.datagen.DisableCompatItemsVisibility;
 import net.hecco.bountifulfares.datagen.bountifulfares.*;
+import net.hecco.heccolib.lib.compat.FabricHLCompatAPI;
+import net.minecraft.resources.ResourceLocation;
 
 public class FabricBountifulFaresDatagen implements DataGeneratorEntrypoint {
     @Override
@@ -16,6 +20,7 @@ public class FabricBountifulFaresDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(BFModelProvider::new);
         pack.addProvider(BFLangProvider::new);
 
+        FabricHLCompatAPI.generateCompatDatapacks(fabricDataGenerator, BountifulFares.COMPAT_MANAGER);
 //        FabricDataGenerator.Pack mintDataPack = fabricDataGenerator.createBuiltinResourcePack(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, BountifulFares.ELS_AND_LS_DYES_MOD_ID + "_dat"));
 //        mintDataPack.addProvider(MintBlockLootTableProvider::new);
 //        mintDataPack.addProvider(MintBlockTagProvider::new);
@@ -72,8 +77,8 @@ public class FabricBountifulFaresDatagen implements DataGeneratorEntrypoint {
 //        dungeonsDelightPack.addProvider(DungeonsDelightBlockTagProvider::new);
 //        dungeonsDelightPack.addProvider(DungeonsDelightRecipeProvider::new);
 //
-//        FabricDataGenerator.Pack disableCompatVisibilityPack = fabricDataGenerator.createBuiltinResourcePack(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "hide_compat_items"));
-//        disableCompatVisibilityPack.addProvider(DisableCompatItemsVisibility::new);
+        FabricDataGenerator.Pack disableCompatVisibilityPack = fabricDataGenerator.createBuiltinResourcePack(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "hide_compat_items"));
+        disableCompatVisibilityPack.addProvider(DisableCompatItemsVisibility::new);
 
     }
 }
