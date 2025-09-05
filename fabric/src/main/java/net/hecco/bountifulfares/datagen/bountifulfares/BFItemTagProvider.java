@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.datagen.bountifulfares;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
@@ -353,6 +354,7 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(BFItemTags.COOKED_FISHES)
                 .add(Items.COOKED_COD)
                 .add(Items.COOKED_SALMON)
+                .addOptional(ResourceLocation.fromNamespaceAndPath(BountifulFares.NO_MANS_LAND_MOD_ID, "cooked_billhook_bass"))
         ;
         getOrCreateTagBuilder(BFItemTags.MEALS)
                 .add(BFItems.MUSHROOM_STUFFED_POTATO.get())

@@ -1,6 +1,10 @@
 {
   "values": [
     "minecraft:cooked_cod",
-    "minecraft:cooked_salmon"
+    "minecraft:cooked_salmon",
+    {
+      "id": "nomansland:cooked_billhook_bass",
+      "required": false
+    }
   ]
 }

@@ -9,6 +9,7 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.misc.BFCompat;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
+import net.hecco.heccolib.lib.compat.ModIntegration;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -596,22 +597,17 @@ public class BFLangProvider extends FabricLanguageProvider {
         }
 
         var compat_content = BountifulFares.COMPAT_MANAGER.CONTENT.keySet().stream().map(Supplier::get).toList();
-        for(ResourceLocation id : BuiltInRegistries.BLOCK.keySet()) {
-            String key = BuiltInRegistries.BLOCK.get(id).getDescriptionId();
-            if(usedTranslationKeys.contains(key)) { continue; }
-            if (compat_content.contains(BuiltInRegistries.BLOCK.get(id))) {
-                usedTranslationKeys.add(key);
-                translationBuilder.add(key, toSentenceCase(id.getPath()));
+        for (Object content : compat_content) {
+            if (content instanceof Block block && !usedTranslationKeys.contains(block.getDescriptionId())) {
+                translationBuilder.add(block.getDescriptionId(), toSentenceCase(BuiltInRegistries.BLOCK.getKey(block).getPath()));
+                usedTranslationKeys.add(block.getDescriptionId());
+            }
+            if (content instanceof Item item && !usedTranslationKeys.contains(item.getDescriptionId())) {
+                translationBuilder.add(item.getDescriptionId(), toSentenceCase(BuiltInRegistries.ITEM.getKey(item).getPath()));
+                usedTranslationKeys.add(item.getDescriptionId());
             }
         }
-        for(ResourceLocation id : BuiltInRegistries.ITEM.keySet()) {
-            String key = BuiltInRegistries.ITEM.get(id).getDescriptionId();
-            if(usedTranslationKeys.contains(key)) { continue; }
-            if (compat_content.contains(BuiltInRegistries.ITEM.get(id))) {
-                usedTranslationKeys.add(key);
-                translationBuilder.add(key, toSentenceCase(id.getPath()));
-            }
-        }
+
 
         YappingCompatLangProvider.generateTranslations(translationBuilder);
     }

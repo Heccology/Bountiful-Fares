@@ -7,6 +7,7 @@ import net.hecco.bountifulfares.definition.item.custom.TrellisBlockItem;
 import net.hecco.bountifulfares.definition.item.integration.MapleMeadBottleItem;
 import net.hecco.bountifulfares.definition.recipe.FermentingRecipeBuilder;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFSoundTypes;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.heccolib.lib.compat.CompatManager;
@@ -77,6 +78,7 @@ public class NoMansLandIntegration implements ModIntegration {
         if (HLServices.PLATFORM.isDatagen()) {
             HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID,  "pear", () -> new Item(new Item.Properties()));
             HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID,  "maple_syrup_bottle", () -> new Item(new Item.Properties()));
+            HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID,  "grilled_mushrooms", () -> new Item(new Item.Properties()));
         }
     }
 
@@ -116,5 +118,14 @@ public class NoMansLandIntegration implements ModIntegration {
         FermentingRecipeBuilder.create(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "maple_syrup_bottle")), MAPLE_MEAD_BOTTLE.get(), 1, 13529674)
                 .unlockedBy("has_maple_syrup", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "maple_syrup_bottle"))).build()))))
                 .save(exporter);
+
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFItems.MUSHROOM_STUFFED_POTATO.get())
+                .requires(Items.BAKED_POTATO)
+                .requires(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "grilled_mushrooms")))
+                .requires(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "grilled_mushrooms")))
+                .unlockedBy("has_baked_potato", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(Items.BAKED_POTATO).build()))))
+                .unlockedBy("has_grilled_mushrooms", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "grilled_mushrooms"))).build()))))
+                .save(exporter, "mushroom_stuffed_potato_from_grilled_mushrooms");
     }
 }
