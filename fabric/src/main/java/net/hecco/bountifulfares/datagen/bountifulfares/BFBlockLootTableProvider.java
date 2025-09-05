@@ -412,6 +412,12 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
             if(usedBlocks.contains(block)) { continue; }
             this.dropSelf(block);
         }
+
+        for(ResourceLocation id : BountifulFaresUtil.allCompatBlockIds()) {
+            Block block = BuiltInRegistries.BLOCK.get(id);
+            if(usedBlocks.contains(block)) { continue; }
+            this.dropSelf(block);
+        }
     }
 
 //    public void registerTrellisLootTables(TrellisVariant trellis) {

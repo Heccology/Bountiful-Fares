@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.entity.*;
-import net.hecco.bountifulfares.definition.block.entity.compat.CabinetBlockEntity;
+import net.hecco.bountifulfares.definition.block.integration.CabinetBlockEntity;
 import net.hecco.bountifulfares.definition.compat.farmersdelight.FarmersDelightBlocks;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -79,21 +79,21 @@ public class BFBlockEntities {
                     TRELLISES.get("hoary"),
                     TRELLISES.get("crimson"),
                     TRELLISES.get("warped"),
-                    TRELLISES.get("aspen"),
-                    TRELLISES.get("cedar"),
-                    TRELLISES.get("coconut"),
-                    TRELLISES.get("cypress"),
-                    TRELLISES.get("fir"),
-                    TRELLISES.get("ghaf"),
-                    TRELLISES.get("joshua"),
-                    TRELLISES.get("larch"),
-                    TRELLISES.get("mahogany"),
-                    TRELLISES.get("maple"),
-                    TRELLISES.get("olive"),
-                    TRELLISES.get("palo_verde"),
-                    TRELLISES.get("sugi"),
-                    TRELLISES.get("willow"),
-                    TRELLISES.get("wisteria")
+                    TRELLISES.get("natures_spirit_aspen"),
+                    TRELLISES.get("natures_spirit_cedar"),
+                    TRELLISES.get("natures_spirit_coconut"),
+                    TRELLISES.get("natures_spirit_cypress"),
+                    TRELLISES.get("natures_spirit_fir"),
+                    TRELLISES.get("natures_spirit_ghaf"),
+                    TRELLISES.get("natures_spirit_joshua"),
+                    TRELLISES.get("natures_spirit_larch"),
+                    TRELLISES.get("natures_spirit_mahogany"),
+                    TRELLISES.get("natures_spirit_maple"),
+                    TRELLISES.get("natures_spirit_olive"),
+                    TRELLISES.get("natures_spirit_palo_verde"),
+                    TRELLISES.get("natures_spirit_sugi"),
+                    TRELLISES.get("natures_spirit_willow"),
+                    TRELLISES.get("natures_spirit_wisteria")
             )
     );
 
@@ -101,13 +101,13 @@ public class BFBlockEntities {
             () -> HLServices.REGISTRY.createBlockEntity(CoirBedBlockEntity::new, COIR_BED)
     );
 
-    public static Supplier<BlockEntityType<CabinetBlockEntity>> CABINET_BLOCK_ENTITY;
+//    public static Supplier<BlockEntityType<CabinetBlockEntity>> CABINET_BLOCK_ENTITY;
 
     public static void registerBlockEntities() {
-        if (HLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID) || HLServices.PLATFORM.isDatagen()) {
-            CABINET_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "cabinet_block_entity",
-                    () -> HLServices.REGISTRY.createBlockEntity(CabinetBlockEntity::new, FarmersDelightBlocks.WALNUT_CABINET)
-            );
-        }
+//        if (HLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID) || HLServices.PLATFORM.isDatagen()) {
+//            CABINET_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "cabinet_block_entity",
+//                    () -> HLServices.REGISTRY.createBlockEntity(CabinetBlockEntity::new, FarmersDelightBlocks.WALNUT_CABINET)
+//            );
+//        }
     }
 }

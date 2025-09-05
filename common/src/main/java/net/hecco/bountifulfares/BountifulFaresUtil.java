@@ -4,6 +4,7 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.misc.BFCompat;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
@@ -11,6 +12,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Supplier;
 
 public class BountifulFaresUtil {
     public static final List<String> WOOD_TYPES = List.of("oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "bamboo", "walnut", "hoary", "crimson", "warped");
@@ -26,13 +28,12 @@ public class BountifulFaresUtil {
     }
 
     public static Set<ResourceLocation> allCompatBlockIds() {
-        Set<ResourceLocation> set = BuiltInRegistries.BLOCK.keySet();
+        Set<ResourceLocation> set = BuiltInRegistries.ITEM.keySet();
         Set<ResourceLocation> a = new HashSet<>();
         for(ResourceLocation id : set) {
-            for (String namespace : BFCompat.COMPAT_IDS) {
-                if (Objects.equals(id.getNamespace(), namespace)) {
-                    a.add(id);
-                }
+            Supplier<?> i = () -> BuiltInRegistries.BLOCK.get(id);
+            if (BountifulFares.COMPAT_MANAGER.CONTENT.containsKey(i.get())) {
+                a.add(id);
             }
         }
         return a;
@@ -42,10 +43,9 @@ public class BountifulFaresUtil {
         Set<ResourceLocation> set = BuiltInRegistries.ITEM.keySet();
         Set<ResourceLocation> a = new HashSet<>();
         for(ResourceLocation id : set) {
-            for (String namespace : BFCompat.COMPAT_IDS) {
-                if (Objects.equals(id.getNamespace(), namespace)) {
-                    a.add(id);
-                }
+            Supplier<?> i = () -> BuiltInRegistries.ITEM.get(id);
+            if (BountifulFares.COMPAT_MANAGER.CONTENT.containsKey(i.get())) {
+                a.add(id);
             }
         }
         return a;

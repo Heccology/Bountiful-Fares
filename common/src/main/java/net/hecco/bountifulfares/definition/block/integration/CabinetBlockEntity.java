@@ -1,9 +1,9 @@
-package net.hecco.bountifulfares.definition.block.entity.compat;
+package net.hecco.bountifulfares.definition.block.integration;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.definition.compat.farmersdelight.CabinetBlock;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.hecco.bountifulfares.registry.integration.FarmersDelightIntegration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -42,7 +42,7 @@ public class CabinetBlockEntity extends RandomizableContainerBlockEntity
     private NonNullList<ItemStack> content;
 
     public CabinetBlockEntity(BlockPos blockPos, BlockState blockState) {
-        this(BFBlockEntities.CABINET_BLOCK_ENTITY.get(), blockPos, blockState);
+        this(FarmersDelightIntegration.CABINET_BLOCK_ENTITY.get(), blockPos, blockState);
     }
 
     private CabinetBlockEntity(BlockEntityType<?> type, BlockPos blockPos, BlockState blockState) {
@@ -163,12 +163,12 @@ public class CabinetBlockEntity extends RandomizableContainerBlockEntity
             scheduleTick();
         } else {
             BlockState blockstate = getBlockState();
-            if (!(blockstate.getBlock() instanceof CabinetBlock)) {
+            if (!(blockstate.getBlock() instanceof FDCabinetBlock)) {
                 setRemoved();
                 return;
             }
 
-            boolean flag = blockstate.getValue(CabinetBlock.OPEN);
+            boolean flag = blockstate.getValue(FDCabinetBlock.OPEN);
             if (flag) {
                 playSound(blockstate, BFSounds.CABINET_CLOSE);
                 setOpen(blockstate, false);
@@ -181,11 +181,11 @@ public class CabinetBlockEntity extends RandomizableContainerBlockEntity
     }
 
     private void setOpen(BlockState state, boolean open) {
-        Objects.requireNonNull(getLevel()).setBlockAndUpdate(getBlockPos(), state.setValue(CabinetBlock.OPEN, open));
+        Objects.requireNonNull(getLevel()).setBlockAndUpdate(getBlockPos(), state.setValue(FDCabinetBlock.OPEN, open));
     }
 
     private void playSound(BlockState state, SoundEvent sound) {
-        Vec3i vec3i = state.getValue(CabinetBlock.FACING).getNormal();
+        Vec3i vec3i = state.getValue(FDCabinetBlock.FACING).getNormal();
         BlockPos pos = getBlockPos();
         double dX = pos.getX() + .5d + vec3i.getX() / 2.d;
         double dT = pos.getY() + .5d + vec3i.getY() / 2.d;

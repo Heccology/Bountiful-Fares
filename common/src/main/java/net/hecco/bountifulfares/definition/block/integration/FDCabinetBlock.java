@@ -1,10 +1,9 @@
-package net.hecco.bountifulfares.definition.compat.farmersdelight;
+package net.hecco.bountifulfares.definition.block.integration;
 
 import com.mojang.serialization.MapCodec;
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.definition.block.entity.compat.CabinetBlockEntity;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.bountifulfares.registry.integration.FarmersDelightIntegration;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -13,7 +12,6 @@ import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -27,35 +25,21 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-public class CabinetBlock extends BaseEntityBlock {
+public class FDCabinetBlock extends BaseEntityBlock {
 
-    public static final MapCodec<CabinetBlock> CODEC = CabinetBlock.simpleCodec(CabinetBlock::new);
+    public static final MapCodec<FDCabinetBlock> CODEC = FDCabinetBlock.simpleCodec(FDCabinetBlock::new);
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
 
-    private final String modId;
-
-    public CabinetBlock(String modId, Properties settings) {
+    public FDCabinetBlock(Properties settings) {
         super(settings);
         registerDefaultState(getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(OPEN, false));
-        this.modId = modId;
-    }
-
-    public CabinetBlock(Properties settings) {
-        super(settings);
-        registerDefaultState(getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(OPEN, false));
-        this.modId = BountifulFares.FARMERS_DELIGHT_MOD_ID;
     }
 
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
-    }
-
-    @Override
-    public boolean isEnabled(FeatureFlagSet enabledFeatures) {
-        return HLServices.PLATFORM.isModLoaded(modId) || HLServices.PLATFORM.isDatagen();
     }
 
     @Override
@@ -82,7 +66,7 @@ public class CabinetBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return BFBlockEntities.CABINET_BLOCK_ENTITY.get().create(pos, state);
+        return FarmersDelightIntegration.CABINET_BLOCK_ENTITY.get().create(pos, state);
     }
 
     @Override

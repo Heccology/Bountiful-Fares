@@ -6,6 +6,7 @@ public class BFCompat {
     public static void register() {
         COMPAT_MANAGER.addIntegration(new NaturesSpiritIntegration());
         COMPAT_MANAGER.addIntegration(new FrontiersIntegration());
+        COMPAT_MANAGER.addIntegration(new FarmersDelightIntegration());
 
         COMPAT_MANAGER.registerCompatContent();
     }

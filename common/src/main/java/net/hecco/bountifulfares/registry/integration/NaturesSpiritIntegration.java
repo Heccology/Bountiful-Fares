@@ -49,13 +49,14 @@ public class NaturesSpiritIntegration implements ModIntegration {
     @SuppressWarnings("unchecked")
     public void registerContent() {
         for (String wood : WOOD_TYPES) {
-            BFBlocks.TRELLISES.put(NATURES_SPIRIT_MOD_ID + "_" + wood, (Supplier<Block>) registerContent(HLServices.REGISTRY.registerBlockNoItem(NATURES_SPIRIT_MOD_ID, wood + "_trellis", () -> new TrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).randomTicks().noOcclusion()))));
-            registerContent(HLServices.REGISTRY.registerItem(NATURES_SPIRIT_MOD_ID, wood + "_trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(wood).get(), new Item.Properties())));
+            String key = NATURES_SPIRIT_MOD_ID + "_" + wood;
+            BFBlocks.TRELLISES.put(key, (Supplier<Block>) registerContent(HLServices.REGISTRY.registerBlockNoItem(NATURES_SPIRIT_MOD_ID, wood + "_trellis", () -> new TrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).randomTicks().noOcclusion()))));
+            registerContent(HLServices.REGISTRY.registerItem(NATURES_SPIRIT_MOD_ID, wood + "_trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(key).get(), new Item.Properties())));
             if (HLServices.PLATFORM.isDatagen()) {
                 HLServices.REGISTRY.registerItem(NATURES_SPIRIT_MOD_ID, wood + "_planks", () -> new Item(new Item.Properties()));
             }
-            BFBlocks.PICKETS.put(NATURES_SPIRIT_MOD_ID + "_" + wood, (Supplier<Block>) registerContent(HLServices.REGISTRY.registerBlockNoItem(NATURES_SPIRIT_MOD_ID, wood + "_pickets", () -> new PicketsBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.NONE).strength(0.5F).sound(BFSoundTypes.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion()))));
-            registerContent(HLServices.REGISTRY.registerItem(NATURES_SPIRIT_MOD_ID, wood + "_pickets", () -> new BlockItem(BFBlocks.PICKETS.get(wood).get(), new Item.Properties())));
+            BFBlocks.PICKETS.put(key, (Supplier<Block>) registerContent(HLServices.REGISTRY.registerBlockNoItem(NATURES_SPIRIT_MOD_ID, wood + "_pickets", () -> new PicketsBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.NONE).strength(0.5F).sound(BFSoundTypes.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion()))));
+            registerContent(HLServices.REGISTRY.registerItem(NATURES_SPIRIT_MOD_ID, wood + "_pickets", () -> new BlockItem(BFBlocks.PICKETS.get(key).get(), new Item.Properties())));
         }
     }
 
@@ -72,7 +73,7 @@ public class NaturesSpiritIntegration implements ModIntegration {
     @Override
     public void recipeGeneration(RecipeOutput exporter) {
         for (String wood : WOOD_TYPES) {
-            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.TRELLISES.get(wood).get())
+            ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.TRELLISES.get(NATURES_SPIRIT_MOD_ID + "_" + wood).get())
                     .pattern("# #")
                     .pattern(" P ")
                     .pattern("# #")
@@ -82,7 +83,7 @@ public class NaturesSpiritIntegration implements ModIntegration {
                     .unlockedBy("has_planks", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NATURES_SPIRIT_MOD_ID, wood + "_planks"))).build()))))
                     .group("trellis")
                     .save(exporter);
-            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.PICKETS.get(wood).get(), 4).define('#', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NATURES_SPIRIT_MOD_ID, wood + "_planks"))).define('S', Items.STICK)
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.PICKETS.get(NATURES_SPIRIT_MOD_ID + "_" + wood).get(), 4).define('#', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NATURES_SPIRIT_MOD_ID, wood + "_planks"))).define('S', Items.STICK)
                     .pattern("#S#").unlockedBy("has_planks", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NATURES_SPIRIT_MOD_ID, wood + "_planks"))).build())))).save(exporter);
         }
     }

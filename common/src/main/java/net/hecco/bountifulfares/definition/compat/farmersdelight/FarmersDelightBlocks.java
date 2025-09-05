@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.definition.compat.farmersdelight;
 
+import net.hecco.bountifulfares.definition.block.integration.FDCabinetBlock;
 import net.hecco.bountifulfares.definition.compat.block.CompatBlockItem;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.world.item.Item;
@@ -14,8 +15,8 @@ import static net.hecco.bountifulfares.BountifulFares.FARMERS_DELIGHT_MOD_ID;
 import static net.hecco.bountifulfares.registry.misc.BFCompat.compatBlocks;
 
 public class FarmersDelightBlocks {
-    public static final Supplier<Block> WALNUT_CABINET = registerBlock("walnut_cabinet", () -> new CabinetBlock(FARMERS_DELIGHT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL).mapColor(MapColor.COLOR_BROWN)));
-    public static final Supplier<Block> HOARY_CABINET = registerBlock("hoary_cabinet", () -> new CabinetBlock(FARMERS_DELIGHT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL).mapColor(MapColor.TERRACOTTA_GRAY)));
+//    public static final Supplier<Block> WALNUT_CABINET = registerBlock("walnut_cabinet", () -> new FDCabinetBlock(FARMERS_DELIGHT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL).mapColor(MapColor.COLOR_BROWN)));
+//    public static final Supplier<Block> HOARY_CABINET = registerBlock("hoary_cabinet", () -> new FDCabinetBlock(FARMERS_DELIGHT_MOD_ID, BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL).mapColor(MapColor.TERRACOTTA_GRAY)));
 
     public static Supplier<Block> registerBlock(String name, Supplier<Block> block) {
         registerBlockItem(name, block);
