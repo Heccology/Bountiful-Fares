@@ -32,7 +32,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 import static net.minecraft.data.BlockFamilies.familyBuilder;
 import static net.minecraft.data.recipes.RecipeBuilder.getDefaultRecipeId;
@@ -703,19 +705,19 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 //        chestBoat(exporter, BFItems.HOARY_CHEST_BOAT.get(), BFItems.HOARY_BOAT.get());
 //        chestBoat(exporter, BFItems.WALNUT_CHEST_BOAT.get(), BFItems.WALNUT_BOAT.get());
 
-        offerPicketsRecipe(exporter, BFBlocks.OAK_PICKETS.get(), Items.OAK_PLANKS);
-        offerPicketsRecipe(exporter, BFBlocks.SPRUCE_PICKETS.get(), Items.SPRUCE_PLANKS);
-        offerPicketsRecipe(exporter, BFBlocks.BIRCH_PICKETS.get(), Items.BIRCH_PLANKS);
-        offerPicketsRecipe(exporter, BFBlocks.JUNGLE_PICKETS.get(), Items.JUNGLE_PLANKS);
-        offerPicketsRecipe(exporter, BFBlocks.ACACIA_PICKETS.get(), Items.ACACIA_PLANKS);
-        offerPicketsRecipe(exporter, BFBlocks.DARK_OAK_PICKETS.get(), Items.DARK_OAK_PLANKS);
-        offerPicketsRecipe(exporter, BFBlocks.MANGROVE_PICKETS.get(), Items.MANGROVE_PLANKS);
-        offerPicketsRecipe(exporter, BFBlocks.CHERRY_PICKETS.get(), Items.CHERRY_PLANKS);
-        offerPicketsRecipe(exporter, BFBlocks.BAMBOO_PICKETS.get(), Items.BAMBOO_PLANKS);
-        offerPicketsRecipe(exporter, BFBlocks.WALNUT_PICKETS.get(), BFBlocks.WALNUT_PLANKS.get());
-        offerPicketsRecipe(exporter, BFBlocks.HOARY_PICKETS.get(), BFBlocks.HOARY_PLANKS.get());
-        offerPicketsRecipe(exporter, BFBlocks.CRIMSON_PICKETS.get(), Items.CRIMSON_PLANKS);
-        offerPicketsRecipe(exporter, BFBlocks.WARPED_PICKETS.get(), Items.WARPED_PLANKS);
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("oak").get(), Items.OAK_PLANKS);
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("spruce").get(), Items.SPRUCE_PLANKS);
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("birch").get(), Items.BIRCH_PLANKS);
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("jungle").get(), Items.JUNGLE_PLANKS);
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("acacia").get(), Items.ACACIA_PLANKS);
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("dark_oak").get(), Items.DARK_OAK_PLANKS);
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("mangrove").get(), Items.MANGROVE_PLANKS);
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("cherry").get(), Items.CHERRY_PLANKS);
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("bamboo").get(), Items.BAMBOO_PLANKS);
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("walnut").get(), BFBlocks.WALNUT_PLANKS.get());
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("hoary").get(), BFBlocks.HOARY_PLANKS.get());
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("crimson").get(), Items.CRIMSON_PLANKS);
+        offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("warped").get(), Items.WARPED_PLANKS);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.IRON_RAILING.get(), 8)
                 .define('#', Items.IRON_INGOT)
                 .define('S', Items.IRON_NUGGET)

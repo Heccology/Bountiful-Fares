@@ -5,31 +5,11 @@
       "required": false
     },
     {
-      "id": "delicate_dyes:sacramento_wool",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:cypress_planks",
-      "required": false
-    },
-    {
-      "id": "mint:navy_wool",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:mahogany_trellis",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:wisteria_planks",
+      "id": "natures_spirit:palo_verde_pickets",
       "required": false
     },
     {
       "id": "natures_spirit:saxaul_planks",
-      "required": false
-    },
-    {
-      "id": "dye_depot:slate_wool",
       "required": false
     },
     {
@@ -41,15 +21,19 @@
       "required": false
     },
     {
+      "id": "natures_spirit:fir_pickets",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:olive_pickets",
+      "required": false
+    },
+    {
       "id": "natures_spirit:joshua_trellis",
       "required": false
     },
     {
-      "id": "mint:mauve_wool",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:wisteria_trellis",
+      "id": "natures_spirit:ghaf_pickets",
       "required": false
     },
     {
@@ -61,10 +45,6 @@
       "required": false
     },
     {
-      "id": "natures_spirit:coconut_trellis",
-      "required": false
-    },
-    {
       "id": "delicate_dyes:rose_wool",
       "required": false
     },
@@ -73,19 +53,7 @@
       "required": false
     },
     {
-      "id": "natures_spirit:aspen_planks",
-      "required": false
-    },
-    {
       "id": "natures_spirit:palo_verde_trellis",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:larch_trellis",
-      "required": false
-    },
-    {
-      "id": "delicate_dyes:sangria_wool",
       "required": false
     },
     {
@@ -93,19 +61,7 @@
       "required": false
     },
     {
-      "id": "dye_depot:tan_wool",
-      "required": false
-    },
-    {
       "id": "dye_depot:ginger_wool",
-      "required": false
-    },
-    {
-      "id": "dye_depot:rose_wool",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:sugi_planks",
       "required": false
     },
     {
@@ -118,10 +74,6 @@
     },
     {
       "id": "natures_spirit:coconut_planks",
-      "required": false
-    },
-    {
-      "id": "dye_depot:beige_wool",
       "required": false
     },
     {
@@ -141,7 +93,7 @@
       "required": false
     },
     {
-      "id": "mint:fuchsia_wool",
+      "id": "natures_spirit:cedar_pickets",
       "required": false
     },
     {
@@ -149,23 +101,7 @@
       "required": false
     },
     {
-      "id": "natures_spirit:cedar_planks",
-      "required": false
-    },
-    {
-      "id": "dye_depot:verdant_wool",
-      "required": false
-    },
-    {
-      "id": "delicate_dyes:coral_wool",
-      "required": false
-    },
-    {
       "id": "natures_spirit:aspen_trellis",
-      "required": false
-    },
-    {
-      "id": "mint:indigo_wool",
       "required": false
     },
     {
@@ -181,7 +117,7 @@
       "required": false
     },
     {
-      "id": "natures_spirit:fir_planks",
+      "id": "natures_spirit:larch_pickets",
       "required": false
     },
     {
@@ -193,14 +129,6 @@
       "required": false
     },
     {
-      "id": "natures_spirit:maple_planks",
-      "required": false
-    },
-    {
-      "id": "delicate_dyes:wasabi_wool",
-      "required": false
-    },
-    {
       "id": "natures_spirit:fir_trellis",
       "required": false
     },
@@ -209,11 +137,7 @@
       "required": false
     },
     {
-      "id": "delicate_dyes:sky_wool",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:maple_trellis",
+      "id": "natures_spirit:mahogany_pickets",
       "required": false
     },
     {
@@ -237,6 +161,162 @@
       "required": false
     },
     {
+      "id": "mint:shamrock_wool",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:aspen_pickets",
+      "required": false
+    },
+    {
+      "id": "mint:wintergreen_planks",
+      "required": false
+    },
+    {
+      "id": "dye_depot:aqua_wool",
+      "required": false
+    },
+    {
+      "id": "appledog:dogapple",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:cypress_pickets",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "mint:maroon_wool",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:larch_planks",
+      "required": false
+    },
+    {
+      "id": "delicate_dyes:sacramento_wool",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:cypress_planks",
+      "required": false
+    },
+    {
+      "id": "mint:navy_wool",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:mahogany_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:wisteria_planks",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sugi_pickets",
+      "required": false
+    },
+    {
+      "id": "dye_depot:slate_wool",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:wisteria_pickets",
+      "required": false
+    },
+    {
+      "id": "mint:mauve_wool",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:coconut_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:aspen_planks",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:larch_trellis",
+      "required": false
+    },
+    {
+      "id": "delicate_dyes:sangria_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:tan_wool",
+      "required": false
+    },
+    {
+      "id": "dye_depot:rose_wool",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sugi_planks",
+      "required": false
+    },
+    {
+      "id": "dye_depot:beige_wool",
+      "required": false
+    },
+    {
+      "id": "mint:fuchsia_wool",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:cedar_planks",
+      "required": false
+    },
+    {
+      "id": "dye_depot:verdant_wool",
+      "required": false
+    },
+    {
+      "id": "delicate_dyes:coral_wool",
+      "required": false
+    },
+    {
+      "id": "mint:indigo_wool",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:coconut_pickets",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:fir_planks",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:maple_planks",
+      "required": false
+    },
+    {
+      "id": "delicate_dyes:wasabi_wool",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:maple_pickets",
+      "required": false
+    },
+    {
+      "id": "delicate_dyes:sky_wool",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:maple_trellis",
+      "required": false
+    },
+    {
       "id": "natures_spirit:palo_verde_planks",
       "required": false
     },
@@ -249,7 +329,7 @@
       "required": false
     },
     {
-      "id": "mint:shamrock_wool",
+      "id": "natures_spirit:joshua_pickets",
       "required": false
     },
     {
@@ -281,23 +361,15 @@
       "required": false
     },
     {
-      "id": "mint:wintergreen_planks",
-      "required": false
-    },
-    {
       "id": "arts_and_crafts:cork_planks",
       "required": false
     },
     {
-      "id": "dye_depot:aqua_wool",
-      "required": false
-    },
-    {
-      "id": "appledog:dogapple",
-      "required": false
-    },
-    {
       "id": "mint:velvet_wool",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:willow_pickets",
       "required": false
     },
     {
@@ -314,18 +386,6 @@
     },
     {
       "id": "mint:periwinkle_wool",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:cypress_trellis",
-      "required": false
-    },
-    {
-      "id": "mint:maroon_wool",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:larch_planks",
       "required": false
     }
   ]

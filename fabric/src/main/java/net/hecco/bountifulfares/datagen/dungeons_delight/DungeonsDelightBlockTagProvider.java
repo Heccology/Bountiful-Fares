@@ -16,14 +16,14 @@ public class DungeonsDelightBlockTagProvider extends FabricTagProvider.BlockTagP
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
-        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
-                .add(DungeonsDelightBlocks.WORMWOOD_PICKETS.get())
-        ;
-//        registerTrellisBlockTags(DungeonsDelightBlocks.WORMWOOD);
-
-        getOrCreateTagBuilder(BFBlockTags.PICKETS)
-                .add(DungeonsDelightBlocks.WORMWOOD_PICKETS.get())
-        ;
+//        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
+//                .add(DungeonsDelightBlocks.WORMWOOD_PICKETS.get())
+//        ;
+////        registerTrellisBlockTags(DungeonsDelightBlocks.WORMWOOD);
+//
+//        getOrCreateTagBuilder(BFBlockTags.PICKETS)
+//                .add(DungeonsDelightBlocks.WORMWOOD_PICKETS.get())
+//        ;
     }
 
 //    public void registerTrellisBlockTags(TrellisVariant trellis) {

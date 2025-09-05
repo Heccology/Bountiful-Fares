@@ -18,6 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;
 
@@ -157,16 +158,9 @@ public class BFItemGroups {
 //                        entries.accept(ExcessiveBuildingBlocks.PALM_MULCH_BRICK_STAIRS.get());
 //                        entries.accept(ExcessiveBuildingBlocks.PALM_MULCH_BRICK_SLAB.get());
 //                        entries.accept(ExcessiveBuildingBlocks.PALM_MULCH_BRICK_WALL.get());
-                        entries.accept(BFBlocks.OAK_PICKETS.get());
-                        entries.accept(BFBlocks.SPRUCE_PICKETS.get());
-                        entries.accept(BFBlocks.BIRCH_PICKETS.get());
-                        entries.accept(BFBlocks.JUNGLE_PICKETS.get());
-                        entries.accept(BFBlocks.ACACIA_PICKETS.get());
-                        entries.accept(BFBlocks.DARK_OAK_PICKETS.get());
-                        entries.accept(BFBlocks.MANGROVE_PICKETS.get());
-                        entries.accept(BFBlocks.CHERRY_PICKETS.get());
-                        entries.accept(BFBlocks.BAMBOO_PICKETS.get());
-                        entries.accept(BFBlocks.WALNUT_PICKETS.get());
+                        for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
+                            entries.accept(block.get());
+                        }
 
 //                        entries.accept(MintBlocks.WINTERGREEN_PICKETS.get());
 
@@ -194,9 +188,9 @@ public class BFItemGroups {
 
 //                        entries.accept(ArtsAndCraftsBlocks.CORK_PICKETS.get());
 
-                        entries.accept(BFBlocks.HOARY_PICKETS.get());
-                        entries.accept(BFBlocks.CRIMSON_PICKETS.get());
-                        entries.accept(BFBlocks.WARPED_PICKETS.get());
+//                        entries.accept(BFBlocks.HOARY_PICKETS.get());
+//                        entries.accept(BFBlocks.CRIMSON_PICKETS.get());
+//                        entries.accept(BFBlocks.WARPED_PICKETS.get());
                         entries.accept(BFBlocks.IRON_RAILING.get());
                         entries.accept(BFItems.FELDSPAR.get());
                         entries.accept(BFBlocks.FELDSPAR_BLOCK.get());
@@ -304,8 +298,8 @@ public class BFItemGroups {
                         entries.accept(BFItems.HOARY_SEEDS.get());
                         entries.accept(BFItems.MAIZE.get());
                         entries.accept(BFItems.LEEK.get());
-                        for (String wood : BountifulFaresUtil.WOOD_TYPES) {
-                            entries.accept(BFBlocks.TRELLISES.get(wood).get());
+                        for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
+                            entries.accept(block.get());
                         }
 //                        entries.accept(TrellisUtil.getTrellisFromVariant(MintBlocks.WINTERGREEN).get());
 //                        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {

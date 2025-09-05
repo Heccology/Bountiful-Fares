@@ -16,7 +16,7 @@ import static net.hecco.bountifulfares.registry.misc.BFCompat.compatBlocks;
 
 public class ArtsAndCraftsBlocks {
 
-    public static Supplier<Block> CORK_PICKETS = registerBlock("cork_pickets", () -> new CompatPicketsBlock(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.OAK_PICKETS.get())));
+    public static Supplier<Block> CORK_PICKETS = registerBlock("cork_pickets", () -> new CompatPicketsBlock(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, BlockBehaviour.Properties.ofFullCopy(BFBlocks.PICKETS.get("oak").get())));
 
 //    public static final TrellisVariant CORK = new TrellisVariant(BountifulFares.ARTS_AND_CRAFTS_MOD_ID, "cork", ResourceLocation.fromNamespaceAndPath(ARTS_AND_CRAFTS_MOD_ID, "cork_planks"), TRELLIS_RENDER_CUTOUT);
 

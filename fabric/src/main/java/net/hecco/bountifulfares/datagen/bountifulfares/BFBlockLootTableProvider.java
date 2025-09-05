@@ -7,6 +7,7 @@ import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.definition.block.custom.PalmFrondBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -37,6 +38,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
 
 public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
@@ -185,19 +187,9 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         jackOStrawDrops(BFBlocks.BLACK_JACK_O_STRAW.get());
         jackOStrawDrops(BFBlocks.BROWN_JACK_O_STRAW.get());
 
-        picketsDrops(BFBlocks.OAK_PICKETS.get());
-        picketsDrops(BFBlocks.BIRCH_PICKETS.get());
-        picketsDrops(BFBlocks.SPRUCE_PICKETS.get());
-        picketsDrops(BFBlocks.JUNGLE_PICKETS.get());
-        picketsDrops(BFBlocks.ACACIA_PICKETS.get());
-        picketsDrops(BFBlocks.DARK_OAK_PICKETS.get());
-        picketsDrops(BFBlocks.MANGROVE_PICKETS.get());
-        picketsDrops(BFBlocks.CHERRY_PICKETS.get());
-        picketsDrops(BFBlocks.BAMBOO_PICKETS.get());
-        picketsDrops(BFBlocks.WALNUT_PICKETS.get());
-        picketsDrops(BFBlocks.HOARY_PICKETS.get());
-        picketsDrops(BFBlocks.CRIMSON_PICKETS.get());
-        picketsDrops(BFBlocks.WARPED_PICKETS.get());
+        for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
+            picketsDrops(block.get());
+        }
         picketsDrops(BFBlocks.IRON_RAILING.get());
 
 

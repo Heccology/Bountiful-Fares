@@ -113,8 +113,6 @@ public class TrellisBlock extends HorizontalDirectionalBlock implements EntityBl
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof TrellisBlockEntity entity) {
-            BountifulFares.LOGGER.info(PLANTS.toString());
-            BountifulFares.LOGGER.info(CROPS.toString());
             if (entity.canPlantOn()) {
                 if (level.isClientSide()) {
                     return ItemInteractionResult.SUCCESS;

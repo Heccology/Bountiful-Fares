@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.registry.integration;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.block.custom.PicketsBlock;
 import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.item.custom.TrellisBlockItem;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
@@ -16,6 +17,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -47,11 +49,13 @@ public class NaturesSpiritIntegration implements ModIntegration {
     @SuppressWarnings("unchecked")
     public void registerContent() {
         for (String wood : WOOD_TYPES) {
-            BFBlocks.TRELLISES.put(wood, (Supplier<Block>) registerContent(HLServices.REGISTRY.registerBlockNoItem(NATURES_SPIRIT_MOD_ID, wood + "_trellis", () -> new TrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).randomTicks().noOcclusion()))));
+            BFBlocks.TRELLISES.put(NATURES_SPIRIT_MOD_ID + "_" + wood, (Supplier<Block>) registerContent(HLServices.REGISTRY.registerBlockNoItem(NATURES_SPIRIT_MOD_ID, wood + "_trellis", () -> new TrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).randomTicks().noOcclusion()))));
             registerContent(HLServices.REGISTRY.registerItem(NATURES_SPIRIT_MOD_ID, wood + "_trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(wood).get(), new Item.Properties())));
             if (HLServices.PLATFORM.isDatagen()) {
                 HLServices.REGISTRY.registerItem(NATURES_SPIRIT_MOD_ID, wood + "_planks", () -> new Item(new Item.Properties()));
             }
+            BFBlocks.PICKETS.put(NATURES_SPIRIT_MOD_ID + "_" + wood, (Supplier<Block>) registerContent(HLServices.REGISTRY.registerBlockNoItem(NATURES_SPIRIT_MOD_ID, wood + "_pickets", () -> new PicketsBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.NONE).strength(0.5F).sound(BFSoundTypes.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion()))));
+            registerContent(HLServices.REGISTRY.registerItem(NATURES_SPIRIT_MOD_ID, wood + "_pickets", () -> new BlockItem(BFBlocks.PICKETS.get(wood).get(), new Item.Properties())));
         }
     }
 
@@ -78,6 +82,8 @@ public class NaturesSpiritIntegration implements ModIntegration {
                     .unlockedBy("has_planks", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NATURES_SPIRIT_MOD_ID, wood + "_planks"))).build()))))
                     .group("trellis")
                     .save(exporter);
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.PICKETS.get(wood).get(), 4).define('#', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NATURES_SPIRIT_MOD_ID, wood + "_planks"))).define('S', Items.STICK)
+                    .pattern("#S#").unlockedBy("has_planks", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NATURES_SPIRIT_MOD_ID, wood + "_planks"))).build())))).save(exporter);
         }
     }
 }

@@ -94,19 +94,9 @@ public class BFModelProvider extends FabricModelProvider {
 //        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.SANGRIA_JACK_O_STRAW);
 //        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.ROSE_JACK_O_STRAW);
 
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.OAK_PICKETS.get());
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.SPRUCE_PICKETS.get());
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.BIRCH_PICKETS.get());
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.JUNGLE_PICKETS.get());
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.ACACIA_PICKETS.get());
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.DARK_OAK_PICKETS.get());
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.MANGROVE_PICKETS.get());
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.CHERRY_PICKETS.get());
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.BAMBOO_PICKETS.get());
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.HOARY_PICKETS.get());
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.WALNUT_PICKETS.get());
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.CRIMSON_PICKETS.get());
-        registerPicketsModels(blockStateModelGenerator, BFBlocks.WARPED_PICKETS.get());
+        for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
+            registerPicketsModels(blockStateModelGenerator, block.get());
+        }
         registerPicketsModels(blockStateModelGenerator, BFBlocks.IRON_RAILING.get());
 //        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.ASPEN_PICKETS);
 //        registerPicketsModels(blockStateModelGenerator, NaturesSpiritBlocks.CEDAR_PICKETS);

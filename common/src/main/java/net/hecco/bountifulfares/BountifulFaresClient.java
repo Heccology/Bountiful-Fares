@@ -320,19 +320,9 @@ public class BountifulFaresClient {
         HLServices.client().setBlockRenderType(BFBlocks.SPONGE_CAKE.get(), RenderType.cutout());
         HLServices.client().setBlockRenderType(BFBlocks.PRISMARINE_BLOSSOM.get(), RenderType.cutout());
         HLServices.client().setBlockRenderType(BFBlocks.SCORCHKIN_STEM.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.OAK_PICKETS.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.SPRUCE_PICKETS.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.BIRCH_PICKETS.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.JUNGLE_PICKETS.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.ACACIA_PICKETS.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.DARK_OAK_PICKETS.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.MANGROVE_PICKETS.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.CHERRY_PICKETS.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.BAMBOO_PICKETS.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.WALNUT_PICKETS.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.HOARY_PICKETS.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.CRIMSON_PICKETS.get(), RenderType.cutout());
-        HLServices.client().setBlockRenderType(BFBlocks.WARPED_PICKETS.get(), RenderType.cutout());
+        for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
+            HLServices.client().setBlockRenderType(block.get(), RenderType.cutout());
+        }
         HLServices.client().setBlockRenderType(BFBlocks.IRON_RAILING.get(), RenderType.cutout());
         HLServices.client().setBlockRenderType(BFBlocks.GRASSY_DIRT.get(), RenderType.cutout());
         HLServices.client().setBlockRenderType(BFBlocks.PALM_FROND.get(), RenderType.cutout());

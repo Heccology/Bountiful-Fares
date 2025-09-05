@@ -20,6 +20,6 @@ public class DungeonsDelightRecipeProvider extends FabricRecipeProvider {
     @Override
     public void buildRecipes(RecipeOutput exporter) {
 //        TrellisUtil.registerCompatTrellisRecipe(exporter, DungeonsDelightBlocks.WORMWOOD);
-        offerPicketsRecipe(exporter, DungeonsDelightBlocks.WORMWOOD_PICKETS.get(), ResourceLocation.fromNamespaceAndPath(BountifulFares.DUNGEONS_DELIGHT_MOD_ID, "wormwood_planks"));
+//        offerPicketsRecipe(exporter, DungeonsDelightBlocks.WORMWOOD_PICKETS.get(), ResourceLocation.fromNamespaceAndPath(BountifulFares.DUNGEONS_DELIGHT_MOD_ID, "wormwood_planks"));
     }
 }

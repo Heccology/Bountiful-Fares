@@ -14,6 +14,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Block;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -402,21 +403,9 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.MYCELIUM)
         ;
 
-        getOrCreateTagBuilder(BFItemTags.PICKETS)
-                .add(BFBlocks.ACACIA_PICKETS.get().asItem())
-                .add(BFBlocks.BAMBOO_PICKETS.get().asItem())
-                .add(BFBlocks.BIRCH_PICKETS.get().asItem())
-                .add(BFBlocks.CHERRY_PICKETS.get().asItem())
-                .add(BFBlocks.CRIMSON_PICKETS.get().asItem())
-                .add(BFBlocks.DARK_OAK_PICKETS.get().asItem())
-                .add(BFBlocks.HOARY_PICKETS.get().asItem())
-                .add(BFBlocks.JUNGLE_PICKETS.get().asItem())
-                .add(BFBlocks.MANGROVE_PICKETS.get().asItem())
-                .add(BFBlocks.OAK_PICKETS.get().asItem())
-                .add(BFBlocks.SPRUCE_PICKETS.get().asItem())
-                .add(BFBlocks.WALNUT_PICKETS.get().asItem())
-                .add(BFBlocks.WARPED_PICKETS.get().asItem())
-        ;
+        for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
+            getOrCreateTagBuilder(BFItemTags.PICKETS).add(block.get().asItem());
+        }
 
         getOrCreateTagBuilder(BFItemTags.MULCH)
                 .add(BFBlocks.WALNUT_MULCH.get().asItem())

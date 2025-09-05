@@ -39,7 +39,7 @@ public class DungeonsDelightBlockLootTableProvider extends FabricBlockLootTableP
     @Override
     public void generate() {
 //        registerTrellisLootTables(DungeonsDelightBlocks.WORMWOOD);
-        picketsDrops(DungeonsDelightBlocks.WORMWOOD_PICKETS.get());
+//        picketsDrops(DungeonsDelightBlocks.WORMWOOD_PICKETS.get());
 
         for(ResourceLocation id : BountifulFaresUtil.allBlockIdsInNamespace(BountifulFares.DUNGEONS_DELIGHT_MOD_ID)) {
             Block block = BuiltInRegistries.BLOCK.get(id);

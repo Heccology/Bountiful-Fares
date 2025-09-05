@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
@@ -124,19 +125,6 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.STRIPPED_PALM_LOG.get())
                 .add(BFBlocks.STRIPPED_PALM_WOOD.get())
                 .add(BFBlocks.PALM_CROWN.get())
-                .add(BFBlocks.OAK_PICKETS.get())
-                .add(BFBlocks.SPRUCE_PICKETS.get())
-                .add(BFBlocks.BIRCH_PICKETS.get())
-                .add(BFBlocks.JUNGLE_PICKETS.get())
-                .add(BFBlocks.ACACIA_PICKETS.get())
-                .add(BFBlocks.DARK_OAK_PICKETS.get())
-                .add(BFBlocks.MANGROVE_PICKETS.get())
-                .add(BFBlocks.CHERRY_PICKETS.get())
-                .add(BFBlocks.BAMBOO_PICKETS.get())
-                .add(BFBlocks.WALNUT_PICKETS.get())
-                .add(BFBlocks.HOARY_PICKETS.get())
-                .add(BFBlocks.CRIMSON_PICKETS.get())
-                .add(BFBlocks.WARPED_PICKETS.get())
                 .add(BFBlocks.GRISTMILL.get())
                 .add(BFBlocks.SPONGEKIN.get())
                 .add(BFBlocks.APPLE_BLOCK.get())
@@ -161,6 +149,10 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.MAGENTA_JACK_O_STRAW.get())
                 .add(BFBlocks.PINK_JACK_O_STRAW.get())
         ;
+
+        for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
+            getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE).add(block.get());
+        }
 
         for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
             getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE).add(block.get());
@@ -395,20 +387,11 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.TUFF)
         ;
         getOrCreateTagBuilder(BFBlockTags.PICKETS)
-                .add(BFBlocks.OAK_PICKETS.get())
-                .add(BFBlocks.SPRUCE_PICKETS.get())
-                .add(BFBlocks.BIRCH_PICKETS.get())
-                .add(BFBlocks.JUNGLE_PICKETS.get())
-                .add(BFBlocks.ACACIA_PICKETS.get())
-                .add(BFBlocks.DARK_OAK_PICKETS.get())
-                .add(BFBlocks.MANGROVE_PICKETS.get())
-                .add(BFBlocks.CHERRY_PICKETS.get())
-                .add(BFBlocks.BAMBOO_PICKETS.get())
-                .add(BFBlocks.WALNUT_PICKETS.get())
-                .add(BFBlocks.HOARY_PICKETS.get())
-                .add(BFBlocks.CRIMSON_PICKETS.get())
-                .add(BFBlocks.WARPED_PICKETS.get())
+                .add(BFBlocks.IRON_RAILING.get())
         ;
+        for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
+            getOrCreateTagBuilder(BFBlockTags.PICKETS).add(block.get());
+        }
         getOrCreateTagBuilder(BlockTags.SAPLINGS)
                 .add(BFBlocks.APPLE_SAPLING.get())
                 .add(BFBlocks.GOLDEN_APPLE_SAPLING.get())
