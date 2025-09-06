@@ -83,7 +83,7 @@ public class NeoForgeBountifulFares {
         BFRegistries.registerStrippables();
         BFRegistries.registerTillables();
         BFRegistries.registerPathables();
-
+        BFRegistries.registerUntintedParticleBlocks();
 
         TAG_FUELS.put(BFItemTags.FRUIT_LOGS, 200);
         TAG_FUELS.put(BFItemTags.HOARY_LOGS, 300);

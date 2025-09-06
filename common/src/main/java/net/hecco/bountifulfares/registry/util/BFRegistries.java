@@ -23,12 +23,18 @@ public class BFRegistries {
 //        registerFuels();
         registerModCompostables();
         registerDispenserBehaviors();
-        registerUntintedParticleBlocks();
     }
 
-    private static void registerUntintedParticleBlocks() {
+    public static void registerUntintedParticleBlocks() {
         HLUntintedParticleRegistry.add(BFBlocks.APPLE_LOG.get());
-        HLUntintedParticleRegistry.add(BFBlocks.APPLE_WOOD.get()); //TODO: finish
+        HLUntintedParticleRegistry.add(BFBlocks.APPLE_WOOD.get());
+        HLUntintedParticleRegistry.add(BFBlocks.ORANGE_LOG.get());
+        HLUntintedParticleRegistry.add(BFBlocks.ORANGE_WOOD.get());
+        HLUntintedParticleRegistry.add(BFBlocks.LEMON_LOG.get());
+        HLUntintedParticleRegistry.add(BFBlocks.LEMON_WOOD.get());
+        HLUntintedParticleRegistry.add(BFBlocks.PLUM_LOG.get());
+        HLUntintedParticleRegistry.add(BFBlocks.PLUM_WOOD.get());
+        HLUntintedParticleRegistry.add(BFBlocks.GRASSY_DIRT.get());
     }
 
     public static void registerDispenserBehaviors() {
