@@ -63,6 +63,7 @@ public class BFLangProvider extends FabricLanguageProvider {
     @Override
     public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
         generate(translationBuilder, "itemgroup.bountiful_fares", "Bountiful Fares");
+        generate(translationBuilder, "itemgroup.bountiful_fares_compatibility", "Bountiful Fares Compatibility");
         generate(translationBuilder, BFBlocks.HANGING_APPLE.get(), "Apple");
         generate(translationBuilder, BFBlocks.HANGING_ORANGE.get(), "Orange");
         generate(translationBuilder, BFBlocks.HANGING_LEMON.get(), "Lemon");

@@ -8,14 +8,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Supplier;
 
 public class BountifulFaresUtil {
-    public static final List<String> WOOD_TYPES = List.of("oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "bamboo", "walnut", "hoary", "crimson", "warped");
+    public static final List<String> WOOD_TYPES = new ArrayList<>(List.of("oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "bamboo", "walnut", "hoary", "crimson", "warped"));
     public static Set<ResourceLocation> allBlockIdsInNamespace(String namespace) {
         Set<ResourceLocation> set = BuiltInRegistries.BLOCK.keySet();
         Set<ResourceLocation> a = new HashSet<>();

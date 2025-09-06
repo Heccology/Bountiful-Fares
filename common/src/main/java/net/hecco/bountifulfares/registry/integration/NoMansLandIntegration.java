@@ -34,6 +34,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -41,7 +42,7 @@ import java.util.function.Supplier;
 import static net.hecco.bountifulfares.BountifulFares.NO_MANS_LAND_MOD_ID;
 
 public class NoMansLandIntegration implements ModIntegration {
-    public static final List<String> WOOD_TYPES = List.of("pine", "maple", "walnut", "willow");
+    public static final List<String> WOOD_TYPES = new ArrayList<>(List.of("pine", "maple", "walnut", "willow"));
 
     @Override
     public CompatManager getCompatManager() {

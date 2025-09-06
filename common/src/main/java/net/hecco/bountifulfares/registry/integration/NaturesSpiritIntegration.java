@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -33,7 +34,7 @@ import java.util.function.Supplier;
 import static net.hecco.bountifulfares.BountifulFares.NATURES_SPIRIT_MOD_ID;
 
 public class NaturesSpiritIntegration implements ModIntegration {
-    public static final List<String> WOOD_TYPES = List.of("aspen", "cedar", "coconut", "cypress", "fir", "ghaf", "joshua", "larch", "mahogany", "maple", "olive", "palo_verde", "sugi", "willow", "wisteria");
+    public static final List<String> WOOD_TYPES = new ArrayList<>(List.of("aspen", "cedar", "coconut", "cypress", "fir", "ghaf", "joshua", "larch", "mahogany", "maple", "olive", "palo_verde", "sugi", "willow", "wisteria"));
 
     @Override
     public CompatManager getCompatManager() {

@@ -98,7 +98,8 @@ public class BFBlockEntities {
                     TRELLISES.get("nomansland_maple"),
                     TRELLISES.get("nomansland_walnut"),
                     TRELLISES.get("nomansland_willow"),
-                    TRELLISES.get("frontiers_eboncork")
+                    TRELLISES.get("frontiers_eboncork"),
+                    TRELLISES.get("arts_and_crafts_cork")
             )
     );
 

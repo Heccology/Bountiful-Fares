@@ -7,8 +7,8 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFPotions;
+import net.hecco.bountifulfares.registry.integration.*;
 import net.hecco.heccolib.platform.HLServices;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -18,7 +18,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.CustomData;
-import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;
 
@@ -158,8 +157,8 @@ public class BFItemGroups {
 //                        entries.accept(ExcessiveBuildingBlocks.PALM_MULCH_BRICK_STAIRS.get());
 //                        entries.accept(ExcessiveBuildingBlocks.PALM_MULCH_BRICK_SLAB.get());
 //                        entries.accept(ExcessiveBuildingBlocks.PALM_MULCH_BRICK_WALL.get());
-                        for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
-                            entries.accept(block.get());
+                        for (String wood : BountifulFaresUtil.WOOD_TYPES) {
+                            entries.accept(BFBlocks.PICKETS.get(wood).get());
                         }
 
 //                        entries.accept(MintBlocks.WINTERGREEN_PICKETS.get());
@@ -298,8 +297,8 @@ public class BFItemGroups {
                         entries.accept(BFItems.HOARY_SEEDS.get());
                         entries.accept(BFItems.MAIZE.get());
                         entries.accept(BFItems.LEEK.get());
-                        for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
-                            entries.accept(block.get());
+                        for (String wood : BountifulFaresUtil.WOOD_TYPES) {
+                            entries.accept(BFBlocks.TRELLISES.get(wood).get());
                         }
 //                        entries.accept(TrellisUtil.getTrellisFromVariant(MintBlocks.WINTERGREEN).get());
 //                        if (BountifulFares.isModLoaded(BountifulFares.NATURES_SPIRIT_MOD_ID)) {
@@ -482,6 +481,42 @@ public class BFItemGroups {
 
 //                        entries.accept(AppledogBlocks.APPLEDOG_BLOCK.get());
 
+                    }).build());
+
+
+    public static final Supplier<CreativeModeTab> COMPATIBILITY = HLServices.REGISTRY.register(
+            BountifulFares.MOD_ID, "bountiful_fares_compatibility", BuiltInRegistries.CREATIVE_MODE_TAB, () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
+                    .title(Component.translatable("itemgroup.bountiful_fares_compatibility"))
+                    .icon(() -> new ItemStack(BFItems.LEEK.get()))
+                    .displayItems((displayParameters, entries) -> {
+                        for (String wood : NaturesSpiritIntegration.WOOD_TYPES) {
+                            entries.accept(BFBlocks.TRELLISES.get(BountifulFares.NATURES_SPIRIT_MOD_ID + "_" + wood).get());
+                        }
+                        for (String wood : NaturesSpiritIntegration.WOOD_TYPES) {
+                            entries.accept(BFBlocks.PICKETS.get(BountifulFares.NATURES_SPIRIT_MOD_ID + "_" + wood).get());
+                        }
+                        for (String wood : ArtsAndCraftsIntegration.WOOD_TYPES) {
+                            entries.accept(BFBlocks.TRELLISES.get(BountifulFares.ARTS_AND_CRAFTS_MOD_ID + "_" + wood).get());
+                        }
+                        for (String wood : ArtsAndCraftsIntegration.WOOD_TYPES) {
+                            entries.accept(BFBlocks.PICKETS.get(BountifulFares.ARTS_AND_CRAFTS_MOD_ID + "_" + wood).get());
+                        }
+                        for (String wood : NoMansLandIntegration.WOOD_TYPES) {
+                            entries.accept(BFBlocks.TRELLISES.get(BountifulFares.NO_MANS_LAND_MOD_ID + "_" + wood).get());
+                        }
+                        for (String wood : NoMansLandIntegration.WOOD_TYPES) {
+                            entries.accept(BFBlocks.PICKETS.get(BountifulFares.NO_MANS_LAND_MOD_ID + "_" + wood).get());
+                        }
+                        entries.accept(NoMansLandIntegration.CANDIED_PEAR.get());
+                        entries.accept(NoMansLandIntegration.MAPLE_MEAD_BOTTLE.get());
+                        entries.accept(FarmersDelightIntegration.WALNUT_CABINET.get());
+                        entries.accept(FarmersDelightIntegration.HOARY_CABINET.get());
+//                        for (String wood : FrontiersIntegration.WOOD_TYPES) {
+//                            entries.accept(BFBlocks.TRELLISES.get(BountifulFares.FRONTIERS_MOD_ID + "_" + wood).get());
+//                        }
+//                        for (String wood : FrontiersIntegration.WOOD_TYPES) {
+//                            entries.accept(BFBlocks.PICKETS.get(BountifulFares.FRONTIERS_MOD_ID + "_" + wood).get());
+//                        }
                     }).build());
 
     public static void registerItemGroups() {
