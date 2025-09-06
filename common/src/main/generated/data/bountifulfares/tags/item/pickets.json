@@ -1,7 +1,10 @@
 {
   "values": [
     "bountifulfares:cherry_pickets",
+    "nomansland:maple_pickets",
+    "frontiers:eboncork_pickets",
     "natures_spirit:wisteria_pickets",
+    "nomansland:willow_pickets",
     "bountifulfares:mangrove_pickets",
     "natures_spirit:willow_pickets",
     "bountifulfares:crimson_pickets",
@@ -16,8 +19,10 @@
     "natures_spirit:aspen_pickets",
     "bountifulfares:birch_pickets",
     "natures_spirit:cedar_pickets",
+    "nomansland:walnut_pickets",
     "natures_spirit:palo_verde_pickets",
     "natures_spirit:olive_pickets",
+    "nomansland:pine_pickets",
     "bountifulfares:hoary_pickets",
     "natures_spirit:fir_pickets",
     "natures_spirit:joshua_pickets",
