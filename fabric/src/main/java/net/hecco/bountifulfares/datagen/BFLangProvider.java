@@ -107,6 +107,11 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFItems.APPLE_CIDER_JAR.get(), "Apple Cider Cup");
         generate(translationBuilder, BFItems.PLUM_CIDER_JAR.get(), "Plum Cider Cup");
         generate(translationBuilder, BFItems.HOARY_CIDER_JAR.get(), "Hoary Cider Cup");
+        generate(translationBuilder, BFItems.APPLE_COMPOTE_JAR.get(), "Apple Compote Cup");
+        generate(translationBuilder, BFItems.ORANGE_COMPOTE_JAR.get(), "Orange Compote Cup");
+        generate(translationBuilder, BFItems.LEMON_COMPOTE_JAR.get(), "Lemon Compote Cup");
+        generate(translationBuilder, BFItems.PLUM_COMPOTE_JAR.get(), "Plum Compote Cup");
+        generate(translationBuilder, BFItems.HOARY_COMPOTE_JAR.get(), "Hoary Compote Cup");
         generate(translationBuilder, BFItems.GREEN_TEA_CUP.get(), "Green Tea Cup");
         generate(translationBuilder, BFItems.BLACK_TEA_CUP.get(), "Black Tea Cup");
         generate(translationBuilder, BFItems.CHAMOMILE_TEA_CUP.get(), "Chamomile Tea Cup");

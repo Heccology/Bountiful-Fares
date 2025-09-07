@@ -1143,7 +1143,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
     public static void offerTeaRecipes(RecipeOutput exporter, ItemLike teaBottle, ItemLike teaCandle, ItemLike teaBlendItem) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, teaBottle)
                 .requires(teaBlendItem, 1)
-                .requires(Items.POTION)
+                .requires(BFItems.WATER_CUP.get())
                 .unlockedBy(getHasName(teaBlendItem), has(teaBlendItem))
                 .save(exporter);
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, teaCandle, 1)

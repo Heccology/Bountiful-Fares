@@ -343,6 +343,8 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.GRISTMILL.get());
                         entries.accept(BFItems.FLOUR.get());
                         entries.accept(BFBlocks.FLOUR_BLOCK.get());
+                        entries.accept(BFItems.CUP.get());
+                        entries.accept(BFItems.WATER_CUP.get());
                         entries.accept(BFItems.GREEN_TEA_CUP.get());
                         entries.accept(BFItems.BLACK_TEA_CUP.get());
                         entries.accept(BFItems.CHAMOMILE_TEA_CUP.get());
@@ -361,7 +363,6 @@ public class BFItemGroups {
                         entries.accept(BFItems.LAPISBERRY_WINE_BOTTLE.get());
                         entries.accept(BFItems.MEAD_BOTTLE.get());
                         entries.accept(BFItems.COCONUT_MILK_BOTTLE.get());
-                        entries.accept(BFItems.CUP.get());
                         entries.accept(BFItems.APPLE_CIDER_JAR.get());
                         entries.accept(BFItems.PLUM_CIDER_JAR.get());
                         entries.accept(BFItems.HOARY_CIDER_JAR.get());
