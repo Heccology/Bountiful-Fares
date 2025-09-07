@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.mixin.gameplay;
+package net.hecco.bountifulfares.mixin;
 
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.util.BFNoteBlockInstruments;

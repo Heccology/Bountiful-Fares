@@ -9,7 +9,6 @@
     "gameplay.EntityMixin",
     "gameplay.LivingEntityMixin",
     "gameplay.LivingEntityTiffinMixin",
-    "gameplay.NoteBlockInstrumentMixin",
     "gameplay.PumpkinPieItemMixin",
     "gameplay.ServerPlayerEntityMixin",
     "gameplay.SweetBerryBushMixin",

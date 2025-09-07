@@ -5,7 +5,9 @@
   "plugin": "net.hecco.bountifulfares.util.BFFabricMixinPlugin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+    "NoteBlockInstrumentMixin"
+  ],
   "client": [
     "compat.appleskin.TooltipOverlayHandlerMixin"
   ],
