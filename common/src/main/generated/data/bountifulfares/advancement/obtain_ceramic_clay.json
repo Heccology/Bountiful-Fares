@@ -1,5 +1,5 @@
 {
-  "parent": "bountifulfares:place_gristmill",
+  "parent": "bountifulfares:obtain_feldspar",
   "criteria": {
     "obtain_ceramic_clay": {
       "conditions": {

@@ -354,8 +354,8 @@ public class BFItemGroupAdditions {
         FOOD_AND_DRINKS.add(new Pair<>(Items.GLOW_BERRIES, BFItems.LAPISBERRIES.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.LAPISBERRIES.get(), BFItems.LAPISBERRY_WINE_BOTTLE.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(Items.MILK_BUCKET, BFItems.COCONUT_MILK_BOTTLE.get().asItem().getDefaultInstance()));
+        FOOD_AND_DRINKS.add(new Pair<>(BFItems.COCONUT_MILK_BOTTLE.get(), BFItems.WATER_CUP.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.WATER_CUP.get(), BFItems.GREEN_TEA_CUP.get().asItem().getDefaultInstance()));
-        FOOD_AND_DRINKS.add(new Pair<>(BFItems.GREEN_TEA_CUP.get(), BFItems.GREEN_TEA_CUP.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.GREEN_TEA_CUP.get(), BFItems.BLACK_TEA_CUP.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.BLACK_TEA_CUP.get(), BFItems.CHAMOMILE_TEA_CUP.get().asItem().getDefaultInstance()));
         FOOD_AND_DRINKS.add(new Pair<>(BFItems.CHAMOMILE_TEA_CUP.get(), BFItems.HONEYSUCKLE_TEA_CUP.get().asItem().getDefaultInstance()));

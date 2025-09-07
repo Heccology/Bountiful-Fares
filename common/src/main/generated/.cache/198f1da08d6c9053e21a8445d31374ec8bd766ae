@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-07T02:22:32.2392982	Bountiful Fares/Advancements
+// 1.21.1	2025-09-07T13:22:43.4509516	Bountiful Fares/Advancements
 f14af0adca8ac338599881832593d9109af4d1cb data\bountifulfares\advancement\obtain_walnut.json
 2e6a3516fea3563e9a6a9469cdab0bcd7acd8481 data\bountifulfares\advancement\obtain_sun_hat.json
 a69d911a41cbe5b02aa39d2913850f51612ef4e7 data\bountifulfares\advancement\plant_on_trellis.json
@@ -27,6 +27,6 @@ e736aae7bdceaae25e6208dbbe75005721d2e794 data\bountifulfares\advancement\eat_anc
 27e9ae4b985cd63b406cd7c09187061878b7971c data\bountifulfares\advancement\obtain_spongekin.json
 b2fc6d25648ec45013163505744515fb1ab4de06 data\bountifulfares\advancement\place_gristmill.json
 9cb2a131defb427119cf647301509b91f1a6719c data\bountifulfares\advancement\place_all_baked_goods.json
-422599976afe0aca6678870e5ffbde58c35e1795 data\bountifulfares\advancement\obtain_ceramic_clay.json
+6e0c53f85b1c5f54f1ad2b2d2f5c99f4e49a4690 data\bountifulfares\advancement\obtain_ceramic_clay.json
 068e1095cdeacc81e307377d0d096736524d99af data\bountifulfares\advancement\fill_tiffin.json
 4ff4595325876af56be89e414fc4e94c4fc9087a data\bountifulfares\advancement\obtain_golden_apple_sapling.json

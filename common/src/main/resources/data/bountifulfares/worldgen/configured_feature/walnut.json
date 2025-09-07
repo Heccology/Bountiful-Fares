@@ -18,7 +18,7 @@
           },
           "values": {
             "type": "minecraft:uniform",
-            "max_inclusive": 2,
+            "max_inclusive": 1,
             "min_inclusive": 0
           }
         },
@@ -27,7 +27,7 @@
         ],
         "exclusion_radius_xz": 1,
         "exclusion_radius_y": 0,
-        "probability": 0.9,
+        "probability": 0.075,
         "required_empty_blocks": 1
       }
     ],

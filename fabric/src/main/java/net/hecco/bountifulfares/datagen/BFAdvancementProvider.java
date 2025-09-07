@@ -173,7 +173,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false))
-                .parent(place_gristmill)
+                .parent(obtain_feldspar)
                 .addCriterion("obtain_ceramic_clay", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.CERAMIC_CLAY.get()))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_ceramic_clay");
 

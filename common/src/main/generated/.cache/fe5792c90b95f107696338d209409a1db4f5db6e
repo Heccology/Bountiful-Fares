@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-07T02:22:32.2518284	Bountiful Fares/Tags for minecraft:block
+// 1.21.1	2025-09-07T13:22:43.463488	Bountiful Fares/Tags for minecraft:block
 e3f9df908499cd1a99700abe62f963d30c132078 data\minecraft\tags\block\mineable\shovel.json
 fa9bcc7517e17dd240a4f0ee611b58bf696197f5 data\minecraft\tags\block\trapdoors.json
 c3789e7ea744bebebed7a84ced7c553a9595a4bc data\minecraft\tags\block\stairs.json
@@ -12,8 +12,8 @@ b6224275b9bc425e2437bce68f923248dd425a56 data\minecraft\tags\block\saplings.json
 742d5732faf11c3316ea3d1203a0471bcb3bfca5 data\bountifulfares\tags\block\ignore_particle_tint.json
 008f681ca08ecf5770fce051440aa7834714e7e6 data\minecraft\tags\block\wooden_stairs.json
 771eee326b3f14a9a7f3d20fab28d9fa54edfc05 data\bountifulfares\tags\block\prismarine_propagation_substrate.json
-47c06e94069a1ab407757cc1325279d3893c62e3 data\bountifulfares\tags\block\golden_apple_logs.json
 a21fd31a3b51629435cb1a61ce670d6bcbf60cc4 data\bountifulfares\tags\block\plum_leaves.json
+47c06e94069a1ab407757cc1325279d3893c62e3 data\bountifulfares\tags\block\golden_apple_logs.json
 25f5f1aaa18fd779d9ce10b2f7a0c96e9f8ff5c0 data\minecraft\tags\block\overworld_natural_logs.json
 36b433bb8a21386d4fc6f005577885fa78746cd3 data\minecraft\tags\block\buttons.json
 dd1d2b4a440c273c7423b6a09a727ebfc316abdc data\minecraft\tags\block\slabs.json
