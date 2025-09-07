@@ -7,6 +7,7 @@ import net.hecco.bountifulfares.definition.block.entity.DyeableCeramicBlockEntit
 import net.hecco.bountifulfares.definition.block.entity.TrellisBlockEntity;
 import net.hecco.bountifulfares.definition.networking.payload.*;
 import net.hecco.bountifulfares.definition.trigger.FillTiffinTrigger;
+import net.hecco.bountifulfares.definition.trigger.UseArtisanBrushInInventoryTrigger;
 import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.client.Minecraft;
@@ -101,6 +102,10 @@ public class BFPackets {
                     TrellisBlock.PLANTS.put(def.plant(), def)
             );
         }
+    }
+
+    public static void useArtisanBrushInInventory(EmptyPayload payload, ServerPlayer player) {
+        ((UseArtisanBrushInInventoryTrigger) BFCriteriaTriggers.USE_ARTISAN_BRUSH_IN_INVENTORY.get()).trigger(player);
     }
 
     public static void tiffinFill(TiffinFillPayload payload, ServerPlayer player) {

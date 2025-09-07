@@ -343,8 +343,11 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.throw_flour_as_cover", "Poof!");
         generate(translationBuilder, "advancement.bountifulfares.throw_flour_as_cover.description", "Throw Flour at your feet to make a quick escape!");
 
-        generate(translationBuilder, "advancement.bountifulfares.obtain_ceramic_tiles", "Roy G Biv");
-        generate(translationBuilder, "advancement.bountifulfares.obtain_ceramic_tiles.description", "Craft any dyeable ceramic block");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_artisan_brush", "I'm Something of an Artist");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_artisan_brush.description", "Obtain an Artisan Brush, which is used to dye blocks and items");
+
+        generate(translationBuilder, "advancement.bountifulfares.dye_ceramic_block", "Roy G Biv");
+        generate(translationBuilder, "advancement.bountifulfares.dye_ceramic_block.description", "Dye a ceramic block any color...§o any color");
 
         generate(translationBuilder, "advancement.bountifulfares.feed_wolf_mulch", "Mulchmaxxer");
         generate(translationBuilder, "advancement.bountifulfares.feed_wolf_mulch.description", "Feed a wolf mulch...delicious!");

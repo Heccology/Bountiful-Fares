@@ -1,0 +1,49 @@
+{
+  "parent": "bountifulfares:obtain_artisan_brush",
+  "criteria": {
+    "click_on_ceramic_item": {
+      "trigger": "bountifulfares:use_artisan_brush_in_inventory"
+    },
+    "use_on_ceramic_block": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": "#bountifulfares:dyeable_ceramic_blocks"
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": "bountifulfares:artisan_brush"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.dye_ceramic_block.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "bountifulfares:ceramic_tiles"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.dye_ceramic_block"
+    }
+  },
+  "requirements": [
+    [
+      "use_on_ceramic_block",
+      "click_on_ceramic_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

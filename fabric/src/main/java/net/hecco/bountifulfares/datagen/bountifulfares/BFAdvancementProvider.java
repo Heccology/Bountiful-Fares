@@ -6,9 +6,12 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.trigger.FillTiffinTrigger;
 import net.hecco.bountifulfares.definition.trigger.PickFruitInteractionTrigger;
 import net.hecco.bountifulfares.definition.trigger.PlantOnTrellisTrigger;
+import net.hecco.bountifulfares.definition.trigger.UseArtisanBrushInInventoryTrigger;
+import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
+import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
@@ -24,6 +27,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -197,16 +201,29 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .addCriterion("throw_flour_as_cover", CriteriaTriggers.USING_ITEM.createCriterion(new UsingItemTrigger.TriggerInstance(Optional.empty(), Optional.of(ItemPredicate.Builder.item().of(BFItems.FLOUR.get()).build()))))
                 .save(consumer, BountifulFares.MOD_ID + ":throw_flour_as_cover");
 
-        AdvancementHolder obtain_ceramic_tiles = Advancement.Builder.advancement()
-                .display(new DisplayInfo(new ItemStack(BFBlocks.CERAMIC_TILES.get()),
-                        Component.translatable("advancement.bountifulfares.obtain_ceramic_tiles"),
-                        Component.translatable("advancement.bountifulfares.obtain_ceramic_tiles.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
+        AdvancementHolder obtain_artisan_brush = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(BFItems.ARTISAN_BRUSH.get()),
+                        Component.translatable("advancement.bountifulfares.obtain_artisan_brush"),
+                        Component.translatable("advancement.bountifulfares.obtain_artisan_brush.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
                         true,
                         true,
                         false))
-                .parent(obtain_ceramic_clay)
-                .addCriterion("obtain_ceramic_tiles", ConsumeItemTrigger.TriggerInstance.usedItem(ItemPredicate.Builder.item().of(BFItemTags.DYEABLE_CERAMIC_BLOCKS)))
-                .save(consumer, BountifulFares.MOD_ID + ":obtain_ceramic_tiles");
+                .parent(root_advancement)
+                .addCriterion("obtain_artisan_brush", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.ARTISAN_BRUSH.get()))
+                .save(consumer, BountifulFares.MOD_ID + ":obtain_artisan_brush");
+
+        AdvancementHolder dye_ceramic_block = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(BFBlocks.CERAMIC_TILES.get()),
+                        Component.translatable("advancement.bountifulfares.dye_ceramic_block"),
+                        Component.translatable("advancement.bountifulfares.dye_ceramic_block.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
+                        true,
+                        true,
+                        false))
+                .parent(obtain_artisan_brush)
+                .addCriterion("use_on_ceramic_block", ItemUsedOnLocationTrigger.TriggerInstance.itemUsedOnBlock(LocationPredicate.Builder.location().setBlock(BlockPredicate.Builder.block().of(BFBlockTags.DYEABLE_CERAMIC_BLOCKS)), ItemPredicate.Builder.item().of(BFItems.ARTISAN_BRUSH.get())))
+                .addCriterion("click_on_ceramic_item", UseArtisanBrushInInventoryTrigger.TriggerInstance.use())
+                .requirements(AdvancementRequirements.anyOf(List.of("use_on_ceramic_block", "click_on_ceramic_item")))
+                .save(consumer, BountifulFares.MOD_ID + ":dye_ceramic_block");
 
         AdvancementHolder obtain_fermentation_vessel = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFBlocks.FERMENTATION_VESSEL.get()),

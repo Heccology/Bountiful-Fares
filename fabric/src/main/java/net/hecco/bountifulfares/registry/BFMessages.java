@@ -28,6 +28,9 @@ public class BFMessages {
 
         ServerPlayNetworking.registerGlobalReceiver(TiffinFillPayload.ID, (payload, context) ->
                 context.server().execute(() -> BFPackets.tiffinFill(payload, context.player())));
+
+        ServerPlayNetworking.registerGlobalReceiver(EmptyPayload.ID, (payload, context) ->
+                context.server().execute(() -> BFPackets.useArtisanBrushInInventory(payload, context.player())));
     }
 
     public static void registerPayloads() {
@@ -38,5 +41,6 @@ public class BFMessages {
         PayloadTypeRegistry.playS2C().register(TrellisEmptyPayload.ID, TrellisEmptyPayload.CODEC);
         PayloadTypeRegistry.playS2C().register(TrellisSyncPayload.ID, TrellisSyncPayload.CODEC);
         PayloadTypeRegistry.playC2S().register(TiffinFillPayload.ID, TiffinFillPayload.CODEC);
+        PayloadTypeRegistry.playC2S().register(EmptyPayload.ID, EmptyPayload.CODEC);
     }
 }

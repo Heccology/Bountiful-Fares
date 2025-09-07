@@ -12,4 +12,5 @@ public class BFMessages {
     public static final ResourceLocation TRELLIS_EMPTY = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "trellis_empty");
     public static final ResourceLocation TRELLIS_SYNC = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "trellis_sync");
     public static final ResourceLocation TIFFIN_FILL = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "tiffin_fill");
+    public static final ResourceLocation USE_ARTISAN_BRUSH_IN_INVENTORY = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "use_artisan_brush_in_inventory");
 }

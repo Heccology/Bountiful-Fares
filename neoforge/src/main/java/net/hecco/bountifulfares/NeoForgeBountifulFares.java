@@ -220,6 +220,17 @@ public class NeoForgeBountifulFares {
                             }
                     )
             );
+            registrar.playBidirectional(
+                    EmptyPayload.ID,
+                    EmptyPayload.CODEC,
+                    new DirectionalPayloadHandler<>(
+                            (payload, ctx) -> ctx.enqueueWork(() -> {
+                            }),
+                            (payload, ctx) -> {
+                                BFPackets.useArtisanBrushInInventory(payload, (ServerPlayer) ctx.player());
+                            }
+                    )
+            );
         }
     }
 
