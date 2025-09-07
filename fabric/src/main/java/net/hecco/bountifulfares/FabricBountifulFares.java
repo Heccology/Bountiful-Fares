@@ -22,6 +22,7 @@ import net.hecco.bountifulfares.registry.BFMessages;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
+import net.hecco.bountifulfares.registry.misc.BFResourcePacks;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
 import net.minecraft.core.BlockPos;
@@ -159,6 +160,7 @@ public class FabricBountifulFares implements ModInitializer {
         ((BlockEntityAccessor) BlockEntityType.HANGING_SIGN).setValidBlocks(hangingSigns);
 
 
+        BFResourcePacks.registerBuiltinResourcePacks();
     }
 
     public static void registerFuels() {

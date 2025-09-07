@@ -4,13 +4,16 @@ package net.hecco.bountifulfares;
 import net.hecco.bountifulfares.config.NeoForgeBFConfig;
 import net.hecco.bountifulfares.definition.networking.BFPackets;
 import net.hecco.bountifulfares.definition.networking.payload.*;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.mixin.util.BlockEntityAccessor;
 import net.hecco.bountifulfares.registry.BFNeoForgeLootTableModifiers;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
+import net.hecco.bountifulfares.registry.misc.BFResourcePacks;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
+import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -59,16 +62,18 @@ public class NeoForgeBountifulFares {
     public static ModContainer modContainer;
 
     public NeoForgeBountifulFares(IEventBus eventBus, ModContainer container) {
-        BountifulFares.init();
-        BFNeoForgeLootTableModifiers.LOOT_MODIFIERS.register(eventBus);
         container.registerConfig(ModConfig.Type.COMMON, NeoForgeBFConfig.COMMON_SPEC);
         container.registerConfig(ModConfig.Type.CLIENT, NeoForgeBFConfig.CLIENT_SPEC);
+        BountifulFares.init();
+        BFNeoForgeLootTableModifiers.LOOT_MODIFIERS.register(eventBus);
 
         eventBus.addListener(this::payloadHandlersSetup);
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::creativeModeTabSetup);
         eventBus.addListener(this::commonSetup);
         this.modContainer = container;
+
+        BFResourcePacks.registerBuiltinResourcePacks();
     }
 
     public void clientSetup(FMLClientSetupEvent event) {
@@ -76,6 +81,11 @@ public class NeoForgeBountifulFares {
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
+
+        if (!Services.PLATFORM.getBoolConfigValue("showCompatItemsInRecipeViewers")) {
+            HLServices.REGISTRY.registerBuiltInDatapack(BountifulFares.MOD_ID, "hide_compat_items", "Bountiful Fares - Hide Compatibility Items", true, true);
+        }
+
         BFRegistries.registerFlammables();
         BFRegistries.registerCeramicCheckeredConversions();
         BFRegistries.registerDispenserBehaviors();

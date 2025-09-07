@@ -52,7 +52,6 @@ public class BountifulFares {
 		BFItemGroups.registerItemGroups();
 		BFRegistries.registerMiscRegistries();
 		BFCriteriaTriggers.register();
-		BFResourcePacks.registerBuiltinResourcePacks();
 	}
 
 	//appledog - Yirmiri
