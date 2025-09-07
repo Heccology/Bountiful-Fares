@@ -30,7 +30,7 @@ dependencies {
     //HECCOLIB
 //    implementation "curse.maven:heccolib-1279113:${neoforge_heccolib}"
     implementation files("heccolib-neoforge-1.21.1-1.1.2-BETA4.jar")
-    api "me.shedaniel.cloth:cloth-config-neoforge:15.0.140"
+//    api "me.shedaniel.cloth:cloth-config-neoforge:15.0.140"
 }
 
 configurations {

@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.definition.block.custom;
 
+import net.hecco.bountifulfares.definition.block.entity.BFHangingSignBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -14,6 +15,6 @@ public class ModHangingSignBlock extends CeilingHangingSignBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new HangingSignBlockEntity(pos, state);
+        return new BFHangingSignBlockEntity(pos, state);
     }
 }

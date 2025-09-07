@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "excessive_building:block/hoary_mosaic",
-    "side": "excessive_building:block/hoary_mosaic",
-    "top": "excessive_building:block/hoary_mosaic"
-  }
-}

@@ -40,9 +40,7 @@
     "render.BlockDustParticleMixin",
     "render.BuiltinItemModelMixin",
     "render.GuiGraphicsMixin",
-    "render.GuiHeartsMixin",
-    "render.HangingSignRendererMixin",
-    "render.SignRendererMixin"
+    "render.GuiHeartsMixin"
   ],
   "refmap": "bountifulfares.refmap.json"
 }

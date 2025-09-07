@@ -24,13 +24,13 @@ public class BFBlockEntities {
             () -> HLServices.REGISTRY.createBlockEntity(FermentationVesselBlockEntity::new, FERMENTATION_VESSEL)
     );
 
-//    public static final Supplier<BlockEntityType<ModSignBlockEntity>> MOD_SIGN_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "mod_sign_entity",
-//            () -> HLServices.REGISTRY.createBlockEntity(ModSignBlockEntity::new, HOARY_SIGN, HOARY_WALL_SIGN, WALNUT_SIGN, WALNUT_WALL_SIGN)
-//    );
-//
-//    public static final Supplier<BlockEntityType<ModHangingSignBlockEntity>> MOD_HANGING_SIGN_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "mod_hanging_sign_entity",
-//            () -> HLServices.REGISTRY.createBlockEntity(ModHangingSignBlockEntity::new, HOARY_HANGING_SIGN, HOARY_WALL_HANGING_SIGN, WALNUT_HANGING_SIGN, WALNUT_WALL_HANGING_SIGN)
-//    );
+    public static final Supplier<BlockEntityType<BFSignBlockEntity>> SIGN_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "sign_entity",
+            () -> HLServices.REGISTRY.createBlockEntity(BFSignBlockEntity::new, HOARY_SIGN, HOARY_WALL_SIGN, WALNUT_SIGN, WALNUT_WALL_SIGN)
+    );
+
+    public static final Supplier<BlockEntityType<BFHangingSignBlockEntity>> HANGING_SIGN_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "hanging_sign_entity",
+            () -> HLServices.REGISTRY.createBlockEntity(BFHangingSignBlockEntity::new, HOARY_HANGING_SIGN, HOARY_WALL_HANGING_SIGN, WALNUT_HANGING_SIGN, WALNUT_WALL_HANGING_SIGN)
+    );
 
     public static final Supplier<BlockEntityType<GristmillBlockEntity>> GRISTMILL_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "gristmill_block_entity",
             () -> HLServices.REGISTRY.createBlockEntity(GristmillBlockEntity::new, GRISTMILL)
