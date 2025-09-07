@@ -3,7 +3,6 @@ package net.hecco.bountifulfares.registry.integration;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.integration.CabinetBlockEntity;
 import net.hecco.bountifulfares.definition.block.integration.FDCabinetBlock;
-import net.hecco.bountifulfares.definition.compat.farmersdelight.FarmersDelightBlocks;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.heccolib.lib.compat.CompatManager;
 import net.hecco.heccolib.lib.compat.ModIntegration;
@@ -11,11 +10,9 @@ import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -30,7 +27,6 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 import static net.hecco.bountifulfares.BountifulFares.FARMERS_DELIGHT_MOD_ID;
-import static net.hecco.bountifulfares.BountifulFares.NATURES_SPIRIT_MOD_ID;
 
 public class FarmersDelightIntegration implements ModIntegration {
     @Override

@@ -1,0 +1,76 @@
+package net.hecco.bountifulfares.registry.integration;
+
+import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.block.integration.AppledogBlock;
+import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.heccolib.lib.compat.CompatManager;
+import net.hecco.heccolib.lib.compat.ModIntegration;
+import net.hecco.heccolib.platform.HLServices;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.function.Supplier;
+
+import static net.hecco.bountifulfares.BountifulFares.*;
+
+public class AppledogIntegration implements ModIntegration {
+    @Override
+    public CompatManager getCompatManager() {
+        return BountifulFares.COMPAT_MANAGER;
+    }
+
+    @Override
+    public List<String> modIds() {
+        return List.of(APPLEDOG_MOD_ID);
+    }
+
+    public static Supplier<Block> APPLEDOG_BLOCK;
+
+    @Override
+    public void registerContent() {
+        APPLEDOG_BLOCK = registerBlock("appledog_block", () -> new AppledogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_BLOCK.get()).strength(1f, 1000f)));
+
+        //DATAGEN DUMMY ITEMS
+        if (HLServices.PLATFORM.isDatagen()) {
+            HLServices.REGISTRY.registerItem(APPLEDOG_MOD_ID,  "dogapple", () -> new Item(new Item.Properties()));
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private Supplier<net.minecraft.world.level.block.Block> registerBlock(String id, Supplier<net.minecraft.world.level.block.Block> supplier) {
+        Supplier<net.minecraft.world.level.block.Block> block = (Supplier<net.minecraft.world.level.block.Block>) registerContent(HLServices.REGISTRY.registerBlockNoItem(APPLEDOG_MOD_ID, id, supplier));
+        registerContent(HLServices.REGISTRY.registerItem(APPLEDOG_MOD_ID, id, () -> new BlockItem(block.get(), new Item.Properties().rarity(Rarity.EPIC))));
+        return block;
+    }
+
+    @Override
+    public boolean shouldCreateDatapack() {
+        return true;
+    }
+
+    @Override
+    public @Nullable String getDatapackName() {
+        return "Bountiful Appledogs";
+    }
+
+    @Override
+    public void recipeGeneration(RecipeOutput output) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, APPLEDOG_BLOCK.get()).requires(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(APPLEDOG_MOD_ID, "dogapple")), 9).unlockedBy("has_dogapple",
+                CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(APPLEDOG_MOD_ID, "dogapple"))).build())))
+        ).save(output);
+    }
+}

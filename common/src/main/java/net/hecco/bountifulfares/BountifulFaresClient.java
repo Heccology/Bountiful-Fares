@@ -4,6 +4,7 @@ import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
 import net.hecco.bountifulfares.definition.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.integration.AppledogIntegration;
 import net.hecco.bountifulfares.registry.util.BFWoodTypes;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.client.color.block.BlockColor;
@@ -130,98 +131,9 @@ public class BountifulFaresClient {
     }
 
     public static void onInitializeClient() {
-//        ElsAndLsDyes compat
-//            HLServices.client().setBlockRenderType(MintBlocks.ACORN_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.ARTICHOKE_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.AMBER_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.BANANA_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.CERULEAN_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.FUCHSIA_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.GRAPE_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.INDIGO_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.MAROON_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.MAUVE_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.MOLD_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.MINT_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.NAVY_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.PEACH_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.PERIWINKLE_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.SAGE_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.SAP_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.SHAMROCK_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.VELVET_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.VERMILION_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(MintBlocks.WINTERGREEN_PICKETS.get(), RenderType.cutout());
 
-//        DyeDepot compat
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.MAROON_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.ROSE_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.CORAL_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.GINGER_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.TAN_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.BEIGE_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.AMBER_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.OLIVE_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.FOREST_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.VERDANT_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.TEAL_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.MINT_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.AQUA_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.SLATE_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.NAVY_JACK_O_STRAW.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(DyeDepotBlocks.INDIGO_JACK_O_STRAW.get(), RenderType.cutout());
-//        ExcessiveBuilding compat
-//            HLServices.client().setBlockRenderType(ExcessiveBuildingBlocks.ANCIENT_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(ExcessiveBuildingBlocks.WALNUT_LADDER.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(ExcessiveBuildingBlocks.HOARY_LADDER.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS.get(), RenderType.cutout());
-//            registerBlockColor(ExcessiveBuildingBlocks.CERAMIC_TILE_VERTICAL_STAIRS.get());
-//            registerBlockColor(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_TILE_VERTICAL_STAIRS.get());
-//            registerBlockColor(ExcessiveBuildingBlocks.CERAMIC_MOSAIC_VERTICAL_STAIRS.get());
-//            registerBlockColor(ExcessiveBuildingBlocks.CHECKERED_CERAMIC_MOSAIC_VERTICAL_STAIRS.get());
-//
-////        NaturesSpirit compat
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.ASPEN_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.CEDAR_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.COCONUT_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.CYPRESS_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.FIR_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.JOSHUA_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.GHAF_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.LARCH_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.MAHOGANY_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.MAPLE_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.MAHOGANY_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.OLIVE_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.PALO_VERDE_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.REDWOOD_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.SAXAUL_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.SUGI_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.WILLOW_PICKETS.get(), RenderType.cutout());
-//            HLServices.client().setBlockRenderType(NaturesSpiritBlocks.WISTERIA_PICKETS.get(), RenderType.cutout());
-//
-//        //        Spawn compat
-////            HLServices.client().setBlockRenderType(SpawnBlocks.ROTTEN_PICKETS.get(), RenderType.cutout());
-//        //        ArtsAndCrafts compat
-//            HLServices.client().setBlockRenderType(ArtsAndCraftsBlocks.CORK_PICKETS.get(), RenderType.cutout());
-//
-//        //        DelicateDyes compat
-//        HLServices.client().setBlockRenderType(DelicateDyesBlocks.CORAL_JACK_O_STRAW.get(), RenderType.cutout());
-//        HLServices.client().setBlockRenderType(DelicateDyesBlocks.CANARY_JACK_O_STRAW.get(), RenderType.cutout());
-//        HLServices.client().setBlockRenderType(DelicateDyesBlocks.WASABI_JACK_O_STRAW.get(), RenderType.cutout());
-//        HLServices.client().setBlockRenderType(DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW.get(), RenderType.cutout());
-//        HLServices.client().setBlockRenderType(DelicateDyesBlocks.SKY_JACK_O_STRAW.get(), RenderType.cutout());
-//        HLServices.client().setBlockRenderType(DelicateDyesBlocks.BLURPLE_JACK_O_STRAW.get(), RenderType.cutout());
-//        HLServices.client().setBlockRenderType(DelicateDyesBlocks.SANGRIA_JACK_O_STRAW.get(), RenderType.cutout());
-//        HLServices.client().setBlockRenderType(DelicateDyesBlocks.ROSE_JACK_O_STRAW.get(), RenderType.cutout());
-//
-//        //          Appledog compat
-//        HLServices.client().setBlockRenderType(AppledogBlocks.APPLEDOG_BLOCK.get(), RenderType.cutout());
-//
-//        //          DungeonsDelight compat
-//        HLServices.client().setBlockRenderType(DungeonsDelightBlocks.WORMWOOD_PICKETS.get(), RenderType.cutout());
-//
+        HLServices.client().setBlockRenderType(AppledogIntegration.APPLEDOG_BLOCK.get(), RenderType.cutout());
+
         HLServices.client().setBlockRenderType(BFBlocks.APPLE_LOG.get(), RenderType.cutout());
         HLServices.client().setBlockRenderType(BFBlocks.APPLE_WOOD.get(), RenderType.cutout());
         HLServices.client().setBlockRenderType(BFBlocks.HANGING_APPLE.get(), RenderType.cutout());

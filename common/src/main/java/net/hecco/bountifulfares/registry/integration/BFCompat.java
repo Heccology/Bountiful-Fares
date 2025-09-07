@@ -10,6 +10,7 @@ public class BFCompat {
         COMPAT_MANAGER.addIntegration(new AmendmentsIntegration());
         COMPAT_MANAGER.addIntegration(new NoMansLandIntegration());
         COMPAT_MANAGER.addIntegration(new ArtsAndCraftsIntegration());
+        COMPAT_MANAGER.addIntegration(new AppledogIntegration());
 
         COMPAT_MANAGER.registerCompatContent();
     }

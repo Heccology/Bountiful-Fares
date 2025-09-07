@@ -63,6 +63,7 @@
   "advancement.bountifulfares.plant_on_trellis.description": "Plant a vine crop or decorative plant on a Trellis",
   "advancement.bountifulfares.throw_flour_as_cover": "Poof!",
   "advancement.bountifulfares.throw_flour_as_cover.description": "Throw Flour at your feet to make a quick escape!",
+  "block.appledog.appledog_block": "Appledog Block",
   "block.arts_and_crafts.cork_pickets": "Cork Pickets",
   "block.arts_and_crafts.cork_trellis": "Cork Trellis",
   "block.bountifulfares.acacia_pickets": "Acacia Pickets",
@@ -618,8 +619,5 @@
   "warning.bountifulfares.fermentation_vessel.bountifulfares:jar": "Use a Cup to collect this",
   "warning.bountifulfares.fermentation_vessel.minecraft:bowl": "Use a Bowl to collect this",
   "warning.bountifulfares.fermentation_vessel.minecraft:bucket": "Use a Bucket to collect this",
-  "warning.bountifulfares.fermentation_vessel.minecraft:glass_bottle": "Use a Glass Bottle to collect this",
-  "yapping_tooltips.item.bountifulfares.lemon.desc": "A citrus fruit found near rivers",
-  "yapping_tooltips.item.bountifulfares.orange.desc": "A citrus fruit found in tropical areas",
-  "yapping_tooltips.item.bountifulfares.plum.desc": ""
+  "warning.bountifulfares.fermentation_vessel.minecraft:glass_bottle": "Use a Glass Bottle to collect this"
 }

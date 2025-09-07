@@ -489,6 +489,7 @@ public class BFItemGroups {
                     .title(Component.translatable("itemgroup.bountiful_fares_compatibility"))
                     .icon(() -> new ItemStack(BFItems.LEEK.get()))
                     .displayItems((displayParameters, entries) -> {
+                        entries.accept(AppledogIntegration.APPLEDOG_BLOCK.get());
                         for (String wood : NaturesSpiritIntegration.WOOD_TYPES) {
                             entries.accept(BFBlocks.TRELLISES.get(BountifulFares.NATURES_SPIRIT_MOD_ID + "_" + wood).get());
                         }

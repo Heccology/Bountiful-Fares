@@ -2,9 +2,7 @@ package net.hecco.bountifulfares;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.hecco.bountifulfares.config.FabricBFConfig;
-import net.hecco.bountifulfares.datagen.DisableCompatItemsVisibility;
-import net.hecco.bountifulfares.datagen.bountifulfares.*;
+import net.hecco.bountifulfares.datagen.*;
 import net.hecco.heccolib.lib.compat.FabricHLCompatAPI;
 import net.minecraft.resources.ResourceLocation;
 

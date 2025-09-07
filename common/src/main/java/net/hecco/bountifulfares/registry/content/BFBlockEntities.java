@@ -2,8 +2,6 @@ package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.entity.*;
-import net.hecco.bountifulfares.definition.block.integration.CabinetBlockEntity;
-import net.hecco.bountifulfares.definition.compat.farmersdelight.FarmersDelightBlocks;
 import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
