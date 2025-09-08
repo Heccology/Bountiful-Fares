@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @Mixin(SplashManager.class)
 public abstract class SplashTextMixin
 {
-    @Unique private final List<String> bountifulFaresTexts = Lists.<String>newArrayList();
+    @Unique private final List<String> bountifulFares$Texts = Lists.newArrayList();
     @Unique private static final ResourceLocation BOUNTIFUL_FARES_ID = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID,"texts/splashes.txt");
 
     @ModifyReturnValue(method = "prepare(Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)Ljava/util/List;", at = @At(value = "RETURN", ordinal = 0))
@@ -34,7 +34,7 @@ public abstract class SplashTextMixin
 
             List<String> stringreader;
             try {
-                stringreader = (List<String>)bufferedReader.lines().map(String::trim).filter(splashText -> splashText.hashCode() != 125780783).collect(Collectors.toList());
+                stringreader = bufferedReader.lines().map(String::trim).filter(splashText -> splashText.hashCode() != 125780783).collect(Collectors.toList());
             } catch (Throwable var7) {
                 if (bufferedReader != null) {
                     try {
@@ -53,14 +53,10 @@ public abstract class SplashTextMixin
             List<String> complete = original;
             boolean worked = complete.addAll(stringreader);
 
-            if (worked)
-            {
-                //BountifulFares.LOGGER.info("Successfully mixed splash texts.");
+            if (worked) {
                 return complete;
             }
-            else
-            {
-                //BountifulFares.LOGGER.error("Unable to mix splash texts.");
+            else {
                 return original;
             }
         } catch (IOException var8) {
@@ -71,6 +67,6 @@ public abstract class SplashTextMixin
     @Inject(method = "apply(Ljava/util/List;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V", at = @At("TAIL"))
     protected void applyNewSplashes(List<String> list, ResourceManager resourceManager, ProfilerFiller profiler, CallbackInfo ci)
     {
-        this.bountifulFaresTexts.addAll(list);
+        this.bountifulFares$Texts.addAll(list);
     }
 }
