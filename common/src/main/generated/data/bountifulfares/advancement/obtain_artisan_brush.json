@@ -1,5 +1,5 @@
 {
-  "parent": "bountifulfares:bountiful_fares",
+  "parent": "bountifulfares:obtain_ceramic_clay",
   "criteria": {
     "obtain_artisan_brush": {
       "conditions": {

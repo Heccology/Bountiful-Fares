@@ -1,0 +1,36 @@
+{
+  "parent": "bountifulfares:eat_citrus_essence",
+  "criteria": {
+    "acidify_effect_2_levels": {
+      "conditions": {
+        "level_increase": 2
+      },
+      "trigger": "bountifulfares:acidify_effect"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.acidify_effect_2_levels.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "components": {
+        "minecraft:potion_contents": {
+          "potion": "bountifulfares:bountifulfares.acidic"
+        }
+      },
+      "count": 1,
+      "id": "minecraft:potion"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.acidify_effect_2_levels"
+    }
+  },
+  "requirements": [
+    [
+      "acidify_effect_2_levels"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

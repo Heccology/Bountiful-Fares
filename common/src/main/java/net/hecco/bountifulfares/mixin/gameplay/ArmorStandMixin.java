@@ -1,7 +1,9 @@
 package net.hecco.bountifulfares.mixin.gameplay;
 
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -35,6 +37,9 @@ public class ArmorStandMixin {
                 slotStack.set(DataComponents.DYED_COLOR, itemstack.get(DataComponents.DYED_COLOR));
                 player.level().playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.DYE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
                 cir.setReturnValue(InteractionResult.SUCCESS);
+                if (!player.level().isClientSide()) {
+                    CriteriaTriggers.PLAYER_INTERACTED_WITH_ENTITY.trigger((ServerPlayer) player, itemstack, ((ArmorStand) (Object) this));
+                }
                 cir.cancel();
             }
         }

@@ -3,12 +3,10 @@ package net.hecco.bountifulfares.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.definition.trigger.FillTiffinTrigger;
-import net.hecco.bountifulfares.definition.trigger.PickFruitInteractionTrigger;
-import net.hecco.bountifulfares.definition.trigger.PlantOnTrellisTrigger;
-import net.hecco.bountifulfares.definition.trigger.UseArtisanBrushInInventoryTrigger;
+import net.hecco.bountifulfares.definition.trigger.*;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.content.BFPotions;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.advancements.*;
@@ -19,11 +17,15 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 
 import java.util.List;
 import java.util.Optional;
@@ -206,7 +208,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false))
-                .parent(root_advancement)
+                .parent(obtain_ceramic_clay)
                 .addCriterion("obtain_artisan_brush", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.ARTISAN_BRUSH.get()))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_artisan_brush");
 
@@ -223,6 +225,17 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .requirements(AdvancementRequirements.anyOf(List.of("use_on_ceramic_block", "click_on_ceramic_item")))
                 .save(consumer, BountifulFares.MOD_ID + ":dye_ceramic_block");
 
+        AdvancementHolder dye_leather_armor_on_armor_stand = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(Items.LEATHER_LEGGINGS),
+                        Component.translatable("advancement.bountifulfares.dye_leather_armor_on_armor_stand"),
+                        Component.translatable("advancement.bountifulfares.dye_leather_armor_on_armor_stand.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
+                        true,
+                        true,
+                        false))
+                .parent(obtain_artisan_brush)
+                .addCriterion("dye_leather_armor_on_armor_stand", PlayerInteractTrigger.TriggerInstance.itemUsedOnEntity(ItemPredicate.Builder.item().of(BFItems.ARTISAN_BRUSH.get()), Optional.of(EntityPredicate.wrap(EntityPredicate.Builder.entity().of(EntityType.ARMOR_STAND)))))
+                .save(consumer, BountifulFares.MOD_ID + ":dye_leather_armor_on_armor_stand");
+
         AdvancementHolder obtain_fermentation_vessel = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFBlocks.FERMENTATION_VESSEL.get()),
                         Component.translatable("advancement.bountifulfares.obtain_fermentation_vessel"),
@@ -230,7 +243,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false))
-                .parent(obtain_feldspar)
+                .parent(obtain_ceramic_clay)
                 .addCriterion("obtain_fermentation_vessel", InventoryChangeTrigger.TriggerInstance.hasItems(BFBlocks.FERMENTATION_VESSEL.get()))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_fermentation_vessel");
         AdvancementHolder eat_ancient_fruit = Advancement.Builder.advancement()
@@ -277,17 +290,19 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                 .parent(obtain_fermentation_vessel)
                 .addCriterion("eat_citrus_essence", ConsumeItemTrigger.TriggerInstance.usedItem(BFItems.CITRUS_ESSENCE.get()))
                 .save(consumer, BountifulFares.MOD_ID + ":eat_citrus_essence");
-//        AdvancementEntry throw_flour = Advancement.Builder.create()
-//                .display(new AdvancementDisplay(new ItemStack(ModItems.FLOUR),
-//                        Text.translatable("advancement.bountifulfares.throw_flour"),
-//                        Text.translatable("advancement.bountifulfares.throw_flour.description"), Optional.of(Identifier.of("minecraft:textures/block/farmland_moist.png")), AdvancementFrame.TASK,
-//                        true,
-//                        true,
-//                        false))
-//                .parent(place_gristmill)
-////                .criterion("throw_flour", ItemCriterion.Conditions.createItemUsedOnBlock(LocationPredicate.Builder.create().block(BlockPredicate.ANY), ItemPredicate.Builder.create().items(ModItems.FLOUR)))
-////                .criterion("throw_flour", SummonedEntityCriterion.Conditions.create(EntityPredicate.Builder.create().type(ModEntities.THROWN_FLOUR_PROJECTILE)))
-//                .build(consumer, BountifulFares.MOD_ID + ":throw_flour");
+
+        AdvancementHolder acidify_effect_2_levels = Advancement.Builder.advancement()
+                .display(new DisplayInfo(PotionContents.createItemStack(Items.POTION, BFPotions.ACIDIC),
+                        Component.translatable("advancement.bountifulfares.acidify_effect_2_levels"),
+                        Component.translatable("advancement.bountifulfares.acidify_effect_2_levels.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.CHALLENGE,
+                        true,
+                        true,
+                        false
+                ))
+                .parent(eat_citrus_essence)
+                .addCriterion("acidify_effect_2_levels", AcidifyEffectTrigger.TriggerInstance.acidified(2))
+                .save(consumer, BountifulFares.MOD_ID + ":acidify_effect_2_levels");
+
         AdvancementHolder obtain_sun_hat = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFItems.SUN_HAT.get()),
                         Component.translatable("advancement.bountifulfares.obtain_sun_hat"),

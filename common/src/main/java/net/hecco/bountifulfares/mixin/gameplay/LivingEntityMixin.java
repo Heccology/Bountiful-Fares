@@ -1,13 +1,17 @@
 package net.hecco.bountifulfares.mixin.gameplay;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.trigger.AcidifyEffectTrigger;
 import net.hecco.bountifulfares.registry.content.BFEffects;
+import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.hecco.bountifulfares.registry.tags.BFEffectTags;
 import net.minecraft.core.Holder;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -64,6 +68,9 @@ public abstract class LivingEntityMixin {
                 if (entry.getKey() != BFEffects.ACIDIC && !entry.getKey().is(BFEffectTags.ACIDIC_BLACKLIST)) {
                     int amplifier = Math.min(entry.getValue().getAmplifier() + acidicAmplifier + 1, 255);
                     newEffects.add(new MobEffectInstance(entry.getKey(), entry.getValue().getDuration(), amplifier, entry.getValue().isAmbient(), entry.getValue().isVisible(), entry.getValue().showIcon()));
+                    if (((LivingEntity)(Object)this) instanceof Player player && !player.level().isClientSide()) {
+                        ((AcidifyEffectTrigger) BFCriteriaTriggers.ACIDIFY_EFFECT.get()).trigger((ServerPlayer) player, acidicAmplifier + 1);
+                    }
                 }
             }
 
@@ -81,6 +88,9 @@ public abstract class LivingEntityMixin {
                 if (entry.getKey() != BFEffects.ACIDIC && !entry.getKey().is(BFEffectTags.ACIDIC_BLACKLIST)) {
                     int amplifier = Math.min((entry.getValue().getAmplifier() - (this.activeEffects.get(BFEffects.ACIDIC).getAmplifier() * 2)) + acidicAmplifier, 255);
                     newEffects.add(new MobEffectInstance(entry.getKey(), entry.getValue().getDuration(), amplifier, entry.getValue().isAmbient(), entry.getValue().isVisible(), entry.getValue().showIcon()));
+                    if (((LivingEntity)(Object)this) instanceof Player player && !player.level().isClientSide()) {
+                        ((AcidifyEffectTrigger) BFCriteriaTriggers.ACIDIFY_EFFECT.get()).trigger((ServerPlayer) player, acidicAmplifier + 1);
+                    }
                 }
             }
             this.activeEffects.remove(BFEffects.ACIDIC);
@@ -114,11 +124,14 @@ public abstract class LivingEntityMixin {
 //        }
 //    }
 
-        @ModifyVariable(method = "addEffect(Lnet/minecraft/world/effect/MobEffectInstance;Lnet/minecraft/world/entity/Entity;)Z", at = @At("HEAD"), argsOnly = true)
+    @ModifyVariable(method = "addEffect(Lnet/minecraft/world/effect/MobEffectInstance;Lnet/minecraft/world/entity/Entity;)Z", at = @At("HEAD"), argsOnly = true)
     private MobEffectInstance bountifulfares_ifAcidicPresent(MobEffectInstance effect) {
          if (activeEffects.containsKey(BFEffects.ACIDIC)) {
             if (effect.getEffect() != BFEffects.ACIDIC && !effect.getEffect().is(BFEffectTags.ACIDIC_BLACKLIST)) {
                 int amplifier = Math.min(effect.getAmplifier() + activeEffects.get(BFEffects.ACIDIC).getAmplifier() + 1, 255);
+                if (((LivingEntity)(Object)this) instanceof Player player && !player.level().isClientSide()) {
+                    ((AcidifyEffectTrigger) BFCriteriaTriggers.ACIDIFY_EFFECT.get()).trigger((ServerPlayer) player, activeEffects.get(BFEffects.ACIDIC).getAmplifier() + 1);
+                }
                 return new MobEffectInstance(effect.getEffect(), effect.getDuration(), amplifier, effect.isAmbient(), effect.isVisible(), effect.showIcon());
             }
         }

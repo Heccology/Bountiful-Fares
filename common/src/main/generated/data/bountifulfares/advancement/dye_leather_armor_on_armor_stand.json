@@ -1,0 +1,41 @@
+{
+  "parent": "bountifulfares:obtain_artisan_brush",
+  "criteria": {
+    "dye_leather_armor_on_armor_stand": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:armor_stand"
+            }
+          }
+        ],
+        "item": {
+          "items": "bountifulfares:artisan_brush"
+        }
+      },
+      "trigger": "minecraft:player_interacted_with_entity"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.dye_leather_armor_on_armor_stand.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:leather_leggings"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.dye_leather_armor_on_armor_stand"
+    }
+  },
+  "requirements": [
+    [
+      "dye_leather_armor_on_armor_stand"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

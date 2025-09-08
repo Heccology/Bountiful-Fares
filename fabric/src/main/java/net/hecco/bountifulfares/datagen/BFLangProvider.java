@@ -336,7 +336,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.obtain_feldspar", "Felsic Forager");
         generate(translationBuilder, "advancement.bountifulfares.obtain_feldspar.description", "Collect Feldspar from milling stones");
 
-        generate(translationBuilder, "advancement.bountifulfares.obtain_ceramic_clay", "Tofu!!!");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_ceramic_clay", "It's Tofu!!!    ");
         generate(translationBuilder, "advancement.bountifulfares.obtain_ceramic_clay.description", "Craft Ceramic Clay from Feldspar and Clay Balls, which is used for many decorations and useful blocks");
 
         generate(translationBuilder, "advancement.bountifulfares.obtain_flour", "Stop and Smell the Flours");
@@ -348,6 +348,9 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.obtain_artisan_brush", "I'm Something of an Artist");
         generate(translationBuilder, "advancement.bountifulfares.obtain_artisan_brush.description", "Obtain an Artisan Brush, which is used to dye blocks and items");
 
+        generate(translationBuilder, "advancement.bountifulfares.dye_leather_armor_on_armor_stand", "High Fashion");
+        generate(translationBuilder, "advancement.bountifulfares.dye_leather_armor_on_armor_stand.description", "Dye a piece of leather armor on an Armor Stand using an Artisan Brush");
+
         generate(translationBuilder, "advancement.bountifulfares.dye_ceramic_block", "Roy G Biv");
         generate(translationBuilder, "advancement.bountifulfares.dye_ceramic_block.description", "Dye a ceramic block any color...§o any color");
 
@@ -358,7 +361,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.how_easy.description", "Threaten to squeeze a Lemon Block");
 
         generate(translationBuilder, "advancement.bountifulfares.obtain_fermentation_vessel", "Toil and Trouble");
-        generate(translationBuilder, "advancement.bountifulfares.obtain_fermentation_vessel.description", "Craft a Fermentation Vessel from Ceramic Clay");
+        generate(translationBuilder, "advancement.bountifulfares.obtain_fermentation_vessel.description", "Craft a Fermentation Vessel - fill it with water and an item to ferment");
 
         generate(translationBuilder, "advancement.bountifulfares.eat_ancient_fruit", "How Long Has This Sat Out?");
         generate(translationBuilder, "advancement.bountifulfares.eat_ancient_fruit.description", "Eat a fruit from the distant past");
@@ -367,7 +370,10 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.place_all_baked_goods.description", "Place every baked good");
 
         generate(translationBuilder, "advancement.bountifulfares.eat_citrus_essence", "Agh, Heartburn!");
-        generate(translationBuilder, "advancement.bountifulfares.eat_citrus_essence.description", "Eat Citric Essence");
+        generate(translationBuilder, "advancement.bountifulfares.eat_citrus_essence.description", "Eat Citric Essence, made from fermenting a citrus fruit");
+
+        generate(translationBuilder, "advancement.bountifulfares.acidify_effect_2_levels", "This Can't be Good for You");
+        generate(translationBuilder, "advancement.bountifulfares.acidify_effect_2_levels.description", "Acidify another effect enough to increase its amplifier by 2");
 
         generate(translationBuilder, "advancement.bountifulfares.obtain_sun_hat", "Who's The Farmer Now?");
         generate(translationBuilder, "advancement.bountifulfares.obtain_sun_hat.description", "Obtain a Sun Hat");
