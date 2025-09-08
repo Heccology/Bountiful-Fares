@@ -1,11 +1,11 @@
-// 1.21.1	2025-09-08T18:24:54.9252357	Bountiful Fares/Tags for minecraft:item
+// 1.21.1	2025-09-08T18:41:18.8053787	Bountiful Fares/Tags for minecraft:item
 3600499237b56fc333eb30cc71081d26744f9ef0 data\minecraft\tags\item\wooden_slabs.json
-86e6b05f7bd18bd18aed1ce1eb6bb221026cf97a data\bountifulfares\tags\item\tiffins.json
+66f9ed1cef900c5a501a7fa238d671955a0d8f15 data\bountifulfares\tags\item\tiffins.json
 3f8b6b98a264616e0dbdf5742c67d9260ed555a8 data\minecraft\tags\item\horse_food.json
 acda8de43bf692f317304333d560cb02fd8a32c7 data\bountifulfares\tags\item\palm_logs.json
 f0a47a2081154dc5fa0a97e5de487cc4a81870b8 data\bountifulfares\tags\item\plum_logs.json
-b71cae222b3fb6d6012ac0855341df5b1d32036f data\c\tags\item\foods\walnuts.json
 157ad945e328eae373b00eaf95ed9e2d6ae445d5 data\minecraft\tags\item\chicken_food.json
+b71cae222b3fb6d6012ac0855341df5b1d32036f data\c\tags\item\foods\walnuts.json
 6bf6d205c706463c1f3bc42231b6d9734c13dd59 data\minecraft\tags\item\dirt.json
 88641d0f61073b492c53b20ac291d85ad628009a data\c\tags\item\coconut_halves.json
 00f0fdf76c2bc9572129e84007135741ec7a36ff data\bountifulfares\tags\item\felsic_stones.json

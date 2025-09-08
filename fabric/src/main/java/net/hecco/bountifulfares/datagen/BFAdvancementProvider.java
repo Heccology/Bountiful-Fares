@@ -341,14 +341,14 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
 //                .parent(eat_all_candy)
 //                .criterion("gorge", EffectsChangedCriterion.Conditions.create(EntityEffectPredicate.create().withEffect(ModEffects.GORGING)))
 //                .build(consumer, BountifulFares.MOD_ID + ":gorge");
-        AdvancementHolder obtain_tea_blends = Advancement.Builder.advancement()
+        AdvancementHolder obtain_tea_cups = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFItems.TEA_LEAVES.get()),
                         Component.translatable("advancement.bountifulfares.obtain_tea_blends"),
                         Component.translatable("advancement.bountifulfares.obtain_tea_blends.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
                         true,
                         true,
                         false))
-                .parent(root_advancement)
+                .parent(obtain_ceramic_clay)
                 .addCriterion("green", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.GREEN_TEA_CUP.get()))
                 .addCriterion("black", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.BLACK_TEA_CUP.get()))
                 .addCriterion("chamomile", InventoryChangeTrigger.TriggerInstance.hasItems(BFItems.CHAMOMILE_TEA_CUP.get()))
@@ -363,7 +363,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false))
-                .parent(obtain_tea_blends)
+                .parent(obtain_tea_cups)
                 .addCriterion("green", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(BFBlocks.GREEN_TEA_CANDLE.get()))
                 .addCriterion("black", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(BFBlocks.BLACK_TEA_CANDLE.get()))
                 .addCriterion("chamomile", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(BFBlocks.CHAMOMILE_CANDLE.get()))
@@ -420,7 +420,7 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true,
                         true,
                         false))
-                .parent(root_advancement)
+                .parent(pick_fruit)
                 .addCriterion("obtain_golden_apple_sapling", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(BFBlocks.GOLDEN_APPLE_SAPLING.get()).build()))
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_golden_apple_sapling");
         AdvancementHolder obtain_golden_apple = Advancement.Builder.advancement()
