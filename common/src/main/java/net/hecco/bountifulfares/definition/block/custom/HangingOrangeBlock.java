@@ -7,7 +7,7 @@ import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -49,7 +49,7 @@ public class HangingOrangeBlock extends HangingFruitBlock {
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         VoxelShape voxelShape = SHAPES[state.getValue(AGE)];
-        if (!HLServices.PLATFORM.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !HLServices.PLATFORM.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
+        if (!NLServices.PLATFORM.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !NLServices.PLATFORM.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
             Vec3 vec3d = state.getOffset(world, pos);
             return voxelShape.move(vec3d.x, vec3d.y, vec3d.z);
         }
@@ -59,7 +59,7 @@ public class HangingOrangeBlock extends HangingFruitBlock {
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
         VoxelShape voxelShape = COLL_SHAPES[state.getValue(AGE)];
-        if (!HLServices.PLATFORM.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !HLServices.PLATFORM.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
+        if (!NLServices.PLATFORM.isModLoaded(BountifulFares.TWIGS_MOD_ID) && !NLServices.PLATFORM.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
             Vec3 vec3d = state.getOffset(world, pos);
             return voxelShape.move(vec3d.x, vec3d.y, vec3d.z);
         }
@@ -68,7 +68,7 @@ public class HangingOrangeBlock extends HangingFruitBlock {
 
     @Override
     public float getMaxHorizontalOffset() {
-        if (HLServices.PLATFORM.isModLoaded(BountifulFares.TWIGS_MOD_ID) || HLServices.PLATFORM.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
+        if (NLServices.PLATFORM.isModLoaded(BountifulFares.TWIGS_MOD_ID) || NLServices.PLATFORM.isModLoaded(BountifulFares.ETCETERA_MOD_ID)) {
             return 0;
         }
         return super.getMaxHorizontalOffset();

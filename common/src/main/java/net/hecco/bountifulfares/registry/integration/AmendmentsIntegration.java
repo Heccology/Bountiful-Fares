@@ -1,8 +1,8 @@
 package net.hecco.bountifulfares.registry.integration;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.heccolib.lib.compat.CompatManager;
-import net.hecco.heccolib.lib.compat.ModIntegration;
+import net.hecco.nexuslib.lib.compat.CompatManager;
+import net.hecco.nexuslib.lib.compat.ModIntegration;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

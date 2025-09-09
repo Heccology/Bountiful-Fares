@@ -5,9 +5,9 @@ import net.hecco.bountifulfares.registry.integration.BFCompat;
 import net.hecco.bountifulfares.registry.misc.*;
 import net.hecco.bountifulfares.registry.util.BFDamageTypes;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
-import net.hecco.heccolib.lib.compat.CompatManager;
-import net.hecco.heccolib.lib.compat.HLCompatAPI;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.lib.compat.CompatManager;
+import net.hecco.nexuslib.lib.compat.NLCompatAPI;
+import net.hecco.nexuslib.platform.NLServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,16 +25,17 @@ public class BountifulFares {
 	public static final String FRONTIERS_MOD_ID = "frontiers";
 	public static final String NO_MANS_LAND_MOD_ID = "nomansland";
 	public static final String TWIGS_MOD_ID = "twigs";
+	public static final String JADENS_NETHER_EXPANSION_MOD_ID = "netherexp";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static final CompatManager COMPAT_MANAGER = HLCompatAPI.createCompatManager(MOD_ID);
+	public static final CompatManager COMPAT_MANAGER = NLCompatAPI.createCompatManager(MOD_ID);
 
 	public static void init() {
 		BFSounds.registerSounds();
 		BFBlocks.registerBlocks();
 		BFCompat.register();
-		if (!HLServices.PLATFORM.isDatagen()) {
+		if (!NLServices.PLATFORM.isDatagen()) {
 			BFBlockEntities.registerBlockEntities();
 		}
 		BFComponents.registerComponents();

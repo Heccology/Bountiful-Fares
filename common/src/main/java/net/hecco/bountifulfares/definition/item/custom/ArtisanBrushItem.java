@@ -7,7 +7,7 @@ import net.hecco.bountifulfares.definition.trigger.UseArtisanBrushInInventoryTri
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -86,7 +86,7 @@ public class ArtisanBrushItem extends Item {
                 other.set(DataComponents.DYED_COLOR, stack.get(DataComponents.DYED_COLOR));
                 player.playSound(SoundEvents.DYE_USE, 0.9F, 1.0f);
                 if (other.is(BFItemTags.DYEABLE_CERAMIC_BLOCKS)) {
-                    HLServices.NETWORK.sentToServer(new EmptyPayload());
+                    NLServices.NETWORK.sentToServer(new EmptyPayload());
                 }
                 return true;
             }

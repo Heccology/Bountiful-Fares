@@ -4,7 +4,7 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.definition.item.component.TiffinContents;
 import net.hecco.bountifulfares.definition.item.custom.*;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
@@ -163,7 +163,7 @@ public class BFItems {
     }
 
     private static Supplier<Item> registerItem(String id, Supplier<Item> registry) {
-        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.ITEM, registry);
+        return NLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.ITEM, registry);
     }
 
     private static Item.Properties createTiffinProperties() {

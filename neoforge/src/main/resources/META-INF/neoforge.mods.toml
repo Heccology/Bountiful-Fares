@@ -34,9 +34,9 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.${mod_id}]]
-modId = "heccolib"
-type="required" #mandatory (Can be one of "required", "optional", "incompatible" or "discouraged")
-versionRange = "${heccolib_version_range}"
+modId = "nexuslib"
+type="required"
+versionRange = "${nexuslib_version_range}"
 ordering = "BEFORE"
 side = "BOTH"
 

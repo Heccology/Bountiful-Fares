@@ -13,18 +13,9 @@ import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
 import net.hecco.bountifulfares.registry.misc.BFResourcePacks;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
-import net.hecco.heccolib.platform.HLServices;
-import net.minecraft.client.Minecraft;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.packs.FilePackResources;
-import net.minecraft.server.packs.PackLocationInfo;
-import net.minecraft.server.packs.PackSelectionConfig;
-import net.minecraft.server.packs.repository.Pack;
-import net.minecraft.server.packs.repository.PackRepository;
-import net.minecraft.server.packs.repository.PackSource;
-import net.minecraft.server.packs.repository.RepositorySource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -36,14 +27,10 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.ModList;
-import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.client.gui.ConfigurationScreen;
-import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
@@ -83,7 +70,7 @@ public class NeoForgeBountifulFares {
     public void commonSetup(FMLCommonSetupEvent event) {
 
         if (!Services.PLATFORM.getBoolConfigValue("showCompatItemsInRecipeViewers")) {
-            HLServices.REGISTRY.registerBuiltInDatapack(BountifulFares.MOD_ID, "hide_compat_items", "Bountiful Fares - Hide Compatibility Items", true, true);
+            NLServices.REGISTRY.registerBuiltInDatapack(BountifulFares.MOD_ID, "hide_compat_items", "Bountiful Fares - Hide Compatibility Items", true, true);
         }
 
         BFRegistries.registerFlammables();
@@ -101,7 +88,7 @@ public class NeoForgeBountifulFares {
         TAG_FUELS.put(BFItemTags.PICKETS, 200);
 
         for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
-            if (!(BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "crimson_trellis" || BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "warped_trellis")) {
+            if (!(BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "crimson_trellis" || BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "warped_trellis") || BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "claret_trellis") {
                 FUELS.put(block.get(), 300);
             }
         }

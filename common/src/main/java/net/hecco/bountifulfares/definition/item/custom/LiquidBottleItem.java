@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.definition.item.custom;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.network.chat.Component;

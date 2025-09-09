@@ -21,12 +21,17 @@ dependencies {
     }
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
-    //HECCOLIB
-//    modImplementation "curse.maven:heccolib-1279113:${fabric_heccolib}"
-    modImplementation files("heccolib-fabric-1.21.1-1.1.2-BETA4.jar")
+    //NEXUSLIB
+    modImplementation files("nexuslib-fabric-1.21.1-1.1.2.jar")
 
     //APPLESKIN
     modCompileOnly files("appleskin-fabric-mc1.21-3.0.6.jar")
+
+    //JEI
+    modCompileOnlyApi ("curse.maven:jei-238222:6075246")
+
+    //EMI
+    modCompileOnlyApi ("curse.maven:emi-580555:6420931")
 
     modApi "me.shedaniel.cloth:cloth-config-fabric:15.0.140"
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")

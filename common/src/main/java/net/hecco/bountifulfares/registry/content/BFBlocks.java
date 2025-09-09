@@ -10,11 +10,11 @@ import net.hecco.bountifulfares.registry.misc.BFSaplingGenerators;
 import net.hecco.bountifulfares.registry.util.BFBlockSetTypes;
 import net.hecco.bountifulfares.registry.util.BFNoteBlockInstruments;
 import net.hecco.bountifulfares.registry.util.BFWoodTypes;
-import net.hecco.heccolib.lib.publicBlocks.PublicButtonBlock;
-import net.hecco.heccolib.lib.publicBlocks.PublicDoorBlock;
-import net.hecco.heccolib.lib.publicBlocks.PublicPressurePlateBlock;
-import net.hecco.heccolib.lib.publicBlocks.PublicSaplingBlock;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.lib.publicBlocks.PublicButtonBlock;
+import net.hecco.nexuslib.lib.publicBlocks.PublicDoorBlock;
+import net.hecco.nexuslib.lib.publicBlocks.PublicPressurePlateBlock;
+import net.hecco.nexuslib.lib.publicBlocks.PublicSaplingBlock;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -302,32 +302,32 @@ public class BFBlocks {
     }
 
     public static Supplier<Block> registerBlock(String name, Supplier<Block> block) {
-        return HLServices.REGISTRY.registerBlock(BountifulFares.MOD_ID, name, block);
+        return NLServices.REGISTRY.registerBlock(BountifulFares.MOD_ID, name, block);
     }
 
     public static Supplier<Block> registerBlock(String name, Supplier<Block> block, Item.Properties properties) {
-        return HLServices.REGISTRY.registerBlock(BountifulFares.MOD_ID, name, block, properties);
+        return NLServices.REGISTRY.registerBlock(BountifulFares.MOD_ID, name, block, properties);
     }
 
     private static Supplier<Block> registerDyeableCeramicBlock(String name, Supplier<Block> block) {
         Supplier<Block> block1 = registerBlockNoItem(name, block);
-        HLServices.REGISTRY.registerItem(BountifulFares.MOD_ID, name, () -> new DyeableCeramicBlockItem(block1.get(), new Item.Properties()));
+        NLServices.REGISTRY.registerItem(BountifulFares.MOD_ID, name, () -> new DyeableCeramicBlockItem(block1.get(), new Item.Properties()));
         return block1;
     }
 
     private static Supplier<Block> registerDyeableCeramicBlock(String name, Supplier<Block> block, Item.Properties itemSettings) {
         Supplier<Block> block1 = registerBlockNoItem(name, block);
-        HLServices.REGISTRY.registerItem(BountifulFares.MOD_ID, name, () -> new DyeableCeramicBlockItem(block1.get(), itemSettings));
+        NLServices.REGISTRY.registerItem(BountifulFares.MOD_ID, name, () -> new DyeableCeramicBlockItem(block1.get(), itemSettings));
         return block1;
     }
 
     private static Supplier<Block> registerBlockNoItem(String name, Supplier<Block> block) {
-        return HLServices.REGISTRY.registerBlockNoItem(BountifulFares.MOD_ID, name, block);
+        return NLServices.REGISTRY.registerBlockNoItem(BountifulFares.MOD_ID, name, block);
     }
 
     private static Supplier<Block> registerCeramicDishBlock(String name, Supplier<Block> block) {
         Supplier<Block> block1 = registerBlockNoItem(name, block);
-        HLServices.REGISTRY.registerItem(BountifulFares.MOD_ID, name, () -> new CeramicDishBlockItem(block1.get(), new Item.Properties()));
+        NLServices.REGISTRY.registerItem(BountifulFares.MOD_ID, name, () -> new CeramicDishBlockItem(block1.get(), new Item.Properties()));
         return block1;
     }
 

@@ -8,7 +8,7 @@ import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFPotions;
 import net.hecco.bountifulfares.registry.integration.*;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -23,7 +23,7 @@ import java.util.function.Supplier;
 
 public class BFItemGroups {
 
-    public static final Supplier<CreativeModeTab> BOUNTIFUL_FARES = HLServices.REGISTRY.register(
+    public static final Supplier<CreativeModeTab> BOUNTIFUL_FARES = NLServices.REGISTRY.register(
             BountifulFares.MOD_ID, "bountiful_fares", BuiltInRegistries.CREATIVE_MODE_TAB, () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
                     .title(Component.translatable("itemgroup.bountiful_fares"))
                     .icon(() -> new ItemStack(BFItems.PASSION_FRUIT.get()))
@@ -485,7 +485,7 @@ public class BFItemGroups {
                     }).build());
 
 
-    public static final Supplier<CreativeModeTab> COMPATIBILITY = HLServices.REGISTRY.register(
+    public static final Supplier<CreativeModeTab> COMPATIBILITY = NLServices.REGISTRY.register(
             BountifulFares.MOD_ID, "bountiful_fares_compatibility", BuiltInRegistries.CREATIVE_MODE_TAB, () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
                     .title(Component.translatable("itemgroup.bountiful_fares_compatibility"))
                     .icon(() -> new ItemStack(BFItems.LEEK.get()))
@@ -508,6 +508,12 @@ public class BFItemGroups {
                         }
                         for (String wood : NoMansLandIntegration.WOOD_TYPES) {
                             entries.accept(BFBlocks.PICKETS.get(BountifulFares.NO_MANS_LAND_MOD_ID + "_" + wood).get());
+                        }
+                        for (String wood : NetherExpIntegration.WOOD_TYPES) {
+                            entries.accept(BFBlocks.TRELLISES.get(BountifulFares.JADENS_NETHER_EXPANSION_MOD_ID + "_" + wood).get());
+                        }
+                        for (String wood : NetherExpIntegration.WOOD_TYPES) {
+                            entries.accept(BFBlocks.PICKETS.get(BountifulFares.JADENS_NETHER_EXPANSION_MOD_ID + "_" + wood).get());
                         }
                         entries.accept(NoMansLandIntegration.CANDIED_PEAR.get());
                         entries.accept(NoMansLandIntegration.MAPLE_MEAD_BOTTLE.get());

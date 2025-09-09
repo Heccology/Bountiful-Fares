@@ -4,9 +4,9 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.integration.CabinetBlockEntity;
 import net.hecco.bountifulfares.definition.block.integration.FDCabinetBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.hecco.heccolib.lib.compat.CompatManager;
-import net.hecco.heccolib.lib.compat.ModIntegration;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.lib.compat.CompatManager;
+import net.hecco.nexuslib.lib.compat.ModIntegration;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -49,17 +49,17 @@ public class FarmersDelightIntegration implements ModIntegration {
         WALNUT_CABINET = registerBlock("walnut_cabinet", () -> new FDCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL).mapColor(MapColor.COLOR_BROWN)));
         HOARY_CABINET = registerBlock("hoary_cabinet", () -> new FDCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL).mapColor(MapColor.TERRACOTTA_GRAY)));
 
-        if (HLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID)) {
-            CABINET_BLOCK_ENTITY = HLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "cabinet_block_entity",
-                    () -> HLServices.REGISTRY.createBlockEntity(CabinetBlockEntity::new, WALNUT_CABINET, HOARY_CABINET)
+        if (NLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID)) {
+            CABINET_BLOCK_ENTITY = NLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "cabinet_block_entity",
+                    () -> NLServices.REGISTRY.createBlockEntity(CabinetBlockEntity::new, WALNUT_CABINET, HOARY_CABINET)
             );
         }
     }
 
     @SuppressWarnings("unchecked")
     private Supplier<Block> registerBlock(String id, Supplier<Block> supplier) {
-        Supplier<Block> block = (Supplier<Block>) registerContent(HLServices.REGISTRY.registerBlockNoItem(FARMERS_DELIGHT_MOD_ID, id, supplier));
-        registerContent(HLServices.REGISTRY.registerItem(FARMERS_DELIGHT_MOD_ID, id, () -> new BlockItem(block.get(), new Item.Properties())));
+        Supplier<Block> block = (Supplier<Block>) registerContent(NLServices.REGISTRY.registerBlockNoItem(FARMERS_DELIGHT_MOD_ID, id, supplier));
+        registerContent(NLServices.REGISTRY.registerItem(FARMERS_DELIGHT_MOD_ID, id, () -> new BlockItem(block.get(), new Item.Properties())));
         return block;
     }
 

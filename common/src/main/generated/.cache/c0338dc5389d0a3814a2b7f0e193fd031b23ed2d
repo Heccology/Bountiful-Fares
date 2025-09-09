@@ -1,4 +1,4 @@
-// 1.21.1	2025-09-08T18:41:18.8114104	Bountiful Fares/Block Loot Tables
+// 1.21.1	2025-09-08T21:00:17.2186337	Bountiful Fares/Block Loot Tables
 2aa5ec3da9ab7fce17231adf46ff34931a7c3a63 data\frontiers\loot_table\blocks\eboncork_pickets.json
 10ec61789a27d2a9c8f3db03c388395ac43900c3 data\bountifulfares\loot_table\blocks\wild_elderberry_vine.json
 8ecf653eb0ea4af8602337c9bcd03860bf75b292 data\bountifulfares\loot_table\blocks\potted_hoary_apple_sapling.json
@@ -105,6 +105,7 @@ c865665b83170758c0e589e14d53e5c77512e780 data\bountifulfares\loot_table\blocks\w
 8b37d6741060c417a950da33d3ae2fbcfa110dba data\bountifulfares\loot_table\blocks\walnut_pressure_plate.json
 cc6c5b53b19ee3cfa4a30588520a528d0a6082af data\bountifulfares\loot_table\blocks\walnut_leaves.json
 1fe45bae21d07c5e27c58d1c2df59d753ab4e580 data\bountifulfares\loot_table\blocks\coir_brick_wall.json
+b43a9205f937c8efd9997be81044f915a77ebba7 data\netherexp\loot_table\blocks\claret_pickets.json
 eaceb93d80d158ff427955a64230d97f7c3947e9 data\bountifulfares\loot_table\blocks\apple_leaves.json
 ee85719fbc85e619733f10c9cd88e18dfefb6ad5 data\bountifulfares\loot_table\blocks\prismarine_blossom.json
 f8c97abff08943d2090c132884a55a613d3b8205 data\bountifulfares\loot_table\blocks\golden_apple_wood.json

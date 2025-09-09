@@ -3,9 +3,9 @@ package net.hecco.bountifulfares.registry.util;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
-import net.hecco.heccolib.lib.toolAction.HLToolActions;
-import net.hecco.heccolib.lib.untintedParticleRegistry.HLUntintedParticleRegistry;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.lib.toolAction.NLToolActions;
+import net.hecco.nexuslib.lib.untintedParticleRegistry.NLUntintedParticleRegistry;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -26,15 +26,15 @@ public class BFRegistries {
     }
 
     public static void registerUntintedParticleBlocks() {
-        HLUntintedParticleRegistry.add(BFBlocks.APPLE_LOG.get());
-        HLUntintedParticleRegistry.add(BFBlocks.APPLE_WOOD.get());
-        HLUntintedParticleRegistry.add(BFBlocks.ORANGE_LOG.get());
-        HLUntintedParticleRegistry.add(BFBlocks.ORANGE_WOOD.get());
-        HLUntintedParticleRegistry.add(BFBlocks.LEMON_LOG.get());
-        HLUntintedParticleRegistry.add(BFBlocks.LEMON_WOOD.get());
-        HLUntintedParticleRegistry.add(BFBlocks.PLUM_LOG.get());
-        HLUntintedParticleRegistry.add(BFBlocks.PLUM_WOOD.get());
-        HLUntintedParticleRegistry.add(BFBlocks.GRASSY_DIRT.get());
+        NLUntintedParticleRegistry.add(BFBlocks.APPLE_LOG.get());
+        NLUntintedParticleRegistry.add(BFBlocks.APPLE_WOOD.get());
+        NLUntintedParticleRegistry.add(BFBlocks.ORANGE_LOG.get());
+        NLUntintedParticleRegistry.add(BFBlocks.ORANGE_WOOD.get());
+        NLUntintedParticleRegistry.add(BFBlocks.LEMON_LOG.get());
+        NLUntintedParticleRegistry.add(BFBlocks.LEMON_WOOD.get());
+        NLUntintedParticleRegistry.add(BFBlocks.PLUM_LOG.get());
+        NLUntintedParticleRegistry.add(BFBlocks.PLUM_WOOD.get());
+        NLUntintedParticleRegistry.add(BFBlocks.GRASSY_DIRT.get());
     }
 
     public static void registerDispenserBehaviors() {
@@ -71,30 +71,30 @@ public class BFRegistries {
     }
 
     public static void registerStrippables() {
-        HLToolActions.addStrippable(BFBlocks.APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
-        HLToolActions.addStrippable(BFBlocks.APPLE_WOOD, BFBlocks.STRIPPED_APPLE_WOOD);
-        HLToolActions.addStrippable(BFBlocks.GOLDEN_APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
-        HLToolActions.addStrippable(BFBlocks.GOLDEN_APPLE_WOOD, BFBlocks.STRIPPED_APPLE_WOOD);
-        HLToolActions.addStrippable(BFBlocks.ORANGE_LOG, BFBlocks.STRIPPED_ORANGE_LOG);
-        HLToolActions.addStrippable(BFBlocks.ORANGE_WOOD, BFBlocks.STRIPPED_ORANGE_WOOD);
-        HLToolActions.addStrippable(BFBlocks.LEMON_LOG, BFBlocks.STRIPPED_LEMON_LOG);
-        HLToolActions.addStrippable(BFBlocks.LEMON_WOOD, BFBlocks.STRIPPED_LEMON_WOOD);
-        HLToolActions.addStrippable(BFBlocks.PLUM_LOG, BFBlocks.STRIPPED_PLUM_LOG);
-        HLToolActions.addStrippable(BFBlocks.PLUM_WOOD, BFBlocks.STRIPPED_PLUM_WOOD);
-        HLToolActions.addStrippable(BFBlocks.HOARY_LOG, BFBlocks.STRIPPED_HOARY_LOG);
-        HLToolActions.addStrippable(BFBlocks.HOARY_WOOD, BFBlocks.STRIPPED_HOARY_WOOD);
-        HLToolActions.addStrippable(BFBlocks.WALNUT_LOG, BFBlocks.STRIPPED_WALNUT_LOG);
-        HLToolActions.addStrippable(BFBlocks.WALNUT_WOOD, BFBlocks.STRIPPED_WALNUT_WOOD);
-        HLToolActions.addStrippable(BFBlocks.PALM_LOG, BFBlocks.STRIPPED_PALM_LOG);
-        HLToolActions.addStrippable(BFBlocks.PALM_WOOD, BFBlocks.STRIPPED_PALM_WOOD);
+        NLToolActions.addStrippable(BFBlocks.APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
+        NLToolActions.addStrippable(BFBlocks.APPLE_WOOD, BFBlocks.STRIPPED_APPLE_WOOD);
+        NLToolActions.addStrippable(BFBlocks.GOLDEN_APPLE_LOG, BFBlocks.STRIPPED_APPLE_LOG);
+        NLToolActions.addStrippable(BFBlocks.GOLDEN_APPLE_WOOD, BFBlocks.STRIPPED_APPLE_WOOD);
+        NLToolActions.addStrippable(BFBlocks.ORANGE_LOG, BFBlocks.STRIPPED_ORANGE_LOG);
+        NLToolActions.addStrippable(BFBlocks.ORANGE_WOOD, BFBlocks.STRIPPED_ORANGE_WOOD);
+        NLToolActions.addStrippable(BFBlocks.LEMON_LOG, BFBlocks.STRIPPED_LEMON_LOG);
+        NLToolActions.addStrippable(BFBlocks.LEMON_WOOD, BFBlocks.STRIPPED_LEMON_WOOD);
+        NLToolActions.addStrippable(BFBlocks.PLUM_LOG, BFBlocks.STRIPPED_PLUM_LOG);
+        NLToolActions.addStrippable(BFBlocks.PLUM_WOOD, BFBlocks.STRIPPED_PLUM_WOOD);
+        NLToolActions.addStrippable(BFBlocks.HOARY_LOG, BFBlocks.STRIPPED_HOARY_LOG);
+        NLToolActions.addStrippable(BFBlocks.HOARY_WOOD, BFBlocks.STRIPPED_HOARY_WOOD);
+        NLToolActions.addStrippable(BFBlocks.WALNUT_LOG, BFBlocks.STRIPPED_WALNUT_LOG);
+        NLToolActions.addStrippable(BFBlocks.WALNUT_WOOD, BFBlocks.STRIPPED_WALNUT_WOOD);
+        NLToolActions.addStrippable(BFBlocks.PALM_LOG, BFBlocks.STRIPPED_PALM_LOG);
+        NLToolActions.addStrippable(BFBlocks.PALM_WOOD, BFBlocks.STRIPPED_PALM_WOOD);
     }
 
     public static void registerPathables() {
-        HLToolActions.addPathable(BFBlocks.GRASSY_DIRT.get(), Blocks.DIRT_PATH);
+        NLToolActions.addPathable(BFBlocks.GRASSY_DIRT.get(), Blocks.DIRT_PATH);
     }
 
     public static void registerTillables() {
-        HLToolActions.addTillable(BFBlocks.GRASSY_DIRT.get(), Blocks.FARMLAND);
+        NLToolActions.addTillable(BFBlocks.GRASSY_DIRT.get(), Blocks.FARMLAND);
     }
 
     private static void registerModCompostables() {
@@ -192,40 +192,40 @@ public class BFRegistries {
     }
 
     public static void registerFlammables() {
-        HLServices.REGISTRY.setFlammable(BFBlockTags.APPLE_LEAVES, 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.ORANGE_LEAVES, 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.LEMON_LEAVES, 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.PLUM_LEAVES, 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_LEAVES.get(), 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_FROND.get(), 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALL_PALM_FROND.get(), 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.APPLE_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.ORANGE_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.LEMON_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.PLUM_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_CROWN.get(), 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.PALM_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.HOARY_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.WALNUT_LOGS, 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_PLANKS.get(), 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_STAIRS.get(), 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_SLAB.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_FENCE.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_FENCE_GATE.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_DOOR.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.HOARY_TRAPDOOR.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_PLANKS.get(), 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_STAIRS.get(), 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_SLAB.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_FENCE.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_FENCE_GATE.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_DOOR.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_TRAPDOOR.get(), 20, 5);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH.get(), 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH_BLOCK.get(), 20, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH.get(), 60, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH_BLOCK.get(), 20, 30);
-        HLServices.REGISTRY.setFlammable(BFBlocks.FLOUR_BLOCK.get(), 10, 5);
-        HLServices.REGISTRY.setFlammable(BFBlockTags.PICKETS, 20, 5);
+        NLServices.REGISTRY.setFlammable(BFBlockTags.APPLE_LEAVES, 60, 30);
+        NLServices.REGISTRY.setFlammable(BFBlockTags.ORANGE_LEAVES, 60, 30);
+        NLServices.REGISTRY.setFlammable(BFBlockTags.LEMON_LEAVES, 60, 30);
+        NLServices.REGISTRY.setFlammable(BFBlockTags.PLUM_LEAVES, 60, 30);
+        NLServices.REGISTRY.setFlammable(BFBlocks.HOARY_LEAVES.get(), 60, 30);
+        NLServices.REGISTRY.setFlammable(BFBlocks.PALM_FROND.get(), 60, 30);
+        NLServices.REGISTRY.setFlammable(BFBlocks.WALL_PALM_FROND.get(), 60, 30);
+        NLServices.REGISTRY.setFlammable(BFBlockTags.APPLE_LOGS, 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlockTags.ORANGE_LOGS, 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlockTags.LEMON_LOGS, 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlockTags.PLUM_LOGS, 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.PALM_CROWN.get(), 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlockTags.PALM_LOGS, 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlockTags.HOARY_LOGS, 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlockTags.WALNUT_LOGS, 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.HOARY_PLANKS.get(), 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.HOARY_STAIRS.get(), 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.HOARY_SLAB.get(), 20, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.HOARY_FENCE.get(), 20, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.HOARY_FENCE_GATE.get(), 20, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.HOARY_DOOR.get(), 20, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.HOARY_TRAPDOOR.get(), 20, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_PLANKS.get(), 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_STAIRS.get(), 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_SLAB.get(), 20, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_FENCE.get(), 20, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_FENCE_GATE.get(), 20, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_DOOR.get(), 20, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_TRAPDOOR.get(), 20, 5);
+        NLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH.get(), 60, 30);
+        NLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH_BLOCK.get(), 20, 30);
+        NLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH.get(), 60, 30);
+        NLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH_BLOCK.get(), 20, 30);
+        NLServices.REGISTRY.setFlammable(BFBlocks.FLOUR_BLOCK.get(), 10, 5);
+        NLServices.REGISTRY.setFlammable(BFBlockTags.PICKETS, 20, 5);
     }
 }

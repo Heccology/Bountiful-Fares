@@ -10,9 +10,9 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFSoundTypes;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
-import net.hecco.heccolib.lib.compat.CompatManager;
-import net.hecco.heccolib.lib.compat.ModIntegration;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.lib.compat.CompatManager;
+import net.hecco.nexuslib.lib.compat.ModIntegration;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -62,24 +62,24 @@ public class NoMansLandIntegration implements ModIntegration {
     public void registerContent() {
         for (String wood : WOOD_TYPES) {
             String key = NO_MANS_LAND_MOD_ID + "_" + wood;
-            BFBlocks.TRELLISES.put(key, (Supplier<Block>) registerContent(HLServices.REGISTRY.registerBlockNoItem(NO_MANS_LAND_MOD_ID, wood + "_trellis", () -> new TrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).randomTicks().noOcclusion()))));
-            registerContent(HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, wood + "_trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(key).get(), new Item.Properties())));
-            if (HLServices.PLATFORM.isDatagen()) {
-                HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, wood + "_planks", () -> new Item(new Item.Properties()));
+            BFBlocks.TRELLISES.put(key, (Supplier<Block>) registerContent(NLServices.REGISTRY.registerBlockNoItem(NO_MANS_LAND_MOD_ID, wood + "_trellis", () -> new TrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).randomTicks().noOcclusion()))));
+            registerContent(NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, wood + "_trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(key).get(), new Item.Properties())));
+            if (NLServices.PLATFORM.isDatagen()) {
+                NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, wood + "_planks", () -> new Item(new Item.Properties()));
             }
-            BFBlocks.PICKETS.put(key, (Supplier<Block>) registerContent(HLServices.REGISTRY.registerBlockNoItem(NO_MANS_LAND_MOD_ID, wood + "_pickets", () -> new PicketsBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.NONE).strength(0.5F).sound(BFSoundTypes.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion()))));
-            registerContent(HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, wood + "_pickets", () -> new BlockItem(BFBlocks.PICKETS.get(key).get(), new Item.Properties())));
+            BFBlocks.PICKETS.put(key, (Supplier<Block>) registerContent(NLServices.REGISTRY.registerBlockNoItem(NO_MANS_LAND_MOD_ID, wood + "_pickets", () -> new PicketsBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.NONE).strength(0.5F).sound(BFSoundTypes.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion()))));
+            registerContent(NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, wood + "_pickets", () -> new BlockItem(BFBlocks.PICKETS.get(key).get(), new Item.Properties())));
         }
 
-        CANDIED_PEAR = (Supplier<Item>) registerContent(HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, "candied_pear", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.5F).build()))));
-        MAPLE_MEAD_BOTTLE = (Supplier<Item>) registerContent(HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, "maple_mead_bottle", () -> new MapleMeadBottleItem(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.4f).effect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1).effect(new MobEffectInstance(MobEffects.CONFUSION, 600, 0), 0.3f).alwaysEdible().build()).stacksTo(16))));
+        CANDIED_PEAR = (Supplier<Item>) registerContent(NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, "candied_pear", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.5F).build()))));
+        MAPLE_MEAD_BOTTLE = (Supplier<Item>) registerContent(NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, "maple_mead_bottle", () -> new MapleMeadBottleItem(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.4f).effect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1).effect(new MobEffectInstance(MobEffects.CONFUSION, 600, 0), 0.3f).alwaysEdible().build()).stacksTo(16))));
 
 
         //DATAGEN DUMMY ITEMS
-        if (HLServices.PLATFORM.isDatagen()) {
-            HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID,  "pear", () -> new Item(new Item.Properties()));
-            HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID,  "maple_syrup_bottle", () -> new Item(new Item.Properties()));
-            HLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID,  "grilled_mushrooms", () -> new Item(new Item.Properties()));
+        if (NLServices.PLATFORM.isDatagen()) {
+            NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID,  "pear", () -> new Item(new Item.Properties()));
+            NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID,  "maple_syrup_bottle", () -> new Item(new Item.Properties()));
+            NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID,  "grilled_mushrooms", () -> new Item(new Item.Properties()));
         }
     }
 

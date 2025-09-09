@@ -3,9 +3,9 @@ package net.hecco.bountifulfares.registry.integration;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.integration.AppledogBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.hecco.heccolib.lib.compat.CompatManager;
-import net.hecco.heccolib.lib.compat.ModIntegration;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.lib.compat.CompatManager;
+import net.hecco.nexuslib.lib.compat.ModIntegration;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -45,15 +45,15 @@ public class AppledogIntegration implements ModIntegration {
         APPLEDOG_BLOCK = registerBlock("appledog_block", () -> new AppledogBlock(BlockBehaviour.Properties.ofFullCopy(BFBlocks.APPLE_BLOCK.get()).strength(1f, 1000f)));
 
         //DATAGEN DUMMY ITEMS
-        if (HLServices.PLATFORM.isDatagen()) {
-            HLServices.REGISTRY.registerItem(APPLEDOG_MOD_ID,  "dogapple", () -> new Item(new Item.Properties()));
+        if (NLServices.PLATFORM.isDatagen()) {
+            NLServices.REGISTRY.registerItem(APPLEDOG_MOD_ID,  "dogapple", () -> new Item(new Item.Properties()));
         }
     }
 
     @SuppressWarnings("unchecked")
     private Supplier<net.minecraft.world.level.block.Block> registerBlock(String id, Supplier<net.minecraft.world.level.block.Block> supplier) {
-        Supplier<net.minecraft.world.level.block.Block> block = (Supplier<net.minecraft.world.level.block.Block>) registerContent(HLServices.REGISTRY.registerBlockNoItem(APPLEDOG_MOD_ID, id, supplier));
-        registerContent(HLServices.REGISTRY.registerItem(APPLEDOG_MOD_ID, id, () -> new BlockItem(block.get(), new Item.Properties().rarity(Rarity.EPIC))));
+        Supplier<net.minecraft.world.level.block.Block> block = (Supplier<net.minecraft.world.level.block.Block>) registerContent(NLServices.REGISTRY.registerBlockNoItem(APPLEDOG_MOD_ID, id, supplier));
+        registerContent(NLServices.REGISTRY.registerItem(APPLEDOG_MOD_ID, id, () -> new BlockItem(block.get(), new Item.Properties().rarity(Rarity.EPIC))));
         return block;
     }
 

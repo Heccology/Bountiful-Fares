@@ -3,7 +3,7 @@ package net.hecco.bountifulfares;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.hecco.bountifulfares.datagen.*;
-import net.hecco.heccolib.lib.compat.FabricHLCompatAPI;
+import net.hecco.nexuslib.lib.compat.FabricNLCompatAPI;
 import net.minecraft.resources.ResourceLocation;
 
 public class FabricBountifulFaresDatagen implements DataGeneratorEntrypoint {
@@ -18,7 +18,7 @@ public class FabricBountifulFaresDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(BFModelProvider::new);
         pack.addProvider(BFLangProvider::new);
 
-        FabricHLCompatAPI.generateCompatDatapacks(fabricDataGenerator, BountifulFares.COMPAT_MANAGER);
+        FabricNLCompatAPI.generateCompatDatapacks(fabricDataGenerator, BountifulFares.COMPAT_MANAGER);
 //        FabricDataGenerator.Pack mintDataPack = fabricDataGenerator.createBuiltinResourcePack(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, BountifulFares.ELS_AND_LS_DYES_MOD_ID + "_dat"));
 //        mintDataPack.addProvider(MintBlockLootTableProvider::new);
 //        mintDataPack.addProvider(MintBlockTagProvider::new);

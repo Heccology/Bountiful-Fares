@@ -4,7 +4,7 @@ import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.networking.payload.TrellisEmptyPayload;
 import net.hecco.bountifulfares.definition.networking.payload.TrellisPlantPayload;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -65,9 +65,9 @@ public class TrellisBlockEntity extends BlockEntity {
         if (this.getLevel() != null && !this.getLevel().isClientSide) {
             ServerLevel level = (ServerLevel) this.getLevel();
             if (plant != ItemStack.EMPTY) {
-                HLServices.NETWORK.sendToPlayersTrackingChunk(level, this.getBlockPos(), new TrellisPlantPayload(this.getBlockPos(), this.plant, this.stage));
+                NLServices.NETWORK.sendToPlayersTrackingChunk(level, this.getBlockPos(), new TrellisPlantPayload(this.getBlockPos(), this.plant, this.stage));
             } else {
-                HLServices.NETWORK.sendToPlayersTrackingChunk(level, this.getBlockPos(), new TrellisEmptyPayload(this.getBlockPos()));
+                NLServices.NETWORK.sendToPlayersTrackingChunk(level, this.getBlockPos(), new TrellisEmptyPayload(this.getBlockPos()));
             }
         }
         super.setChanged();

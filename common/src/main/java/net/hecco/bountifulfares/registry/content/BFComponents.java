@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.item.component.TiffinContents;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.component.DataComponentType;
 
 import java.util.function.Supplier;
@@ -13,7 +13,7 @@ public class BFComponents {
     public static final Supplier<DataComponentType<TiffinContents>> TIFFIN_CONTENTS = registerComponent("tiffin_contents", (builder) -> builder.persistent(TiffinContents.CODEC).networkSynchronized(TiffinContents.STREAM_CODEC).cacheEncoding());
 
     private static <T> Supplier<DataComponentType<T>> registerComponent(String name, UnaryOperator<DataComponentType.Builder<T>> builder) {
-        return HLServices.REGISTRY.registerComponentType(BountifulFares.MOD_ID, name, builder);
+        return NLServices.REGISTRY.registerComponentType(BountifulFares.MOD_ID, name, builder);
     }
 
     public static void registerComponents() {

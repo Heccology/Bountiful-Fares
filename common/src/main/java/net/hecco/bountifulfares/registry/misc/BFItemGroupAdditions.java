@@ -5,7 +5,7 @@ import net.hecco.bountifulfares.definition.item.component.TiffinContents;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -142,8 +142,8 @@ public class BFItemGroupAdditions {
         BUILDING_BLOCKS.add(new Pair<>(BFBlocks.CERAMIC_PRESSURE_PLATE.get(), BFBlocks.CERAMIC_BUTTON.get().asItem().getDefaultInstance()));
         BUILDING_BLOCKS.add(new Pair<>(Blocks.IRON_BARS, BFBlocks.IRON_RAILING.get().asItem().getDefaultInstance()));
 
-        if (HLServices.PLATFORM.getPlatformName() == "Fabric") {
-            HLServices.REGISTRY.addItemsToItemGroup(
+        if (NLServices.PLATFORM.getPlatformName() == "Fabric") {
+            NLServices.REGISTRY.addItemsToItemGroup(
                     ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("building_blocks")),
                     BUILDING_BLOCKS
             );
@@ -201,8 +201,8 @@ public class BFItemGroupAdditions {
         NATURAL_BLOCKS.add(new Pair<>(Items.PITCHER_POD, BFItems.LAPISBERRY_SEEDS.get().asItem().getDefaultInstance()));
         NATURAL_BLOCKS.add(new Pair<>(BFItems.LAPISBERRY_SEEDS.get(), BFItems.HOARY_SEEDS.get().asItem().getDefaultInstance()));
 
-        if (HLServices.PLATFORM.getPlatformName() == "Fabric") {
-            HLServices.REGISTRY.addItemsToItemGroup(
+        if (NLServices.PLATFORM.getPlatformName() == "Fabric") {
+            NLServices.REGISTRY.addItemsToItemGroup(
                     ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("natural_blocks")),
                     NATURAL_BLOCKS
             );
@@ -268,8 +268,8 @@ public class BFItemGroupAdditions {
         FUNCTIONAL_BLOCKS.add(new Pair<>(BFItems.WALNUT_HANGING_SIGN.get(), BFItems.HOARY_SIGN.get().asItem().getDefaultInstance()));
         FUNCTIONAL_BLOCKS.add(new Pair<>(BFItems.HOARY_SIGN.get(), BFItems.HOARY_HANGING_SIGN.get().asItem().getDefaultInstance()));
 //
-        if (HLServices.PLATFORM.getPlatformName() == "Fabric") {
-            HLServices.REGISTRY.addItemsToItemGroup(
+        if (NLServices.PLATFORM.getPlatformName() == "Fabric") {
+            NLServices.REGISTRY.addItemsToItemGroup(
                     ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("functional_blocks")),
                     FUNCTIONAL_BLOCKS
             );
@@ -279,8 +279,8 @@ public class BFItemGroupAdditions {
         REDSTONE_BLOCKS.add(new Pair<>(Items.STONE_BUTTON, BFBlocks.CERAMIC_BUTTON.get().asItem().getDefaultInstance()));
         REDSTONE_BLOCKS.add(new Pair<>(Items.HEAVY_WEIGHTED_PRESSURE_PLATE, BFBlocks.CERAMIC_PRESSURE_PLATE.get().asItem().getDefaultInstance()));
         REDSTONE_BLOCKS.add(new Pair<>(Items.WHITE_WOOL, BFBlocks.CERAMIC_TILES.get().asItem().getDefaultInstance()));
-        if (HLServices.PLATFORM.getPlatformName() == "Fabric") {
-            HLServices.REGISTRY.addItemsToItemGroup(
+        if (NLServices.PLATFORM.getPlatformName() == "Fabric") {
+            NLServices.REGISTRY.addItemsToItemGroup(
                     ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("redstone_blocks")),
                     REDSTONE_BLOCKS
             );
@@ -310,8 +310,8 @@ public class BFItemGroupAdditions {
         addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.PURPLE, DyeColor.MAGENTA);
         addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.MAGENTA, DyeColor.PINK);
 
-        if (HLServices.PLATFORM.getPlatformName() == "Fabric") {
-            HLServices.REGISTRY.addItemsToItemGroup(
+        if (NLServices.PLATFORM.getPlatformName() == "Fabric") {
+            NLServices.REGISTRY.addItemsToItemGroup(
                     ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("tools_and_utilities")),
                     TOOLS_AND_UTILITIES
             );
@@ -319,8 +319,8 @@ public class BFItemGroupAdditions {
 
         COMBAT.add(new Pair<>(Items.EGG, BFItems.FLOUR.get().asItem().getDefaultInstance()));
 
-        if (HLServices.PLATFORM.getPlatformName() == "Fabric") {
-            HLServices.REGISTRY.addItemsToItemGroup(
+        if (NLServices.PLATFORM.getPlatformName() == "Fabric") {
+            NLServices.REGISTRY.addItemsToItemGroup(
                     ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("combat")),
                     COMBAT
             );
@@ -445,8 +445,8 @@ public class BFItemGroupAdditions {
 
 
 
-        if (HLServices.PLATFORM.getPlatformName() == "Fabric") {
-            HLServices.REGISTRY.addItemsToItemGroup(
+        if (NLServices.PLATFORM.getPlatformName() == "Fabric") {
+            NLServices.REGISTRY.addItemsToItemGroup(
                     ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("food_and_drinks")),
                     FOOD_AND_DRINKS
             );
@@ -465,8 +465,8 @@ public class BFItemGroupAdditions {
         INGREDIENTS.add(new Pair<>(BFItems.COCONUT_COIR.get(), BFItems.TEA_LEAVES.get().asItem().getDefaultInstance()));
         INGREDIENTS.add(new Pair<>(BFItems.TEA_LEAVES.get(), BFItems.DRIED_TEA_LEAVES.get().asItem().getDefaultInstance()));
 
-        if (HLServices.PLATFORM.getPlatformName() == "Fabric") {
-            HLServices.REGISTRY.addItemsToItemGroup(
+        if (NLServices.PLATFORM.getPlatformName() == "Fabric") {
+            NLServices.REGISTRY.addItemsToItemGroup(
                     ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("ingredients")),
                     INGREDIENTS
             );
@@ -500,8 +500,8 @@ public class BFItemGroupAdditions {
         COLORED_BLOCKS.add(new Pair<>(BFBlocks.PURPLE_JACK_O_STRAW.get(), BFBlocks.MAGENTA_JACK_O_STRAW.get().asItem().getDefaultInstance()));
         COLORED_BLOCKS.add(new Pair<>(BFBlocks.MAGENTA_JACK_O_STRAW.get(), BFBlocks.PINK_JACK_O_STRAW.get().asItem().getDefaultInstance()));
 
-        if (HLServices.PLATFORM.getPlatformName() == "Fabric") {
-            HLServices.REGISTRY.addItemsToItemGroup(
+        if (NLServices.PLATFORM.getPlatformName() == "Fabric") {
+            NLServices.REGISTRY.addItemsToItemGroup(
                     ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("colored_blocks")),
                     COLORED_BLOCKS
             );

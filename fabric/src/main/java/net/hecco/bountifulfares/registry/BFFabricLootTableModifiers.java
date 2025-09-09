@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.advancements.critereon.BlockPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.LocationPredicate;
@@ -60,7 +60,7 @@ public class BFFabricLootTableModifiers {
         LootTableEvents.REPLACE.register((key, original, source, wrapperLookup) -> {
             if (SHORT_GRASS_ID.equals(key) && do_grass_override) {
                 LootTable.Builder builder = newGrassDropsShort(Blocks.SHORT_GRASS, BFItems.GRASS_SEEDS.get(), wrapperLookup);
-                if (HLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID))
+                if (NLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID))
                 {
                     builder = addFDStraw(builder);
                 }
@@ -72,7 +72,7 @@ public class BFFabricLootTableModifiers {
         LootTableEvents.REPLACE.register((key, original, source, wrapperLookup) -> {
             if (TALL_GRASS_ID.equals(key) && do_grass_override) {
                 LootTable.Builder builder = newGrassDropsTall(Blocks.TALL_GRASS, Blocks.SHORT_GRASS, BFItems.GRASS_SEEDS.get());
-                if (HLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID))
+                if (NLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID))
                 {
                     builder = addFDStraw(builder);
                 }
@@ -84,7 +84,7 @@ public class BFFabricLootTableModifiers {
         LootTableEvents.REPLACE.register((key, original, source, wrapperLookup) -> {
             if (FERN_ID.equals(key) && do_grass_override) {
                 LootTable.Builder builder = newGrassDropsShort(Blocks.FERN, BFItems.GRASS_SEEDS.get(), wrapperLookup);
-                if (HLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID))
+                if (NLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID))
                 {
                     builder = addFDStraw(builder);
                 }
@@ -96,7 +96,7 @@ public class BFFabricLootTableModifiers {
         LootTableEvents.REPLACE.register((key, original, source, wrapperLookup) -> {
             if (LARGE_FERN_ID.equals(key) && do_grass_override) {
                 LootTable.Builder builder = newGrassDropsTall(Blocks.LARGE_FERN, Blocks.FERN, BFItems.GRASS_SEEDS.get());
-                if (HLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID))
+                if (NLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID))
                 {
                     builder = addFDStraw(builder);
                 }

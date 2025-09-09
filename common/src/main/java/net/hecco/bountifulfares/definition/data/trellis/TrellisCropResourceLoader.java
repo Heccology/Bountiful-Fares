@@ -6,7 +6,6 @@ import com.google.gson.JsonElement;
 import com.mojang.serialization.JsonOps;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
-import net.hecco.heccolib.platform.HLServices;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;

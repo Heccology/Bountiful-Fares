@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -81,11 +81,11 @@ public class BFSounds {
      public static final Holder<SoundEvent> NOTE_BLOCK_STEEL_DRUM = registerSoundReference("steel_drum");
 //
     private static Holder<SoundEvent> registerSoundReference(String id) {
-        return HLServices.REGISTRY.registerForHolder(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
+        return NLServices.REGISTRY.registerForHolder(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
     }
 
     private static Supplier<SoundEvent> registerSoundEvent(String id) {
-        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
+        return NLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
     }
 
     public static void registerSounds() {

@@ -10,7 +10,7 @@ import net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPa
 import net.hecco.bountifulfares.definition.networking.payload.CeramicDishItemPayload;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerLevel;
@@ -63,7 +63,7 @@ public class DyeableCeramicBlock {
 
     /** Sends a color payload update to all listening clients. */
     public static void sendColorPayload(ServerLevel world, BlockEntity entity, int color) {
-        HLServices.NETWORK.sendToPlayersTrackingChunk(world, entity.getBlockPos(), new CeramicBlockColorPayload(entity.getBlockPos(), color));
+        NLServices.NETWORK.sendToPlayersTrackingChunk(world, entity.getBlockPos(), new CeramicBlockColorPayload(entity.getBlockPos(), color));
 
         /*
         if (!world.isClient() && world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity) {
@@ -74,12 +74,12 @@ public class DyeableCeramicBlock {
 
     /** Sends a ceramic dish payload update to all listening clients. */
     public static void sendDishPayload(ServerLevel world, BlockEntity entity, ItemStack stack) {
-        HLServices.NETWORK.sendToPlayersTrackingChunk(world, entity.getBlockPos(), new CeramicDishItemPayload(entity.getBlockPos(), stack));
+        NLServices.NETWORK.sendToPlayersTrackingChunk(world, entity.getBlockPos(), new CeramicDishItemPayload(entity.getBlockPos(), stack));
     }
 
     /** Sends a ceramic dish clear payload update to all listening clients. */
     public static void sendDishClearPayload(ServerLevel world, BlockEntity entity) {
-        HLServices.NETWORK.sendToPlayersTrackingChunk(world, entity.getBlockPos(), new CeramicDishEmptyPayload(entity.getBlockPos()));
+        NLServices.NETWORK.sendToPlayersTrackingChunk(world, entity.getBlockPos(), new CeramicDishEmptyPayload(entity.getBlockPos()));
     }
 
     public static Block tryRevertCheckered(Block block)
@@ -116,7 +116,7 @@ public class DyeableCeramicBlock {
                 return ItemInteractionResult.SUCCESS;
             }
         }
-        if (HLServices.PLATFORM.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+        if (NLServices.PLATFORM.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
             Item item = stack.getItem();
             if (CompatUtil.isItemPaintbrush(item)) {
                 int brushColor = CompatUtil.getIntColorFromPaintbrush(item);
@@ -171,7 +171,7 @@ public class DyeableCeramicBlock {
 
             return ItemInteractionResult.SUCCESS;
         }
-        if (HLServices.PLATFORM.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+        if (NLServices.PLATFORM.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
             Item item = stack.getItem();
             if (CompatUtil.isItemPaintbrush(item)) {
                 int brushColor = CompatUtil.getIntColorFromPaintbrush(item);
@@ -214,7 +214,7 @@ public class DyeableCeramicBlock {
             brushColor = stack.getComponents().get(DataComponents.DYED_COLOR).rgb();
             changes_made = true;
         }
-        else if (HLServices.PLATFORM.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+        else if (NLServices.PLATFORM.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
             Item item = stack.getItem();
             if (CompatUtil.isItemPaintbrush(item)) {
                 int compatGet = CompatUtil.getIntColorFromPaintbrush(item);

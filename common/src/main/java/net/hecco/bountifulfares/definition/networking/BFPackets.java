@@ -9,7 +9,7 @@ import net.hecco.bountifulfares.definition.networking.payload.*;
 import net.hecco.bountifulfares.definition.trigger.FillTiffinTrigger;
 import net.hecco.bountifulfares.definition.trigger.UseArtisanBrushInInventoryTrigger;
 import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -19,7 +19,7 @@ import net.minecraft.world.level.Level;
 
 public class BFPackets {
     public static void ceramicDishEmpty(CeramicDishEmptyPayload payload) {
-        if (HLServices.PLATFORM.isClientSide()) {
+        if (NLServices.PLATFORM.isClientSide()) {
             Level world = Minecraft.getInstance().level;
             if (world == null) return;
             BlockPos pos = payload.pos();
@@ -32,7 +32,7 @@ public class BFPackets {
     }
 
     public static void ceramicDishItem(CeramicDishItemPayload payload) {
-        if (HLServices.PLATFORM.isClientSide()) {
+        if (NLServices.PLATFORM.isClientSide()) {
             Level world = Minecraft.getInstance().level;
             if (world == null) return;
             BlockPos pos = payload.pos();
@@ -46,7 +46,7 @@ public class BFPackets {
     }
 
     public static void ceramicBlockColor(CeramicBlockColorPayload payload) {
-        if (HLServices.PLATFORM.isClientSide()) {
+        if (NLServices.PLATFORM.isClientSide()) {
             Level world = Minecraft.getInstance().level;
             if (world == null) return;
             BlockPos pos = payload.pos();
@@ -63,7 +63,7 @@ public class BFPackets {
     }
 
     public static void trellisPlant(TrellisPlantPayload payload) {
-        if (HLServices.PLATFORM.isClientSide()) {
+        if (NLServices.PLATFORM.isClientSide()) {
             Level world = Minecraft.getInstance().level;
             if (world == null) return;
             BlockPos pos = payload.pos();
@@ -78,7 +78,7 @@ public class BFPackets {
     }
 
     public static void trellisEmpty(TrellisEmptyPayload payload) {
-        if (HLServices.PLATFORM.isClientSide()) {
+        if (NLServices.PLATFORM.isClientSide()) {
             Level world = Minecraft.getInstance().level;
             if (world == null) return;
             BlockPos pos = payload.pos();
@@ -91,7 +91,7 @@ public class BFPackets {
     }
 
     public static void trellisSync(TrellisSyncPayload payload) {
-        if (HLServices.PLATFORM.isClientSide()) {
+        if (NLServices.PLATFORM.isClientSide()) {
             TrellisBlock.CROPS.clear();
             payload.crops().forEach((id, def) ->
                     TrellisBlock.CROPS.put(def.seeds(), def)

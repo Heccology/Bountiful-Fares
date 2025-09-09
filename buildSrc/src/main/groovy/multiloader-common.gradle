@@ -100,7 +100,8 @@ processResources {
             "forge_loader_version_range": forge_loader_version_range,
             'credits'                      : credits,
             'java_version'                 : java_version,
-            'heccolib_version_range'       : heccolib_version_range
+            'nexuslib_version_range': nexuslib_version_range,
+            'nexuslib_version': nexuslib_version
     ]
 
     filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', 'META-INF/neoforge.mods.toml', '*.mixins.json']) {

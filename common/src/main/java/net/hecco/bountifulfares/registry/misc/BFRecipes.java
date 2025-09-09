@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.registry.misc;
 
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.recipe.*;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.crafting.*;
 
@@ -14,7 +14,7 @@ public class BFRecipes {
     public static final Supplier<RecipeType<FermentationRecipe>> FERMENTING = register("fermenting_recipe");
 
     public static <T extends Recipe<?>> Supplier<RecipeType<T>> register(String id) {
-        return HLServices.REGISTRY.registerRecipeType(BountifulFares.MOD_ID, id);
+        return NLServices.REGISTRY.registerRecipeType(BountifulFares.MOD_ID, id);
     }
 
     public static final Supplier<RecipeSerializer<MillingRecipe>> MILLING_SERIALIZER = registerSerializer("milling",
@@ -25,7 +25,7 @@ public class BFRecipes {
 
     @SuppressWarnings("unchecked")
     public static <T extends Recipe<?>> Supplier<RecipeSerializer<T>> registerSerializer(String id, RecipeSerializer<?> serializer) {
-        return HLServices.REGISTRY.registerRecipeSerializer(BountifulFares.MOD_ID, id, (RecipeSerializer<T>) serializer);
+        return NLServices.REGISTRY.registerRecipeSerializer(BountifulFares.MOD_ID, id, (RecipeSerializer<T>) serializer);
     }
 
     public static final Supplier<RecipeSerializer<?>> CERAMIC_MASS_DYEING = registerSpecialRecipe("ceramic_mass_dyeing", CeramicMassDyeingRecipe::new);
@@ -33,7 +33,7 @@ public class BFRecipes {
     public static final Supplier<RecipeSerializer<?>> TIFFIN_FOOD_CRAFTING = registerSpecialRecipe("tiffin_food_crafting", TiffinFoodCraftingRecipe::new);
 
     private static Supplier<RecipeSerializer<?>> registerSpecialRecipe(String name, Function<CraftingBookCategory, CustomRecipe> toRecipe){
-        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, name, BuiltInRegistries.RECIPE_SERIALIZER, () -> new SimpleCraftingRecipeSerializer<>(toRecipe::apply));
+        return NLServices.REGISTRY.register(BountifulFares.MOD_ID, name, BuiltInRegistries.RECIPE_SERIALIZER, () -> new SimpleCraftingRecipeSerializer<>(toRecipe::apply));
     }
 
     public static void registerRecipes() {

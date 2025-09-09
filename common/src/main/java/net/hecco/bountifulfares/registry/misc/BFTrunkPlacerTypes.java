@@ -7,7 +7,7 @@ import net.hecco.bountifulfares.definition.world.HoaryTrunkPlacer;
 import net.hecco.bountifulfares.definition.world.PalmTrunkPlacer;
 import net.hecco.bountifulfares.definition.world.WalnutTrunkPlacer;
 import net.hecco.bountifulfares.mixin.util.TrunkPlacerInvoker;
-import net.hecco.heccolib.platform.HLServices;
+import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
@@ -21,7 +21,7 @@ public class BFTrunkPlacerTypes {
     public static final Supplier<TrunkPlacerType<?>> GOLDEN_APPLE_TRUNK_PLACER = registerTrunkPlacer("golden_apple_trunk_placer", GoldenAppleTrunkPlacer.CODEC);
 
     private static <P extends TrunkPlacer> Supplier<TrunkPlacerType<?>> registerTrunkPlacer(String id, MapCodec<P> codec) {
-        return HLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.TRUNK_PLACER_TYPE, () -> TrunkPlacerInvoker.register(codec));
+        return NLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.TRUNK_PLACER_TYPE, () -> TrunkPlacerInvoker.register(codec));
     }
     public static void registerTrunkPlacers() {
     }

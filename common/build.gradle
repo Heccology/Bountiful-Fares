@@ -6,7 +6,6 @@ plugins {
 repositories {
     maven { url = "https://cursemaven.com" }
     maven { url "https://maven.shedaniel.me/" }
-    maven { url "https://maven.terraformersmc.com/releases/" }
 }
 
 neoForge {
@@ -27,10 +26,16 @@ dependencies {
     // fabric and neoforge both bundle mixinextras, so it is safe to use it in common
     compileOnly group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.3.5'
     annotationProcessor group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.3.5'
-    //HECCOLIB
+    //NEXUSLIB
 //    implementation "curse.maven:heccolib-1279113:${neoforge_heccolib}"
-    implementation files("heccolib-neoforge-1.21.1-1.1.2-BETA4.jar")
+    implementation files("nexuslib-neoforge-1.21.1-1.1.2.jar")
 //    api "me.shedaniel.cloth:cloth-config-neoforge:15.0.140"
+
+    //JEI
+    compileOnlyApi ("curse.maven:jei-238222:6829086")
+
+    //EMI
+    compileOnlyApi ("curse.maven:emi-580555:6420931")
 }
 
 configurations {

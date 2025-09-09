@@ -6,7 +6,6 @@ plugins {
 repositories {
     maven { url = "https://cursemaven.com" }
     maven { url "https://maven.shedaniel.me/" }
-    maven { url "https://maven.terraformersmc.com/releases/" }
 }
 
 neoForge {
@@ -43,12 +42,17 @@ neoForge {
 }
 
 dependencies {
-    //HECCOLIB
-//    implementation "curse.maven:heccolib-1279113:${neoforge_heccolib}"
-    implementation files("heccolib-neoforge-1.21.1-1.1.2-BETA4.jar")
+    //NEXUSLIB
+    implementation files("nexuslib-neoforge-1.21.1-1.1.2.jar")
 
     //APPLESKIN
     compileOnly files("appleskin-neoforge-mc1.21-3.0.7.jar")
+
+    //JEI
+    compileOnlyApi ("curse.maven:jei-238222:6829086")
+
+    //EMI
+    compileOnlyApi ("curse.maven:emi-580555:6420931")
 }
 
 sourceSets.main.resources { srcDir project(":common").file('src/main/generated/').getAbsolutePath() }
