@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
 public class BountifulFares {
 	public static final String MOD_ID = "bountifulfares";
 
-	public static final String ELS_AND_LS_DYES_MOD_ID = "mint";
 	public static final String AMENDMENTS_MOD_ID = "amendments";
 	public static final String NATURES_SPIRIT_MOD_ID = "natures_spirit";
 	public static final String FARMERS_DELIGHT_MOD_ID = "farmersdelight";

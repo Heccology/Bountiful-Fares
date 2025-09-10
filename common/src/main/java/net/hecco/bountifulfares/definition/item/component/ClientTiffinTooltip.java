@@ -28,13 +28,12 @@ public class ClientTiffinTooltip implements ClientTooltipComponent {
     @Override
     public void renderImage(Font font, int x, int y, GuiGraphics guiGraphics) {
         guiGraphics.renderItem(this.contents.getItemStack(), x, y);
-//        RenderSystem.disableScissor();
     }
 
     @Override
     public void renderText(Font font, int mouseX, int mouseY, Matrix4f matrix, MultiBufferSource.BufferSource bufferSource) {
         if (this.contents.item.getCount() != 0) {
-            font.drawInBatch("x" + this.contents.getCount(), (float) mouseX + 18, (float) mouseY + 3, ChatFormatting.GRAY.getColor(), true, matrix, bufferSource, Font.DisplayMode.NORMAL, 0, 15728880);
+            font.drawInBatch(this.contents.getCount() + "/" + this.contents.CAPACITY, (float) mouseX + 18, (float) mouseY + 3, ChatFormatting.GRAY.getColor(), true, matrix, bufferSource, Font.DisplayMode.NORMAL, 0, 15728880);
             if (this.contents.item.getCount() >= contents.CAPACITY) {
                 font.drawInBatch(Component.translatable("tooltip.bountifulfares.shulker_tiffin.full"), (float) mouseX + 2, (float) mouseY + 3 + 14, ChatFormatting.RED.getColor(), true, matrix, bufferSource, Font.DisplayMode.NORMAL, 0, 15728880);
             }
