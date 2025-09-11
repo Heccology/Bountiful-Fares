@@ -136,6 +136,8 @@ public class BFItems {
     public static final Supplier<Item> WALNUT_COOKIE = registerItem("walnut_cookie", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.1F).build())));
     public static final Supplier<Item> CANDIED_APPLE = registerItem("candied_apple", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.5F).build())));
     public static final Supplier<Item> CANDIED_PLUM = registerItem("candied_plum", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.5F).build())));
+//    public static final Supplier<Item> YOGHURT = registerItem("yoghurt", () -> new YoghurtItem(List.of(), new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(1.75F).build())));
+//    public static final Supplier<Item> PASSION_YOGHURT = registerItem("passion_yoghurt", () -> new YoghurtItem(List.of(new MobEffectInstance(BFEffects.RESTORATION, 500)), new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(1.5F).effect(new MobEffectInstance(BFEffects.RESTORATION, 500), 1f).build())));
     public static final Supplier<Item> DIRT_STEW = registerItem("dirt_stew", () -> new OPStewItem(new Item.Properties().stacksTo(99).food(new FoodProperties.Builder().nutrition(1000).saturationModifier(1000)
             .effect(new MobEffectInstance(BFEffects.RESTORATION, 72000, 10, true, true), 1)
             .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 72000, 10, true, true), 1)
