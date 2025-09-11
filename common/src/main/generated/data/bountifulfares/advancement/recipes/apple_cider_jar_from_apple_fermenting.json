@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:citrus_essence_from_orange_fermenting"
+        "recipe": "bountifulfares:apple_cider_jar_from_apple_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:citrus_essence_from_orange_fermenting"
+      "bountifulfares:apple_cider_jar_from_apple_fermenting"
     ]
   }
 }

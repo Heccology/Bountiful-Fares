@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:mead_bottle_from_honey_bottle_fermenting"
+        "recipe": "bountifulfares:foul_flesh_from_rotten_flesh_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:mead_bottle_from_honey_bottle_fermenting"
+      "bountifulfares:foul_flesh_from_rotten_flesh_fermenting"
     ]
   }
 }

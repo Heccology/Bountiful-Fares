@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:coconut_coir_from_coconut_milling"
+        "recipe": "bountifulfares:flour_from_maize_milling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:coconut_coir_from_coconut_milling"
+      "bountifulfares:flour_from_maize_milling"
     ]
   }
 }

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:coconut_milk_bottle_from_coconut_half_fermenting"
+        "recipe": "bountifulfares:grass_seeds_from_short_grass_milling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:coconut_milk_bottle_from_coconut_half_fermenting"
+      "bountifulfares:grass_seeds_from_short_grass_milling"
     ]
   }
 }

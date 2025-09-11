@@ -52,6 +52,8 @@ public class BountifulFares {
 		BFItemGroups.registerItemGroups();
 		BFRegistries.registerMiscRegistries();
 		BFCriteriaTriggers.register();
+		//TODO: Fix recipe loading error from github
+		//TODO: Fix c2s networking on fabric
 	}
 
 	//appledog - Yirmiri

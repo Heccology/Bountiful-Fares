@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:grass_seeds_from_short_grass_milling"
+        "recipe": "bountifulfares:walnut_mulch_from_walnut_milling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:grass_seeds_from_short_grass_milling"
+      "bountifulfares:walnut_mulch_from_walnut_milling"
     ]
   }
 }

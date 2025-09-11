@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.definition.recipe;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
@@ -64,6 +65,6 @@ public class FermentingRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(RecipeOutput exporter) {
-        this.save(exporter, BuiltInRegistries.ITEM.getKey(getResult()).getPath() + "_from_" + BuiltInRegistries.ITEM.getKey(this.ingredient.getItems()[0].getItem()).getPath() + "_fermenting");
+        this.save(exporter, ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.ITEM.getKey(getResult()).getNamespace(), BuiltInRegistries.ITEM.getKey(getResult()).getPath() + "_from_" + BuiltInRegistries.ITEM.getKey(this.ingredient.getItems()[0].getItem()).getPath() + "_fermenting"));
     }
 }

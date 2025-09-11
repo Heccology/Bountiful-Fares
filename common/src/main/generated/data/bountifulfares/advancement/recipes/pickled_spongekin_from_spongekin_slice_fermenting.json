@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:apple_cider_jar_from_apple_fermenting"
+        "recipe": "bountifulfares:pickled_spongekin_from_spongekin_slice_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:apple_cider_jar_from_apple_fermenting"
+      "bountifulfares:pickled_spongekin_from_spongekin_slice_fermenting"
     ]
   }
 }

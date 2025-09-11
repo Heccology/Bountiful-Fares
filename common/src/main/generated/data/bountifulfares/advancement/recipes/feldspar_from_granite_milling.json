@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:palm_mulch_from_palm_frond_milling"
+        "recipe": "bountifulfares:feldspar_from_granite_milling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:palm_mulch_from_palm_frond_milling"
+      "bountifulfares:feldspar_from_granite_milling"
     ]
   }
 }

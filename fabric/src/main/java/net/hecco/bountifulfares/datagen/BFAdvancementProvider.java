@@ -87,7 +87,10 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         true))
                 .parent(make_first_food);
         for (Item i : BuiltInRegistries.ITEM) {
-            if (i.components().has(DataComponents.FOOD) && i != BFItems.DIRT_STEW.get()) {
+            if (
+                    (BuiltInRegistries.ITEM.getKey(i).getNamespace().equals(BountifulFares.MOD_ID) ||
+                    BuiltInRegistries.ITEM.getKey(i).getNamespace().equals("minecraft")) &&
+                    i.components().has(DataComponents.FOOD) && i != BFItems.DIRT_STEW.get()) {
                 if (i.components().get(DataComponents.FOOD).effects().stream().anyMatch((effect) -> effect.effect().getEffect().value().getCategory() == MobEffectCategory.HARMFUL)) {
                     eat_all_bad_foods.addCriterion(BuiltInRegistries.ITEM.getKey(i).getPath(), ConsumeItemTrigger.TriggerInstance.usedItem(ItemPredicate.Builder.item().of(i)));
                 }

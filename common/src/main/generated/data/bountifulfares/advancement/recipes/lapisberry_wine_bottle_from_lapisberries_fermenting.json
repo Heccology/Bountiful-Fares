@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:feldspar_from_diorite_milling"
+        "recipe": "bountifulfares:lapisberry_wine_bottle_from_lapisberries_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:feldspar_from_diorite_milling"
+      "bountifulfares:lapisberry_wine_bottle_from_lapisberries_fermenting"
     ]
   }
 }

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:flour_from_wheat_milling"
+        "recipe": "bountifulfares:hoary_cider_jar_from_hoary_apple_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:flour_from_wheat_milling"
+      "bountifulfares:hoary_cider_jar_from_hoary_apple_fermenting"
     ]
   }
 }

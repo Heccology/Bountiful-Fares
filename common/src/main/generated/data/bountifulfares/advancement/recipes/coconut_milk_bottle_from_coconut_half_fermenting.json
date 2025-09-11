@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:citrus_essence_from_lemon_fermenting"
+        "recipe": "bountifulfares:coconut_milk_bottle_from_coconut_half_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:citrus_essence_from_lemon_fermenting"
+      "bountifulfares:coconut_milk_bottle_from_coconut_half_fermenting"
     ]
   }
 }

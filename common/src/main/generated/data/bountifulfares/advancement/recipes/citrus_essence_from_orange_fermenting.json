@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:feldspar_from_andesite_milling"
+        "recipe": "bountifulfares:citrus_essence_from_orange_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:feldspar_from_andesite_milling"
+      "bountifulfares:citrus_essence_from_orange_fermenting"
     ]
   }
 }

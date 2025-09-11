@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:plum_cider_jar_from_plum_fermenting"
+        "recipe": "bountifulfares:pickled_beetroot_from_beetroot_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:plum_cider_jar_from_plum_fermenting"
+      "bountifulfares:pickled_beetroot_from_beetroot_fermenting"
     ]
   }
 }

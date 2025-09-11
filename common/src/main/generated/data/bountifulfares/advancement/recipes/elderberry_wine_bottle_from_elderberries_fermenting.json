@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:walnut_mulch_from_walnut_milling"
+        "recipe": "bountifulfares:elderberry_wine_bottle_from_elderberries_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:walnut_mulch_from_walnut_milling"
+      "bountifulfares:elderberry_wine_bottle_from_elderberries_fermenting"
     ]
   }
 }

@@ -615,6 +615,7 @@
   "tag.item.c.foods.plums": "Plums",
   "tag.item.c.foods.walnuts": "Walnuts",
   "tooltip.bountifulfares.air_time": "Oxygen",
+  "tooltip.bountifulfares.dilutes_negative_effects": "Dilutes negative effects",
   "tooltip.bountifulfares.dyeable": "Dyeable",
   "tooltip.bountifulfares.removes": "Removes:",
   "tooltip.bountifulfares.removes_all_effects": "Removes all effects",

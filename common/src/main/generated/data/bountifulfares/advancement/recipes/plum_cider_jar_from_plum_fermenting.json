@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:maple_mead_bottle_from_maple_syrup_bottle_fermenting"
+        "recipe": "bountifulfares:plum_cider_jar_from_plum_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:maple_mead_bottle_from_maple_syrup_bottle_fermenting"
+      "bountifulfares:plum_cider_jar_from_plum_fermenting"
     ]
   }
 }
