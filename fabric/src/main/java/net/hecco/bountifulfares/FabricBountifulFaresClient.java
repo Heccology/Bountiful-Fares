@@ -37,8 +37,6 @@ public class FabricBountifulFaresClient implements ClientModInitializer {
         BFMessages.registerS2CPackets();
         ItemTooltipCallback.EVENT.register(BFTooltipEvents::addTooltipsToVanillaItemsFabric);
         BountifulFaresClient.onInitializeClient();
-        BFFoliageGeneration.generateFlowers();
-        BFTreeGeneration.generateTrees();
         ParticleFactoryRegistry.getInstance().register(BFParticles.PRISMARINE_BLOSSOM.get(), PrismarineBlossomParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(BFParticles.FERMENTED_BUBBLE.get(), FermentedBubbleParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(BFParticles.FLOUR_CLOUD.get(), FlourCloudParticle.Factory::new);

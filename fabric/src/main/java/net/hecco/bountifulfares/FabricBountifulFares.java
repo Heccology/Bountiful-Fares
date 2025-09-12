@@ -18,7 +18,9 @@ import net.hecco.bountifulfares.definition.networking.payload.TrellisSyncPayload
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.mixin.util.BlockEntityAccessor;
 import net.hecco.bountifulfares.registry.BFFabricLootTableModifiers;
+import net.hecco.bountifulfares.registry.BFFoliageGeneration;
 import net.hecco.bountifulfares.registry.BFMessages;
+import net.hecco.bountifulfares.registry.BFTreeGeneration;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
@@ -60,6 +62,8 @@ public class FabricBountifulFares implements ModInitializer {
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisCropResourceLoader());
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricGrassSeedsInteractionResourceLoader());
         BountifulFares.init();
+        BFFoliageGeneration.generateFlowers();
+        BFTreeGeneration.generateTrees();
         BFRegistries.registerFlammables();
         registerFuels();
         BFRegistries.registerCeramicCheckeredConversions();

@@ -13,6 +13,8 @@ import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -30,6 +32,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.*;
+
+import java.util.Optional;
 
 import static net.hecco.bountifulfares.registry.content.BFBlockEntities.CERAMIC_TILES_BLOCK_ENTITY;
 
@@ -93,6 +97,28 @@ public class DyeableCeramicBlock {
 
     /** Attempts to dye the provided block with the ceramic coloring. Meant for most single-block ceramics. */
     public static ItemInteractionResult onUse(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, Block block) {
+
+
+BlockEntity entity = world.getBlockEntity(pos);
+Optional<Integer> color = Optional.empty();
+if (entity != null) {
+    CompoundTag tag = entity.saveWithId(world.registryAccess());
+    if (tag.contains("color", Tag.TAG_INT) && tag.getInt("color") != 0) {
+        color = Optional.of(tag.getInt("color"));
+    }
+}
+
+// After block has been replaced...
+
+if (color.isPresent()) {
+    BlockEntity entity2 = world.getBlockEntity(pos);
+    if (entity2 != null) {
+        CompoundTag tag = entity2.saveWithId(world.registryAccess());
+        tag.putInt("color", color.get());
+        entity2.setChanged();
+    }
+}
+
         if (stack.is(Items.WET_SPONGE) && !player.isShiftKeyDown())
         {
             world.removeBlock(pos, false);
