@@ -25,7 +25,7 @@ public abstract class AbstractBlockStateMixin {
 
     @Inject(method = "getMapColor", at = @At(value = "HEAD"), cancellable = true)
     private void bountifulfares$getMapColor(BlockGetter world, BlockPos pos, CallbackInfoReturnable<MapColor> cir) {
-        if (!NLServices.PLATFORM.isModLoaded("antique_atlas")) {
+        if (!NLServices.PLATFORM.isModLoaded("antique_atlas") && !NLServices.PLATFORM.isModLoaded("surveyor")) {
             BlockState state = world.getBlockState(pos);
             if (state.is(BFBlockTags.DYEABLE_CERAMIC_BLOCKS) && this.mapColor != MapColor.NONE) {
                 BlockEntity blockEntity = world.getBlockEntity(pos);

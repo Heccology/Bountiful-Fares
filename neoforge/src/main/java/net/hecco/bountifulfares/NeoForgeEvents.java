@@ -19,6 +19,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -38,6 +39,8 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static net.hecco.bountifulfares.NeoForgeBountifulFares.FUELS;
+
 @EventBusSubscriber(modid = BountifulFares.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
 public class NeoForgeEvents {
     @SubscribeEvent
@@ -52,11 +55,12 @@ public class NeoForgeEvents {
         for (TagKey<Item> tag : NeoForgeBountifulFares.TAG_FUELS.keySet()) {
             if (event.getItemStack().is(tag)) {
                 event.setBurnTime(NeoForgeBountifulFares.TAG_FUELS.get(tag));
-                return;
             }
         }
-        if (NeoForgeBountifulFares.FUELS.keySet().stream().anyMatch((item) -> event.getItemStack().is(item.asItem()))) {
-            event.setBurnTime(NeoForgeBountifulFares.FUELS.get(event.getItemStack().getItem()));
+        for (ItemLike itemLike : FUELS.keySet()) {
+            if (event.getItemStack().is(itemLike.asItem())) {
+                event.setBurnTime(FUELS.get(itemLike));
+            }
         }
     }
 
