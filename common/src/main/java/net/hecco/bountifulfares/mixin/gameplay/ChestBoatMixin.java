@@ -19,7 +19,7 @@ public abstract class ChestBoatMixin extends Boat {
     }
 
     @Inject(at = @At(value = "RETURN"), method = "getDropItem", cancellable = true)
-    public void excessiveBuilding$getDropItem(CallbackInfoReturnable<Item> cir) {
+    public void bountifulfares$getDropItem(CallbackInfoReturnable<Item> cir) {
         if (this.getVariant() == BFBoats.HOARY) {
             cir.setReturnValue(BFItems.HOARY_CHEST_BOAT.get());
         }

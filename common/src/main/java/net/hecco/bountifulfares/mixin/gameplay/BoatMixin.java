@@ -15,7 +15,7 @@ public abstract class BoatMixin {
     @Shadow public abstract Boat.Type getVariant();
 
     @Inject(at = @At(value = "RETURN"), method = "getDropItem", cancellable = true)
-    public void excessiveBuilding$getDropItem(CallbackInfoReturnable<Item> cir) {
+    public void bountifulfares$getDropItem(CallbackInfoReturnable<Item> cir) {
         if (this.getVariant() == BFBoats.HOARY) {
             cir.setReturnValue(BFItems.HOARY_BOAT.get());
         }
