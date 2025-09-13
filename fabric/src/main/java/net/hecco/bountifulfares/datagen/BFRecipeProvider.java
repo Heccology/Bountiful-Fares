@@ -698,10 +698,10 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         woodFromLogs(exporter, BFBlocks.STRIPPED_HOARY_WOOD.get(), BFBlocks.STRIPPED_HOARY_LOG.get());
         woodFromLogs(exporter, BFBlocks.WALNUT_WOOD.get(), BFBlocks.WALNUT_LOG.get());
         woodFromLogs(exporter, BFBlocks.STRIPPED_WALNUT_WOOD.get(), BFBlocks.STRIPPED_WALNUT_LOG.get());
-//        woodenBoat(exporter, BFItems.HOARY_BOAT.get(), BFBlocks.HOARY_PLANKS.get());
-//        woodenBoat(exporter, BFItems.WALNUT_BOAT.get(), BFBlocks.WALNUT_PLANKS.get());
-//        chestBoat(exporter, BFItems.HOARY_CHEST_BOAT.get(), BFItems.HOARY_BOAT.get());
-//        chestBoat(exporter, BFItems.WALNUT_CHEST_BOAT.get(), BFItems.WALNUT_BOAT.get());
+        woodenBoat(exporter, BFItems.HOARY_BOAT.get(), BFBlocks.HOARY_PLANKS.get());
+        woodenBoat(exporter, BFItems.WALNUT_BOAT.get(), BFBlocks.WALNUT_PLANKS.get());
+        chestBoat(exporter, BFItems.HOARY_CHEST_BOAT.get(), BFItems.HOARY_BOAT.get());
+        chestBoat(exporter, BFItems.WALNUT_CHEST_BOAT.get(), BFItems.WALNUT_BOAT.get());
 
         offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("oak").get(), Items.OAK_PLANKS);
         offerPicketsRecipe(exporter, BFBlocks.PICKETS.get("spruce").get(), Items.SPRUCE_PLANKS);

@@ -5,7 +5,10 @@
   "mixins": [
     "gameplay.ArmorStandMixin",
     "gameplay.BlockItemMixin",
+    "gameplay.BoatMixin",
+    "gameplay.BoatTypeMixin",
     "gameplay.CampfireBlockEntityMixin",
+    "gameplay.ChestBoatMixin",
     "gameplay.EntityMixin",
     "gameplay.LivingEntityMixin",
     "gameplay.LivingEntityTiffinMixin",
