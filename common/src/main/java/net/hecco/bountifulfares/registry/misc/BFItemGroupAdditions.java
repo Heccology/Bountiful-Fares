@@ -287,10 +287,10 @@ public class BFItemGroupAdditions {
         }
         TOOLS_AND_UTILITIES.add(new Pair<>(Items.LEAD, BFItems.SUN_HAT.get().asItem().getDefaultInstance()));
         TOOLS_AND_UTILITIES.add(new Pair<>(Items.BRUSH, BFItems.ARTISAN_BRUSH.get().asItem().getDefaultInstance()));
-        TOOLS_AND_UTILITIES.add(new Pair<>(Items.BAMBOO_CHEST_RAFT, BFItems.WALNUT_BOAT.get().asItem().getDefaultInstance()));
-        TOOLS_AND_UTILITIES.add(new Pair<>(BFItems.WALNUT_BOAT.get(), BFItems.WALNUT_CHEST_BOAT.get().asItem().getDefaultInstance()));
-        TOOLS_AND_UTILITIES.add(new Pair<>(BFItems.WALNUT_CHEST_BOAT.get(), BFItems.HOARY_BOAT.get().asItem().getDefaultInstance()));
-        TOOLS_AND_UTILITIES.add(new Pair<>(BFItems.HOARY_BOAT.get(), BFItems.HOARY_CHEST_BOAT.get().asItem().getDefaultInstance()));
+//        TOOLS_AND_UTILITIES.add(new Pair<>(Items.BAMBOO_CHEST_RAFT, BFItems.WALNUT_BOAT.get().asItem().getDefaultInstance()));
+//        TOOLS_AND_UTILITIES.add(new Pair<>(BFItems.WALNUT_BOAT.get(), BFItems.WALNUT_CHEST_BOAT.get().asItem().getDefaultInstance()));
+//        TOOLS_AND_UTILITIES.add(new Pair<>(BFItems.WALNUT_CHEST_BOAT.get(), BFItems.HOARY_BOAT.get().asItem().getDefaultInstance()));
+//        TOOLS_AND_UTILITIES.add(new Pair<>(BFItems.HOARY_BOAT.get(), BFItems.HOARY_CHEST_BOAT.get().asItem().getDefaultInstance()));
 
         addTiffinForge(TOOLS_AND_UTILITIES_FORGE, BFItems.SUN_HAT.get(), null);
         addTiffin(TOOLS_AND_UTILITIES_FORGE, null, DyeColor.WHITE);

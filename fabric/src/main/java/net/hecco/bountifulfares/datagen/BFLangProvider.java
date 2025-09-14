@@ -71,7 +71,7 @@ public class BFLangProvider extends FabricLanguageProvider {
 
 
         generate(translationBuilder, BFBlocks.HOARY_APPLE_SAPLING_CROP.get(), "Hoary Apple Sapling");
-        generate(translationBuilder, BFItems.HOARY_CHEST_BOAT.get(), "Hoary Boat with Chest");
+//        generate(translationBuilder, BFItems.HOARY_CHEST_BOAT.get(), "Hoary Boat with Chest");
         generate(translationBuilder, BFBlocks.HANGING_HOARY_APPLE.get(), "Hoary Apple");
 
         generate(translationBuilder, BFBlocks.CERAMIC_CLAY_BLOCK.get(), "Block of Ceramic Clay");
@@ -81,7 +81,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         //generate(translationBuilder, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, "Checkered Ceramic Mosaic Wall");
         //generate(translationBuilder, BFBlocks.CHECKERED_CERAMIC_TILE_WALL, "Checkered Ceramic Tile Wall");
 
-        generate(translationBuilder, BFItems.WALNUT_CHEST_BOAT.get(), "Walnut Boat with Chest");
+//        generate(translationBuilder, BFItems.WALNUT_CHEST_BOAT.get(), "Walnut Boat with Chest");
 
         generate(translationBuilder, BFBlocks.HANGING_WALNUTS.get(), "Walnuts");
 

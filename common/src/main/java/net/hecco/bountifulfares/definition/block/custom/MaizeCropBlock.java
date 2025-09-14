@@ -105,7 +105,7 @@ public class MaizeCropBlock extends CropBlock implements BonemealableBlock {
     @Override
     public BlockState playerWillDestroy(Level world, BlockPos pos, BlockState state, Player player) {
         DoubleBlockHalf doubleBlockHalf = state.getValue(HALF);
-        if (doubleBlockHalf == DoubleBlockHalf.LOWER && state.getValue(AGE) < 7) {
+        if (!player.isCreative() && doubleBlockHalf == DoubleBlockHalf.LOWER && state.getValue(AGE) < 7) {
             popResource(world, pos, BFItems.MAIZE_SEEDS.get().getDefaultInstance());
         }
         if (!world.isClientSide) {

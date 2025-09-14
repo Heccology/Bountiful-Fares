@@ -41,7 +41,6 @@ public class BountifulFares {
 		BFItems.registerItems();
 		BFRecipes.registerRecipes();
 		BFEffects.registerEffects();
-//		//BFBoats.registerBoats();
 		BFParticles.registerParticles();
 		BFPotions.registerPotions();
 		BFTrunkPlacerTypes.registerTrunkPlacers();
@@ -52,7 +51,6 @@ public class BountifulFares {
 		BFItemGroups.registerItemGroups();
 		BFRegistries.registerMiscRegistries();
 		BFCriteriaTriggers.register();
-		//TODO: Fix recipe loading error from github
 		//TODO: Fix c2s networking on fabric
 	}
 

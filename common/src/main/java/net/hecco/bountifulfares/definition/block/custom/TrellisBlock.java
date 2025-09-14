@@ -114,9 +114,7 @@ public class TrellisBlock extends HorizontalDirectionalBlock implements EntityBl
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof TrellisBlockEntity entity) {
             if (entity.canPlantOn()) {
-                if (level.isClientSide()) {
-                    return ItemInteractionResult.SUCCESS;
-                } else if (PLANTS.containsKey(stack.getItem()) || CROPS.containsKey(stack.getItem())) {
+                if (PLANTS.containsKey(stack.getItem()) || CROPS.containsKey(stack.getItem())) {
                     entity.setPlant(stack.getItem());
                     if (!level.isClientSide()) {
                         ((PlantOnTrellisTrigger) BFCriteriaTriggers.PLANT_ON_TRELLIS.get()).trigger((ServerPlayer) player, stack);

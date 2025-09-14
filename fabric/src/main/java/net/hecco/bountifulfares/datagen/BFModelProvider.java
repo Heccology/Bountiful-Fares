@@ -219,10 +219,10 @@ public class BFModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(BFItems.LEEK_STEW.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.CRUSTED_BEEF.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.WALNUT.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(BFItems.HOARY_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(BFItems.HOARY_BOAT.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(BFItems.WALNUT_BOAT.get(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerator.generateFlatItem(BFItems.WALNUT_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
+//        itemModelGenerator.generateFlatItem(BFItems.HOARY_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
+//        itemModelGenerator.generateFlatItem(BFItems.HOARY_BOAT.get(), ModelTemplates.FLAT_ITEM);
+//        itemModelGenerator.generateFlatItem(BFItems.WALNUT_BOAT.get(), ModelTemplates.FLAT_ITEM);
+//        itemModelGenerator.generateFlatItem(BFItems.WALNUT_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFBlocks.WILD_PASSION_FRUIT_VINE.get().asItem(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFBlocks.WILD_ELDERBERRY_VINE.get().asItem(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.FISH_STEW.get(), ModelTemplates.FLAT_ITEM);
