@@ -1,21 +1,21 @@
 {
   "values": [
     "bountifulfares:shulker_tiffin",
-    "bountifulfares:green_shulker_tiffin",
-    "bountifulfares:pink_shulker_tiffin",
-    "bountifulfares:gray_shulker_tiffin",
     "bountifulfares:orange_shulker_tiffin",
     "bountifulfares:red_shulker_tiffin",
-    "bountifulfares:magenta_shulker_tiffin",
-    "bountifulfares:blue_shulker_tiffin",
-    "bountifulfares:white_shulker_tiffin",
-    "bountifulfares:purple_shulker_tiffin",
-    "bountifulfares:light_blue_shulker_tiffin",
-    "bountifulfares:yellow_shulker_tiffin",
-    "bountifulfares:lime_shulker_tiffin",
-    "bountifulfares:brown_shulker_tiffin",
-    "bountifulfares:light_gray_shulker_tiffin",
     "bountifulfares:black_shulker_tiffin",
-    "bountifulfares:cyan_shulker_tiffin"
+    "bountifulfares:white_shulker_tiffin",
+    "bountifulfares:light_gray_shulker_tiffin",
+    "bountifulfares:cyan_shulker_tiffin",
+    "bountifulfares:blue_shulker_tiffin",
+    "bountifulfares:light_blue_shulker_tiffin",
+    "bountifulfares:lime_shulker_tiffin",
+    "bountifulfares:purple_shulker_tiffin",
+    "bountifulfares:green_shulker_tiffin",
+    "bountifulfares:pink_shulker_tiffin",
+    "bountifulfares:magenta_shulker_tiffin",
+    "bountifulfares:yellow_shulker_tiffin",
+    "bountifulfares:gray_shulker_tiffin",
+    "bountifulfares:brown_shulker_tiffin"
   ]
 }

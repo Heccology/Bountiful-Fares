@@ -88,8 +88,8 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.HOARY_BUTTON.get());
                         entries.accept(BFItems.HOARY_SIGN.get());
                         entries.accept(BFItems.HOARY_HANGING_SIGN.get());
-//                        entries.accept(BFItems.HOARY_BOAT.get());
-//                        entries.accept(BFItems.HOARY_CHEST_BOAT.get());
+                        entries.accept(BFItems.HOARY_BOAT.get());
+                        entries.accept(BFItems.HOARY_CHEST_BOAT.get());
 //                        entries.accept(ExcessiveBuildingBlocks.CHISELED_HOARY_PLANKS.get());
 //                        entries.accept(ExcessiveBuildingBlocks.HOARY_MOSAIC.get());
 //                        entries.accept(ExcessiveBuildingBlocks.HOARY_MOSAIC_STAIRS.get());
@@ -116,8 +116,8 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.WALNUT_BUTTON.get());
                         entries.accept(BFItems.WALNUT_SIGN.get());
                         entries.accept(BFItems.WALNUT_HANGING_SIGN.get());
-//                        entries.accept(BFItems.WALNUT_BOAT.get());
-//                        entries.accept(BFItems.WALNUT_CHEST_BOAT.get());
+                        entries.accept(BFItems.WALNUT_BOAT.get());
+                        entries.accept(BFItems.WALNUT_CHEST_BOAT.get());
 //                        entries.accept(ExcessiveBuildingBlocks.CHISELED_WALNUT_PLANKS.get());
 //                        entries.accept(ExcessiveBuildingBlocks.WALNUT_MOSAIC.get());
 //                        entries.accept(ExcessiveBuildingBlocks.WALNUT_MOSAIC_STAIRS.get());

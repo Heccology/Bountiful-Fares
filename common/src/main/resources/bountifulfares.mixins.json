@@ -5,7 +5,9 @@
   "mixins": [
     "gameplay.ArmorStandMixin",
     "gameplay.BlockItemMixin",
+    "gameplay.BoatMixin",
     "gameplay.CampfireBlockEntityMixin",
+    "gameplay.ChestBoatMixin",
     "gameplay.EntityMixin",
     "gameplay.LivingEntityMixin",
     "gameplay.LivingEntityTiffinMixin",
@@ -13,6 +15,7 @@
     "gameplay.ServerPlayerEntityMixin",
     "gameplay.SweetBerryBushMixin",
     "gameplay.ThrownPotionMixin",
+    "misc.BoatTypeMixin",
     "misc.OceanMonumentPiecesMixin",
     "misc.StonecutterScreenHandlerMixin",
     "misc.WoodlandMansionFirstFloorMixin",
