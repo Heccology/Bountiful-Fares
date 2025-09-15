@@ -1,6 +1,6 @@
 ---
-name: Compatibility request
-about: Suggest an idea for this project
+name: Integration request
+about: Suggest another mod that this mod should have integration with
 title: ''
 labels: compatibility
 assignees: ''
