@@ -109,9 +109,9 @@ public class TiffinContents implements TooltipComponent {
             } else {
                 if (TiffinItem.getRemainderItem(item.getItem()) != null) {
                     if (item.getItem().getDefaultMaxStackSize() >= stack.getCount()) {
-                        slot.set(new ItemStack(item.getItem(), stack.getCount()));
+                        slot.set(item.copyWithCount(stack.getCount()));
                     } else {
-                        slot.set(new ItemStack(item.getItem(), item.getItem().getDefaultMaxStackSize()));
+                        slot.set(item.copyWithCount(item.getItem().getDefaultMaxStackSize()));
                         player.addItem(item.copyWithCount(stack.getCount() - item.getItem().getDefaultMaxStackSize()));
                     }
                     item.shrink(stack.getCount());
@@ -136,7 +136,7 @@ public class TiffinContents implements TooltipComponent {
                     if (stack.is(item.getItem())) {
                         int i = item.getCount() + stack.getCount();
                         if (i > getCapacity()) { //cannot fit all
-                            slot.set(new ItemStack(stack.getItem(), i - getCapacity()));
+                            slot.set(stack.copyWithCount(i - getCapacity()));
                             if (TiffinItem.getRemainderItem(stack.getItem()) != null) {
                                 player.addItem(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), getCapacity() - item.getCount()));
                             }
@@ -168,7 +168,7 @@ public class TiffinContents implements TooltipComponent {
                         item = ItemStack.EMPTY;
                         if (stack.getCount() > getCapacity()) {
                             item = stack.copyWithCount(getCapacity());
-                            slot.set(new ItemStack(stack.getItem(), stack.getCount() - getCapacity()));
+                            slot.set(stack.copyWithCount(stack.getCount() - getCapacity()));
                             return getCapacity();
                         } else {
                             item = stack.copy();
@@ -190,9 +190,9 @@ public class TiffinContents implements TooltipComponent {
             } else {
                 if (TiffinItem.getRemainderItem(item.getItem()) != null) {
                     if (item.getItem().getDefaultMaxStackSize() >= stack.getCount()) {
-                        slot.set(new ItemStack(item.getItem(), stack.getCount()));
+                        slot.set(item.copyWithCount(stack.getCount()));
                     } else {
-                        slot.set(new ItemStack(item.getItem(), item.getItem().getDefaultMaxStackSize()));
+                        slot.set(item.copyWithCount(item.getItem().getDefaultMaxStackSize()));
                         player.addItem(item.copyWithCount(stack.getCount() - item.getItem().getDefaultMaxStackSize()));
                     }
                     item.shrink(stack.getCount());
@@ -217,7 +217,7 @@ public class TiffinContents implements TooltipComponent {
                     if (stack.is(item.getItem())) {
                         int i = item.getCount() + stack.getCount();
                         if (i > getCapacity()) { //cannot fit all
-                            slot.set(new ItemStack(stack.getItem(), i - getCapacity()));
+                            slot.set(stack.copyWithCount(i - getCapacity()));
                             if (TiffinItem.getRemainderItem(stack.getItem()) != null) {
                                 player.addItem(new ItemStack(TiffinItem.getRemainderItem(item.getItem()), getCapacity() - item.getCount()));
                             }
@@ -249,7 +249,7 @@ public class TiffinContents implements TooltipComponent {
                         item = ItemStack.EMPTY;
                         if (stack.getCount() > getCapacity()) {
                             item = stack.copyWithCount(getCapacity());
-                            slot.set(new ItemStack(stack.getItem(), stack.getCount() - getCapacity()));
+                            slot.set(stack.copyWithCount(stack.getCount() - getCapacity()));
                             return getCapacity();
                         } else {
                             item = stack.copy();

@@ -92,8 +92,7 @@ public class HangingWalnutsBlock extends FallingBlock implements BonemealableBlo
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit)
-    {
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (stack.is(Items.SHEARS) && !state.getValue(SNIPPED)) {
             world.setBlockAndUpdate(pos, state.setValue(SNIPPED, true));
             stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
@@ -137,11 +136,11 @@ public class HangingWalnutsBlock extends FallingBlock implements BonemealableBlo
 
     @Override
     public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state) {
-        return false;
+        return !isFullyGrown(state);
     }
 
     public boolean isBonemealSuccess(Level world, RandomSource random, BlockPos pos, BlockState state) {
-        return !isFullyGrown(state);
+        return true;
     }
 
     @Override
@@ -149,10 +148,6 @@ public class HangingWalnutsBlock extends FallingBlock implements BonemealableBlo
         if (!isFullyGrown(state)) {
             world.setBlock(pos, state.cycle(AGE), Block.UPDATE_CLIENTS);
         }
-    }
-
-    public boolean isFertilizable(LevelReader world, BlockPos pos, BlockState state, boolean isClient) {
-        return !isFullyGrown(state);
     }
 
     private static boolean isFullyGrown(BlockState state) {

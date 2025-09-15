@@ -352,6 +352,22 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.MAGENTA_JACK_O_STRAW.get())
                 .add(BFBlocks.PINK_JACK_O_STRAW.get())
         ;
+
+        getOrCreateTagBuilder(BFBlockTags.HANGING_FRUIT)
+                .add(BFBlocks.HANGING_APPLE.get())
+                .add(BFBlocks.HANGING_ORANGE.get())
+                .add(BFBlocks.HANGING_LEMON.get())
+                .add(BFBlocks.HANGING_PLUM.get())
+                .add(BFBlocks.HANGING_HOARY_APPLE.get())
+                .add(BFBlocks.HANGING_GOLDEN_APPLE.get())
+                .add(BFBlocks.HANGING_WITHERED_GOLDEN_APPLE.get())
+                .add(BFBlocks.HANGING_WALNUTS.get())
+        ;
+
+        getOrCreateTagBuilder(BlockTags.BEE_GROWABLES)
+                .addTag(BFBlockTags.HANGING_FRUIT)
+        ;
+
         getOrCreateTagBuilder(BFBlockTags.CERAMIC_TILES)
                 .add(BFBlocks.CERAMIC_TILES.get())
                 .add(BFBlocks.CERAMIC_TILE_STAIRS.get())

@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_21",
   "plugin": "net.hecco.bountifulfares.util.BFNeoforgeMixinPlugin",
   "mixins": [
+    "ComposterBlockMixin"
   ],
   "client": [
     "compat.appleskin.TooltipOverlayHandlerMixin"

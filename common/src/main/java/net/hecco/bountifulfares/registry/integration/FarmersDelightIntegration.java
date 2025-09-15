@@ -49,11 +49,9 @@ public class FarmersDelightIntegration implements ModIntegration {
         WALNUT_CABINET = registerBlock("walnut_cabinet", () -> new FDCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL).mapColor(MapColor.COLOR_BROWN)));
         HOARY_CABINET = registerBlock("hoary_cabinet", () -> new FDCabinetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL).mapColor(MapColor.TERRACOTTA_GRAY)));
 
-        if (NLServices.PLATFORM.isModLoaded(BountifulFares.FARMERS_DELIGHT_MOD_ID)) {
-            CABINET_BLOCK_ENTITY = NLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "cabinet_block_entity",
-                    () -> NLServices.REGISTRY.createBlockEntity(CabinetBlockEntity::new, WALNUT_CABINET, HOARY_CABINET)
-            );
-        }
+        CABINET_BLOCK_ENTITY = NLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "cabinet_block_entity",
+                () -> NLServices.REGISTRY.createBlockEntity(CabinetBlockEntity::new, WALNUT_CABINET, HOARY_CABINET)
+        );
     }
 
     @SuppressWarnings("unchecked")

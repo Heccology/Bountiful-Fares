@@ -24,6 +24,7 @@ public class BFBlockTags {
     public static final TagKey<Block> PALM_LOGS = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "palm_logs"));
     public static final TagKey<Block> GOLDEN_APPLE_LOGS = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "golden_apple_logs"));
     public static final TagKey<Block> JACK_O_STRAWS = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "jack_o_straws"));
+    public static final TagKey<Block> HANGING_FRUIT = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "hanging_fruit"));
 
     public static final TagKey<Block> CERAMIC_TILES = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "ceramic_tiles"));
     public static final TagKey<Block> DYEABLE_CERAMIC_BLOCKS = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "dyeable_ceramic_blocks"));
