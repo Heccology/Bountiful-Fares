@@ -1,7 +1,7 @@
 {
   "type": "neoforge:add_features",
   "biomes":
-    "#bountifulfares:has_passion_fruit"
+    "#bountifulfares:has_wild_passion_fruit"
   ,
   "features": [
     "bountifulfares:wild_passion_fruit_placed"

@@ -1,7 +1,7 @@
 {
   "type": "neoforge:add_features",
   "biomes":
-    "#bountifulfares:has_elderberries"
+    "#bountifulfares:has_wild_elderberries"
   ,
   "features": [
     "bountifulfares:wild_elderberry_placed"
