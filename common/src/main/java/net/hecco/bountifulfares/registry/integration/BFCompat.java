@@ -1,5 +1,7 @@
 package net.hecco.bountifulfares.registry.integration;
 
+import net.hecco.bountifulfares.registry.integration.everycompat.EveryCompatIntegration;
+
 import static net.hecco.bountifulfares.BountifulFares.COMPAT_MANAGER;
 
 public class BFCompat {
@@ -12,6 +14,7 @@ public class BFCompat {
         COMPAT_MANAGER.addIntegration(new ArtsAndCraftsIntegration());
         COMPAT_MANAGER.addIntegration(new AppledogIntegration());
         COMPAT_MANAGER.addIntegration(new NetherExpIntegration());
+        COMPAT_MANAGER.addIntegration(new EveryCompatIntegration());
 
         COMPAT_MANAGER.registerCompatContent();
     }

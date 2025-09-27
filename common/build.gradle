@@ -31,6 +31,10 @@ dependencies {
     implementation files("nexuslib-neoforge-1.21.1-1.1.2.jar")
 //    api "me.shedaniel.cloth:cloth-config-neoforge:15.0.140"
 
+    //EVERY COMPAT
+    compileOnlyApi "curse.maven:every-compat-628539:7010172"
+    compileOnlyApi "curse.maven:selene-499980:7017282"
+
     //JEI
     compileOnlyApi ("curse.maven:jei-238222:6829086")
 
