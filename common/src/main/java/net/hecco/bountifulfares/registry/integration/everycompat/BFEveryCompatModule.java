@@ -1,8 +1,10 @@
 package net.hecco.bountifulfares.registry.integration.everycompat;
 
 import net.hecco.bountifulfares.definition.block.custom.PicketsBlock;
-import net.hecco.bountifulfares.definition.block.integration.ECTrellisBlock;
+import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
+import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.mehvahdjukaar.every_compat.EveryCompat;
+import net.mehvahdjukaar.every_compat.api.RenderLayer;
 import net.mehvahdjukaar.every_compat.api.SimpleEntrySet;
 import net.mehvahdjukaar.every_compat.api.SimpleModule;
 import net.mehvahdjukaar.moonlight.api.set.wood.VanillaWoodTypes;
@@ -39,39 +41,24 @@ public class BFEveryCompatModule extends SimpleModule {
                 .addTag(modRes("pickets"), Registries.BLOCK, Registries.ITEM)
                 .defaultRecipe()
                 .setTabKey(tab)
+                .setRenderType(RenderLayer.CUTOUT)
                 .build();
         this.addEntry(pickets);
 
         // using acacia as base block because 'oak_trellis' does not exist
         trellis = SimpleEntrySet.builder(WoodType.class, "trellis",
                         getModBlock("acacia_trellis"), () -> VanillaWoodTypes.ACACIA,
-                        w -> new ECTrellisBlock(Utils.copyPropertySafe(w.planks)))
+                        w -> new TrellisBlock(Utils.copyPropertySafe(w.planks)))
                 .addTexture(modRes("block/acacia_trellis"))
                 .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
                 .defaultRecipe()
                 .setTabKey(tab)
+                .addTile(BFBlockEntities.TRELLIS_BLOCK_ENTITY)
+                .setRenderType(RenderLayer.CUTOUT)
                 .build();
         this.addEntry(trellis);
 
     }
-
-    /*
-    TODO:
-    Put Supplier<Block> of each trellis (and pickets?) into their respective Maps **NEEDS TO HAPPEN**
-    Figure out how to make BF Block entity list dynamic, or at least add my own dynamic resource
-
-
-
-    @Override
-    public void onModSetup() {
-        trellis.blocks.forEach((w, block) -> {
-            String key = EveryCompat.MOD_ID + "_" + w.getTypeName();
-
-            // Somehow need to get a Supplier<Block> instead of Block of each one to stick in here
-            //BFBlocks.TRELLISES.put(key, );
-        });
-    }
-    */
 
     public List<String> getAlreadySupportedMods() {
         return List.of(ARTS_AND_CRAFTS_MOD_ID,
