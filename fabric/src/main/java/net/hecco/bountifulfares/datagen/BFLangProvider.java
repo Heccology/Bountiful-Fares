@@ -119,6 +119,9 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, BFItems.BELLFLOWER_TEA_CUP.get(), "Bellflower Tea Cup");
         generate(translationBuilder, BFItems.TORCHFLOWER_TEA_CUP.get(), "Torchflower Tea Cup");
 
+        generate(translationBuilder, "block_type.bountifulfares.pickets", "%s Pickets");
+        generate(translationBuilder, "block_type.bountifulfares.trellis", "%s Trellis");
+
         for (DyeColor color : DyeColor.values()) {
             usedTranslationKeys.add("item.bountifulfares." + color.getName() + "_shulker_tiffin_back");
             usedTranslationKeys.add("item.bountifulfares." + color.getName() + "_shulker_tiffin_front");

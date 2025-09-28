@@ -37,6 +37,7 @@ public class BFEveryCompatModule extends SimpleModule {
                         getModBlock("oak_pickets"), () -> VanillaWoodTypes.OAK,
                         w -> new PicketsBlock(Utils.copyPropertySafe(w.planks)))
                 .addTexture(modRes("block/oak_pickets"))
+                .addTexture(modRes("item/oak_pickets"))
                 .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
                 .addTag(modRes("pickets"), Registries.BLOCK, Registries.ITEM)
                 .defaultRecipe()
@@ -53,7 +54,7 @@ public class BFEveryCompatModule extends SimpleModule {
                 .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
                 .defaultRecipe()
                 .setTabKey(tab)
-                .addTile(BFBlockEntities.TRELLIS_BLOCK_ENTITY)
+                .addTile(BFBlockEntities.TRELLIS_BLOCK_ENTITY)  // causing null pointer exception on FABRIC ONLY
                 .setRenderType(RenderLayer.CUTOUT)
                 .build();
         this.addEntry(trellis);
