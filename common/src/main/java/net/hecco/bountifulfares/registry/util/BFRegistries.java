@@ -4,16 +4,29 @@ import it.unimi.dsi.fastutil.objects.Object2FloatMap;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
-import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.hecco.nexuslib.lib.toolAction.NLToolActions;
 import net.hecco.nexuslib.lib.untintedParticleRegistry.NLUntintedParticleRegistry;
 import net.hecco.nexuslib.platform.NLServices;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.dispenser.BlockSource;
+import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 
 import java.util.function.Supplier;
 
@@ -42,13 +55,114 @@ public class BFRegistries {
     }
 
     public static void registerDispenserBehaviors() {
+        // Flour
         DispenserBlock.registerBehavior(BFItems.FLOUR.get(), new FlourDispenserBehavior() {});
 
+        // Grass Seeds
         DispenserBlock.registerBehavior(BFItems.GRASS_SEEDS.get(), new GrassSeedsDispenserBehavior() {
             @Override
             public ItemStack execute(BlockSource pointer, ItemStack stack) {
                 return super.execute(pointer, stack);
             }
+        });
+
+        // Empty Cup (Copies Glass Bottle lololololol)
+        DispenserBlock.registerBehavior(BFItems.CUP.get(), new OptionalDispenseItemBehavior() {
+            private ItemStack takeLiquid(BlockSource source, ItemStack emptyItem, ItemStack fullItem) {
+                source.level().gameEvent(null, GameEvent.FLUID_PICKUP, source.pos());
+                return this.consumeWithRemainder(source, emptyItem, fullItem);
+            }
+
+            public ItemStack execute(BlockSource blockSource, ItemStack item) {
+                this.setSuccess(false);
+                ServerLevel serverLevel = blockSource.level();
+                BlockPos blockPos = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
+                BlockState blockState = serverLevel.getBlockState(blockPos);
+                if (serverLevel.getFluidState(blockPos).is(FluidTags.WATER)) {
+                    this.setSuccess(true);
+                    return this.takeLiquid(blockSource, item, new ItemStack(BFItems.WATER_CUP.get()));
+                } else {
+                    return super.execute(blockSource, item);
+                }
+            }
+        });
+
+        // Water Cup
+        DispenserBlock.registerBehavior(BFItems.WATER_CUP.get(), new DefaultDispenseItemBehavior() {
+            private final DefaultDispenseItemBehavior defaultDispenseItemBehavior = new DefaultDispenseItemBehavior();
+
+            public ItemStack execute(BlockSource blockSource, ItemStack item)
+            {
+                ServerLevel serverLevel = blockSource.level();
+                BlockPos blockPos = blockSource.pos();
+                BlockPos blockPos2 = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
+                if (!serverLevel.getBlockState(blockPos2).is(BlockTags.CONVERTABLE_TO_MUD)) {
+                    return this.defaultDispenseItemBehavior.dispense(blockSource, item);
+                } else {
+                    if (!serverLevel.isClientSide) {
+                        for(int i = 0; i < 5; ++i) {
+                            serverLevel.sendParticles(ParticleTypes.SPLASH, (double)blockPos.getX() + serverLevel.random.nextDouble(), (blockPos.getY() + 1), (double)blockPos.getZ() + serverLevel.random.nextDouble(),
+                                    1, 0.0, 0.0, 0.0, 1.0);
+                        }
+                    }
+
+                    serverLevel.playSound(null, blockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    serverLevel.gameEvent(null, GameEvent.FLUID_PLACE, blockPos);
+                    serverLevel.setBlockAndUpdate(blockPos2, Blocks.MUD.defaultBlockState());
+                    return this.consumeWithRemainder(blockSource, item, new ItemStack(BFItems.CUP.get()));
+                }
+            }
+        });
+    }
+
+    public static void registerCauldronBehaviors() {
+        // Water Cup (Empty Interaction)
+        CauldronInteraction.EMPTY.map().put(BFItems.WATER_CUP.get(), (state, level, pos, player, hand, stack) -> {
+            if (!level.isClientSide) {
+                Item item = stack.getItem();
+                player.setItemInHand(hand, ItemUtils.createFilledResult(stack, player, new ItemStack(BFItems.CUP.get())));
+                player.awardStat(Stats.USE_CAULDRON);
+                player.awardStat(Stats.ITEM_USED.get(item));
+                level.setBlockAndUpdate(pos, Blocks.WATER_CAULDRON.defaultBlockState());
+                level.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+                level.gameEvent(null, GameEvent.FLUID_PLACE, pos);
+            }
+
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
+        });
+
+        // Water Cup (Water Interaction)
+        CauldronInteraction.WATER.map().put(BFItems.WATER_CUP.get(), (state, level, pos, player, hand, stack) -> {
+            if (state.getValue(LayeredCauldronBlock.LEVEL) == 3) {
+                return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+            } else {
+                if (!level.isClientSide) {
+                    Item item = stack.getItem();
+                    player.setItemInHand(hand, ItemUtils.createFilledResult(stack, player, new ItemStack(BFItems.CUP.get())));
+                    player.awardStat(Stats.USE_CAULDRON);
+                    player.awardStat(Stats.ITEM_USED.get(item));
+                    level.setBlockAndUpdate(pos, state.cycle(LayeredCauldronBlock.LEVEL));
+                    level.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    level.gameEvent(null, GameEvent.FLUID_PLACE, pos);
+                }
+
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }
+        });
+
+        // Empty Cup (Water Interaction)
+        CauldronInteraction.WATER.map().put(BFItems.CUP.get(), (state, level, pos, player, hand, stack) -> {
+            if (!level.isClientSide) {
+                Item item = stack.getItem();
+                player.setItemInHand(hand, ItemUtils.createFilledResult(stack, player, new ItemStack(BFItems.WATER_CUP.get())));
+                player.awardStat(Stats.USE_CAULDRON);
+                player.awardStat(Stats.ITEM_USED.get(item));
+                LayeredCauldronBlock.lowerFillLevel(state, level, pos);
+                level.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                level.gameEvent(null, GameEvent.FLUID_PICKUP, pos);
+            }
+
+            return ItemInteractionResult.sidedSuccess(level.isClientSide);
         });
     }
 

@@ -77,6 +77,7 @@ public class NeoForgeBountifulFares {
         BFRegistries.registerFlammables();
         BFRegistries.registerCeramicCheckeredConversions();
         BFRegistries.registerDispenserBehaviors();
+        BFRegistries.registerCauldronBehaviors();
 
         BFRegistries.registerStrippables();
         BFRegistries.registerTillables();

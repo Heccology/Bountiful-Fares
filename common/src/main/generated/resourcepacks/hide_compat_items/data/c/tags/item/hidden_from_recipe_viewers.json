@@ -1,55 +1,7 @@
 {
   "values": [
     {
-      "id": "natures_spirit:coconut_trellis",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:joshua_pickets",
-      "required": false
-    },
-    {
-      "id": "netherexp:claret_trellis",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:ghaf_trellis",
-      "required": false
-    },
-    {
-      "id": "farmersdelight:hoary_cabinet",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:sugi_trellis",
-      "required": false
-    },
-    {
-      "id": "nomansland:maple_pickets",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:aspen_trellis",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:larch_trellis",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:cedar_pickets",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:olive_pickets",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:palo_verde_pickets",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:mahogany_trellis",
+      "id": "nomansland:walnut_trellis",
       "required": false
     },
     {
@@ -57,59 +9,51 @@
       "required": false
     },
     {
-      "id": "nomansland:pine_pickets",
+      "id": "nomansland:willow_pickets",
       "required": false
     },
     {
-      "id": "natures_spirit:coconut_pickets",
+      "id": "natures_spirit:coconut_trellis",
       "required": false
     },
     {
-      "id": "natures_spirit:olive_trellis",
+      "id": "nomansland:pine_trellis",
       "required": false
     },
     {
-      "id": "frontiers:eboncork_trellis",
+      "id": "natures_spirit:willow_trellis",
       "required": false
     },
     {
-      "id": "arts_and_crafts:cork_pickets",
+      "id": "nomansland:willow_trellis",
       "required": false
     },
     {
-      "id": "farmersdelight:walnut_cabinet",
+      "id": "natures_spirit:maple_pickets",
       "required": false
     },
     {
-      "id": "natures_spirit:sugi_pickets",
+      "id": "nomansland:maple_pickets",
       "required": false
     },
     {
-      "id": "natures_spirit:maple_trellis",
+      "id": "natures_spirit:mahogany_pickets",
       "required": false
     },
     {
-      "id": "nomansland:walnut_pickets",
+      "id": "nomansland:maple_trellis",
       "required": false
     },
     {
-      "id": "natures_spirit:larch_pickets",
+      "id": "natures_spirit:larch_trellis",
       "required": false
     },
     {
-      "id": "natures_spirit:cypress_pickets",
+      "id": "natures_spirit:palo_verde_trellis",
       "required": false
     },
     {
-      "id": "nomansland:walnut_trellis",
-      "required": false
-    },
-    {
-      "id": "arts_and_crafts:cork_trellis",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:fir_trellis",
+      "id": "natures_spirit:ghaf_trellis",
       "required": false
     },
     {
@@ -117,7 +61,99 @@
       "required": false
     },
     {
+      "id": "natures_spirit:sugi_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:maple_trellis",
+      "required": false
+    },
+    {
+      "id": "netherexp:claret_pickets",
+      "required": false
+    },
+    {
+      "id": "arts_and_crafts:cork_pickets",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:olive_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:palo_verde_pickets",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:aspen_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:sugi_pickets",
+      "required": false
+    },
+    {
+      "id": "nomansland:pine_pickets",
+      "required": false
+    },
+    {
+      "id": "nomansland:walnut_pickets",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:willow_pickets",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:cypress_pickets",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:joshua_pickets",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:wisteria_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:cypress_trellis",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:olive_pickets",
+      "required": false
+    },
+    {
+      "id": "frontiers:eboncork_pickets",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:hoary_cabinet",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:cedar_pickets",
+      "required": false
+    },
+    {
+      "id": "netherexp:claret_trellis",
+      "required": false
+    },
+    {
       "id": "natures_spirit:wisteria_pickets",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:aspen_pickets",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:larch_pickets",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:coconut_pickets",
       "required": false
     },
     {
@@ -129,27 +165,15 @@
       "required": false
     },
     {
-      "id": "appledog:appledog_block",
-      "required": false
-    },
-    {
-      "id": "nomansland:willow_pickets",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:willow_trellis",
-      "required": false
-    },
-    {
-      "id": "nomansland:maple_trellis",
-      "required": false
-    },
-    {
       "id": "natures_spirit:cedar_trellis",
       "required": false
     },
     {
-      "id": "natures_spirit:palo_verde_trellis",
+      "id": "appledog:appledog_block",
+      "required": false
+    },
+    {
+      "id": "natures_spirit:fir_trellis",
       "required": false
     },
     {
@@ -157,43 +181,19 @@
       "required": false
     },
     {
-      "id": "nomansland:willow_trellis",
+      "id": "frontiers:eboncork_trellis",
       "required": false
     },
     {
-      "id": "natures_spirit:wisteria_trellis",
+      "id": "farmersdelight:walnut_cabinet",
       "required": false
     },
     {
-      "id": "natures_spirit:maple_pickets",
+      "id": "arts_and_crafts:cork_trellis",
       "required": false
     },
     {
-      "id": "natures_spirit:aspen_pickets",
-      "required": false
-    },
-    {
-      "id": "frontiers:eboncork_pickets",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:mahogany_pickets",
-      "required": false
-    },
-    {
-      "id": "nomansland:pine_trellis",
-      "required": false
-    },
-    {
-      "id": "netherexp:claret_pickets",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:cypress_trellis",
-      "required": false
-    },
-    {
-      "id": "natures_spirit:willow_pickets",
+      "id": "natures_spirit:mahogany_trellis",
       "required": false
     }
   ]

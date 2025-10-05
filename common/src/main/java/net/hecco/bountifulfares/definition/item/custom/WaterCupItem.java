@@ -2,25 +2,27 @@ package net.hecco.bountifulfares.definition.item.custom;
 
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.core.Holder;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUtils;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-
-import java.util.ArrayList;
-import java.util.List;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 
 public class WaterCupItem extends Item {
 
@@ -49,6 +51,35 @@ public class WaterCupItem extends Item {
             }
 
             return stack;
+        }
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext context)
+    {
+        Level level = context.getLevel();
+        BlockPos blockpos = context.getClickedPos();
+        Player player = context.getPlayer();
+        ItemStack itemstack = context.getItemInHand();
+        BlockState blockstate = level.getBlockState(blockpos);
+        if (context.getClickedFace() != Direction.DOWN && blockstate.is(BlockTags.CONVERTABLE_TO_MUD)) {
+            level.playSound(null, blockpos, SoundEvents.GENERIC_SPLASH, SoundSource.BLOCKS, 1.0F, 1.0F);
+            player.setItemInHand(context.getHand(), ItemUtils.createFilledResult(itemstack, player, new ItemStack(BFItems.CUP.get())));
+            player.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
+            if (!level.isClientSide) {
+                ServerLevel serverlevel = (ServerLevel)level;
+
+                for(int i = 0; i < 5; ++i) {
+                    serverlevel.sendParticles(ParticleTypes.SPLASH, (double)blockpos.getX() + level.random.nextDouble(), (double)(blockpos.getY() + 1), (double)blockpos.getZ() + level.random.nextDouble(), 1, 0.0, 0.0, 0.0, 1.0);
+                }
+            }
+
+            level.playSound(null, blockpos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
+            level.gameEvent(null, GameEvent.FLUID_PLACE, blockpos);
+            level.setBlockAndUpdate(blockpos, Blocks.MUD.defaultBlockState());
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        } else {
+            return InteractionResult.PASS;
         }
     }
 

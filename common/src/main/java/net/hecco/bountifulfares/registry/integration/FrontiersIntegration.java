@@ -33,7 +33,7 @@ import java.util.function.Supplier;
 import static net.hecco.bountifulfares.BountifulFares.FRONTIERS_MOD_ID;
 
 public class FrontiersIntegration implements ModIntegration {
-    public static final List<String> WOOD_TYPES = List.of("eboncork");
+    public static final List<String> WOOD_TYPES = List.of("eboncork", "blighted_birch");
 
     @Override
     public CompatManager getCompatManager() {

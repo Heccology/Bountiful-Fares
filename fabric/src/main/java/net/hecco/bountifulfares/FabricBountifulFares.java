@@ -72,6 +72,7 @@ public class FabricBountifulFares implements ModInitializer {
         BFRegistries.registerStrippables();
         BFRegistries.registerModCompostables();
         BFRegistries.registerUntintedParticleBlocks();
+        BFRegistries.registerCauldronBehaviors();
         BFFabricLootTableModifiers.modifyLootTables();
         addTiffin(TOOLS_AND_UTILITIES, BFItems.SUN_HAT.get(), null);
         addTiffin(TOOLS_AND_UTILITIES, BFItems.TIFFINS.get(null).get(), DyeColor.WHITE);
