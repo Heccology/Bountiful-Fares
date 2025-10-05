@@ -8,6 +8,7 @@ assignees: ''
 ---
 
 ### Bugs that arise because of Sinytra Connector, or bugs with mods that can only be played with this mod on Sinytra Connector, will most likely not be worked on.
+### Versions below 3.0.0 are no longer maintained.
 
 **Describe the bug**
 A clear and concise description of what the bug is.

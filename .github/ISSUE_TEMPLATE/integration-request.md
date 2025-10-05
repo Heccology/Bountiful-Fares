@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-### Do not request compatibility with mods that are Forge/NeoForge only.
+### Only request mod integration if that mod is on a compatible version, like 1.21.1 Fabric.
 
 **What mod would you like compatibility with?**
 Please give the name of the mod, what it adds, and a link to the mod page (preferably on Modrinth).
