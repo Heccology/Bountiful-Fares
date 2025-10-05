@@ -27,7 +27,7 @@ public abstract class TooltipOverlayHandlerMixin {
             ItemStack tiffinFoodStack = itemStack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack();
             if(!tiffinFoodStack.isEmpty()
                     && tiffinFoodStack.has(DataComponents.FOOD)
-                    && !(tiffinFoodStack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.getBoolConfigValue("enablePlaceablePumpkinPie"))){
+                    && !(tiffinFoodStack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.get().getBoolConfigValue("enablePlaceablePumpkinPie"))){
                 return tiffinFoodStack;
             }
         }
@@ -36,7 +36,7 @@ public abstract class TooltipOverlayHandlerMixin {
 
     @Inject(method = "gatherTooltips", at = @At("HEAD"), cancellable = true)
     public void bountifulfares$gatherTooltips(RenderTooltipEvent.GatherComponents event, CallbackInfo ci) {
-        if (event.getItemStack().is(Items.PUMPKIN_PIE) && Services.PLATFORM.getBoolConfigValue("enablePlaceablePumpkinPie")) {
+        if (event.getItemStack().is(Items.PUMPKIN_PIE) && Services.PLATFORM.get().getBoolConfigValue("enablePlaceablePumpkinPie")) {
             ci.cancel();
         }
     }

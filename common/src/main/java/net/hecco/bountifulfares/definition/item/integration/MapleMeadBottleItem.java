@@ -32,7 +32,7 @@ public class MapleMeadBottleItem extends TeaBottleItem {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
-        if (Services.PLATFORM.getBoolConfigValue("effectTooltips")) {
+        if (Services.PLATFORM.get().getBoolConfigValue("effectTooltips")) {
             PotionContents.addPotionTooltip(List.of(new MobEffectInstance(MobEffects.REGENERATION, 200, 0, true, true)), tooltip::add, 1.0F, context.tickRate());
             tooltip.add(CommonComponents.EMPTY);
             tooltip.add(Component.translatable("tooltip.bountifulfares.removes").withStyle(ChatFormatting.GRAY));

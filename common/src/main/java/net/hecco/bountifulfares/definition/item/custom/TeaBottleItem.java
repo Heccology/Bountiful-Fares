@@ -80,7 +80,7 @@ public class TeaBottleItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
         super.appendHoverText(stack, context, tooltip, type);
-        if (Services.PLATFORM.getBoolConfigValue("effectTooltips")) {
+        if (Services.PLATFORM.get().getBoolConfigValue("effectTooltips")) {
             PotionContents.addPotionTooltip(List.of(new MobEffectInstance(BFEffects.EBULLIENCE, 3600, 0, true, true)), tooltip::add, 1.0F, context.tickRate());
             tooltip.add(CommonComponents.EMPTY);
             tooltip.add(Component.translatable("tooltip.bountifulfares.removes").withStyle(ChatFormatting.GRAY));

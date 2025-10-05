@@ -76,7 +76,7 @@ public class NeoForgeEvents {
         Player player = event.getEntity();
         BlockHitResult hitResult = event.getHitVec();
         Level world = event.getLevel();
-        if (player.canEat(false) && Services.PLATFORM.getBoolConfigValue("cakeEatSounds") && !player.isSpectator()) {
+        if (player.canEat(false) && Services.PLATFORM.get().getBoolConfigValue("cakeEatSounds") && !player.isSpectator()) {
             BlockPos pos = hitResult.getBlockPos();
             BlockState state = world.getBlockState(pos);
             Block target = state.getBlock();

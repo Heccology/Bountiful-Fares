@@ -75,8 +75,8 @@ public class FermentingRecipeCategory implements IRecipeCategory<FermentationRec
             tooltipStrings.add(Component.translatable("jei.bountifulfares.collect_using").append(recipe.getOutput().getItem().getCraftingRemainingItem().getDescription()));
         }
         if (mouseX >= 35 && mouseX <= 47 && mouseY >= 39 && mouseY <= 54) {
-            int minutes = (int) Math.floor((double) Services.PLATFORM.getIntConfigValue("fermentationTime") / 60);
-            int seconds = (int) Math.floor((double) Services.PLATFORM.getIntConfigValue("fermentationTime") - (minutes * 60));
+            int minutes = (int) Math.floor((double) Services.PLATFORM.get().getIntConfigValue("fermentationTime") / 60);
+            int seconds = (int) Math.floor((double) Services.PLATFORM.get().getIntConfigValue("fermentationTime") - (minutes * 60));
             MutableComponent text = Component.literal("");
             if (minutes != 0) {
                 text = text.append(minutes + " ").append(Component.translatable("jei.bountifulfares.minutes"));

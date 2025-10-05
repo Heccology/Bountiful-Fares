@@ -68,7 +68,7 @@ public class LiquidBottleItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
         super.appendHoverText(stack, context, tooltip, type);
-        if (!effects.isEmpty() && Services.PLATFORM.getBoolConfigValue("effectTooltips")) {
+        if (!effects.isEmpty() && Services.PLATFORM.get().getBoolConfigValue("effectTooltips")) {
             PotionContents.addPotionTooltip(effects, tooltip::add, 1.0F, context.tickRate());
         }
     }

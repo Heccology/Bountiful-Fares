@@ -99,7 +99,7 @@ public abstract class GuiHeartsMixin
     @Inject(method = "forPlayer", at = @At("TAIL"), cancellable = true)
     private static void bfPlayerStateCheck(Player player, CallbackInfoReturnable<Gui.HeartType> cir) {
         // Prefetch config values.
-        boolean useRestorationHeart = Services.PLATFORM.getBoolConfigValue("restorationHeartOverlay");
+        boolean useRestorationHeart = Services.PLATFORM.get().getBoolConfigValue("restorationHeartOverlay");
 
         // Check for if the normal heart type is the candidate for return.
         boolean isNormal = (cir.getReturnValue() == Gui.HeartType.NORMAL);

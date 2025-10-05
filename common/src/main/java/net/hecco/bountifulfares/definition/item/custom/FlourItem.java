@@ -23,7 +23,7 @@ public class FlourItem extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
-        if (Services.PLATFORM.getBoolConfigValue("enableFlourThrowing")) {
+        if (Services.PLATFORM.get().getBoolConfigValue("enableFlourThrowing")) {
             ItemStack itemStack = user.getItemInHand(hand);
             world.playSound(null, user.getX(), user.getY(), user.getZ(), BFSounds.FLOUR_THROW.get(), SoundSource.NEUTRAL, 0.6f, 0.9f + world.random.nextFloat() / 4);
             if (!world.isClientSide) {
@@ -35,8 +35,8 @@ public class FlourItem extends Item {
                     CriteriaTriggers.USING_ITEM.trigger((ServerPlayer) user, user.getItemInHand(hand));
                 }
             }
-            if (Services.PLATFORM.getIntConfigValue("flourThrowingCooldown") != 0) {
-                user.getCooldowns().addCooldown(this, Services.PLATFORM.getIntConfigValue("flourThrowingCooldown"));
+            if (Services.PLATFORM.get().getIntConfigValue("flourThrowingCooldown") != 0) {
+                user.getCooldowns().addCooldown(this, Services.PLATFORM.get().getIntConfigValue("flourThrowingCooldown"));
             }
             user.awardStat(Stats.ITEM_USED.get(this));
             if (!user.isCreative()) {

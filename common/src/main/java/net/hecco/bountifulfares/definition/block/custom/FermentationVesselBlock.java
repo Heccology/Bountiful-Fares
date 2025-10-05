@@ -161,7 +161,7 @@ public class FermentationVesselBlock extends BaseEntityBlock implements SimpleWa
     @Override
     public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
         if (world.getBlockEntity(pos) instanceof FermentationVesselBlockEntity entity) {
-            if (Services.PLATFORM.getBoolConfigValue("fermentationBubbleParticles") && state.getValue(FermentationVesselBlock.FERMENTATION_STAGE) == FermentationStage.FERMENTING && entity.getParticleColor().isPresent()) {
+            if (Services.PLATFORM.get().getBoolConfigValue("fermentationBubbleParticles") && state.getValue(FermentationVesselBlock.FERMENTATION_STAGE) == FermentationStage.FERMENTING && entity.getParticleColor().isPresent()) {
                 Vector3f color = Vec3.fromRGB24(entity.getParticleColor().orElse(16777215)).toVector3f();
                 for (int i = 0; i < random.nextIntBetweenInclusive(1, 3); i++) {
                     world.addParticle(BFParticles.FERMENTED_BUBBLE.get(), pos.getX() + 0.20 + (world.random.nextFloat() * 0.6), pos.getY() + 0.85, pos.getZ() + 0.20 + (world.random.nextFloat() * 0.6), color.x, color.y, color.z);

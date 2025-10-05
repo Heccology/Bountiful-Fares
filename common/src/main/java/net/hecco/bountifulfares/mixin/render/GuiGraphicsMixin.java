@@ -48,7 +48,7 @@ public class GuiGraphicsMixin {
                 !stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack().isEmpty() &&
                 bountifulfares$getSeed != 0) {
             TiffinContents contents = stack.get(BFComponents.TIFFIN_CONTENTS.get());
-            if (!Services.PLATFORM.getBoolConfigValue("tiffinCornerFoodIcon")) {
+            if (!Services.PLATFORM.get().getBoolConfigValue("tiffinCornerFoodIcon")) {
                 if (bountifulfares$getEntity != null && bountifulfares$getEntity instanceof Player player && (player.getItemInHand(InteractionHand.MAIN_HAND) == stack || player.getItemInHand(InteractionHand.OFF_HAND) == stack)) {
                     instance.render(stack, displayContext, leftHand, poseStack, bufferSource, combinedLight, combinedOverlay, instance.getItemModelShaper().getModelManager().getModel(ModelResourceLocation.inventory(BuiltInRegistries.ITEM.getKey(stack.getItem()).withSuffix("_back"))));
                     if (bountifulfares$getLevel != null && bountifulfares$getEntity != null) {

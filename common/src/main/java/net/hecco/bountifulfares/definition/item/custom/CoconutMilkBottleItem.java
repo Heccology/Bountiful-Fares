@@ -44,7 +44,7 @@ public class CoconutMilkBottleItem extends LiquidBottleItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
         super.appendHoverText(stack, context, tooltip, type);
-        if (Services.PLATFORM.getBoolConfigValue("effectTooltips")) {
+        if (Services.PLATFORM.get().getBoolConfigValue("effectTooltips")) {
             tooltip.add(CommonComponents.EMPTY);
             tooltip.add(Component.translatable("tooltip.bountifulfares.when_drunk").withStyle(ChatFormatting.GRAY));
             tooltip.add(Component.translatable("tooltip.bountifulfares.removes_all_effects").withStyle(ChatFormatting.BLUE));

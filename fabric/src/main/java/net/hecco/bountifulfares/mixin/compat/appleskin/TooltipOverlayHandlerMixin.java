@@ -37,7 +37,7 @@ public abstract class TooltipOverlayHandlerMixin {
 
     @Inject(method = "onItemTooltip", at = @At("HEAD"), cancellable = true)
     public void bountifulfares$gatherTooltips(ItemStack hoveredStack, Player player, Item.TooltipContext context, TooltipFlag type, List tooltip, CallbackInfo ci) {
-        if (hoveredStack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.getBoolConfigValue("enablePlaceablePumpkinPie")) {
+        if (hoveredStack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.get().getBoolConfigValue("enablePlaceablePumpkinPie")) {
             ci.cancel();
         }
     }

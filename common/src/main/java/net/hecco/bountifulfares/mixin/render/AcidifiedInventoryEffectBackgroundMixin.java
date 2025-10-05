@@ -61,7 +61,7 @@ public class AcidifiedInventoryEffectBackgroundMixin {
 
     @ModifyArg(method = "renderBackgrounds", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;blitSprite(Lnet/minecraft/resources/ResourceLocation;IIII)V"), index = 0)
     private ResourceLocation bountifulfares$acidicBackgroundOverlay(ResourceLocation sprite, @Local MobEffectInstance effect, @Local(argsOnly = true) Iterable<MobEffectInstance> effects) {
-        if (Services.PLATFORM.getBoolConfigValue("acidifiedEffectIconEffects")) {
+        if (Services.PLATFORM.get().getBoolConfigValue("acidifiedEffectIconEffects")) {
             List<Holder<MobEffect>> effects2 = new ArrayList<>();
             for (MobEffectInstance instance : effects) {
                 effects2.add(instance.getEffect());

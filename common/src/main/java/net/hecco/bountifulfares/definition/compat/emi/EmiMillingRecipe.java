@@ -61,8 +61,8 @@ public class EmiMillingRecipe implements EmiRecipe {
     public void addWidgets(WidgetHolder widgets) {
         widgets.addTexture(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "textures/gui/gristmill.png"),  32, 10, 35, 14, 69, 37);
         widgets.addAnimatedTexture(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "textures/gui/gristmill_progress_arrow.png"),
-                32, 10, 35, 14, 0, 0, Services.PLATFORM.getIntConfigValue("millingTime")*1000, true, false, false)
-                .tooltip((mx, my) -> List.of(ClientTooltipComponent.create(EmiPort.ordered(EmiPort.translatable("emi.cooking.time", Services.PLATFORM.getIntConfigValue("millingTime"))))));
+                32, 10, 35, 14, 0, 0, Services.PLATFORM.get().getIntConfigValue("millingTime")*1000, true, false, false)
+                .tooltip((mx, my) -> List.of(ClientTooltipComponent.create(EmiPort.ordered(EmiPort.translatable("emi.cooking.time", Services.PLATFORM.get().getIntConfigValue("millingTime"))))));
         widgets.addSlot(input, 6, 9);
         widgets.add(new SlotWidget(output, 74, 5).large(true)).recipeContext(this);
     }

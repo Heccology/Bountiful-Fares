@@ -128,7 +128,7 @@ public class HangingGoldenAppleBlock extends BushBlock {
             HangingGoldenAppleBlock.popResource(world, pos, new ItemStack(Items.GOLDEN_APPLE, 1));
             world.playSound(null, pos, BFSounds.HANGING_FRUIT_PICK.get(), SoundSource.BLOCKS, 1.0f, 0.8f + world.random.nextFloat() * 0.4f);
             if (!world.isClientSide()) {
-                if (Services.PLATFORM.getBoolConfigValue("fruitReplaceWhenPicked")) {
+                if (Services.PLATFORM.get().getBoolConfigValue("fruitReplaceWhenPicked")) {
                     BlockState blockState = state.setValue(AGE, 0);
                     world.setBlock(pos, blockState, Block.UPDATE_ALL);
                     world.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockState));

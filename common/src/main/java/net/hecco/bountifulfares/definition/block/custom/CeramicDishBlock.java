@@ -159,12 +159,12 @@ public class CeramicDishBlock extends Block implements EntityBlock, SimpleWaterl
     public static boolean canEatOnDish(ItemStack stack) {
         if (stack.getComponents().get(DataComponents.FOOD) != null) {
             Item item = stack.getItem();
-            boolean eatOnDishEnabled = Services.PLATFORM.getBoolConfigValue("containerFoodsEatableOnDish");
+            boolean eatOnDishEnabled = Services.PLATFORM.get().getBoolConfigValue("containerFoodsEatableOnDish");
             boolean hasRemainder = stack.getItem().hasCraftingRemainingItem();
             boolean hasFoodTransform = (stack.getComponents().get(DataComponents.FOOD).usingConvertsTo().isPresent());
 
             if (!eatOnDishEnabled && (hasRemainder || hasFoodTransform)) { return false; }
-            else if (stack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.getBoolConfigValue("enablePlaceablePumpkinPie")) { return false; }
+            else if (stack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.get().getBoolConfigValue("enablePlaceablePumpkinPie")) { return false; }
             else if (!stack.is(BFItemTags.CERAMIC_DISH_BLACKLIST)) { return true; }
         }
         return false;

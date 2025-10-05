@@ -101,8 +101,8 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
     }
 
     public void tick(Level world, BlockPos pos, BlockState state, GristmillBlockEntity blockEntity) {
-        if (Services.PLATFORM.getIntConfigValue("millingTime") * 20 != this.maxProgress) {
-            this.maxProgress = Services.PLATFORM.getIntConfigValue("millingTime") * 20;
+        if (Services.PLATFORM.get().getIntConfigValue("millingTime") * 20 != this.maxProgress) {
+            this.maxProgress = Services.PLATFORM.get().getIntConfigValue("millingTime") * 20;
         }
         if (!state.getValue(millingState) && !blockEntity.inventory.get(0).isEmpty() && blockEntity.hasRecipe() && blockEntity.canInsertOutputSlot()) {
             world.setBlockAndUpdate(pos, state.setValue(millingState, true));

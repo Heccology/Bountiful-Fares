@@ -20,7 +20,7 @@ public class BFTooltipEvents {
     }
 
     public static void addTooltipsToVanillaItems(ItemStack itemStack, List<Component> tooltip) {
-        if (Services.PLATFORM.getBoolConfigValue("effectTooltips")) {
+        if (Services.PLATFORM.get().getBoolConfigValue("effectTooltips")) {
             if (itemStack.getItem() == Items.MILK_BUCKET) {
                 tooltip.add(1, CommonComponents.EMPTY);
                 tooltip.add(2, Component.translatable("tooltip.bountifulfares.when_drunk").withStyle(ChatFormatting.GRAY));

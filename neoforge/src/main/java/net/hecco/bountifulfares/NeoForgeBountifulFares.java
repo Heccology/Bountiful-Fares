@@ -70,7 +70,7 @@ public class NeoForgeBountifulFares {
 
     public void commonSetup(FMLCommonSetupEvent event) {
 
-        if (!Services.PLATFORM.getBoolConfigValue("showCompatItemsInRecipeViewers")) {
+        if (!Services.PLATFORM.get().getBoolConfigValue("showCompatItemsInRecipeViewers")) {
             NLServices.REGISTRY.registerBuiltInDatapack(BountifulFares.MOD_ID, "hide_compat_items", "Bountiful Fares - Hide Compatibility Items", true, true);
         }
 

@@ -49,7 +49,7 @@ public class BFLangProvider extends FabricLanguageProvider {
     }
 
     private void generateJackOStraw(TranslationBuilder translationBuilder, Block block, String color) {
-        generate(translationBuilder, block, color + " Jack o'Straw");
+        generate(translationBuilder, block, color + " Jack o' Straw");
     }
 
     private void generateTag(TranslationBuilder translationBuilder, TagKey<Item> itemTag, String translation) {

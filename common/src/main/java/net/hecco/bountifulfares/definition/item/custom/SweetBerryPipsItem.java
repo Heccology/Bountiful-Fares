@@ -13,6 +13,6 @@ public class SweetBerryPipsItem extends ItemNameBlockItem {
 
     @Override
     public boolean isEnabled(FeatureFlagSet enabledFeatures) {
-        return Services.PLATFORM.getBoolConfigValue("enableSweetBerryPips");
+        return Services.PLATFORM.get().getBoolConfigValue("enableSweetBerryPips");
     }
 }

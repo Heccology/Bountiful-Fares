@@ -46,7 +46,7 @@ public class TiffinItem extends Item {
         FoodProperties foodproperties = null;
         if (itemstack.getComponents().has(BFComponents.TIFFIN_CONTENTS.get())) {
             ItemStack stack = itemstack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack();
-            if (stack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.getBoolConfigValue("enablePlaceablePumpkinPie")){
+            if (stack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.get().getBoolConfigValue("enablePlaceablePumpkinPie")){
                 return InteractionResultHolder.fail(itemstack);
             }
             if (!stack.isEmpty() && !(stack.getItem() instanceof TiffinItem) && stack.has(DataComponents.FOOD)) {
@@ -78,7 +78,7 @@ public class TiffinItem extends Item {
     }
 
     public static boolean canInsertStack(ItemStack stack, TiffinContents contents) {
-        if (stack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.getBoolConfigValue("enablePlaceablePumpkinPie")) return false;
+        if (stack.is(Items.PUMPKIN_PIE) && Services.PLATFORM.get().getBoolConfigValue("enablePlaceablePumpkinPie")) return false;
         return !(stack.getItem() instanceof TiffinItem) && stack.has(DataComponents.FOOD) && (getRemainderItem(stack.getItem()) == null || getRemainderItem(stack.getItem()).getDefaultInstance().is(BFItemTags.FOOD_CONTAINERS_TIFFINS_CAN_HOLD)) && (ItemStack.isSameItemSameComponents(contents.getItemStack(), stack) || contents.getItemStack().isEmpty());
     }
 

@@ -66,7 +66,7 @@ public class AcidifiedEffectBackgroundMixin {
 
     @ModifyArg(method = "renderEffects", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;blitSprite(Lnet/minecraft/resources/ResourceLocation;IIII)V"), index = 0)
     private ResourceLocation bountifulfares$renderAcidifiedBackgrounds(ResourceLocation sprite, @Local MobEffectInstance effect) {
-        if (Services.PLATFORM.getBoolConfigValue("acidifiedEffectIconEffects")) {
+        if (Services.PLATFORM.get().getBoolConfigValue("acidifiedEffectIconEffects")) {
             Collection<MobEffectInstance> collection = this.minecraft.player.getActiveEffects();
             if (collection.stream().map(MobEffectInstance::getEffect).collect(Collectors.toSet()).contains(BFEffects.ACIDIC) && effect.getEffect().value() != BFEffects.ACIDIC.value() && !effect.getEffect().is(BFEffectTags.ACIDIC_BLACKLIST)) {
                 if (sprite.equals(EFFECT_BACKGROUND_AMBIENT_SPRITE)) {

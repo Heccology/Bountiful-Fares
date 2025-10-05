@@ -21,7 +21,7 @@ public class YoghurtItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag type) {
         super.appendHoverText(stack, context, tooltip, type);
-        if (Services.PLATFORM.getBoolConfigValue("effectTooltips")) {
+        if (Services.PLATFORM.get().getBoolConfigValue("effectTooltips")) {
             if (effects != null && !effects.isEmpty()) {
                 PotionContents.addPotionTooltip(effects, tooltip::add, 1.0F, context.tickRate());
                 tooltip.add(Component.empty());

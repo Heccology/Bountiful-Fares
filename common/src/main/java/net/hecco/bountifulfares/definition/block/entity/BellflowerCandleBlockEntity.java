@@ -26,7 +26,7 @@ public class BellflowerCandleBlockEntity extends BlockEntity {
     }
     public static void tick(Level world, BlockPos pos, BlockState state, BellflowerCandleBlockEntity blockEntity) {
         if (world.getGameTime() % 25L == 0L) {
-            AABB box = new AABB(pos).inflate(Services.PLATFORM.getIntConfigValue("infusedCandleRadius"));
+            AABB box = new AABB(pos).inflate(Services.PLATFORM.get().getIntConfigValue("infusedCandleRadius"));
             List<Player> list = world.getEntitiesOfClass(Player.class, box);
             if (state.getValue(isLit)) {
                 if (!world.isClientSide() && !list.isEmpty()) {

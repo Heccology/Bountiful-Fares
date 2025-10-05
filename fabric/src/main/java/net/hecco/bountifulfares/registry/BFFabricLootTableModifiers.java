@@ -51,10 +51,10 @@ public class BFFabricLootTableModifiers {
 
     public static void modifyLootTables() {
         // Prefetch all config settings for easier read
-        boolean do_lapisberries =                   Services.PLATFORM.getBoolConfigValue("enableLapisberrySeeds");
-        boolean do_hoaryseeds =                     Services.PLATFORM.getBoolConfigValue("enableHoarySeeds");
-        boolean do_spongekinseed_guardian =         Services.PLATFORM.getBoolConfigValue("enableGuardianSpongekinSeeds");
-        boolean do_grass_override =                 Services.PLATFORM.getBoolConfigValue("grassLootTableOverride");
+        boolean do_lapisberries = Services.PLATFORM.get().getBoolConfigValue("enableLapisberrySeeds");
+        boolean do_hoaryseeds = Services.PLATFORM.get().getBoolConfigValue("enableHoarySeeds");
+        boolean do_spongekinseed_guardian = Services.PLATFORM.get().getBoolConfigValue("enableGuardianSpongekinSeeds");
+        boolean do_grass_override = Services.PLATFORM.get().getBoolConfigValue("grassLootTableOverride");
 
         // Short Grass
         LootTableEvents.REPLACE.register((key, original, source, wrapperLookup) -> {
