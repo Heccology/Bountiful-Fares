@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "frontiers:block/blighted_birch_trellis",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "frontiers:block/blighted_birch_trellis",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "frontiers:block/blighted_birch_trellis",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "frontiers:block/blighted_birch_trellis",
+      "y": 270
+    }
+  }
+}

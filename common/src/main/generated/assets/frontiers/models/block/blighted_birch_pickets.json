@@ -1,0 +1,6 @@
+{
+  "parent": "bountifulfares:block/template_pickets",
+  "textures": {
+    "texture": "frontiers:block/blighted_birch_pickets"
+  }
+}

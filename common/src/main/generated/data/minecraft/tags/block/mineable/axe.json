@@ -121,6 +121,7 @@
     "natures_spirit:cypress_pickets",
     "bountifulfares:acacia_pickets",
     "bountifulfares:warped_pickets",
+    "frontiers:blighted_birch_pickets",
     "bountifulfares:jungle_pickets",
     "bountifulfares:cherry_trellis",
     "nomansland:maple_trellis",
@@ -156,6 +157,7 @@
     "natures_spirit:cypress_trellis",
     "bountifulfares:acacia_trellis",
     "bountifulfares:warped_trellis",
+    "frontiers:blighted_birch_trellis",
     "bountifulfares:jungle_trellis"
   ]
 }

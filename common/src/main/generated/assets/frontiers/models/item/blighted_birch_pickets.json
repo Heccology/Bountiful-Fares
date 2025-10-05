@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "frontiers:item/blighted_birch_pickets"
+  }
+}

@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-05T16:36:52.56895	Bountiful Fares/Block Loot Tables
+// 1.21.1	2025-10-05T17:28:36.125341	Bountiful Fares/Block Loot Tables
 2ae6f2ecb06062f6e53279094a1e20ae348559ae data\natures_spirit\loot_table\blocks\cypress_pickets.json
 e8b5c3c5257d356c27502be9b9b50cb2deff531b data\bountifulfares\loot_table\blocks\plum_log.json
 819046b7ff9165082d9e5e072c4e20467232783f data\bountifulfares\loot_table\blocks\chamomile_candle.json
@@ -94,6 +94,7 @@ a2980f0e822d8d1ce097dc2b6d8a3ec3b0601630 data\bountifulfares\loot_table\blocks\f
 bc34bb7e09e2ee49c5a8c24cacbbd1a8e2318ef7 data\bountifulfares\loot_table\blocks\walnut_button.json
 ad91b5980effa925124a1915b61213466fc1ddf8 data\bountifulfares\loot_table\blocks\cherry_trellis.json
 e1a8391256dd977a8a31c4310272999ace7ecb4e data\bountifulfares\loot_table\blocks\black_jack_o_straw.json
+eb05d5f591092e32c1caf6249d7a135db6944422 data\frontiers\loot_table\blocks\blighted_birch_pickets.json
 833dfc6579f69e3955b17772737c79e2f61d3f50 data\bountifulfares\loot_table\blocks\hoary_stairs.json
 0398a0f648c929f4b744c8547e7b5465615e20a8 data\bountifulfares\loot_table\blocks\palm_crown.json
 783af5292dcfa1543c5d558134c220863bb6930d data\bountifulfares\loot_table\blocks\coir_brick_slab.json
