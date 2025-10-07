@@ -34,7 +34,7 @@ public class BountifulFares {
 	public static void init() {
 		BFSounds.registerSounds();
 		BFBlocks.registerBlocks();
-        BFCompat.register();  // TODO: fix rearrangement - felixe
+        BFCompat.register();
 		if (!NLServices.PLATFORM.isDatagen()) {
 			BFBlockEntities.registerBlockEntities();
 		}

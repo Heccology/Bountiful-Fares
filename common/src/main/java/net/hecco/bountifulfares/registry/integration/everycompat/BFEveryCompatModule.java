@@ -54,7 +54,7 @@ public class BFEveryCompatModule extends SimpleModule {
                 .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
                 .defaultRecipe()
                 .setTabKey(tab)
-                .addTile(BFBlockEntities.TRELLIS_BLOCK_ENTITY)  // causing null pointer exception on FABRIC ONLY
+                .addTile(BFBlockEntities.TRELLIS_BLOCK_ENTITY)
                 .setRenderType(RenderLayer.CUTOUT)
                 .build();
         this.addEntry(trellis);

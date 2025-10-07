@@ -8,10 +8,6 @@ import static net.hecco.bountifulfares.BountifulFares.EVERY_COMPAT_MOD_ID;
 
 public class BFCompat {
     public static void register() {
-        if (NLServices.PLATFORM.isModLoaded(EVERY_COMPAT_MOD_ID)) {
-            // integration calls EC API to register module, so check is needed
-            COMPAT_MANAGER.addIntegration(new EveryCompatIntegration());
-        }
         COMPAT_MANAGER.addIntegration(new NaturesSpiritIntegration());
         COMPAT_MANAGER.addIntegration(new FrontiersIntegration());
         COMPAT_MANAGER.addIntegration(new FarmersDelightIntegration());
@@ -22,5 +18,10 @@ public class BFCompat {
         COMPAT_MANAGER.addIntegration(new NetherExpIntegration());
 
         COMPAT_MANAGER.registerCompatContent();
+
+        if (NLServices.PLATFORM.isModLoaded(EVERY_COMPAT_MOD_ID)) {
+            // integration calls EC API to register module, so check is needed
+            EveryCompatIntegration.register();
+        }
     }
 }
