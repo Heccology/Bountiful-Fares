@@ -1,6 +1,10 @@
 package net.hecco.bountifulfares.registry.integration;
 
+import net.hecco.bountifulfares.registry.integration.everycompat.EveryCompatIntegration;
+import net.hecco.nexuslib.platform.NLServices;
+
 import static net.hecco.bountifulfares.BountifulFares.COMPAT_MANAGER;
+import static net.hecco.bountifulfares.BountifulFares.EVERY_COMPAT_MOD_ID;
 
 public class BFCompat {
     public static void register() {
@@ -14,5 +18,10 @@ public class BFCompat {
         COMPAT_MANAGER.addIntegration(new NetherExpIntegration());
 
         COMPAT_MANAGER.registerCompatContent();
+
+        if (NLServices.PLATFORM.isModLoaded(EVERY_COMPAT_MOD_ID)) {
+            // integration calls EC API to register module, so check is needed
+            EveryCompatIntegration.register();
+        }
     }
 }

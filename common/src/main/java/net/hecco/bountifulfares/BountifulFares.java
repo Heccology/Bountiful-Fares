@@ -25,6 +25,7 @@ public class BountifulFares {
 	public static final String NO_MANS_LAND_MOD_ID = "nomansland";
 	public static final String TWIGS_MOD_ID = "twigs";
 	public static final String JADENS_NETHER_EXPANSION_MOD_ID = "netherexp";
+    public static final String EVERY_COMPAT_MOD_ID = "everycomp";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -33,7 +34,7 @@ public class BountifulFares {
 	public static void init() {
 		BFSounds.registerSounds();
 		BFBlocks.registerBlocks();
-		BFCompat.register();
+        BFCompat.register();
 		if (!NLServices.PLATFORM.isDatagen()) {
 			BFBlockEntities.registerBlockEntities();
 		}
