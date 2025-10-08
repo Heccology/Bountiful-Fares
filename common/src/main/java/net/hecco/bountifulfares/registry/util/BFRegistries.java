@@ -322,6 +322,7 @@ public class BFRegistries {
         NLServices.REGISTRY.setFlammable(BFBlocks.PLUM_LEAVES.get(), 60, 30);
         NLServices.REGISTRY.setFlammable(BFBlocks.FLOWERING_PLUM_LEAVES.get(), 60, 30);
         NLServices.REGISTRY.setFlammable(BFBlocks.HOARY_LEAVES.get(), 60, 30);
+        NLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_LEAVES.get(), 60, 30);
         NLServices.REGISTRY.setFlammable(BFBlocks.PALM_FROND.get(), 60, 30);
         NLServices.REGISTRY.setFlammable(BFBlocks.WALL_PALM_FROND.get(), 60, 30);
         NLServices.REGISTRY.setFlammable(BFBlocks.APPLE_LOG.get(), 10, 5);
