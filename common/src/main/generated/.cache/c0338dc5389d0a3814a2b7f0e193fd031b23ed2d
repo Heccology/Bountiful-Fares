@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-05T18:33:19.8289067	Bountiful Fares/Block Loot Tables
+// 1.21.1	2025-12-13T16:55:14.5947396	Bountiful Fares/Block Loot Tables
 2aa5ec3da9ab7fce17231adf46ff34931a7c3a63 data\frontiers\loot_table\blocks\eboncork_pickets.json
 10ec61789a27d2a9c8f3db03c388395ac43900c3 data\bountifulfares\loot_table\blocks\wild_elderberry_vine.json
 8ecf653eb0ea4af8602337c9bcd03860bf75b292 data\bountifulfares\loot_table\blocks\potted_hoary_apple_sapling.json
@@ -127,8 +127,8 @@ c6d49c4866ffdd5609455a930acdba9b8f9ef4fc data\bountifulfares\loot_table\blocks\f
 63b284282915a21fd988f9145532529e755a896c data\natures_spirit\loot_table\blocks\olive_pickets.json
 f0e5f50c7e327fa8705d57e7d86cb4b7ab82ffb1 data\bountifulfares\loot_table\blocks\feldspar_bricks.json
 801ef4b392147debf794a60ec15a7bca43c98d59 data\bountifulfares\loot_table\blocks\potted_apple_sapling.json
-0d83723942b1623b664a3e982594e271e0d50afc data\bountifulfares\loot_table\blocks\hoary_pressure_plate.json
 263fbedda81cdfca9182337fcaea873537f399c6 data\bountifulfares\loot_table\blocks\stripped_palm_wood.json
+0d83723942b1623b664a3e982594e271e0d50afc data\bountifulfares\loot_table\blocks\hoary_pressure_plate.json
 d50b2859b0ba477d6b4d28563a48dfa4cdbb91e3 data\bountifulfares\loot_table\blocks\plum_leaves.json
 49425434a596106c7b57997302771e239d8b3bbd data\bountifulfares\loot_table\blocks\wild_leeks.json
 fc96482c47e6eeb40d9386e746cc1f9dc0b41c1d data\bountifulfares\loot_table\blocks\stripped_walnut_wood.json

@@ -49,7 +49,10 @@ public enum Category {
                     newValue -> FabricBountifulFares.CONFIG.setBoolValue("enableGuardianSpongekinSeeds", newValue), true, "bountifulfares.configuration.restart_warning"),
 
             Entry.booleanEntry("bountifulfares.configuration.show_compat_items_in_recipe_viewers", () -> FabricBountifulFares.CONFIG.getBoolValue("showCompatItemsInRecipeViewers"),
-                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("showCompatItemsInRecipeViewers", newValue), true, "bountifulfares.configuration.restart_warning")
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("showCompatItemsInRecipeViewers", newValue), true, "bountifulfares.configuration.restart_warning"),
+
+            Entry.booleanEntry("bountifulfares.configuration.add_items_to_vanilla_tabs", () -> FabricBountifulFares.CONFIG.getBoolValue("addItemsToVanillaTabs"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("addItemsToVanillaTabs", newValue), true, "bountifulfares.configuration.restart_warning")
     ),
 
     CLIENT("bountifulfares.configuration.category.client", false,

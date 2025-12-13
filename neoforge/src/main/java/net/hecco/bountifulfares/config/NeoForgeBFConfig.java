@@ -27,6 +27,7 @@ public class NeoForgeBFConfig {
             VALUES.put("grassLootTableOverride", builder.comment("Grass loot tables are overridden").define("grass_loot_table_override", true));
             VALUES.put("enableGuardianSpongekinSeeds", builder.comment("Guardians drop Spongekin Seeds").define("spongekin_seeds_guardian", true));
             VALUES.put("showCompatItemsInRecipeViewers", builder.comment("Show compatibility items in recipe viewers").define("show_compat_items_in_recipe_viewers", true));
+            VALUES.put("addItemsToVanillaTabs", builder.comment("Add items to vanilla creative tabs").define("add_items_to_vanilla_tabs", true));
         }
     }
 

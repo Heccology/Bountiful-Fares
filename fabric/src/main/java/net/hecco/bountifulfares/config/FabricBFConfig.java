@@ -40,7 +40,8 @@ public class FabricBFConfig {
             new Pair<>("acidifiedEffectIconEffects", true),
             new Pair<>("effectTooltips", true),
             new Pair<>("tiffinCornerFoodIcon", false),
-            new Pair<>("showTiffinFoodInHand", false)
+            new Pair<>("showTiffinFoodInHand", false),
+            new Pair<>("addItemsToVanillaTabs", true)
     ));
 
     public static class LimitedIntValue {

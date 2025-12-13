@@ -355,6 +355,7 @@
   "block_type.bountifulfares.pickets": "%s Pickets",
   "block_type.bountifulfares.trellis": "%s Trellis",
   "bountifulfares.configuration.acidified_effect_icon_effects": "Status Effects modified by Acidity have visual effects",
+  "bountifulfares.configuration.add_items_to_vanilla_tabs": "Add items to vanilla creative tabs",
   "bountifulfares.configuration.cake_eating_sounds": "Cakes make eating sounds",
   "bountifulfares.configuration.category.client": "Client",
   "bountifulfares.configuration.category.gameplay": "Gameplay",

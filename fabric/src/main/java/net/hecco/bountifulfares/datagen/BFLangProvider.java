@@ -495,6 +495,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "bountifulfares.configuration.show_compat_items_in_recipe_viewers", "Show compatibility items in recipe viewers");
         generate(translationBuilder, "bountifulfares.configuration.tiffin_corner_food_icon", "Show food inside Shulker Tiffins in the corner of the slot");
         generate(translationBuilder, "bountifulfares.configuration.show_tiffin_food_in_hand", "Show food inside Shulker Tiffins in players' hands");
+        generate(translationBuilder, "bountifulfares.configuration.add_items_to_vanilla_tabs", "Add items to vanilla creative tabs");
 //        generate(translationBuilder, "bountifulfares.configuration.bountiful_painting", "Allow \"Bountiful\" painting to be placed");
 //        generate(translationBuilder, "bountifulfares.configuration.citrus_dish_painting", "Allow \"Citrus Dish\" painting to be placed");
 //        generate(translationBuilder, "bountifulfares.configuration.hazel_floret_painting", "Allow \"Hazel Floret\" painting to be placed");

@@ -235,53 +235,57 @@ public class NeoForgeBountifulFares {
 
     @SubscribeEvent
     public void creativeModeTabSetup(BuildCreativeModeTabContentsEvent event) {
-        BFItemGroupAdditions.registerItemGroupAdditions();
+        if (Services.PLATFORM.get().getBoolConfigValue("addItemsToVanillaTabs")) {
+            BFItemGroupAdditions.registerItemGroupAdditions();
 
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.BUILDING_BLOCKS) {
-                event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            }
-        } else if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
-            for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.NATURAL_BLOCKS) {
-                event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            }
-        } else if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.FUNCTIONAL_BLOCKS) {
-                event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            }
-        } else if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
-            for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.REDSTONE_BLOCKS) {
-                event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            }
-        } else if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.TOOLS_AND_UTILITIES) {
-                event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            }
-            for (Pair<ItemStack, ItemStack> entry : BFItemGroupAdditions.TOOLS_AND_UTILITIES_FORGE) {
-                try {
-                    event.insertAfter(entry.getA(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                } catch (Exception ignored) {}
-            }
-        } else if (event.getTabKey() == CreativeModeTabs.COMBAT) {
-            for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.COMBAT) {
-                event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            }
-        } else if (event.getTabKey() == CreativeModeTabs.COLORED_BLOCKS) {
-            for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.COLORED_BLOCKS) {
-                event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            }
-        } else if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.INGREDIENTS) {
-                event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            }
-        } else if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-            for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.FOOD_AND_DRINKS) {
-                event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            }
-            for (Pair<ItemStack, ItemStack> entry : BFItemGroupAdditions.FOOD_AND_DRINKS_FORGE) {
-                try {
-                    event.insertAfter(entry.getA(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                } catch (Exception ignored) {}
+            if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.BUILDING_BLOCKS) {
+                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                }
+            } else if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
+                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.NATURAL_BLOCKS) {
+                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                }
+            } else if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.FUNCTIONAL_BLOCKS) {
+                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                }
+            } else if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.REDSTONE_BLOCKS) {
+                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                }
+            } else if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.TOOLS_AND_UTILITIES) {
+                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                }
+                for (Pair<ItemStack, ItemStack> entry : BFItemGroupAdditions.TOOLS_AND_UTILITIES_FORGE) {
+                    try {
+                        event.insertAfter(entry.getA(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                    } catch (Exception ignored) {
+                    }
+                }
+            } else if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.COMBAT) {
+                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                }
+            } else if (event.getTabKey() == CreativeModeTabs.COLORED_BLOCKS) {
+                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.COLORED_BLOCKS) {
+                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                }
+            } else if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.INGREDIENTS) {
+                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                }
+            } else if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.FOOD_AND_DRINKS) {
+                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                }
+                for (Pair<ItemStack, ItemStack> entry : BFItemGroupAdditions.FOOD_AND_DRINKS_FORGE) {
+                    try {
+                        event.insertAfter(entry.getA(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                    } catch (Exception ignored) {
+                    }
+                }
             }
         }
 
