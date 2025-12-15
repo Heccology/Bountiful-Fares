@@ -448,6 +448,7 @@
   "block_type.bountifulfares.pickets": "%s штакетники",
   "block_type.bountifulfares.trellis": "%s решетки",
   "bountifulfares.configuration.acidified_effect_icon_effects": "Эффекты, усиленные Кислотностью, имеют визуальное отличие",
+  "bountifulfares.configuration.add_items_to_vanilla_tabs": "Предметы из BountifulFares добавлены в ванильные вкладки креатива",
   "bountifulfares.configuration.cake_eating_sounds": "Блоки тортов издают звуки при поедании",
   "bountifulfares.configuration.category.client": "Клиент",
   "bountifulfares.configuration.category.gameplay": "Геймплей",
