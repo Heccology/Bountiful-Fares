@@ -8,7 +8,6 @@
     "gameplay.BoatMixin",
     "gameplay.CampfireBlockEntityMixin",
     "gameplay.ChestBoatMixin",
-    "gameplay.EntityMixin",
     "gameplay.LivingEntityMixin",
     "gameplay.LivingEntityTiffinMixin",
     "gameplay.PumpkinPieItemMixin",
