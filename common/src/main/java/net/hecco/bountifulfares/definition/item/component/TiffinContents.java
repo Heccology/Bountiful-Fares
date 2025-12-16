@@ -15,14 +15,14 @@ import java.util.Objects;
 
 public class TiffinContents implements TooltipComponent {
     public static final Codec<TiffinContents> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            ItemStack.OPTIONAL_CODEC.fieldOf("item").forGetter(t -> t.item)
+            ItemStack.CODEC.fieldOf("item").forGetter(t -> t.item)
     ).apply(instance, TiffinContents::new));
-    public static final StreamCodec<RegistryFriendlyByteBuf, TiffinContents> STREAM_CODEC = StreamCodec.composite(ItemStack.OPTIONAL_STREAM_CODEC, contents -> contents.item, TiffinContents::new);
+    public static final StreamCodec<RegistryFriendlyByteBuf, TiffinContents> STREAM_CODEC = StreamCodec.composite(ItemStack.STREAM_CODEC, contents -> contents.item, TiffinContents::new);
     public final int CAPACITY = 64;
     final ItemStack item;
 
     public TiffinContents(ItemStack item) {
-        this.item = item;
+        this.item = item == null ? ItemStack.EMPTY : item;
 //        this.CAPACITY = !item.isEmpty() ? item.getItem().getDefaultMaxStackSize() == 1 ? 1 : Math.min(item.getItem().getDefaultMaxStackSize() * 2, 64) : 32;
     }
 

@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.registry.misc;
 
 import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.definition.item.component.TiffinContents;
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFItems;
@@ -292,23 +293,25 @@ public class BFItemGroupAdditions {
         TOOLS_AND_UTILITIES.add(new Pair<>(BFItems.WALNUT_CHEST_BOAT.get(), BFItems.HOARY_BOAT.get().asItem().getDefaultInstance()));
         TOOLS_AND_UTILITIES.add(new Pair<>(BFItems.HOARY_BOAT.get(), BFItems.HOARY_CHEST_BOAT.get().asItem().getDefaultInstance()));
 
-        addTiffinForge(TOOLS_AND_UTILITIES_FORGE, BFItems.SUN_HAT.get(), null);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, null, DyeColor.WHITE);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.WHITE, DyeColor.LIGHT_GRAY);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.LIGHT_GRAY, DyeColor.GRAY);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.GRAY, DyeColor.BLACK);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.BLACK, DyeColor.BROWN);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.BROWN, DyeColor.RED);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.RED, DyeColor.ORANGE);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.ORANGE, DyeColor.YELLOW);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.YELLOW, DyeColor.LIME);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.LIME, DyeColor.GREEN);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.GREEN, DyeColor.CYAN);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.CYAN, DyeColor.LIGHT_BLUE);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.LIGHT_BLUE, DyeColor.BLUE);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.BLUE, DyeColor.PURPLE);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.PURPLE, DyeColor.MAGENTA);
-        addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.MAGENTA, DyeColor.PINK);
+        if (Services.PLATFORM.get().getBoolConfigValue("addItemsToVanillaTabs")) {
+            addTiffinForge(TOOLS_AND_UTILITIES_FORGE, BFItems.SUN_HAT.get(), null);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, null, DyeColor.WHITE);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.WHITE, DyeColor.LIGHT_GRAY);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.LIGHT_GRAY, DyeColor.GRAY);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.GRAY, DyeColor.BLACK);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.BLACK, DyeColor.BROWN);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.BROWN, DyeColor.RED);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.RED, DyeColor.ORANGE);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.ORANGE, DyeColor.YELLOW);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.YELLOW, DyeColor.LIME);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.LIME, DyeColor.GREEN);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.GREEN, DyeColor.CYAN);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.CYAN, DyeColor.LIGHT_BLUE);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.LIGHT_BLUE, DyeColor.BLUE);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.BLUE, DyeColor.PURPLE);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.PURPLE, DyeColor.MAGENTA);
+            addTiffin(TOOLS_AND_UTILITIES_FORGE, DyeColor.MAGENTA, DyeColor.PINK);
+        }
 
         if (NLServices.PLATFORM.getPlatformName() == "Fabric") {
             NLServices.REGISTRY.addItemsToItemGroup(
