@@ -6,6 +6,7 @@ import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.item.custom.TrellisBlockItem;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFSoundTypes;
+import net.hecco.bountifulfares.registry.integration.interfaces.HasWoodTypes;
 import net.hecco.nexuslib.lib.compat.CompatManager;
 import net.hecco.nexuslib.lib.compat.ModIntegration;
 import net.hecco.nexuslib.platform.NLServices;
@@ -32,8 +33,8 @@ import java.util.function.Supplier;
 
 import static net.hecco.bountifulfares.BountifulFares.FRONTIERS_MOD_ID;
 
-public class FrontiersIntegration implements ModIntegration {
-    public static final List<String> WOOD_TYPES = List.of("eboncork", "blighted_birch");
+public class FrontiersIntegration implements ModIntegration, HasWoodTypes {
+    private static final List<String> WOOD_TYPES = List.of("eboncork", "blighted_birch");
 
     @Override
     public CompatManager getCompatManager() {
@@ -86,5 +87,10 @@ public class FrontiersIntegration implements ModIntegration {
             ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BFBlocks.PICKETS.get(FRONTIERS_MOD_ID + "_" + wood).get(), 4).define('#', BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(FRONTIERS_MOD_ID, wood + "_planks"))).define('S', Items.STICK)
                     .pattern("#S#").unlockedBy("has_planks", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(FRONTIERS_MOD_ID, wood + "_planks"))).build())))).save(exporter);
         }
+    }
+
+    @Override
+    public List<String> getWoodTypes() {
+        return WOOD_TYPES;
     }
 }

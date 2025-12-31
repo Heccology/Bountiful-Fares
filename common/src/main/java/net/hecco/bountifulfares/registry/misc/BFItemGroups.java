@@ -8,19 +8,21 @@ import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFPotions;
 import net.hecco.bountifulfares.registry.integration.*;
+import net.hecco.bountifulfares.registry.integration.interfaces.HasWoodTypes;
+import net.hecco.nexuslib.lib.compat.ModIntegration;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.level.ItemLike;
 
+import java.util.ArrayList;
 import java.util.function.Supplier;
 
+@SuppressWarnings("unused")
 public class BFItemGroups {
 
     public static final Supplier<CreativeModeTab> BOUNTIFUL_FARES = NLServices.REGISTRY.register(
@@ -489,41 +491,7 @@ public class BFItemGroups {
                     .title(Component.translatable("itemgroup.bountiful_fares_compatibility"))
                     .icon(() -> new ItemStack(BFItems.LEEK.get()))
                     .displayItems((displayParameters, entries) -> {
-                        entries.accept(AppledogIntegration.APPLEDOG_BLOCK.get());
-                        for (String wood : NaturesSpiritIntegration.WOOD_TYPES) {
-                            entries.accept(BFBlocks.TRELLISES.get(BountifulFares.NATURES_SPIRIT_MOD_ID + "_" + wood).get());
-                        }
-                        for (String wood : NaturesSpiritIntegration.WOOD_TYPES) {
-                            entries.accept(BFBlocks.PICKETS.get(BountifulFares.NATURES_SPIRIT_MOD_ID + "_" + wood).get());
-                        }
-                        for (String wood : ArtsAndCraftsIntegration.WOOD_TYPES) {
-                            entries.accept(BFBlocks.TRELLISES.get(BountifulFares.ARTS_AND_CRAFTS_MOD_ID + "_" + wood).get());
-                        }
-                        for (String wood : ArtsAndCraftsIntegration.WOOD_TYPES) {
-                            entries.accept(BFBlocks.PICKETS.get(BountifulFares.ARTS_AND_CRAFTS_MOD_ID + "_" + wood).get());
-                        }
-                        for (String wood : NoMansLandIntegration.WOOD_TYPES) {
-                            entries.accept(BFBlocks.TRELLISES.get(BountifulFares.NO_MANS_LAND_MOD_ID + "_" + wood).get());
-                        }
-                        for (String wood : NoMansLandIntegration.WOOD_TYPES) {
-                            entries.accept(BFBlocks.PICKETS.get(BountifulFares.NO_MANS_LAND_MOD_ID + "_" + wood).get());
-                        }
-                        for (String wood : NetherExpIntegration.WOOD_TYPES) {
-                            entries.accept(BFBlocks.TRELLISES.get(BountifulFares.JADENS_NETHER_EXPANSION_MOD_ID + "_" + wood).get());
-                        }
-                        for (String wood : NetherExpIntegration.WOOD_TYPES) {
-                            entries.accept(BFBlocks.PICKETS.get(BountifulFares.JADENS_NETHER_EXPANSION_MOD_ID + "_" + wood).get());
-                        }
-                        entries.accept(NoMansLandIntegration.CANDIED_PEAR.get());
-                        entries.accept(NoMansLandIntegration.MAPLE_MEAD_BOTTLE.get());
-                        entries.accept(FarmersDelightIntegration.WALNUT_CABINET.get());
-                        entries.accept(FarmersDelightIntegration.HOARY_CABINET.get());
-//                        for (String wood : FrontiersIntegration.WOOD_TYPES) {
-//                            entries.accept(BFBlocks.TRELLISES.get(BountifulFares.FRONTIERS_MOD_ID + "_" + wood).get());
-//                        }
-//                        for (String wood : FrontiersIntegration.WOOD_TYPES) {
-//                            entries.accept(BFBlocks.PICKETS.get(BountifulFares.FRONTIERS_MOD_ID + "_" + wood).get());
-//                        }
+                        getCompatItemList().forEach(entries::accept);
                     }).build());
 
     public static void registerItemGroups() {
@@ -542,5 +510,54 @@ public class BFItemGroups {
         ItemStack itemStack = new ItemStack(Items.PAINTING);
         itemStack.set(DataComponents.ENTITY_DATA, nbtComponent);
         entries.accept(itemStack);
+    }
+
+    /*
+    Previously we looped through every wood-type twice, now this
+    removes the need to do so while still keeping
+    the order of trellises, then pickets correct
+    This method is mainly so we can do whatever we want with an arraylist before feeding it to entries,
+    so you are free to reorganize it or smth, less restrictive than .accept we had
+    */
+    private static ArrayList<ItemLike> getCompatItemList() {
+        /*
+        NOTE: 64 here is a fitting power of 2 for the amount of added stuff, but if it exceeds 64 at one point,
+        don't hesitate to put 128 here (just so Java doesn't have to reallocate this, which is costly)
+         */
+        ArrayList<ItemLike> items = new ArrayList<>(64);
+        //Appledog
+            items.add(AppledogIntegration.APPLEDOG_BLOCK.get());
+        //Nature's Spirit
+            populateWoodCompatItems(items, new NaturesSpiritIntegration());
+        //Arts and Crafts
+            populateWoodCompatItems(items, new ArtsAndCraftsIntegration());
+        //No Man's Land
+            populateWoodCompatItems(items, new NoMansLandIntegration());
+            items.add(NoMansLandIntegration.CANDIED_PEAR.get());
+            items.add(NoMansLandIntegration.MAPLE_MEAD_BOTTLE.get());
+        //Jadens Nether Expansion
+            populateWoodCompatItems(items, new NetherExpIntegration());
+        //Frontiers
+            //populateWoodCompatItems(items, new FrontiersIntegration());
+        //Farmer's Delight
+            items.add(FarmersDelightIntegration.WALNUT_CABINET.get());
+            items.add(FarmersDelightIntegration.HOARY_CABINET.get());
+        return items;
+    }
+
+    /*
+    A method for ModIntegrations that are also HasWoodTypes to add pickets and trellises
+    Known downside: uses first modId in modIds, when in reality you might want a diff one
+    */
+    private static <T extends ModIntegration & HasWoodTypes> void populateWoodCompatItems(ArrayList<ItemLike> items, T modIntegration) {
+        String modId = modIntegration.modIds().getFirst();
+        ArrayList<ItemLike> trellises = new ArrayList<>(16); //same as with 64 above, usually a mod adds no more than 16 wood types
+        ArrayList<ItemLike> pickets = new ArrayList<>(16);
+        for (String wood : modIntegration.getWoodTypes()) {
+            trellises.add(BFBlocks.TRELLISES.get(modId + "_" + wood).get());
+            pickets.add(BFBlocks.PICKETS.get(modId + "_" + wood).get());
+        }
+        items.addAll(trellises);
+        items.addAll(pickets);
     }
 }
