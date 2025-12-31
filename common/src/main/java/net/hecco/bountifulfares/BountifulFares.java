@@ -51,7 +51,7 @@ public class BountifulFares {
 		BFDamageTypes.registerDamageTypes();
 		BFItemGroups.registerItemGroups();
 		BFRegistries.registerMiscRegistries();
-		BFCriteriaTriggers.register();
+		BFCriteriaTriggers.registerCriteriaTriggers();
 		//TODO: Fix c2s networking on fabric
 	}
 

@@ -20,7 +20,9 @@ import net.minecraft.world.level.block.Blocks;
 import oshi.util.tuples.Pair;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
+//TODO make this more laconic -diemant, to self
 public class BFItemGroupAdditions {
     public static ArrayList<Pair<ItemLike, ItemStack>> BUILDING_BLOCKS = new ArrayList<>();
     public static ArrayList<Pair<ItemLike, ItemStack>> NATURAL_BLOCKS = new ArrayList<>();
@@ -143,7 +145,7 @@ public class BFItemGroupAdditions {
         BUILDING_BLOCKS.add(new Pair<>(BFBlocks.CERAMIC_PRESSURE_PLATE.get(), BFBlocks.CERAMIC_BUTTON.get().asItem().getDefaultInstance()));
         BUILDING_BLOCKS.add(new Pair<>(Blocks.IRON_BARS, BFBlocks.IRON_RAILING.get().asItem().getDefaultInstance()));
 
-        if (NLServices.PLATFORM.getPlatformName() == "Fabric") {
+        if (Objects.equals(NLServices.PLATFORM.getPlatformName(), "Fabric")) {
             NLServices.REGISTRY.addItemsToItemGroup(
                     ResourceKey.create(Registries.CREATIVE_MODE_TAB, ResourceLocation.withDefaultNamespace("building_blocks")),
                     BUILDING_BLOCKS
