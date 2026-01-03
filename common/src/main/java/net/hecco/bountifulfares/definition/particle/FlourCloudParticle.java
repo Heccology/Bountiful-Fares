@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.definition.particle;
 
+import net.hecco.nexuslib.lib.util.NLParticleRenderTypes;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
@@ -45,7 +46,7 @@ public class FlourCloudParticle extends TextureSheetParticle {
 
     @Override
     public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
+        return NLParticleRenderTypes.PARTICLE_SHEET_CLOUD;
     }
 
     public static class Factory implements ParticleProvider<SimpleParticleType> {
