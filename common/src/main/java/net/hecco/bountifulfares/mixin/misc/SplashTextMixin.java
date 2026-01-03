@@ -27,7 +27,7 @@ public abstract class SplashTextMixin
     @Unique private static final ResourceLocation BOUNTIFUL_FARES_ID = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID,"texts/splashes.txt");
 
     @ModifyReturnValue(method = "prepare(Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)Ljava/util/List;", at = @At(value = "RETURN", ordinal = 0))
-    protected List<String> bountifulFaresSplashMix(List<String> original, @Local(argsOnly = true) ResourceManager resourceManager, @Local(argsOnly = true) ProfilerFiller profiler)
+    protected List<String> bountifulFares$splashMix(List<String> original, @Local(argsOnly = true) ResourceManager resourceManager, @Local(argsOnly = true) ProfilerFiller profiler)
     {
         try {
             BufferedReader bufferedReader = Minecraft.getInstance().getResourceManager().openAsReader(BOUNTIFUL_FARES_ID);
@@ -65,7 +65,7 @@ public abstract class SplashTextMixin
     }
 
     @Inject(method = "apply(Ljava/util/List;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V", at = @At("TAIL"))
-    protected void applyNewSplashes(List<String> list, ResourceManager resourceManager, ProfilerFiller profiler, CallbackInfo ci)
+    protected void bountifulfares$applyNewSplashes(List<String> list, ResourceManager resourceManager, ProfilerFiller profiler, CallbackInfo ci)
     {
         this.bountifulFares$Texts.addAll(list);
     }

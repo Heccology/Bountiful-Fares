@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.mixin.gameplay;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.trigger.AcidifyEffectTrigger;
 import net.hecco.bountifulfares.registry.content.BFEffects;
 import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
@@ -30,22 +29,23 @@ import java.util.Map;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
 
-    @Shadow @Final private Map<Holder<MobEffect>, MobEffectInstance> activeEffects;
+    @Shadow @Final
+    private Map<Holder<MobEffect>, MobEffectInstance> activeEffects;
 
-    @Shadow private boolean effectsDirty;
+    @Shadow
+    private boolean effectsDirty;
 
-    @Shadow public abstract boolean removeEffect(Holder<MobEffect> effect);
+    @Shadow
+    public abstract boolean removeEffect(Holder<MobEffect> effect);
 
-    @Shadow public abstract boolean addEffect(MobEffectInstance effectInstance);
+    @Shadow
+    public abstract boolean addEffect(MobEffectInstance effectInstance);
 
-    @Shadow protected abstract void onEffectUpdated(MobEffectInstance effectInstance, boolean forced, @Nullable Entity entity);
-
-    @Shadow public abstract boolean addEffect(MobEffectInstance effectInstance, @Nullable Entity entity);
-
-    @Shadow public abstract Collection<MobEffectInstance> getActiveEffects();
+    @Shadow
+    protected abstract void onEffectUpdated(MobEffectInstance effectInstance, boolean forced, @Nullable Entity entity);
 
     @Inject(method = "addEffect(Lnet/minecraft/world/effect/MobEffectInstance;Lnet/minecraft/world/entity/Entity;)Z", at = @At("HEAD"))
-    private void bountifulfares_acidicApply(MobEffectInstance effectInstance, Entity entity, CallbackInfoReturnable<Boolean> cir) {
+    private void bountifulfares$acidicApply(MobEffectInstance effectInstance, Entity entity, CallbackInfoReturnable<Boolean> cir) {
         if (effectInstance.getEffect() == BFEffects.STUPOR) {
             ArrayList<Holder<MobEffect>> removedEffects = new ArrayList<>();
             for (Holder<MobEffect> effect : this.activeEffects.keySet()) {
@@ -125,7 +125,7 @@ public abstract class LivingEntityMixin {
 //    }
 
     @ModifyVariable(method = "addEffect(Lnet/minecraft/world/effect/MobEffectInstance;Lnet/minecraft/world/entity/Entity;)Z", at = @At("HEAD"), argsOnly = true)
-    private MobEffectInstance bountifulfares_ifAcidicPresent(MobEffectInstance effect) {
+    private MobEffectInstance bountifulfares$ifAcidicPresent(MobEffectInstance effect) {
          if (activeEffects.containsKey(BFEffects.ACIDIC)) {
             if (effect.getEffect() != BFEffects.ACIDIC && !effect.getEffect().is(BFEffectTags.ACIDIC_BLACKLIST)) {
                 int amplifier = Math.min(effect.getAmplifier() + activeEffects.get(BFEffects.ACIDIC).getAmplifier() + 1, 255);
@@ -138,7 +138,7 @@ public abstract class LivingEntityMixin {
         return effect;
     }
     @Inject(method = "onEffectRemoved", at = @At("HEAD"))
-    private void bountifulfares_acidicRemove(MobEffectInstance effect, CallbackInfo ci) {
+    private void bountifulfares$acidicRemove(MobEffectInstance effect, CallbackInfo ci) {
         if (effect.getEffect() == BFEffects.ACIDIC && !this.activeEffects.containsKey(BFEffects.ACIDIC)) {
             int acidicAmplifier = effect.getAmplifier();
             Iterator<Map.Entry<Holder<MobEffect>, MobEffectInstance>> iterator = this.activeEffects.entrySet().iterator();
@@ -160,7 +160,7 @@ public abstract class LivingEntityMixin {
     }
 
     @Inject(method = "addEffect(Lnet/minecraft/world/effect/MobEffectInstance;Lnet/minecraft/world/entity/Entity;)Z", at = @At("HEAD"), cancellable = true)
-    private void bountifulfares_stupor(MobEffectInstance effect, @Nullable Entity source, CallbackInfoReturnable<Boolean> cir) {
+    private void bountifulfares$stupor(MobEffectInstance effect, @Nullable Entity source, CallbackInfoReturnable<Boolean> cir) {
         if (activeEffects.containsKey(BFEffects.STUPOR)) {
             if (effect.getEffect() != BFEffects.STUPOR && !effect.getEffect().is(BFEffectTags.STUPOR_BLACKLIST)) {
                 cir.setReturnValue(false);

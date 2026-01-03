@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.mixin.gameplay;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.minecraft.core.BlockPos;
@@ -26,10 +25,10 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Item.class)
-public class PumpkinPieItemMixin {
+public abstract class PumpkinPieItemMixin {
 
     @Inject(method = "useOn", at = @At("HEAD"), cancellable = true)
-    public void bf_useOnBlock(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
+    public void bountifulfares$useOnBlock(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
         if (context.getItemInHand().is(Items.PUMPKIN_PIE) && Services.PLATFORM.get().getBoolConfigValue("enablePlaceablePumpkinPie")) {
             InteractionResult ar = bountifulfares$place(new BlockPlaceContext(context));
             cir.setReturnValue(ar);
@@ -43,7 +42,7 @@ public class PumpkinPieItemMixin {
             shift = At.Shift.AFTER,
             remap = false)
     )
-    private FoodProperties bf_pumpkinPiePass(FoodProperties original) {
+    private FoodProperties bountifulfares$pumpkinPiePass(FoodProperties original) {
         if (original == Foods.PUMPKIN_PIE && Services.PLATFORM.get().getBoolConfigValue("enablePlaceablePumpkinPie")) {
             return null;
         }

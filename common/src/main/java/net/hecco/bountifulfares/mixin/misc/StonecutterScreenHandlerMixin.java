@@ -25,11 +25,8 @@ public abstract class StonecutterScreenHandlerMixin {
 
     @Inject(method = "setupResultSlot", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;enabledFeatures()Lnet/minecraft/world/flag/FeatureFlagSet;"))
     public void bountifulfares$populateResult(CallbackInfo ci, @Local ItemStack itemStack) {
-        //note to Hecco: you can change this if statement to your liking, maybe have a list of all ceramic block items instead
-        //because this currently will apply to ANY dyeable item put into stonecutter that has recipes
-        //not that it is a bad thing, just saying...
-        //if you DO change it, also check out StonecutterScreenMixin
-        if(Objects.equals(BuiltInRegistries.ITEM.getKey(this.inputSlot.getItem().getItem()).getNamespace(), BountifulFares.MOD_ID) && this.inputSlot.getItem().has(DataComponents.DYED_COLOR)){
+        if(Objects.equals(BuiltInRegistries.ITEM.getKey(this.inputSlot.getItem().getItem()).getNamespace(),
+                          BountifulFares.MOD_ID) && this.inputSlot.getItem().has(DataComponents.DYED_COLOR)) {
             itemStack.set(DataComponents.DYED_COLOR, this.inputSlot.getItem().get(DataComponents.DYED_COLOR));
         }
     }

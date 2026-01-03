@@ -20,7 +20,7 @@ import java.util.Collection;
 import java.util.stream.Collectors;
 
 @Mixin(Gui.class)
-public class AcidifiedEffectBackgroundMixin {
+public abstract class AcidifiedEffectBackgroundMixin {
 
     // Replaced via mixin into heart enum directly - >> see mixin/GuiHeartsMixin <<
     //@Inject(method = "drawHeart", at = @At("HEAD"), cancellable = true)

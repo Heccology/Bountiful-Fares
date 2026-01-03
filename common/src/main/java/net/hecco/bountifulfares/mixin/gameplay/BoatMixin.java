@@ -12,14 +12,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Boat.class)
 public abstract class BoatMixin {
-    @Shadow public abstract Boat.Type getVariant();
+    @Shadow
+    public abstract Boat.Type getVariant();
 
     @Inject(at = @At(value = "RETURN"), method = "getDropItem", cancellable = true)
     public void bountifulfares$getDropItem(CallbackInfoReturnable<Item> cir) {
         if (this.getVariant() == BFBoats.HOARY) {
             cir.setReturnValue(BFItems.HOARY_BOAT.get());
-        }
-        if (this.getVariant() == BFBoats.WALNUT) {
+        } else if (this.getVariant() == BFBoats.WALNUT) {
             cir.setReturnValue(BFItems.WALNUT_BOAT.get());
         }
     }

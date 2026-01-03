@@ -28,7 +28,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 
 @Mixin(GuiGraphics.class)
-public class GuiGraphicsMixin {
+public abstract class GuiGraphicsMixin {
 
     @Unique private Level bountifulfares$getLevel = null;
     @Unique private LivingEntity bountifulfares$getEntity = null;

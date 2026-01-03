@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
 @Debug(export = true)
 @Mixin(Boat.Type.class)
 public abstract class BoatTypeMixin {

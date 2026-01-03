@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(LivingEntity.class)
-public class LivingEntityMixin {
+public abstract class LivingEntityMixin {
     @ModifyVariable(method = "spawnItemParticles", at = @At("HEAD"), ordinal = 0, argsOnly = true)
     private ItemStack bountifulfares$setTiffinFoodParticles(ItemStack value) {
         if (value.getItem() instanceof TiffinItem && value.has(BFComponents.TIFFIN_CONTENTS.get())) {

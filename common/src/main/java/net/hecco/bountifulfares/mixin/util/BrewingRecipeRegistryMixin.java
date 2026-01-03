@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PotionBrewing.class)
-public class BrewingRecipeRegistryMixin {
+public abstract class BrewingRecipeRegistryMixin {
     @Inject(method = "addVanillaMixes", at = @At("TAIL"))
     private static void registerDefaults(PotionBrewing.Builder builder, CallbackInfo ci) {
         builder.addMix(Potions.AWKWARD, BFItems.CITRUS_ESSENCE.get(), BFPotions.ACIDIC);

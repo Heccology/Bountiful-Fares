@@ -22,12 +22,14 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ArmorStand.class)
-public class ArmorStandMixin {
-
+public abstract class ArmorStandMixin {
     @Shadow
-    private EquipmentSlot getClickedSlot(Vec3 vector) {return EquipmentSlot.HEAD;}
+    private EquipmentSlot getClickedSlot(Vec3 vector) { return EquipmentSlot.HEAD; }
 
-    @Inject(method = "interactAt", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/decoration/ArmorStand;getEquipmentSlotForItem(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/entity/EquipmentSlot;", shift = At.Shift.AFTER), cancellable = true)
+    @Inject(method = "interactAt",
+            at = @At(value = "INVOKE",
+                     target = "Lnet/minecraft/world/entity/decoration/ArmorStand;getEquipmentSlotForItem(Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/entity/EquipmentSlot;"),
+            cancellable = true)
     private void bountifulfares$artisanBrushInteraction(Player player, Vec3 vec, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
         ItemStack itemstack = player.getItemInHand(hand);
         if (itemstack.is(BFItems.ARTISAN_BRUSH.get())) {

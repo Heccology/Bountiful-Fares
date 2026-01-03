@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Mixin(EffectRenderingInventoryScreen.class)
-public class AcidifiedInventoryEffectBackgroundMixin {
+public abstract class AcidifiedInventoryEffectBackgroundMixin {
 
     @Shadow private static final ResourceLocation EFFECT_BACKGROUND_LARGE_SPRITE = ResourceLocation.withDefaultNamespace("container/inventory/effect_background_large");
     @Shadow private static final ResourceLocation EFFECT_BACKGROUND_SMALL_SPRITE = ResourceLocation.withDefaultNamespace("container/inventory/effect_background_small");
