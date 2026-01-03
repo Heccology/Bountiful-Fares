@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.integration.DelicateDyesIntegration;
 import net.hecco.bountifulfares.registry.integration.NoMansLandIntegration;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.models.BlockModelGenerators;
@@ -74,14 +75,16 @@ public class BFModelProvider extends FabricModelProvider {
             else registerJackOStrawModels(blockStateModelGenerator, block.get());
         }
 
-//        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.CORAL_JACK_O_STRAW);
-//        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.CANARY_JACK_O_STRAW);
-//        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.WASABI_JACK_O_STRAW);
-//        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW);
-//        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.SKY_JACK_O_STRAW);
-//        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.BLURPLE_JACK_O_STRAW);
-//        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.SANGRIA_JACK_O_STRAW);
-//        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.ROSE_JACK_O_STRAW);
+        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesIntegration.JACK_O_STRAWS.get("coral").get());
+        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesIntegration.JACK_O_STRAWS.get("umber").get());
+        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesIntegration.JACK_O_STRAWS.get("canary").get());
+        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesIntegration.JACK_O_STRAWS.get("wasabi").get());
+        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesIntegration.JACK_O_STRAWS.get("sacramento").get());
+        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesIntegration.JACK_O_STRAWS.get("sky").get());
+        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesIntegration.JACK_O_STRAWS.get("blurple").get());
+        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesIntegration.JACK_O_STRAWS.get("lavender").get());
+        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesIntegration.JACK_O_STRAWS.get("sangria").get());
+        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesIntegration.JACK_O_STRAWS.get("rose").get());
 
         for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
             registerPicketsModels(blockStateModelGenerator, block.get());

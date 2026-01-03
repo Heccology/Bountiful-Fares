@@ -34,13 +34,8 @@ import java.util.function.Supplier;
 
 import static net.hecco.bountifulfares.BountifulFares.NATURES_SPIRIT_MOD_ID;
 
-public class NaturesSpiritIntegration implements ModIntegration, HasWoodTypes {
+public class NaturesSpiritIntegration implements BFIntegration, HasWoodTypes {
     private static final List<String> WOOD_TYPES = new ArrayList<>(List.of("aspen", "cedar", "coconut", "cypress", "fir", "ghaf", "joshua", "larch", "mahogany", "maple", "olive", "palo_verde", "sugi", "willow", "wisteria"));
-
-    @Override
-    public CompatManager getCompatManager() {
-        return BountifulFares.COMPAT_MANAGER;
-    }
 
     @Override
     public List<String> modIds() {

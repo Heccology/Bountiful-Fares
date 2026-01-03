@@ -18,6 +18,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 
 import java.util.ArrayList;
 import java.util.function.Supplier;
@@ -542,6 +543,17 @@ public class BFItemGroups {
         //Farmer's Delight
             items.add(FarmersDelightIntegration.WALNUT_CABINET.get());
             items.add(FarmersDelightIntegration.HOARY_CABINET.get());
+        //Delicate Dyes
+            items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("coral").get());
+            items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("umber").get());
+            items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("canary").get());
+            items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("wasabi").get());
+            items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("sacramento").get());
+            items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("sky").get());
+            items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("blurple").get());
+            items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("lavender").get());
+            items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("sangria").get());
+            items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("rose").get());
         return items;
     }
 

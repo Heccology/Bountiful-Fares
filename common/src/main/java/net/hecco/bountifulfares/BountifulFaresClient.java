@@ -5,6 +5,7 @@ import net.hecco.bountifulfares.definition.item.custom.ArtisanBrushItem;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.integration.AppledogIntegration;
+import net.hecco.bountifulfares.registry.integration.DelicateDyesIntegration;
 import net.hecco.bountifulfares.registry.util.BFWoodTypes;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.client.color.block.BlockColor;
@@ -204,6 +205,9 @@ public class BountifulFaresClient {
         NLServices.client().setBlockRenderType(BFBlocks.POTTED_VIOLET_BELLFLOWER.get(), RenderType.cutout());
 
         for (Supplier<Block> jacko : BFBlocks.JACK_O_STRAWS.values()) {
+            NLServices.client().setBlockRenderType(jacko.get(), RenderType.cutout());
+        }
+        for (Supplier<Block> jacko : DelicateDyesIntegration.JACK_O_STRAWS.values()) {
             NLServices.client().setBlockRenderType(jacko.get(), RenderType.cutout());
         }
 

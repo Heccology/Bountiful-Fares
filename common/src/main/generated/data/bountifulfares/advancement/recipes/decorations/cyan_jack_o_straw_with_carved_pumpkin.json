@@ -36,16 +36,6 @@
         "recipe": "bountifulfares:cyan_jack_o_straw_with_carved_pumpkin"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:cyan_wool"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -53,8 +43,7 @@
       "has_the_recipe",
       "has_cyan_wool",
       "has_carved_pumpkin",
-      "has_sun_hat",
-      "has_wool"
+      "has_sun_hat"
     ]
   ],
   "rewards": {

@@ -36,16 +36,6 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "has_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:white_wool"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -53,8 +43,7 @@
       "has_the_recipe",
       "has_white_wool",
       "has_carved_pumpkin",
-      "has_sun_hat",
-      "has_wool"
+      "has_sun_hat"
     ]
   ],
   "rewards": {

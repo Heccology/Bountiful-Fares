@@ -1,14 +1,11 @@
 package net.hecco.bountifulfares.registry.integration;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.PicketsBlock;
 import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.item.custom.TrellisBlockItem;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFSoundTypes;
 import net.hecco.bountifulfares.registry.integration.interfaces.HasWoodTypes;
-import net.hecco.nexuslib.lib.compat.CompatManager;
-import net.hecco.nexuslib.lib.compat.ModIntegration;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -34,13 +31,8 @@ import java.util.function.Supplier;
 
 import static net.hecco.bountifulfares.BountifulFares.ARTS_AND_CRAFTS_MOD_ID;
 
-public class ArtsAndCraftsIntegration implements ModIntegration, HasWoodTypes {
+public class ArtsAndCraftsIntegration implements BFIntegration, HasWoodTypes {
     private static final List<String> WOOD_TYPES = new ArrayList<>(List.of("cork"));
-
-    @Override
-    public CompatManager getCompatManager() {
-        return BountifulFares.COMPAT_MANAGER;
-    }
 
     @Override
     public List<String> modIds() {

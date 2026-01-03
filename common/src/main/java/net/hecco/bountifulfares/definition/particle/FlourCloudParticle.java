@@ -33,9 +33,9 @@ public class FlourCloudParticle extends TextureSheetParticle {
             return;
         }
         this.move(this.xd, this.yd, this.zd);
-        this.xd *= (double)this.friction;
-        this.yd *= (double)this.friction;
-        this.zd *= (double)this.friction;
+        this.xd *= this.friction;
+        this.yd *= this.friction;
+        this.zd *= this.friction;
         if (this.age != this.lifetime) {
             this.quadSize *= 1.001f;
         }

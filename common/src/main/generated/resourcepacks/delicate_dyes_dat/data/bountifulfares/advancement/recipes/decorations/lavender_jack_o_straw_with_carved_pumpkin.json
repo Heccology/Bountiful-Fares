@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_carved_pumpkin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:carved_pumpkin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_lavender_wool": {
+      "conditions": {
+        "items": [
+          {
+            "items": "delicate_dyes:lavender_wool"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sun_hat": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:sun_hat"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bountifulfares:lavender_jack_o_straw_with_carved_pumpkin"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lavender_wool",
+      "has_carved_pumpkin",
+      "has_sun_hat"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bountifulfares:lavender_jack_o_straw_with_carved_pumpkin"
+    ]
+  }
+}

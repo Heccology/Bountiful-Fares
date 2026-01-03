@@ -1203,7 +1203,6 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(wool), has(wool))
                 .unlockedBy(getHasName(Items.CARVED_PUMPKIN), has(Items.CARVED_PUMPKIN))
                 .unlockedBy(getHasName(BFItems.SUN_HAT.get()), has(BFItems.SUN_HAT.get()))
-                .unlockedBy("has_wool", has(wool))
                 .save(exporter, getDefaultRecipeId(output) + "_with_carved_pumpkin");
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, output)
                 .requires(BFItems.SUN_HAT.get())
@@ -1211,33 +1210,11 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .requires(wool)
                 .requires(Items.STICK)
                 .unlockedBy(getHasName(wool), has(wool))
-                .unlockedBy(getHasName(Items.CARVED_PUMPKIN), has(Items.CARVED_PUMPKIN))
+                .unlockedBy(getHasName(Items.PUMPKIN), has(Items.PUMPKIN))
                 .unlockedBy(getHasName(BFItems.SUN_HAT.get()), has(BFItems.SUN_HAT.get()))
-                .unlockedBy("has_wool", has(wool))
                 .save(exporter, getDefaultRecipeId(output) + "_with_pumpkin");
     }
-    public static void offerJackOStrawRecipes(RecipeOutput exporter, ItemLike output, ItemLike wool, String specifier) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, output)
-                .requires(BFItems.SUN_HAT.get())
-                .requires(Items.CARVED_PUMPKIN)
-                .requires(wool)
-                .requires(Items.STICK)
-                .unlockedBy(getHasName(wool), has(wool))
-                .unlockedBy(getHasName(Items.CARVED_PUMPKIN), has(Items.CARVED_PUMPKIN))
-                .unlockedBy(getHasName(BFItems.SUN_HAT.get()), has(BFItems.SUN_HAT.get()))
-                .unlockedBy("has_wool", has(wool))
-                .save(exporter, getDefaultRecipeId(output) + "_with_carved_pumpkin_" + specifier);
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, output)
-                .requires(BFItems.SUN_HAT.get())
-                .requires(Items.PUMPKIN)
-                .requires(wool)
-                .requires(Items.STICK)
-                .unlockedBy(getHasName(wool), has(wool))
-                .unlockedBy(getHasName(Items.CARVED_PUMPKIN), has(Items.CARVED_PUMPKIN))
-                .unlockedBy(getHasName(BFItems.SUN_HAT.get()), has(BFItems.SUN_HAT.get()))
-                .unlockedBy("has_wool", has(wool))
-                .save(exporter, getDefaultRecipeId(output) + "_with_pumpkin_" + specifier);
-    }
+
     public static void offerTartAndPieRecipe(RecipeOutput exporter, ItemLike output, ItemLike input) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, output)
                 .requires(input)

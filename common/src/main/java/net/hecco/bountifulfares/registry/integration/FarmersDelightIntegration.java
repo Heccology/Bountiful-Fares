@@ -4,8 +4,6 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.integration.CabinetBlockEntity;
 import net.hecco.bountifulfares.definition.block.integration.FDCabinetBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.hecco.nexuslib.lib.compat.CompatManager;
-import net.hecco.nexuslib.lib.compat.ModIntegration;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -28,11 +26,8 @@ import java.util.function.Supplier;
 
 import static net.hecco.bountifulfares.BountifulFares.FARMERS_DELIGHT_MOD_ID;
 
-public class FarmersDelightIntegration implements ModIntegration {
-    @Override
-    public CompatManager getCompatManager() {
-        return BountifulFares.COMPAT_MANAGER;
-    }
+public class FarmersDelightIntegration implements BFIntegration {
+
 
     @Override
     public List<String> modIds() {

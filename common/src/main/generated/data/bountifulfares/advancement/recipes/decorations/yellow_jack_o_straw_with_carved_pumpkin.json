@@ -27,16 +27,6 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:yellow_wool"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_yellow_wool": {
       "conditions": {
         "items": [
@@ -53,8 +43,7 @@
       "has_the_recipe",
       "has_yellow_wool",
       "has_carved_pumpkin",
-      "has_sun_hat",
-      "has_wool"
+      "has_sun_hat"
     ]
   ],
   "rewards": {

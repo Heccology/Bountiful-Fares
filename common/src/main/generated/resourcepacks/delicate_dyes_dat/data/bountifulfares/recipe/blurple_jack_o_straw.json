@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bountifulfares:sun_hat"
+    },
+    {
+      "item": "minecraft:pumpkin"
+    },
+    {
+      "item": "delicate_dyes:blurple_wool"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "delicate_dyes:blurple_jack_o_straw"
+  }
+}

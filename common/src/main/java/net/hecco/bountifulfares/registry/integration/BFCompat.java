@@ -16,6 +16,7 @@ public class BFCompat {
         COMPAT_MANAGER.addIntegration(new ArtsAndCraftsIntegration());
         COMPAT_MANAGER.addIntegration(new AppledogIntegration());
         COMPAT_MANAGER.addIntegration(new NetherExpIntegration());
+        COMPAT_MANAGER.addIntegration(new DelicateDyesIntegration());
 
         COMPAT_MANAGER.registerCompatContent();
 

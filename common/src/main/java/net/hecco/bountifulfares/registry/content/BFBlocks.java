@@ -30,6 +30,7 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
@@ -289,13 +290,12 @@ public class BFBlocks {
     }
 
     private static void registerDyeBlocks() {
-        for (DyeColor color : DyeColor.values()) {
+        for (DyeColor color : Arrays.stream(DyeColor.values()).limit(16).toList()) {
             if (color == DyeColor.BROWN) {
                 JACK_O_STRAWS.put(color, registerBlock(color.getName() + "_jack_o_straw", () ->
                         new BrownJackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY))
                 ));
-            }
-            else {
+            } else {
                 JACK_O_STRAWS.put(color, registerBlock(color.getName() + "_jack_o_straw", () ->
                         new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY))
                 ));

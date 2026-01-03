@@ -34,13 +34,8 @@ import java.util.function.Supplier;
 
 import static net.hecco.bountifulfares.BountifulFares.JADENS_NETHER_EXPANSION_MOD_ID;
 
-public class NetherExpIntegration implements ModIntegration, HasWoodTypes {
+public class NetherExpIntegration implements BFIntegration, HasWoodTypes {
     private static final List<String> WOOD_TYPES = new ArrayList<>(List.of("claret"));
-
-    @Override
-    public CompatManager getCompatManager() {
-        return BountifulFares.COMPAT_MANAGER;
-    }
 
     @Override
     public List<String> modIds() {

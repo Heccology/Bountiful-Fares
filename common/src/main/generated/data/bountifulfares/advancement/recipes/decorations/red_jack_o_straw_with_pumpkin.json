@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_carved_pumpkin": {
+    "has_pumpkin": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:carved_pumpkin"
+            "items": "minecraft:pumpkin"
           }
         ]
       },
@@ -36,25 +36,14 @@
         "recipe": "bountifulfares:red_jack_o_straw_with_pumpkin"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:red_wool"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
       "has_red_wool",
-      "has_carved_pumpkin",
-      "has_sun_hat",
-      "has_wool"
+      "has_pumpkin",
+      "has_sun_hat"
     ]
   ],
   "rewards": {
