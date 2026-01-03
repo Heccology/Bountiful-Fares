@@ -15,10 +15,13 @@ import net.hecco.nexuslib.lib.publicBlocks.PublicDoorBlock;
 import net.hecco.nexuslib.lib.publicBlocks.PublicPressurePlateBlock;
 import net.hecco.nexuslib.lib.publicBlocks.PublicSaplingBlock;
 import net.hecco.nexuslib.platform.NLServices;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -35,6 +38,13 @@ import java.util.function.ToIntFunction;
 public class BFBlocks {
     public static final Map<Block, Block> CERAMIC_TO_CHECKERED_CERAMIC = Maps.newHashMap();
     public static final Map<Block, Block> REVERT_CHECKERED_CERAMIC = Maps.newHashMap();
+
+    public static final Map<String, Supplier<Block>> TRELLISES = new HashMap<>();
+    public static final Map<String, Supplier<Block>> PICKETS = new HashMap<>();
+    public static final Map<DyeColor, Supplier<Block>> JACK_O_STRAWS = new HashMap<>();
+
+    public static final Map<ItemLike, Integer> FUELS = new HashMap<>();
+    public static final Map<TagKey<Item>, Integer> TAG_FUELS = new HashMap<>();
 
     public static final Supplier<Block> APPLE_LOG = registerBlock("apple_log", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG).noOcclusion().forceSolidOff()));
     public static final Supplier<Block> APPLE_WOOD = registerBlock("apple_wood", () -> new FruitLogBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).noOcclusion().forceSolidOff()));
@@ -212,22 +222,6 @@ public class BFBlocks {
     public static final Supplier<Block> POTTED_HONEYSUCKLE = registerBlockNoItem("potted_honeysuckle", () -> new FlowerPotBlock(BFBlocks.HONEYSUCKLE.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
     public static final Supplier<Block> VIOLET_BELLFLOWER = registerBlock("violet_bellflower", () -> new TeaFlowerBlock(MobEffects.INVISIBILITY, 5, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
     public static final Supplier<Block> POTTED_VIOLET_BELLFLOWER = registerBlockNoItem("potted_violet_bellflower", () -> new FlowerPotBlock(BFBlocks.VIOLET_BELLFLOWER.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_POPPY)));
-    public static final Supplier<Block> WHITE_JACK_O_STRAW = registerBlock("white_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> LIGHT_GRAY_JACK_O_STRAW = registerBlock("light_gray_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> GRAY_JACK_O_STRAW = registerBlock("gray_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> BLACK_JACK_O_STRAW = registerBlock("black_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> BROWN_JACK_O_STRAW = registerBlock("brown_jack_o_straw", () -> new BrownJackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> RED_JACK_O_STRAW = registerBlock("red_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> ORANGE_JACK_O_STRAW = registerBlock("orange_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> YELLOW_JACK_O_STRAW = registerBlock("yellow_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> LIME_JACK_O_STRAW = registerBlock("lime_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> GREEN_JACK_O_STRAW = registerBlock("green_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> CYAN_JACK_O_STRAW = registerBlock("cyan_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> LIGHT_BLUE_JACK_O_STRAW = registerBlock("light_blue_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> BLUE_JACK_O_STRAW = registerBlock("blue_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> PURPLE_JACK_O_STRAW = registerBlock("purple_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> MAGENTA_JACK_O_STRAW = registerBlock("magenta_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
-    public static final Supplier<Block> PINK_JACK_O_STRAW = registerBlock("pink_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)));
 
     public static final Supplier<Block> GRISTMILL = registerBlock("gristmill", () -> new GristmillBlock(BlockBehaviour.Properties.of().destroyTime(2.5f).instrument(NoteBlockInstrument.DIDGERIDOO).mapColor(MapColor.WOOD).sound(SoundType.WOOD)));
     public static final Supplier<Block> GREEN_TEA_CANDLE = registerBlock("green_tea_candle", () -> new GreenTeaCandleBlock(BlockBehaviour.Properties.of().noOcclusion().strength(0.1f).sound(SoundType.CANDLE).lightLevel(createLightLevelFromLitBlockState(12)).pushReaction(PushReaction.DESTROY)));
@@ -282,9 +276,6 @@ public class BFBlocks {
     public static final Supplier<Block> HANGING_GOLDEN_APPLE = registerBlockNoItem("hanging_golden_apple", () -> new HangingGoldenAppleBlock(BlockBehaviour.Properties.of().strength(0.5f).mapColor(MapColor.GOLD).noOcclusion().dynamicShape().sound(SoundType.AZALEA).pushReaction(PushReaction.BLOCK).randomTicks().offsetType(BlockBehaviour.OffsetType.XZ).lightLevel((state) -> 7)));
     public static final Supplier<Block> HANGING_WITHERED_GOLDEN_APPLE = registerBlockNoItem("hanging_withered_golden_apple", () -> new HangingWitheredGoldenAppleBlock(BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BLACK).noOcclusion().dynamicShape().sound(SoundType.AZALEA).pushReaction(PushReaction.DESTROY).offsetType(BlockBehaviour.OffsetType.XZ)));
 
-    public static final Map<String, Supplier<Block>> TRELLISES = new HashMap<>();
-    public static final Map<String, Supplier<Block>> PICKETS = new HashMap<>();
-
     private static void registerWoodBlocks() {
         for (String wood : BountifulFaresUtil.WOOD_TYPES) {
             if (wood != "oak") {
@@ -294,6 +285,21 @@ public class BFBlocks {
             }
 
             PICKETS.put(wood, registerBlock(wood + "_pickets", () -> new PicketsBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.NONE).strength(0.5F).sound(BFSoundTypes.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion())));
+        }
+    }
+
+    private static void registerDyeBlocks() {
+        for (DyeColor color : DyeColor.values()) {
+            if (color == DyeColor.BROWN) {
+                JACK_O_STRAWS.put(color, registerBlock(color.getName() + "_jack_o_straw", () ->
+                        new BrownJackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY))
+                ));
+            }
+            else {
+                JACK_O_STRAWS.put(color, registerBlock(color.getName() + "_jack_o_straw", () ->
+                        new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY))
+                ));
+            }
         }
     }
 
@@ -333,5 +339,6 @@ public class BFBlocks {
 
     public static void registerBlocks() {
         registerWoodBlocks();
+        registerDyeBlocks();
     }
 }

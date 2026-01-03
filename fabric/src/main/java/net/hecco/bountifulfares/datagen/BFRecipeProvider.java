@@ -21,6 +21,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CampfireCookingRecipe;
@@ -808,23 +809,22 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(Items.SHULKER_SHELL), has(Items.SHULKER_SHELL))
                 .save(exporter);
 
-
-        offerJackOStrawRecipes(exporter, BFBlocks.WHITE_JACK_O_STRAW.get(), Items.WHITE_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), Items.LIGHT_GRAY_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.GRAY_JACK_O_STRAW.get(), Items.GRAY_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.BLACK_JACK_O_STRAW.get(), Items.BLACK_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.BROWN_JACK_O_STRAW.get(), Items.BROWN_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.RED_JACK_O_STRAW.get(), Items.RED_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.ORANGE_JACK_O_STRAW.get(), Items.ORANGE_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.YELLOW_JACK_O_STRAW.get(), Items.YELLOW_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.LIME_JACK_O_STRAW.get(), Items.LIME_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.GREEN_JACK_O_STRAW.get(), Items.GREEN_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.CYAN_JACK_O_STRAW.get(), Items.CYAN_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get(), Items.LIGHT_BLUE_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.BLUE_JACK_O_STRAW.get(), Items.BLUE_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.PURPLE_JACK_O_STRAW.get(), Items.PURPLE_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.MAGENTA_JACK_O_STRAW.get(), Items.MAGENTA_WOOL);
-        offerJackOStrawRecipes(exporter, BFBlocks.PINK_JACK_O_STRAW.get(), Items.PINK_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.WHITE).get(), Items.WHITE_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.LIGHT_GRAY).get(), Items.LIGHT_GRAY_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.GRAY).get(), Items.GRAY_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.BLACK).get(), Items.BLACK_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.BROWN).get(), Items.BROWN_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.RED).get(), Items.RED_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.ORANGE).get(), Items.ORANGE_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.YELLOW).get(), Items.YELLOW_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.LIME).get(), Items.LIME_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.GREEN).get(), Items.GREEN_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.CYAN).get(), Items.CYAN_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.LIGHT_BLUE).get(), Items.LIGHT_BLUE_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.BLUE).get(), Items.BLUE_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.PURPLE).get(), Items.PURPLE_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.MAGENTA).get(), Items.MAGENTA_WOOL);
+        offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.PINK).get(), Items.PINK_WOOL);
 
         offerMillingRecipe(exporter, Items.WHEAT, BFItems.FLOUR.get(), 2);
         offerMillingRecipe(exporter, BFItems.MAIZE.get(), BFItems.FLOUR.get(), 2);

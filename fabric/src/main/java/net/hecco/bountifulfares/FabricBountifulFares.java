@@ -34,8 +34,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CakeBlock;
@@ -65,7 +68,6 @@ public class FabricBountifulFares implements ModInitializer {
         BFFoliageGeneration.generateFlowers();
         BFTreeGeneration.generateTrees();
         BFRegistries.registerFlammables();
-        registerFuels();
         BFRegistries.registerCeramicCheckeredConversions();
         BFRegistries.registerTillables();
         BFRegistries.registerPathables();
@@ -73,6 +75,8 @@ public class FabricBountifulFares implements ModInitializer {
         BFRegistries.registerModCompostables();
         BFRegistries.registerUntintedParticleBlocks();
         BFRegistries.registerCauldronBehaviors();
+        BFRegistries.registerFuels();
+        registerFuels();
         BFFabricLootTableModifiers.modifyLootTables();
         if (Services.PLATFORM.get().getBoolConfigValue("addItemsToVanillaTabs")) {
             addTiffin(TOOLS_AND_UTILITIES, BFItems.SUN_HAT.get(), null);
@@ -173,42 +177,15 @@ public class FabricBountifulFares implements ModInitializer {
 
     public static void registerFuels() {
         FuelRegistry registry = FuelRegistry.INSTANCE;
-        registry.add(BFItemTags.FRUIT_LOGS, 200);
-        registry.add(BFItemTags.HOARY_LOGS, 300);
-        registry.add(BFItemTags.WALNUT_LOGS, 300);
-        registry.add(BFItemTags.PICKETS, 200);
 
-        for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
-            if (!(BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "crimson_trellis" || BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "warped_trellis")) {
-                registry.add(block.get(), 300);
-            }
+        for (ItemLike itemlike : BFBlocks.FUELS.keySet()) {
+            registry.add(itemlike, BFBlocks.FUELS.get(itemlike));
         }
 
-        registry.add(BFBlocks.GRISTMILL.get(), 300);
-        registry.add(BFBlocks.WHITE_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.GRAY_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.BLACK_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.BROWN_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.RED_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.ORANGE_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.YELLOW_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.LIME_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.GREEN_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.CYAN_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.BLUE_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.PURPLE_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.MAGENTA_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.PINK_JACK_O_STRAW.get(), 400);
-        registry.add(BFBlocks.PALM_FROND.get(), 100);
-        registry.add(BFItems.COCONUT_COIR.get(), 100);
-        registry.add(BFBlocks.PACKED_COCONUT_COIR.get(), 400);
-        registry.add(BFBlocks.COIR_CARPET.get(), 200);
-        registry.add(BFBlocks.COIR_BRICKS.get(), 400);
-        registry.add(BFBlocks.COIR_BRICK_SLAB.get(), 400);
-        registry.add(BFBlocks.COIR_BRICK_STAIRS.get(), 400);
-        registry.add(BFBlocks.COIR_BRICK_WALL.get(), 400);
+        for (TagKey<Item> tag : BFBlocks.TAG_FUELS.keySet()) {
+            registry.add(tag, BFBlocks.TAG_FUELS.get(tag));
+        }
+
 //        registry.add(MintBlocks.ACORN_JACK_O_STRAW, 400);
 //        registry.add(MintBlocks.AMBER_JACK_O_STRAW, 400);
 //        registry.add(MintBlocks.ARTICHOKE_JACK_O_STRAW, 400);

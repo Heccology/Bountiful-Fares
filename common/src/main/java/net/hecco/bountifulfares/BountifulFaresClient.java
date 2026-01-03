@@ -202,22 +202,11 @@ public class BountifulFaresClient {
         NLServices.client().setBlockRenderType(BFBlocks.POTTED_HONEYSUCKLE.get(), RenderType.cutout());
         NLServices.client().setBlockRenderType(BFBlocks.VIOLET_BELLFLOWER.get(), RenderType.cutout());
         NLServices.client().setBlockRenderType(BFBlocks.POTTED_VIOLET_BELLFLOWER.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.RED_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.ORANGE_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.YELLOW_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.LIME_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.GREEN_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.CYAN_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.BLUE_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.PURPLE_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.MAGENTA_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.PINK_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.WHITE_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.GRAY_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.BLACK_JACK_O_STRAW.get(), RenderType.cutout());
-        NLServices.client().setBlockRenderType(BFBlocks.BROWN_JACK_O_STRAW.get(), RenderType.cutout());
+
+        for (Supplier<Block> jacko : BFBlocks.JACK_O_STRAWS.values()) {
+            NLServices.client().setBlockRenderType(jacko.get(), RenderType.cutout());
+        }
+
         NLServices.client().setBlockRenderType(BFBlocks.GREEN_TEA_CANDLE.get(), RenderType.cutout());
         NLServices.client().setBlockRenderType(BFBlocks.BLACK_TEA_CANDLE.get(), RenderType.cutout());
         NLServices.client().setBlockRenderType(BFBlocks.CHAMOMILE_CANDLE.get(), RenderType.cutout());

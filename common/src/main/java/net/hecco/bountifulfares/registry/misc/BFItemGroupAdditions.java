@@ -488,22 +488,23 @@ public class BFItemGroupAdditions {
         COLORED_BLOCKS.add(new Pair<>(BFBlocks.CERAMIC_MOSAIC.get(), BFBlocks.CERAMIC_MOSAIC_STAIRS.get().asItem().getDefaultInstance()));
         COLORED_BLOCKS.add(new Pair<>(BFBlocks.CERAMIC_MOSAIC_STAIRS.get(), BFBlocks.CERAMIC_MOSAIC_SLAB.get().asItem().getDefaultInstance()));
             //entries.addAfter(BFBlocks.CERAMIC_MOSAIC_SLAB, BFBlocks.CERAMIC_MOSAIC_WALL.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(Items.PINK_BANNER, BFBlocks.WHITE_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.WHITE_JACK_O_STRAW.get(), BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), BFBlocks.GRAY_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.GRAY_JACK_O_STRAW.get(), BFBlocks.BLACK_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.BLACK_JACK_O_STRAW.get(), BFBlocks.BROWN_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.BROWN_JACK_O_STRAW.get(), BFBlocks.RED_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.RED_JACK_O_STRAW.get(), BFBlocks.ORANGE_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.ORANGE_JACK_O_STRAW.get(), BFBlocks.YELLOW_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.YELLOW_JACK_O_STRAW.get(), BFBlocks.LIME_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.LIME_JACK_O_STRAW.get(), BFBlocks.GREEN_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.GREEN_JACK_O_STRAW.get(), BFBlocks.CYAN_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.CYAN_JACK_O_STRAW.get(), BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get(), BFBlocks.BLUE_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.BLUE_JACK_O_STRAW.get(), BFBlocks.PURPLE_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.PURPLE_JACK_O_STRAW.get(), BFBlocks.MAGENTA_JACK_O_STRAW.get().asItem().getDefaultInstance()));
-        COLORED_BLOCKS.add(new Pair<>(BFBlocks.MAGENTA_JACK_O_STRAW.get(), BFBlocks.PINK_JACK_O_STRAW.get().asItem().getDefaultInstance()));
+
+        COLORED_BLOCKS.add(new Pair<>(Items.PINK_BANNER, BFBlocks.JACK_O_STRAWS.get(DyeColor.WHITE).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.WHITE).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.LIGHT_GRAY).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.LIGHT_GRAY).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.GRAY).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.GRAY).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.BLACK).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.BLACK).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.BROWN).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.BROWN).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.RED).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.RED).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.ORANGE).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.ORANGE).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.YELLOW).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.YELLOW).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.LIME).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.LIME).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.GREEN).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.GREEN).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.CYAN).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.CYAN).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.LIGHT_BLUE).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.LIGHT_BLUE).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.BLUE).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.BLUE).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.PURPLE).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.PURPLE).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.MAGENTA).get().asItem().getDefaultInstance()));
+        COLORED_BLOCKS.add(new Pair<>(BFBlocks.JACK_O_STRAWS.get(DyeColor.MAGENTA).get(), BFBlocks.JACK_O_STRAWS.get(DyeColor.PINK).get().asItem().getDefaultInstance()));
 
         if (NLServices.PLATFORM.getPlatformName() == "Fabric") {
             NLServices.REGISTRY.addItemsToItemGroup(

@@ -4,6 +4,7 @@ import it.unimi.dsi.fastutil.objects.Object2FloatMap;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.nexuslib.lib.loader_agnostic.toolAction.NLToolActions;
 import net.hecco.nexuslib.lib.untintedParticleRegistry.NLUntintedParticleRegistry;
 import net.hecco.nexuslib.platform.NLServices;
@@ -13,6 +14,7 @@ import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -28,6 +30,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 
+import java.util.List;
 import java.util.function.Supplier;
 
 import static net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES;
@@ -35,11 +38,12 @@ import static net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES;
 public class BFRegistries {
     public static void registerMiscRegistries() {
         registerCeramicCheckeredConversions();
-        // registerStrippables();
-        // registerTillables();  // Done in NF & Fabric inits respectively
-        // registerPathables();
-//        registerFuels();
         registerDispenserBehaviors();
+
+        // Done in NF & Fabric inits respectively
+        // registerStrippables();
+        // registerTillables();
+        // registerPathables();
     }
 
     public static void registerUntintedParticleBlocks() {
@@ -164,6 +168,43 @@ public class BFRegistries {
 
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         });
+    }
+
+    public static void registerFuels() {
+        List<String> trellis = List.of("crimson_trellis", "warped_trellis", "claret_trellis", "eboncork_trellis");
+        List<String> pickets = List.of("crimson_pickets", "warped_pickets", "claret_pickets", "eboncork_pickets");
+
+        BFBlocks.TAG_FUELS.put(BFItemTags.FRUIT_LOGS, 200);
+        BFBlocks.TAG_FUELS.put(BFItemTags.HOARY_LOGS, 300);
+        BFBlocks.TAG_FUELS.put(BFItemTags.WALNUT_LOGS, 300);
+        BFBlocks.TAG_FUELS.put(BFItemTags.PICKETS, 200);
+
+        for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
+            if (!trellis.contains(BuiltInRegistries.BLOCK.getKey(block.get()).getPath())) {
+                BFBlocks.FUELS.put(block.get(), 300);
+            }
+        }
+
+        for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
+            if (!pickets.contains(BuiltInRegistries.BLOCK.getKey(block.get()).getPath())) {
+                BFBlocks.FUELS.put(block.get(), 150);
+            }
+        }
+
+        for (Supplier<Block> block : BFBlocks.JACK_O_STRAWS.values()) {
+            BFBlocks.FUELS.put(block.get(), 400);
+        }
+
+        BFBlocks.FUELS.put(BFBlocks.GRISTMILL.get(), 300);
+
+        BFBlocks.FUELS.put(BFBlocks.PALM_FROND.get(), 100);
+        BFBlocks.FUELS.put(BFItems.COCONUT_COIR.get(), 100);
+        BFBlocks.FUELS.put(BFBlocks.PACKED_COCONUT_COIR.get(), 400);
+        BFBlocks.FUELS.put(BFBlocks.COIR_CARPET.get(), 200);
+        BFBlocks.FUELS.put(BFBlocks.COIR_BRICKS.get(), 400);
+        BFBlocks.FUELS.put(BFBlocks.COIR_BRICK_SLAB.get(), 400);
+        BFBlocks.FUELS.put(BFBlocks.COIR_BRICK_STAIRS.get(), 400);
+        BFBlocks.FUELS.put(BFBlocks.COIR_BRICK_WALL.get(), 400);
     }
 
     public static void registerCeramicCheckeredConversions() {

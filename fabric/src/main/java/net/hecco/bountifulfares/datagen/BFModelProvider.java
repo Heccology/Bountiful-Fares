@@ -68,22 +68,11 @@ public class BFModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.createPlant(BFBlocks.GOLDEN_APPLE_SAPLING.get(), BFBlocks.POTTED_GOLDEN_APPLE_SAPLING.get(), BlockModelGenerators.TintState.NOT_TINTED);
 
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.RED_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.ORANGE_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.YELLOW_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.LIME_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.GREEN_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.CYAN_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.BLUE_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.PURPLE_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.MAGENTA_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.PINK_JACK_O_STRAW.get());
-        registerUnlitableJackOStrawModels(blockStateModelGenerator, BFBlocks.BROWN_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.WHITE_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.GRAY_JACK_O_STRAW.get());
-        registerJackOStrawModels(blockStateModelGenerator, BFBlocks.BLACK_JACK_O_STRAW.get());
+        Block brownJOS = BFBlocks.JACK_O_STRAWS.get(DyeColor.BROWN).get();
+        for (Supplier<Block> block : BFBlocks.JACK_O_STRAWS.values()) {
+            if (brownJOS.equals(block.get())) registerUnlitableJackOStrawModels(blockStateModelGenerator, block.get());
+            else registerJackOStrawModels(blockStateModelGenerator, block.get());
+        }
 
 //        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.CORAL_JACK_O_STRAW);
 //        registerJackOStrawModels(blockStateModelGenerator, DelicateDyesBlocks.CANARY_JACK_O_STRAW);

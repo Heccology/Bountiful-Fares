@@ -169,22 +169,9 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
 
         add(BFBlocks.LEEKS.get(), createCropDrops(BFBlocks.LEEKS.get(), BFItems.LEEK.get(), BFItems.LEEK_SEEDS.get(), LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.LEEKS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BeetrootBlock.AGE, 7))));
 
-        jackOStrawDrops(BFBlocks.RED_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.ORANGE_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.YELLOW_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.LIME_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.GREEN_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.CYAN_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.BLUE_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.PURPLE_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.MAGENTA_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.PINK_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.WHITE_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.GRAY_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.BLACK_JACK_O_STRAW.get());
-        jackOStrawDrops(BFBlocks.BROWN_JACK_O_STRAW.get());
+        for (Supplier<Block> block : BFBlocks.JACK_O_STRAWS.values()) {
+            jackOStrawDrops(block.get());
+        }
 
         for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
             picketsDrops(block.get());

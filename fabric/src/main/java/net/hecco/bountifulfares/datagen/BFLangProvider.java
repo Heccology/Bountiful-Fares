@@ -214,22 +214,32 @@ public class BFLangProvider extends FabricLanguageProvider {
 //        generate(translationBuilder, "effect.bountifulfares.gorging", "Gorging");
 
 
-        generateJackOStraw(translationBuilder, BFBlocks.RED_JACK_O_STRAW.get(), "Red");
-        generateJackOStraw(translationBuilder, BFBlocks.ORANGE_JACK_O_STRAW.get(), "Orange");
-        generateJackOStraw(translationBuilder, BFBlocks.YELLOW_JACK_O_STRAW.get(), "Yellow");
-        generateJackOStraw(translationBuilder, BFBlocks.LIME_JACK_O_STRAW.get(), "Lime");
-        generateJackOStraw(translationBuilder, BFBlocks.GREEN_JACK_O_STRAW.get(), "Green");
-        generateJackOStraw(translationBuilder, BFBlocks.CYAN_JACK_O_STRAW.get(), "Cyan");
-        generateJackOStraw(translationBuilder, BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get(), "Light Blue");
-        generateJackOStraw(translationBuilder, BFBlocks.BLUE_JACK_O_STRAW.get(), "Blue");
-        generateJackOStraw(translationBuilder, BFBlocks.PURPLE_JACK_O_STRAW.get(), "Purple");
-        generateJackOStraw(translationBuilder, BFBlocks.MAGENTA_JACK_O_STRAW.get(), "Magenta");
-        generateJackOStraw(translationBuilder, BFBlocks.PINK_JACK_O_STRAW.get(), "Pink");
-        generateJackOStraw(translationBuilder, BFBlocks.WHITE_JACK_O_STRAW.get(), "White");
-        generateJackOStraw(translationBuilder, BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), "Light Gray");
-        generateJackOStraw(translationBuilder, BFBlocks.GRAY_JACK_O_STRAW.get(), "Gray");
-        generateJackOStraw(translationBuilder, BFBlocks.BLACK_JACK_O_STRAW.get(), "Black");
-        generateJackOStraw(translationBuilder, BFBlocks.BROWN_JACK_O_STRAW.get(), "Brown");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.RED).get(), "Red");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.ORANGE).get(), "Orange");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.YELLOW).get(), "Yellow");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.LIME).get(), "Lime");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.GREEN).get(), "Green");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.CYAN).get(), "Cyan");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.LIGHT_BLUE).get(), "Light Blue");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.BLUE).get(), "Blue");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.PURPLE).get(), "Purple");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.MAGENTA).get(), "Magenta");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.PINK).get(), "Pink");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.WHITE).get(), "White");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.LIGHT_GRAY).get(), "Light Gray");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.GRAY).get(), "Gray");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.BLACK).get(), "Black");
+        generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.BROWN).get(), "Brown");
+        generate(translationBuilder, "block.bountifulfares.coral_jack_o_straw", "Coral Jack o' Straw");
+        generate(translationBuilder, "block.bountifulfares.umber_jack_o_straw", "Umber Jack o' Straw");
+        generate(translationBuilder, "block.bountifulfares.canary_jack_o_straw", "Canary Jack o' Straw");
+        generate(translationBuilder, "block.bountifulfares.wasabi_jack_o_straw", "Wasabi Jack o' Straw");
+        generate(translationBuilder, "block.bountifulfares.sacramento_jack_o_straw", "Sacramento Jack o' Straw");
+        generate(translationBuilder, "block.bountifulfares.sky_jack_o_straw", "Sky Jack o' Straw");
+        generate(translationBuilder, "block.bountifulfares.blurple_jack_o_straw", "Blurple Jack o' Straw");
+        generate(translationBuilder, "block.bountifulfares.lavender_jack_o_straw", "Lavender Jack o' Straw");
+        generate(translationBuilder, "block.bountifulfares.sangria_jack_o_straw", "Sangria Jack o' Straw");
+        generate(translationBuilder, "block.bountifulfares.rose_jack_o_straw", "Rose Jack o' Straw");
 
 //        generateJackOStraw(translationBuilder, MintBlocks.ACORN_JACK_O_STRAW, "Acorn");
 //        generateJackOStraw(translationBuilder, MintBlocks.AMBER_JACK_O_STRAW, "Amber");

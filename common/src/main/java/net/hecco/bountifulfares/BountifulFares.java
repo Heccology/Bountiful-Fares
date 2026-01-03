@@ -8,6 +8,7 @@ import net.hecco.bountifulfares.registry.util.BFRegistries;
 import net.hecco.nexuslib.lib.compat.CompatManager;
 import net.hecco.nexuslib.lib.compat.NLCompatAPI;
 import net.hecco.nexuslib.platform.NLServices;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,6 +31,10 @@ public class BountifulFares {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public static final CompatManager COMPAT_MANAGER = NLCompatAPI.createCompatManager(MOD_ID);
+
+	public static ResourceLocation id(String path) {
+		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+	}
 
 	public static void init() {
 		BFSounds.registerSounds();

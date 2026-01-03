@@ -69,7 +69,6 @@ public class NeoForgeBountifulFares {
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
-
         if (!Services.PLATFORM.get().getBoolConfigValue("showCompatItemsInRecipeViewers")) {
             NLServices.REGISTRY.registerBuiltInDatapack(BountifulFares.MOD_ID, "hide_compat_items", "Bountiful Fares - Hide Compatibility Items", true, true);
         }
@@ -83,45 +82,15 @@ public class NeoForgeBountifulFares {
         BFRegistries.registerTillables();
         BFRegistries.registerPathables();
         BFRegistries.registerUntintedParticleBlocks();
+        BFRegistries.registerFuels();
 
-        TAG_FUELS.put(BFItemTags.FRUIT_LOGS, 200);
-        TAG_FUELS.put(BFItemTags.HOARY_LOGS, 300);
-        TAG_FUELS.put(BFItemTags.WALNUT_LOGS, 300);
-        TAG_FUELS.put(BFItemTags.PICKETS, 200);
-
-        for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
-            if (!(BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "crimson_trellis" || BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "warped_trellis") || BuiltInRegistries.BLOCK.getKey(block.get()).getPath() == "claret_trellis") {
-                FUELS.put(block.get(), 300);
-            }
+        for (ItemLike itemlike : BFBlocks.FUELS.keySet()) {
+            FUELS.put(itemlike, BFBlocks.FUELS.get(itemlike));
         }
 
-        FUELS.put(BFBlocks.GRISTMILL.get(), 300);
-        FUELS.put(BFBlocks.WHITE_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.GRAY_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.BLACK_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.BROWN_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.RED_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.ORANGE_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.YELLOW_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.LIME_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.GREEN_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.CYAN_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.BLUE_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.PURPLE_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.MAGENTA_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.PINK_JACK_O_STRAW.get(), 400);
-        FUELS.put(BFBlocks.PALM_FROND.get(), 100);
-        FUELS.put(BFItems.COCONUT_COIR.get(), 100);
-        FUELS.put(BFBlocks.PACKED_COCONUT_COIR.get(), 400);
-        FUELS.put(BFBlocks.COIR_CARPET.get(), 200);
-        FUELS.put(BFBlocks.COIR_BRICKS.get(), 400);
-        FUELS.put(BFBlocks.COIR_BRICK_SLAB.get(), 400);
-        FUELS.put(BFBlocks.COIR_BRICK_STAIRS.get(), 400);
-        FUELS.put(BFBlocks.COIR_BRICK_WALL.get(), 400);
-
-
+        for (TagKey<Item> tag : BFBlocks.TAG_FUELS.keySet()) {
+            TAG_FUELS.put(tag, BFBlocks.TAG_FUELS.get(tag));
+        }
 
         Set<Block> signs = new HashSet<>(((BlockEntityAccessor) BlockEntityType.SIGN).getValidBlocks());
         signs.add(BFBlocks.WALNUT_SIGN.get());

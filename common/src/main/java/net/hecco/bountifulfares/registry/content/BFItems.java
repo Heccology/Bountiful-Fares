@@ -21,6 +21,8 @@ import java.util.Objects;
 import java.util.function.Supplier;
 
 public class BFItems {
+    public static final Map<DyeColor, Supplier<Item>> TIFFINS = new HashMap<>();
+
     public static final Supplier<Item> PASSION_FRUIT = registerItem("passion_fruit", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.1f).fast().build())));
     public static final Supplier<Item> ELDERBERRIES = registerItem("elderberries", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.1f).fast().effect(new MobEffectInstance(MobEffects.HEAL, 1, 0, true, false), 0.3f).build())));
     public static final Supplier<Item> LAPISBERRY_SEEDS = registerItem("lapisberry_seeds", () -> new Item(new Item.Properties()));
@@ -144,8 +146,6 @@ public class BFItems {
             .effect(new MobEffectInstance(MobEffects.ABSORPTION, 72000, 10, true, true), 1)
             .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 72000, 25, true, true), 1)
             .build())));
-
-    public static final Map<DyeColor, Supplier<Item>> TIFFINS = new HashMap<>();
 
     private static void registerTiffins() {
         TIFFINS.put(null, registerItem("shulker_tiffin", () -> new TiffinItem(null, createTiffinProperties())));

@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.integration.AppledogIntegration;
 import net.hecco.bountifulfares.registry.integration.FarmersDelightIntegration;
@@ -133,25 +134,11 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.LEMON_BLOCK.get())
                 .add(BFBlocks.PLUM_BLOCK.get())
                 .add(BFBlocks.HOARY_APPLE_BLOCK.get())
-                .add(BFBlocks.WHITE_JACK_O_STRAW.get())
-                .add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get())
-                .add(BFBlocks.GRAY_JACK_O_STRAW.get())
-                .add(BFBlocks.BLACK_JACK_O_STRAW.get())
-                .add(BFBlocks.BROWN_JACK_O_STRAW.get())
-                .add(BFBlocks.RED_JACK_O_STRAW.get())
-                .add(BFBlocks.ORANGE_JACK_O_STRAW.get())
-                .add(BFBlocks.YELLOW_JACK_O_STRAW.get())
-                .add(BFBlocks.LIME_JACK_O_STRAW.get())
-                .add(BFBlocks.GREEN_JACK_O_STRAW.get())
-                .add(BFBlocks.CYAN_JACK_O_STRAW.get())
-                .add(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get())
-                .add(BFBlocks.BLUE_JACK_O_STRAW.get())
-                .add(BFBlocks.PURPLE_JACK_O_STRAW.get())
-                .add(BFBlocks.MAGENTA_JACK_O_STRAW.get())
-                .add(BFBlocks.PINK_JACK_O_STRAW.get())
                 .add(FarmersDelightIntegration.WALNUT_CABINET.get())
                 .add(FarmersDelightIntegration.HOARY_CABINET.get())
                 .add(AppledogIntegration.APPLEDOG_BLOCK.get())
+
+                .addTag(BFBlockTags.JACK_O_STRAWS)
         ;
 
         for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
@@ -161,6 +148,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
             getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE).add(block.get());
         }
+
 
         getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_HOE)
                 .add(BFBlocks.APPLE_LEAVES.get())
@@ -334,24 +322,23 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.HOARY_WOOD.get())
                 .add(BFBlocks.STRIPPED_HOARY_WOOD.get())
         ;
+
+        for (Supplier<Block> block : BFBlocks.JACK_O_STRAWS.values()) {
+            getOrCreateTagBuilder(BFBlockTags.JACK_O_STRAWS).add(block.get());
+        }
         getOrCreateTagBuilder(BFBlockTags.JACK_O_STRAWS)
-                .add(BFBlocks.WHITE_JACK_O_STRAW.get())
-                .add(BFBlocks.LIGHT_GRAY_JACK_O_STRAW.get())
-                .add(BFBlocks.GRAY_JACK_O_STRAW.get())
-                .add(BFBlocks.BLACK_JACK_O_STRAW.get())
-                .add(BFBlocks.BROWN_JACK_O_STRAW.get())
-                .add(BFBlocks.RED_JACK_O_STRAW.get())
-                .add(BFBlocks.ORANGE_JACK_O_STRAW.get())
-                .add(BFBlocks.YELLOW_JACK_O_STRAW.get())
-                .add(BFBlocks.LIME_JACK_O_STRAW.get())
-                .add(BFBlocks.GREEN_JACK_O_STRAW.get())
-                .add(BFBlocks.CYAN_JACK_O_STRAW.get())
-                .add(BFBlocks.BLUE_JACK_O_STRAW.get())
-                .add(BFBlocks.LIGHT_BLUE_JACK_O_STRAW.get())
-                .add(BFBlocks.PURPLE_JACK_O_STRAW.get())
-                .add(BFBlocks.MAGENTA_JACK_O_STRAW.get())
-                .add(BFBlocks.PINK_JACK_O_STRAW.get())
+                .addOptional(BountifulFares.id("coral_jack_o_straw"))
+                .addOptional(BountifulFares.id("umber_jack_o_straw"))
+                .addOptional(BountifulFares.id("canary_jack_o_straw"))
+                .addOptional(BountifulFares.id("wasabi_jack_o_straw"))
+                .addOptional(BountifulFares.id("sacramento_jack_o_straw"))
+                .addOptional(BountifulFares.id("sky_jack_o_straw"))
+                .addOptional(BountifulFares.id("blurple_jack_o_straw"))
+                .addOptional(BountifulFares.id("lavender_jack_o_straw"))
+                .addOptional(BountifulFares.id("sangria_jack_o_straw"))
+                .addOptional(BountifulFares.id("rose_jack_o_straw"))
         ;
+
 
         getOrCreateTagBuilder(BFBlockTags.HANGING_FRUIT)
                 .add(BFBlocks.HANGING_APPLE.get())
