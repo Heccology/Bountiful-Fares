@@ -43,7 +43,7 @@ neoForge {
 
 dependencies {
     //NEXUSLIB
-    implementation files("nexuslib-neoforge-1.21.1-1.1.2.jar")
+    implementation files("nexuslib-neoforge-1.21.1-1.1.3.jar")
 
     //APPLESKIN
     compileOnly files("appleskin-neoforge-mc1.21-3.0.7.jar")

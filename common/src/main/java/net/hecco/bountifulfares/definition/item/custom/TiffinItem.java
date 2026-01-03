@@ -147,7 +147,7 @@ public class TiffinItem extends Item {
                     int i = mutable.tryFill(other, slot, player);
                     if (i > 0) {
                         player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (Fraction.getFraction(contents.getCount(), contents.CAPACITY).floatValue() / 2) + 0.8f);
-                        NLServices.NETWORK.sentToServer(new TiffinFillPayload((double) mutable.getCount() / mutable.getCapacity()));
+                        NLServices.NETWORK.sendToServer(new TiffinFillPayload((double) mutable.getCount() / mutable.getCapacity()));
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
@@ -176,7 +176,7 @@ public class TiffinItem extends Item {
                     int i = mutable.tryFill(other, access, player);
                     if (i > 0) {
                         player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (Fraction.getFraction(contents.getCount(), contents.CAPACITY).floatValue() / 2) + 0.8f);
-                        NLServices.NETWORK.sentToServer(new TiffinFillPayload((double) mutable.getCount() / mutable.getCapacity()));
+                        NLServices.NETWORK.sendToServer(new TiffinFillPayload((double) mutable.getCount() / mutable.getCapacity()));
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;

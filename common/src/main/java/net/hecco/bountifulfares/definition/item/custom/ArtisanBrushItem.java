@@ -86,7 +86,7 @@ public class ArtisanBrushItem extends Item {
                 other.set(DataComponents.DYED_COLOR, stack.get(DataComponents.DYED_COLOR));
                 player.playSound(SoundEvents.DYE_USE, 0.9F, 1.0f);
                 if (other.is(BFItemTags.DYEABLE_CERAMIC_BLOCKS)) {
-                    NLServices.NETWORK.sentToServer(new EmptyPayload());
+                    NLServices.NETWORK.sendToServer(new EmptyPayload());
                 }
                 return true;
             }

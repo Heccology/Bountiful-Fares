@@ -28,7 +28,7 @@ dependencies {
     annotationProcessor group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.3.5'
     //NEXUSLIB
 //    implementation "curse.maven:heccolib-1279113:${neoforge_heccolib}"
-    implementation files("nexuslib-neoforge-1.21.1-1.1.2.jar")
+    implementation files("nexuslib-neoforge-1.21.1-1.1.3.jar")
 //    api "me.shedaniel.cloth:cloth-config-neoforge:15.0.140"
 
     //EVERY COMPAT
