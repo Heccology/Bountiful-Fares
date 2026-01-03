@@ -7,11 +7,16 @@ import net.hecco.bountifulfares.definition.block.enums.FermentationStage;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.definition.recipe.FermentationRecipe;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
+import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFParticles;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.misc.BFRecipes;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -22,6 +27,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.PotionItem;
+import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -102,33 +109,40 @@ public class FermentationVesselBlock extends BaseEntityBlock implements SimpleWa
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit)
     {
-        if (stack.is(PotionContents.createItemStack(Items.POTION, Potions.WATER).getItem()) && state.getValue(FERMENTATION_STAGE) == FermentationStage.EMPTY) {
-            world.setBlock(pos, state.setValue(FERMENTATION_STAGE, FermentationStage.WATER), 2);
-            world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FILL.get(), SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
-            if (!player.isCreative()) {
-                stack.shrink(1);
-            }
-            if (stack.isEmpty() && !player.isCreative()) {
-                player.setItemInHand(hand, new ItemStack(Items.GLASS_BOTTLE));
-            } else if (!player.getInventory().add(new ItemStack(Items.GLASS_BOTTLE))) {
-                player.drop(new ItemStack(Items.GLASS_BOTTLE), false);
-            }
-            return ItemInteractionResult.SUCCESS;
+        if (state.getValue(FERMENTATION_STAGE) == FermentationStage.EMPTY && stack.is(BFItemTags.FERMENTATION_WATER_SOURCES)) {
+            Item item = (stack.getItem().hasCraftingRemainingItem()) ? stack.getItem().getCraftingRemainingItem() : null;
+            boolean validSource = true;
+            boolean playSplash = false;
 
-        } else if (stack.is(Items.WATER_BUCKET) && state.getValue(FERMENTATION_STAGE) == FermentationStage.EMPTY) {
-            world.setBlock(pos, state.setValue(FERMENTATION_STAGE, FermentationStage.WATER), 2);
-            world.playSound(null, pos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
-            world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FILL.get(), SoundSource.BLOCKS, 0.7F, 0.8F + world.random.nextFloat()/3);
-            if (!player.isCreative()) {
-                stack.shrink(1);
+            // who cares if it's hardcoded blehhhhh
+            if (stack.is(Items.WATER_BUCKET)) {
+                playSplash = true;
+                item = Items.BUCKET;
             }
-            if (stack.isEmpty() && !player.isCreative()) {
-                player.setItemInHand(hand, new ItemStack(Items.BUCKET));
-            } else if (!player.getInventory().add(new ItemStack(Items.BUCKET))) {
-                player.drop(new ItemStack(Items.BUCKET), false);
+            else if (stack.is(Items.POTION)) {
+                PotionContents potioncontents = stack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
+                validSource = potioncontents.is(Potions.WATER);
+                item = Items.GLASS_BOTTLE;
             }
-            return ItemInteractionResult.SUCCESS;
+            else if (stack.is(BFItems.WATER_CUP.get())) {
+                item = BFItems.CUP.get();
+            }
 
+            if (validSource) {
+                world.setBlock(pos, state.setValue(FERMENTATION_STAGE, FermentationStage.WATER), 3);
+
+                if (playSplash) world.playSound(null, pos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1.0F, 0.8F + world.random.nextFloat()/3);
+                world.playSound(null, pos, BFSounds.FERMENTATION_VESSEL_FILL.get(), SoundSource.BLOCKS, 0.7F, 0.8F + world.random.nextFloat()/3);
+
+                if (!player.isCreative()) { stack.shrink(1); }
+
+                if (item != null) {
+                    if (stack.isEmpty() && !player.isCreative()) { player.setItemInHand(hand, new ItemStack(item)); }
+                    else if (!player.getInventory().add(new ItemStack(item))) { player.drop(new ItemStack(item), false); }
+                }
+
+                return ItemInteractionResult.SUCCESS;
+            }
         } else if (world.getBlockEntity(pos) instanceof FermentationVesselBlockEntity entity) {
             if (getCurrentRecipe(world, stack).isPresent() && state.getValue(FERMENTATION_STAGE) == FermentationStage.WATER) {
                 if (entity.canInsertItem()) {

@@ -429,6 +429,13 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.BOWL)
         ;
 
+        getOrCreateTagBuilder(BFItemTags.FERMENTATION_WATER_SOURCES)
+                .add(Items.POTION)
+                .add(Items.WATER_BUCKET)
+                .add(BFItems.WATER_CUP.get())
+                .addOptional(ResourceLocation.fromNamespaceAndPath("miners_delight", "water_cup"))
+        ;
+
         // Adds all tiffins automatically
         List<ResourceKey<Item>> tiffins = new ArrayList<>();
         for (Supplier<Item> item : BFItems.TIFFINS.values()) {

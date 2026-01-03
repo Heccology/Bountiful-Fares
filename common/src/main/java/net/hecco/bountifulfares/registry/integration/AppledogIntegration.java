@@ -51,8 +51,8 @@ public class AppledogIntegration implements ModIntegration {
     }
 
     @SuppressWarnings("unchecked")
-    private Supplier<net.minecraft.world.level.block.Block> registerBlock(String id, Supplier<net.minecraft.world.level.block.Block> supplier) {
-        Supplier<net.minecraft.world.level.block.Block> block = (Supplier<net.minecraft.world.level.block.Block>) registerContent(NLServices.REGISTRY.registerBlockNoItem(APPLEDOG_MOD_ID, id, supplier));
+    private Supplier<net.minecraft.world.level.block.Block> registerBlock(String id, Supplier<Block> supplier) {
+        Supplier<Block> block = (Supplier<Block>) registerContent(NLServices.REGISTRY.registerBlockNoItem(APPLEDOG_MOD_ID, id, supplier));
         registerContent(NLServices.REGISTRY.registerItem(APPLEDOG_MOD_ID, id, () -> new BlockItem(block.get(), new Item.Properties().rarity(Rarity.EPIC))));
         return block;
     }

@@ -603,6 +603,8 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateTag(translationBuilder, BFItemTags.TIFFINS, "Tiffins");
         generateTag(translationBuilder, BFItemTags.SPONGEKIN_INGREDIENTS, "Spongekin Ingredients");
         generateTag(translationBuilder, BFItemTags.BEETROOT_INGREDIENTS, "Beetroot Ingredient");
+        generateTag(translationBuilder, BFItemTags.TIFFIN_FOOD_WHITELIST, "Storeable Inside Shulker Tiffin");
+        generateTag(translationBuilder, BFItemTags.FERMENTATION_WATER_SOURCES, "Fermentation Vessel Water Sources");
 
         generate(translationBuilder, "emi.category.bountifulfares.milling", "Milling");
         generate(translationBuilder, "emi.category.bountifulfares.fermenting", "Fermenting");

@@ -1,0 +1,11 @@
+{
+  "values": [
+    "minecraft:potion",
+    "minecraft:water_bucket",
+    "bountifulfares:water_cup",
+    {
+      "id": "miners_delight:water_cup",
+      "required": false
+    }
+  ]
+}

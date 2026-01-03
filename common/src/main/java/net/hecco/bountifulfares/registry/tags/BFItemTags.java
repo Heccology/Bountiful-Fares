@@ -61,6 +61,7 @@ public class BFItemTags {
     public static final TagKey<Item> CERAMIC_DISH_BLACKLIST = createItemTag("ceramic_dish_blacklist");
     public static final TagKey<Item> FELSIC_STONES = createItemTag("felsic_stones");
     public static final TagKey<Item> FOOD_CONTAINERS_TIFFINS_CAN_HOLD = createItemTag("food_containers_tiffins_can_hold");
+    public static final TagKey<Item> FERMENTATION_WATER_SOURCES = createItemTag("fermentation_water_sources");
     public static final TagKey<Item> TIFFIN_FOOD_WHITELIST = createItemTag("tiffin_food_whitelist");
 
 
