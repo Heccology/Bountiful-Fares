@@ -7,6 +7,7 @@ import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.definition.block.custom.PalmFrondBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.integration.DelicateDyesIntegration;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -170,6 +171,10 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         add(BFBlocks.LEEKS.get(), createCropDrops(BFBlocks.LEEKS.get(), BFItems.LEEK.get(), BFItems.LEEK_SEEDS.get(), LootItemBlockStatePropertyCondition.hasBlockStateProperties(BFBlocks.LEEKS.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BeetrootBlock.AGE, 7))));
 
         for (Supplier<Block> block : BFBlocks.JACK_O_STRAWS.values()) {
+            jackOStrawDrops(block.get());
+        }
+
+        for (Supplier<Block> block : DelicateDyesIntegration.JACK_O_STRAWS.values()) {
             jackOStrawDrops(block.get());
         }
 

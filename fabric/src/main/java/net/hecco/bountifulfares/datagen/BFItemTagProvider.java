@@ -444,6 +444,16 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
         }
         getOrCreateTagBuilder(BFItemTags.TIFFINS)
                 .addAll(tiffins)
+                .addOptional(BountifulFares.id("coral_shulker_tiffin"))
+                .addOptional(BountifulFares.id("umber_shulker_tiffin"))
+                .addOptional(BountifulFares.id("canary_shulker_tiffin"))
+                .addOptional(BountifulFares.id("wasabi_shulker_tiffin"))
+                .addOptional(BountifulFares.id("sacramento_shulker_tiffin"))
+                .addOptional(BountifulFares.id("sky_shulker_tiffin"))
+                .addOptional(BountifulFares.id("blurple_shulker_tiffin"))
+                .addOptional(BountifulFares.id("lavender_shulker_tiffin"))
+                .addOptional(BountifulFares.id("sangria_shulker_tiffin"))
+                .addOptional(BountifulFares.id("rose_shulker_tiffin"))
         ;
 
         getOrCreateTagBuilder(BFItemTags.CERAMIC_DISH_BLACKLIST)

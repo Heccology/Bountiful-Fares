@@ -554,6 +554,17 @@ public class BFItemGroups {
             items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("lavender").get());
             items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("sangria").get());
             items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("rose").get());
+
+            items.add(DelicateDyesIntegration.TIFFINS.get("coral").get());
+            items.add(DelicateDyesIntegration.TIFFINS.get("umber").get());
+            items.add(DelicateDyesIntegration.TIFFINS.get("canary").get());
+            items.add(DelicateDyesIntegration.TIFFINS.get("wasabi").get());
+            items.add(DelicateDyesIntegration.TIFFINS.get("sacramento").get());
+            items.add(DelicateDyesIntegration.TIFFINS.get("sky").get());
+            items.add(DelicateDyesIntegration.TIFFINS.get("blurple").get());
+            items.add(DelicateDyesIntegration.TIFFINS.get("lavender").get());
+            items.add(DelicateDyesIntegration.TIFFINS.get("sangria").get());
+            items.add(DelicateDyesIntegration.TIFFINS.get("rose").get());
         return items;
     }
 

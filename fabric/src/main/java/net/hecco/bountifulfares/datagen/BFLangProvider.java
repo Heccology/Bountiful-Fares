@@ -17,6 +17,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
@@ -231,16 +232,6 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.GRAY).get(), "Gray");
         generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.BLACK).get(), "Black");
         generateJackOStraw(translationBuilder, BFBlocks.JACK_O_STRAWS.get(DyeColor.BROWN).get(), "Brown");
-        generate(translationBuilder, "block.bountifulfares.coral_jack_o_straw", "Coral Jack o' Straw");
-        generate(translationBuilder, "block.bountifulfares.umber_jack_o_straw", "Umber Jack o' Straw");
-        generate(translationBuilder, "block.bountifulfares.canary_jack_o_straw", "Canary Jack o' Straw");
-        generate(translationBuilder, "block.bountifulfares.wasabi_jack_o_straw", "Wasabi Jack o' Straw");
-        generate(translationBuilder, "block.bountifulfares.sacramento_jack_o_straw", "Sacramento Jack o' Straw");
-        generate(translationBuilder, "block.bountifulfares.sky_jack_o_straw", "Sky Jack o' Straw");
-        generate(translationBuilder, "block.bountifulfares.blurple_jack_o_straw", "Blurple Jack o' Straw");
-        generate(translationBuilder, "block.bountifulfares.lavender_jack_o_straw", "Lavender Jack o' Straw");
-        generate(translationBuilder, "block.bountifulfares.sangria_jack_o_straw", "Sangria Jack o' Straw");
-        generate(translationBuilder, "block.bountifulfares.rose_jack_o_straw", "Rose Jack o' Straw");
 
 //        generateJackOStraw(translationBuilder, MintBlocks.ACORN_JACK_O_STRAW, "Acorn");
 //        generateJackOStraw(translationBuilder, MintBlocks.AMBER_JACK_O_STRAW, "Amber");
@@ -291,7 +282,11 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateJackOStraw(translationBuilder, DelicateDyesIntegration.JACK_O_STRAWS.get("sangria").get(), "Sangria");
         generateJackOStraw(translationBuilder, DelicateDyesIntegration.JACK_O_STRAWS.get("rose").get(), "Rose");
 
-
+        for (String color : DelicateDyesIntegration.DYES) {
+            generate(translationBuilder, "item.bountifulfares." + color + "_shulker_tiffin", toSentenceCase(color) + " Shulker Tiffin");
+            usedTranslationKeys.add("item.bountifulfares." + color + "_shulker_tiffin_back");
+            usedTranslationKeys.add("item.bountifulfares." + color + "_shulker_tiffin_front");
+        }
 
         generate(translationBuilder, "tooltip.bountifulfares.dyeable", "Dyeable");
         generate(translationBuilder, "tooltip.bountifulfares.when_lit", "While lit:");

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "delicate_dyes:item/blurple_shulker_tiffin_front"
+  }
+}

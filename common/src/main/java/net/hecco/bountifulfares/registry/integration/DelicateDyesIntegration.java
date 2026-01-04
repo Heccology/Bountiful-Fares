@@ -1,6 +1,10 @@
 package net.hecco.bountifulfares.registry.integration;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.JackOStrawBlock;
+import net.hecco.bountifulfares.definition.item.component.TiffinContents;
+import net.hecco.bountifulfares.definition.item.custom.TiffinItem;
+import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -12,6 +16,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -28,7 +33,7 @@ import static net.hecco.bountifulfares.BountifulFares.DELICATE_DYES_MOD_ID;
 import static net.hecco.bountifulfares.registry.content.BFBlocks.createLightLevelFromLitBlockState;
 
 public class DelicateDyesIntegration implements BFIntegration {
-    private static final ArrayList<String> DYES = new ArrayList<>(List.of("coral", "umber", "canary", "wasabi", "sacramento", "sky", "blurple", "lavender", "sangria", "rose"));
+    public static final ArrayList<String> DYES = new ArrayList<>(List.of("coral", "umber", "canary", "wasabi", "sacramento", "sky", "blurple", "lavender", "sangria", "rose"));
 
     @Override
     public List<String> modIds() {
@@ -36,6 +41,7 @@ public class DelicateDyesIntegration implements BFIntegration {
     }
 
     public static final Map<String, Supplier<Block>> JACK_O_STRAWS = new HashMap<>();
+    public static final Map<String, Supplier<Item>> TIFFINS = new HashMap<>();
 
     @Override
     @SuppressWarnings("unchecked")
@@ -43,9 +49,23 @@ public class DelicateDyesIntegration implements BFIntegration {
         for (String color : DYES) {
             if (NLServices.PLATFORM.isDatagen()) {
                 NLServices.REGISTRY.registerItem(DELICATE_DYES_MOD_ID, color + "_wool", () -> new Item(new Item.Properties()));
+                NLServices.REGISTRY.registerItem(DELICATE_DYES_MOD_ID, color + "_shulker_tiffin_front", () -> new Item(new Item.Properties()));
+                NLServices.REGISTRY.registerItem(DELICATE_DYES_MOD_ID, color + "_shulker_tiffin_back", () -> new Item(new Item.Properties()));
             }
             JACK_O_STRAWS.put(color, (Supplier<Block>)registerContent(NLServices.REGISTRY.registerBlockNoItem(DELICATE_DYES_MOD_ID, color + "_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)))));
             registerContent(NLServices.REGISTRY.registerItem(DELICATE_DYES_MOD_ID, color + "_jack_o_straw", () -> new BlockItem(JACK_O_STRAWS.get(color).get(), new Item.Properties())));
+
+            //Item testForExisting = BuiltInRegistries.ITEM.get(BountifulFares.id(color + "_shulker_tiffin"));
+            //if (testForExisting != null) {
+            //    TIFFINS.put(color, () -> testForExisting);
+            //}
+            //else {
+            //    TIFFINS.put(color, (Supplier<Item>)registerContent(NLServices.REGISTRY.registerItem(DELICATE_DYES_MOD_ID,color + "_shulker_tiffin", () ->
+            //            new Item(createTiffinProperties()))));
+            //}
+
+            TIFFINS.put(color, (Supplier<Item>)registerContent(NLServices.REGISTRY.registerItem(DELICATE_DYES_MOD_ID,color + "_shulker_tiffin", () ->
+                    new TiffinItem(DyeColor.byName(color, DyeColor.WHITE), createTiffinProperties()))));
         }
     }
 
@@ -81,5 +101,11 @@ public class DelicateDyesIntegration implements BFIntegration {
                     .unlockedBy("has_sun_hat", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BFItems.SUN_HAT.get()).build()))))
                     .save(exporter);
         }
+    }
+
+    private static Item.Properties createTiffinProperties() {
+        return new Item.Properties()
+                .stacksTo(1)
+                .component(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents());
     }
 }

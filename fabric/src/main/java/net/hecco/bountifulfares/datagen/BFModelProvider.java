@@ -268,6 +268,11 @@ public class BFModelProvider extends FabricModelProvider {
             itemModelGenerator.generateFlatItem(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, color.getName() + "_shulker_tiffin_front")), ModelTemplates.FLAT_ITEM);
         }
 
+        for (String stringer : DelicateDyesIntegration.TIFFINS.keySet()) {
+            itemModelGenerator.generateFlatItem(DelicateDyesIntegration.TIFFINS.get(stringer).get(), ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(BountifulFares.DELICATE_DYES_MOD_ID, stringer + "_shulker_tiffin_back")), ModelTemplates.FLAT_ITEM);
+            itemModelGenerator.generateFlatItem(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(BountifulFares.DELICATE_DYES_MOD_ID, stringer + "_shulker_tiffin_front")), ModelTemplates.FLAT_ITEM);
+        }
 
 
         //COMPAT

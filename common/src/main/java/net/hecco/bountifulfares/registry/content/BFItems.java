@@ -14,10 +14,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Blocks;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Supplier;
 
 public class BFItems {
@@ -149,7 +146,7 @@ public class BFItems {
 
     private static void registerTiffins() {
         TIFFINS.put(null, registerItem("shulker_tiffin", () -> new TiffinItem(null, createTiffinProperties())));
-        for (DyeColor color : DyeColor.values()) {
+        for (DyeColor color : Arrays.stream(DyeColor.values()).limit(16).toList()) {
             TIFFINS.put(color, registerItem(color.getName() + "_shulker_tiffin", () -> new TiffinItem(color, createTiffinProperties())));
         }
     }
