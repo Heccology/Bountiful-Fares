@@ -6,6 +6,7 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.BountifulFaresUtil;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.integration.DelicateDyesIntegration;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -279,14 +280,16 @@ public class BFLangProvider extends FabricLanguageProvider {
 //        generateJackOStraw(translationBuilder, DyeDepotBlocks.NAVY_JACK_O_STRAW, "Navy");
 //        generateJackOStraw(translationBuilder, DyeDepotBlocks.INDIGO_JACK_O_STRAW, "Indigo");
 //
-//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.CORAL_JACK_O_STRAW, "Coral");
-//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.CANARY_JACK_O_STRAW, "Canary");
-//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.WASABI_JACK_O_STRAW, "Wasabi");
-//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SACRAMENTO_JACK_O_STRAW, "Sacramento");
-//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SKY_JACK_O_STRAW, "Sky");
-//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.BLURPLE_JACK_O_STRAW, "Blurple");
-//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.SANGRIA_JACK_O_STRAW, "Sangria");
-//        generateJackOStraw(translationBuilder, DelicateDyesBlocks.ROSE_JACK_O_STRAW, "Rose");
+        generateJackOStraw(translationBuilder, DelicateDyesIntegration.JACK_O_STRAWS.get("coral").get(), "Coral");
+        generateJackOStraw(translationBuilder, DelicateDyesIntegration.JACK_O_STRAWS.get("umber").get(), "Canary");
+        generateJackOStraw(translationBuilder, DelicateDyesIntegration.JACK_O_STRAWS.get("canary").get(), "Canary");
+        generateJackOStraw(translationBuilder, DelicateDyesIntegration.JACK_O_STRAWS.get("wasabi").get(), "Wasabi");
+        generateJackOStraw(translationBuilder, DelicateDyesIntegration.JACK_O_STRAWS.get("sacramento").get(), "Sacramento");
+        generateJackOStraw(translationBuilder, DelicateDyesIntegration.JACK_O_STRAWS.get("sky").get(), "Sky");
+        generateJackOStraw(translationBuilder, DelicateDyesIntegration.JACK_O_STRAWS.get("blurple").get(), "Blurple");
+        generateJackOStraw(translationBuilder, DelicateDyesIntegration.JACK_O_STRAWS.get("lavender").get(), "Lavender");
+        generateJackOStraw(translationBuilder, DelicateDyesIntegration.JACK_O_STRAWS.get("sangria").get(), "Sangria");
+        generateJackOStraw(translationBuilder, DelicateDyesIntegration.JACK_O_STRAWS.get("rose").get(), "Rose");
 
 
 
