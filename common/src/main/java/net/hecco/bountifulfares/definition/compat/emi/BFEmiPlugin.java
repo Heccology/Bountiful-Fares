@@ -9,7 +9,6 @@ import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.registry.EmiTags;
 import dev.emi.emi.runtime.EmiReloadLog;
-import net.hecco.bountifulfares.compat.emi.EmiMillingRecipe;
 import net.hecco.bountifulfares.definition.recipe.CeramicMassDyeingRecipe;
 import net.hecco.bountifulfares.definition.recipe.FermentationRecipe;
 import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
@@ -29,6 +28,8 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+//TODO shulker tiffin crafting recipe
+//TODO tiffin food crafting recipe
 @EmiEntrypoint
 public class BFEmiPlugin implements EmiPlugin {
 
@@ -63,7 +64,8 @@ public class BFEmiPlugin implements EmiPlugin {
             addRecipeSafe(registry, () -> new EmiMillingRecipe(recipe), recipe);
         }
         for (FermentationRecipe recipe : getRecipes(registry, BFRecipes.FERMENTING.get())) {
-            addRecipeSafe(registry, () -> new EmiFermentationRecipe(recipe), recipe);
+            addRecipeSafe(registry,
+                          () -> EmiFermentationRecipe.quickBuild(recipe), recipe);
         }
         addRecipeSafePropagation(registry, EmiPropagationRecipe::new);
     }

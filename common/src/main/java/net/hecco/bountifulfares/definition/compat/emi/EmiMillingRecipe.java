@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.compat.emi;
+package net.hecco.bountifulfares.definition.compat.emi;
 
 import dev.emi.emi.EmiPort;
 import dev.emi.emi.api.recipe.EmiRecipe;
