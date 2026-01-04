@@ -24,4 +24,4 @@ run
 runs
 
 # added manually
-common/src/main/generated/.cache
+/common/src/main/generated/.cache/
