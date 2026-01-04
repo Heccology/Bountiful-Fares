@@ -5,13 +5,17 @@ import dev.emi.emi.EmiUtil;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
+import dev.emi.emi.api.recipe.EmiCraftingRecipe;
 import dev.emi.emi.api.recipe.EmiRecipe;
+import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.registry.EmiTags;
 import dev.emi.emi.runtime.EmiReloadLog;
+import net.hecco.bountifulfares.definition.item.custom.TiffinItem;
 import net.hecco.bountifulfares.definition.recipe.CeramicMassDyeingRecipe;
 import net.hecco.bountifulfares.definition.recipe.FermentationRecipe;
 import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
+import net.hecco.bountifulfares.definition.recipe.TiffinColoringRecipe;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFMenus;
 import net.hecco.bountifulfares.registry.misc.BFRecipes;
@@ -19,6 +23,8 @@ import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.*;
 
@@ -47,6 +53,12 @@ public class BFEmiPlugin implements EmiPlugin {
                     if (!hiddenItems.contains(i)) {
                         addRecipeSafe(registry, () -> new EmiCeramicMassDyeingRecipe(i, synthetic("crafting/ceramic_mass_dyeing", EmiUtil.subId(i))), recipe);
                     }
+                }
+            } else if (recipe instanceof TiffinColoringRecipe) {
+                for(DyeColor dye : DyeColor.values()) {
+                    DyeItem dyeItem = DyeItem.byColor(dye);
+                    ResourceLocation sid = synthetic("crafting/tiffin_coloring", EmiUtil.subId(dyeItem));
+                    addRecipeSafe(registry, () -> new EmiCraftingRecipe(List.of(EmiIngredient.of(BFItemTags.TIFFINS), EmiStack.of(dyeItem)), EmiStack.of(TiffinItem.getItemFromDye(dye)), sid), recipe);
                 }
             }
         }
