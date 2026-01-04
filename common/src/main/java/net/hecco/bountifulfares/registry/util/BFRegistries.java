@@ -4,6 +4,7 @@ import it.unimi.dsi.fastutil.objects.Object2FloatMap;
 import it.unimi.dsi.fastutil.objects.Object2FloatOpenHashMap;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.integration.DelicateDyesIntegration;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.nexuslib.lib.loader_agnostic.toolAction.NLToolActions;
 import net.hecco.nexuslib.lib.untintedParticleRegistry.NLUntintedParticleRegistry;
@@ -192,6 +193,10 @@ public class BFRegistries {
         }
 
         for (Supplier<Block> block : BFBlocks.JACK_O_STRAWS.values()) {
+            BFBlocks.FUELS.put(block.get(), 400);
+        }
+
+        for (Supplier<Block> block : DelicateDyesIntegration.JACK_O_STRAWS.values()) {
             BFBlocks.FUELS.put(block.get(), 400);
         }
 
