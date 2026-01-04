@@ -3,7 +3,6 @@ package net.hecco.bountifulfares.definition.compat.emi;
 import com.google.common.collect.Lists;
 import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.recipe.handler.StandardRecipeHandler;
-import net.hecco.bountifulfares.definition.compat.emi.BFEmiRecipeCategories;
 import net.hecco.bountifulfares.definition.screen.GristmillMenu;
 import net.minecraft.world.inventory.Slot;
 import org.jetbrains.annotations.Nullable;

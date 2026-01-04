@@ -7,7 +7,6 @@ import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.definition.compat.emi.BFEmiRecipeCategories;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.resources.ResourceLocation;

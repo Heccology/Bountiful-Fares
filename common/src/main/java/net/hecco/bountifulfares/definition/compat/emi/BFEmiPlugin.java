@@ -34,8 +34,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-//TODO shulker tiffin crafting recipe
-//TODO tiffin food crafting recipe
+//TODO tiffin food crafting recipe (honestly idk how to display that properly, so probably won't be done soon)
 @EmiEntrypoint
 public class BFEmiPlugin implements EmiPlugin {
 

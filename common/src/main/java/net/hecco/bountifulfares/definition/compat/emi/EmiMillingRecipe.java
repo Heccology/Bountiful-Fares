@@ -8,7 +8,6 @@ import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.SlotWidget;
 import dev.emi.emi.api.widget.WidgetHolder;
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.definition.compat.emi.BFEmiRecipeCategories;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
