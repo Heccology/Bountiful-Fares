@@ -24,7 +24,7 @@ public class BountifulFaresModMenu implements ModMenuApi {
         ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)
                 .setSavingRunnable(() -> net.hecco.bountifulfares.config.FabricBFConfig.save(FabricBountifulFares.CONFIG))
-                .setTitle(Component.translatable("config.bountifulfares.title"));
+                .setTitle(Component.translatable("bountifulfares.configuration.title"));
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
         Arrays.stream(Category.values()).filter(category -> !category.isChild()).forEach(category -> buildCategory(builder, entryBuilder, category));
         return builder.build();

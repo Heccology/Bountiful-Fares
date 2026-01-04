@@ -506,7 +506,7 @@
   "config.bountifulfares.ruminer_painting": "Allow \"Ruminer\" painting to be placed",
   "config.bountifulfares.spongekin_seeds_elder_guardian": "Elder Guardians drop Spongekin Seeds",
   "config.bountifulfares.spongekin_seeds_guardian": "Guardians drop Spongekin Seeds",
-  "config.bountifulfares.title": "Bountiful Fares Configuration",
+  "bountifulfares.configuration.title": "Bountiful Fares Configuration",
   "config.bountifulfares.unpleasant_tiles_painting": "Allow \"Unpleasant Tiles\" painting to be placed",
   "config.bountifulfares.violet_floret_painting": "Allow \"Violet Floret\" painting to be placed",
   "config.bountifulfares.why_blue_painting": "Allow \"Why Blue\" painting to be placed",

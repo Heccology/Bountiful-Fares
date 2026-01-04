@@ -508,7 +508,7 @@
   "config.bountifulfares.ruminer_painting": "\"Ruminer\" の絵画を有効にする",
   "config.bountifulfares.spongekin_seeds_elder_guardian": "エルダーガーディアンがスポンジキンの種をドロップするようにする",
   "config.bountifulfares.spongekin_seeds_guardian": "ガーディアンがスポンジキンの種をドロップするようにする",
-  "config.bountifulfares.title": "Bountiful Fares コンフィグ",
+  "bountifulfares.configuration.title": "Bountiful Fares コンフィグ",
   "config.bountifulfares.unpleasant_tiles_painting": "\"Unpleasant Tiles\" の絵画を有効にする",
   "config.bountifulfares.violet_floret_painting": "\"Violet Floret\" の絵画を有効にする",
   "config.bountifulfares.why_blue_painting": "\"Why Blue\" の絵画を有効にする",
