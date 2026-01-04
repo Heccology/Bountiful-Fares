@@ -30,7 +30,7 @@ import java.util.stream.Stream;
 /*
 Taken from EmiWorldInteractionRecipe since extending it causes a harder implementation
 NOTE: this can (and probably should) be simplified, but for now this allows for any amount
-of inputs and outputs for a fermentation recipe, may be useful in the future so i dont want to remove it
+of inputs and outputs for a fermentation recipe, may be useful in the future so i don't want to remove it
  */
 public class EmiFermentationRecipe implements EmiRecipe {
     private final ResourceLocation id;
