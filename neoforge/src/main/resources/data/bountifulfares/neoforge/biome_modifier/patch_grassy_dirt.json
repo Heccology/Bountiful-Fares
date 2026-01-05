@@ -1,8 +1,9 @@
 {
-  "type": "neoforge:add_features",
+  "type": "bountifulfares:add_features_by_config",
   "biomes":
     "#bountifulfares:has_grassy_dirt_patches"
   ,
+  "config_value": "generateGrassyDirtPatches",
   "features": [
     "bountifulfares:patch_grassy_dirt"
   ],

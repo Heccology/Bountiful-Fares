@@ -1,8 +1,9 @@
 {
-  "type": "neoforge:add_features",
+  "type": "bountifulfares:add_features_by_config",
   "biomes":
     "#bountifulfares:has_wild_potatoes"
   ,
+  "config_value": "generateWildPotatoes",
   "features": [
     "bountifulfares:wild_potatoes_placed"
   ],

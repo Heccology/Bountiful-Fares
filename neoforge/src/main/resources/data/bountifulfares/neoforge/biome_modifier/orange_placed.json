@@ -1,8 +1,9 @@
 {
-  "type": "neoforge:add_features",
+  "type": "bountifulfares:add_features_by_config",
   "biomes":
     "#bountifulfares:has_orange_trees"
   ,
+  "config_value": "generateOrangeTrees",
   "features": [
     "bountifulfares:orange_placed"
   ],

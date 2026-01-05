@@ -1,8 +1,9 @@
 {
-  "type": "neoforge:add_features",
+  "type": "bountifulfares:add_features_by_config",
   "biomes":
     "#bountifulfares:has_palm_trees"
   ,
+  "config_value": "generatePalmTrees",
   "features": [
     "bountifulfares:palm_placed"
   ],

@@ -4,7 +4,7 @@
   "experience": 1.0,
   "ingredients": [
     {
-      "tag": "c:foods/cooked_fishes"
+      "tag": "c:foods/cooked_fish"
     },
     {
       "item": "minecraft:dried_kelp"

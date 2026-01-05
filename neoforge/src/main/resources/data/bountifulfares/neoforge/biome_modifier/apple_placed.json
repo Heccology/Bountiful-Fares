@@ -1,6 +1,7 @@
 {
-  "type": "neoforge:add_features",
+  "type": "bountifulfares:add_features_by_config",
   "biomes": "#bountifulfares:has_apple_trees",
+  "config_value": "generateAppleTrees",
   "features": [
     "bountifulfares:apple_placed"
   ],

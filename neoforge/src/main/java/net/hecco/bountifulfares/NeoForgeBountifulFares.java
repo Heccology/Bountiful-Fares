@@ -6,6 +6,7 @@ import net.hecco.bountifulfares.definition.networking.BFPackets;
 import net.hecco.bountifulfares.definition.networking.payload.*;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.mixin.util.BlockEntityAccessor;
+import net.hecco.bountifulfares.registry.BFBiomeModifiers;
 import net.hecco.bountifulfares.registry.BFNeoForgeLootTableModifiers;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
@@ -59,7 +60,8 @@ public class NeoForgeBountifulFares {
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::creativeModeTabSetup);
         eventBus.addListener(this::commonSetup);
-        this.modContainer = container;
+        BFBiomeModifiers.BIOME_MODIFIERS.register(eventBus);
+        modContainer = container;
 
         BFResourcePacks.registerBuiltinResourcePacks();
     }

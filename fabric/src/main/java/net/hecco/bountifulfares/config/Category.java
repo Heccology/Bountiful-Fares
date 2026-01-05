@@ -1,10 +1,36 @@
 package net.hecco.bountifulfares.config;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.FabricBountifulFares;
-import net.hecco.bountifulfares.definition.platform.Services;
 
 public enum Category {
+    GENERATION("bountifulfares.configuration.category.generation", false,
+            Entry.booleanEntry("bountifulfares.configuration.generate_apple_trees", () -> FabricBountifulFares.CONFIG.getBoolValue("generateAppleTrees"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generateAppleTrees", newValue), true),
+            Entry.booleanEntry("bountifulfares.configuration.generate_orange_trees", () -> FabricBountifulFares.CONFIG.getBoolValue("generateOrangeTrees"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generateOrangeTrees", newValue), true),
+            Entry.booleanEntry("bountifulfares.configuration.generate_lemon_trees", () -> FabricBountifulFares.CONFIG.getBoolValue("generateLemonTrees"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generateLemonTrees", newValue), true),
+            Entry.booleanEntry("bountifulfares.configuration.generate_plum_trees", () -> FabricBountifulFares.CONFIG.getBoolValue("generatePlumTrees"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generatePlumTrees", newValue), true),
+            Entry.booleanEntry("bountifulfares.configuration.generate_palm_trees", () -> FabricBountifulFares.CONFIG.getBoolValue("generatePalmTrees"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generatePalmTrees", newValue), true),
+            Entry.booleanEntry("bountifulfares.configuration.generate_walnut_trees", () -> FabricBountifulFares.CONFIG.getBoolValue("generateWalnutTrees"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generateWalnutTrees", newValue), true),
+            Entry.booleanEntry("bountifulfares.configuration.generate_wild_beetroot", () -> FabricBountifulFares.CONFIG.getBoolValue("generateWildBeetroot"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generateWildBeetroot", newValue), true),
+            Entry.booleanEntry("bountifulfares.configuration.generate_wild_carrots", () -> FabricBountifulFares.CONFIG.getBoolValue("generateWildCarrots"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generateWildCarrots", newValue), true),
+            Entry.booleanEntry("bountifulfares.configuration.generate_wild_leeks", () -> FabricBountifulFares.CONFIG.getBoolValue("generateWildLeeks"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generateWildLeeks", newValue), true),
+            Entry.booleanEntry("bountifulfares.configuration.generate_wild_maize", () -> FabricBountifulFares.CONFIG.getBoolValue("generateWildMaize"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generateWildMaize", newValue), true),
+            Entry.booleanEntry("bountifulfares.configuration.generate_wild_potatoes", () -> FabricBountifulFares.CONFIG.getBoolValue("generateWildPotatoes"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generateWildPotatoes", newValue), true),
+            Entry.booleanEntry("bountifulfares.configuration.generate_wild_wheat", () -> FabricBountifulFares.CONFIG.getBoolValue("generateWildWheat"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generateWildWheat", newValue), true),
+            Entry.booleanEntry("bountifulfares.configuration.generate_grassy_dirt_patches", () -> FabricBountifulFares.CONFIG.getBoolValue("generateGrassyDirtPatches"),
+                    newValue -> FabricBountifulFares.CONFIG.setBoolValue("generateGrassyDirtPatches", newValue), true)
+    ),
     GAMEPLAY("bountifulfares.configuration.category.gameplay", false,
             Entry.integerEntry("bountifulfares.configuration.milling_time", () -> FabricBountifulFares.CONFIG.getIntValue("millingTime"),
                     newValue -> FabricBountifulFares.CONFIG.setIntValue("millingTime", newValue), 4, 1, 10),

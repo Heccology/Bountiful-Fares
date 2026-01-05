@@ -1,8 +1,9 @@
 {
-  "type": "neoforge:add_features",
+  "type": "bountifulfares:add_features_by_config",
   "biomes":
     "#bountifulfares:has_wild_wheat"
   ,
+  "config_value": "generateWildWheat",
   "features": [
     "bountifulfares:wild_wheat_placed"
   ],

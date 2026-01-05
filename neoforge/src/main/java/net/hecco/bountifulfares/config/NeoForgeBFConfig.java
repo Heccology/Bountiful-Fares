@@ -10,6 +10,7 @@ public class NeoForgeBFConfig {
 
     public static final Map<String, ModConfigSpec.ConfigValue<?>> VALUES = new HashMap<>();
 
+
     public static class Common {
         public Common(ModConfigSpec.Builder builder) {
             VALUES.put("millingTime", builder.comment("Gristmill milling time, in seconds").defineInRange("milling_time", 4, 1, 10));
@@ -28,6 +29,19 @@ public class NeoForgeBFConfig {
             VALUES.put("enableGuardianSpongekinSeeds", builder.comment("Guardians drop Spongekin Seeds").define("spongekin_seeds_guardian", true));
             VALUES.put("showCompatItemsInRecipeViewers", builder.comment("Show compatibility items in recipe viewers").define("show_compat_items_in_recipe_viewers", true));
             VALUES.put("addItemsToVanillaTabs", builder.comment("Add items to vanilla creative tabs").define("add_items_to_vanilla_tabs", true));
+            VALUES.put("generateAppleTrees", builder.comment("Apple trees generate").define("generate_apple_trees", true));
+            VALUES.put("generateOrangeTrees", builder.comment("Orange trees generate").define("generate_orange_trees", true));
+            VALUES.put("generateLemonTrees", builder.comment("Lemon trees generate").define("generate_lemon_trees", true));
+            VALUES.put("generatePlumTrees", builder.comment("Plum trees generate").define("generate_plum_trees", true));
+            VALUES.put("generatePalmTrees", builder.comment("Palm trees generate").define("generate_palm_trees", true));
+            VALUES.put("generateWalnutTrees", builder.comment("Walnut trees generate").define("generate_walnut_trees", true));
+            VALUES.put("generateWildBeetroot", builder.comment("Wild Beetroot generates").define("generate_wild_beetroot", true));
+            VALUES.put("generateWildCarrots", builder.comment("Wild Carrots generate").define("generate_wild_carrots", true));
+            VALUES.put("generateWildLeeks", builder.comment("Wild Leeks generate").define("generate_wild_leeks", true));
+            VALUES.put("generateWildMaize", builder.comment("Wild Maize generates").define("generate_wild_maize", true));
+            VALUES.put("generateWildPotatoes", builder.comment("Wild Potatoes generate").define("generate_wild_potatoes", true));
+            VALUES.put("generateWildWheat", builder.comment("Wild Wheat generates").define("generate_wild_wheat", true));
+            VALUES.put("generateGrassyDirtPatches", builder.comment("Grassy dirt patches generate").define("generate_grassy_dirt_patches", true));
         }
     }
 
@@ -41,7 +55,6 @@ public class NeoForgeBFConfig {
             VALUES.put("showTiffinFoodInHand", builder.comment("Show food inside Shulker Tiffins in players' hands").define("show_tiffin_food_in_hand", false));
         }
     }
-
     public static final Common COMMON;
     public static final ModConfigSpec COMMON_SPEC;
     public static final Client CLIENT;

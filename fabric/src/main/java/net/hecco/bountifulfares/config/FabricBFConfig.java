@@ -41,7 +41,20 @@ public class FabricBFConfig {
             new Pair<>("effectTooltips", true),
             new Pair<>("tiffinCornerFoodIcon", false),
             new Pair<>("showTiffinFoodInHand", false),
-            new Pair<>("addItemsToVanillaTabs", true)
+            new Pair<>("addItemsToVanillaTabs", true),
+            new Pair<>("generateAppleTrees", true),
+            new Pair<>("generateOrangeTrees", true),
+            new Pair<>("generateLemonTrees", true),
+            new Pair<>("generatePlumTrees", true),
+            new Pair<>("generatePalmTrees", true),
+            new Pair<>("generateWalnutTrees", true),
+            new Pair<>("generateWildBeetroot", true),
+            new Pair<>("generateWildCarrots", true),
+            new Pair<>("generateWildLeeks", true),
+            new Pair<>("generateWildMaize", true),
+            new Pair<>("generateWildPotatoes", true),
+            new Pair<>("generateWildWheat", true),
+            new Pair<>("generateGrassyDirtPatches", true)
     ));
 
     public static class LimitedIntValue {

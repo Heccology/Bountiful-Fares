@@ -468,13 +468,14 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "jei.info.chance_to_heal", "Has a chance to heal the user when consumed.");
 
 
-        generate(translationBuilder, "bountifulfares.configuration.title", "Bountiful Fares Configuration");
+        generate(translationBuilder, "bountifulfares.`configuration`.title", "Bountiful Fares Configuration");
 
 //        generate(translationBuilder, "bountifulfares.configuration.category.client", "Client");
         generate(translationBuilder, "bountifulfares.configuration.category.gameplay", "Gameplay");
 //        generate(translationBuilder, "bountifulfares.configuration.category.paintings", "Paintings");
 //        generate(translationBuilder, "bountifulfares.configuration.category.world", "World");
         generate(translationBuilder, "bountifulfares.configuration.category.client", "Client");
+        generate(translationBuilder, "bountifulfares.configuration.category.generation", "Generation");
 //        generate(translationBuilder, "bountifulfares.configuration.category.compat", "Compatibility");
 //        generate(translationBuilder, "bountifulfares.configuration.category.mint", "El's and L's Dye Mod");
 //        generate(translationBuilder, "bountifulfares.configuration.category.dye_depot", "Dye Depot");
@@ -504,6 +505,22 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "bountifulfares.configuration.tiffin_corner_food_icon", "Show food inside Shulker Tiffins in the corner of the slot");
         generate(translationBuilder, "bountifulfares.configuration.show_tiffin_food_in_hand", "Show food inside Shulker Tiffins in players' hands");
         generate(translationBuilder, "bountifulfares.configuration.add_items_to_vanilla_tabs", "Add items to vanilla creative tabs");
+        generate(translationBuilder, "bountifulfares.configuration.generate_apple_trees", "Apple trees generate");
+        generate(translationBuilder, "bountifulfares.configuration.generate_orange_trees", "Orange trees generate");
+        generate(translationBuilder, "bountifulfares.configuration.generate_lemon_trees", "Lemon trees generate");
+        generate(translationBuilder, "bountifulfares.configuration.generate_plum_trees", "Plum trees generate");
+        generate(translationBuilder, "bountifulfares.configuration.Method…", "Palm trees generate");
+        generate(translationBuilder, "bountifulfares.configuration.generate_walnut_trees", "Walnut trees generate");
+        generate(translationBuilder, "bountifulfares.configuration.generate_wild_beetroot", "Wild Beetroot generates");
+        generate(translationBuilder, "bountifulfares.configuration.generate_wild_carrots", "Wild Carrots generate");
+        generate(translationBuilder, "bountifulfares.configuration.generate_wild_leeks", "Wild Leeks generate");
+        generate(translationBuilder, "bountifulfares.configuration.generate_wild_maize", "Wild Maize generates");
+        generate(translationBuilder, "bountifulfares.configuration.generate_wild_potatoes", "Wild Potatoes generate");
+        generate(translationBuilder, "bountifulfares.configuration.generate_wild_wheat", "Wild Wheat generates");
+        generate(translationBuilder, "bountifulfares.configuration.generate_grassy_dirt_patches", "Grassy dirt patches generate");
+
+
+
 //        generate(translationBuilder, "bountifulfares.configuration.bountiful_painting", "Allow \"Bountiful\" painting to be placed");
 //        generate(translationBuilder, "bountifulfares.configuration.citrus_dish_painting", "Allow \"Citrus Dish\" painting to be placed");
 //        generate(translationBuilder, "bountifulfares.configuration.hazel_floret_painting", "Allow \"Hazel Floret\" painting to be placed");

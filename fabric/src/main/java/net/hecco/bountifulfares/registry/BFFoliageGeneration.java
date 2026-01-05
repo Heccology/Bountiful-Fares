@@ -2,7 +2,7 @@ package net.hecco.bountifulfares.registry;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.FabricBountifulFares;
 import net.hecco.bountifulfares.registry.misc.BFPlacedFeatures;
 import net.hecco.bountifulfares.registry.tags.BFBiomeTags;
 import net.minecraft.world.level.biome.Biomes;
@@ -10,8 +10,10 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class BFFoliageGeneration {
     public static void generateFlowers() {
+        if (FabricBountifulFares.CONFIG.getBoolValue("generateGrassyDirtPatches")) {
             BiomeModifications.addFeature(BiomeSelectors.includeByKey(Biomes.FOREST, Biomes.FLOWER_FOREST, Biomes.BIRCH_FOREST, Biomes.DARK_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST),
                     GenerationStep.Decoration.TOP_LAYER_MODIFICATION, BFPlacedFeatures.PATCH_GRASSY_DIRT_KEY);
+        }
         BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_HONEYSUCKLE),
                 GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.HONEYSUCKLE_PLACED_KEY);
 
@@ -20,42 +22,48 @@ public class BFFoliageGeneration {
 
         BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_CHAMOMILE),
                 GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.CHAMOMILE_PLACED_KEY);
-
+        if (FabricBountifulFares.CONFIG.getBoolValue("generateWildWheat")) {
             BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_WILD_WHEAT),
                     GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.WILD_WHEAT_PLACED_KEY);
 
             BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_LARGE_WILD_WHEAT),
                     GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.LARGE_WILD_WHEAT_PLACED_KEY);
-
+        }
+        if (FabricBountifulFares.CONFIG.getBoolValue("generateWildCarrots")) {
             BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_WILD_CARROTS),
                     GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.WILD_CARROTS_PLACED_KEY);
 
             BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_LARGE_WILD_CARROTS),
                     GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.LARGE_WILD_CARROTS_PLACED_KEY);
-
+        }
+        if (FabricBountifulFares.CONFIG.getBoolValue("generateWildPotatoes")) {
             BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_WILD_POTATOES),
                     GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.WILD_POTATOES_PLACED_KEY);
 
             BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_LARGE_WILD_POTATOES),
                     GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.LARGE_WILD_POTATOES_PLACED_KEY);
-
+        }
+        if (FabricBountifulFares.CONFIG.getBoolValue("generateWildBeetroot")) {
             BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_WILD_BEETROOT),
                     GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.WILD_BEETROOTS_PLACED_KEY);
 
             BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_LARGE_WILD_BEETROOT),
                     GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.LARGE_WILD_BEETROOTS_PLACED_KEY);
-        BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_WILD_LEEKS),
-                GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.WILD_LEEKS_PLACED_KEY);
+        }
+        if (FabricBountifulFares.CONFIG.getBoolValue("generateWildLeeks")) {
+            BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_WILD_LEEKS),
+                    GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.WILD_LEEKS_PLACED_KEY);
 
-        BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_LARGE_WILD_LEEKS),
-                GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.LARGE_WILD_LEEKS_PLACED_KEY);
+            BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_LARGE_WILD_LEEKS),
+                    GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.LARGE_WILD_LEEKS_PLACED_KEY);
+        }
+        if (FabricBountifulFares.CONFIG.getBoolValue("generateWildMaize")) {
+            BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_WILD_MAIZE),
+                    GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.WILD_MAIZE_PLACED_KEY);
 
-        BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_WILD_MAIZE),
-                GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.WILD_MAIZE_PLACED_KEY);
-
-        BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_LARGE_WILD_MAIZE),
-                GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.LARGE_WILD_MAIZE_PLACED_KEY);
-
+            BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_LARGE_WILD_MAIZE),
+                    GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.LARGE_WILD_MAIZE_PLACED_KEY);
+        }
         BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_TEA_SHRUB),
                 GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.TEA_SHRUB_PLACED_KEY);
 
@@ -65,7 +73,7 @@ public class BFFoliageGeneration {
             BiomeModifications.addFeature(BiomeSelectors.tag(BFBiomeTags.HAS_WILD_ELDERBERRIES),
                     GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.WILD_ELDERBERRY_PLACED_KEY);
 
-            BiomeModifications.addFeature(BiomeSelectors.includeByKey(Biomes.FOREST),
-                    GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.FOREST_TEA_SHRUB_PLACED_KEY);
+//            BiomeModifications.addFeature(BiomeSelectors.includeByKey(Biomes.FOREST),
+//                    GenerationStep.Decoration.VEGETAL_DECORATION, BFPlacedFeatures.FOREST_TEA_SHRUB_PLACED_KEY);
     }
 }

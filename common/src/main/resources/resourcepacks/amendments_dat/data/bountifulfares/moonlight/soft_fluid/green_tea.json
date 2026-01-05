@@ -5,7 +5,7 @@
       "filled": [
         "bountifulfares:green_tea_bottle"
       ],
-      "empty": "minecraft:glass_bottle",
+      "empty": "bountifulfares:jar",
       "capacity": 1
     }
   ],

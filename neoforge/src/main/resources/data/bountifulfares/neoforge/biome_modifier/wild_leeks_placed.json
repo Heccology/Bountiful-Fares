@@ -1,8 +1,9 @@
 {
-  "type": "neoforge:add_features",
+  "type": "bountifulfares:add_features_by_config",
   "biomes":
     "#bountifulfares:has_wild_leeks"
   ,
+  "config_value": "generateWildLeeks",
   "features": [
     "bountifulfares:wild_leeks_placed"
   ],
