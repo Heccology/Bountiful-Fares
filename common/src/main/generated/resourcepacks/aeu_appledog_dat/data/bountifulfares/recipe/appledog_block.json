@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "aeu:dogapple"
+    },
+    {
+      "item": "aeu:dogapple"
+    },
+    {
+      "item": "aeu:dogapple"
+    },
+    {
+      "item": "aeu:dogapple"
+    },
+    {
+      "item": "aeu:dogapple"
+    },
+    {
+      "item": "aeu:dogapple"
+    },
+    {
+      "item": "aeu:dogapple"
+    },
+    {
+      "item": "aeu:dogapple"
+    },
+    {
+      "item": "aeu:dogapple"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "aeu:appledog_block"
+  }
+}
