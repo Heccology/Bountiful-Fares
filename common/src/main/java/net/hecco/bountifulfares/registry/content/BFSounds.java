@@ -74,15 +74,9 @@ public class BFSounds {
     public static SoundEvent CABINET_OPEN = SoundEvents.BARREL_OPEN;
     public static SoundEvent CABINET_CLOSE = SoundEvents.BARREL_CLOSE;
 
-    // Note Block sounds MUST be registered as a RegistryEntry<SoundEvent>! Using registerSoundReference() will do this.
-    // The below sound is used in the example in NoteBlockInstrumentMixin. It can be deleted if necessary.
-     public static final Holder<SoundEvent> NOTE_BLOCK_OCARINA = registerSoundReference("ocarina");
-     public static final Holder<SoundEvent> NOTE_BLOCK_OLD_PIANO = registerSoundReference("old_piano");
-     public static final Holder<SoundEvent> NOTE_BLOCK_STEEL_DRUM = registerSoundReference("steel_drum");
-//
-    private static Holder<SoundEvent> registerSoundReference(String id) {
-        return NLServices.REGISTRY.registerForHolder(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));
-    }
+     public static final Supplier<SoundEvent> NOTE_BLOCK_OCARINA = registerSoundEvent("ocarina");
+     public static final Supplier<SoundEvent> NOTE_BLOCK_OLD_PIANO = registerSoundEvent("old_piano");
+     public static final Supplier<SoundEvent> NOTE_BLOCK_STEEL_DRUM = registerSoundEvent("steel_drum");
 
     private static Supplier<SoundEvent> registerSoundEvent(String id) {
         return NLServices.REGISTRY.register(BountifulFares.MOD_ID, id, BuiltInRegistries.SOUND_EVENT, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, id)));

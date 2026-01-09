@@ -5,6 +5,7 @@ import net.hecco.bountifulfares.registry.util.BFNoteBlockInstruments;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.gen.Invoker;
@@ -48,32 +49,16 @@ public abstract class NoteBlockInstrumentMixin {
             shift = At.Shift.AFTER))
     private static void customNoteBlockSFX(CallbackInfo ci)
     {
-        // Get list of current note block sfx.
         var notesounds = new ArrayList<>(Arrays.asList($VALUES));
         var last = notesounds.get(notesounds.size() - 1);
         var i = 1;
 
-        /*
-        The code section below is an example of how to implement a new Note Block sound.
-        Adding a new sound is similar to adding new heart types:
-
-            - Replace the var "bf_bonk" with a new one, then replace its usage in the last 2 lines with the new var.
-            - Change the internalName to "BOUNTIFUL_FARES_<new name>".
-            - Replace "bountiful_fares_bonk" with the ID for the sound.
-                - This will be referenced internally, and will show up if you change a Note Block's sound with a Debug Stick.
-            - Replace "BFSounds.NOTE_BLOCK_BONK_EXAMPLE" with any sound that's registered via RegistryEntry<SoundEvent>.
-                - BFSounds has a commented-out example of a custom Note Block sound for reference.
-            - Go to `BFNoteBlockInstrument` and define a new sound type. Replace "BOUNTIFUL_FARES_BONK" with your new one.
-
-        Also, check the comment at the bottom of this file for a handy reference for adding sounds to sounds.json, if it makes it easier.
-        ----------------------------------
-         */
 
         var bf_ocarina = newNoteType(
                 "BOUNTIFUL_FARES_OCARINA",
                 last.ordinal() + i,
                 "bountiful_fares_ocarina",
-                BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BFSounds.NOTE_BLOCK_OCARINA.get()),
+                SoundEvents.NOTE_BLOCK_FLUTE,
                 NoteBlockInstrument.Type.BASE_BLOCK
         );
         BFNoteBlockInstruments.OCARINA = bf_ocarina;
@@ -83,7 +68,7 @@ public abstract class NoteBlockInstrumentMixin {
                 "BOUNTIFUL_FARES_OLD_PIANO",
                 last.ordinal() + i,
                 "bountiful_fares_old_piano",
-                BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BFSounds.NOTE_BLOCK_OLD_PIANO.get()),
+                SoundEvents.NOTE_BLOCK_HARP,
                 NoteBlockInstrument.Type.BASE_BLOCK
         );
         BFNoteBlockInstruments.OLD_PIANO = bf_old_piano;
@@ -93,35 +78,12 @@ public abstract class NoteBlockInstrumentMixin {
                 "BOUNTIFUL_FARES_STEEL_DRUM",
                 last.ordinal() + i,
                 "bountiful_fares_steel_drum",
-                BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BFSounds.NOTE_BLOCK_STEEL_DRUM.get()),
+                SoundEvents.NOTE_BLOCK_BANJO,
                 NoteBlockInstrument.Type.BASE_BLOCK
         );
         BFNoteBlockInstruments.STEEL_DRUM = bf_steel_drum;
         notesounds.add(bf_steel_drum);
 
-        // Complete the injection.
-        // This must ALWAYS be executed at the end of this method - no more code beyond this.
         $VALUES = notesounds.toArray(new NoteBlockInstrument[0]);
     }
-//
-//    /*
-//        The sounds folder should have a "note" folder for adding note sounds, similarly to Vanilla.
-//        Below is a rough template for how you *could* register the notes in your sounds.json, including the common Vanilla subtitle.
-//
-//        ---------------------
-//
-//          "block.note_block.bountiful_fares.<NAME ID HERE>": {
-//            "sounds": [
-//              "frontiers:note/<SOUND NAME HERE>"
-//            ],
-//            "subtitle": "subtitles.block.note_block.note"
-//          }
-//
-//        ---------------------
-//
-//        Also, small music theory-ish thing that you *might* already know: every single note block sound base is in F# key.
-//        Recording your base sound in that key will make it match up with Vanilla sounds.
-//
-//        - artyrian :}
-//     */
 }

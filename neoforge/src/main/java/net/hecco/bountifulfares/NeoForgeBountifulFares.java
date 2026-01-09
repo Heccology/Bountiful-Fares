@@ -10,9 +10,11 @@ import net.hecco.bountifulfares.registry.BFBiomeModifiers;
 import net.hecco.bountifulfares.registry.BFNeoForgeLootTableModifiers;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
+import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
 import net.hecco.bountifulfares.registry.misc.BFResourcePacks;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
+import net.hecco.bountifulfares.registry.util.BFNoteBlockInstruments;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -71,6 +73,11 @@ public class NeoForgeBountifulFares {
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
+
+        BFNoteBlockInstruments.OCARINA.soundEvent = BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BFSounds.NOTE_BLOCK_OCARINA.get());
+        BFNoteBlockInstruments.OLD_PIANO.soundEvent = BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BFSounds.NOTE_BLOCK_OLD_PIANO.get());
+        BFNoteBlockInstruments.STEEL_DRUM.soundEvent = BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BFSounds.NOTE_BLOCK_STEEL_DRUM.get());
+
         if (!Services.PLATFORM.get().getBoolConfigValue("showCompatItemsInRecipeViewers")) {
             NLServices.REGISTRY.registerBuiltInDatapack(BountifulFares.MOD_ID, "hide_compat_items", "Bountiful Fares - Hide Compatibility Items", true, true);
         }
