@@ -73,7 +73,7 @@ public abstract class NoteBlockInstrumentMixin {
                 "BOUNTIFUL_FARES_OCARINA",
                 last.ordinal() + i,
                 "bountiful_fares_ocarina",
-                BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BFSounds.NOTE_BLOCK_OCARINA.get()),
+                BFSounds.NOTE_BLOCK_OCARINA,
                 NoteBlockInstrument.Type.BASE_BLOCK
         );
         BFNoteBlockInstruments.OCARINA = bf_ocarina;
@@ -83,7 +83,7 @@ public abstract class NoteBlockInstrumentMixin {
                 "BOUNTIFUL_FARES_OLD_PIANO",
                 last.ordinal() + i,
                 "bountiful_fares_old_piano",
-                BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BFSounds.NOTE_BLOCK_OLD_PIANO.get()),
+                BFSounds.NOTE_BLOCK_OLD_PIANO,
                 NoteBlockInstrument.Type.BASE_BLOCK
         );
         BFNoteBlockInstruments.OLD_PIANO = bf_old_piano;
@@ -93,7 +93,7 @@ public abstract class NoteBlockInstrumentMixin {
                 "BOUNTIFUL_FARES_STEEL_DRUM",
                 last.ordinal() + i,
                 "bountiful_fares_steel_drum",
-                BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BFSounds.NOTE_BLOCK_STEEL_DRUM.get()),
+                BFSounds.NOTE_BLOCK_STEEL_DRUM,
                 NoteBlockInstrument.Type.BASE_BLOCK
         );
         BFNoteBlockInstruments.STEEL_DRUM = bf_steel_drum;

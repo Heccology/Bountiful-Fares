@@ -74,9 +74,9 @@ public class NeoForgeBountifulFares {
 
     public void commonSetup(FMLCommonSetupEvent event) {
 
-        BFNoteBlockInstruments.OCARINA.soundEvent = BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BFSounds.NOTE_BLOCK_OCARINA.get());
-        BFNoteBlockInstruments.OLD_PIANO.soundEvent = BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BFSounds.NOTE_BLOCK_OLD_PIANO.get());
-        BFNoteBlockInstruments.STEEL_DRUM.soundEvent = BuiltInRegistries.SOUND_EVENT.wrapAsHolder(BFSounds.NOTE_BLOCK_STEEL_DRUM.get());
+        BFNoteBlockInstruments.OCARINA.soundEvent = BFSounds.NOTE_BLOCK_OCARINA;
+        BFNoteBlockInstruments.OLD_PIANO.soundEvent = BFSounds.NOTE_BLOCK_OLD_PIANO;
+        BFNoteBlockInstruments.STEEL_DRUM.soundEvent = BFSounds.NOTE_BLOCK_STEEL_DRUM;
 
         if (!Services.PLATFORM.get().getBoolConfigValue("showCompatItemsInRecipeViewers")) {
             NLServices.REGISTRY.registerBuiltInDatapack(BountifulFares.MOD_ID, "hide_compat_items", "Bountiful Fares - Hide Compatibility Items", true, true);
