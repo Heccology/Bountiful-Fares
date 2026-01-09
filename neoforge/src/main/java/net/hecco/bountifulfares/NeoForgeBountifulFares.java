@@ -73,7 +73,6 @@ public class NeoForgeBountifulFares {
     }
 
     public void commonSetup(FMLCommonSetupEvent event) {
-
         BFNoteBlockInstruments.OCARINA.soundEvent = BFSounds.NOTE_BLOCK_OCARINA;
         BFNoteBlockInstruments.OLD_PIANO.soundEvent = BFSounds.NOTE_BLOCK_OLD_PIANO;
         BFNoteBlockInstruments.STEEL_DRUM.soundEvent = BFSounds.NOTE_BLOCK_STEEL_DRUM;

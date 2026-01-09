@@ -1,9 +1,7 @@
 package net.hecco.bountifulfares.mixin;
 
-import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.util.BFNoteBlockInstruments;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -53,7 +51,7 @@ public abstract class NoteBlockInstrumentMixin {
         var last = notesounds.get(notesounds.size() - 1);
         var i = 1;
 
-
+        // Due to how sounds are registered in Neo we need temps until common setup
         var bf_ocarina = newNoteType(
                 "BOUNTIFUL_FARES_OCARINA",
                 last.ordinal() + i,
