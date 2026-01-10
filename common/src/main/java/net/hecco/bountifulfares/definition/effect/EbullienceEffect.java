@@ -12,11 +12,10 @@ public class EbullienceEffect extends MobEffect {
 
     @Override
     public boolean applyEffectTick(LivingEntity entity, int amplifier) {
-        super.applyEffectTick(entity, amplifier);
-        if (entity instanceof Player) {
-            ((Player) entity).getFoodData().setExhaustion(0f);
+        if (entity instanceof Player player) {
+            player.getFoodData().setExhaustion(0f);
         }
-        return true;
+        return super.applyEffectTick(entity, amplifier);
     }
 
     @Override

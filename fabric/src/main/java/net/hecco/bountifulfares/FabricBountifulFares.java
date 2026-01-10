@@ -117,7 +117,7 @@ public class FabricBountifulFares implements ModInitializer {
         }
         BFMessages.registerPayloads();
         DatagenOnlyItems.registerDatagenItems();
-
+        
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
             if (player.canEat(false) && Services.PLATFORM.get().getBoolConfigValue("cakeEatSounds") && !player.isSpectator()) {
                 BlockPos pos = hitResult.getBlockPos();
