@@ -16,6 +16,7 @@
     "gameplay.ThrownPotionMixin",
     "misc.BoatTypeMixin",
     "misc.OceanMonumentPiecesMixin",
+    "misc.ShearsDispenseMixin",
     "misc.StonecutterScreenHandlerMixin",
     "misc.WoodlandMansionFirstFloorMixin",
     "misc.WoodlandMansionSecondFloorMixin",
