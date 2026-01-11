@@ -15,6 +15,7 @@
     "gameplay.SweetBerryBushMixin",
     "gameplay.ThrownPotionMixin",
     "misc.BoatTypeMixin",
+    "misc.FlintSteelDispMixin",
     "misc.OceanMonumentPiecesMixin",
     "misc.ShearsDispenseMixin",
     "misc.StonecutterScreenHandlerMixin",
