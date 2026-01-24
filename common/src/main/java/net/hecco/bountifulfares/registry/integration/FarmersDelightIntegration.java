@@ -11,6 +11,7 @@ import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -51,8 +52,8 @@ public class FarmersDelightIntegration implements BFIntegration {
 
     @SuppressWarnings("unchecked")
     private Supplier<Block> registerBlock(String id, Supplier<Block> supplier) {
-        Supplier<Block> block = (Supplier<Block>) registerContent(NLServices.REGISTRY.registerBlockNoItem(FARMERS_DELIGHT_MOD_ID, id, supplier));
-        registerContent(NLServices.REGISTRY.registerItem(FARMERS_DELIGHT_MOD_ID, id, () -> new BlockItem(block.get(), new Item.Properties())));
+        Supplier<Block> block = (Supplier<Block>) registerContent(ResourceLocation.fromNamespaceAndPath(FARMERS_DELIGHT_MOD_ID, id), NLServices.REGISTRY.registerBlockNoItem(FARMERS_DELIGHT_MOD_ID, id, supplier));
+        registerContent(ResourceLocation.fromNamespaceAndPath(FARMERS_DELIGHT_MOD_ID, id), NLServices.REGISTRY.registerItem(FARMERS_DELIGHT_MOD_ID, id, () -> new BlockItem(block.get(), new Item.Properties())));
         return block;
     }
 

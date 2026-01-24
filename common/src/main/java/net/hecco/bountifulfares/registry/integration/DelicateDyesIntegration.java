@@ -29,6 +29,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.*;
 import java.util.function.Supplier;
 
+import static net.hecco.bountifulfares.BountifulFares.ARTS_AND_CRAFTS_MOD_ID;
 import static net.hecco.bountifulfares.BountifulFares.DELICATE_DYES_MOD_ID;
 import static net.hecco.bountifulfares.registry.content.BFBlocks.createLightLevelFromLitBlockState;
 
@@ -52,8 +53,8 @@ public class DelicateDyesIntegration implements BFIntegration {
                 NLServices.REGISTRY.registerItem(DELICATE_DYES_MOD_ID, color + "_shulker_tiffin_front", () -> new Item(new Item.Properties()));
                 NLServices.REGISTRY.registerItem(DELICATE_DYES_MOD_ID, color + "_shulker_tiffin_back", () -> new Item(new Item.Properties()));
             }
-            JACK_O_STRAWS.put(color, (Supplier<Block>)registerContent(NLServices.REGISTRY.registerBlockNoItem(DELICATE_DYES_MOD_ID, color + "_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)))));
-            registerContent(NLServices.REGISTRY.registerItem(DELICATE_DYES_MOD_ID, color + "_jack_o_straw", () -> new BlockItem(JACK_O_STRAWS.get(color).get(), new Item.Properties())));
+            JACK_O_STRAWS.put(color, (Supplier<Block>)registerContent(ResourceLocation.fromNamespaceAndPath(DELICATE_DYES_MOD_ID, color + "_jack_o_straw"), NLServices.REGISTRY.registerBlockNoItem(DELICATE_DYES_MOD_ID, color + "_jack_o_straw", () -> new JackOStrawBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.COLOR_YELLOW).strength(0.5F).lightLevel(createLightLevelFromLitBlockState(12)).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion().pushReaction(PushReaction.DESTROY)))));
+            registerContent(ResourceLocation.fromNamespaceAndPath(DELICATE_DYES_MOD_ID, color + "_jack_o_straw"), NLServices.REGISTRY.registerItem(DELICATE_DYES_MOD_ID, color + "_jack_o_straw", () -> new BlockItem(JACK_O_STRAWS.get(color).get(), new Item.Properties())));
 
             //Item testForExisting = BuiltInRegistries.ITEM.get(BountifulFares.id(color + "_shulker_tiffin"));
             //if (testForExisting != null) {
@@ -64,7 +65,7 @@ public class DelicateDyesIntegration implements BFIntegration {
             //            new Item(createTiffinProperties()))));
             //}
 
-            TIFFINS.put(color, (Supplier<Item>)registerContent(NLServices.REGISTRY.registerItem(DELICATE_DYES_MOD_ID,color + "_shulker_tiffin", () ->
+            TIFFINS.put(color, (Supplier<Item>)registerContent(ResourceLocation.fromNamespaceAndPath(DELICATE_DYES_MOD_ID,color + "_shulker_tiffin"), NLServices.REGISTRY.registerItem(DELICATE_DYES_MOD_ID,color + "_shulker_tiffin", () ->
                     new TiffinItem(DyeColor.byName(color, DyeColor.WHITE), createTiffinProperties()))));
         }
     }

@@ -641,7 +641,7 @@ public class BFLangProvider extends FabricLanguageProvider {
             translationBuilder.add(key, toSentenceCase(id.getPath()));
         }
 
-        var compat_content = BountifulFares.COMPAT_MANAGER.CONTENT.keySet().stream().map(Supplier::get).toList();
+        var compat_content = BountifulFares.COMPAT_MANAGER.CONTENT_TO_INTEGRATION.keySet().stream().map(Supplier::get).toList();
         for (Object content : compat_content) {
             if (content instanceof Block block && !usedTranslationKeys.contains(block.getDescriptionId())) {
                 translationBuilder.add(block.getDescriptionId(), toSentenceCase(BuiltInRegistries.BLOCK.getKey(block).getPath()));

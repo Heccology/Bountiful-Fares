@@ -27,7 +27,7 @@ public class AppledogIntegration implements BFIntegration {
 
     @Override
     public List<String> modIds() {
-        return List.of(AEU_MOD_ID, APPLEDOG_MOD_ID);
+        return List.of(AEU_MOD_ID);
     }
 
     public static Supplier<Block> APPLEDOG_BLOCK;
@@ -44,8 +44,8 @@ public class AppledogIntegration implements BFIntegration {
 
     @SuppressWarnings("unchecked")
     private Supplier<net.minecraft.world.level.block.Block> registerBlock(String id, Supplier<Block> supplier) {
-        Supplier<Block> block = (Supplier<Block>) registerContent(NLServices.REGISTRY.registerBlockNoItem(AEU_MOD_ID, id, supplier));
-        registerContent(NLServices.REGISTRY.registerItem(AEU_MOD_ID, id, () -> new BlockItem(block.get(), new Item.Properties().rarity(Rarity.EPIC))));
+        Supplier<Block> block = (Supplier<Block>) registerContent(ResourceLocation.fromNamespaceAndPath(AEU_MOD_ID, id), NLServices.REGISTRY.registerBlockNoItem(AEU_MOD_ID, id, supplier));
+        registerContent(ResourceLocation.fromNamespaceAndPath(AEU_MOD_ID, id), NLServices.REGISTRY.registerItem(AEU_MOD_ID, id, () -> new BlockItem(block.get(), new Item.Properties().rarity(Rarity.EPIC))));
         return block;
     }
 

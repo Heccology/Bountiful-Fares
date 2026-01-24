@@ -45,13 +45,13 @@ public class FrontiersIntegration implements BFIntegration, HasWoodTypes {
     public void registerContent() {
         for (String wood : WOOD_TYPES) {
             String key = FRONTIERS_MOD_ID + "_" + wood;
-            BFBlocks.TRELLISES.put(key, (Supplier<Block>) registerContent(NLServices.REGISTRY.registerBlockNoItem(FRONTIERS_MOD_ID, wood + "_trellis", () -> new TrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).randomTicks().noOcclusion()))));
-            registerContent(NLServices.REGISTRY.registerItem(FRONTIERS_MOD_ID, wood + "_trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(key).get(), new Item.Properties())));
+            BFBlocks.TRELLISES.put(key, (Supplier<Block>) registerContent(ResourceLocation.fromNamespaceAndPath(FRONTIERS_MOD_ID, wood + "_trellis"), NLServices.REGISTRY.registerBlockNoItem(FRONTIERS_MOD_ID, wood + "_trellis", () -> new TrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).randomTicks().noOcclusion()))));
+            registerContent(ResourceLocation.fromNamespaceAndPath(FRONTIERS_MOD_ID, wood + "_trellis"), NLServices.REGISTRY.registerItem(FRONTIERS_MOD_ID, wood + "_trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(key).get(), new Item.Properties())));
             if (NLServices.PLATFORM.isDatagen()) {
                 NLServices.REGISTRY.registerItem(FRONTIERS_MOD_ID, wood + "_planks", () -> new Item(new Item.Properties()));
             }
-            BFBlocks.PICKETS.put(key, (Supplier<Block>) registerContent(NLServices.REGISTRY.registerBlockNoItem(FRONTIERS_MOD_ID, wood + "_pickets", () -> new PicketsBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.NONE).strength(0.5F).sound(BFSoundTypes.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion()))));
-            registerContent(NLServices.REGISTRY.registerItem(FRONTIERS_MOD_ID, wood + "_pickets", () -> new BlockItem(BFBlocks.PICKETS.get(key).get(), new Item.Properties())));
+            BFBlocks.PICKETS.put(key, (Supplier<Block>) registerContent(ResourceLocation.fromNamespaceAndPath(FRONTIERS_MOD_ID, wood + "_pickets"), NLServices.REGISTRY.registerBlockNoItem(FRONTIERS_MOD_ID, wood + "_pickets", () -> new PicketsBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.NONE).strength(0.5F).sound(BFSoundTypes.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion()))));
+            registerContent(ResourceLocation.fromNamespaceAndPath(FRONTIERS_MOD_ID, wood + "_pickets"), NLServices.REGISTRY.registerItem(FRONTIERS_MOD_ID, wood + "_pickets", () -> new BlockItem(BFBlocks.PICKETS.get(key).get(), new Item.Properties())));
         }
     }
 

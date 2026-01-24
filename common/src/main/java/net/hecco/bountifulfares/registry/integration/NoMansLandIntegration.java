@@ -55,17 +55,17 @@ public class NoMansLandIntegration implements BFIntegration, HasWoodTypes {
     public void registerContent() {
         for (String wood : WOOD_TYPES) {
             String key = NO_MANS_LAND_MOD_ID + "_" + wood;
-            BFBlocks.TRELLISES.put(key, (Supplier<Block>) registerContent(NLServices.REGISTRY.registerBlockNoItem(NO_MANS_LAND_MOD_ID, wood + "_trellis", () -> new TrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).randomTicks().noOcclusion()))));
-            registerContent(NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, wood + "_trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(key).get(), new Item.Properties())));
+            BFBlocks.TRELLISES.put(key, (Supplier<Block>) registerContent(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, wood + "_trellis"), NLServices.REGISTRY.registerBlockNoItem(NO_MANS_LAND_MOD_ID, wood + "_trellis", () -> new TrellisBlock(BlockBehaviour.Properties.of().noOcclusion().strength(1.0f).sound(BFSoundTypes.LIGHT_WOOD).mapColor(MapColor.NONE).instrument(NoteBlockInstrument.BASS).randomTicks().noOcclusion()))));
+            registerContent(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, wood + "_trellis"), NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, wood + "_trellis", () -> new TrellisBlockItem(BFBlocks.TRELLISES.get(key).get(), new Item.Properties())));
             if (NLServices.PLATFORM.isDatagen()) {
                 NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, wood + "_planks", () -> new Item(new Item.Properties()));
             }
-            BFBlocks.PICKETS.put(key, (Supplier<Block>) registerContent(NLServices.REGISTRY.registerBlockNoItem(NO_MANS_LAND_MOD_ID, wood + "_pickets", () -> new PicketsBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.NONE).strength(0.5F).sound(BFSoundTypes.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion()))));
-            registerContent(NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, wood + "_pickets", () -> new BlockItem(BFBlocks.PICKETS.get(key).get(), new Item.Properties())));
+            BFBlocks.PICKETS.put(key, (Supplier<Block>) registerContent(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, wood + "_pickets"), NLServices.REGISTRY.registerBlockNoItem(NO_MANS_LAND_MOD_ID, wood + "_pickets", () -> new PicketsBlock(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.NONE).strength(0.5F).sound(BFSoundTypes.LIGHT_WOOD).instrument(NoteBlockInstrument.BASS).forceSolidOff().noOcclusion()))));
+            registerContent(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, wood + "_pickets"), NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, wood + "_pickets", () -> new BlockItem(BFBlocks.PICKETS.get(key).get(), new Item.Properties())));
         }
 
-        CANDIED_PEAR = (Supplier<Item>) registerContent(NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, "candied_pear", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.5F).build()))));
-        MAPLE_MEAD_BOTTLE = (Supplier<Item>) registerContent(NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, "maple_mead_bottle", () -> new MapleMeadBottleItem(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.4f).effect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1).effect(new MobEffectInstance(MobEffects.CONFUSION, 600, 0), 0.3f).alwaysEdible().build()).stacksTo(16))));
+        CANDIED_PEAR = (Supplier<Item>) registerContent(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "candied_pear"), NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, "candied_pear", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationModifier(0.5F).build()))));
+        MAPLE_MEAD_BOTTLE = (Supplier<Item>) registerContent(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "maple_mead_bottle"), NLServices.REGISTRY.registerItem(NO_MANS_LAND_MOD_ID, "maple_mead_bottle", () -> new MapleMeadBottleItem(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE).food(new FoodProperties.Builder().nutrition(5).saturationModifier(0.4f).effect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1).effect(new MobEffectInstance(MobEffects.CONFUSION, 600, 0), 0.3f).alwaysEdible().build()).stacksTo(16))));
 
 
         //DATAGEN DUMMY ITEMS

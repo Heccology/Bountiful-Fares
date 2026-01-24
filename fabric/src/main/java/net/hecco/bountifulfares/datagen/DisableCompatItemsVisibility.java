@@ -20,7 +20,7 @@ public class DisableCompatItemsVisibility extends FabricTagProvider.ItemTagProvi
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
-        for (Object i : BountifulFares.COMPAT_MANAGER.CONTENT.keySet().stream().map(Supplier::get).toList()) {
+        for (Object i : BountifulFares.COMPAT_MANAGER.CONTENT_TO_INTEGRATION.keySet().stream().map(Supplier::get).toList()) {
             if (i instanceof Item item) {
                 tag(BFItemTags.C_HIDDEN_FROM_RECIPE_VIEWERS).addOptional(BuiltInRegistries.ITEM.getKey(item));
             }
