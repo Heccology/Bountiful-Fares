@@ -16,6 +16,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 import static net.hecco.bountifulfares.BountifulFares.ARTS_AND_CRAFTS_MOD_ID;
 import static net.hecco.bountifulfares.BountifulFares.FARMERS_DELIGHT_MOD_ID;
@@ -32,10 +33,15 @@ public class BFEveryCompatModule extends SimpleModule {
         super(modId, "bf", EveryCompat.MOD_ID);
 
         ResourceLocation tab = modRes(modId);
-
+        // NOTE: vsauce, diemant here. at one point the properties were copied using
+        // Utils.copyPropertySafe(w.planks)
+        // but this seems to cause some issues for example trellises should have noOcclussion which
+        // planks lack. Now, I do not know why would anyone copy planks if in the same line earlier you
+        // had gotten the block instance already. So i replaced them with copying the bf blocks
+        Supplier<Block> picketsRoleModel = getModBlock("oak_pickets");
         pickets = SimpleEntrySet.builder(WoodType.class, "pickets",
-                        getModBlock("oak_pickets"), () -> VanillaWoodTypes.OAK,
-                        w -> new PicketsBlock(Utils.copyPropertySafe(w.planks)))
+                        picketsRoleModel, () -> VanillaWoodTypes.OAK,
+                        w -> new PicketsBlock(Utils.copyPropertySafe(picketsRoleModel.get())))
                 .addTexture(modRes("block/oak_pickets"))
                 .addTexture(modRes("item/oak_pickets"))
                 .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
@@ -47,9 +53,10 @@ public class BFEveryCompatModule extends SimpleModule {
         this.addEntry(pickets);
 
         // using acacia as base block because 'oak_trellis' does not exist
+        Supplier<Block> trellisRoleModel = getModBlock("acacia_trellis");
         trellis = SimpleEntrySet.builder(WoodType.class, "trellis",
-                        getModBlock("acacia_trellis"), () -> VanillaWoodTypes.ACACIA,
-                        w -> new TrellisBlock(Utils.copyPropertySafe(w.planks)))
+                        trellisRoleModel, () -> VanillaWoodTypes.ACACIA,
+                        w -> new TrellisBlock(Utils.copyPropertySafe(trellisRoleModel.get())))
                 .addTexture(modRes("block/acacia_trellis"))
                 .addTag(BlockTags.MINEABLE_WITH_AXE, Registries.BLOCK)
                 .defaultRecipe()
