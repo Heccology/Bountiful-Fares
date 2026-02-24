@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.mixin.misc;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.CoconutCandleBlock;
 import net.hecco.bountifulfares.definition.block.custom.InfusedCandleBlock;
 import net.minecraft.core.BlockPos;
