@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:elderberry_wine_bottle_from_elderberries_fermenting"
+        "recipe": "bountifulfares:pickled_beetroot_from_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:elderberry_wine_bottle_from_elderberries_fermenting"
+      "bountifulfares:pickled_beetroot_from_fermenting"
     ]
   }
 }

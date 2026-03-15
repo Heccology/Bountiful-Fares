@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:apple_cider_jar_from_apple_fermenting"
+        "recipe": "bountifulfares:apple_cider_jar_from_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:apple_cider_jar_from_apple_fermenting"
+      "bountifulfares:apple_cider_jar_from_fermenting"
     ]
   }
 }

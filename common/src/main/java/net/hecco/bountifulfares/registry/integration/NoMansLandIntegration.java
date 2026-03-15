@@ -26,6 +26,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -109,7 +110,7 @@ public class NoMansLandIntegration implements BFIntegration, HasWoodTypes {
                 .unlockedBy("has_pear", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "pear"))).build()))))
                 .save(exporter);
 
-        FermentingRecipeBuilder.create(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "maple_syrup_bottle")), MAPLE_MEAD_BOTTLE.get(), 1, 13529674)
+        FermentingRecipeBuilder.create(Ingredient.of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "maple_syrup_bottle"))), MAPLE_MEAD_BOTTLE.get(), 1, 13529674)
                 .unlockedBy("has_maple_syrup", CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(NO_MANS_LAND_MOD_ID, "maple_syrup_bottle"))).build()))))
                 .save(exporter);
 

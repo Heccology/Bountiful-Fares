@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:lapisberry_wine_bottle_from_lapisberries_fermenting"
+        "recipe": "bountifulfares:lapisberry_wine_bottle_from_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:lapisberry_wine_bottle_from_lapisberries_fermenting"
+      "bountifulfares:lapisberry_wine_bottle_from_fermenting"
     ]
   }
 }

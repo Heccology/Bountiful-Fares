@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:foul_flesh_from_rotten_flesh_fermenting"
+        "recipe": "bountifulfares:pickled_spongekin_from_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:foul_flesh_from_rotten_flesh_fermenting"
+      "bountifulfares:pickled_spongekin_from_fermenting"
     ]
   }
 }

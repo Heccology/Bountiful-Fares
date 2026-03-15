@@ -39,9 +39,18 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.MILK_BUCKET)
                 .add(BFItems.COCONUT_MILK_BOTTLE.get())
         ;
+        getOrCreateTagBuilder(BFItemTags.C_COCONUTS)
+                .add(BFItems.COCONUT.get())
+                .addOptional(ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "coconut"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("wilderwild", "coconut"))
+        ;
+
         getOrCreateTagBuilder(BFItemTags.C_COCONUT_HALVES)
                 .add(BFItems.COCONUT_HALF.get())
+                .addOptional(ResourceLocation.fromNamespaceAndPath(BountifulFares.NATURES_SPIRIT_MOD_ID, "coconut_half"))
+                .addOptional(ResourceLocation.fromNamespaceAndPath("wilderwild", "split_coconut"))
         ;
+
 
         getOrCreateTagBuilder(BFItemTags.C_WALNUTS)
                 .add(BFItems.WALNUT.get())

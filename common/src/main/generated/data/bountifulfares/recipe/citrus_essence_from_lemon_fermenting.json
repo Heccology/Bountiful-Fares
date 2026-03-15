@@ -1,7 +1,7 @@
 {
   "type": "bountifulfares:fermenting",
   "ingredient": {
-    "item": "bountifulfares:lemon"
+    "tag": "c:foods/lemons"
   },
   "particle_color": 15200149,
   "result": {

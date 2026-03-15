@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:mead_bottle_from_honey_bottle_fermenting"
+        "recipe": "bountifulfares:coconut_milk_bottle_from_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:mead_bottle_from_honey_bottle_fermenting"
+      "bountifulfares:coconut_milk_bottle_from_fermenting"
     ]
   }
 }

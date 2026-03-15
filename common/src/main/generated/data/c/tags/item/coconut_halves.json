@@ -1,5 +1,13 @@
 {
   "values": [
-    "bountifulfares:coconut_half"
+    "bountifulfares:coconut_half",
+    {
+      "id": "natures_spirit:coconut_half",
+      "required": false
+    },
+    {
+      "id": "wilderwild:split_coconut",
+      "required": false
+    }
   ]
 }

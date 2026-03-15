@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:fermented_spider_eye_from_spider_eye_fermenting"
+        "recipe": "bountifulfares:plum_cider_jar_from_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:fermented_spider_eye_from_spider_eye_fermenting"
+      "bountifulfares:plum_cider_jar_from_fermenting"
     ]
   }
 }

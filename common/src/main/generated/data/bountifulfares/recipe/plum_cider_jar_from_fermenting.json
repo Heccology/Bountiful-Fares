@@ -1,7 +1,7 @@
 {
   "type": "bountifulfares:fermenting",
   "ingredient": {
-    "item": "bountifulfares:plum"
+    "tag": "c:foods/plums"
   },
   "particle_color": 14532546,
   "result": {

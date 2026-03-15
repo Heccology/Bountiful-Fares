@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:coconut_milk_bottle_from_coconut_half_fermenting"
+        "recipe": "bountifulfares:hoary_cider_jar_from_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:coconut_milk_bottle_from_coconut_half_fermenting"
+      "bountifulfares:hoary_cider_jar_from_fermenting"
     ]
   }
 }

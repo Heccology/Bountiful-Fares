@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:pickled_spongekin_from_spongekin_slice_fermenting"
+        "recipe": "nomansland:maple_mead_bottle_from_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:pickled_spongekin_from_spongekin_slice_fermenting"
+      "nomansland:maple_mead_bottle_from_fermenting"
     ]
   }
 }

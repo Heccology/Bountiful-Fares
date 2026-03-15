@@ -17,6 +17,7 @@ public class BFItemTags {
     public static final TagKey<Item> C_ELDERBERRIES = createCommonItemTag("foods/elderberries");
     public static final TagKey<Item> C_CORN = createCommonItemTag("foods/corn");
     public static final TagKey<Item> C_FLOUR = createCommonItemTag("flour");
+    public static final TagKey<Item> C_COCONUTS = createCommonItemTag("coconuts");
     public static final TagKey<Item> C_COCONUT_HALVES = createCommonItemTag("coconut_halves");
     public static final TagKey<Item> C_DYES = createCommonItemTag( "dyes");
 

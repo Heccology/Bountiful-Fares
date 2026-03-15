@@ -1,7 +1,7 @@
 {
   "type": "bountifulfares:fermenting",
   "ingredient": {
-    "item": "bountifulfares:coconut_half"
+    "tag": "c:coconut_halves"
   },
   "particle_color": 13747902,
   "result": {

@@ -859,16 +859,16 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerMillingRecipe(exporter, Items.SHORT_GRASS, BFItems.GRASS_SEEDS.get(), 2);
 
         offerFermentingRecipe(exporter, Items.APPLE, BFItems.APPLE_CIDER_JAR.get(), 1, 16771237);
-        offerFermentingRecipe(exporter, BFItems.ORANGE.get(), BFItems.CITRUS_ESSENCE.get(), 2, 15200149);
-        offerFermentingRecipe(exporter, BFItems.LEMON.get(), BFItems.CITRUS_ESSENCE.get(), 2, 15200149);
+        offerFermentingRecipe(exporter, BFItemTags.C_ORANGES, BFItems.CITRUS_ESSENCE.get(), 2, 15200149, "citrus_essence_from_orange_fermenting");
+        offerFermentingRecipe(exporter, BFItemTags.C_LEMONS, BFItems.CITRUS_ESSENCE.get(), 2, 15200149, "citrus_essence_from_lemon_fermenting");
         offerFermentingRecipe(exporter, BFItems.ELDERBERRIES.get(), BFItems.ELDERBERRY_WINE_BOTTLE.get(), 1, 13803457);
         offerFermentingRecipe(exporter, Items.SPIDER_EYE, Items.FERMENTED_SPIDER_EYE, 1, 10250865);
         offerFermentingRecipe(exporter, BFItems.HOARY_APPLE.get(), BFItems.HOARY_CIDER_JAR.get(), 1, 15714738);
         offerFermentingRecipe(exporter, BFItems.LAPISBERRIES.get(), BFItems.LAPISBERRY_WINE_BOTTLE.get(), 1, 6449890);
         offerFermentingRecipe(exporter, Items.HONEY_BOTTLE, BFItems.MEAD_BOTTLE.get(), 1, 16774088);
         offerFermentingRecipe(exporter, BFItems.SPONGEKIN_SLICE.get(), BFItems.PICKLED_SPONGEKIN.get(), 2, 3916203);
-        offerFermentingRecipe(exporter, BFItems.PLUM.get(), BFItems.PLUM_CIDER_JAR.get(), 1, 14532546);
-        offerFermentingRecipe(exporter, BFItems.COCONUT_HALF.get(), BFItems.COCONUT_MILK_BOTTLE.get(), 1, 13747902);
+        offerFermentingRecipe(exporter, BFItemTags.C_PLUMS, BFItems.PLUM_CIDER_JAR.get(), 1, 14532546);
+        offerFermentingRecipe(exporter, BFItemTags.C_COCONUT_HALVES, BFItems.COCONUT_MILK_BOTTLE.get(), 1, 13747902);
         offerFermentingRecipe(exporter, Items.BEETROOT, BFItems.PICKLED_BEETROOT.get(), 2, 12135488);
         offerFermentingRecipe(exporter, Items.ROTTEN_FLESH, BFItems.FOUL_FLESH.get(), 1, 4270367);
 //        new MillingRecipeBuilder(Items.GRANITE, ModItems.FELDSPAR, 2, "granite")
@@ -1246,8 +1246,20 @@ public class BFRecipeProvider extends FabricRecipeProvider {
     }
 
     public static void offerFermentingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, int particleColor) {
-        FermentingRecipeBuilder.create(input.asItem(), output, count, particleColor)
+        FermentingRecipeBuilder.create(Ingredient.of(input.asItem()), output, count, particleColor)
                 .unlockedBy(getHasName(input), has(input))
                 .save(exporter);
+    }
+
+    public static void offerFermentingRecipe(RecipeOutput exporter, TagKey<Item> input, ItemLike output, int count, int particleColor) {
+        FermentingRecipeBuilder.create(Ingredient.of(input), output, count, particleColor)
+                .unlockedBy("has_ingredient", has(input))
+                .save(exporter);
+    }
+
+    public static void offerFermentingRecipe(RecipeOutput exporter, TagKey<Item> input, ItemLike output, int count, int particleColor, String id) {
+        FermentingRecipeBuilder.create(Ingredient.of(input), output, count, particleColor)
+                .unlockedBy("has_ingredient", has(input))
+                .save(exporter, id);
     }
 }

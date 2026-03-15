@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.registry.integration.everycompat;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.PicketsBlock;
 import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
@@ -32,7 +33,7 @@ public class BFEveryCompatModule extends SimpleModule {
     public BFEveryCompatModule(String modId) {
         super(modId, "bf", EveryCompat.MOD_ID);
 
-        ResourceLocation tab = modRes(modId);
+        ResourceLocation tab = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "bountiful_fares");
         // NOTE: vsauce, diemant here. at one point the properties were copied using
         // Utils.copyPropertySafe(w.planks)
         // but this seems to cause some issues for example trellises should have noOcclussion which

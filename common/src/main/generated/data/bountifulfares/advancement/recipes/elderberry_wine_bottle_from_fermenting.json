@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:hoary_cider_jar_from_hoary_apple_fermenting"
+        "recipe": "bountifulfares:elderberry_wine_bottle_from_fermenting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -15,7 +15,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:hoary_cider_jar_from_hoary_apple_fermenting"
+      "bountifulfares:elderberry_wine_bottle_from_fermenting"
     ]
   }
 }

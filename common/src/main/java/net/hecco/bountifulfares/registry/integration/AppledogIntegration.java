@@ -27,7 +27,7 @@ public class AppledogIntegration implements BFIntegration {
 
     @Override
     public List<String> modIds() {
-        return List.of(AEU_MOD_ID);
+        return List.of(APPLEDOG_MOD_ID);
     }
 
     public static Supplier<Block> APPLEDOG_BLOCK;
@@ -38,14 +38,14 @@ public class AppledogIntegration implements BFIntegration {
 
         //DATAGEN DUMMY ITEMS
         if (NLServices.PLATFORM.isDatagen()) {
-            NLServices.REGISTRY.registerItem(AEU_MOD_ID,  "dogapple", () -> new Item(new Item.Properties()));
+            NLServices.REGISTRY.registerItem(APPLEDOG_MOD_ID,  "dogapple", () -> new Item(new Item.Properties()));
         }
     }
 
     @SuppressWarnings("unchecked")
     private Supplier<net.minecraft.world.level.block.Block> registerBlock(String id, Supplier<Block> supplier) {
-        Supplier<Block> block = (Supplier<Block>) registerContent(ResourceLocation.fromNamespaceAndPath(AEU_MOD_ID, id), NLServices.REGISTRY.registerBlockNoItem(AEU_MOD_ID, id, supplier));
-        registerContent(ResourceLocation.fromNamespaceAndPath(AEU_MOD_ID, id), NLServices.REGISTRY.registerItem(AEU_MOD_ID, id, () -> new BlockItem(block.get(), new Item.Properties().rarity(Rarity.EPIC))));
+        Supplier<Block> block = (Supplier<Block>) registerContent(ResourceLocation.fromNamespaceAndPath(APPLEDOG_MOD_ID, id), NLServices.REGISTRY.registerBlockNoItem(APPLEDOG_MOD_ID, id, supplier));
+        registerContent(ResourceLocation.fromNamespaceAndPath(APPLEDOG_MOD_ID, id), NLServices.REGISTRY.registerItem(APPLEDOG_MOD_ID, id, () -> new BlockItem(block.get(), new Item.Properties().rarity(Rarity.EPIC))));
         return block;
     }
 
@@ -61,8 +61,8 @@ public class AppledogIntegration implements BFIntegration {
 
     @Override
     public void recipeGeneration(RecipeOutput output) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, APPLEDOG_BLOCK.get()).requires(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(AEU_MOD_ID, "dogapple")), 9).unlockedBy("has_dogapple",
-                CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(AEU_MOD_ID, "dogapple"))).build())))
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, APPLEDOG_BLOCK.get()).requires(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(APPLEDOG_MOD_ID, "dogapple")), 9).unlockedBy("has_dogapple",
+                CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(ItemPredicate.Builder.item().of(BuiltInRegistries.ITEM.get(ResourceLocation.fromNamespaceAndPath(APPLEDOG_MOD_ID, "dogapple"))).build())))
         ).save(output);
     }
 }
