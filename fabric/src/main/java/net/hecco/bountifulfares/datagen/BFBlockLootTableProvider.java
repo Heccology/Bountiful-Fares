@@ -32,9 +32,11 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.EmptyLootItem;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.LimitCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
@@ -54,6 +56,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
     public static final float[] PRISMARINE_DROP_CHANCE = new float[]{0.0F, 0.12F, 0.15F, 0.2F};
     public static final float[] FRUIT_SAPLING_DROP_CHANCE = new float[]{0.01F, 0.05F, 0.08F, 0.1F};
     public static final float[] FLOWERING_FRUIT_SAPLING_DROP_CHANCE = new float[]{0.1F, 0.12F, 0.15F, 0.2F};
+    private static final float[] HOARY_LEAVES_SAPLING_CHANCE = new float[]{0.025F, 0.027777778F, 0.03125F, 0.041666668F, 0.1F};
 
     public BFBlockLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, registryLookup);
@@ -93,14 +96,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         dropOther(BFBlocks.HOARY_APPLE_SAPLING_CROP.get(), BFItems.HOARY_SEEDS.get());
         add(BFBlocks.HOARY_SLAB.get(), createSlabItemTable(BFBlocks.HOARY_SLAB.get()));
         add(BFBlocks.HOARY_DOOR.get(), createDoorTable(BFBlocks.HOARY_DOOR.get()));
-        add(BFBlocks.HOARY_LEAVES.get(), LootTable.lootTable()
-                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .when(this.doesNotHaveCShearsOrSilkTouch())
-                        .add((this.applyExplosionDecay(BFBlocks.HOARY_LEAVES.get(), LootItem.lootTableItem(Items.STICK)
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))))))
-                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .when(this.hasCShearsOrSilkTouch())
-                        .add(LootItem.lootTableItem(BFBlocks.HOARY_LEAVES.get()))));
+        add(BFBlocks.HOARY_LEAVES.get(), createLeavesDrops(BFBlocks.HOARY_LEAVES.get(), BFBlocks.HOARY_APPLE_SAPLING.get(), HOARY_LEAVES_SAPLING_CHANCE));
         add(BFBlocks.WALNUT_SLAB.get(), createSlabItemTable(BFBlocks.WALNUT_SLAB.get()));
         add(BFBlocks.WALNUT_DOOR.get(), createDoorTable(BFBlocks.WALNUT_DOOR.get()));
         add(BFBlocks.WALNUT_LEAVES.get(), createLeavesDrops(BFBlocks.WALNUT_LEAVES.get(), BFBlocks.WALNUT_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
@@ -513,5 +509,11 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
 
     public LootTable.Builder createSilkTouchOrCShearsDispatchTable(Block block, LootPoolEntryContainer.Builder<?> builder) {
         return createSelfDropDispatchTable(block, this.hasCShearsOrSilkTouch(), builder);
+    }
+
+    @Override
+    public LootTable.Builder createLeavesDrops(Block leavesBlock, Block saplingBlock, float... chances) {
+        HolderLookup.RegistryLookup<Enchantment> registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        return this.createSilkTouchOrCShearsDispatchTable(leavesBlock, ((LootPoolSingletonContainer.Builder)this.applyExplosionCondition(leavesBlock, LootItem.lootTableItem(saplingBlock))).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), chances))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(this.doesNotHaveCShearsOrSilkTouch()).add(((LootPoolSingletonContainer.Builder)this.applyExplosionDecay(leavesBlock, LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F))))).when(BonusLevelTableCondition.bonusLevelFlatChance(registryLookup.getOrThrow(Enchantments.FORTUNE), NORMAL_LEAVES_SAPLING_CHANCES))));
     }
 }
