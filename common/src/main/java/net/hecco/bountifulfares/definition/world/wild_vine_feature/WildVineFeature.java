@@ -4,11 +4,13 @@ import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
+import net.minecraft.world.level.levelgen.structure.StructureType;
 
 import java.util.Collection;
 
@@ -37,10 +39,11 @@ public class WildVineFeature extends Feature<WildVineFeatureConfig> {
     }
 
     private void placeVine(RandomSource random, WorldGenLevel world, BlockPos pos, FeaturePlaceContext<WildVineFeatureConfig> context) {
+
         Collection<Direction> dirs = Direction.allShuffled(random);
         dirs.remove(Direction.UP);
         dirs.remove(Direction.DOWN);
-        if (world.isEmptyBlock(pos) || world.getBlockState(pos).is(Blocks.VINE)) {
+        if (world.getLevel().structureManager().getAllStructuresAt(pos).isEmpty() && (world.isEmptyBlock(pos) || world.getBlockState(pos).is(Blocks.VINE))) {
             for (Direction direction : dirs) {
                 if (world.getBlockState(pos.relative(direction.getOpposite())).is(context.config().canPlaceOn)) {
                     world.setBlock(pos, context.config().block.setValue(BlockStateProperties.HORIZONTAL_FACING, direction), 2);
