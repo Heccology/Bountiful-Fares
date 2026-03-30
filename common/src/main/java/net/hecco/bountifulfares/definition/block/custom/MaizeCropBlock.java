@@ -86,7 +86,7 @@ public class MaizeCropBlock extends CropBlock implements BonemealableBlock {
 
     public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
         if (!isLowerHalf(state)) {
-            return super.canSurvive(state, world, pos) || world.getBlockState(pos.below()).is(this);
+            return world.getBlockState(pos.below()).is(this);
         } else {
             // original 1st arg: super.canPlantOnTop(world.getBlockState(pos.down()), world, pos.down()
             // changed because it was incompatible with things like FD rich soil. - Artyrian
