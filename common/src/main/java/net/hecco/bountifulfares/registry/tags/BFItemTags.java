@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 
 public class BFItemTags {
     //Tags in the common 'c' namespace
+    public static final TagKey<Item> C_SHEARS = createCommonItemTag("tools/shear");
     public static final TagKey<Item> C_MILKS = createCommonItemTag("foods/milk");
     public static final TagKey<Item> C_WALNUTS = createCommonItemTag("foods/walnuts");
     public static final TagKey<Item> C_ORANGES = createCommonItemTag("foods/oranges");

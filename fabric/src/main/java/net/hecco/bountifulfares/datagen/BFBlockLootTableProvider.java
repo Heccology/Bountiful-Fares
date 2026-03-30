@@ -8,6 +8,8 @@ import net.hecco.bountifulfares.definition.block.custom.PalmFrondBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.integration.DelicateDyesIntegration;
+import net.hecco.bountifulfares.registry.tags.BFItemTags;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -17,6 +19,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.BeetrootBlock;
 import net.minecraft.world.level.block.Block;
@@ -28,10 +31,13 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.EmptyLootItem;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.LimitCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
@@ -78,10 +84,10 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         add(BFBlocks.PLUM_LEAVES.get(), createLeavesDrops(BFBlocks.PLUM_LEAVES.get(), BFBlocks.PLUM_SAPLING.get(), FRUIT_SAPLING_DROP_CHANCE));
         add(BFBlocks.FLOWERING_PLUM_LEAVES.get(), createLeavesDrops(BFBlocks.FLOWERING_PLUM_LEAVES.get(), BFBlocks.PLUM_SAPLING.get(), FLOWERING_FRUIT_SAPLING_DROP_CHANCE));
         add(BFBlocks.GOLDEN_APPLE_LEAVES.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                .when(this.hasShearsOrSilkTouch())
+                .when(this.hasCShearsOrSilkTouch())
                 .add(LootItem.lootTableItem(BFBlocks.GOLDEN_APPLE_LEAVES.get()))));
         add(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.get(), LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                .when(this.hasShearsOrSilkTouch())
+                .when(this.hasCShearsOrSilkTouch())
                 .add(LootItem.lootTableItem(BFBlocks.FLOWERING_GOLDEN_APPLE_LEAVES.get()))));
 
         dropOther(BFBlocks.HOARY_APPLE_SAPLING_CROP.get(), BFItems.HOARY_SEEDS.get());
@@ -89,11 +95,11 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         add(BFBlocks.HOARY_DOOR.get(), createDoorTable(BFBlocks.HOARY_DOOR.get()));
         add(BFBlocks.HOARY_LEAVES.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .when(this.doesNotHaveShearsOrSilkTouch())
+                        .when(this.doesNotHaveCShearsOrSilkTouch())
                         .add((this.applyExplosionDecay(BFBlocks.HOARY_LEAVES.get(), LootItem.lootTableItem(Items.STICK)
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .when(this.hasShearsOrSilkTouch())
+                        .when(this.hasCShearsOrSilkTouch())
                         .add(LootItem.lootTableItem(BFBlocks.HOARY_LEAVES.get()))));
         add(BFBlocks.WALNUT_SLAB.get(), createSlabItemTable(BFBlocks.WALNUT_SLAB.get()));
         add(BFBlocks.WALNUT_DOOR.get(), createDoorTable(BFBlocks.WALNUT_DOOR.get()));
@@ -110,12 +116,12 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
 //                                .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WILD_MAIZE)
 //                                        .properties(StatePredicate.Builder.create().exactMatch(WildMaizeBlock.HALF, DoubleBlockHalf.LOWER)))
-                        .when(this.doesNotHaveShearsOrSilkTouch())
+                        .when(this.doesNotHaveCShearsOrSilkTouch())
                         .add(this.applyExplosionDecay(BFBlocks.WILD_MAIZE.get(), LootItem.lootTableItem(BFItems.MAIZE_SEEDS.get()))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
 //                                .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.WILD_MAIZE)
 //                                        .properties(StatePredicate.Builder.create().exactMatch(WildMaizeBlock.HALF, DoubleBlockHalf.LOWER)))
-                        .when(this.hasShearsOrSilkTouch())
+                        .when(this.hasCShearsOrSilkTouch())
                         .add(this.applyExplosionDecay(BFBlocks.WILD_MAIZE.get(), LootItem.lootTableItem(BFBlocks.WILD_MAIZE.get())))));
         add(BFBlocks.MAIZE_CROP.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
@@ -124,7 +130,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
                         .add(this.applyExplosionDecay(BFBlocks.MAIZE_CROP.get(), LootItem.lootTableItem(BFItems.MAIZE.get())))));
         add(BFBlocks.FELDSPAR_BRICK_SLAB.get(), createSlabItemTable(BFBlocks.FELDSPAR_BRICK_SLAB.get()));
         add(BFBlocks.TINGED_GLASS.get(), createSilkTouchOnlyTable(BFBlocks.TINGED_GLASS.get()));
-        add(BFBlocks.SPONGEKIN_SPROUT.get(), block -> this.createSilkTouchOrShearsDispatchTable(
+        add(BFBlocks.SPONGEKIN_SPROUT.get(), block -> this.createSilkTouchOrCShearsDispatchTable(
                     block,
                     this.applyExplosionDecay(
                             block,
@@ -428,10 +434,10 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
     public LootTable.Builder WildCropDrops(Item seed, Block block) {
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .when(this.doesNotHaveShearsOrSilkTouch())
+                        .when(this.doesNotHaveCShearsOrSilkTouch())
                         .add(this.applyExplosionDecay(block, LootItem.lootTableItem(seed))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .when(this.hasShearsOrSilkTouch())
+                        .when(this.hasCShearsOrSilkTouch())
                         .add(this.applyExplosionDecay(block, LootItem.lootTableItem(block))));
     }
 
@@ -491,5 +497,21 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
 
     public void jackOStrawDrops(Block block) {
         this.add(block, this.createSinglePropConditionTable(block, net.hecco.bountifulfares.definition.block.custom.JackOStrawBlock.HALF, DoubleBlockHalf.LOWER));
+    }
+
+    public static LootItemCondition.Builder hasCShears() {
+        return MatchTool.toolMatches(ItemPredicate.Builder.item().of(BFItemTags.C_SHEARS));
+    }
+
+    public final LootItemCondition.Builder hasCShearsOrSilkTouch() {
+        return hasCShears().or(this.hasSilkTouch());
+    }
+
+    public final LootItemCondition.Builder doesNotHaveCShearsOrSilkTouch() {
+        return this.hasShearsOrSilkTouch().invert();
+    }
+
+    public LootTable.Builder createSilkTouchOrCShearsDispatchTable(Block block, LootPoolEntryContainer.Builder<?> builder) {
+        return createSelfDropDispatchTable(block, this.hasCShearsOrSilkTouch(), builder);
     }
 }

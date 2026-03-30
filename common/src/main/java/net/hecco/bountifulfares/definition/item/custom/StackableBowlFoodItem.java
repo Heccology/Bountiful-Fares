@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.definition.item.custom;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.network.chat.Component;
@@ -8,7 +7,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -36,13 +34,13 @@ public class StackableBowlFoodItem extends Item {
             CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.awardStat(Stats.ITEM_USED.get(this));
         }
-            if (user instanceof Player && !((Player)user).getAbilities().instabuild) {
-                ItemStack itemStack = new ItemStack(Items.BOWL);
-                Player playerEntity = (Player)user;
-                if (!playerEntity.getInventory().add(itemStack)) {
-                    playerEntity.drop(itemStack, false);
-                }
-            }
+//            if (user instanceof Player && !((Player)user).getAbilities().instabuild) {
+//                ItemStack itemStack = new ItemStack(Items.BOWL);
+//                Player playerEntity = (Player)user;
+//                if (!playerEntity.getInventory().add(itemStack)) {
+//                    playerEntity.drop(itemStack, false);
+//                }
+//            }
 
             return stack;
     }

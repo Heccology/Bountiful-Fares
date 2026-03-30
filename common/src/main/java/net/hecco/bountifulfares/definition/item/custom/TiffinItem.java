@@ -88,7 +88,14 @@ public class TiffinItem extends Item {
         if (stack.getComponents().has(BFComponents.TIFFIN_CONTENTS.get())) {
             ItemStack item = stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack();
             if (!item.isEmpty() && !(item.getItem() instanceof TiffinItem) && item.has(DataComponents.FOOD)) {
-                itemStack = item.finishUsingItem(level, livingEntity);
+                itemStack = item.copy().finishUsingItem(level, livingEntity);
+                if (livingEntity == null || !livingEntity.hasInfiniteMaterials()) {
+                    if (item.getCount() == 1) {
+                        stack.set(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents());
+                    } else {
+                        item.shrink(1);
+                    }
+                }
             }
         }
         return super.finishUsingItem(stack, level, livingEntity);

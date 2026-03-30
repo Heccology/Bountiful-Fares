@@ -414,6 +414,11 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.MYCELIUM)
         ;
 
+        getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS)
+                .add(BFItems.LEEK_SEEDS.get())
+                .add(BFItems.MAIZE_SEEDS.get())
+        ;
+
         for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
             getOrCreateTagBuilder(BFItemTags.PICKETS).add(block.get().asItem());
         }

@@ -192,7 +192,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                         BFBlocks.POTTED_LEMON_SAPLING.get(),
                         BFBlocks.POTTED_PLUM_SAPLING.get(),
                         BFBlocks.POTTED_GOLDEN_APPLE_SAPLING.get(),
-                        BFBlocks.WALNUT_SAPLING.get(),
+                        BFBlocks.POTTED_WALNUT_SAPLING.get(),
                         BFBlocks.POTTED_PALM_FROND.get(),
                         BFBlocks.POTTED_HONEYSUCKLE.get(),
                         BFBlocks.POTTED_VIOLET_BELLFLOWER.get());

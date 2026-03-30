@@ -49,7 +49,7 @@ public class BFFabricLootTableModifiers {
 
     private static final ResourceKey<LootTable> SNIFFER_DIGGING_ID = BuiltInLootTables.SNIFFER_DIGGING;
 
-    public static void modifyLootTables() {
+    public static void modifyLootTables() { //TODO: create loot table override to just completely remove apples from leaves loot tables
         // Prefetch all config settings for easier read
         boolean do_lapisberries = Services.PLATFORM.get().getBoolConfigValue("enableLapisberrySeeds");
         boolean do_hoaryseeds = Services.PLATFORM.get().getBoolConfigValue("enableHoarySeeds");

@@ -15,7 +15,7 @@ import java.util.Objects;
 
 public class TiffinContents implements TooltipComponent {
     public static final Codec<TiffinContents> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            ItemStack.CODEC.fieldOf("item").forGetter(t -> t.item)
+            ItemStack.OPTIONAL_CODEC.fieldOf("item").forGetter(t -> t.item)
     ).apply(instance, TiffinContents::new));
     public static final StreamCodec<RegistryFriendlyByteBuf, TiffinContents> STREAM_CODEC = StreamCodec.composite(ItemStack.STREAM_CODEC, contents -> contents.item, TiffinContents::new);
     public final int CAPACITY = 64;
@@ -53,13 +53,15 @@ public class TiffinContents implements TooltipComponent {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
+    public boolean equals(Object other) {
+        boolean var10000;
+        if (other instanceof TiffinContents contents) {
+            var10000 = this.getItemStack().is(contents.getItemStack().getItem());
         } else {
-            return obj instanceof TiffinContents ex
-                    && this.item == ex.item;
+            var10000 = false;
         }
+
+        return var10000;
     }
 
     public static class Mutable {
