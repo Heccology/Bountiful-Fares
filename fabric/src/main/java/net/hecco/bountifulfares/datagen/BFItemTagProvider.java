@@ -414,6 +414,13 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.MYCELIUM)
         ;
 
+        getOrCreateTagBuilder(BFItemTags.VINE_CROPS)
+                .add(BFItems.PASSION_FRUIT.get())
+                .add(BFItems.ELDERBERRIES.get())
+                .add(Items.GLOW_BERRIES)
+                .add(BFItems.LAPISBERRIES.get())
+        ;
+
         getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS)
                 .add(BFItems.LEEK_SEEDS.get())
                 .add(BFItems.MAIZE_SEEDS.get())

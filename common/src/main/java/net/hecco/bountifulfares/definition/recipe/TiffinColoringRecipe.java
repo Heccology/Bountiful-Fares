@@ -51,7 +51,6 @@ public class TiffinColoringRecipe extends CustomRecipe {
     public ItemStack assemble(CraftingInput input, HolderLookup.Provider registries) {
         ItemStack tiffinStack = ItemStack.EMPTY;
         DyeItem dyeItem = (DyeItem) Items.WHITE_DYE;
-        BountifulFares.LOGGER.info("true");
         for (int i = 0; i < input.size(); ++i) {
             ItemStack stack = input.getItem(i);
             if (stack.isEmpty()) continue;

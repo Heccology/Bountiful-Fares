@@ -58,7 +58,7 @@ public class BFItemTags {
 
     //Technical Tags
     public static final TagKey<Item> JACK_O_STRAW_LIGHTABLE = createItemTag("jack_o_straw_lightable");
-    public static final TagKey<Item> PLANTABLE_ON_TRELLIS = createItemTag("plantable_on_trellis");
+    public static final TagKey<Item> VINE_CROPS = createItemTag("vine_crops");
     public static final TagKey<Item> GRASS_SEEDS_PLANTABLE_ON = createItemTag("grass_seeds_plantable_on");
     public static final TagKey<Item> CERAMIC_DISH_BLACKLIST = createItemTag("ceramic_dish_blacklist");
     public static final TagKey<Item> FELSIC_STONES = createItemTag("felsic_stones");

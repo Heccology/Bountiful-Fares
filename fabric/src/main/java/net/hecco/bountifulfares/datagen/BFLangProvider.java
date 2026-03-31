@@ -607,7 +607,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generateTag(translationBuilder, BFItemTags.DYEABLE_CERAMIC_BLOCKS, "Dyeable Ceramic Blocks");
         generateTag(translationBuilder, BFItemTags.FELSIC_STONES, "Felsic Stones");
         generateTag(translationBuilder, BFItemTags.VINE_CROP_SEEDS, "Vine Crop Seeds");
-        generateTag(translationBuilder, BFItemTags.PLANTABLE_ON_TRELLIS, "Plantable On Trellis");
+        generateTag(translationBuilder, BFItemTags.VINE_CROPS, "Vine Crops");
         generateTag(translationBuilder, BFItemTags.COOKED_FISHES, "Cooked Fishes");
         generateTag(translationBuilder, BFItemTags.MEALS, "Meals");
         generateTag(translationBuilder, BFItemTags.GRASS_SEEDS_PLANTABLE_ON, "Can Plant Grass Seeds On");

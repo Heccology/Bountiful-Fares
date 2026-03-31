@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.definition.entity;
+package net.hecco.bountifulfares.definition.entity.flour;
 
 import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.hecco.bountifulfares.registry.content.BFItems;

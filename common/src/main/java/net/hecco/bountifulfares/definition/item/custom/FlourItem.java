@@ -1,7 +1,6 @@
 package net.hecco.bountifulfares.definition.item.custom;
 
-import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.definition.entity.FlourProjectileEntity;
+import net.hecco.bountifulfares.definition.entity.flour.FlourProjectileEntity;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.advancements.CriteriaTriggers;

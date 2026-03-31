@@ -1,6 +1,6 @@
 package net.hecco.bountifulfares.registry.util;
 
-import net.hecco.bountifulfares.definition.entity.FlourProjectileEntity;
+import net.hecco.bountifulfares.definition.entity.flour.FlourProjectileEntity;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
