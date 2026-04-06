@@ -151,8 +151,8 @@ public class CoconutBlock extends FallingBlock implements BonemealableBlock {
 
     @Override
     public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
-        if (state.getValue(AGE) == 5 && direction.getOpposite() == state.getValue(FACING) && !state.canSurvive(world, pos)) {
-            FallingBlockEntity fallingBlockEntity = FallingBlockEntity.fall((Level) world, pos, state);
+        if (state.getValue(AGE) == 5 && direction.getOpposite() == state.getValue(FACING) && !state.canSurvive(world, pos) && world instanceof Level level) {
+            FallingBlockEntity fallingBlockEntity = FallingBlockEntity.fall(level, pos, state);
             this.falling(fallingBlockEntity);
             world.removeBlock(pos, false);
             return Blocks.AIR.defaultBlockState();
