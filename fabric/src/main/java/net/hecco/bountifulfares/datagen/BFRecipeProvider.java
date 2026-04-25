@@ -264,6 +264,14 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(BFItems.CERAMIC_TILE.get()), has(BFItems.CERAMIC_TILE.get()))
                 .save(exporter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BFBlocks.CERAMIC_CHEST.get())
+                .pattern("###")
+                .pattern("# #")
+                .pattern("###")
+                .define('#', BFItems.CERAMIC_TILE.get())
+                .unlockedBy(getHasName(BFItems.CERAMIC_TILE.get()), has(BFItems.CERAMIC_TILE.get()))
+                .save(exporter);
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, BFBlocks.ARTISAN_BREAD.get())
                 .requires(BFItemTags.C_FLOUR)
                 .requires(BFItemTags.C_FLOUR)
@@ -1082,6 +1090,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_DOOR.get());
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TRAPDOOR.get());
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_LEVER.get());
+        offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_CHEST.get());
         //offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_MOSAIC_WALL);
         //offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TILE_WALL);
         //offerCeramicUndyingRecipe(exporter, BFBlocks.CHECKERED_CERAMIC_MOSAIC_WALL, BFBlocks.CERAMIC_MOSAIC_WALL);

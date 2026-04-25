@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.definition.block.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.block.entity.CeramicChestBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.DyeableCeramicBlockEntity;
@@ -130,6 +131,11 @@ if (color.isPresent()) {
                 ceramicTilesBlockEntity.setChanged();
                 return ItemInteractionResult.SUCCESS;
             }
+            if (world.getBlockEntity(pos) instanceof CeramicChestBlockEntity ceramicTilesBlockEntity) {
+                ceramicTilesBlockEntity.color = DyeableCeramicBlockEntity.DEFAULT_COLOR;
+                ceramicTilesBlockEntity.setChanged();
+                return ItemInteractionResult.SUCCESS;
+            }
         }
         if (stack.is(BFItems.ARTISAN_BRUSH.get()) && !player.isShiftKeyDown() && stack.get(DataComponents.DYED_COLOR) != null) {
             int brushColor = stack.getComponents().get(DataComponents.DYED_COLOR).rgb();
@@ -139,6 +145,11 @@ if (color.isPresent()) {
             if (world.getBlockEntity(pos) instanceof DyeableBlockEntity ceramicTilesBlockEntity) {
                 ceramicTilesBlockEntity.color = brushColor;
                 ceramicTilesBlockEntity.setChanged();
+                return ItemInteractionResult.SUCCESS;
+            }
+            if (world.getBlockEntity(pos) instanceof CeramicChestBlockEntity entity1) {
+                entity1.color = brushColor;
+                entity1.setChanged();
                 return ItemInteractionResult.SUCCESS;
             }
         }
@@ -151,6 +162,11 @@ if (color.isPresent()) {
                     world.setBlock(pos, block.withPropertiesOf(state), 2);
                     world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.DYE_USE, SoundSource.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
                     if (world.getBlockEntity(pos) instanceof DyeableBlockEntity ceramicTilesBlockEntity) {
+                        ceramicTilesBlockEntity.color = brushColor;
+                        ceramicTilesBlockEntity.setChanged();
+                        return ItemInteractionResult.SUCCESS;
+                    }
+                    if (world.getBlockEntity(pos) instanceof CeramicChestBlockEntity ceramicTilesBlockEntity) {
                         ceramicTilesBlockEntity.color = brushColor;
                         ceramicTilesBlockEntity.setChanged();
                         return ItemInteractionResult.SUCCESS;

@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.definition.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
+import net.hecco.bountifulfares.definition.block.entity.CeramicChestBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
 import net.hecco.bountifulfares.definition.networking.payload.EmptyPayload;
 import net.hecco.bountifulfares.definition.trigger.UseArtisanBrushInInventoryTrigger;
@@ -16,6 +17,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
@@ -53,13 +55,11 @@ public class ArtisanBrushItem extends Item {
                 }
             }
         }
-        if (world.getBlockEntity(pos) instanceof DyeableBlockEntity && DyeableBlockEntity.getColor(world, pos) != DyeableBlockEntity.DEFAULT_COLOR) {
-            if (world.getBlockEntity(pos) instanceof DyeableBlockEntity) {
-                if (DyedItemColor.getOrDefault(context.getItemInHand(), DEFAULT_COLOR) != DyeableBlockEntity.getColor(world, pos)) {
-                    context.getItemInHand().set(DataComponents.DYED_COLOR, new DyedItemColor(DyeableBlockEntity.getColor(world, pos), true));
-                    world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.DYE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    return InteractionResult.SUCCESS;
-                }
+        if (DyeableBlockEntity.getColor(world, pos) != DyeableBlockEntity.DEFAULT_COLOR) {
+            if (DyedItemColor.getOrDefault(context.getItemInHand(), DEFAULT_COLOR) != DyeableBlockEntity.getColor(world, pos)) {
+                context.getItemInHand().set(DataComponents.DYED_COLOR, new DyedItemColor(DyeableBlockEntity.getColor(world, pos), true));
+                world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.DYE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                return InteractionResult.SUCCESS;
             }
         }
         return super.useOn(context);
@@ -92,6 +92,21 @@ public class ArtisanBrushItem extends Item {
             }
         }
         return super.overrideStackedOnOther(stack, slot, action, player);
+    }
+
+    @Override
+    public boolean overrideOtherStackedOnMe(ItemStack stack, ItemStack other, Slot slot, ClickAction action, Player player, SlotAccess access) {
+        if (action == ClickAction.SECONDARY && slot.allowModification(player)) {
+            if (other.getItem() instanceof DyeItem dyeItem) {
+                stack.set(DataComponents.DYED_COLOR, DyedItemColor.applyDyes(stack, List.of(dyeItem)).get(DataComponents.DYED_COLOR));
+                if (!player.hasInfiniteMaterials()) {
+                    other.shrink(1);
+                }
+                player.playSound(SoundEvents.DYE_USE, 0.9F, 1.0f);
+                return true;
+            }
+        }
+        return super.overrideOtherStackedOnMe(stack, other, slot, action, player, access);
     }
 
     @Override

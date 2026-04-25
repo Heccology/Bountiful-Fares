@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.mixin.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.hecco.bountifulfares.definition.block.entity.CeramicChestBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.CoirBedBlockEntity;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
@@ -30,6 +31,10 @@ public abstract class BuiltinItemModelMixin {
         Item item = stack.getItem();
         if (item instanceof BlockItem blockItem && blockItem.getBlock() == BFBlocks.COIR_BED.get()) {
             this.blockEntityRenderDispatcher.renderItem(new CoirBedBlockEntity(BlockPos.ZERO, BFBlocks.COIR_BED.get().defaultBlockState()), matrices, vertexConsumers, light, overlay);
+            ci.cancel();
+        }
+        if (item instanceof BlockItem blockItem && blockItem.getBlock() == BFBlocks.CERAMIC_CHEST.get()) {
+            this.blockEntityRenderDispatcher.renderItem(new CeramicChestBlockEntity(BlockPos.ZERO, BFBlocks.CERAMIC_CHEST.get().defaultBlockState()), matrices, vertexConsumers, light, overlay);
             ci.cancel();
         }
     }

@@ -25,11 +25,11 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BedPart;
 
-public class CoirBedBlockEntityRenderer implements BlockEntityRenderer<CoirBedBlockEntity> {
+public class CoirBedRenderer implements BlockEntityRenderer<CoirBedBlockEntity> {
     private final ModelPart bedHead;
     private final ModelPart bedFoot;
 
-    public CoirBedBlockEntityRenderer(BlockEntityRendererProvider.Context ctx) {
+    public CoirBedRenderer(BlockEntityRendererProvider.Context ctx) {
         this.bedHead = ctx.bakeLayer(ModelLayers.BED_HEAD);
         this.bedFoot = ctx.bakeLayer(ModelLayers.BED_FOOT);
     }

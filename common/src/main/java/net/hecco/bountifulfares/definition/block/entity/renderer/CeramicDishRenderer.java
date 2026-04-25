@@ -19,8 +19,8 @@ import net.minecraft.world.level.LightLayer;
 
 import java.util.Objects;
 
-public class CeramicDishBlockEntityRenderer implements BlockEntityRenderer<CeramicDishBlockEntity> {
-    public CeramicDishBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
+public class CeramicDishRenderer implements BlockEntityRenderer<CeramicDishBlockEntity> {
+    public CeramicDishRenderer(BlockEntityRendererProvider.Context context) {
 
     }
     @Override

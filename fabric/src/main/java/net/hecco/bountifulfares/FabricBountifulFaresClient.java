@@ -13,9 +13,7 @@ import net.hecco.bountifulfares.definition.particle.FlourCloudParticle;
 import net.hecco.bountifulfares.definition.particle.GoldenPetalParticle;
 import net.hecco.bountifulfares.definition.particle.PrismarineBlossomParticle;
 import net.hecco.bountifulfares.definition.screen.GristmillScreen;
-import net.hecco.bountifulfares.registry.BFFoliageGeneration;
 import net.hecco.bountifulfares.registry.BFMessages;
-import net.hecco.bountifulfares.registry.BFTreeGeneration;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.hecco.bountifulfares.registry.content.BFMenus;
@@ -41,11 +39,15 @@ public class FabricBountifulFaresClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(BFParticles.FERMENTED_BUBBLE.get(), FermentedBubbleParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(BFParticles.FLOUR_CLOUD.get(), FlourCloudParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(BFParticles.GOLDEN_PETAL.get(), GoldenPetalParticle.Factory::new);
-        BlockEntityRenderers.register(BFBlockEntities.TRELLIS_BLOCK_ENTITY.get(), TrellisBlockEntityRenderer::new);
-        BlockEntityRenderers.register(BFBlockEntities.COIR_BED_BLOCK_ENTITY.get(), CoirBedBlockEntityRenderer::new);
-        BlockEntityRenderers.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), CeramicDishBlockEntityRenderer::new);
+        BlockEntityRenderers.register(BFBlockEntities.TRELLIS_BLOCK_ENTITY.get(), TrellisRenderer::new);
+        BlockEntityRenderers.register(BFBlockEntities.COIR_BED_BLOCK_ENTITY.get(), CoirBedRenderer::new);
+        BlockEntityRenderers.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), CeramicDishRenderer::new);
+        BlockEntityRenderers.register(BFBlockEntities.CERAMIC_CHEST_BLOCK_ENTITY.get(), CeramicChestRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(BFModelLayers.TRELLIS_DEFAULT, TrellisBlockEntityModel::createDefaultLayer);
         EntityModelLayerRegistry.registerModelLayer(BFModelLayers.TRELLIS_INVERTED, TrellisBlockEntityModel::createInvertedLayer);
+        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.CERAMIC_CHEST, CeramicChestRenderer::createSingleBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.CERAMIC_DOUBLE_CHEST_LEFT, CeramicChestRenderer::createDoubleBodyLeftLayer);
+        EntityModelLayerRegistry.registerModelLayer(BFModelLayers.CERAMIC_DOUBLE_CHEST_RIGHT, CeramicChestRenderer::createDoubleBodyRightLayer);
 
         for (Pair<BlockColor, Block> pair : BountifulFaresClient.blockColors) {
             ColorProviderRegistry.BLOCK.register(pair.getA(), pair.getB());

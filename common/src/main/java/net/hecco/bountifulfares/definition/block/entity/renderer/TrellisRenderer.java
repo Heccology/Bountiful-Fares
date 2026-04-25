@@ -6,10 +6,7 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.block.entity.TrellisBlockEntity;
 import net.hecco.bountifulfares.registry.misc.BFModelLayers;
-import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
@@ -21,12 +18,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-public class TrellisBlockEntityRenderer implements BlockEntityRenderer<TrellisBlockEntity> {
+public class TrellisRenderer implements BlockEntityRenderer<TrellisBlockEntity> {
 
     private final ModelPart defaultModel;
     private final ModelPart invertedModel;
 
-    public TrellisBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
+    public TrellisRenderer(BlockEntityRendererProvider.Context context) {
         ModelPart defaultLayer = context.bakeLayer(BFModelLayers.TRELLIS_DEFAULT);
         ModelPart invertedLayer = context.bakeLayer(BFModelLayers.TRELLIS_INVERTED);
         this.defaultModel = defaultLayer.getChild("vines");

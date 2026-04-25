@@ -124,6 +124,9 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "block_type.bountifulfares.pickets", "%s Pickets");
         generate(translationBuilder, "block_type.bountifulfares.trellis", "%s Trellis");
 
+        generate(translationBuilder, "container.bountifulfares.ceramic_chest", "Ceramic Chest");
+        generate(translationBuilder, "container.bountifulfares.large_ceramic_chest", "Large Ceramic Chest");
+
         for (DyeColor color : DyeColor.values()) {
             usedTranslationKeys.add("item.bountifulfares." + color.getName() + "_shulker_tiffin_back");
             usedTranslationKeys.add("item.bountifulfares." + color.getName() + "_shulker_tiffin_front");

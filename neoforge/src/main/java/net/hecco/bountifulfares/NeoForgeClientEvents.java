@@ -58,15 +58,19 @@ public class NeoForgeClientEvents {
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(BFEntities.THROWN_FLOUR_PROJECTILE.get(), ThrownItemRenderer::new);
-        event.registerBlockEntityRenderer(BFBlockEntities.TRELLIS_BLOCK_ENTITY.get(), TrellisBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(BFBlockEntities.COIR_BED_BLOCK_ENTITY.get(), CoirBedBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), CeramicDishBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(BFBlockEntities.TRELLIS_BLOCK_ENTITY.get(), TrellisRenderer::new);
+        event.registerBlockEntityRenderer(BFBlockEntities.COIR_BED_BLOCK_ENTITY.get(), CoirBedRenderer::new);
+        event.registerBlockEntityRenderer(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), CeramicDishRenderer::new);
+        event.registerBlockEntityRenderer(BFBlockEntities.CERAMIC_CHEST_BLOCK_ENTITY.get(), CeramicChestRenderer::new);
     }
 
     @SubscribeEvent
     public static void onRegisterLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(BFModelLayers.TRELLIS_DEFAULT, TrellisBlockEntityModel::createDefaultLayer);
         event.registerLayerDefinition(BFModelLayers.TRELLIS_INVERTED, TrellisBlockEntityModel::createInvertedLayer);
+        event.registerLayerDefinition(BFModelLayers.CERAMIC_CHEST, CeramicChestRenderer::createSingleBodyLayer);
+        event.registerLayerDefinition(BFModelLayers.CERAMIC_DOUBLE_CHEST_LEFT, CeramicChestRenderer::createDoubleBodyLeftLayer);
+        event.registerLayerDefinition(BFModelLayers.CERAMIC_DOUBLE_CHEST_RIGHT, CeramicChestRenderer::createDoubleBodyRightLayer);
     }
 
     @SubscribeEvent

@@ -18,6 +18,10 @@ public class BFBlockEntities {
             () -> NLServices.REGISTRY.createBlockEntity(CeramicDishBlockEntity::new, CERAMIC_DISH)
     );
 
+    public static final Supplier<BlockEntityType<CeramicChestBlockEntity>> CERAMIC_CHEST_BLOCK_ENTITY = NLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "ceramic_chest_block_entity",
+            () -> NLServices.REGISTRY.createBlockEntity(CeramicChestBlockEntity::new, CERAMIC_CHEST)
+    );
+
     public static final Supplier<BlockEntityType<FermentationVesselBlockEntity>> FERMENTATION_VESSEL_BLOCK_ENTITY = NLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "fermentation_vessel_block_entity",
             () -> NLServices.REGISTRY.createBlockEntity(FermentationVesselBlockEntity::new, FERMENTATION_VESSEL)
     );

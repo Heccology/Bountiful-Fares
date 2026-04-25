@@ -225,6 +225,7 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.CERAMIC_BUTTON.get());
                         entries.accept(BFBlocks.CERAMIC_LEVER.get());
                         entries.accept(BFBlocks.CERAMIC_DISH.get());
+                        entries.accept(BFBlocks.CERAMIC_CHEST.get());
                         entries.accept(BFItems.ARTISAN_BRUSH.get());
                         entries.accept(BFItems.SUN_HAT.get());
 
