@@ -61,6 +61,7 @@ public class BountifulFaresClient {
         registerCeramicBlockColor(BFBlocks.CERAMIC_DOOR.get());
         registerCeramicBlockColor(BFBlocks.CERAMIC_TRAPDOOR.get());
         registerCeramicBlockColor(BFBlocks.CERAMIC_DISH.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_CHEST.get());
         registerCeramicBlockColor(BFBlocks.SOLID_CERAMIC.get());
         itemColors.add(new Pair<>((stack, tintIndex) -> {
             if (stack.getComponents().has(DataComponents.DYED_COLOR) && tintIndex == 0) {
