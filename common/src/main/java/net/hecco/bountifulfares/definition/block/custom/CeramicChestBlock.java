@@ -75,10 +75,15 @@ public class CeramicChestBlock extends ChestBlock implements EntityBlock {
     };
 
     @Nullable
-    private Direction candidatePartnerFacing(BlockPlaceContext context, Direction direction) {
+    public Direction candidatePartnerFacing(BlockPlaceContext context, Direction direction) {
         BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().relative(direction));
         ItemStack clickedStack = context.getItemInHand();
         return blockstate.is(this) && blockstate.getValue(TYPE) == ChestType.SINGLE && context.getLevel().getBlockEntity(context.getClickedPos().relative(direction)) instanceof CeramicChestBlockEntity entity && entity.color == Objects.requireNonNullElse(clickedStack.get(DataComponents.DYED_COLOR), new DyedItemColor(DyeableBlockEntity.DEFAULT_COLOR, false)).rgb() ? blockstate.getValue(FACING) : null;
+    }
+
+    @Override
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        return DyeableCeramicBlock.onUseForChest(stack, state, world, pos, player, hand, (CeramicChestBlock) state.getBlock(), this);
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext context) {
@@ -103,7 +108,7 @@ public class CeramicChestBlock extends ChestBlock implements EntityBlock {
             }
         }
 
-        return (BlockState)((BlockState)((BlockState)this.defaultBlockState().setValue(FACING, direction)).setValue(TYPE, chesttype)).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
+        return this.defaultBlockState().setValue(FACING, direction).setValue(TYPE, chesttype).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
     }
 
     public CeramicChestBlock(Properties properties) {
@@ -140,10 +145,5 @@ public class CeramicChestBlock extends ChestBlock implements EntityBlock {
         } else {
             return new ItemStack(state.getBlock());
         }
-    }
-
-    @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        return DyeableCeramicBlock.onUse(stack, state, world, pos, player, hand, state.getBlock());
     }
 }

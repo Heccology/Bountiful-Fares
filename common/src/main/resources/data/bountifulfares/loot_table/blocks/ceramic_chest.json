@@ -11,7 +11,16 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bountifulfares:ceramic_chest"
+          "name": "bountifulfares:ceramic_chest",
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:dyed_color"
+              ],
+              "source": "block_entity"
+            }
+          ]
         }
       ],
       "rolls": 1.0

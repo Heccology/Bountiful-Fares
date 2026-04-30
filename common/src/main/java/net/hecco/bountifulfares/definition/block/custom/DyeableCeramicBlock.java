@@ -13,6 +13,7 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
@@ -30,10 +31,12 @@ import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ChestBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.*;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import static net.hecco.bountifulfares.registry.content.BFBlockEntities.CERAMIC_TILES_BLOCK_ENTITY;
@@ -289,6 +292,57 @@ if (color.isPresent()) {
             world.playSound(player, player.getX(), player.getY(), player.getZ(), playedSFX, SoundSource.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
 
             if (world.getBlockEntity(pos) instanceof DyeableCeramicBlockEntity dyeableCeramicBlockEntity) {
+                dyeableCeramicBlockEntity.color = brushColor;
+                dyeableCeramicBlockEntity.setChanged();
+            }
+            return ItemInteractionResult.SUCCESS;
+        }
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    public static ItemInteractionResult onUseForChest(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, CeramicChestBlock block, CeramicChestBlock chest) {
+        int brushColor = CeramicChestBlockEntity.DEFAULT_COLOR;
+        SoundEvent playedSFX = SoundEvents.DYE_USE;
+        boolean changes_made = false;
+
+        if (stack.is(Items.WET_SPONGE) && !player.isShiftKeyDown())
+        {
+            playedSFX = SoundEvents.SPONGE_ABSORB;
+            changes_made = true;
+        }
+        else if (stack.is(BFItems.ARTISAN_BRUSH.get()) && !player.isShiftKeyDown() && stack.get(DataComponents.DYED_COLOR) != null) {
+            brushColor = stack.getComponents().get(DataComponents.DYED_COLOR).rgb();
+            changes_made = true;
+        }
+        else if (NLServices.PLATFORM.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+            Item item = stack.getItem();
+            if (CompatUtil.isItemPaintbrush(item)) {
+                int compatGet = CompatUtil.getIntColorFromPaintbrush(item);
+                if (compatGet != 1) {
+                    brushColor = compatGet;
+                    changes_made = true;
+                }
+            }
+        }
+
+        if (changes_made) {
+            if (state.getValue(ChestBlock.TYPE) != ChestType.SINGLE) {
+                Direction connectedDirection = ChestBlock.getConnectedDirection(state);
+                BlockState blockstate = world.getBlockState(pos.relative(connectedDirection));
+                if (blockstate.is(block) && blockstate.getValue(ChestBlock.TYPE) == state.getValue(ChestBlock.TYPE).getOpposite()) {
+                    world.removeBlock(pos.relative(connectedDirection), false);
+                    world.setBlock(pos.relative(connectedDirection), chest.defaultBlockState().setValue(ChestBlock.FACING, state.getValue(ChestBlock.FACING)).setValue(ChestBlock.TYPE, state.getValue(ChestBlock.TYPE).getOpposite()), 2);
+                    if (world.getBlockEntity(pos.relative(connectedDirection)) instanceof CeramicChestBlockEntity dyeableCeramicBlockEntity) {
+                        dyeableCeramicBlockEntity.color = brushColor;
+                        dyeableCeramicBlockEntity.setChanged();
+                    }
+                }
+            }
+            world.removeBlock(pos, false);
+            world.setBlock(pos, chest.withPropertiesOf(state), 2);
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), playedSFX, SoundSource.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+
+            if (world.getBlockEntity(pos) instanceof CeramicChestBlockEntity dyeableCeramicBlockEntity) {
                 dyeableCeramicBlockEntity.color = brushColor;
                 dyeableCeramicBlockEntity.setChanged();
             }

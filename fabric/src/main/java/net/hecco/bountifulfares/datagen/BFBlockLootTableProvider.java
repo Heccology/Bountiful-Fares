@@ -348,6 +348,7 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         usedBlocks.add(BFBlocks.ARTISAN_COOKIE.get());
         usedBlocks.add(BFBlocks.CERAMIC_BUTTON.get());
         usedBlocks.add(BFBlocks.CERAMIC_DISH.get());
+        usedBlocks.add(BFBlocks.CERAMIC_CHEST.get());
         usedBlocks.add(BFBlocks.CERAMIC_DOOR.get());
         usedBlocks.add(BFBlocks.CERAMIC_LEVER.get());
         usedBlocks.add(BFBlocks.CERAMIC_MOSAIC.get());

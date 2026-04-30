@@ -55,6 +55,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.CERAMIC_TRAPDOOR.get())
                 .add(BFBlocks.CERAMIC_BUTTON.get())
                 .add(BFBlocks.CERAMIC_DISH.get())
+                .add(BFBlocks.CERAMIC_CHEST.get())
                 .add(BFBlocks.FERMENTATION_VESSEL.get())
                 .add(BFBlocks.GOLDEN_APPLE_BLOCK.get())
                 .add(BFBlocks.PACKED_COCONUT_COIR.get())
@@ -384,6 +385,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.CERAMIC_BUTTON.get())
                 .add(BFBlocks.CERAMIC_LEVER.get())
                 .add(BFBlocks.CERAMIC_DISH.get())
+                .add(BFBlocks.CERAMIC_CHEST.get())
                 .add(BFBlocks.SOLID_CERAMIC.get())
         ;
 
