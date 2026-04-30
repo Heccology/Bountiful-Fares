@@ -2,8 +2,12 @@ package net.hecco.bountifulfares.definition.block.custom;
 
 import net.hecco.bountifulfares.definition.block.entity.CeramicChestBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.CeramicDishBlockEntity;
+import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
+import net.hecco.bountifulfares.definition.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Inventory;
@@ -11,6 +15,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.DyedItemColor;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.ChestBlock;
@@ -19,10 +25,17 @@ import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.ChestType;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
 import java.util.Optional;
+
+import static net.hecco.bountifulfares.registry.content.BFBlockEntities.CERAMIC_CHEST_BLOCK_ENTITY;
+import static net.hecco.bountifulfares.registry.content.BFBlockEntities.CERAMIC_TILES_BLOCK_ENTITY;
 
 public class CeramicChestBlock extends ChestBlock implements EntityBlock {
 
@@ -61,6 +74,38 @@ public class CeramicChestBlock extends ChestBlock implements EntityBlock {
         }
     };
 
+    @Nullable
+    private Direction candidatePartnerFacing(BlockPlaceContext context, Direction direction) {
+        BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos().relative(direction));
+        ItemStack clickedStack = context.getItemInHand();
+        return blockstate.is(this) && blockstate.getValue(TYPE) == ChestType.SINGLE && context.getLevel().getBlockEntity(context.getClickedPos().relative(direction)) instanceof CeramicChestBlockEntity entity && entity.color == Objects.requireNonNullElse(clickedStack.get(DataComponents.DYED_COLOR), new DyedItemColor(DyeableBlockEntity.DEFAULT_COLOR, false)).rgb() ? blockstate.getValue(FACING) : null;
+    }
+
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        ChestType chesttype = ChestType.SINGLE;
+        Direction direction = context.getHorizontalDirection().getOpposite();
+        FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
+        boolean flag = context.isSecondaryUseActive();
+        Direction direction1 = context.getClickedFace();
+        if (direction1.getAxis().isHorizontal() && flag) {
+            Direction direction2 = this.candidatePartnerFacing(context, direction1.getOpposite());
+            if (direction2 != null && direction2.getAxis() != direction1.getAxis()) {
+                direction = direction2;
+                chesttype = direction2.getCounterClockWise() == direction1.getOpposite() ? ChestType.RIGHT : ChestType.LEFT;
+            }
+        }
+
+        if (chesttype == ChestType.SINGLE && !flag) {
+            if (direction == this.candidatePartnerFacing(context, direction.getClockWise())) {
+                chesttype = ChestType.LEFT;
+            } else if (direction == this.candidatePartnerFacing(context, direction.getCounterClockWise())) {
+                chesttype = ChestType.RIGHT;
+            }
+        }
+
+        return (BlockState)((BlockState)((BlockState)this.defaultBlockState().setValue(FACING, direction)).setValue(TYPE, chesttype)).setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
+    }
+
     public CeramicChestBlock(Properties properties) {
         super(properties, () -> BFBlockEntities.CERAMIC_CHEST_BLOCK_ENTITY.get());
     }
@@ -81,7 +126,20 @@ public class CeramicChestBlock extends ChestBlock implements EntityBlock {
 
     @Override
     public ItemStack getCloneItemStack(LevelReader world, BlockPos pos, BlockState state) {
-        return DyeableCeramicBlock.getPickStack(world, pos, state.getBlock());
+        if (DyeableCeramicBlockEntity.getColor(world, pos) != CeramicChestBlockEntity.DEFAULT_COLOR) {
+            ItemStack stack = new ItemStack(state.getBlock());
+            CeramicChestBlockEntity blockEntity = CERAMIC_CHEST_BLOCK_ENTITY.get().getBlockEntity(world,pos);
+            int color;
+            if(blockEntity != null){
+                color = blockEntity.color;
+            } else {
+                color = CeramicChestBlockEntity.DEFAULT_COLOR;
+            }
+            stack.set(DataComponents.DYED_COLOR, new DyedItemColor(color, true));
+            return stack;
+        } else {
+            return new ItemStack(state.getBlock());
+        }
     }
 
     @Override

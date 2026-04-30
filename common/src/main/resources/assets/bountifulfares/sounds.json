@@ -93,6 +93,20 @@
       "bountifulfares:ceramic_dish/interact2"
     ]
   },
+  "ceramic_chest_open": {
+    "sounds": [
+      "bountifulfares:ceramic_chest/open"
+    ],
+    "subtitle": "subtitles.block.chest.open"
+  },
+  "ceramic_chest_close": {
+    "sounds": [
+      "bountifulfares:ceramic_chest/close1",
+      "bountifulfares:ceramic_chest/close2",
+      "bountifulfares:ceramic_chest/close3"
+    ],
+    "subtitle": "subtitles.block.chest.close"
+  },
   "fermentation_vessel_fill": {
     "subtitle": "subtitles.block.fermentation_vessel.fill",
     "sounds": [

@@ -47,6 +47,8 @@ public class BFSounds {
     public static final Supplier<SoundEvent> CERAMIC_BUTTON_OFF = registerSoundEvent("ceramic_button_off");
     public static final Supplier<SoundEvent> CERAMIC_PRESSURE_PLATE_ON = registerSoundEvent("ceramic_pressure_plate_on");
     public static final Supplier<SoundEvent> CERAMIC_PRESSURE_PLATE_OFF = registerSoundEvent("ceramic_pressure_plate_off");
+    public static final Supplier<SoundEvent> CERAMIC_CHEST_OPEN = registerSoundEvent("ceramic_chest_open");
+    public static final Supplier<SoundEvent> CERAMIC_CHEST_CLOSE = registerSoundEvent("ceramic_chest_close");
 
     public static final Supplier<SoundEvent> SPONGEKIN_PLACE = registerSoundEvent("spongekin_place");
     public static final Supplier<SoundEvent> SPONGEKIN_BREAK = registerSoundEvent("spongekin_break");

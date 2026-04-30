@@ -19,6 +19,7 @@
     "gameplay.VillagerGoalPackagesMixin",
     "gameplay.VillagerMixin",
     "misc.BoatTypeMixin",
+    "misc.ChestBlockEntityMixin",
     "misc.FlintSteelDispMixin",
     "misc.OceanMonumentPiecesMixin",
     "misc.SecondaryPoiSensorMixin",
