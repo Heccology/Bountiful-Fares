@@ -15,7 +15,6 @@
     "description": {
       "translate": "advancement.bountifulfares.fill_tiffin.description"
     },
-    "frame": "challenge",
     "icon": {
       "count": 1,
       "id": "bountifulfares:purple_shulker_tiffin"

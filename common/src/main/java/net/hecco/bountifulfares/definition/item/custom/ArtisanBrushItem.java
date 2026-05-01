@@ -1,19 +1,15 @@
 package net.hecco.bountifulfares.definition.item.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.definition.block.entity.CeramicChestBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
-import net.hecco.bountifulfares.definition.networking.payload.EmptyPayload;
-import net.hecco.bountifulfares.definition.trigger.UseArtisanBrushInInventoryTrigger;
+import net.hecco.bountifulfares.definition.networking.payload.UseArtisanBrushPayload;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
@@ -28,7 +24,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
-import java.util.Optional;
 
 public class ArtisanBrushItem extends Item {
     public static int DEFAULT_COLOR = DyeableBlockEntity.DEFAULT_COLOR;
@@ -86,7 +81,7 @@ public class ArtisanBrushItem extends Item {
                 other.set(DataComponents.DYED_COLOR, stack.get(DataComponents.DYED_COLOR));
                 player.playSound(SoundEvents.DYE_USE, 0.9F, 1.0f);
                 if (other.is(BFItemTags.DYEABLE_CERAMIC_BLOCKS)) {
-                    NLServices.NETWORK.sendToServer(new EmptyPayload());
+                    NLServices.NETWORK.sendToServer(new UseArtisanBrushPayload());
                 }
                 return true;
             }

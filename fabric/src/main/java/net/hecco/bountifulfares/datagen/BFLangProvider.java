@@ -432,6 +432,9 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "advancement.bountifulfares.obtain_tiffin", "Chef's Bundle");
         generate(translationBuilder, "advancement.bountifulfares.obtain_tiffin.description", "Craft a Shulker Tiffin");
 
+        generate(translationBuilder, "advancement.bountifulfares.craft_food_in_tiffin", "No Dirty Dishes");
+        generate(translationBuilder, "advancement.bountifulfares.craft_food_in_tiffin.description", "Craft a food that normally has a container, like a Bowl, directly into a Shulker Tiffin");
+
         generate(translationBuilder, "advancement.bountifulfares.fill_tiffin", "Meal Prepping");
         generate(translationBuilder, "advancement.bountifulfares.fill_tiffin.description", "Completely fill a Shulker Tiffin with food");
 

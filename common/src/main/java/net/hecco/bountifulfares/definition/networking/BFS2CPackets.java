@@ -1,23 +1,18 @@
 package net.hecco.bountifulfares.definition.networking;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.DyeableCeramicBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.TrellisBlockEntity;
 import net.hecco.bountifulfares.definition.networking.payload.*;
-import net.hecco.bountifulfares.definition.trigger.FillTiffinTrigger;
-import net.hecco.bountifulfares.definition.trigger.UseArtisanBrushInInventoryTrigger;
-import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 
-public class BFPackets {
+public class BFS2CPackets {
     public static void ceramicDishEmpty(CeramicDishEmptyPayload payload) {
         if (NLServices.PLATFORM.isClientSide()) {
             Level world = Minecraft.getInstance().level;
@@ -102,13 +97,5 @@ public class BFPackets {
                     TrellisBlock.PLANTS.put(def.plant(), def)
             );
         }
-    }
-
-    public static void useArtisanBrushInInventory(EmptyPayload payload, ServerPlayer player) {
-        ((UseArtisanBrushInInventoryTrigger) BFCriteriaTriggers.USE_ARTISAN_BRUSH_IN_INVENTORY.get()).trigger(player);
-    }
-
-    public static void tiffinFill(TiffinFillPayload payload, ServerPlayer player) {
-        ((FillTiffinTrigger) BFCriteriaTriggers.FILL_TIFFIN.get()).trigger(player, payload.fullness());
     }
 }

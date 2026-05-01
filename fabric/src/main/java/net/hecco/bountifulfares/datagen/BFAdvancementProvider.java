@@ -452,10 +452,22 @@ public class BFAdvancementProvider extends FabricAdvancementProvider {
                         InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(BFItemTags.TIFFINS))
                 )
                 .save(consumer, BountifulFares.MOD_ID + ":obtain_tiffin");
+        AdvancementHolder craft_food_in_tiffin = Advancement.Builder.advancement()
+                .display(new DisplayInfo(new ItemStack(BFItems.TIFFINS.get(DyeColor.WHITE).get()),
+                        Component.translatable("advancement.bountifulfares.craft_food_in_tiffin"),
+                        Component.translatable("advancement.bountifulfares.craft_food_in_tiffin.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
+                        true,
+                        true,
+                        false))
+                .parent(obtain_tiffin)
+                .addCriterion("craft_food_in_tiffin",
+                        CraftFoodInTiffinTrigger.TriggerInstance.crafted()
+                )
+                .save(consumer, BountifulFares.MOD_ID + ":craft_food_in_tiffin");
         AdvancementHolder fill_tiffin = Advancement.Builder.advancement()
                 .display(new DisplayInfo(new ItemStack(BFItems.TIFFINS.get(DyeColor.PURPLE).get()),
                         Component.translatable("advancement.bountifulfares.fill_tiffin"),
-                        Component.translatable("advancement.bountifulfares.fill_tiffin.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.CHALLENGE,
+                        Component.translatable("advancement.bountifulfares.fill_tiffin.description"), Optional.of(ResourceLocation.parse("minecraft:textures/block/farmland_moist.png")), AdvancementType.TASK,
                         true,
                         true,
                         false))

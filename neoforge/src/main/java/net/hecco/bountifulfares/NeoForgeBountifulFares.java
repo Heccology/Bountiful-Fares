@@ -2,22 +2,20 @@ package net.hecco.bountifulfares;
 
 
 import net.hecco.bountifulfares.config.NeoForgeBFConfig;
-import net.hecco.bountifulfares.definition.networking.BFPackets;
+import net.hecco.bountifulfares.definition.networking.BFC2SPackets;
+import net.hecco.bountifulfares.definition.networking.BFS2CPackets;
 import net.hecco.bountifulfares.definition.networking.payload.*;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.mixin.util.BlockEntityAccessor;
 import net.hecco.bountifulfares.registry.BFBiomeModifiers;
 import net.hecco.bountifulfares.registry.BFNeoForgeLootTableModifiers;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
-import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
 import net.hecco.bountifulfares.registry.misc.BFResourcePacks;
-import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.bountifulfares.registry.util.BFNoteBlockInstruments;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
 import net.hecco.nexuslib.platform.NLServices;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
@@ -38,11 +36,9 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
-import net.neoforged.neoforge.registries.datamaps.builtin.NeoForgeDataMaps;
 import oshi.util.tuples.Pair;
 
 import java.util.*;
-import java.util.function.Supplier;
 
 @Mod(BountifulFares.MOD_ID)
 public class NeoForgeBountifulFares {
@@ -124,7 +120,7 @@ public class NeoForgeBountifulFares {
                     CeramicDishEmptyPayload.CODEC,
                     new DirectionalPayloadHandler<>(
                             (payload, ctx) -> ctx.enqueueWork(() -> {
-                                BFPackets.ceramicDishEmpty(payload);
+                                BFS2CPackets.ceramicDishEmpty(payload);
                             }),
                             (payload, ctx) -> {
                             }
@@ -135,7 +131,7 @@ public class NeoForgeBountifulFares {
                     CeramicDishItemPayload.CODEC,
                     new DirectionalPayloadHandler<>(
                             (payload, ctx) -> ctx.enqueueWork(() -> {
-                                BFPackets.ceramicDishItem(payload);
+                                BFS2CPackets.ceramicDishItem(payload);
                             }),
                             (payload, ctx) -> {
                             }
@@ -146,7 +142,7 @@ public class NeoForgeBountifulFares {
                     CeramicBlockColorPayload.CODEC,
                     new DirectionalPayloadHandler<>(
                             (payload, ctx) -> ctx.enqueueWork(() -> {
-                                BFPackets.ceramicBlockColor(payload);
+                                BFS2CPackets.ceramicBlockColor(payload);
                             }),
                             (payload, ctx) -> {
                             }
@@ -157,7 +153,7 @@ public class NeoForgeBountifulFares {
                     TrellisPlantPayload.CODEC,
                     new DirectionalPayloadHandler<>(
                             (payload, ctx) -> ctx.enqueueWork(() -> {
-                                BFPackets.trellisPlant(payload);
+                                BFS2CPackets.trellisPlant(payload);
                             }),
                             (payload, ctx) -> {
                             }
@@ -168,7 +164,7 @@ public class NeoForgeBountifulFares {
                     TrellisEmptyPayload.CODEC,
                     new DirectionalPayloadHandler<>(
                             (payload, ctx) -> ctx.enqueueWork(() -> {
-                                BFPackets.trellisEmpty(payload);
+                                BFS2CPackets.trellisEmpty(payload);
                             }),
                             (payload, ctx) -> {
                             }
@@ -179,7 +175,7 @@ public class NeoForgeBountifulFares {
                     TrellisSyncPayload.CODEC,
                     new DirectionalPayloadHandler<>(
                             (payload, ctx) -> ctx.enqueueWork(() -> {
-                                BFPackets.trellisSync(payload);
+                                BFS2CPackets.trellisSync(payload);
                             }),
                             (payload, ctx) -> {
                             }
@@ -192,18 +188,18 @@ public class NeoForgeBountifulFares {
                             (payload, ctx) -> ctx.enqueueWork(() -> {
                             }),
                             (payload, ctx) -> {
-                                BFPackets.tiffinFill(payload, (ServerPlayer) ctx.player());
+                                BFC2SPackets.tiffinFill(payload, (ServerPlayer) ctx.player());
                             }
                     )
             );
             registrar.playBidirectional(
-                    EmptyPayload.ID,
-                    EmptyPayload.CODEC,
+                    UseArtisanBrushPayload.ID,
+                    UseArtisanBrushPayload.CODEC,
                     new DirectionalPayloadHandler<>(
                             (payload, ctx) -> ctx.enqueueWork(() -> {
                             }),
                             (payload, ctx) -> {
-                                BFPackets.useArtisanBrushInInventory(payload, (ServerPlayer) ctx.player());
+                                BFC2SPackets.useArtisanBrushInInventory(payload, (ServerPlayer) ctx.player());
                             }
                     )
             );

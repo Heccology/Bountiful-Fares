@@ -86,6 +86,48 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addOptional(ResourceLocation.fromNamespaceAndPath("hauntedharvest", "corn"))
         ;
 
+        getOrCreateTagBuilder(BFItemTags.C_FRUIT)
+                .add(BFItems.ORANGE.get())
+                .add(BFItems.LEMON.get())
+                .add(BFItems.PLUM.get())
+                .add(BFItems.HOARY_APPLE.get())
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.C_VEGETABLE)
+                .add(BFItems.LEEK.get())
+                .add(BFItems.MAIZE.get())
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.C_BREAD)
+                .add(BFItems.MAIZE_BREAD.get())
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.C_CROPS)
+                .add(BFItems.PASSION_FRUIT.get())
+                .add(BFItems.ELDERBERRIES.get())
+                .add(BFItems.LAPISBERRIES.get())
+                .add(BFItems.LEEK.get())
+                .add(BFItems.MAIZE.get())
+                .add(BFItems.SPONGEKIN_SEEDS.get())
+                .add(BFItems.HOARY_SEEDS.get())
+                .add(BFItems.MAIZE_SEEDS.get())
+                .add(BFItems.LEEK_SEEDS.get())
+                .add(BFItems.SWEET_BERRY_PIPS.get())
+                .add(BFItems.TEA_BERRIES.get())
+                .add(BFItems.TEA_LEAVES.get())
+                .add(BFItems.LAPISBERRY_SEEDS.get())
+                .add(BFBlocks.SPONGEKIN.get().asItem())
+        ;
+
+        getOrCreateTagBuilder(BFItemTags.C_SEEDS)
+                .add(BFItems.SPONGEKIN_SEEDS.get())
+                .add(BFItems.HOARY_SEEDS.get())
+                .add(BFItems.MAIZE_SEEDS.get())
+                .add(BFItems.LEEK_SEEDS.get())
+                .add(BFItems.SWEET_BERRY_PIPS.get())
+                .add(BFItems.TEA_BERRIES.get())
+        ;
+
         getOrCreateTagBuilder(ItemTags.CHICKEN_FOOD)
                 .add(BFItems.GRASS_SEEDS.get())
                 .add(BFItems.SWEET_BERRY_PIPS.get())

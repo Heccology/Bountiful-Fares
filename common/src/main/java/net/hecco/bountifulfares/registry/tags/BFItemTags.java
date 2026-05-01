@@ -21,6 +21,11 @@ public class BFItemTags {
     public static final TagKey<Item> C_COCONUTS = createCommonItemTag("coconuts");
     public static final TagKey<Item> C_COCONUT_HALVES = createCommonItemTag("coconut_halves");
     public static final TagKey<Item> C_DYES = createCommonItemTag( "dyes");
+    public static final TagKey<Item> C_FRUIT = createCommonItemTag( "foods/fruit");
+    public static final TagKey<Item> C_VEGETABLE = createCommonItemTag( "foods/vegetable");
+    public static final TagKey<Item> C_CROPS = createCommonItemTag( "crops");
+    public static final TagKey<Item> C_SEEDS = createCommonItemTag( "seeds");
+    public static final TagKey<Item> C_BREAD = createCommonItemTag( "foods/bread");
 
     public static final TagKey<Item> C_HIDDEN_FROM_RECIPE_VIEWERS = createCommonItemTag("hidden_from_recipe_viewers");
 

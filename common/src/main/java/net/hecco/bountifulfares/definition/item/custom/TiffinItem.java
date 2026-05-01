@@ -1,14 +1,20 @@
 package net.hecco.bountifulfares.definition.item.custom;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.item.component.TiffinContents;
 import net.hecco.bountifulfares.definition.item.component.TiffinTooltip;
 import net.hecco.bountifulfares.definition.networking.payload.TiffinFillPayload;
 import net.hecco.bountifulfares.definition.platform.Services;
+import net.hecco.bountifulfares.definition.trigger.CraftFoodInTiffinTrigger;
+import net.hecco.bountifulfares.definition.trigger.FillTiffinTrigger;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFSounds;
+import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -196,6 +202,13 @@ public class TiffinItem extends Item {
         return false;
     }
 
+    @Override
+    public void onCraftedBy(ItemStack stack, Level level, Player player) {
+        if (player instanceof ServerPlayer serverPlayer && stack.get(BFComponents.TIFFIN_CONTENTS.get()) != null) {
+            ((CraftFoodInTiffinTrigger) BFCriteriaTriggers.CRAFT_FOOD_IN_TIFFIN.get()).trigger(serverPlayer, stack.get(BFComponents.TIFFIN_CONTENTS.get()).getItemStack());
+        }
+        super.onCraftedBy(stack, level, player);
+    }
 
     public boolean isBarVisible(ItemStack stack) {
         TiffinContents contents = stack.getOrDefault(BFComponents.TIFFIN_CONTENTS.get(), new TiffinContents());

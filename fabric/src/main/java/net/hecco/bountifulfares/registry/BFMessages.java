@@ -3,34 +3,35 @@ package net.hecco.bountifulfares.registry;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.hecco.bountifulfares.definition.networking.BFPackets;
+import net.hecco.bountifulfares.definition.networking.BFC2SPackets;
+import net.hecco.bountifulfares.definition.networking.BFS2CPackets;
 import net.hecco.bountifulfares.definition.networking.payload.*;
 
 public class BFMessages {
     public static void registerS2CPackets() {
         ClientPlayNetworking.registerGlobalReceiver(CeramicDishEmptyPayload.ID, (payload, context) ->
-                context.client().execute(() -> BFPackets.ceramicDishEmpty(payload)));
+                context.client().execute(() -> BFS2CPackets.ceramicDishEmpty(payload)));
 
         ClientPlayNetworking.registerGlobalReceiver(CeramicDishItemPayload.ID, (payload, context) ->
-                context.client().execute(() -> BFPackets.ceramicDishItem(payload)));
+                context.client().execute(() -> BFS2CPackets.ceramicDishItem(payload)));
 
         ClientPlayNetworking.registerGlobalReceiver(CeramicBlockColorPayload.ID, (payload, context) ->
-                context.client().execute(() -> BFPackets.ceramicBlockColor(payload)));
+                context.client().execute(() -> BFS2CPackets.ceramicBlockColor(payload)));
 
         ClientPlayNetworking.registerGlobalReceiver(TrellisPlantPayload.ID, (payload, context) ->
-                context.client().execute(() -> BFPackets.trellisPlant(payload)));
+                context.client().execute(() -> BFS2CPackets.trellisPlant(payload)));
 
         ClientPlayNetworking.registerGlobalReceiver(TrellisEmptyPayload.ID, (payload, context) ->
-                context.client().execute(() -> BFPackets.trellisEmpty(payload)));
+                context.client().execute(() -> BFS2CPackets.trellisEmpty(payload)));
 
         ClientPlayNetworking.registerGlobalReceiver(TrellisSyncPayload.ID, (payload, context) ->
-                context.client().execute(() -> BFPackets.trellisSync(payload)));
+                context.client().execute(() -> BFS2CPackets.trellisSync(payload)));
 
         ServerPlayNetworking.registerGlobalReceiver(TiffinFillPayload.ID, (payload, context) ->
-                context.server().execute(() -> BFPackets.tiffinFill(payload, context.player())));
+                context.server().execute(() -> BFC2SPackets.tiffinFill(payload, context.player())));
 
-        ServerPlayNetworking.registerGlobalReceiver(EmptyPayload.ID, (payload, context) ->
-                context.server().execute(() -> BFPackets.useArtisanBrushInInventory(payload, context.player())));
+        ServerPlayNetworking.registerGlobalReceiver(UseArtisanBrushPayload.ID, (payload, context) ->
+                context.server().execute(() -> BFC2SPackets.useArtisanBrushInInventory(payload, context.player())));
     }
 
     public static void registerPayloads() {
@@ -41,6 +42,6 @@ public class BFMessages {
         PayloadTypeRegistry.playS2C().register(TrellisEmptyPayload.ID, TrellisEmptyPayload.CODEC);
         PayloadTypeRegistry.playS2C().register(TrellisSyncPayload.ID, TrellisSyncPayload.CODEC);
         PayloadTypeRegistry.playC2S().register(TiffinFillPayload.ID, TiffinFillPayload.CODEC);
-        PayloadTypeRegistry.playC2S().register(EmptyPayload.ID, EmptyPayload.CODEC);
+        PayloadTypeRegistry.playC2S().register(UseArtisanBrushPayload.ID, UseArtisanBrushPayload.CODEC);
     }
 }

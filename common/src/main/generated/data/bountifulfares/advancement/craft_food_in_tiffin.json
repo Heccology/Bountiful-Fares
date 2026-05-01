@@ -1,0 +1,27 @@
+{
+  "parent": "bountifulfares:obtain_tiffin",
+  "criteria": {
+    "craft_food_in_tiffin": {
+      "trigger": "bountifulfares:craft_food_in_tiffin"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/block/farmland_moist.png",
+    "description": {
+      "translate": "advancement.bountifulfares.craft_food_in_tiffin.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "bountifulfares:white_shulker_tiffin"
+    },
+    "title": {
+      "translate": "advancement.bountifulfares.craft_food_in_tiffin"
+    }
+  },
+  "requirements": [
+    [
+      "craft_food_in_tiffin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
