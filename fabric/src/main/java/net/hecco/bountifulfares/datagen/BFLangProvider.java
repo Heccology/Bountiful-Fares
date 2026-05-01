@@ -474,7 +474,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "jei.info.chance_to_heal", "Has a chance to heal the user when consumed.");
 
 
-        generate(translationBuilder, "bountifulfares.`configuration`.title", "Bountiful Fares Configuration");
+        generate(translationBuilder, "bountifulfares.configuration.title", "Bountiful Fares Configuration");
 
 //        generate(translationBuilder, "bountifulfares.configuration.category.client", "Client");
         generate(translationBuilder, "bountifulfares.configuration.category.gameplay", "Gameplay");
@@ -515,7 +515,7 @@ public class BFLangProvider extends FabricLanguageProvider {
         generate(translationBuilder, "bountifulfares.configuration.generate_orange_trees", "Orange trees generate");
         generate(translationBuilder, "bountifulfares.configuration.generate_lemon_trees", "Lemon trees generate");
         generate(translationBuilder, "bountifulfares.configuration.generate_plum_trees", "Plum trees generate");
-        generate(translationBuilder, "bountifulfares.configuration.Method…", "Palm trees generate");
+        generate(translationBuilder, "bountifulfares.configuration.generate_palm_trees", "Palm trees generate");
         generate(translationBuilder, "bountifulfares.configuration.generate_walnut_trees", "Walnut trees generate");
         generate(translationBuilder, "bountifulfares.configuration.generate_wild_beetroot", "Wild Beetroot generates");
         generate(translationBuilder, "bountifulfares.configuration.generate_wild_carrots", "Wild Carrots generate");
