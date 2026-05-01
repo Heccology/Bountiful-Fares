@@ -2,6 +2,7 @@ package net.hecco.bountifulfares.definition.block.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -26,6 +27,7 @@ public class PalmFrondBlock extends PalmFrondParentBlock{
     }
 
     public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
-        return canSupportCenter(world, pos.below(), Direction.UP);
+        BlockState blockState = world.getBlockState(pos.below());
+        return canSupportCenter(world, pos.below(), Direction.UP) || blockState.is(BlockTags.LEAVES);
     }
 }

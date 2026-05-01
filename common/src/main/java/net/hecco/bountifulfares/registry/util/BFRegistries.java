@@ -37,6 +37,9 @@ import java.util.function.Supplier;
 import static net.minecraft.world.level.block.ComposterBlock.COMPOSTABLES;
 
 public class BFRegistries {
+    static List<String> nonFlammableTrellises = List.of("crimson_trellis", "warped_trellis", "claret_trellis", "eboncork_trellis");
+    static List<String> nonFlammablePickets = List.of("crimson_pickets", "warped_pickets", "claret_pickets", "eboncork_pickets");
+
     public static void registerMiscRegistries() {
         registerCeramicCheckeredConversions();
         registerDispenserBehaviors();
@@ -172,22 +175,19 @@ public class BFRegistries {
     }
 
     public static void registerFuels() {
-        List<String> trellis = List.of("crimson_trellis", "warped_trellis", "claret_trellis", "eboncork_trellis");
-        List<String> pickets = List.of("crimson_pickets", "warped_pickets", "claret_pickets", "eboncork_pickets");
-
         BFBlocks.TAG_FUELS.put(BFItemTags.FRUIT_LOGS, 200);
         BFBlocks.TAG_FUELS.put(BFItemTags.HOARY_LOGS, 300);
         BFBlocks.TAG_FUELS.put(BFItemTags.WALNUT_LOGS, 300);
-        BFBlocks.TAG_FUELS.put(BFItemTags.PICKETS, 200);
+        //BFBlocks.TAG_FUELS.put(BFItemTags.PICKETS, 200);
 
         for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
-            if (!trellis.contains(BuiltInRegistries.BLOCK.getKey(block.get()).getPath())) {
+            if (!nonFlammableTrellises.contains(BuiltInRegistries.BLOCK.getKey(block.get()).getPath())) {
                 BFBlocks.FUELS.put(block.get(), 300);
             }
         }
 
         for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
-            if (!pickets.contains(BuiltInRegistries.BLOCK.getKey(block.get()).getPath())) {
+            if (!nonFlammablePickets.contains(BuiltInRegistries.BLOCK.getKey(block.get()).getPath())) {
                 BFBlocks.FUELS.put(block.get(), 150);
             }
         }
@@ -419,11 +419,15 @@ public class BFRegistries {
         NLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH.get(), 60, 30);
         NLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH_BLOCK.get(), 20, 30);
         NLServices.REGISTRY.setFlammable(BFBlocks.FLOUR_BLOCK.get(), 10, 5);
-        for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
-            NLServices.REGISTRY.setFlammable(block.get(), 20, 5);
-        }
         for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
-            NLServices.REGISTRY.setFlammable(block.get(), 20, 10);
+            if (!nonFlammableTrellises.contains(BuiltInRegistries.BLOCK.getKey(block.get()).getPath())) {
+                NLServices.REGISTRY.setFlammable(block.get(), 20, 5);
+            }
+        }
+        for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
+            if (!nonFlammablePickets.contains(BuiltInRegistries.BLOCK.getKey(block.get()).getPath())) {
+                NLServices.REGISTRY.setFlammable(block.get(), 20, 10);
+            }
         }
     }
 }

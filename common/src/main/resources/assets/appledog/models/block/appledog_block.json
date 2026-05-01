@@ -3,7 +3,7 @@
 	"parent": "block/block",
 	"textures": {
 		"side": "bountifulfares:block/apple_block_side",
-		"front": "aeu:block/appledog_block_front",
+		"front": "appledog:block/appledog_block_front",
 		"top": "bountifulfares:block/apple_block_top",
 		"bottom": "bountifulfares:block/apple_block_bottom",
 		"stem": "bountifulfares:block/apple_block_stem",

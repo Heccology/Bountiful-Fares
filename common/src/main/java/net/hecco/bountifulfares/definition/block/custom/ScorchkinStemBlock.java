@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class ScorchkinStemBlock extends BushBlock {
+public class ScorchkinStemBlock extends BushBlock { //lmfao - yirfmiri 5/1/26
     public static BooleanProperty ATTACHED = BooleanProperty.create("attached");
 
     public static final VoxelShape[] SHAPES = new VoxelShape[] {Block.box(7, 13, 7, 9, 16, 9), Block.box(6, 10, 6, 10, 16, 10), Block.box(5, 5, 5, 11, 16, 11), Block.box(5, 1, 5, 11, 16, 11), Block.box(4, 0, 4, 12, 16, 12)};
