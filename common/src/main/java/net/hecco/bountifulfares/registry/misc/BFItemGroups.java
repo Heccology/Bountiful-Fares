@@ -526,7 +526,7 @@ public class BFItemGroups {
         NOTE: 64 here is a fitting power of 2 for the amount of added stuff, but if it exceeds 64 at one point,
         don't hesitate to put 128 here (just so Java doesn't have to reallocate this, which is costly)
          */
-        ArrayList<ItemLike> items = new ArrayList<>(64);
+        ArrayList<ItemLike> items = new ArrayList<>(128);
         //Appledog
             items.add(AppledogIntegration.APPLEDOG_BLOCK.get());
         //Nature's Spirit
@@ -544,6 +544,9 @@ public class BFItemGroups {
         //Farmer's Delight
             items.add(FarmersDelightIntegration.WALNUT_CABINET.get());
             items.add(FarmersDelightIntegration.HOARY_CABINET.get());
+        //Dungeon's Delight
+            populateWoodCompatItems(items, new DungeonsDelightIntegration());
+            items.add(DungeonsDelightIntegration.STAINED_SCRAP_RAILING.get());
         //Delicate Dyes
             items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("coral").get());
             items.add(DelicateDyesIntegration.JACK_O_STRAWS.get("umber").get());

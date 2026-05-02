@@ -6,6 +6,7 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.integration.AppledogIntegration;
 import net.hecco.bountifulfares.registry.integration.DelicateDyesIntegration;
+import net.hecco.bountifulfares.registry.integration.DungeonsDelightIntegration;
 import net.hecco.bountifulfares.registry.util.BFWoodTypes;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.client.color.block.BlockColor;
@@ -135,6 +136,7 @@ public class BountifulFaresClient {
     public static void onInitializeClient() {
 
         NLServices.client().setBlockRenderType(AppledogIntegration.APPLEDOG_BLOCK.get(), RenderType.cutout());
+        NLServices.client().setBlockRenderType(DungeonsDelightIntegration.STAINED_SCRAP_RAILING.get(), RenderType.cutout());
 
         NLServices.client().setBlockRenderType(BFBlocks.APPLE_LOG.get(), RenderType.cutout());
         NLServices.client().setBlockRenderType(BFBlocks.APPLE_WOOD.get(), RenderType.cutout());

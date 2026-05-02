@@ -103,7 +103,8 @@ public class BFBlockEntities {
                     TRELLISES.get("frontiers_eboncork"),
                     TRELLISES.get("frontiers_blighted_birch"),
                     TRELLISES.get("arts_and_crafts_cork"),
-                    TRELLISES.get("netherexp_claret")
+                    TRELLISES.get("netherexp_claret"),
+                    TRELLISES.get("dungeonsdelight_wormwood")
             )
     );
 

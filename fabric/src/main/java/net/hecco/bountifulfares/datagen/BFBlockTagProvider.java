@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.integration.AppledogIntegration;
+import net.hecco.bountifulfares.registry.integration.DungeonsDelightIntegration;
 import net.hecco.bountifulfares.registry.integration.FarmersDelightIntegration;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.minecraft.core.HolderLookup;
@@ -68,6 +69,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.COIR_BRICK_STAIRS.get())
                 .add(BFBlocks.COIR_BRICK_WALL.get())
                 .add(BFBlocks.IRON_RAILING.get())
+                .add(DungeonsDelightIntegration.STAINED_SCRAP_RAILING.get())
         ;
 
         getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE)
@@ -401,6 +403,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
         getOrCreateTagBuilder(BFBlockTags.PICKETS)
                 .add(BFBlocks.IRON_RAILING.get())
+                .add(DungeonsDelightIntegration.STAINED_SCRAP_RAILING.get())
         ;
         for (Supplier<Block> block : BFBlocks.PICKETS.values()) {
             getOrCreateTagBuilder(BFBlockTags.PICKETS).add(block.get());

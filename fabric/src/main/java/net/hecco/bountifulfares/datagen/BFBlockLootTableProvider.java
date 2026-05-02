@@ -8,6 +8,7 @@ import net.hecco.bountifulfares.definition.block.custom.PalmFrondBlock;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.integration.DelicateDyesIntegration;
+import net.hecco.bountifulfares.registry.integration.DungeonsDelightIntegration;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -185,6 +186,8 @@ public class BFBlockLootTableProvider extends FabricBlockLootTableProvider {
         }
         picketsDrops(BFBlocks.IRON_RAILING.get());
 
+        picketsDrops(DungeonsDelightIntegration.STAINED_SCRAP_RAILING.get());
+        //picketsDrops(BFBlocks.PICKETS.get("wormwood").get());
 
         add(BFBlocks.WALNUT_MULCH.get(), LootTable.lootTable()
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
