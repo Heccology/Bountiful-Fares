@@ -1,6 +1,7 @@
 package net.hecco.bountifulfares.definition.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
@@ -233,12 +234,12 @@ public class CoconutBlock extends FallingBlock implements BonemealableBlock {
         if (!world.getEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE)).isEmpty()) {
             world.getEntities(fallingBlockEntity, fallingBlockEntity.getBoundingBox(), EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE)).forEach((entity) ->
                     entity.hurt(damageSource, 4));
+
             world.playSound(null, pos, BFSounds.COCONUT_BONK.get(), SoundSource.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
         } else {
             world.playSound(null, pos, BFSounds.COCONUT_LAND.get(), SoundSource.BLOCKS, 1, 0.8f + world.random.nextFloat()/3);
         }
         fallingBlockEntity.discard();
-        world.removeBlock(pos, false);
     }
 
     public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {

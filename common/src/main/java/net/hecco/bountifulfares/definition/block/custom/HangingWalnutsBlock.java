@@ -81,8 +81,10 @@ public class HangingWalnutsBlock extends FallingBlock implements BonemealableBlo
             if (world.getBlockState(pos).is(BFBlocks.FALLEN_WALNUTS.get()) && world.getBlockState(pos).getValue(FallenWalnutsBlock.COUNT) != 3) {
                 world.setBlock(pos, BFBlocks.FALLEN_WALNUTS.get().defaultBlockState().setValue(FallenWalnutsBlock.COUNT, world.getBlockState(pos).getValue(FallenWalnutsBlock.COUNT) + 1), 2);
             } else if (world.getBlockState(pos).getBlock() instanceof FarmBlock || world.getBlockState(pos).is(Blocks.DIRT_PATH)) {
-                if (world.getBlockState(pos.above()).is(BFBlocks.FALLEN_WALNUTS.get()) && world.getBlockState(pos.above()).getValue(FallenWalnutsBlock.COUNT) != 3) {
-                    world.setBlock(pos.above(), BFBlocks.FALLEN_WALNUTS.get().defaultBlockState().setValue(FallenWalnutsBlock.COUNT, world.getBlockState(pos.above()).getValue(FallenWalnutsBlock.COUNT) + 1), 2);
+                if (world.getBlockState(pos.above()).is(BFBlocks.FALLEN_WALNUTS.get())) {
+                    if (world.getBlockState(pos.above()).getValue(FallenWalnutsBlock.COUNT) != 3) {
+                        world.setBlock(pos.above(), BFBlocks.FALLEN_WALNUTS.get().defaultBlockState().setValue(FallenWalnutsBlock.COUNT, world.getBlockState(pos.above()).getValue(FallenWalnutsBlock.COUNT) + 1), 2);
+                    }
                 } else {
                     world.setBlock(pos.above(), BFBlocks.FALLEN_WALNUTS.get().defaultBlockState(), 2);
                 }

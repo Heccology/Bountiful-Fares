@@ -8,7 +8,11 @@ import net.hecco.bountifulfares.registry.integration.AppledogIntegration;
 import net.hecco.bountifulfares.registry.integration.FarmersDelightIntegration;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
@@ -458,5 +462,9 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BFBlockTags.PRISMARINE_PROPAGATION_SUBSTRATE)
                 .add(Blocks.SEA_LANTERN);
+
+        getOrCreateTagBuilder(TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("insanelib", "blacklisted_better_falling_blocks")))
+                .add(BFBlocks.COCONUT.get())
+                .add(BFBlocks.HANGING_WALNUTS.get());
     }
 }
