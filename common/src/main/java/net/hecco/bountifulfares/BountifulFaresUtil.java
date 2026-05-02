@@ -20,11 +20,10 @@ public class BountifulFaresUtil {
     }
 
     public static Set<ResourceLocation> allCompatBlockIds() {
-        Set<ResourceLocation> set = BuiltInRegistries.ITEM.keySet();
+        Set<ResourceLocation> set = BuiltInRegistries.BLOCK.keySet();
         Set<ResourceLocation> a = new HashSet<>();
         for(ResourceLocation id : set) {
-            Supplier<?> i = () -> BuiltInRegistries.BLOCK.get(id);
-            if (BountifulFares.COMPAT_MANAGER.CONTENT_TO_INTEGRATION.containsKey(i.get())) {
+            if (BountifulFares.COMPAT_MANAGER.CONTENT_ID_TO_INTEGRATION.containsKey(id)) {
                 a.add(id);
             }
         }
@@ -35,8 +34,7 @@ public class BountifulFaresUtil {
         Set<ResourceLocation> set = BuiltInRegistries.ITEM.keySet();
         Set<ResourceLocation> a = new HashSet<>();
         for(ResourceLocation id : set) {
-            Supplier<?> i = () -> BuiltInRegistries.ITEM.get(id);
-            if (BountifulFares.COMPAT_MANAGER.CONTENT_TO_INTEGRATION.containsKey(i.get())) {
+            if (BountifulFares.COMPAT_MANAGER.CONTENT_ID_TO_INTEGRATION.containsKey(id)) {
                 a.add(id);
             }
         }
