@@ -27,23 +27,21 @@ public abstract class BuiltinItemModelMixin {
 
     @Shadow @Final private BlockEntityRenderDispatcher blockEntityRenderDispatcher;
 
-    @Mutable @Unique @Final private CoirBedBlockEntity bountifare$renderCoirBed;
-    @Mutable @Unique @Final private CeramicChestBlockEntity bountifare$renderChestCeramic;
-
-    @Inject(method = "<init>", at = @At("TAIL"))
-    private void bountifulfares$setFinals(BlockEntityRenderDispatcher blockEntityRenderDispatcher, EntityModelSet entityModelSet, CallbackInfo ci) {
-        bountifare$renderCoirBed = new CoirBedBlockEntity(BlockPos.ZERO, BFBlocks.COIR_BED.get().defaultBlockState());
-        bountifare$renderChestCeramic = new CeramicChestBlockEntity(BlockPos.ZERO, BFBlocks.CERAMIC_CHEST.get().defaultBlockState());
-    }
+    @Mutable @Unique private CoirBedBlockEntity bountifare$renderCoirBed;
+    @Mutable @Unique private CeramicChestBlockEntity bountifare$renderChestCeramic;
 
     @Inject(method = "renderByItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;getItem()Lnet/minecraft/world/item/Item;"), cancellable = true)
-    private void bountifulfares$renderCoirBed(ItemStack stack, ItemDisplayContext mode, PoseStack matrices, MultiBufferSource vertexConsumers, int light, int overlay, CallbackInfo ci) {
+    private void bountifulfares$renderUniques(ItemStack stack, ItemDisplayContext mode, PoseStack matrices, MultiBufferSource vertexConsumers, int light, int overlay, CallbackInfo ci) {
         Item item = stack.getItem();
         if (item instanceof BlockItem blockItem && blockItem.getBlock() == BFBlocks.COIR_BED.get()) {
+            if (bountifare$renderCoirBed == null) bountifare$renderCoirBed = new CoirBedBlockEntity(BlockPos.ZERO, BFBlocks.COIR_BED.get().defaultBlockState());
+
             this.blockEntityRenderDispatcher.renderItem(bountifare$renderCoirBed, matrices, vertexConsumers, light, overlay);
             ci.cancel();
         }
         if (item instanceof BlockItem blockItem && blockItem.getBlock() instanceof CeramicChestBlock && blockItem instanceof DyeableCeramicBlockItem dyeableItem) {
+            if (bountifare$renderChestCeramic == null) bountifare$renderChestCeramic = new CeramicChestBlockEntity(BlockPos.ZERO, BFBlocks.CERAMIC_CHEST.get().defaultBlockState());
+
             bountifare$renderChestCeramic.color = DyedItemColor.getOrDefault(stack ,dyeableItem.DEFAULT_COLOR);
             this.blockEntityRenderDispatcher.renderItem(bountifare$renderChestCeramic, matrices, vertexConsumers, light, overlay);
             ci.cancel();
