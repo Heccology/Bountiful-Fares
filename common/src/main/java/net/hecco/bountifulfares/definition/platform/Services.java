@@ -12,10 +12,11 @@ public class Services {
     public static final Supplier<IPlatformHelper> PLATFORM = Suppliers.memoize(() -> load(IPlatformHelper.class));
 
     public static <T> T load(Class<T> clazz) {
-
-        final T loadedService = ServiceLoader.load(clazz)
-                .findFirst()
-                .orElseThrow(() -> new NullPointerException("Failed to load service for " + clazz.getName()));
-        return loadedService;
+        ServiceLoader<T> loader = ServiceLoader.load(clazz);
+        for (T service : loader) {
+            System.out.println("Loaded service: " + service.getClass().getName());
+            return service;
+        }
+        throw new NullPointerException("Failed to load service for " + clazz.getName());
     }
 }

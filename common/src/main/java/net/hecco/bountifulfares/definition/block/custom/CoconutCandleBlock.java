@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.definition.block.custom;
 
+import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -165,7 +166,7 @@ public class CoconutCandleBlock extends Block implements SimpleWaterloggedBlock 
     }
 
     public static boolean canBeLit(BlockState state) {
-        return !state.getValue(LIT) && !state.getValue(WATERLOGGED);
+        return state.is(BFBlocks.COCONUT_CANDLE.get()) && !state.getValue(LIT) && !state.getValue(WATERLOGGED);
     }
 
     static void setLit(LevelAccessor world, BlockState state, BlockPos pos, boolean lit) {
