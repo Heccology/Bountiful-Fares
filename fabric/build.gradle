@@ -71,3 +71,7 @@ loom {
 }
 
 sourceSets.main.resources { srcDir project(":common").file('src/main/generated/').getAbsolutePath() }
+
+remapJar {
+    destinationDirectory = rootProject.project(':common').layout.buildDirectory.dir('libs').get().asFile
+}

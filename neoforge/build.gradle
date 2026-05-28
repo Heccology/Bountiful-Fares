@@ -56,3 +56,7 @@ dependencies {
 }
 
 sourceSets.main.resources { srcDir project(":common").file('src/main/generated/').getAbsolutePath() }
+
+jar {
+    destinationDirectory = rootProject.project(':common').layout.buildDirectory.dir('libs').get().asFile
+}
