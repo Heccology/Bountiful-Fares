@@ -25,13 +25,13 @@ dependencies {
     modImplementation files("nexuslib-fabric-1.21.1-1.1.4.jar")
 
     //APPLESKIN
-    modCompileOnly files("appleskin-fabric-mc1.21-3.0.6.jar")
+    modCompileOnly ("curse.maven:appleskin-248787:5864741")
 
     //JEI
     modCompileOnlyApi ("curse.maven:jei-238222:6075246")
 
     //EMI
-    modCompileOnlyApi ("curse.maven:emi-580555:6420931")
+    modCompileOnlyApi ("curse.maven:emi-580555:8081407")
 
     modApi "me.shedaniel.cloth:cloth-config-fabric:15.0.140"
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")

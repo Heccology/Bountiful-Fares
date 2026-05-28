@@ -20,7 +20,10 @@ import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFMenus;
 import net.hecco.bountifulfares.registry.misc.BFRecipes;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DyeColor;
@@ -29,6 +32,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -39,10 +43,17 @@ import java.util.stream.Stream;
 public class BFEmiPlugin implements EmiPlugin {
 
     Set<Item> hiddenItems = Stream.concat(
-            EmiUtil.values(TagKey.create(EmiPort.getItemRegistry().key(), EmiTags.HIDDEN_FROM_RECIPE_VIEWERS)).map(Holder::value),
+            values(TagKey.create(EmiPort.getItemRegistry().key(), EmiTags.HIDDEN_FROM_RECIPE_VIEWERS)).map(Holder::value),
             EmiPort.getDisabledItems()
     ).collect(Collectors.toSet());
-    List<Item> dyeableCeramicItems = EmiUtil.values(BFItemTags.DYEABLE_CERAMIC_BLOCKS).map(Holder::value).collect(Collectors.toList());
+    List<Item> dyeableCeramicItems = values(BFItemTags.DYEABLE_CERAMIC_BLOCKS).map(Holder::value).collect(Collectors.toList());
+
+    public static <T> Stream<Holder<T>> values(TagKey<T> key) {
+        Minecraft client = Minecraft.getInstance();
+        Registry<T> registry = client.level.registryAccess().registryOrThrow(key.registry());
+        Optional<HolderSet.Named<T>> opt = registry.getTag(key);
+        return opt.map(holders -> ((HolderSet.Named) holders).stream()).orElseGet(Stream::of);
+    }
 
     @Override
     public void register(EmiRegistry registry) {

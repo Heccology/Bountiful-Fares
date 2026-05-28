@@ -29,20 +29,20 @@ public class StackableBowlFoodItem extends Item {
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level world, LivingEntity user) {
-        super.finishUsingItem(stack, world, user);
-        if (user instanceof ServerPlayer serverPlayerEntity) {
-            CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
-            serverPlayerEntity.awardStat(Stats.ITEM_USED.get(this));
-        }
-//            if (user instanceof Player && !((Player)user).getAbilities().instabuild) {
-//                ItemStack itemStack = new ItemStack(Items.BOWL);
-//                Player playerEntity = (Player)user;
-//                if (!playerEntity.getInventory().add(itemStack)) {
-//                    playerEntity.drop(itemStack, false);
-//                }
-//            }
-
-            return stack;
+        return super.finishUsingItem(stack, world, user);
+//        if (user instanceof ServerPlayer serverPlayerEntity) {
+//            CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
+//            serverPlayerEntity.awardStat(Stats.ITEM_USED.get(this));
+//        }
+////            if (user instanceof Player && !((Player)user).getAbilities().instabuild) {
+////                ItemStack itemStack = new ItemStack(Items.BOWL);
+////                Player playerEntity = (Player)user;
+////                if (!playerEntity.getInventory().add(itemStack)) {
+////                    playerEntity.drop(itemStack, false);
+////                }
+////            }
+//
+//            return stack;
     }
 
     @Override

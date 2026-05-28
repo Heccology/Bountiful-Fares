@@ -46,13 +46,13 @@ dependencies {
     implementation files("nexuslib-neoforge-1.21.1-1.1.4.jar")
 
     //APPLESKIN
-    compileOnly files("appleskin-neoforge-mc1.21-3.0.7.jar")
+    compileOnly ("curse.maven:appleskin-248787:7854442")
 
     //JEI
     compileOnlyApi ("curse.maven:jei-238222:6829086")
 
     //EMI
-    compileOnlyApi ("curse.maven:emi-580555:6420931")
+    compileOnlyApi ("curse.maven:emi-580555:8081408")
 }
 
 sourceSets.main.resources { srcDir project(":common").file('src/main/generated/').getAbsolutePath() }
