@@ -39,7 +39,6 @@ public class CoconutCandleBlock extends Block implements SimpleWaterloggedBlock 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty LIT = AbstractCandleBlock.LIT;
     public static final IntegerProperty CANDLES = IntegerProperty.create("candles", 1, 3);
-    public static boolean canBeLit;
 
     public static final VoxelShape[] SHAPES = new VoxelShape[] {
             Block.box(5.5, 0, 5.5, 10.5, 4, 10.5),
@@ -49,7 +48,6 @@ public class CoconutCandleBlock extends Block implements SimpleWaterloggedBlock 
 
     public CoconutCandleBlock(Properties settings) {
         super(settings);
-        canBeLit = canBeLit(defaultBlockState());
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false).setValue(CANDLES, 1).setValue(WATERLOGGED, false));
     }
 

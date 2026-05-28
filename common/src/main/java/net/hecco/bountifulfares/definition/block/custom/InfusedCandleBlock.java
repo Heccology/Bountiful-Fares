@@ -46,13 +46,11 @@ import java.util.function.BiConsumer;
 public abstract class InfusedCandleBlock extends BaseEntityBlock implements EntityBlock, SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty LIT = AbstractCandleBlock.LIT;
-    public static boolean canBeLit;
     private Holder<MobEffect> effect;
 
     public InfusedCandleBlock(Holder<MobEffect> effect, Properties settings) {
         super(settings);
         this.effect = effect;
-        canBeLit = canBeLit(defaultBlockState());
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, false).setValue(WATERLOGGED, false));
     }
 
