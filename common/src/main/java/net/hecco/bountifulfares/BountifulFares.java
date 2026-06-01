@@ -48,9 +48,7 @@ public class BountifulFares {
 		BFSounds.registerSounds();
 		BFBlocks.registerBlocks();
         BFCompat.register();
-		if (!NLServices.PLATFORM.isDatagen()) {
-			BFBlockEntities.registerBlockEntities();
-		}
+		BFBlockEntities.registerBlockEntities();
 		BFComponents.registerComponents();
 		BFItems.registerItems();
 		BFRecipes.registerRecipes();
