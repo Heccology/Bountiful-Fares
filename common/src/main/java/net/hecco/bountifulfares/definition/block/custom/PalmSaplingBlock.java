@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.definition.block.custom;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.minecraft.core.BlockPos;
@@ -49,14 +50,33 @@ public class PalmSaplingBlock extends SaplingBlock {
         if (this.mayPlaceOn(world.getBlockState(pos.below()), world, pos)) {
             if (state.getValue(NATURAL)) {
                 BlockPos blockPos = pos.below();
+                boolean water = false;
                 for (int k = 0; k < 2; k++) {
-                    for (int i = 0; i < 11; i++) {
-                        for (int j = 0; j < 11; j++) {
-                            if (world.getBlockState(blockPos.offset(i - 5, -k, j - 5)).getFluidState().is(Fluids.WATER)) {
-                                return true;
+                    if (!water) {
+                        for (int i = 0; i < 11; i++) {
+                            if (!water) {
+                                for (int j = 0; j < 11; j++) {
+                                    if (world.getBlockState(blockPos.offset(i - 5, -k, j - 5)).getFluidState().is(Fluids.WATER)) {
+                                        water = true;
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }
+                }
+                if (water) {
+                    for (int x = -2; x <= 2; x++) {
+                        for (int z = -2; z <= 2; z++) {
+                            for (int y = 1; y <= 8; y++) {
+                                BlockState state1 = world.getBlockState(blockPos.offset(x, y, z));
+                                if (!(state1.is(this) || state1.is(BFBlockTags.PALM_SAPLINGS_PLANTABLE_ON) || state1.canBeReplaced())) {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                    return true;
                 }
             } else {
                 return true;
