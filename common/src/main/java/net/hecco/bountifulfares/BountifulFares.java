@@ -30,7 +30,6 @@ public class BountifulFares {
 	public static final String DELICATE_DYES_MOD_ID = "delicate_dyes";
     public static final String EVERY_COMPAT_MOD_ID = "everycomp";
 	public static final String DUNGEONSDELIGHT_MOD_ID = "dungeonsdelight";
-	public static final String URBAN_DECOR_MOD_ID = "urban_decor";
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
