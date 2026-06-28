@@ -1,10 +1,14 @@
 package net.hecco.bountifulfares.mixin.gameplay;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
@@ -21,7 +25,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Item.class)
@@ -35,18 +38,10 @@ public abstract class PumpkinPieItemMixin {
         }
     }
 
-
-    @ModifyVariable(method = "use", at = @At(
-            value = "STORE",
-            target = "Lnet/minecraft/item/ItemStack;get(Lnet/minecraft/component/ComponentType;)Ljava/lang/Object;",
-            shift = At.Shift.AFTER,
-            remap = false)
-    )
-    private FoodProperties bountifulfares$pumpkinPiePass(FoodProperties original) {
-        if (original == Foods.PUMPKIN_PIE && Services.PLATFORM.get().getBoolConfigValue("enablePlaceablePumpkinPie")) {
-            return null;
-        }
-        return original;
+    @Inject(method = "use", at = @At("HEAD"), cancellable = true)
+    public void bountifulfares$pumpkinPiePass(Level level, Player player, InteractionHand usedHand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
+        if (player.getItemInHand(usedHand).is(Items.PUMPKIN_PIE) && Services.PLATFORM.get().getBoolConfigValue("enablePlaceablePumpkinPie"))
+            cir.setReturnValue(InteractionResultHolder.pass(player.getItemInHand(usedHand)));
     }
 
     @Unique
