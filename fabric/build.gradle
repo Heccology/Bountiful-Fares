@@ -22,7 +22,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     //NEXUSLIB
-    modImplementation files("nexuslib-fabric-1.21.1-1.1.4.jar")
+    modImplementation files("nexuslib-fabric-1.21.1-1.1.5.jar")
 
     //APPLESKIN
     modCompileOnly ("curse.maven:appleskin-248787:5864741")
