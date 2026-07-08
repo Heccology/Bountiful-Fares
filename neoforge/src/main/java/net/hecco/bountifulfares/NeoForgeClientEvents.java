@@ -30,7 +30,7 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import oshi.util.tuples.Pair;
 
-@EventBusSubscriber(modid = BountifulFares.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = BountifulFares.MOD_ID, value = Dist.CLIENT)
 public class NeoForgeClientEvents {
 
     @SubscribeEvent
