@@ -54,6 +54,7 @@ public class NeoForgeBountifulFares {
         BountifulFares.init();
         BFNeoForgeLootTableModifiers.LOOT_MODIFIERS.register(eventBus);
 
+        Services.setClassLoader(modContainer.getClass().getClassLoader());
         eventBus.addListener(this::payloadHandlersSetup);
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::creativeModeTabSetup);
