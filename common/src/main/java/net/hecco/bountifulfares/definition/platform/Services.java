@@ -13,7 +13,7 @@ public class Services {
     public static final Supplier<IPlatformHelper> PLATFORM = Suppliers.memoize(() -> load(IPlatformHelper.class));
     private static ClassLoader classLoader;
 
-    public static setClassLoader(final ClassLoader classLoader) {
+    public static void setClassLoader(final ClassLoader classLoader) {
         Services.classLoader = classLoader;
     }
 
