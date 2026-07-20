@@ -25,3 +25,5 @@ runs
 
 # added manually
 /common/src/main/generated/.cache/
+/libs
+/.vscode
