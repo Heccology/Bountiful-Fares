@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares;
 
+import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.registry.content.*;
 import net.hecco.bountifulfares.registry.integration.BFCompat;
 import net.hecco.bountifulfares.registry.misc.*;
@@ -43,7 +44,8 @@ public class BountifulFares {
 		return ResourceLocation.fromNamespaceAndPath(modid, path);
 	}
 
-	public static void init() {
+	public static void init(final Class<?> clazz) {
+		Services.init(clazz.getClassLoader());
 		BFSounds.registerSounds();
 		BFBlocks.registerBlocks();
         BFCompat.register();

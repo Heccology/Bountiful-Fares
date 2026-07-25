@@ -13,11 +13,11 @@ public class Services {
     public static final Supplier<IPlatformHelper> PLATFORM = Suppliers.memoize(() -> load(IPlatformHelper.class));
     private static ClassLoader classLoader;
 
-    public static void setClassLoader(final ClassLoader classLoader) {
+    public static void init(final ClassLoader classLoader) {
         Services.classLoader = classLoader;
     }
 
-    public static <T> T load(Class<T> clazz) {
+    public static <T> T load(final Class<T> clazz) {
         ServiceLoader<T> loader = ServiceLoader.load(clazz, classLoader);
         for (T service : loader) {
             System.out.println("Loaded service: " + service.getClass().getName());
