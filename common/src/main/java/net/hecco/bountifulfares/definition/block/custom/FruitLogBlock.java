@@ -129,31 +129,13 @@ public class FruitLogBlock extends RotatedPillarBlock implements SimpleWaterlogg
     }
 
     @Override
-    public BlockState updateShape(BlockState state, Direction unusedDir, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
+    public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
         if (state.getValue(WATERLOGGED)) {
             world.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
         }
-        world.setBlock(pos, updateState(world, pos, state).setValue(LEAFY, shouldBeLeafy(world, pos)), 2);
-        return super.updateShape(state, unusedDir, neighborState, world, pos, neighborPos);
-    }
-
-    private BlockState updateState(LevelAccessor world, BlockPos pos, BlockState state) {
-        Map<Direction, Boolean> directionMap = new HashMap<>();
-        for (Direction direction : UPDATE_SHAPE_ORDER) {
-            BlockState blockState = world.getBlockState(pos.relative(direction));
-            if (blockState.is(this)) {
-                directionMap.put(direction, true);
-            } else {
-                directionMap.put(direction, false);
-            }
-        }
-        return state
-                        .setValue(NORTH, directionMap.get(Direction.NORTH))
-                        .setValue(EAST, directionMap.get(Direction.EAST))
-                        .setValue(SOUTH, directionMap.get(Direction.SOUTH))
-                        .setValue(WEST, directionMap.get(Direction.WEST))
-                        .setValue(UP, directionMap.get(Direction.UP))
-                        .setValue(DOWN, directionMap.get(Direction.DOWN));
+        boolean connected = neighborState.is(this);
+        BooleanProperty prop = DIRECTION_TO_PROPERTY.get(direction);
+        return prop != null ? state.setValue(prop, connected) : state;
     }
 
 
@@ -163,12 +145,12 @@ public class FruitLogBlock extends RotatedPillarBlock implements SimpleWaterlogg
         int count = 0;
         for (Direction direction : UPDATE_SHAPE_ORDER) {
             BlockState neighborState = world.getBlockState(pos.relative(direction));
-            if (neighborState.is(BlockTags.LEAVES) || (neighborState.getBlock() instanceof FruitLogBlock && neighborState.getValue(LEAFY))) {
+            if (neighborState.is(BlockTags.LEAVES)) {
                 count++;
             }
         }
 
-        return count > 2;
+        return count >= 2;
     }
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
