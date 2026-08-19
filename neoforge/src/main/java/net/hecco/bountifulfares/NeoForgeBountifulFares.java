@@ -51,7 +51,7 @@ public class NeoForgeBountifulFares {
     public NeoForgeBountifulFares(IEventBus eventBus, ModContainer container) {
         container.registerConfig(ModConfig.Type.COMMON, NeoForgeBFConfig.COMMON_SPEC);
         container.registerConfig(ModConfig.Type.CLIENT, NeoForgeBFConfig.CLIENT_SPEC);
-        BountifulFares.init();
+        BountifulFares.init(this.getClass());
         BFNeoForgeLootTableModifiers.LOOT_MODIFIERS.register(eventBus);
 
         eventBus.addListener(this::payloadHandlersSetup);

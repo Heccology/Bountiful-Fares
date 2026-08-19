@@ -64,7 +64,7 @@ public class FabricBountifulFares implements ModInitializer {
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisPlantResourceLoader());
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricTrellisCropResourceLoader());
         ResourceManagerHelper.get(PackType.SERVER_DATA).registerReloadListener(new FabricGrassSeedsInteractionResourceLoader());
-        BountifulFares.init();
+        BountifulFares.init(this.getClass());
         BFFoliageGeneration.generateFlowers();
         BFTreeGeneration.generateTrees();
         BFRegistries.registerFlammables();
