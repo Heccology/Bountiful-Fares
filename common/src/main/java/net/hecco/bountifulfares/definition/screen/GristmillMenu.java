@@ -69,10 +69,14 @@ public class GristmillMenu extends AbstractContainerMenu {
         }
         return newStack;
     }
+
+
     @Override
     public boolean stillValid(Player player) {
         return this.inventory.stillValid(player);
     }
+
+
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
