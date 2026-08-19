@@ -99,7 +99,7 @@ public class BFItems {
     public static final Supplier<Item> SOUR_CANDY = registerItem("sour_candy", () -> new EffectFoodItem(List.of(new MobEffectInstance(BFEffects.ACIDIC, 200)), new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3F).effect(new MobEffectInstance(BFEffects.ACIDIC, 200), 0.2f).fast().build())));
     public static final Supplier<Item> PIQUANT_CANDY = registerItem("piquant_candy", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3F).fast().build())));
     public static final Supplier<Item> BITTER_CANDY = registerItem("bitter_candy", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3F).effect(new MobEffectInstance(MobEffects.HEAL, 1, 0, true, false), 0.75f).fast().build())));
-    public static final Supplier<Item> STRANGE_CANDY = registerItem("strange_candy", () -> new EffectFoodItem(List.of(new MobEffectInstance(MobEffects.NIGHT_VISION, 20, 0)), new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3F).effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20, 0, true, false), 1f).fast().build())));
+    public static final Supplier<Item> STRANGE_CANDY = registerItem("strange_candy", () -> new EffectFoodItem(List.of(new MobEffectInstance(MobEffects.NIGHT_VISION, 80, 0)), new Item.Properties().food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3F).effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20, 0, true, false), 1f).fast().build())));
 
 
 
