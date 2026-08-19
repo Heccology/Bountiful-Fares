@@ -82,6 +82,12 @@ public class CeramicChestBlock extends ChestBlock implements EntityBlock {
     }
 
     @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        Containers.dropContentsOnDestroy(state, newState, level, pos);
+        super.onRemove(state, level, pos, newState, isMoving);
+    }
+
+    @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         return DyeableCeramicBlock.onUseForChest(stack, state, world, pos, player, hand, (CeramicChestBlock) state.getBlock(), this);
     }

@@ -330,16 +330,12 @@ if (color.isPresent()) {
                 Direction connectedDirection = ChestBlock.getConnectedDirection(state);
                 BlockState blockstate = world.getBlockState(pos.relative(connectedDirection));
                 if (blockstate.is(block) && blockstate.getValue(ChestBlock.TYPE) == state.getValue(ChestBlock.TYPE).getOpposite()) {
-                    world.removeBlock(pos.relative(connectedDirection), false);
-                    world.setBlock(pos.relative(connectedDirection), chest.defaultBlockState().setValue(ChestBlock.FACING, state.getValue(ChestBlock.FACING)).setValue(ChestBlock.TYPE, state.getValue(ChestBlock.TYPE).getOpposite()), 2);
                     if (world.getBlockEntity(pos.relative(connectedDirection)) instanceof CeramicChestBlockEntity dyeableCeramicBlockEntity) {
                         dyeableCeramicBlockEntity.color = brushColor;
                         dyeableCeramicBlockEntity.setChanged();
                     }
                 }
             }
-            world.removeBlock(pos, false);
-            world.setBlock(pos, chest.withPropertiesOf(state), 2);
             world.playSound(player, player.getX(), player.getY(), player.getZ(), playedSFX, SoundSource.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
 
             if (world.getBlockEntity(pos) instanceof CeramicChestBlockEntity dyeableCeramicBlockEntity) {

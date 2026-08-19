@@ -33,7 +33,7 @@ public class GrassyDirtBlock extends Block implements BonemealableBlock {
         world.setBlockAndUpdate(pos, Blocks.GRASS_BLOCK.defaultBlockState());
     }
 
-    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+    public boolean canStayAsGrass(BlockState state, LevelReader world, BlockPos pos) {
         BlockPos blockPos = pos.above();
         BlockState blockState = world.getBlockState(blockPos);
         if (blockState.is(Blocks.SNOW) && blockState.getValue(SnowLayerBlock.LAYERS) == 1) {
@@ -48,7 +48,7 @@ public class GrassyDirtBlock extends Block implements BonemealableBlock {
 
     @Override
     public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
-        if (!canSurvive(state, world, pos)) {
+        if (!canStayAsGrass(state, world, pos)) {
                 world.setBlockAndUpdate(pos, Blocks.DIRT.defaultBlockState());
         }
     }
