@@ -1,19 +1,16 @@
 package net.hecco.bountifulfares.definition.item.custom;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.item.component.TiffinContents;
 import net.hecco.bountifulfares.definition.item.component.TiffinTooltip;
 import net.hecco.bountifulfares.definition.networking.payload.TiffinFillPayload;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.definition.trigger.CraftFoodInTiffinTrigger;
-import net.hecco.bountifulfares.definition.trigger.FillTiffinTrigger;
 import net.hecco.bountifulfares.registry.content.BFComponents;
 import net.hecco.bountifulfares.registry.content.BFSounds;
 import net.hecco.bountifulfares.registry.misc.BFCriteriaTriggers;
 import net.hecco.bountifulfares.registry.tags.BFItemTags;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -163,7 +160,9 @@ public class TiffinItem extends Item {
                     int i = mutable.tryFill(other, slot, player);
                     if (i > 0) {
                         player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (Fraction.getFraction(contents.getCount(), contents.CAPACITY).floatValue() / 2) + 0.8f);
-                        NLServices.NETWORK.sendToServer(new TiffinFillPayload((double) mutable.getCount() / mutable.getCapacity()));
+                        if (player.level().isClientSide()) {
+                            NLServices.NETWORK.sendToServer(new TiffinFillPayload((double) mutable.getCount() / mutable.getCapacity()));
+                        }
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
@@ -192,7 +191,9 @@ public class TiffinItem extends Item {
                     int i = mutable.tryFill(other, access, player);
                     if (i > 0) {
                         player.playSound(BFSounds.TIFFIN_INSERT.get(), 0.9F, (Fraction.getFraction(contents.getCount(), contents.CAPACITY).floatValue() / 2) + 0.8f);
-                        NLServices.NETWORK.sendToServer(new TiffinFillPayload((double) mutable.getCount() / mutable.getCapacity()));
+                        if (player.level().isClientSide()) {
+                            NLServices.NETWORK.sendToServer(new TiffinFillPayload((double) mutable.getCount() / mutable.getCapacity()));
+                        }
                     }
                     stack.set(BFComponents.TIFFIN_CONTENTS.get(), mutable.toImmutable());
                     return true;
