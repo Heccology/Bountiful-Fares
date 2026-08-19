@@ -80,7 +80,7 @@ public class CabinetBlockEntity extends RandomizableContainerBlockEntity
 
     @Override
     protected Component getDefaultName() {
-        return net.minecraft.network.chat.Component.translatable("farmersdelight.container.cabinet");
+        return net.minecraft.network.chat.Component.translatable("container.farmersdelight.cabinet");
     }
 
     @Override

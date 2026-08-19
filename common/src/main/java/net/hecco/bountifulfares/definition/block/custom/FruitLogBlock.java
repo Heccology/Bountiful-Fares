@@ -133,7 +133,9 @@ public class FruitLogBlock extends RotatedPillarBlock implements SimpleWaterlogg
         if (state.getValue(WATERLOGGED)) {
             world.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
         }
-        world.setBlock(pos, updateState(world, pos, state).setValue(LEAFY, shouldBeLeafy(world, pos)), 2);
+        if (shouldBeLeafy(world, pos)) {
+            world.setBlock(pos, updateState(world, pos, state).setValue(LEAFY, true), 2);
+        }
         return super.updateShape(state, unusedDir, neighborState, world, pos, neighborPos);
     }
 
