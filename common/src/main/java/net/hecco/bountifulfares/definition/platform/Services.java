@@ -18,7 +18,8 @@ public class Services {
     }
 
     public static <T> T load(final Class<T> clazz) {
-        ServiceLoader<T> loader = ServiceLoader.load(clazz, classLoader);
+        final ClassLoader cl = classLoader != null ? classLoader : clazz.getClassLoader();
+        ServiceLoader<T> loader = ServiceLoader.load(clazz, cl);
         for (T service : loader) {
             System.out.println("Loaded service: " + service.getClass().getName());
             return service;
