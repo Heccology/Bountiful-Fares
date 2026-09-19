@@ -1,0 +1,11 @@
+{
+  "emitters": [
+    "bountifulfares:feldspar_lantern"
+  ],
+  "light_properties": {
+    "encoding": "hex",
+    "hex": "#f7a372",
+    "radius": 4.0,
+    "intensity": 0.7
+  }
+}

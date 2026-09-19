@@ -15,13 +15,13 @@ import net.hecco.bountifulfares.registry.misc.BFItemGroupAdditions;
 import net.hecco.bountifulfares.registry.misc.BFResourcePacks;
 import net.hecco.bountifulfares.registry.util.BFNoteBlockInstruments;
 import net.hecco.bountifulfares.registry.util.BFRegistries;
+import net.hecco.nexuslib.lib.util.ItemGroupAddition;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -36,7 +36,6 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
-import oshi.util.tuples.Pair;
 
 import java.util.*;
 
@@ -56,7 +55,6 @@ public class NeoForgeBountifulFares {
 
         eventBus.addListener(this::payloadHandlersSetup);
         eventBus.addListener(this::clientSetup);
-        eventBus.addListener(this::creativeModeTabSetup);
         eventBus.addListener(this::commonSetup);
         BFBiomeModifiers.BIOME_MODIFIERS.register(eventBus);
         modContainer = container;
@@ -72,6 +70,10 @@ public class NeoForgeBountifulFares {
         BFNoteBlockInstruments.OCARINA.soundEvent = BFSounds.NOTE_BLOCK_OCARINA;
         BFNoteBlockInstruments.OLD_PIANO.soundEvent = BFSounds.NOTE_BLOCK_OLD_PIANO;
         BFNoteBlockInstruments.STEEL_DRUM.soundEvent = BFSounds.NOTE_BLOCK_STEEL_DRUM;
+
+        if (Services.PLATFORM.get().getBoolConfigValue("addItemsToVanillaTabs")) {
+            BFItemGroupAdditions.registerItemGroupAdditions();
+        }
 
         if (!Services.PLATFORM.get().getBoolConfigValue("showCompatItemsInRecipeViewers")) {
             NLServices.REGISTRY.registerBuiltInDatapack(BountifulFares.MOD_ID, "hide_compat_items", "Bountiful Fares - Hide Compatibility Items", true, true);
@@ -204,63 +206,5 @@ public class NeoForgeBountifulFares {
                     )
             );
         }
-    }
-
-    @SubscribeEvent
-    public void creativeModeTabSetup(BuildCreativeModeTabContentsEvent event) {
-        if (Services.PLATFORM.get().getBoolConfigValue("addItemsToVanillaTabs")) {
-            BFItemGroupAdditions.registerItemGroupAdditions();
-
-            if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.BUILDING_BLOCKS) {
-                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                }
-            } else if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
-                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.NATURAL_BLOCKS) {
-                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                }
-            } else if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.FUNCTIONAL_BLOCKS) {
-                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                }
-            } else if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
-                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.REDSTONE_BLOCKS) {
-                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                }
-            } else if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.TOOLS_AND_UTILITIES) {
-                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                }
-                for (Pair<ItemStack, ItemStack> entry : BFItemGroupAdditions.TOOLS_AND_UTILITIES_FORGE) {
-                    try {
-                        event.insertAfter(entry.getA(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                    } catch (Exception ignored) {
-                    }
-                }
-            } else if (event.getTabKey() == CreativeModeTabs.COMBAT) {
-                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.COMBAT) {
-                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                }
-            } else if (event.getTabKey() == CreativeModeTabs.COLORED_BLOCKS) {
-                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.COLORED_BLOCKS) {
-                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                }
-            } else if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.INGREDIENTS) {
-                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                }
-            } else if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-                for (Pair<ItemLike, ItemStack> entry : BFItemGroupAdditions.FOOD_AND_DRINKS) {
-                    event.insertAfter(entry.getA().asItem().getDefaultInstance(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                }
-                for (Pair<ItemStack, ItemStack> entry : BFItemGroupAdditions.FOOD_AND_DRINKS_FORGE) {
-                    try {
-                        event.insertAfter(entry.getA(), entry.getB(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                    } catch (Exception ignored) {
-                    }
-                }
-            }
-        }
-
     }
 }

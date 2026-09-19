@@ -1,0 +1,11 @@
+{
+  "emitters": [
+    "bountifulfares:black_tea_candle[lit=true]"
+  ],
+  "light_properties": {
+    "encoding": "hex",
+    "hex": "#ffc400",
+    "radius": 3.5,
+    "intensity": 0.2
+  }
+}

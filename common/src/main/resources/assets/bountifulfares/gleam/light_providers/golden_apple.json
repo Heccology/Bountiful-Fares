@@ -1,0 +1,13 @@
+{
+  "emitters": [
+    "bountifulfares:golden_apple_sapling",
+	"bountifulfares:potted_golden_apple_sapling",
+    "bountifulfares:hanging_golden_apple"
+  ],
+  "light_properties": {
+    "encoding": "hex",
+    "hex": "ffc619",
+    "radius": 3.0,
+    "intensity": 0.6
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "emitters": [
+    "bountifulfares:chamomile_candle[lit=true]"
+  ],
+  "light_properties": {
+    "encoding": "hex",
+    "hex": "#ffb514",
+    "radius": 3.5,
+    "intensity": 0.2
+  }
+}

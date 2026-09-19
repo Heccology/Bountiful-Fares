@@ -1,0 +1,11 @@
+{
+  "emitters": [
+    "bountifulfares:honeysuckle_candle[lit=true]"
+  ],
+  "light_properties": {
+    "encoding": "hex",
+    "hex": "#ffa32e",
+    "radius": 3.5,
+    "intensity": 0.2
+  }
+}
