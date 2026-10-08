@@ -127,10 +127,17 @@ public class MillingRecipe implements Recipe<SingleRecipeInput> {
             Ingredient ingredient = Ingredient.CONTENTS_STREAM_CODEC.decode(buf);
             ItemStack itemStack = ItemStack.STREAM_CODEC.decode(buf);
             int count = ByteBufCodecs.INT.decode(buf);
-            ItemStack itemStackEx = ItemStack.STREAM_CODEC.decode(buf);
-            int countEx = ByteBufCodecs.INT.decode(buf);
-            GristmillBookCategory cat = GristmillBookCategory.STREAM_CODEC.decode(buf);
 
+            boolean isEmpty = ByteBufCodecs.BOOL.decode(buf);
+
+            ItemStack itemStackEx = ItemStack.EMPTY;
+            int countEx = 0;
+            if (!isEmpty) {
+                itemStackEx = ItemStack.STREAM_CODEC.decode(buf);
+                countEx = ByteBufCodecs.INT.decode(buf);
+            }
+
+            GristmillBookCategory cat = GristmillBookCategory.STREAM_CODEC.decode(buf);
             return this.recipeFactory.create(ingredient, itemStack, count, itemStackEx, countEx, cat);
         }
 
@@ -138,8 +145,14 @@ public class MillingRecipe implements Recipe<SingleRecipeInput> {
             Ingredient.CONTENTS_STREAM_CODEC.encode(buf, recipe.ingredient);
             ItemStack.STREAM_CODEC.encode(buf, recipe.output);
             ByteBufCodecs.INT.encode(buf, recipe.output.getCount());
-            ItemStack.STREAM_CODEC.encode(buf, recipe.extra);
-            ByteBufCodecs.INT.encode(buf, recipe.extra.getCount());
+
+            boolean isEmpty = recipe.extra.isEmpty();
+            ByteBufCodecs.BOOL.encode(buf, isEmpty);
+            if (!isEmpty) {
+                ItemStack.STREAM_CODEC.encode(buf, recipe.extra);
+                ByteBufCodecs.INT.encode(buf, recipe.extra.getCount());
+            }
+
             GristmillBookCategory.STREAM_CODEC.encode(buf, recipe.category);
         }
 

@@ -6,11 +6,22 @@
         "recipe": "bountifulfares:feldspar_from_milling_tuff"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tuff": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:tuff"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_tuff"
     ]
   ],
   "rewards": {

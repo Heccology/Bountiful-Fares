@@ -91,6 +91,11 @@ public class FermentationRecipe implements Recipe<RecipeInput> {
         return new ItemStack(BFBlocks.FERMENTATION_VESSEL.get());
     }
 
+    @Override
+    public boolean showNotification() {
+        return false;
+    }
+
     public interface RecipeFactory<T extends FermentationRecipe> {
         T create(Ingredient ingredient, ItemStack result, int resultCount, int ParticleColor);
     }

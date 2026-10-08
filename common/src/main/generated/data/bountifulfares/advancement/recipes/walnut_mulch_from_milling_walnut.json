@@ -6,11 +6,22 @@
         "recipe": "bountifulfares:walnut_mulch_from_milling_walnut"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_walnut": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:walnut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_walnut"
     ]
   ],
   "rewards": {

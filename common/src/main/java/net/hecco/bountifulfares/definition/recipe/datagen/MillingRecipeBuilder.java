@@ -68,6 +68,7 @@ public class MillingRecipeBuilder implements RecipeBuilder {
     public void save(RecipeOutput exporter, ResourceLocation recipeId) {
         Advancement.Builder builder = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId)).rewards(AdvancementRewards.Builder.recipe(recipeId)).requirements(AdvancementRequirements.Strategy.OR);
         Objects.requireNonNull(builder);
+        this.criteria.forEach(builder::addCriterion);
         MillingRecipe millingRecipe = this.recipeFactory.create(this.ingredient, new ItemStack(this.result), this.count, (this.extra.equals(Items.AIR)) ? ItemStack.EMPTY : new ItemStack(this.extra), this.extraCount, this.category);
         exporter.accept(recipeId, millingRecipe, builder.build(recipeId.withPrefix("recipes/")));
     }
