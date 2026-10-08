@@ -4,7 +4,7 @@ import net.hecco.bountifulfares.definition.block.custom.PicketsBlock;
 import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.definition.item.custom.TrellisBlockItem;
 import net.hecco.bountifulfares.definition.item.integration.MapleMeadBottleItem;
-import net.hecco.bountifulfares.definition.recipe.FermentingRecipeBuilder;
+import net.hecco.bountifulfares.definition.recipe.datagen.FermentingRecipeBuilder;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.content.BFSoundTypes;

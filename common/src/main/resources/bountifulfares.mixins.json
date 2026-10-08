@@ -28,6 +28,8 @@
     "misc.StonecutterScreenHandlerMixin",
     "misc.WoodlandMansionFirstFloorMixin",
     "misc.WoodlandMansionSecondFloorMixin",
+    "recipebook.RecipeBookSetMixin",
+    "recipebook.RecipeBookTypeMixin",
     "render.AbstractBlockStateMixin",
     "render.LivingEntityMixin",
     "util.BlockEntityAccessor",
@@ -40,6 +42,8 @@
   "client": [
     "misc.SplashTextMixin",
     "misc.StonecutterScreenMixin",
+    "recipebook.RecipeBookCategoriesMixin",
+    "recipebook.RecipeBookComponentMixin",
     "render.AcidifiedEffectBackgroundMixin",
     "render.AcidifiedInventoryEffectBackgroundMixin",
     "render.BlockDustParticleMixin",

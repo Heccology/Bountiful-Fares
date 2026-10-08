@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:milling",
+  "category": "minerals",
+  "ingredient": {
+    "item": "minecraft:amethyst_block"
+  },
+  "result": {
+    "id": "minecraft:amethyst_shard"
+  },
+  "result_count": 2
+}

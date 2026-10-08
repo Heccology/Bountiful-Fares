@@ -43,8 +43,8 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
 
     private static final int[] TOP_SLOTS = new int[]{0};
     private static final int[] BOTTOM_SLOTS = new int[]{1};
-    private static final int INPUT_SLOT = 0;
-    private static final int OUTPUT_SLOT = 1;
+    public static final int INPUT_SLOT = 0;
+    public static final int OUTPUT_SLOT = 1;
     public final ContainerData propertyDelegate;
     private int progress = 0;
     private int maxProgress = 80;

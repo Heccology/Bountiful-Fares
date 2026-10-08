@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:milling",
+  "category": "minerals",
+  "ingredient": {
+    "item": "minecraft:copper_ore"
+  },
+  "result": {
+    "id": "minecraft:raw_copper"
+  },
+  "result_count": 5
+}

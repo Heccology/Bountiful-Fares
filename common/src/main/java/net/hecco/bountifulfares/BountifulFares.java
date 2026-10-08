@@ -10,6 +10,7 @@ import net.hecco.nexuslib.lib.compat.CompatManager;
 import net.hecco.nexuslib.lib.compat.NLCompatAPI;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.inventory.RecipeBookType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,6 +46,8 @@ public class BountifulFares {
 	}
 
 	public static void init(final Class<?> clazz) {
+		RecipeBookType.values(); //Call immediately to force mixin - Artyrian
+
 		Services.init(clazz.getClassLoader());
 		BFSounds.registerSounds();
 		BFBlocks.registerBlocks();
