@@ -1,6 +1,5 @@
 package net.hecco.bountifulfares.definition.recipe;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.hecco.bountifulfares.BountifulFares;
@@ -16,9 +15,6 @@ import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Optional;
 
 public class MillingRecipe implements Recipe<SingleRecipeInput> {
     private final ResourceLocation id;

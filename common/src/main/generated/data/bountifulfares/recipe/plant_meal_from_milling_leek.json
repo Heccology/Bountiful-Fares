@@ -1,0 +1,11 @@
+{
+  "type": "bountifulfares:milling",
+  "category": "materials",
+  "ingredient": {
+    "item": "bountifulfares:leek"
+  },
+  "result": {
+    "id": "bountifulfares:plant_meal"
+  },
+  "result_count": 1
+}

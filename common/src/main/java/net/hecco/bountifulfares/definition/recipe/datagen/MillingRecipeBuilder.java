@@ -17,10 +17,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class MillingRecipeBuilder implements RecipeBuilder {
     private final Item result;
@@ -28,7 +25,7 @@ public class MillingRecipeBuilder implements RecipeBuilder {
     @Nullable private final Item extra;
     private final int extraCount;
     private final Ingredient ingredient;
-    @Nullable private String group;
+    private final List<String> groups;
     private final GristmillBookCategory category;
 
     private final Map<String, Criterion<?>> criteria = new LinkedHashMap();
@@ -42,6 +39,7 @@ public class MillingRecipeBuilder implements RecipeBuilder {
         this.extra = (extra == null) ? null : extra.asItem();
         this.extraCount = extraCount;
         this.category = category;
+        this.groups = new ArrayList<>();
     }
 
     public static <T extends MillingRecipe> MillingRecipeBuilder create(Item input, ItemLike output, int count, ItemLike extra, int extraCount, GristmillBookCategory category) {
@@ -55,7 +53,7 @@ public class MillingRecipeBuilder implements RecipeBuilder {
 
     @Override
     public RecipeBuilder group(@Nullable String group) {
-        this.group = group;
+        this.groups.add(group);
         return this;
     }
 

@@ -837,37 +837,56 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.MAGENTA).get(), Items.MAGENTA_WOOL);
         offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.PINK).get(), Items.PINK_WOOL);
 
-        offerMillingRecipeNoExtra(exporter, "flour", Items.WHEAT, BFItems.FLOUR.get(), 2, GristmillBookCategory.MATERIALS);
-        offerMillingRecipeNoExtra(exporter, "flour", BFItems.MAIZE.get(), BFItems.FLOUR.get(), 2, GristmillBookCategory.MATERIALS);
-        offerMillingRecipeNoExtra(exporter, "feldspar", Items.GRANITE, BFItems.FELDSPAR.get(), 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "feldspar", Items.ANDESITE, BFItems.FELDSPAR.get(), 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "feldspar", Items.DIORITE, BFItems.FELDSPAR.get(), 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "feldspar", Items.TUFF, BFItems.FELDSPAR.get(), 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "coconut_coir", BFItems.COCONUT.get(), BFItems.COCONUT_COIR.get(), 2, GristmillBookCategory.MATERIALS);
-        offerMillingRecipeNoExtra(exporter, "walnut_mulch", BFItems.WALNUT.get(), BFBlocks.WALNUT_MULCH.get(), 1, GristmillBookCategory.MATERIALS);
-        offerMillingRecipeNoExtra(exporter, "palm_mulch", BFItems.PALM_FROND.get(), BFBlocks.PALM_MULCH.get(), 1, GristmillBookCategory.MATERIALS);
-        offerMillingRecipeNoExtra(exporter, "bone_meal", Items.BONE, Items.BONE_MEAL, 4, GristmillBookCategory.MATERIALS);
-        offerMillingRecipeNoExtra(exporter, "sugar", Items.SUGAR_CANE, Items.SUGAR, 2, GristmillBookCategory.MATERIALS);
-        offerMillingRecipeNoExtra(exporter, "amethyst_shard", Items.AMETHYST_BLOCK, Items.AMETHYST_SHARD, 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "coal", Items.COAL_ORE, Items.COAL, 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "coal", Items.DEEPSLATE_COAL_ORE, Items.COAL, 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "iron", Items.IRON_ORE, Items.RAW_IRON, 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "iron", Items.DEEPSLATE_IRON_ORE, Items.RAW_IRON, 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "copper", Items.COPPER_ORE, Items.RAW_COPPER, 5, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "copper", Items.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER, 5, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "redstone", Items.REDSTONE_ORE, Items.REDSTONE, 6, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "redstone", Items.DEEPSLATE_REDSTONE_ORE, Items.REDSTONE, 6, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "lapis", Items.LAPIS_ORE, Items.LAPIS_LAZULI, 6, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "lapis", Items.DEEPSLATE_LAPIS_ORE, Items.LAPIS_LAZULI, 6, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "gold", Items.GOLD_ORE, Items.RAW_GOLD, 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "gold", Items.DEEPSLATE_GOLD_ORE, Items.RAW_GOLD, 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "diamond", Items.DIAMOND_ORE, Items.DIAMOND, 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "diamond", Items.DEEPSLATE_DIAMOND_ORE, Items.DIAMOND, 2, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "emerald", Items.EMERALD_ORE, Items.EMERALD, 3, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "emerald", Items.DEEPSLATE_EMERALD_ORE, Items.EMERALD, 3, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "nether_quartz", Items.NETHER_QUARTZ_ORE, Items.QUARTZ, 4, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "gold_nugget", Items.NETHER_GOLD_ORE, Items.GOLD_NUGGET, 8, GristmillBookCategory.MINERALS);
-        offerMillingRecipeNoExtra(exporter, "grass_seeds", Items.SHORT_GRASS, BFItems.GRASS_SEEDS.get(), 2, GristmillBookCategory.MATERIALS);
+        offerMillingRecipe(exporter, Items.CARROT, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, Items.POTATO, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, Items.BEETROOT, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, Items.APPLE, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, Items.SWEET_BERRIES, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, BFItems.ORANGE.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, BFItems.LEMON.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, BFItems.PLUM.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, BFItems.HOARY_APPLE.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, BFItems.PASSION_FRUIT.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, BFItems.ELDERBERRIES.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, BFItems.LAPISBERRIES.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, BFItems.COCONUT_HALF.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        offerMillingRecipe(exporter, BFItems.LEEK.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+
+        offerMillingRecipe(exporter, Items.WHEAT, BFItems.FLOUR.get(), 2, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "flour", "plant_meal");
+        offerMillingRecipe(exporter, BFItems.MAIZE.get(), BFItems.FLOUR.get(), 2, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "flour", "plant_meal");
+        offerMillingRecipe(exporter, Items.GRANITE, BFItems.FELDSPAR.get(), 1, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS, "feldspar");
+        offerMillingRecipe(exporter, Items.ANDESITE, BFItems.FELDSPAR.get(), 1, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS, "feldspar");
+        offerMillingRecipe(exporter, Items.DIORITE, BFItems.FELDSPAR.get(), 1, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS, "feldspar");
+        offerMillingRecipe(exporter, Items.TUFF, BFItems.FELDSPAR.get(), 1, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS, "feldspar");
+        offerMillingRecipe(exporter, BFItems.COCONUT.get(), BFItems.COCONUT_COIR.get(), 2, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "coconut_coir", "plant_meal");
+        offerMillingRecipe(exporter, BFItems.WALNUT.get(), BFBlocks.WALNUT_MULCH.get(), 1, GristmillBookCategory.MATERIALS, "walnut_mulch");
+        offerMillingRecipe(exporter, BFItems.PALM_FROND.get(), BFBlocks.PALM_MULCH.get(), 1, GristmillBookCategory.MATERIALS, "palm_mulch");
+        offerMillingRecipe(exporter, Items.BONE, Items.BONE_MEAL, 2, Items.BONE_MEAL, 2, GristmillBookCategory.MATERIALS, "bone_meal");
+        offerMillingRecipe(exporter, Items.SUGAR_CANE, Items.SUGAR, 2, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "sugar", "plant_meal");
+        offerMillingRecipe(exporter, Items.AMETHYST_BLOCK, Items.AMETHYST_SHARD, 1, Items.AMETHYST_SHARD, 1, GristmillBookCategory.MINERALS, "amethyst_shard");
+        offerMillingRecipe(exporter, Items.COAL_ORE, Items.COAL, 1, Items.COAL, 1, GristmillBookCategory.MINERALS, "coal");
+        offerMillingRecipe(exporter, Items.DEEPSLATE_COAL_ORE, Items.COAL, 1, Items.COAL, 1, GristmillBookCategory.MINERALS, "coal");
+        offerMillingRecipe(exporter, Items.IRON_ORE, Items.RAW_IRON, 1, Items.RAW_IRON, 1, GristmillBookCategory.MINERALS, "iron");
+        offerMillingRecipe(exporter, Items.DEEPSLATE_IRON_ORE, Items.RAW_IRON, 1, Items.RAW_IRON, 1, GristmillBookCategory.MINERALS, "iron");
+        offerMillingRecipe(exporter, Items.COPPER_ORE, Items.RAW_COPPER, 3, Items.RAW_COPPER, 3, GristmillBookCategory.MINERALS, "copper");
+        offerMillingRecipe(exporter, Items.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER, 3, Items.RAW_COPPER, 3, GristmillBookCategory.MINERALS, "copper");
+        offerMillingRecipe(exporter, Items.REDSTONE_ORE, Items.REDSTONE, 3, Items.REDSTONE, 3, GristmillBookCategory.MINERALS, "redstone");
+        offerMillingRecipe(exporter, Items.DEEPSLATE_REDSTONE_ORE, Items.REDSTONE, 3, Items.REDSTONE, 3, GristmillBookCategory.MINERALS, "redstone");
+        offerMillingRecipe(exporter, Items.LAPIS_ORE, Items.LAPIS_LAZULI, 3, Items.LAPIS_LAZULI, 3, GristmillBookCategory.MINERALS, "lapis");
+        offerMillingRecipe(exporter, Items.DEEPSLATE_LAPIS_ORE, Items.LAPIS_LAZULI, 3, Items.LAPIS_LAZULI, 3, GristmillBookCategory.MINERALS, "lapis");
+        offerMillingRecipe(exporter, Items.GOLD_ORE, Items.RAW_GOLD, 1, Items.RAW_GOLD, 1, GristmillBookCategory.MINERALS, "gold");
+        offerMillingRecipe(exporter, Items.DEEPSLATE_GOLD_ORE, Items.RAW_GOLD, 1, Items.RAW_GOLD, 1, GristmillBookCategory.MINERALS, "gold");
+        offerMillingRecipe(exporter, Items.DIAMOND_ORE, Items.DIAMOND, 1, Items.DIAMOND, 1, GristmillBookCategory.MINERALS, "diamond");
+        offerMillingRecipe(exporter, Items.DEEPSLATE_DIAMOND_ORE, Items.DIAMOND, 1, Items.DIAMOND, 1, GristmillBookCategory.MINERALS, "diamond");
+        offerMillingRecipe(exporter, Items.EMERALD_ORE, Items.EMERALD, 2, Items.EMERALD, 2, GristmillBookCategory.MINERALS, "emerald");
+        offerMillingRecipe(exporter, Items.DEEPSLATE_EMERALD_ORE, Items.EMERALD, 2, Items.EMERALD, 2, GristmillBookCategory.MINERALS, "emerald");
+        offerMillingRecipe(exporter, Items.NETHER_QUARTZ_ORE, Items.QUARTZ, 2, Items.QUARTZ, 2, GristmillBookCategory.MINERALS, "nether_quartz");
+        offerMillingRecipe(exporter, Items.NETHER_GOLD_ORE, Items.GOLD_NUGGET, 4, Items.GOLD_NUGGET, 4, GristmillBookCategory.MINERALS, "gold_nugget");
+        offerMillingRecipe(exporter, Items.SHORT_GRASS, BFItems.GRASS_SEEDS.get(), 1, BFItems.GRASS_SEEDS.get(), 1, GristmillBookCategory.MATERIALS, "grass_seeds");
+        offerMillingRecipe(exporter, Items.COBBLESTONE, Items.GRAVEL, 1, GristmillBookCategory.MINERALS, "gravel");
+        offerMillingRecipe(exporter, Items.GRAVEL, Items.SAND, 1, GristmillBookCategory.MINERALS, "sand");
+        offerMillingRecipe(exporter, Items.ICE, Items.SNOWBALL, 4, Items.SNOWBALL, 4, GristmillBookCategory.MINERALS, "snow");
+        offerMillingRecipe(exporter, BFBlocks.PRISMARINE_BLOSSOM.get(), Items.PRISMARINE_SHARD, 4, Items.PRISMARINE_CRYSTALS, 4, GristmillBookCategory.MINERALS, "prismarine_shard", "prismarine_crystals");
 
         offerFermentingRecipe(exporter, Items.APPLE, BFItems.APPLE_CIDER_JAR.get(), 1, 16771237);
         offerFermentingRecipe(exporter, BFItemTags.C_ORANGES, BFItems.CITRUS_ESSENCE.get(), 2, 15200149, "citrus_essence_from_orange_fermenting");
@@ -1251,23 +1270,25 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .save(exporter);
     }
 
-    public static void offerMillingRecipeNoExtra(RecipeOutput exporter, @Nullable String group, ItemLike input, ItemLike output, int count, GristmillBookCategory category) {
-        offerMillingRecipeNoExtra(exporter, group, input, output, count, category, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, BuiltInRegistries.ITEM.getKey(output.asItem()).getPath() + "_from_milling_" + BuiltInRegistries.ITEM.getKey(input.asItem()).getPath()));
+    public static void offerMillingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, GristmillBookCategory category, String... group) {
+        offerMillingRecipe(exporter, input, output, count, category, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, BuiltInRegistries.ITEM.getKey(output.asItem()).getPath() + "_from_milling_" + BuiltInRegistries.ITEM.getKey(input.asItem()).getPath()), group);
     }
 
-    public static void offerMillingRecipeNoExtra(RecipeOutput exporter, @Nullable String group, ItemLike input, ItemLike output, int count, GristmillBookCategory category, ResourceLocation id) {
-        offerMillingRecipe(exporter, group, input, output, count, Items.AIR, 0, category, id);
+    public static void offerMillingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, GristmillBookCategory category, ResourceLocation id, String... group) {
+        offerMillingRecipe(exporter, input, output, count, Items.AIR, 0, category, id, group);
     }
 
-    public static void offerMillingRecipe(RecipeOutput exporter, @Nullable String group, ItemLike input, ItemLike output, int count, ItemLike extra, int extraCount, GristmillBookCategory category) {
-        offerMillingRecipe(exporter, group, input, output, count, extra, extraCount, category, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, BuiltInRegistries.ITEM.getKey(output.asItem()).getPath() + "_from_milling_" + BuiltInRegistries.ITEM.getKey(input.asItem()).getPath()));
+    public static void offerMillingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, ItemLike extra, int extraCount, GristmillBookCategory category, String... group) {
+        offerMillingRecipe(exporter, input, output, count, extra, extraCount, category, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, BuiltInRegistries.ITEM.getKey(output.asItem()).getPath() + "_from_milling_" + BuiltInRegistries.ITEM.getKey(input.asItem()).getPath()), group);
     }
 
-    public static void offerMillingRecipe(RecipeOutput exporter, @Nullable String group, ItemLike input, ItemLike output, int count, ItemLike extra, int extraCount, GristmillBookCategory category, ResourceLocation id) {
-        MillingRecipeBuilder.create(input.asItem(), output, count, extra, extraCount, category)
-                .group(group)
-                .unlockedBy(getHasName(input), has(input))
-                .save(exporter, id);
+    public static void offerMillingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, ItemLike extra, int extraCount, GristmillBookCategory category, ResourceLocation id, String... group) {
+        MillingRecipeBuilder builder = MillingRecipeBuilder.create(input.asItem(), output, count, extra, extraCount, category)
+                .unlockedBy(getHasName(input), has(input));
+        for (String g : group) {
+            builder.group(g);
+        }
+        builder.save(exporter, id);
     }
 
     public static void offerFermentingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, int particleColor) {

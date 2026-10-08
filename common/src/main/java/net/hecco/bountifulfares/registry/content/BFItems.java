@@ -35,6 +35,8 @@ public class BFItems {
     public static final Supplier<Item> HOARY_BOAT = registerItem("hoary_boat", () -> new BoatItem(false, BFBoats.HOARY, new Item.Properties().stacksTo(1)));
     public static final Supplier<Item> HOARY_CHEST_BOAT = registerItem("hoary_chest_boat", () -> new BoatItem(true, BFBoats.HOARY, new Item.Properties().stacksTo(1)));
 
+    public static final Supplier<Item> PLANT_MEAL = registerItem("plant_meal", () -> new Item(new Item.Properties()));
+
     public static final Supplier<Item> SWEET_BERRY_PIPS = registerItem("sweet_berry_pips", () -> new SweetBerryPipsItem(Blocks.SWEET_BERRY_BUSH, new Item.Properties()));
 
     public static final Supplier<Item> WALNUT = registerItem("walnut", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(0).fast().build())));
