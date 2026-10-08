@@ -6,7 +6,7 @@ import net.hecco.bountifulfares.definition.particle.FermentedBubbleParticle;
 import net.hecco.bountifulfares.definition.particle.FlourCloudParticle;
 import net.hecco.bountifulfares.definition.particle.GoldenPetalParticle;
 import net.hecco.bountifulfares.definition.particle.PrismarineBlossomParticle;
-import net.hecco.bountifulfares.definition.screen.GristmillScreen;
+import net.hecco.bountifulfares.definition.screen.gristmill.GristmillScreen;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.hecco.bountifulfares.registry.content.BFMenus;

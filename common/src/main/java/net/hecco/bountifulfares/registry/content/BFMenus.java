@@ -1,7 +1,7 @@
 package net.hecco.bountifulfares.registry.content;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.definition.screen.GristmillMenu;
+import net.hecco.bountifulfares.definition.screen.gristmill.GristmillMenu;
 import net.hecco.nexuslib.platform.NLServices;
 import net.hecco.nexuslib.platform.services.NLRegistryHelper;
 import net.minecraft.world.inventory.AbstractContainerMenu;

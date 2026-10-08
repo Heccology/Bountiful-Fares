@@ -1,10 +1,9 @@
 package net.hecco.bountifulfares.definition.block.entity;
 
-import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.custom.GristmillBlock;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
-import net.hecco.bountifulfares.definition.screen.GristmillMenu;
+import net.hecco.bountifulfares.definition.screen.gristmill.GristmillMenu;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
 import net.hecco.bountifulfares.registry.misc.BFRecipes;
 import net.minecraft.core.BlockPos;
@@ -44,7 +43,8 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
     private static final int[] TOP_SLOTS = new int[]{0};
     private static final int[] BOTTOM_SLOTS = new int[]{1};
     public static final int INPUT_SLOT = 0;
-    public static final int OUTPUT_SLOT = 1;
+    public static final int PRIMARY_SLOT = 1;
+    public static final int SECONDARY_SLOT = 2;
     public final ContainerData propertyDelegate;
     private int progress = 0;
     private int maxProgress = 80;
@@ -140,17 +140,17 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
         Optional<RecipeHolder<MillingRecipe>> recipe = getCurrentRecipe();
         this.removeItem(INPUT_SLOT, 1);
         ItemStack i = recipe.get().value().getOutput();
-        i.grow(inventory.get(OUTPUT_SLOT).getCount());
-        this.setItem(OUTPUT_SLOT, i);
+        i.grow(inventory.get(PRIMARY_SLOT).getCount());
+        this.setItem(PRIMARY_SLOT, i);
         this.setChanged();
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
-        return this.getItem(OUTPUT_SLOT).isEmpty() || this.getItem(OUTPUT_SLOT).getItem() == output.getItem();
+        return this.getItem(PRIMARY_SLOT).isEmpty() || this.getItem(PRIMARY_SLOT).getItem() == output.getItem();
     }
 
     private boolean canInsertAmountIntoOutputSlot(int count) {
-        return this.getItem(OUTPUT_SLOT).isEmpty() || this.getItem(OUTPUT_SLOT).getMaxStackSize() >= this.getItem(OUTPUT_SLOT).getCount() + count;
+        return this.getItem(PRIMARY_SLOT).isEmpty() || this.getItem(PRIMARY_SLOT).getMaxStackSize() >= this.getItem(PRIMARY_SLOT).getCount() + count;
     }
 
     @Override
@@ -175,8 +175,8 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
     }
 
     private boolean canInsertOutputSlot() {
-        return this.getItem(OUTPUT_SLOT).isEmpty() ||
-                this.getItem(OUTPUT_SLOT).getCount() < this.getItem(OUTPUT_SLOT).getMaxStackSize();
+        return this.getItem(PRIMARY_SLOT).isEmpty() ||
+                this.getItem(PRIMARY_SLOT).getCount() < this.getItem(PRIMARY_SLOT).getMaxStackSize();
     }
 
     private boolean hasCraftingFinished() {

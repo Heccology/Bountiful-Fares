@@ -1,8 +1,7 @@
-package net.hecco.bountifulfares.definition.screen;
+package net.hecco.bountifulfares.definition.screen.gristmill;
 
 import net.hecco.bountifulfares.definition.block.entity.GristmillBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.slot.GristmillOutputSlot;
-import net.hecco.bountifulfares.definition.compat.emi.GristmillRecipeHandler;
 import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
 import net.hecco.bountifulfares.registry.content.BFMenus;
 import net.hecco.bountifulfares.registry.misc.BFRecipeBookTypes;
@@ -13,9 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 
@@ -112,7 +109,7 @@ public class GristmillMenu extends RecipeBookMenu<SingleRecipeInput, MillingReci
 
     @Override public void clearCraftingContent() { this.inventory.clearContent(); }
     @Override public boolean recipeMatches(RecipeHolder recipe) { return ((MillingRecipe)recipe.value()).matches(new SingleRecipeInput(this.inventory.getItem(0)), this.level); }
-    @Override public int getResultSlotIndex() { return GristmillBlockEntity.OUTPUT_SLOT; }
+    @Override public int getResultSlotIndex() { return GristmillBlockEntity.PRIMARY_SLOT; }
     @Override public int getGridWidth() { return 1; }
     @Override public int getGridHeight() { return 1; }
     @Override public int getSize() { return INVENTORY_SIZE; }

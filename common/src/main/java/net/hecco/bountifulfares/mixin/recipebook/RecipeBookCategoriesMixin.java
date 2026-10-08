@@ -68,6 +68,6 @@ public class RecipeBookCategoriesMixin {
 
     @Inject(method = "getCategories", at = @At("HEAD"), cancellable = true)
     private static void bountifulfares$getCategories(RecipeBookType type, CallbackInfoReturnable<List<RecipeBookCategories>> cir) {
-        if (type.equals(BFRecipeBookTypes.BF_GRISTMILL)) cir.setReturnValue(BFRecipeBookCategories.GRISTMILL_CAGTEGORIES);
+        if (type.equals(BFRecipeBookTypes.BF_GRISTMILL)) cir.setReturnValue(BFRecipeBookCategories.GRISTMILL_CATEGORIES);
     }
 }

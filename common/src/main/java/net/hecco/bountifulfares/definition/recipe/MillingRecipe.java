@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.definition.recipe;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.hecco.bountifulfares.BountifulFares;
@@ -18,25 +19,31 @@ import net.minecraft.world.level.Level;
 
 public class MillingRecipe implements Recipe<SingleRecipeInput> {
     private final ResourceLocation id;
-    private final ItemStack output;
-    private final ItemStack extra;
     private final Ingredient ingredient;
-    private final GristmillBookCategory category;
 
-    public MillingRecipe(ResourceLocation id, ItemStack output, ItemStack extra, Ingredient input, GristmillBookCategory category) {
+    private final ItemStack primary;
+    private final String primaryGroup;
+    private final GristmillBookCategory primaryCategory;
+
+    private final ItemStack secondary;
+    private final String secondaryGroup;
+    private final GristmillBookCategory secondaryCategory;
+
+    public MillingRecipe(ResourceLocation id, Ingredient input, ItemStack primaryResult, String primaryGroup, GristmillBookCategory primaryCategory, ItemStack secondaryResult, String secondaryGroup, GristmillBookCategory secondaryCategory) {
         this.id = id;
-        this.output = output;
         this.ingredient = input;
-        this.category = category;
-        this.extra = (extra == null) ? ItemStack.EMPTY : extra;
+
+        this.primary = primaryResult;
+        this.primaryGroup = primaryGroup;
+        this.primaryCategory = primaryCategory;
+
+        this.secondary = secondaryResult;
+        this.secondaryGroup = secondaryGroup;
+        this.secondaryCategory = secondaryCategory;
     }
 
-    public MillingRecipe(Ingredient ingredient, ItemStack itemStack, int count, ItemStack extra, int extraCount, GristmillBookCategory category) {
-        this.id = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "milling");
-        this.output = itemStack.copyWithCount(count);
-        this.ingredient = ingredient;
-        this.category = category;
-        this.extra = extra.copyWithCount(extraCount);
+    public MillingRecipe(Ingredient input, ItemStack primaryResult, String primaryGroup, GristmillBookCategory primaryCategory, ItemStack secondaryResult, String secondaryGroup, GristmillBookCategory secondaryCategory) {
+        this(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "milling"), input, primaryResult, primaryGroup, primaryCategory, secondaryResult, secondaryGroup, secondaryCategory);
     }
 
     @Override
@@ -45,24 +52,29 @@ public class MillingRecipe implements Recipe<SingleRecipeInput> {
         return ingredient.test(input.getItem(0));
     }
 
-    public Ingredient getIngredient() {
-        return this.ingredient;
-    }
-    public ItemStack getOutput() {
-        return this.output.copy();
-    }
-    public ItemStack getExtra() { return this.extra.copy(); }
     public ResourceLocation getId() {
         return this.id;
     }
-    public GristmillBookCategory getRecipeTab() { return this.category; }
+    public Ingredient getIngredient() {
+        return this.ingredient;
+    }
 
-    @Override public ItemStack assemble(SingleRecipeInput input, HolderLookup.Provider lookup) { return this.getOutput(); }
+    public ItemStack getPrimary() {
+        return this.primary.copy();
+    }
+    public GristmillBookCategory getPrimaryRecipeTab() { return this.primaryCategory; }
+    public String getPrimaryGroup() { return this.primaryGroup; }
+
+    public ItemStack getSecondary() { return this.secondary.copy(); }
+    public GristmillBookCategory getSecondaryRecipeTab() { return this.secondaryCategory; }
+    public String getSecondaryGroup() { return this.secondaryGroup; }
+
+    @Override public ItemStack assemble(SingleRecipeInput input, HolderLookup.Provider lookup) { return this.getPrimary(); }
     @Override public boolean canCraftInDimensions(int width, int height) {
         return true;
     }
     @Override public ItemStack getResultItem(HolderLookup.Provider registriesLookup) {
-        return this.output;
+        return this.primary;
     }
 
     @Override public RecipeSerializer<?> getSerializer() {
@@ -76,8 +88,21 @@ public class MillingRecipe implements Recipe<SingleRecipeInput> {
         return BFRecipes.MILLING.get();
     }
 
+    @Override public String getGroup() { return this.primaryGroup; }
+
     public interface RecipeFactory<T extends MillingRecipe> {
-        T create(Ingredient ingredient, ItemStack result, int count, ItemStack extra, int extraCount, GristmillBookCategory category);
+        T create(
+                Ingredient ingredient,
+                ItemStack primary,
+                int primaryCnt,
+                String primaryGrp,
+                GristmillBookCategory primaryCtgy,
+
+                ItemStack secondary,
+                int secondaryCnt,
+                String secondaryGrp,
+                GristmillBookCategory secondaryCtgy
+        );
     }
 
     public static class Type<T extends MillingRecipe> implements RecipeType<T> {
@@ -93,23 +118,27 @@ public class MillingRecipe implements Recipe<SingleRecipeInput> {
         public final MapCodec<MillingRecipe> CODEC;
         public final StreamCodec<RegistryFriendlyByteBuf, MillingRecipe> PACKET_CODEC;
 
-        public MillingRecipe create(Ingredient ingredient, ItemStack result, int count, ItemStack extra, int extraCount, GristmillBookCategory category) {
-            return this.recipeFactory.create(ingredient, result, count, extra, extraCount, category);
+        public MillingRecipe create(Ingredient ingredient, ItemStack primary, int primaryCnt, String primaryGrp, GristmillBookCategory primaryCtgy, ItemStack secondary, int secondaryCnt, String secondaryGrp, GristmillBookCategory secondaryCtgy) {
+            return this.recipeFactory.create(ingredient, primary, primaryCnt, primaryGrp, primaryCtgy, secondary, secondaryCnt, secondaryGrp, secondaryCtgy);
         }
 
         public Serializer(MillingRecipe.RecipeFactory<MillingRecipe> recipeFactory) {
             this.CODEC = RecordCodecBuilder.mapCodec((instance) ->
                     instance.group(
+                            Codec.STRING.optionalFieldOf("primaryGroup", "")
+                                    .forGetter((recipe) -> recipe.primaryGroup),
+                            Codec.STRING.optionalFieldOf("secondaryGroup", "")
+                                    .forGetter((recipe) -> recipe.secondaryGroup),
                             Ingredient.CODEC_NONEMPTY.fieldOf("ingredient")
                                     .forGetter((recipe) -> recipe.ingredient),
-                            ItemStack.STRICT_SINGLE_ITEM_CODEC.fieldOf("result")
-                                    .forGetter((recipe) -> recipe.output),
-                            ExtraCodecs.intRange(1, 99).fieldOf("result_count")
-                                    .forGetter((recipe) -> recipe.output.getCount()),
-                            ItemStack.OPTIONAL_CODEC.lenientOptionalFieldOf("extra", ItemStack.EMPTY)
-                                    .forGetter((recipe) -> recipe.extra),
-                            ExtraCodecs.intRange(0, 99).lenientOptionalFieldOf("extra_count", 0)
-                                    .forGetter((recipe) -> recipe.extra.getCount()),
+                            ItemStack.STRICT_SINGLE_ITEM_CODEC.fieldOf("primary")
+                                    .forGetter((recipe) -> recipe.primary),
+                            ExtraCodecs.intRange(1, 99).fieldOf("primary_count")
+                                    .forGetter((recipe) -> recipe.primary.getCount()),
+                            ItemStack.OPTIONAL_CODEC.lenientOptionalFieldOf("secondary", ItemStack.EMPTY)
+                                    .forGetter((recipe) -> recipe.secondary),
+                            ExtraCodecs.intRange(0, 99).lenientOptionalFieldOf("secondary_count", 0)
+                                    .forGetter((recipe) -> recipe.secondary.getCount()),
                             GristmillBookCategory.CODEC.fieldOf("category")
                                     .orElse(GristmillBookCategory.MINERALS)
                                     .forGetter((recipe) -> recipe.category)

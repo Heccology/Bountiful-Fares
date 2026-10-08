@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 public class BFRecipeBookCategories {
     private static boolean CATEGORIES_READIED = false;
-    public static List<RecipeBookCategories> GRISTMILL_CAGTEGORIES = ImmutableList.of();
+    public static List<RecipeBookCategories> GRISTMILL_CATEGORIES = ImmutableList.of();
 
     public static RecipeBookCategories BF_GRISTMILL_SEARCH = RecipeBookCategories.FURNACE_SEARCH;
     public static RecipeBookCategories BF_GRISTMILL_MATERIALS = RecipeBookCategories.FURNACE_FOOD;
@@ -35,7 +35,7 @@ public class BFRecipeBookCategories {
         if (CATEGORIES_READIED) throw new IllegalArgumentException("Gristmill categories were already readied up");
 
         CATEGORIES_READIED = true;
-        GRISTMILL_CAGTEGORIES = ImmutableList.of(
+        GRISTMILL_CATEGORIES = ImmutableList.of(
                 BF_GRISTMILL_SEARCH,
                 BF_GRISTMILL_MATERIALS,
                 BF_GRISTMILL_MINERALS

@@ -1,15 +1,17 @@
-package net.hecco.bountifulfares.definition.screen;
+package net.hecco.bountifulfares.definition.screen.gristmill;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.hecco.bountifulfares.BountifulFares;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
+import net.minecraft.client.gui.screens.recipebook.RecipeUpdateListener;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class GristmillScreen extends AbstractContainerScreen<GristmillMenu> {
+public class GristmillScreen extends AbstractContainerScreen<GristmillMenu> implements RecipeUpdateListener {
     private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "textures/gui/gristmill.png");
     private static final ResourceLocation PROGRESS_ARROW = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "textures/gui/gristmill_progress_arrow.png");
     public GristmillScreen(GristmillMenu handler, Inventory inventory, Component title) {
@@ -44,5 +46,17 @@ public class GristmillScreen extends AbstractContainerScreen<GristmillMenu> {
         renderBg(context, delta, mouseX, mouseY);
         super.render(context, mouseX, mouseY, delta);
         renderTooltip(context, mouseX, mouseY);
+    }
+
+    /////////////// RECIPE BOOK //////////////////
+
+    @Override
+    public void recipesUpdated() {
+        this.recipeBookComponent.recipesUpdated();
+    }
+
+    @Override
+    public RecipeBookComponent getRecipeBookComponent() {
+        return this.recipeBookComponent;
     }
 }

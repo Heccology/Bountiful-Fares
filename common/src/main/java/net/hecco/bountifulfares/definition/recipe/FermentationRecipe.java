@@ -23,18 +23,15 @@ public class FermentationRecipe implements Recipe<RecipeInput> {
     private final Ingredient ingredient;
     private final int particleColor;
 
-    public FermentationRecipe(ResourceLocation id, ItemStack output, int outputCount, Ingredient input, int particleColor) {
+    public FermentationRecipe(ResourceLocation id, Ingredient input, ItemStack output, int outputCount, int particleColor) {
         this.id = id;
-        this.output = new ItemStack(output.getItem(), outputCount);
         this.ingredient = input;
+        this.output = new ItemStack(output.getItem(), outputCount);
         this.particleColor = particleColor;
     }
 
-    public FermentationRecipe(Ingredient ingredient, ItemStack itemStack, int outputCount, int particleColor) {
-        this.id = ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "fermenting");
-        this.output = new ItemStack(itemStack.getItem(), outputCount);
-        this.ingredient = ingredient;
-        this.particleColor = particleColor;
+    public FermentationRecipe(Ingredient input, ItemStack itemStack, int outputCount, int particleColor) {
+        this(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "fermenting"), input, itemStack, outputCount, particleColor);
     }
 
     @Override
