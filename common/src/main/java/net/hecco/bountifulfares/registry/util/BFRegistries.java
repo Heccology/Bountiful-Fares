@@ -210,6 +210,7 @@ public class BFRegistries {
         BFBlocks.FUELS.put(BFBlocks.COIR_BRICK_SLAB.get(), 400);
         BFBlocks.FUELS.put(BFBlocks.COIR_BRICK_STAIRS.get(), 400);
         BFBlocks.FUELS.put(BFBlocks.COIR_BRICK_WALL.get(), 400);
+        BFBlocks.FUELS.put(BFItems.PLANT_MEAL.get(), 300);
     }
 
     public static void registerCeramicCheckeredConversions() {
@@ -263,6 +264,7 @@ public class BFRegistries {
 
     public static Object2FloatMap<ItemLike> registerModCompostables() {
         Object2FloatMap<ItemLike> compostables = new Object2FloatOpenHashMap();
+        compostables.put(BFItems.PLANT_MEAL.get(), 0.7f);
         compostables.put(BFBlocks.APPLE_LEAVES.get().asItem(), 0.3f);
         compostables.put(BFBlocks.FLOWERING_APPLE_LEAVES.get().asItem(), 0.5f);
         compostables.put(BFBlocks.APPLE_SAPLING.get().asItem(), 0.85f);
