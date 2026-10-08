@@ -1,0 +1,18 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:deepslate_coal_ore"
+  },
+  "primary": {
+    "count": 1,
+    "id": "minecraft:coal"
+  },
+  "primary_category": "minerals",
+  "primary_group": "coal",
+  "secondary": {
+    "count": 1,
+    "id": "minecraft:coal"
+  },
+  "secondary_category": "minerals",
+  "secondary_group": "coal"
+}

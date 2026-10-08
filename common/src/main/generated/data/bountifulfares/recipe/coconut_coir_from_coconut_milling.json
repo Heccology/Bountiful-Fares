@@ -1,0 +1,17 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "bountifulfares:coconut"
+  },
+  "primary": {
+    "count": 2,
+    "id": "bountifulfares:coconut_coir"
+  },
+  "primary_category": "materials",
+  "primary_group": "coconut_coir",
+  "secondary": {
+    "count": 1,
+    "id": "bountifulfares:plant_meal"
+  },
+  "secondary_group": "plant_meal"
+}

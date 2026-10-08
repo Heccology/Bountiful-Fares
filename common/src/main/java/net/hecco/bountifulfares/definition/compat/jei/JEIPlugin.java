@@ -10,7 +10,7 @@ import mezz.jei.api.registration.IRecipeRegistration;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.compat.jei.category.PrismarinePropagationCategory;
 import net.hecco.bountifulfares.definition.compat.jei.category.FermentingRecipeCategory;
-import net.hecco.bountifulfares.compat.jei.category.MillingRecipeCategory;
+import net.hecco.bountifulfares.definition.compat.jei.category.MillingRecipeCategory;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.content.BFItems;
 import net.hecco.bountifulfares.registry.integration.AppledogIntegration;

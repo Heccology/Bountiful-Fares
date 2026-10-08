@@ -1,0 +1,18 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:nether_quartz_ore"
+  },
+  "primary": {
+    "count": 2,
+    "id": "minecraft:quartz"
+  },
+  "primary_category": "minerals",
+  "primary_group": "nether_quartz",
+  "secondary": {
+    "count": 2,
+    "id": "minecraft:quartz"
+  },
+  "secondary_category": "minerals",
+  "secondary_group": "nether_quartz"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:sugar_cane"
+  },
+  "primary": {
+    "count": 2,
+    "id": "minecraft:sugar"
+  },
+  "primary_category": "materials",
+  "primary_group": "sugar",
+  "secondary": {
+    "count": 1,
+    "id": "bountifulfares:plant_meal"
+  },
+  "secondary_group": "plant_meal"
+}

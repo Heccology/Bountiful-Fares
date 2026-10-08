@@ -20,54 +20,89 @@ import org.jetbrains.annotations.Nullable;
 import java.util.*;
 
 public class MillingRecipeBuilder implements RecipeBuilder {
-    private final Item result;
-    private final int count;
-    @Nullable private final Item extra;
-    private final int extraCount;
     private final Ingredient ingredient;
-    private final List<String> groups;
-    private final GristmillBookCategory category;
+
+    private final ItemStack primary;
+    private String primaryGroup;
+    private final GristmillBookCategory primaryCat;
+
+    private ItemStack secondary;
+    private String secondaryGroup;
+    private GristmillBookCategory secondaryCat;
 
     private final Map<String, Criterion<?>> criteria = new LinkedHashMap();
     private final MillingRecipe.RecipeFactory<?> recipeFactory;
 
-    public MillingRecipeBuilder(ItemLike ingredient, ItemLike output, int count, @Nullable ItemLike extra, int extraCount, GristmillBookCategory category, MillingRecipe.RecipeFactory<?> recipeFactory) {
+    public MillingRecipeBuilder(ItemLike ingredient, ItemStack primary, String primaryGroup, GristmillBookCategory primaryCat, ItemStack secondary, String secondaryGroup, GristmillBookCategory secondaryCat, MillingRecipe.RecipeFactory<MillingRecipe> recipeFactory) {
         this.ingredient = Ingredient.of(ingredient);
-        this.result = output.asItem();
-        this.count = count;
+
+        this.primary = primary;
+        this.primaryGroup = primaryGroup;
+        this.primaryCat = primaryCat;
+
+        this.secondary = secondary;
+        this.secondaryGroup = secondaryGroup;
+        this.secondaryCat = secondaryCat;
+
         this.recipeFactory = recipeFactory;
-        this.extra = (extra == null) ? null : extra.asItem();
-        this.extraCount = extraCount;
-        this.category = category;
-        this.groups = new ArrayList<>();
     }
 
-    public static <T extends MillingRecipe> MillingRecipeBuilder create(Item input, ItemLike output, int count, ItemLike extra, int extraCount, GristmillBookCategory category) {
-        return new MillingRecipeBuilder(input, output, count, extra, extraCount, category, MillingRecipe::new);
+    public static <T extends MillingRecipe> MillingRecipeBuilder create(Item input, ItemLike output, int count, GristmillBookCategory category) {
+        return new MillingRecipeBuilder(input, new ItemStack(output.asItem(), count), "", category, ItemStack.EMPTY, "", GristmillBookCategory.MATERIALS, MillingRecipe::new);
     }
 
+    // UNIQUES
+
+    public MillingRecipeBuilder secondaryResult(ItemLike output, int count, GristmillBookCategory category) {
+        this.secondary = new ItemStack(output.asItem(), count);
+        this.secondaryCat = category;
+        return this;
+    }
+
+    public MillingRecipeBuilder secondaryGroup(@Nullable String group) {
+        this.secondaryGroup = group;
+        return this;
+    }
+
+    public MillingRecipeBuilder copyPrimaryToSecondary() {
+        this.secondary = this.primary;
+        this.secondaryCat = this.primaryCat;
+        this.secondaryGroup = this.primaryGroup;
+        return this;
+    }
+
+    public Item getSecondResult() { return this.secondary.getItem(); }
+
+    // MAIN OVERRIDES
+
+    @Override
     public MillingRecipeBuilder unlockedBy(String string, Criterion<?> advancementCriterion) {
         this.criteria.put(string, advancementCriterion);
         return this;
     }
 
     @Override
-    public RecipeBuilder group(@Nullable String group) {
-        this.groups.add(group);
+    public MillingRecipeBuilder group(@Nullable String group) {
+        this.primaryGroup = group;
         return this;
     }
 
-    @Override
-    public Item getResult() {
-        return result;
-    }
+    @Override public Item getResult() { return this.primary.getItem(); }
 
     @Override
     public void save(RecipeOutput exporter, ResourceLocation recipeId) {
         Advancement.Builder builder = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId)).rewards(AdvancementRewards.Builder.recipe(recipeId)).requirements(AdvancementRequirements.Strategy.OR);
         Objects.requireNonNull(builder);
         this.criteria.forEach(builder::addCriterion);
-        MillingRecipe millingRecipe = this.recipeFactory.create(this.ingredient, new ItemStack(this.result), this.count, (this.extra.equals(Items.AIR)) ? ItemStack.EMPTY : new ItemStack(this.extra), this.extraCount, this.category);
+        MillingRecipe millingRecipe = this.recipeFactory.create(
+                this.ingredient,
+                this.primary,
+                this.primaryGroup,
+                this.primaryCat,
+                this.secondary,
+                this.secondaryGroup,
+                this.secondaryCat
+        );
         exporter.accept(recipeId, millingRecipe, builder.build(recipeId.withPrefix("recipes/")));
     }
 

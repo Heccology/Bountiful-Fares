@@ -837,56 +837,242 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.MAGENTA).get(), Items.MAGENTA_WOOL);
         offerJackOStrawRecipes(exporter, BFBlocks.JACK_O_STRAWS.get(DyeColor.PINK).get(), Items.PINK_WOOL);
 
-        offerMillingRecipe(exporter, Items.CARROT, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, Items.POTATO, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, Items.BEETROOT, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, Items.APPLE, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, Items.SWEET_BERRIES, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, BFItems.ORANGE.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, BFItems.LEMON.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, BFItems.PLUM.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, BFItems.HOARY_APPLE.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, BFItems.PASSION_FRUIT.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, BFItems.ELDERBERRIES.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, BFItems.LAPISBERRIES.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, BFItems.COCONUT_HALF.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
-        offerMillingRecipe(exporter, BFItems.LEEK.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "plant_meal");
+        // Milling recipes 1 item
+        String plantMeal = "plant_meal";
+        MillingRecipeBuilder.create(Items.CARROT, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(Items.CARROT), has(Items.CARROT))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.POTATO, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(Items.POTATO), has(Items.POTATO))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.BEETROOT, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(Items.BEETROOT), has(Items.BEETROOT))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.APPLE, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(Items.APPLE), has(Items.APPLE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.SWEET_BERRIES, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(Items.SWEET_BERRIES), has(Items.SWEET_BERRIES))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.ORANGE.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(BFItems.ORANGE.get()), has(BFItems.ORANGE.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.LEMON.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(BFItems.LEMON.get()), has(BFItems.LEMON.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.PLUM.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(BFItems.PLUM.get()), has(BFItems.PLUM.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.HOARY_APPLE.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(BFItems.HOARY_APPLE.get()), has(BFItems.HOARY_APPLE.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.PASSION_FRUIT.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(BFItems.PASSION_FRUIT.get()), has(BFItems.PASSION_FRUIT.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.ELDERBERRIES.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(BFItems.ELDERBERRIES.get()), has(BFItems.ELDERBERRIES.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.LAPISBERRIES.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(BFItems.LAPISBERRIES.get()), has(BFItems.LAPISBERRIES.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.COCONUT_HALF.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(BFItems.COCONUT_HALF.get()), has(BFItems.COCONUT_HALF.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.LEEK.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(BFItems.LEEK.get()), has(BFItems.LEEK.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.WALNUT.get(), BFBlocks.WALNUT_MULCH.get(), 1, GristmillBookCategory.MATERIALS)
+                .group("walnut_mulch")
+                .unlockedBy(getHasName(BFItems.WALNUT.get()), has(BFItems.WALNUT.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.PALM_FROND.get(), BFBlocks.PALM_MULCH.get(), 1, GristmillBookCategory.MATERIALS)
+                .group("palm_mulch")
+                .unlockedBy(getHasName(BFItems.PALM_FROND.get()), has(BFItems.PALM_FROND.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.COBBLESTONE, Items.GRAVEL, 1, GristmillBookCategory.MINERALS)
+                .group("gravel")
+                .unlockedBy(getHasName(Items.COBBLESTONE), has(Items.COBBLESTONE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.GRAVEL, Items.SAND, 1, GristmillBookCategory.MINERALS)
+                .group("sand")
+                .unlockedBy(getHasName(Items.GRAVEL), has(Items.GRAVEL))
+                .save(exporter);
 
-        offerMillingRecipe(exporter, Items.WHEAT, BFItems.FLOUR.get(), 2, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "flour", "plant_meal");
-        offerMillingRecipe(exporter, BFItems.MAIZE.get(), BFItems.FLOUR.get(), 2, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "flour", "plant_meal");
-        offerMillingRecipe(exporter, Items.GRANITE, BFItems.FELDSPAR.get(), 1, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS, "feldspar");
-        offerMillingRecipe(exporter, Items.ANDESITE, BFItems.FELDSPAR.get(), 1, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS, "feldspar");
-        offerMillingRecipe(exporter, Items.DIORITE, BFItems.FELDSPAR.get(), 1, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS, "feldspar");
-        offerMillingRecipe(exporter, Items.TUFF, BFItems.FELDSPAR.get(), 1, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS, "feldspar");
-        offerMillingRecipe(exporter, BFItems.COCONUT.get(), BFItems.COCONUT_COIR.get(), 2, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "coconut_coir", "plant_meal");
-        offerMillingRecipe(exporter, BFItems.WALNUT.get(), BFBlocks.WALNUT_MULCH.get(), 1, GristmillBookCategory.MATERIALS, "walnut_mulch");
-        offerMillingRecipe(exporter, BFItems.PALM_FROND.get(), BFBlocks.PALM_MULCH.get(), 1, GristmillBookCategory.MATERIALS, "palm_mulch");
-        offerMillingRecipe(exporter, Items.BONE, Items.BONE_MEAL, 2, Items.BONE_MEAL, 2, GristmillBookCategory.MATERIALS, "bone_meal");
-        offerMillingRecipe(exporter, Items.SUGAR_CANE, Items.SUGAR, 2, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS, "sugar", "plant_meal");
-        offerMillingRecipe(exporter, Items.AMETHYST_BLOCK, Items.AMETHYST_SHARD, 1, Items.AMETHYST_SHARD, 1, GristmillBookCategory.MINERALS, "amethyst_shard");
-        offerMillingRecipe(exporter, Items.COAL_ORE, Items.COAL, 1, Items.COAL, 1, GristmillBookCategory.MINERALS, "coal");
-        offerMillingRecipe(exporter, Items.DEEPSLATE_COAL_ORE, Items.COAL, 1, Items.COAL, 1, GristmillBookCategory.MINERALS, "coal");
-        offerMillingRecipe(exporter, Items.IRON_ORE, Items.RAW_IRON, 1, Items.RAW_IRON, 1, GristmillBookCategory.MINERALS, "iron");
-        offerMillingRecipe(exporter, Items.DEEPSLATE_IRON_ORE, Items.RAW_IRON, 1, Items.RAW_IRON, 1, GristmillBookCategory.MINERALS, "iron");
-        offerMillingRecipe(exporter, Items.COPPER_ORE, Items.RAW_COPPER, 3, Items.RAW_COPPER, 3, GristmillBookCategory.MINERALS, "copper");
-        offerMillingRecipe(exporter, Items.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER, 3, Items.RAW_COPPER, 3, GristmillBookCategory.MINERALS, "copper");
-        offerMillingRecipe(exporter, Items.REDSTONE_ORE, Items.REDSTONE, 3, Items.REDSTONE, 3, GristmillBookCategory.MINERALS, "redstone");
-        offerMillingRecipe(exporter, Items.DEEPSLATE_REDSTONE_ORE, Items.REDSTONE, 3, Items.REDSTONE, 3, GristmillBookCategory.MINERALS, "redstone");
-        offerMillingRecipe(exporter, Items.LAPIS_ORE, Items.LAPIS_LAZULI, 3, Items.LAPIS_LAZULI, 3, GristmillBookCategory.MINERALS, "lapis");
-        offerMillingRecipe(exporter, Items.DEEPSLATE_LAPIS_ORE, Items.LAPIS_LAZULI, 3, Items.LAPIS_LAZULI, 3, GristmillBookCategory.MINERALS, "lapis");
-        offerMillingRecipe(exporter, Items.GOLD_ORE, Items.RAW_GOLD, 1, Items.RAW_GOLD, 1, GristmillBookCategory.MINERALS, "gold");
-        offerMillingRecipe(exporter, Items.DEEPSLATE_GOLD_ORE, Items.RAW_GOLD, 1, Items.RAW_GOLD, 1, GristmillBookCategory.MINERALS, "gold");
-        offerMillingRecipe(exporter, Items.DIAMOND_ORE, Items.DIAMOND, 1, Items.DIAMOND, 1, GristmillBookCategory.MINERALS, "diamond");
-        offerMillingRecipe(exporter, Items.DEEPSLATE_DIAMOND_ORE, Items.DIAMOND, 1, Items.DIAMOND, 1, GristmillBookCategory.MINERALS, "diamond");
-        offerMillingRecipe(exporter, Items.EMERALD_ORE, Items.EMERALD, 2, Items.EMERALD, 2, GristmillBookCategory.MINERALS, "emerald");
-        offerMillingRecipe(exporter, Items.DEEPSLATE_EMERALD_ORE, Items.EMERALD, 2, Items.EMERALD, 2, GristmillBookCategory.MINERALS, "emerald");
-        offerMillingRecipe(exporter, Items.NETHER_QUARTZ_ORE, Items.QUARTZ, 2, Items.QUARTZ, 2, GristmillBookCategory.MINERALS, "nether_quartz");
-        offerMillingRecipe(exporter, Items.NETHER_GOLD_ORE, Items.GOLD_NUGGET, 4, Items.GOLD_NUGGET, 4, GristmillBookCategory.MINERALS, "gold_nugget");
-        offerMillingRecipe(exporter, Items.SHORT_GRASS, BFItems.GRASS_SEEDS.get(), 1, BFItems.GRASS_SEEDS.get(), 1, GristmillBookCategory.MATERIALS, "grass_seeds");
-        offerMillingRecipe(exporter, Items.COBBLESTONE, Items.GRAVEL, 1, GristmillBookCategory.MINERALS, "gravel");
-        offerMillingRecipe(exporter, Items.GRAVEL, Items.SAND, 1, GristmillBookCategory.MINERALS, "sand");
-        offerMillingRecipe(exporter, Items.ICE, Items.SNOWBALL, 4, Items.SNOWBALL, 4, GristmillBookCategory.MINERALS, "snow");
-        offerMillingRecipe(exporter, BFBlocks.PRISMARINE_BLOSSOM.get(), Items.PRISMARINE_SHARD, 4, Items.PRISMARINE_CRYSTALS, 4, GristmillBookCategory.MINERALS, "prismarine_shard", "prismarine_crystals");
+        // Milling recipes 2 items
+        MillingRecipeBuilder.create(Items.WHEAT, BFItems.FLOUR.get(), 2, GristmillBookCategory.MATERIALS)
+                .group("flour")
+                .secondaryResult(BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .secondaryGroup("plant_meal")
+                .unlockedBy(getHasName(Items.WHEAT), has(Items.WHEAT))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.MAIZE.get(), BFItems.FLOUR.get(), 2, GristmillBookCategory.MATERIALS)
+                .group("flour")
+                .secondaryResult(BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .secondaryGroup("plant_meal")
+                .unlockedBy(getHasName(BFItems.MAIZE.get()), has(BFItems.MAIZE.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.GRANITE, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS)
+                .group("feldspar")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.GRANITE), has(Items.GRANITE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.ANDESITE, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS)
+                .group("feldspar")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.ANDESITE), has(Items.ANDESITE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.DIORITE, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS)
+                .group("feldspar")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.DIORITE), has(Items.DIORITE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.TUFF, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS)
+                .group("feldspar")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.TUFF), has(Items.TUFF))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFItems.COCONUT.get(), BFItems.COCONUT_COIR.get(), 2, GristmillBookCategory.MATERIALS)
+                .group("coconut_coir")
+                .secondaryResult(BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .secondaryGroup(plantMeal)
+                .unlockedBy(getHasName(BFItems.COCONUT.get()), has(BFItems.COCONUT.get()))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.BONE, Items.BONE_MEAL, 2, GristmillBookCategory.MATERIALS)
+                .group("bone_meal")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.BONE), has(Items.BONE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.SUGAR_CANE, Items.SUGAR, 2, GristmillBookCategory.MATERIALS)
+                .group("sugar")
+                .secondaryResult(BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .secondaryGroup(plantMeal)
+                .unlockedBy(getHasName(Items.SUGAR_CANE), has(Items.SUGAR_CANE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.AMETHYST_BLOCK, Items.AMETHYST_SHARD, 1, GristmillBookCategory.MINERALS)
+                .group("amethyst_shard")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.AMETHYST_BLOCK), has(Items.AMETHYST_BLOCK))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.COAL_ORE, Items.COAL, 1, GristmillBookCategory.MINERALS)
+                .group("coal")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.COAL_ORE), has(Items.COAL_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.DEEPSLATE_COAL_ORE, Items.COAL, 1, GristmillBookCategory.MINERALS)
+                .group("coal")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.DEEPSLATE_COAL_ORE), has(Items.DEEPSLATE_COAL_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.IRON_ORE, Items.RAW_IRON, 1, GristmillBookCategory.MINERALS)
+                .group("iron")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.IRON_ORE), has(Items.IRON_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.DEEPSLATE_IRON_ORE, Items.RAW_IRON, 1, GristmillBookCategory.MINERALS)
+                .group("iron")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.DEEPSLATE_IRON_ORE), has(Items.DEEPSLATE_IRON_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.COPPER_ORE, Items.RAW_COPPER, 3, GristmillBookCategory.MINERALS)
+                .group("copper")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.COPPER_ORE), has(Items.COPPER_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER, 3, GristmillBookCategory.MINERALS)
+                .group("copper")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.DEEPSLATE_COPPER_ORE), has(Items.DEEPSLATE_COPPER_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.REDSTONE_ORE, Items.REDSTONE, 3, GristmillBookCategory.MINERALS)
+                .group("redstone")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.REDSTONE_ORE), has(Items.REDSTONE_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.DEEPSLATE_REDSTONE_ORE, Items.REDSTONE, 3, GristmillBookCategory.MINERALS)
+                .group("redstone")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.DEEPSLATE_REDSTONE_ORE), has(Items.DEEPSLATE_REDSTONE_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.LAPIS_ORE, Items.LAPIS_LAZULI, 3, GristmillBookCategory.MINERALS)
+                .group("lapis")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.LAPIS_ORE), has(Items.LAPIS_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.DEEPSLATE_LAPIS_ORE, Items.LAPIS_LAZULI, 3, GristmillBookCategory.MINERALS)
+                .group("lapis")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.DEEPSLATE_LAPIS_ORE), has(Items.DEEPSLATE_LAPIS_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.GOLD_ORE, Items.RAW_GOLD, 1, GristmillBookCategory.MINERALS)
+                .group("gold")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.GOLD_ORE), has(Items.GOLD_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.DEEPSLATE_GOLD_ORE, Items.RAW_GOLD, 1, GristmillBookCategory.MINERALS)
+                .group("gold")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.DEEPSLATE_GOLD_ORE), has(Items.DEEPSLATE_GOLD_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.DIAMOND_ORE, Items.DIAMOND, 1, GristmillBookCategory.MINERALS)
+                .group("diamond")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.DIAMOND_ORE), has(Items.DIAMOND_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.DEEPSLATE_DIAMOND_ORE, Items.DIAMOND, 1, GristmillBookCategory.MINERALS)
+                .group("diamond")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.DEEPSLATE_DIAMOND_ORE), has(Items.DEEPSLATE_DIAMOND_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.EMERALD_ORE, Items.EMERALD, 2, GristmillBookCategory.MINERALS)
+                .group("emerald")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.EMERALD_ORE), has(Items.EMERALD_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.DEEPSLATE_EMERALD_ORE, Items.EMERALD, 2, GristmillBookCategory.MINERALS)
+                .group("emerald")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.DEEPSLATE_EMERALD_ORE), has(Items.DEEPSLATE_EMERALD_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.NETHER_QUARTZ_ORE, Items.QUARTZ, 2, GristmillBookCategory.MINERALS)
+                .group("nether_quartz")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.NETHER_QUARTZ_ORE), has(Items.NETHER_QUARTZ_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.NETHER_GOLD_ORE, Items.GOLD_NUGGET, 4, GristmillBookCategory.MINERALS)
+                .group("gold_nugget")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.NETHER_GOLD_ORE), has(Items.NETHER_GOLD_ORE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.SHORT_GRASS, BFItems.GRASS_SEEDS.get(), 1, GristmillBookCategory.MATERIALS)
+                .group("grass_seeds")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.SHORT_GRASS), has(Items.SHORT_GRASS))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.ICE, Items.SNOWBALL, 4, GristmillBookCategory.MATERIALS)
+                .group("snow")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.ICE), has(Items.ICE))
+                .save(exporter);
+        MillingRecipeBuilder.create(BFBlocks.PRISMARINE_BLOSSOM.get().asItem(), Items.PRISMARINE_SHARD, 4, GristmillBookCategory.MINERALS)
+                .group("prismarine_shard")
+                .secondaryResult(Items.PRISMARINE_CRYSTALS, 4, GristmillBookCategory.MINERALS)
+                .secondaryGroup("prismarine_crystals")
+                .unlockedBy(getHasName(BFBlocks.PRISMARINE_BLOSSOM.get()), has(BFBlocks.PRISMARINE_BLOSSOM.get()))
+                .save(exporter);
 
         offerFermentingRecipe(exporter, Items.APPLE, BFItems.APPLE_CIDER_JAR.get(), 1, 16771237);
         offerFermentingRecipe(exporter, BFItemTags.C_ORANGES, BFItems.CITRUS_ESSENCE.get(), 2, 15200149, "citrus_essence_from_orange_fermenting");
@@ -901,116 +1087,6 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerFermentingRecipe(exporter, BFItemTags.C_COCONUT_HALVES, BFItems.COCONUT_MILK_BOTTLE.get(), 1, 13747902);
         offerFermentingRecipe(exporter, Items.BEETROOT, BFItems.PICKLED_BEETROOT.get(), 2, 12135488);
         offerFermentingRecipe(exporter, Items.ROTTEN_FLESH, BFItems.FOUL_FLESH.get(), 1, 4270367);
-//        new MillingRecipeBuilder(Items.GRANITE, ModItems.FELDSPAR, 2, "granite")
-//                .group("feldspar")
-//                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.DIORITE, ModItems.FELDSPAR, 2, "diorite")
-//                .group("feldspar")
-//                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.ANDESITE, ModItems.FELDSPAR, 2, "andesite")
-//                .group("feldspar")
-//                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.TUFF, ModItems.FELDSPAR, 2, "tuff")
-//                .group("feldspar")
-//                .criterion("has_felsic_stone", conditionsFromTag(ModItemTags.FELSIC_STONES))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.BONE, Items.BONE_MEAL, 4, null)
-//                .group("bone_meal")
-//                .criterion(hasItem(Items.BONE), conditionsFromItem(Items.BONE))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.WHEAT, ModItems.FLOUR, 2, "wheat")
-//                .group("flour")
-//                .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(ModItems.MAIZE, ModItems.FLOUR, 2, "maize")
-//                .group("flour")
-//                .criterion(hasItem(ModItems.MAIZE), conditionsFromItem(ModItems.MAIZE))
-//                .offerTo(exporter);
-//
-//        new MillingRecipeBuilder(Items.COAL_ORE, Items.COAL, 2, null)
-//                .group("coal")
-//                .criterion(hasItem(Items.COAL_ORE), conditionsFromItem(Items.COAL_ORE))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.DEEPSLATE_COAL_ORE, Items.COAL, 2, "deepslate")
-//                .group("coal")
-//                .criterion(hasItem(Items.DEEPSLATE_COAL_ORE), conditionsFromItem(Items.DEEPSLATE_COAL_ORE))
-//                .offerTo(exporter);
-//
-//        new MillingRecipeBuilder(Items.IRON_ORE, Items.RAW_IRON, 2, null)
-//                .group("iron")
-//                .criterion(hasItem(Items.IRON_ORE), conditionsFromItem(Items.IRON_ORE))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.DEEPSLATE_IRON_ORE, Items.RAW_IRON, 2, "deepslate")
-//                .group("iron")
-//                .criterion(hasItem(Items.DEEPSLATE_IRON_ORE), conditionsFromItem(Items.DEEPSLATE_IRON_ORE))
-//                .offerTo(exporter);
-//
-//        new MillingRecipeBuilder(Items.GOLD_ORE, Items.RAW_GOLD, 2, null)
-//                .group("gold")
-//                .criterion(hasItem(Items.GOLD_ORE), conditionsFromItem(Items.GOLD_ORE))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.DEEPSLATE_GOLD_ORE, Items.RAW_GOLD, 2, "deepslate")
-//                .group("gold")
-//                .criterion(hasItem(Items.DEEPSLATE_GOLD_ORE), conditionsFromItem(Items.DEEPSLATE_GOLD_ORE))
-//                .offerTo(exporter);
-//
-//        new MillingRecipeBuilder(Items.COPPER_ORE, Items.RAW_COPPER, 5, null)
-//                .group("copper")
-//                .criterion(hasItem(Items.COPPER_ORE), conditionsFromItem(Items.COPPER_ORE))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.DEEPSLATE_COPPER_ORE, Items.RAW_COPPER, 5, "deepslate")
-//                .group("copper")
-//                .criterion(hasItem(Items.DEEPSLATE_COPPER_ORE), conditionsFromItem(Items.DEEPSLATE_COPPER_ORE))
-//                .offerTo(exporter);
-//
-//        new MillingRecipeBuilder(Items.LAPIS_ORE, Items.LAPIS_LAZULI, 8, null)
-//                .group("lapis")
-//                .criterion(hasItem(Items.LAPIS_ORE), conditionsFromItem(Items.LAPIS_ORE))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.DEEPSLATE_LAPIS_ORE, Items.LAPIS_LAZULI, 8, "deepslate")
-//                .group("lapis")
-//                .criterion(hasItem(Items.DEEPSLATE_LAPIS_ORE), conditionsFromItem(Items.DEEPSLATE_LAPIS_ORE))
-//                .offerTo(exporter);
-//
-//        new MillingRecipeBuilder(Items.REDSTONE_ORE, Items.REDSTONE, 6, null)
-//                .group("redstone")
-//                .criterion(hasItem(Items.REDSTONE_ORE), conditionsFromItem(Items.REDSTONE_ORE))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.DEEPSLATE_REDSTONE_ORE, Items.REDSTONE, 6, "deepslate")
-//                .group("redstone")
-//                .criterion(hasItem(Items.DEEPSLATE_REDSTONE_ORE), conditionsFromItem(Items.DEEPSLATE_REDSTONE_ORE))
-//                .offerTo(exporter);
-//
-//        new MillingRecipeBuilder(Items.NETHER_GOLD_ORE, Items.GOLD_NUGGET, 8, null)
-//                .group("gold_nugget")
-//                .criterion(hasItem(Items.NETHER_GOLD_ORE), conditionsFromItem(Items.NETHER_GOLD_ORE))
-//                .offerTo(exporter);
-//
-//        new MillingRecipeBuilder(Items.NETHER_QUARTZ_ORE, Items.QUARTZ, 2, null)
-//                .group("quartz")
-//                .criterion(hasItem(Items.NETHER_QUARTZ_ORE), conditionsFromItem(Items.NETHER_QUARTZ_ORE))
-//                .offerTo(exporter);
-//
-//        new MillingRecipeBuilder(Items.EMERALD_ORE, Items.EMERALD, 2, null)
-//                .group("emerald")
-//                .criterion(hasItem(Items.EMERALD_ORE), conditionsFromItem(Items.EMERALD_ORE))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.DEEPSLATE_EMERALD_ORE, Items.EMERALD, 2, "deepslate")
-//                .group("emerald")
-//                .criterion(hasItem(Items.DEEPSLATE_EMERALD_ORE), conditionsFromItem(Items.DEEPSLATE_EMERALD_ORE))
-//                .offerTo(exporter);
-//
-//        new MillingRecipeBuilder(Items.DIAMOND_ORE, Items.DIAMOND, 2, null)
-//                .group("diamond")
-//                .criterion(hasItem(Items.DIAMOND_ORE), conditionsFromItem(Items.DIAMOND_ORE))
-//                .offerTo(exporter);
-//        new MillingRecipeBuilder(Items.DEEPSLATE_DIAMOND_ORE, Items.DIAMOND, 2, "deepslate")
-//                .group("diamond")
-//                .criterion(hasItem(Items.DEEPSLATE_DIAMOND_ORE), conditionsFromItem(Items.DEEPSLATE_DIAMOND_ORE))
-//                .offerTo(exporter);
 
         polished(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.CUT_FELDSPAR_BLOCK.get(), BFBlocks.FELDSPAR_BLOCK.get());
         polished(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.FELDSPAR_BRICKS.get(), BFBlocks.CUT_FELDSPAR_BLOCK.get());
@@ -1268,27 +1344,6 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(Items.EGG), has(Items.EGG))
                 .unlockedBy(getHasName(input), has(tag))
                 .save(exporter);
-    }
-
-    public static void offerMillingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, GristmillBookCategory category, String... group) {
-        offerMillingRecipe(exporter, input, output, count, category, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, BuiltInRegistries.ITEM.getKey(output.asItem()).getPath() + "_from_milling_" + BuiltInRegistries.ITEM.getKey(input.asItem()).getPath()), group);
-    }
-
-    public static void offerMillingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, GristmillBookCategory category, ResourceLocation id, String... group) {
-        offerMillingRecipe(exporter, input, output, count, Items.AIR, 0, category, id, group);
-    }
-
-    public static void offerMillingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, ItemLike extra, int extraCount, GristmillBookCategory category, String... group) {
-        offerMillingRecipe(exporter, input, output, count, extra, extraCount, category, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, BuiltInRegistries.ITEM.getKey(output.asItem()).getPath() + "_from_milling_" + BuiltInRegistries.ITEM.getKey(input.asItem()).getPath()), group);
-    }
-
-    public static void offerMillingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, ItemLike extra, int extraCount, GristmillBookCategory category, ResourceLocation id, String... group) {
-        MillingRecipeBuilder builder = MillingRecipeBuilder.create(input.asItem(), output, count, extra, extraCount, category)
-                .unlockedBy(getHasName(input), has(input));
-        for (String g : group) {
-            builder.group(g);
-        }
-        builder.save(exporter, id);
     }
 
     public static void offerFermentingRecipe(RecipeOutput exporter, ItemLike input, ItemLike output, int count, int particleColor) {

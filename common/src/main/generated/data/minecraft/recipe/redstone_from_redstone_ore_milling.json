@@ -1,0 +1,18 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:redstone_ore"
+  },
+  "primary": {
+    "count": 3,
+    "id": "minecraft:redstone"
+  },
+  "primary_category": "minerals",
+  "primary_group": "redstone",
+  "secondary": {
+    "count": 3,
+    "id": "minecraft:redstone"
+  },
+  "secondary_category": "minerals",
+  "secondary_group": "redstone"
+}

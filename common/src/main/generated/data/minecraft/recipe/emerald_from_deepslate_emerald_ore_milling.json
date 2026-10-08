@@ -1,0 +1,18 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:deepslate_emerald_ore"
+  },
+  "primary": {
+    "count": 2,
+    "id": "minecraft:emerald"
+  },
+  "primary_category": "minerals",
+  "primary_group": "emerald",
+  "secondary": {
+    "count": 2,
+    "id": "minecraft:emerald"
+  },
+  "secondary_category": "minerals",
+  "secondary_group": "emerald"
+}

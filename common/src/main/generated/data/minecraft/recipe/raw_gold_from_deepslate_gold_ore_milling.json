@@ -1,0 +1,18 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:deepslate_gold_ore"
+  },
+  "primary": {
+    "count": 1,
+    "id": "minecraft:raw_gold"
+  },
+  "primary_category": "minerals",
+  "primary_group": "gold",
+  "secondary": {
+    "count": 1,
+    "id": "minecraft:raw_gold"
+  },
+  "secondary_category": "minerals",
+  "secondary_group": "gold"
+}

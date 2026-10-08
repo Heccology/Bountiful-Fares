@@ -1,0 +1,17 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:ice"
+  },
+  "primary": {
+    "count": 4,
+    "id": "minecraft:snowball"
+  },
+  "primary_category": "materials",
+  "primary_group": "snow",
+  "secondary": {
+    "count": 4,
+    "id": "minecraft:snowball"
+  },
+  "secondary_group": "snow"
+}

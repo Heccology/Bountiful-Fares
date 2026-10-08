@@ -1,0 +1,18 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:lapis_ore"
+  },
+  "primary": {
+    "count": 3,
+    "id": "minecraft:lapis_lazuli"
+  },
+  "primary_category": "minerals",
+  "primary_group": "lapis",
+  "secondary": {
+    "count": 3,
+    "id": "minecraft:lapis_lazuli"
+  },
+  "secondary_category": "minerals",
+  "secondary_group": "lapis"
+}

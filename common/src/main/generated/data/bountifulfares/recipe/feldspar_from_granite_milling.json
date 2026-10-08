@@ -1,0 +1,18 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:granite"
+  },
+  "primary": {
+    "count": 1,
+    "id": "bountifulfares:feldspar"
+  },
+  "primary_category": "minerals",
+  "primary_group": "feldspar",
+  "secondary": {
+    "count": 1,
+    "id": "bountifulfares:feldspar"
+  },
+  "secondary_category": "minerals",
+  "secondary_group": "feldspar"
+}

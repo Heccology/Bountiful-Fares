@@ -13,6 +13,7 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
@@ -43,7 +44,7 @@ public class MillingRecipe implements Recipe<SingleRecipeInput> {
     }
 
     public MillingRecipe(Ingredient input, ItemStack primaryResult, String primaryGroup, GristmillBookCategory primaryCategory, ItemStack secondaryResult, String secondaryGroup, GristmillBookCategory secondaryCategory) {
-        this(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, "milling"), input, primaryResult, primaryGroup, primaryCategory, secondaryResult, secondaryGroup, secondaryCategory);
+        this(ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID, Type.ID), input, primaryResult, primaryGroup, primaryCategory, secondaryResult, secondaryGroup, secondaryCategory);
     }
 
     @Override
@@ -94,12 +95,10 @@ public class MillingRecipe implements Recipe<SingleRecipeInput> {
         T create(
                 Ingredient ingredient,
                 ItemStack primary,
-                int primaryCnt,
                 String primaryGrp,
                 GristmillBookCategory primaryCtgy,
 
                 ItemStack secondary,
-                int secondaryCnt,
                 String secondaryGrp,
                 GristmillBookCategory secondaryCtgy
         );
@@ -118,30 +117,30 @@ public class MillingRecipe implements Recipe<SingleRecipeInput> {
         public final MapCodec<MillingRecipe> CODEC;
         public final StreamCodec<RegistryFriendlyByteBuf, MillingRecipe> PACKET_CODEC;
 
-        public MillingRecipe create(Ingredient ingredient, ItemStack primary, int primaryCnt, String primaryGrp, GristmillBookCategory primaryCtgy, ItemStack secondary, int secondaryCnt, String secondaryGrp, GristmillBookCategory secondaryCtgy) {
-            return this.recipeFactory.create(ingredient, primary, primaryCnt, primaryGrp, primaryCtgy, secondary, secondaryCnt, secondaryGrp, secondaryCtgy);
+        public MillingRecipe create(Ingredient ingredient, ItemStack primary, String primaryGrp, GristmillBookCategory primaryCtgy, ItemStack secondary, String secondaryGrp, GristmillBookCategory secondaryCtgy) {
+            return this.recipeFactory.create(ingredient, primary, primaryGrp, primaryCtgy, secondary, secondaryGrp, secondaryCtgy);
         }
 
         public Serializer(MillingRecipe.RecipeFactory<MillingRecipe> recipeFactory) {
             this.CODEC = RecordCodecBuilder.mapCodec((instance) ->
                     instance.group(
-                            Codec.STRING.optionalFieldOf("primaryGroup", "")
-                                    .forGetter((recipe) -> recipe.primaryGroup),
-                            Codec.STRING.optionalFieldOf("secondaryGroup", "")
-                                    .forGetter((recipe) -> recipe.secondaryGroup),
                             Ingredient.CODEC_NONEMPTY.fieldOf("ingredient")
                                     .forGetter((recipe) -> recipe.ingredient),
-                            ItemStack.STRICT_SINGLE_ITEM_CODEC.fieldOf("primary")
+
+                            ItemStack.CODEC.fieldOf("primary")
                                     .forGetter((recipe) -> recipe.primary),
-                            ExtraCodecs.intRange(1, 99).fieldOf("primary_count")
-                                    .forGetter((recipe) -> recipe.primary.getCount()),
-                            ItemStack.OPTIONAL_CODEC.lenientOptionalFieldOf("secondary", ItemStack.EMPTY)
+                            Codec.STRING.lenientOptionalFieldOf("primary_group", "")
+                                    .forGetter((recipe) -> recipe.primaryGroup),
+                            GristmillBookCategory.CODEC.fieldOf("primary_category")
+                                    .orElse(GristmillBookCategory.MATERIALS)
+                                    .forGetter((recipe) -> recipe.primaryCategory),
+
+                            ItemStack.CODEC.lenientOptionalFieldOf("secondary", ItemStack.EMPTY)
                                     .forGetter((recipe) -> recipe.secondary),
-                            ExtraCodecs.intRange(0, 99).lenientOptionalFieldOf("secondary_count", 0)
-                                    .forGetter((recipe) -> recipe.secondary.getCount()),
-                            GristmillBookCategory.CODEC.fieldOf("category")
-                                    .orElse(GristmillBookCategory.MINERALS)
-                                    .forGetter((recipe) -> recipe.category)
+                            Codec.STRING.lenientOptionalFieldOf("secondary_group", "")
+                                    .forGetter((recipe) -> recipe.secondaryGroup),
+                            GristmillBookCategory.CODEC.lenientOptionalFieldOf("secondary_category", GristmillBookCategory.MATERIALS)
+                                    .forGetter((recipe) -> recipe.secondaryCategory)
                             )
                             .apply(instance, recipeFactory::create));
             this.PACKET_CODEC = StreamCodec.of(this::write, this::read);
@@ -149,36 +148,43 @@ public class MillingRecipe implements Recipe<SingleRecipeInput> {
         }
 
         public MillingRecipe read(RegistryFriendlyByteBuf buf) {
-            Ingredient ingredient = Ingredient.CONTENTS_STREAM_CODEC.decode(buf);
-            ItemStack itemStack = ItemStack.STREAM_CODEC.decode(buf);
-            int count = ByteBufCodecs.INT.decode(buf);
-
+            // Input
+            Ingredient input = Ingredient.CONTENTS_STREAM_CODEC.decode(buf);
+            // Primary
+            ItemStack priStack = ItemStack.STREAM_CODEC.decode(buf);
+            String priStr = ByteBufCodecs.STRING_UTF8.decode(buf);
+            GristmillBookCategory priCat = GristmillBookCategory.STREAM_CODEC.decode(buf);
+            // Bool
             boolean isEmpty = ByteBufCodecs.BOOL.decode(buf);
-
-            ItemStack itemStackEx = ItemStack.EMPTY;
-            int countEx = 0;
+            // Secondary (ifEmpty)
+            ItemStack secStack = ItemStack.EMPTY;
+            String secStr = "";
+            GristmillBookCategory secCat = GristmillBookCategory.MATERIALS;
             if (!isEmpty) {
-                itemStackEx = ItemStack.STREAM_CODEC.decode(buf);
-                countEx = ByteBufCodecs.INT.decode(buf);
+                secStack = ItemStack.STREAM_CODEC.decode(buf);
+                secStr = ByteBufCodecs.STRING_UTF8.decode(buf);
+                secCat = GristmillBookCategory.STREAM_CODEC.decode(buf);
             }
 
-            GristmillBookCategory cat = GristmillBookCategory.STREAM_CODEC.decode(buf);
-            return this.recipeFactory.create(ingredient, itemStack, count, itemStackEx, countEx, cat);
+            return this.recipeFactory.create(input, priStack, priStr, priCat, secStack, secStr, secCat);
         }
 
         public void write(RegistryFriendlyByteBuf buf, MillingRecipe recipe) {
+            // Ingredients
             Ingredient.CONTENTS_STREAM_CODEC.encode(buf, recipe.ingredient);
-            ItemStack.STREAM_CODEC.encode(buf, recipe.output);
-            ByteBufCodecs.INT.encode(buf, recipe.output.getCount());
-
-            boolean isEmpty = recipe.extra.isEmpty();
+            // Primary
+            ItemStack.STREAM_CODEC.encode(buf, recipe.primary);
+            ByteBufCodecs.STRING_UTF8.encode(buf, recipe.primaryGroup);
+            GristmillBookCategory.STREAM_CODEC.encode(buf, recipe.primaryCategory);
+            // IsEmpty
+            boolean isEmpty = recipe.secondary.isEmpty();
             ByteBufCodecs.BOOL.encode(buf, isEmpty);
+            // Secondary (ifEmpty)
             if (!isEmpty) {
-                ItemStack.STREAM_CODEC.encode(buf, recipe.extra);
-                ByteBufCodecs.INT.encode(buf, recipe.extra.getCount());
+                ItemStack.STREAM_CODEC.encode(buf, recipe.secondary);
+                ByteBufCodecs.STRING_UTF8.encode(buf, recipe.secondaryGroup);
+                GristmillBookCategory.STREAM_CODEC.encode(buf, recipe.secondaryCategory);
             }
-
-            GristmillBookCategory.STREAM_CODEC.encode(buf, recipe.category);
         }
 
         @Override public MapCodec<MillingRecipe> codec() {

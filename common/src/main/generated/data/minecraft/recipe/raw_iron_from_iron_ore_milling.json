@@ -1,0 +1,18 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:iron_ore"
+  },
+  "primary": {
+    "count": 1,
+    "id": "minecraft:raw_iron"
+  },
+  "primary_category": "minerals",
+  "primary_group": "iron",
+  "secondary": {
+    "count": 1,
+    "id": "minecraft:raw_iron"
+  },
+  "secondary_category": "minerals",
+  "secondary_group": "iron"
+}

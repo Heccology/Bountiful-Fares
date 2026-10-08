@@ -1,0 +1,17 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "bountifulfares:maize"
+  },
+  "primary": {
+    "count": 2,
+    "id": "bountifulfares:flour"
+  },
+  "primary_category": "materials",
+  "primary_group": "flour",
+  "secondary": {
+    "count": 1,
+    "id": "bountifulfares:plant_meal"
+  },
+  "secondary_group": "plant_meal"
+}

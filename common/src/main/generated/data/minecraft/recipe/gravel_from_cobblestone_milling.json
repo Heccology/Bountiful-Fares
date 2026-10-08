@@ -1,0 +1,12 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:cobblestone"
+  },
+  "primary": {
+    "count": 1,
+    "id": "minecraft:gravel"
+  },
+  "primary_category": "minerals",
+  "primary_group": "gravel"
+}

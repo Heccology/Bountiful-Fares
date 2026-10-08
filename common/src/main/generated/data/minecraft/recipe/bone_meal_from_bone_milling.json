@@ -1,0 +1,17 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:bone"
+  },
+  "primary": {
+    "count": 2,
+    "id": "minecraft:bone_meal"
+  },
+  "primary_category": "materials",
+  "primary_group": "bone_meal",
+  "secondary": {
+    "count": 2,
+    "id": "minecraft:bone_meal"
+  },
+  "secondary_group": "bone_meal"
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hoary_apple": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:hoary_apple"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bountifulfares:plant_meal_from_hoary_apple_milling"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hoary_apple"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bountifulfares:plant_meal_from_hoary_apple_milling"
+    ]
+  }
+}

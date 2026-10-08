@@ -1,0 +1,17 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:short_grass"
+  },
+  "primary": {
+    "count": 1,
+    "id": "bountifulfares:grass_seeds"
+  },
+  "primary_category": "materials",
+  "primary_group": "grass_seeds",
+  "secondary": {
+    "count": 1,
+    "id": "bountifulfares:grass_seeds"
+  },
+  "secondary_group": "grass_seeds"
+}

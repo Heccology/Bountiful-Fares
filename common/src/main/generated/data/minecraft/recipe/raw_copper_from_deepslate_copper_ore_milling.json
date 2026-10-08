@@ -1,0 +1,18 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:deepslate_copper_ore"
+  },
+  "primary": {
+    "count": 3,
+    "id": "minecraft:raw_copper"
+  },
+  "primary_category": "minerals",
+  "primary_group": "copper",
+  "secondary": {
+    "count": 3,
+    "id": "minecraft:raw_copper"
+  },
+  "secondary_category": "minerals",
+  "secondary_group": "copper"
+}

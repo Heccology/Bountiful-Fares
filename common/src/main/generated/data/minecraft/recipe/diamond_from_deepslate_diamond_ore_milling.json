@@ -1,0 +1,18 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:deepslate_diamond_ore"
+  },
+  "primary": {
+    "count": 1,
+    "id": "minecraft:diamond"
+  },
+  "primary_category": "minerals",
+  "primary_group": "diamond",
+  "secondary": {
+    "count": 1,
+    "id": "minecraft:diamond"
+  },
+  "secondary_category": "minerals",
+  "secondary_group": "diamond"
+}

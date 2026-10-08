@@ -1,4 +1,4 @@
-package net.hecco.bountifulfares.compat.jei.category;
+package net.hecco.bountifulfares.definition.compat.jei.category;
 
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -37,7 +37,7 @@ public class MillingRecipeCategory implements IRecipeCategory<MillingRecipe> {
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, MillingRecipe recipe, IFocusGroup focusGroup) {
         Ingredient recipeIngredients = recipe.getIngredient();
-        ItemStack resultStack = recipe.getOutput();
+        ItemStack resultStack = recipe.getPrimary();
 
         builder.addSlot(RecipeIngredientRole.INPUT, 7, 10).addItemStack(recipeIngredients.getItems()[0]);
         builder.addSlot(RecipeIngredientRole.OUTPUT, 79, 10).addItemStack(resultStack);

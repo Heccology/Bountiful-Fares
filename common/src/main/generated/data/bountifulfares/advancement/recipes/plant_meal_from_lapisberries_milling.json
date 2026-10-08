@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lapisberries": {
+      "conditions": {
+        "items": [
+          {
+            "items": "bountifulfares:lapisberries"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bountifulfares:plant_meal_from_lapisberries_milling"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lapisberries"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bountifulfares:plant_meal_from_lapisberries_milling"
+    ]
+  }
+}

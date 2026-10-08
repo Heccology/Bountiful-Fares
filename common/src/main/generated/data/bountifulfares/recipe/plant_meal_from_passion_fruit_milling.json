@@ -1,0 +1,12 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "bountifulfares:passion_fruit"
+  },
+  "primary": {
+    "count": 1,
+    "id": "bountifulfares:plant_meal"
+  },
+  "primary_category": "materials",
+  "primary_group": "plant_meal"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "bountifulfares:walnut"
+  },
+  "primary": {
+    "count": 1,
+    "id": "bountifulfares:walnut_mulch"
+  },
+  "primary_category": "materials",
+  "primary_group": "walnut_mulch"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "bountifulfares:palm_frond"
+  },
+  "primary": {
+    "count": 1,
+    "id": "bountifulfares:palm_mulch"
+  },
+  "primary_category": "materials",
+  "primary_group": "palm_mulch"
+}

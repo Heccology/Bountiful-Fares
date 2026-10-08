@@ -131,7 +131,7 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
     private boolean hasRecipe() {
         Optional<RecipeHolder<MillingRecipe>> recipe = getCurrentRecipe();
         if (recipe.isEmpty()) return false;
-        ItemStack output = recipe.get().value().getOutput();
+        ItemStack output = recipe.get().value().getPrimary();
         return canInsertAmountIntoOutputSlot(output.getCount())
                 && canInsertItemIntoOutputSlot(output);
     }
@@ -139,7 +139,7 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
     private void craftItem() {
         Optional<RecipeHolder<MillingRecipe>> recipe = getCurrentRecipe();
         this.removeItem(INPUT_SLOT, 1);
-        ItemStack i = recipe.get().value().getOutput();
+        ItemStack i = recipe.get().value().getPrimary();
         i.grow(inventory.get(PRIMARY_SLOT).getCount());
         this.setItem(PRIMARY_SLOT, i);
         this.setChanged();

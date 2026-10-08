@@ -1,0 +1,18 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "bountifulfares:prismarine_blossom"
+  },
+  "primary": {
+    "count": 4,
+    "id": "minecraft:prismarine_shard"
+  },
+  "primary_category": "minerals",
+  "primary_group": "prismarine_shard",
+  "secondary": {
+    "count": 4,
+    "id": "minecraft:prismarine_crystals"
+  },
+  "secondary_category": "minerals",
+  "secondary_group": "prismarine_crystals"
+}
