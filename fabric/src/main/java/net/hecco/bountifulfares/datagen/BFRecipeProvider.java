@@ -855,10 +855,6 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .group(plantMeal)
                 .unlockedBy(getHasName(Items.APPLE), has(Items.APPLE))
                 .save(exporter);
-        MillingRecipeBuilder.create(Items.SWEET_BERRIES, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
-                .group(plantMeal)
-                .unlockedBy(getHasName(Items.SWEET_BERRIES), has(Items.SWEET_BERRIES))
-                .save(exporter);
         MillingRecipeBuilder.create(BFItems.ORANGE.get(), BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
                 .group(plantMeal)
                 .unlockedBy(getHasName(BFItems.ORANGE.get()), has(BFItems.ORANGE.get()))
@@ -913,16 +909,22 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .save(exporter);
 
         // Milling recipes 2 items
+        MillingRecipeBuilder.create(Items.SWEET_BERRIES, BFItems.SWEET_BERRY_PIPS.get(), 1, GristmillBookCategory.MATERIALS)
+                .group("sweet_berry_pips")
+                .secondaryResult(BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .secondaryGroup(plantMeal)
+                .unlockedBy(getHasName(Items.SWEET_BERRIES), has(Items.SWEET_BERRIES))
+                .save(exporter);
         MillingRecipeBuilder.create(Items.WHEAT, BFItems.FLOUR.get(), 2, GristmillBookCategory.MATERIALS)
                 .group("flour")
                 .secondaryResult(BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
-                .secondaryGroup("plant_meal")
+                .secondaryGroup(plantMeal)
                 .unlockedBy(getHasName(Items.WHEAT), has(Items.WHEAT))
                 .save(exporter);
         MillingRecipeBuilder.create(BFItems.MAIZE.get(), BFItems.FLOUR.get(), 2, GristmillBookCategory.MATERIALS)
                 .group("flour")
                 .secondaryResult(BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
-                .secondaryGroup("plant_meal")
+                .secondaryGroup(plantMeal)
                 .unlockedBy(getHasName(BFItems.MAIZE.get()), has(BFItems.MAIZE.get()))
                 .save(exporter);
         MillingRecipeBuilder.create(Items.GRANITE, BFItems.FELDSPAR.get(), 1, GristmillBookCategory.MINERALS)
@@ -1062,10 +1064,20 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .copyPrimaryToSecondary()
                 .unlockedBy(getHasName(Items.SHORT_GRASS), has(Items.SHORT_GRASS))
                 .save(exporter);
-        MillingRecipeBuilder.create(Items.ICE, Items.SNOWBALL, 4, GristmillBookCategory.MATERIALS)
+        MillingRecipeBuilder.create(Items.ICE, Items.SNOWBALL, 2, GristmillBookCategory.MATERIALS)
                 .group("snow")
                 .copyPrimaryToSecondary()
                 .unlockedBy(getHasName(Items.ICE), has(Items.ICE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.PACKED_ICE, Items.SNOWBALL, 4, GristmillBookCategory.MATERIALS)
+                .group("snow")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.PACKED_ICE), has(Items.PACKED_ICE))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.BLUE_ICE, Items.SNOWBALL, 4, GristmillBookCategory.MATERIALS)
+                .group("snow")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.BLUE_ICE), has(Items.BLUE_ICE))
                 .save(exporter);
         MillingRecipeBuilder.create(BFBlocks.PRISMARINE_BLOSSOM.get().asItem(), Items.PRISMARINE_SHARD, 4, GristmillBookCategory.MINERALS)
                 .group("prismarine_shard")

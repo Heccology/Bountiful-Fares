@@ -5,6 +5,7 @@ import net.hecco.bountifulfares.definition.block.entity.slot.GristmillOutputSlot
 import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
 import net.hecco.bountifulfares.registry.content.BFMenus;
 import net.hecco.bountifulfares.registry.misc.BFRecipeBookTypes;
+import net.minecraft.util.Mth;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -17,7 +18,7 @@ import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 
 public class GristmillMenu extends RecipeBookMenu<SingleRecipeInput, MillingRecipe> {
-    private static final int INVENTORY_SIZE = 2; // todo: set to 3 when adding new slot
+    private static final int INVENTORY_SIZE = 3;
 
     protected final Level level;
     protected final Player player;
@@ -32,12 +33,10 @@ public class GristmillMenu extends RecipeBookMenu<SingleRecipeInput, MillingReci
         return this.propertyDelegate.get(0) > 0;
     }
 
-    public int getScaledProgress() {
-        float progress = this.propertyDelegate.get(0);
-        float maxProgress = this.propertyDelegate.get(1);
-        int progressArrowSize = 36;
-
-        return (int)(progress / maxProgress) * progressArrowSize;
+    public float getScaledProgress() {
+        int i = this.propertyDelegate.get(0);
+        int j = this.propertyDelegate.get(1);
+        return j != 0 && i != 0 ? Mth.clamp((float)i / (float)j, 0.0F, 1.0F) : 0.0F;
     }
 
     public GristmillMenu(int syncId, Inventory playerInventory, Container inventory, ContainerData propertyDelegate) {
@@ -46,8 +45,9 @@ public class GristmillMenu extends RecipeBookMenu<SingleRecipeInput, MillingReci
         this.propertyDelegate = propertyDelegate;
         this.player = playerInventory.player;
         this.level = this.player.level();
-        this.addSlot(new Slot(inventory, 0, 44, 36));
-        this.addSlot(new GristmillOutputSlot(inventory, 1, 116, 36));
+        this.addSlot(new Slot(inventory, 0, 40, 36));
+        this.addSlot(new GristmillOutputSlot(inventory, 1, 112, 36));
+        this.addSlot(new GristmillOutputSlot(inventory, 2, 138, 36));
 
         checkContainerSize(this.inventory, INVENTORY_SIZE);
         addPlayerInventory(playerInventory);

@@ -1,0 +1,17 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:sweet_berries"
+  },
+  "primary": {
+    "count": 1,
+    "id": "bountifulfares:sweet_berry_pips"
+  },
+  "primary_category": "materials",
+  "primary_group": "sweet_berry_pips",
+  "secondary": {
+    "count": 1,
+    "id": "bountifulfares:plant_meal"
+  },
+  "secondary_group": "plant_meal"
+}

@@ -38,13 +38,14 @@ import java.util.Optional;
 
 public class GristmillBlockEntity extends BlockEntity implements WorldlyContainer, ImplementedInventory, MenuProvider, StackedContentsCompatible {
     private static BooleanProperty millingState;
-    private final NonNullList<ItemStack> inventory = NonNullList.withSize(2, ItemStack.EMPTY);
+    private final NonNullList<ItemStack> inventory = NonNullList.withSize(3, ItemStack.EMPTY);
 
-    private static final int[] TOP_SLOTS = new int[]{0};
-    private static final int[] BOTTOM_SLOTS = new int[]{1};
     public static final int INPUT_SLOT = 0;
     public static final int PRIMARY_SLOT = 1;
     public static final int SECONDARY_SLOT = 2;
+    private static final int[] TOP_SLOTS = new int[]{INPUT_SLOT};
+    private static final int[] BOTTOM_SLOTS = new int[]{PRIMARY_SLOT, SECONDARY_SLOT};
+
     public final ContainerData propertyDelegate;
     private int progress = 0;
     private int maxProgress = 80;
@@ -104,18 +105,15 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
         if (Services.PLATFORM.get().getIntConfigValue("millingTime") * 20 != this.maxProgress) {
             this.maxProgress = Services.PLATFORM.get().getIntConfigValue("millingTime") * 20;
         }
-        if (!state.getValue(millingState) && !blockEntity.inventory.get(0).isEmpty() && blockEntity.hasRecipe() && blockEntity.canInsertOutputSlot()) {
+        if (!state.getValue(millingState) && !blockEntity.inventory.get(INPUT_SLOT).isEmpty() && blockEntity.hasRecipe()) {
             world.setBlockAndUpdate(pos, state.setValue(millingState, true));
         }
         if (state.getValue(millingState) && !blockEntity.hasRecipe()) {
             world.setBlockAndUpdate(pos, state.setValue(millingState, false));
         }
 
-        if (this.progress == -1) {
-            this.progress = 20;
-        }
         if (!world.isClientSide()) {
-            if (this.canInsertOutputSlot() && this.hasRecipe()) {
+            if (this.hasRecipe()) {
                 this.increaseCraftingProgress();
                 setChanged(world, pos, state);
                 if (this.hasCraftingFinished()) {
@@ -131,26 +129,46 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
     private boolean hasRecipe() {
         Optional<RecipeHolder<MillingRecipe>> recipe = getCurrentRecipe();
         if (recipe.isEmpty()) return false;
-        ItemStack output = recipe.get().value().getPrimary();
-        return canInsertAmountIntoOutputSlot(output.getCount())
-                && canInsertItemIntoOutputSlot(output);
+        ItemStack primary = recipe.get().value().getPrimary();
+        ItemStack secondary = recipe.get().value().getSecondary();
+
+        if (secondary.isEmpty()) {
+            return (
+                    canInsertAmountIntoOutputSlot(PRIMARY_SLOT, primary.getCount()) && canInsertItemIntoOutputSlot(PRIMARY_SLOT, primary)
+            );
+        }
+        else {
+            return (
+                    (canInsertAmountIntoOutputSlot(PRIMARY_SLOT, primary.getCount()) && canInsertItemIntoOutputSlot(PRIMARY_SLOT, primary))
+                    && (canInsertAmountIntoOutputSlot(SECONDARY_SLOT, secondary.getCount()) && canInsertItemIntoOutputSlot(SECONDARY_SLOT, secondary))
+            );
+        }
     }
 
     private void craftItem() {
         Optional<RecipeHolder<MillingRecipe>> recipe = getCurrentRecipe();
+
         this.removeItem(INPUT_SLOT, 1);
+
         ItemStack i = recipe.get().value().getPrimary();
         i.grow(inventory.get(PRIMARY_SLOT).getCount());
         this.setItem(PRIMARY_SLOT, i);
+
+        i = recipe.get().value().getSecondary();
+        if (!i.isEmpty()) {
+            i.grow(inventory.get(SECONDARY_SLOT).getCount());
+            this.setItem(SECONDARY_SLOT, i);
+        }
+
         this.setChanged();
     }
 
-    private boolean canInsertItemIntoOutputSlot(ItemStack output) {
-        return this.getItem(PRIMARY_SLOT).isEmpty() || this.getItem(PRIMARY_SLOT).getItem() == output.getItem();
+    private boolean canInsertItemIntoOutputSlot(int slot, ItemStack output) {
+        return this.getItem(slot).isEmpty() || this.getItem(slot).getItem() == output.getItem();
     }
 
-    private boolean canInsertAmountIntoOutputSlot(int count) {
-        return this.getItem(PRIMARY_SLOT).isEmpty() || this.getItem(PRIMARY_SLOT).getMaxStackSize() >= this.getItem(PRIMARY_SLOT).getCount() + count;
+    private boolean canInsertAmountIntoOutputSlot(int slot, int count) {
+        return this.getItem(slot).isEmpty() || this.getItem(slot).getMaxStackSize() >= this.getItem(slot).getCount() + count;
     }
 
     @Override
@@ -174,11 +192,6 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
         }
     }
 
-    private boolean canInsertOutputSlot() {
-        return this.getItem(PRIMARY_SLOT).isEmpty() ||
-                this.getItem(PRIMARY_SLOT).getCount() < this.getItem(PRIMARY_SLOT).getMaxStackSize();
-    }
-
     private boolean hasCraftingFinished() {
         return this.progress >= this.maxProgress;
     }
@@ -192,9 +205,8 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
     }
 
     private void decreaseCraftingProgress() {
-        if (this.progress > 0) {
-            this.progress -= 2;
-        }
+        if (this.progress > 0) this.progress -= 2;
+        if (this.progress < 0) this.progress = 0;
     }
 
     @Override

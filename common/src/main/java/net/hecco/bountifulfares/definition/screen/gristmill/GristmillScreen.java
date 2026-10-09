@@ -12,7 +12,9 @@ import net.minecraft.client.gui.screens.recipebook.RecipeUpdateListener;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractFurnaceMenu;
 import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.RecipeBookMenu;
 import net.minecraft.world.inventory.Slot;
@@ -34,10 +36,10 @@ public class GristmillScreen extends AbstractContainerScreen<GristmillMenu> impl
         this.widthTooNarrow = this.width < 379;
         this.recipeBookComponent.init(this.width, this.height, this.minecraft, this.widthTooNarrow, this.menu);
         this.leftPos = this.recipeBookComponent.updateScreenPosition(this.width, this.imageWidth);
-        this.addRenderableWidget(new ImageButton(this.leftPos + 12, this.height / 2 - 49, 20, 18, RecipeBookComponent.RECIPE_BUTTON_SPRITES, (button) -> {
+        this.addRenderableWidget(new ImageButton(this.leftPos + 13, this.topPos + 35, 20, 18, RecipeBookComponent.RECIPE_BUTTON_SPRITES, (button) -> {
             this.recipeBookComponent.toggleVisibility();
             this.leftPos = this.recipeBookComponent.updateScreenPosition(this.width, this.imageWidth);
-            button.setPosition(this.leftPos + 12, this.height / 2 - 49);
+            button.setPosition(this.leftPos + 13, this.topPos + 35);
         }));
     }
 
@@ -58,7 +60,6 @@ public class GristmillScreen extends AbstractContainerScreen<GristmillMenu> impl
             this.recipeBookComponent.renderGhostRecipe(context, this.leftPos, this.topPos, true, delta);
         }
 
-
         this.renderTooltip(context, mouseX, mouseY);
         this.recipeBookComponent.renderTooltip(context, this.leftPos, this.topPos, mouseX, mouseY);
     }
@@ -66,13 +67,9 @@ public class GristmillScreen extends AbstractContainerScreen<GristmillMenu> impl
     @Override
     protected void renderBg(GuiGraphics context, float delta, int mouseX, int mouseY) {
         context.blit(TEXTURE, this.leftPos, this.topPos, 0, 0, imageWidth, imageHeight);
-        renderProgressArrow(context, this.leftPos, this.topPos);
-    }
 
-    private void renderProgressArrow(GuiGraphics context, int x, int y) {
-        if (menu.isCrafting()) {
-            context.blitSprite(PROGRESS_ARROW, 36, 16, 0, 0, x + 69, y + 36, menu.getScaledProgress(), 14);
-        }
+        int amnt = Mth.ceil(this.menu.getScaledProgress() * 36.0F);
+        context.blitSprite(PROGRESS_ARROW, 36, 16, 0, 0, this.leftPos + 65, this.topPos + 36, amnt, 16);
     }
 
     @Override

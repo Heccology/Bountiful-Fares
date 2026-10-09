@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bountifulfares:plant_meal_from_sweet_berries_milling"
+        "recipe": "bountifulfares:sweet_berry_pips_from_sweet_berries_milling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "bountifulfares:plant_meal_from_sweet_berries_milling"
+      "bountifulfares:sweet_berry_pips_from_sweet_berries_milling"
     ]
   }
 }
