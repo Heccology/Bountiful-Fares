@@ -1083,7 +1083,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerFermentingRecipe(exporter, BFItems.LAPISBERRIES.get(), BFItems.LAPISBERRY_WINE_BOTTLE.get(), 1, 6449890);
         offerFermentingRecipe(exporter, Items.HONEY_BOTTLE, BFItems.MEAD_BOTTLE.get(), 1, 16774088);
         offerFermentingRecipe(exporter, BFItems.SPONGEKIN_SLICE.get(), BFItems.PICKLED_SPONGEKIN.get(), 2, 3916203);
-        offerFermentingRecipe(exporter, BFItemTags.C_PLUMS, BFItems.PLUM_CIDER_JAR.get(), 1, 14532546);
+        offerFermentingRecipe(exporter, BFItemTags.C_PLUMS, BFItems.PLUM_CIDER_JAR.get(), 1, 14532546, "plum_cider_jar_from_plums_fermenting");
         offerFermentingRecipe(exporter, BFItemTags.C_COCONUT_HALVES, BFItems.COCONUT_MILK_BOTTLE.get(), 1, 13747902);
         offerFermentingRecipe(exporter, Items.BEETROOT, BFItems.PICKLED_BEETROOT.get(), 2, 12135488);
         offerFermentingRecipe(exporter, Items.ROTTEN_FLESH, BFItems.FOUL_FLESH.get(), 1, 4270367);

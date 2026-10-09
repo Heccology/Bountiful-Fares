@@ -33,11 +33,11 @@ public class GristmillMenu extends RecipeBookMenu<SingleRecipeInput, MillingReci
     }
 
     public int getScaledProgress() {
-        int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1);
-        int progressArrowSize = 35;
+        float progress = this.propertyDelegate.get(0);
+        float maxProgress = this.propertyDelegate.get(1);
+        int progressArrowSize = 36;
 
-        return (int) (((float) progress / (float) maxProgress) * progressArrowSize);
+        return (int)(progress / maxProgress) * progressArrowSize;
     }
 
     public GristmillMenu(int syncId, Inventory playerInventory, Container inventory, ContainerData propertyDelegate) {

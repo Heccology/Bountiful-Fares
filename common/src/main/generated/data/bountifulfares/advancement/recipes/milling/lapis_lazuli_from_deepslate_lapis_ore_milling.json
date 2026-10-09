@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_deepslate_lapis_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:deepslate_lapis_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "bountifulfares:lapis_lazuli_from_deepslate_lapis_ore_milling"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_deepslate_lapis_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "bountifulfares:lapis_lazuli_from_deepslate_lapis_ore_milling"
+    ]
+  }
+}

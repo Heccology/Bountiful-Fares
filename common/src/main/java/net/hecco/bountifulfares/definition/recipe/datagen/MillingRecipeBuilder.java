@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.definition.recipe.datagen;
 
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRequirements;
@@ -103,11 +104,11 @@ public class MillingRecipeBuilder implements RecipeBuilder {
                 this.secondaryGroup,
                 this.secondaryCat
         );
-        exporter.accept(recipeId, millingRecipe, builder.build(recipeId.withPrefix("recipes/")));
+        exporter.accept(recipeId, millingRecipe, builder.build(recipeId.withPrefix("recipes/milling/")));
     }
 
     @Override
     public void save(RecipeOutput exporter) {
-        this.save(exporter, ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.ITEM.getKey(getResult()).getNamespace(),BuiltInRegistries.ITEM.getKey(getResult()).getPath() + "_from_" + BuiltInRegistries.ITEM.getKey(this.ingredient.getItems()[0].getItem()).getPath() + "_milling"));
+        this.save(exporter, ResourceLocation.fromNamespaceAndPath(BountifulFares.MOD_ID,BuiltInRegistries.ITEM.getKey(getResult()).getPath() + "_from_" + BuiltInRegistries.ITEM.getKey(this.ingredient.getItems()[0].getItem()).getPath() + "_milling"));
     }
 }

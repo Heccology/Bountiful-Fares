@@ -60,7 +60,7 @@ public class FermentingRecipeBuilder implements RecipeBuilder {
         Advancement.Builder builder = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId)).rewards(AdvancementRewards.Builder.recipe(recipeId)).requirements(AdvancementRequirements.Strategy.OR);
         Objects.requireNonNull(builder);
         FermentationRecipe fermentationRecipe = this.recipeFactory.create(this.ingredient, new ItemStack(this.result), this.count, this.particleColor);
-        exporter.accept(recipeId, fermentationRecipe, builder.build(recipeId.withPrefix("recipes/")));
+        exporter.accept(recipeId, fermentationRecipe, builder.build(recipeId.withPrefix("recipes/fermenting/")));
     }
 
     @Override
@@ -69,11 +69,11 @@ public class FermentingRecipeBuilder implements RecipeBuilder {
         Advancement.Builder builder = exporter.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId)).rewards(AdvancementRewards.Builder.recipe(recipeId)).requirements(AdvancementRequirements.Strategy.OR);
         Objects.requireNonNull(builder);
         FermentationRecipe fermentationRecipe = this.recipeFactory.create(this.ingredient, new ItemStack(this.result), this.count, this.particleColor);
-        exporter.accept(recipeId, fermentationRecipe, builder.build(recipeId.withPrefix("recipes/")));
+        exporter.accept(recipeId, fermentationRecipe, builder.build(recipeId.withPrefix("recipes/fermenting/")));
     }
 
     @Override
     public void save(RecipeOutput exporter) {
-        this.save(exporter, ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.ITEM.getKey(getResult()).getNamespace(), BuiltInRegistries.ITEM.getKey(getResult()).getPath() + "_from_fermenting"));
+        this.save(exporter, ResourceLocation.fromNamespaceAndPath(BuiltInRegistries.ITEM.getKey(getResult()).getNamespace(), BuiltInRegistries.ITEM.getKey(getResult()).getPath() + "_from_fermenting_" + BuiltInRegistries.ITEM.getKey(this.ingredient.getItems()[0].getItem()).getPath()));
     }
 }
