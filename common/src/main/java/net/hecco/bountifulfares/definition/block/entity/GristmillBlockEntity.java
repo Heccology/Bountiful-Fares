@@ -1,5 +1,6 @@
 package net.hecco.bountifulfares.definition.block.entity;
 
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.hecco.bountifulfares.definition.block.custom.GristmillBlock;
 import net.hecco.bountifulfares.definition.platform.Services;
 import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
@@ -15,6 +16,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
@@ -24,9 +26,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.RecipeCraftingHolder;
 import net.minecraft.world.inventory.StackedContentsCompatible;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -34,9 +39,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 
-public class GristmillBlockEntity extends BlockEntity implements WorldlyContainer, ImplementedInventory, MenuProvider, StackedContentsCompatible {
+public class GristmillBlockEntity extends BlockEntity implements MenuProvider, WorldlyContainer, RecipeCraftingHolder, ImplementedInventory, StackedContentsCompatible {
     private static BooleanProperty millingState;
     private final NonNullList<ItemStack> inventory = NonNullList.withSize(3, ItemStack.EMPTY);
 
@@ -46,9 +53,16 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
     private static final int[] TOP_SLOTS = new int[]{INPUT_SLOT};
     private static final int[] BOTTOM_SLOTS = new int[]{PRIMARY_SLOT, SECONDARY_SLOT};
 
+    private static final String PROGRESS_NBT = "Progress";
+    private static final String RECIPES_NBT = "RecipesUsed";
+
     public final ContainerData propertyDelegate;
     private int progress = 0;
     private int maxProgress = 80;
+
+    private final Object2IntOpenHashMap<ResourceLocation> recipesUsed;
+    private final RecipeManager.CachedCheck<SingleRecipeInput, MillingRecipe> quickCheck;
+
     public GristmillBlockEntity(BlockPos pos, BlockState state) {
         super(BFBlockEntities.GRISTMILL_BLOCK_ENTITY.get(), pos, state);
         millingState = ((GristmillBlock) state.getBlock()).getMillingState();
@@ -75,6 +89,9 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
                 return 2;
             }
         };
+
+        this.recipesUsed = new Object2IntOpenHashMap<>();
+        this.quickCheck = RecipeManager.createCheck(BFRecipes.MILLING.get());
     }
 
     @Override
@@ -87,50 +104,58 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
         return this.inventory;
     }
 
+    @Override
+    public void loadAdditional(CompoundTag nbt, HolderLookup.Provider registryLookup) {
+        super.loadAdditional(nbt, registryLookup);
+        ContainerHelper.loadAllItems(nbt, inventory, registryLookup);
+        progress = nbt.getInt(PROGRESS_NBT);
+
+        CompoundTag compoundtag = nbt.getCompound(RECIPES_NBT);
+        for (String key : compoundtag.getAllKeys()) {
+            this.recipesUsed.put(ResourceLocation.parse(key), compoundtag.getInt(key));
+        }
+    }
 
     @Override
     protected void saveAdditional(CompoundTag nbt, HolderLookup.Provider registryLookup) {
         super.saveAdditional(nbt, registryLookup);
         ContainerHelper.saveAllItems(nbt, inventory, registryLookup);
-        nbt.putInt("milling.progress", progress);
-    }
-    @Override
-    public void loadAdditional(CompoundTag nbt, HolderLookup.Provider registryLookup) {
-        ContainerHelper.loadAllItems(nbt, inventory, registryLookup);
-        progress = nbt.getInt("milling.progress");
-        super.loadAdditional(nbt, registryLookup);
+        nbt.putInt(PROGRESS_NBT, progress);
+
+        CompoundTag tag1 = new CompoundTag();
+        this.recipesUsed.forEach((rsc, ing) -> tag1.putInt(rsc.toString(), ing));
+        nbt.put(RECIPES_NBT, tag1);
     }
 
     public void tick(Level world, BlockPos pos, BlockState state, GristmillBlockEntity blockEntity) {
+        RecipeHolder<MillingRecipe> rec = blockEntity.quickCheck.getRecipeFor(new SingleRecipeInput(blockEntity.getItem(INPUT_SLOT)), level).orElse(null);
+
         if (Services.PLATFORM.get().getIntConfigValue("millingTime") * 20 != this.maxProgress) {
             this.maxProgress = Services.PLATFORM.get().getIntConfigValue("millingTime") * 20;
         }
-        if (!state.getValue(millingState) && !blockEntity.inventory.get(INPUT_SLOT).isEmpty() && blockEntity.hasRecipe()) {
+        if (!state.getValue(millingState) && !blockEntity.inventory.get(INPUT_SLOT).isEmpty() && blockEntity.hasRecipe(rec)) {
             world.setBlockAndUpdate(pos, state.setValue(millingState, true));
         }
-        if (state.getValue(millingState) && !blockEntity.hasRecipe()) {
+        if (state.getValue(millingState) && !blockEntity.hasRecipe(rec)) {
             world.setBlockAndUpdate(pos, state.setValue(millingState, false));
         }
 
-        if (!world.isClientSide()) {
-            if (this.hasRecipe()) {
-                this.increaseCraftingProgress();
-                setChanged(world, pos, state);
-                if (this.hasCraftingFinished()) {
-                    this.craftItem();
-                    this.resetCraftingProgress();
-                }
-            } else {
-                this.decreaseCraftingProgress();
+        if (this.hasRecipe(rec)) {
+            this.increaseCraftingProgress();
+            setChanged(world, pos, state);
+            if (this.hasCraftingFinished()) {
+                this.craftItem(rec);
+                this.resetCraftingProgress();
             }
+        } else {
+            this.decreaseCraftingProgress();
         }
     }
 
-    private boolean hasRecipe() {
-        Optional<RecipeHolder<MillingRecipe>> recipe = getCurrentRecipe();
-        if (recipe.isEmpty()) return false;
-        ItemStack primary = recipe.get().value().getPrimary();
-        ItemStack secondary = recipe.get().value().getSecondary();
+    private boolean hasRecipe(RecipeHolder<MillingRecipe> recipe) {
+        if (recipe == null) return false;
+        ItemStack primary = recipe.value().getPrimary();
+        ItemStack secondary = recipe.value().getSecondary();
 
         if (secondary.isEmpty()) {
             return (
@@ -145,21 +170,22 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
         }
     }
 
-    private void craftItem() {
-        Optional<RecipeHolder<MillingRecipe>> recipe = getCurrentRecipe();
+    private void craftItem(RecipeHolder<MillingRecipe> recipe) {
+        if (recipe == null) throw new IllegalArgumentException("Provided a null recipe holder?!");
 
         this.removeItem(INPUT_SLOT, 1);
 
-        ItemStack i = recipe.get().value().getPrimary();
+        ItemStack i = recipe.value().getPrimary();
         i.grow(inventory.get(PRIMARY_SLOT).getCount());
         this.setItem(PRIMARY_SLOT, i);
 
-        i = recipe.get().value().getSecondary();
+        i = recipe.value().getSecondary();
         if (!i.isEmpty()) {
             i.grow(inventory.get(SECONDARY_SLOT).getCount());
             this.setItem(SECONDARY_SLOT, i);
         }
 
+        this.setRecipeUsed(recipe);
         this.setChanged();
     }
 
@@ -229,5 +255,21 @@ public class GristmillBlockEntity extends BlockEntity implements WorldlyContaine
         for(ItemStack itemStack : this.inventory) {
             finder.accountStack(itemStack);
         }
+    }
+
+    @Override
+    public void setRecipeUsed(@Nullable RecipeHolder<?> recipe) {
+        if (recipe != null) {
+            ResourceLocation resourcelocation = recipe.id();
+            this.recipesUsed.addTo(resourcelocation, 1);
+        }
+    }
+
+    @Override
+    public @Nullable RecipeHolder<?> getRecipeUsed() {
+        return null;
+    }
+
+    public void awardUsedRecipes(Player player, List<ItemStack> items) {
     }
 }

@@ -33,15 +33,15 @@ public class GristmillRecipeBookComponent extends RecipeBookComponent {
             ItemStack secondary = mill.getSecondary();
             ghost.setRecipe(recipe);
 
+            ghost.addIngredient(mill.getIngredient(), slots.get(GristmillBlockEntity.INPUT_SLOT).x, slots.get(GristmillBlockEntity.INPUT_SLOT).y);
+
             ghost.addIngredient(Ingredient.of(primary), slots.get(GristmillBlockEntity.PRIMARY_SLOT).x, slots.get(GristmillBlockEntity.PRIMARY_SLOT).y);
-            ghost.addResult(0);
+            ghost.addResult(1);
 
             if (!secondary.isEmpty()) {
                 ghost.addIngredient(Ingredient.of(secondary), slots.get(GristmillBlockEntity.SECONDARY_SLOT).x, slots.get(GristmillBlockEntity.SECONDARY_SLOT).y);
-                ghost.addResult(1);
+                ghost.addResult(2);
             }
-
-            ghost.addIngredient(mill.getIngredient(), slots.get(GristmillBlockEntity.INPUT_SLOT).x, slots.get(GristmillBlockEntity.INPUT_SLOT).y);
         }
         else super.setupGhostRecipe(recipe, slots);
     }

@@ -8,6 +8,7 @@ import net.hecco.bountifulfares.definition.recipe.datagen.GristmillBookCategory;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
 import net.hecco.bountifulfares.registry.misc.BFRecipes;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -70,6 +71,13 @@ public class MillingRecipe implements Recipe<SingleRecipeInput> {
     public GristmillBookCategory getSecondaryRecipeTab() { return this.secondaryCategory; }
     public String getSecondaryGroup() { return this.secondaryGroup; }
 
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        NonNullList<Ingredient> nonnulllist = NonNullList.create();
+        nonnulllist.add(this.ingredient);
+        return nonnulllist;
+    }
+
     @Override public ItemStack assemble(SingleRecipeInput input, HolderLookup.Provider lookup) { return this.getPrimary(); }
     @Override public boolean canCraftInDimensions(int width, int height) {
         return true;
@@ -81,7 +89,6 @@ public class MillingRecipe implements Recipe<SingleRecipeInput> {
     @Override public RecipeSerializer<?> getSerializer() {
         return BFRecipes.MILLING_SERIALIZER.get();
     }
-
     @Override public ItemStack getToastSymbol() {
         return new ItemStack(BFBlocks.GRISTMILL.get());
     }
@@ -106,13 +113,11 @@ public class MillingRecipe implements Recipe<SingleRecipeInput> {
 
     public static class Type<T extends MillingRecipe> implements RecipeType<T> {
         private Type() { }
-        public static final Type INSTANCE = new Type();
         public static final String ID = "milling";
     }
 
     public static class Serializer implements RecipeSerializer<MillingRecipe> {
         private final MillingRecipe.RecipeFactory<MillingRecipe> recipeFactory;
-        public static final Serializer INSTANCE = new Serializer(MillingRecipe::new);
 
         public final MapCodec<MillingRecipe> CODEC;
         public final StreamCodec<RegistryFriendlyByteBuf, MillingRecipe> PACKET_CODEC;

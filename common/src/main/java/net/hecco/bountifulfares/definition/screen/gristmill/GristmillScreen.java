@@ -1,22 +1,17 @@
 package net.hecco.bountifulfares.definition.screen.gristmill;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.screen.gristmill.recipebook.GristmillRecipeBookComponent;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.screens.recipebook.AbstractFurnaceRecipeBookComponent;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
 import net.minecraft.client.gui.screens.recipebook.RecipeUpdateListener;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.AbstractFurnaceMenu;
 import net.minecraft.world.inventory.ClickType;
-import net.minecraft.world.inventory.RecipeBookMenu;
 import net.minecraft.world.inventory.Slot;
 
 public class GristmillScreen extends AbstractContainerScreen<GristmillMenu> implements RecipeUpdateListener {
@@ -34,6 +29,7 @@ public class GristmillScreen extends AbstractContainerScreen<GristmillMenu> impl
     protected void init() {
         super.init();
         this.widthTooNarrow = this.width < 379;
+
         this.recipeBookComponent.init(this.width, this.height, this.minecraft, this.widthTooNarrow, this.menu);
         this.leftPos = this.recipeBookComponent.updateScreenPosition(this.width, this.imageWidth);
         this.addRenderableWidget(new ImageButton(this.leftPos + 13, this.topPos + 35, 20, 18, RecipeBookComponent.RECIPE_BUTTON_SPRITES, (button) -> {
@@ -41,6 +37,9 @@ public class GristmillScreen extends AbstractContainerScreen<GristmillMenu> impl
             this.leftPos = this.recipeBookComponent.updateScreenPosition(this.width, this.imageWidth);
             button.setPosition(this.leftPos + 13, this.topPos + 35);
         }));
+
+        this.addWidget(this.recipeBookComponent);
+        this.setInitialFocus(this.recipeBookComponent);
     }
 
     @Override

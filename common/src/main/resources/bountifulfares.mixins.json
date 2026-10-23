@@ -42,6 +42,7 @@
   "client": [
     "misc.SplashTextMixin",
     "misc.StonecutterScreenMixin",
+    "recipebook.ClientRecipeBookMixin",
     "recipebook.RecipeBookCategoriesMixin",
     "recipebook.RecipeBookComponentMixin",
     "render.AcidifiedEffectBackgroundMixin",

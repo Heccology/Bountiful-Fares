@@ -9,6 +9,7 @@ import net.hecco.bountifulfares.registry.integration.DelicateDyesIntegration;
 import net.hecco.bountifulfares.registry.integration.DungeonsDelightIntegration;
 import net.hecco.bountifulfares.registry.util.BFWoodTypes;
 import net.hecco.nexuslib.platform.NLServices;
+import net.minecraft.client.RecipeBookCategories;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.BiomeColors;

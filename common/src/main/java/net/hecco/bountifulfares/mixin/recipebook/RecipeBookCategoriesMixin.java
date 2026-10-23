@@ -1,5 +1,7 @@
 package net.hecco.bountifulfares.mixin.recipebook;
 
+import com.google.common.collect.ImmutableMap;
+import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.registry.misc.BFRecipeBookCategories;
 import net.hecco.bountifulfares.registry.misc.BFRecipeBookTypes;
 import net.minecraft.client.RecipeBookCategories;
@@ -15,12 +17,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Mixin(RecipeBookCategories.class)
 public class RecipeBookCategoriesMixin {
+    ///////// ENUM
     @SuppressWarnings("InvokerTarget")
     @Invoker("<init>")
     private static RecipeBookCategories newCat(String internalName, int internalId, ItemStack... stack) {
@@ -66,6 +67,7 @@ public class RecipeBookCategoriesMixin {
         BFRecipeBookCategories.readyUpCategories();
     }
 
+    ///////// GET CATEGORIES
     @Inject(method = "getCategories", at = @At("HEAD"), cancellable = true)
     private static void bountifulfares$getCategories(RecipeBookType type, CallbackInfoReturnable<List<RecipeBookCategories>> cir) {
         if (type.equals(BFRecipeBookTypes.BF_GRISTMILL)) cir.setReturnValue(BFRecipeBookCategories.GRISTMILL_CATEGORIES);

@@ -30,9 +30,8 @@ public class GristmillGhostRecipe extends GhostRecipe {
             ItemStack itemstack = ghost.getItem();
             guiGraphics.renderFakeItem(itemstack, j, k);
             guiGraphics.fill(RenderType.guiGhostRecipeOverlay(), j, k, j + 16, k + 16, 822083583);
-            if (i == 0) {
-                guiGraphics.renderItemDecorations(minecraft.font, itemstack, j, k);
-            }
+
+            if (this.results.contains(i)) guiGraphics.renderItemDecorations(minecraft.font, itemstack, j, k);
         }
     }
 

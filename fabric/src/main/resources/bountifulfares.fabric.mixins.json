@@ -9,7 +9,8 @@
     "NoteBlockInstrumentMixin"
   ],
   "client": [
-    "compat.appleskin.TooltipOverlayHandlerMixin"
+    "compat.appleskin.TooltipOverlayHandlerMixin",
+    "recipebook.FabricRecipeBookCategoriesMixin"
   ],
   "server": [],
   "injectors": {

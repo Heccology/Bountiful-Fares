@@ -9,6 +9,7 @@ import net.hecco.bountifulfares.registry.util.BFRegistries;
 import net.hecco.nexuslib.lib.compat.CompatManager;
 import net.hecco.nexuslib.lib.compat.NLCompatAPI;
 import net.hecco.nexuslib.platform.NLServices;
+import net.minecraft.client.RecipeBookCategories;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.RecipeBookType;
 import org.slf4j.Logger;

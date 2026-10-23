@@ -12,6 +12,8 @@ import net.hecco.bountifulfares.registry.content.BFEntities;
 import net.hecco.bountifulfares.registry.content.BFMenus;
 import net.hecco.bountifulfares.registry.content.BFParticles;
 import net.hecco.bountifulfares.registry.misc.BFModelLayers;
+import net.hecco.bountifulfares.registry.misc.BFRecipeBookCategories;
+import net.minecraft.client.RecipeBookCategories;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -22,13 +24,12 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
-import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import oshi.util.tuples.Pair;
+
+import java.util.List;
 
 @EventBusSubscriber(modid = BountifulFares.MOD_ID, value = Dist.CLIENT)
 public class NeoForgeClientEvents {
@@ -39,6 +40,17 @@ public class NeoForgeClientEvents {
         if (container != null) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
         }
+    }
+
+    @SubscribeEvent
+    public static void recipeCategorySetup(RegisterRecipeBookCategoriesEvent event) {
+        // Fabric side: net.hecco.bountifulfares.mixin.recipebook.FabricRecipeBookCategoriesMixin
+        event.registerAggregateCategory(
+                BFRecipeBookCategories.BF_GRISTMILL_SEARCH,
+                List.of(
+                        BFRecipeBookCategories.BF_GRISTMILL_MATERIALS,
+                        BFRecipeBookCategories.BF_GRISTMILL_MINERALS
+                ));
     }
 
     @SubscribeEvent

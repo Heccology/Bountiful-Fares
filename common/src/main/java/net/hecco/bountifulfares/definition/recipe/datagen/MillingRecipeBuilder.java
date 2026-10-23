@@ -88,6 +88,7 @@ public class MillingRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+
     @Override public Item getResult() { return this.primary.getItem(); }
 
     @Override

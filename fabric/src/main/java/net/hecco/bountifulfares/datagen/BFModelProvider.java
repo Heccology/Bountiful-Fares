@@ -248,6 +248,7 @@ public class BFModelProvider extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(BFItems.PICKLED_SPONGEKIN.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.TROPICAL_MEDLEY.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.SWEET_BERRY_PIPS.get(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerator.generateFlatItem(BFItems.PLANT_MEAL.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.SEA_SALAD.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.STUFFED_HOARY_APPLE.get(), ModelTemplates.FLAT_ITEM);
         itemModelGenerator.generateFlatItem(BFItems.MIRE_MEDLEY.get(), ModelTemplates.FLAT_ITEM);
