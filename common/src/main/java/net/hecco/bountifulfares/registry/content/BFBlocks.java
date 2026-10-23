@@ -32,6 +32,7 @@ import net.minecraft.world.level.material.PushReaction;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
@@ -40,9 +41,9 @@ public class BFBlocks {
     public static final Map<Block, Block> CERAMIC_TO_CHECKERED_CERAMIC = Maps.newHashMap();
     public static final Map<Block, Block> REVERT_CHECKERED_CERAMIC = Maps.newHashMap();
 
-    public static final Map<String, Supplier<Block>> TRELLISES = new HashMap<>();
-    public static final Map<String, Supplier<Block>> PICKETS = new HashMap<>();
-    public static final Map<DyeColor, Supplier<Block>> JACK_O_STRAWS = new HashMap<>();
+    public static final Map<String, Supplier<Block>> TRELLISES = new LinkedHashMap<>();
+    public static final Map<String, Supplier<Block>> PICKETS = new LinkedHashMap<>();
+    public static final Map<DyeColor, Supplier<Block>> JACK_O_STRAWS = new LinkedHashMap<>();
 
     public static final Map<ItemLike, Integer> FUELS = new HashMap<>();
     public static final Map<TagKey<Item>, Integer> TAG_FUELS = new HashMap<>();
