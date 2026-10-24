@@ -8,9 +8,13 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
 import net.hecco.bountifulfares.definition.recipe.datagen.GristmillBookCategory;
+import net.hecco.bountifulfares.definition.screen.gristmill.recipebook.SecondaryRecipeCollection;
+import net.hecco.bountifulfares.definition.screen.gristmill.recipebook.MillingRecipeHolderList;
 import net.hecco.bountifulfares.registry.misc.BFRecipeBookCategories;
 import net.minecraft.client.ClientRecipeBook;
 import net.minecraft.client.RecipeBookCategories;
+import net.minecraft.client.gui.screens.recipebook.RecipeCollection;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
@@ -25,6 +29,14 @@ import java.util.Map;
 
 @Mixin(ClientRecipeBook.class)
 public class ClientRecipeBookMixin {
+
+    @WrapOperation(method = "lambda$setupCollections$0", at = @At(value = "NEW", target = "net/minecraft/client/gui/screens/recipebook/RecipeCollection"))
+    private static RecipeCollection bountifulfares$secondaryCollections(RegistryAccess access, List<RecipeHolder<?>> recipes, Operation<RecipeCollection> original) {
+        if (recipes instanceof MillingRecipeHolderList list) {
+            return new SecondaryRecipeCollection(access, list);
+        }
+        return original.call(access, recipes);
+    }
     // If the recipe is a milling recipe, it will sort it into the map uniquely
     @WrapOperation(method = "categorizeAndGroupRecipes", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/crafting/Recipe;isSpecial()Z"))
     private static boolean bountifulfares$customCategorizeForMilling(
@@ -47,12 +59,14 @@ public class ClientRecipeBookMixin {
                 List<RecipeHolder<?>> list = table.get(primaryCat, primaryGroup);
 
                 if (list == null) {
-                    list = Lists.newArrayList();
+                    list = new MillingRecipeHolderList();
                     table.put(primaryCat, primaryGroup, list);
                     map.computeIfAbsent(primaryCat, (category) -> Lists.newArrayList()).add(list);
                 }
 
-                list.add(recipeholder);
+                if (list instanceof MillingRecipeHolderList millingList) {
+                    millingList.addRecipe(recipeholder, false);
+                }
             }
 
             // Secondary
@@ -63,18 +77,21 @@ public class ClientRecipeBookMixin {
                 String secondaryGroup = millingRecipe.getSecondaryGroup().isEmpty() ? recipeholder.id().toString() : millingRecipe.getSecondaryGroup();
 
                 if (secondaryGroup.isEmpty()) {
-                    map.computeIfAbsent(secondaryCat, (category) -> Lists.newArrayList()).add(ImmutableList.of(recipeholder));
+                    List<RecipeHolder<?>> list2 = new MillingRecipeHolderList();
+                    list2.add(recipeholder);
+                    map.computeIfAbsent(secondaryCat, (category) -> Lists.newArrayList()).add(list2);
                 }
                 else {
                     List<RecipeHolder<?>> list2 = table.get(secondaryCat, secondaryGroup);
-
                     if (list2 == null) {
-                        list2 = Lists.newArrayList();
+                        list2 = new MillingRecipeHolderList();
                         table.put(secondaryCat, secondaryGroup, list2);
                         map.computeIfAbsent(secondaryCat, (category) -> Lists.newArrayList()).add(list2);
                     }
 
-                    list2.add(recipeholder);
+                    if (list2 instanceof MillingRecipeHolderList millingList) {
+                        millingList.addRecipe(recipeholder, true);
+                    }
                 }
             }
 

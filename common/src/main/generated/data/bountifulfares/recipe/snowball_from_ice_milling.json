@@ -7,11 +7,12 @@
     "count": 2,
     "id": "minecraft:snowball"
   },
-  "primary_category": "materials",
+  "primary_category": "minerals",
   "primary_group": "snow",
   "secondary": {
     "count": 2,
     "id": "minecraft:snowball"
   },
+  "secondary_category": "minerals",
   "secondary_group": "snow"
 }

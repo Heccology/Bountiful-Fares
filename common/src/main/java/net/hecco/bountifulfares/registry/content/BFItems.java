@@ -18,7 +18,7 @@ import java.util.*;
 import java.util.function.Supplier;
 
 public class BFItems {
-    public static final Map<DyeColor, Supplier<Item>> TIFFINS = new HashMap<>();
+    public static final Map<DyeColor, Supplier<Item>> TIFFINS = new LinkedHashMap<>();
 
     public static final Supplier<Item> PASSION_FRUIT = registerItem("passion_fruit", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.1f).fast().build())));
     public static final Supplier<Item> ELDERBERRIES = registerItem("elderberries", () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(0.1f).fast().effect(new MobEffectInstance(MobEffects.HEAL, 1, 0, true, false), 0.3f).build())));

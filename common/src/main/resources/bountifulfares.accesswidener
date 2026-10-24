@@ -10,3 +10,5 @@ accessible field net/minecraft/world/item/AxeItem STRIPPABLES Ljava/util/Map;
 # Recipe Book
 accessible field net/minecraft/client/gui/screens/recipebook/GhostRecipe time F
 accessible field net/minecraft/client/gui/screens/recipebook/GhostRecipe ingredients Ljava/util/List;
+accessible class net/minecraft/client/gui/screens/recipebook/OverlayRecipeComponent$OverlayRecipeButton
+accessible method net/minecraft/recipebook/PlaceRecipe placeRecipe (IIILnet/minecraft/world/item/crafting/RecipeHolder;Ljava/util/Iterator;I)V

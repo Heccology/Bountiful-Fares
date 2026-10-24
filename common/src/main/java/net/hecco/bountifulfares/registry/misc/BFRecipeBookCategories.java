@@ -25,10 +25,10 @@ public class BFRecipeBookCategories {
             Items.COMPASS.getDefaultInstance()
     };
     public static final Supplier<ItemStack[]> GRIST_MATERIALS_ITEMS = () -> new ItemStack[] {
-            BFItems.FLOUR.get().getDefaultInstance(), BFItems.COCONUT_COIR.get().getDefaultInstance()
+            BFItems.FLOUR.get().getDefaultInstance(), BFItems.GRASS_SEEDS.get().getDefaultInstance()
     };
     public static final Supplier<ItemStack[]> GRIST_MINERALS_ITEMS = () -> new ItemStack[] {
-            BFItems.FELDSPAR.get().getDefaultInstance(), Items.DIAMOND.getDefaultInstance()
+            BFItems.FELDSPAR.get().getDefaultInstance(), Items.RAW_COPPER.getDefaultInstance()
     };
 
     public static void readyUpCategories() {

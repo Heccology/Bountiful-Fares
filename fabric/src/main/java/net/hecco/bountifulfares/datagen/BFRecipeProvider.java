@@ -1064,17 +1064,17 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .copyPrimaryToSecondary()
                 .unlockedBy(getHasName(Items.SHORT_GRASS), has(Items.SHORT_GRASS))
                 .save(exporter);
-        MillingRecipeBuilder.create(Items.ICE, Items.SNOWBALL, 2, GristmillBookCategory.MATERIALS)
+        MillingRecipeBuilder.create(Items.ICE, Items.SNOWBALL, 2, GristmillBookCategory.MINERALS)
                 .group("snow")
                 .copyPrimaryToSecondary()
                 .unlockedBy(getHasName(Items.ICE), has(Items.ICE))
                 .save(exporter);
-        MillingRecipeBuilder.create(Items.PACKED_ICE, Items.SNOWBALL, 4, GristmillBookCategory.MATERIALS)
+        MillingRecipeBuilder.create(Items.PACKED_ICE, Items.SNOWBALL, 4, GristmillBookCategory.MINERALS)
                 .group("snow")
                 .copyPrimaryToSecondary()
                 .unlockedBy(getHasName(Items.PACKED_ICE), has(Items.PACKED_ICE))
                 .save(exporter);
-        MillingRecipeBuilder.create(Items.BLUE_ICE, Items.SNOWBALL, 4, GristmillBookCategory.MATERIALS)
+        MillingRecipeBuilder.create(Items.BLUE_ICE, Items.SNOWBALL, 4, GristmillBookCategory.MINERALS)
                 .group("snow")
                 .copyPrimaryToSecondary()
                 .unlockedBy(getHasName(Items.BLUE_ICE), has(Items.BLUE_ICE))
