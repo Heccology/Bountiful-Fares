@@ -19,12 +19,7 @@ import net.minecraft.world.level.block.Block;
 import java.util.List;
 import java.util.function.Supplier;
 
-import static net.hecco.bountifulfares.BountifulFares.ARTS_AND_CRAFTS_MOD_ID;
-import static net.hecco.bountifulfares.BountifulFares.FARMERS_DELIGHT_MOD_ID;
-import static net.hecco.bountifulfares.BountifulFares.FRONTIERS_MOD_ID;
-import static net.hecco.bountifulfares.BountifulFares.NATURES_SPIRIT_MOD_ID;
-import static net.hecco.bountifulfares.BountifulFares.JADENS_NETHER_EXPANSION_MOD_ID;
-import static net.hecco.bountifulfares.BountifulFares.NO_MANS_LAND_MOD_ID;
+import static net.hecco.bountifulfares.BountifulFares.*;
 
 public class BFEveryCompatModule extends SimpleModule {
 
@@ -75,7 +70,8 @@ public class BFEveryCompatModule extends SimpleModule {
                 FRONTIERS_MOD_ID,
                 NATURES_SPIRIT_MOD_ID,
                 JADENS_NETHER_EXPANSION_MOD_ID,
-                NO_MANS_LAND_MOD_ID
+                NO_MANS_LAND_MOD_ID,
+                SUBTERROUS_MOD_ID
         );
     }
 

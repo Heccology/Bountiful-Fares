@@ -28,6 +28,7 @@ public class BountifulFares {
 	public static final String AEU_MOD_ID = "aeu";
 	public static final String FRONTIERS_MOD_ID = "frontiers";
 	public static final String NO_MANS_LAND_MOD_ID = "nomansland";
+	public static final String SUBTERROUS_MOD_ID = "subterrous";
 	public static final String TWIGS_MOD_ID = "twigs";
 	public static final String JADENS_NETHER_EXPANSION_MOD_ID = "netherexp";
 	public static final String DELICATE_DYES_MOD_ID = "delicate_dyes";
