@@ -10,6 +10,7 @@
   ],
   "client": [
     "compat.appleskin.TooltipOverlayHandlerMixin",
+    "recipebook.FabricClientRecipeBookMixin",
     "recipebook.FabricRecipeBookCategoriesMixin"
   ],
   "server": [],

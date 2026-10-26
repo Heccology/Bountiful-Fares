@@ -8,13 +8,10 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.hecco.bountifulfares.definition.recipe.MillingRecipe;
 import net.hecco.bountifulfares.definition.recipe.datagen.GristmillBookCategory;
-import net.hecco.bountifulfares.definition.screen.gristmill.recipebook.SecondaryRecipeCollection;
 import net.hecco.bountifulfares.definition.screen.gristmill.recipebook.MillingRecipeHolderList;
 import net.hecco.bountifulfares.registry.misc.BFRecipeBookCategories;
 import net.minecraft.client.ClientRecipeBook;
 import net.minecraft.client.RecipeBookCategories;
-import net.minecraft.client.gui.screens.recipebook.RecipeCollection;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
@@ -27,16 +24,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.List;
 import java.util.Map;
 
+// NOTE TO HECCO (+ other devs): Code for SecondaryCollections is sided on Fabric/NeoForge due to lambda naming conventions
 @Mixin(ClientRecipeBook.class)
 public class ClientRecipeBookMixin {
-
-    @WrapOperation(method = "lambda$setupCollections$0", at = @At(value = "NEW", target = "net/minecraft/client/gui/screens/recipebook/RecipeCollection"))
-    private static RecipeCollection bountifulfares$secondaryCollections(RegistryAccess access, List<RecipeHolder<?>> recipes, Operation<RecipeCollection> original) {
-        if (recipes instanceof MillingRecipeHolderList list) {
-            return new SecondaryRecipeCollection(access, list);
-        }
-        return original.call(access, recipes);
-    }
     // If the recipe is a milling recipe, it will sort it into the map uniquely
     @WrapOperation(method = "categorizeAndGroupRecipes", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/crafting/Recipe;isSpecial()Z"))
     private static boolean bountifulfares$customCategorizeForMilling(

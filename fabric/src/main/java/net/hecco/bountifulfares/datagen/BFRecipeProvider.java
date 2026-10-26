@@ -891,6 +891,10 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .group(plantMeal)
                 .unlockedBy(getHasName(BFItems.LEEK.get()), has(BFItems.LEEK.get()))
                 .save(exporter);
+        MillingRecipeBuilder.create(Items.GLOW_BERRIES, BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .group(plantMeal)
+                .unlockedBy(getHasName(Items.GLOW_BERRIES), has(Items.GLOW_BERRIES))
+                .save(exporter);
         MillingRecipeBuilder.create(BFItems.WALNUT.get(), BFBlocks.WALNUT_MULCH.get(), 1, GristmillBookCategory.MATERIALS)
                 .group("walnut_mulch")
                 .unlockedBy(getHasName(BFItems.WALNUT.get()), has(BFItems.WALNUT.get()))
@@ -946,6 +950,11 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .group("feldspar")
                 .copyPrimaryToSecondary()
                 .unlockedBy(getHasName(Items.TUFF), has(Items.TUFF))
+                .save(exporter);
+        MillingRecipeBuilder.create(Items.GLOWSTONE, Items.GLOWSTONE_DUST, 2, GristmillBookCategory.MINERALS)
+                .group("glowstone")
+                .copyPrimaryToSecondary()
+                .unlockedBy(getHasName(Items.GLOWSTONE), has(Items.GLOWSTONE))
                 .save(exporter);
         MillingRecipeBuilder.create(BFItems.COCONUT.get(), BFItems.COCONUT_COIR.get(), 2, GristmillBookCategory.MATERIALS)
                 .group("coconut_coir")

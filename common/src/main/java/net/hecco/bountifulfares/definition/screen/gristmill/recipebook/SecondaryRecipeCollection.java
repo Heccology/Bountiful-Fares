@@ -23,10 +23,6 @@ public class SecondaryRecipeCollection extends RecipeCollection {
         }
     }
 
-    public MillingRecipeHolderList getMillingRecipes() {
-        return recipes;
-    }
-
     private static boolean allRecipesHaveSameResult(MillingRecipeHolderList recipes) {
         int i = recipes.size();
         RecipeHolder<?> first = recipes.getFirst();
@@ -43,9 +39,9 @@ public class SecondaryRecipeCollection extends RecipeCollection {
         return true;
     }
 
-
-    @Override
-    public boolean hasSingleResultItem() {
-        return singleResultItem;
+    public MillingRecipeHolderList getMillingRecipes() {
+        return this.recipes;
     }
+
+    @Override public boolean hasSingleResultItem() { return this.singleResultItem; }
 }
