@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "plant_meal",
+  "ingredients": [
+    {
+      "item": "bountifulfares:plant_meal_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "bountifulfares:plant_meal"
+  }
+}

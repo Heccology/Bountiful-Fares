@@ -171,6 +171,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.HOARY_LEAVES.get())
                 .add(BFBlocks.WALNUT_LEAVES.get())
                 .add(BFBlocks.TEA_SHRUB.get())
+                .add(BFBlocks.PLANT_MEAL_BLOCK.get())
         ;
         getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(BFBlocks.WALNUT_MULCH.get())
@@ -459,7 +460,8 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.DIRT)
                 .add(BFBlocks.WALNUT_MULCH_BLOCK.get())
-                .add(BFBlocks.PALM_MULCH_BLOCK.get());
+                .add(BFBlocks.PALM_MULCH_BLOCK.get())
+                .add(BFBlocks.PLANT_MEAL_BLOCK.get());
 
         getOrCreateTagBuilder(BlockTags.OCCLUDES_VIBRATION_SIGNALS).add(BFBlocks.PACKED_COCONUT_COIR.get()).add(BFBlocks.COIR_CARPET.get());
 

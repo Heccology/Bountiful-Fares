@@ -69,6 +69,8 @@ public class BFModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.createPlant(BFBlocks.GOLDEN_APPLE_SAPLING.get(), BFBlocks.POTTED_GOLDEN_APPLE_SAPLING.get(), BlockModelGenerators.TintState.NOT_TINTED);
 
+        blockStateModelGenerator.createTrivialBlock(BFBlocks.PLANT_MEAL_BLOCK.get(), TexturedModel.CUBE);
+
         Block brownJOS = BFBlocks.JACK_O_STRAWS.get(DyeColor.BROWN).get();
         for (Supplier<Block> block : BFBlocks.JACK_O_STRAWS.values()) {
             if (brownJOS.equals(block.get())) registerUnlitableJackOStrawModels(blockStateModelGenerator, block.get());

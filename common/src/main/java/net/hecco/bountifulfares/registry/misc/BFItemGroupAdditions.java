@@ -155,6 +155,7 @@ public class BFItemGroupAdditions {
         );
 
         NATURAL_BLOCKS.add(ItemGroupAddition.create(Items.GRASS_BLOCK, BFBlocks.GRASSY_DIRT.get().asItem().getDefaultInstance()));
+        NATURAL_BLOCKS.add(ItemGroupAddition.create(Items.FARMLAND, BFBlocks.PLANT_MEAL_BLOCK.get().asItem().getDefaultInstance()));
         NATURAL_BLOCKS.add(ItemGroupAddition.create(Items.CHERRY_LOG, BFBlocks.APPLE_LOG.get().asItem().getDefaultInstance()));
         NATURAL_BLOCKS.add(ItemGroupAddition.create(BFBlocks.APPLE_LOG.get(), BFBlocks.ORANGE_LOG.get().asItem().getDefaultInstance()));
         NATURAL_BLOCKS.add(ItemGroupAddition.create(BFBlocks.ORANGE_LOG.get(), BFBlocks.LEMON_LOG.get().asItem().getDefaultInstance()));
@@ -390,6 +391,7 @@ public class BFItemGroupAdditions {
 
         INGREDIENTS.add(ItemGroupAddition.create(Items.WHEAT, BFItems.MAIZE.get().asItem().getDefaultInstance()));
         INGREDIENTS.add(ItemGroupAddition.create(BFItems.MAIZE.get(), BFItems.FLOUR.get().asItem().getDefaultInstance()));
+        INGREDIENTS.add(ItemGroupAddition.create(Items.BONE_MEAL, BFItems.PLANT_MEAL.get().asItem().getDefaultInstance()));
         INGREDIENTS.add(ItemGroupAddition.create(Items.SLIME_BALL, BFItems.FELDSPAR.get().asItem().getDefaultInstance()));
         INGREDIENTS.add(ItemGroupAddition.create(BFItems.FELDSPAR.get(), BFItems.CERAMIC_CLAY.get().asItem().getDefaultInstance()));
         INGREDIENTS.add(ItemGroupAddition.create(BFItems.CERAMIC_CLAY.get(), BFItems.CERAMIC_TILE.get().asItem().getDefaultInstance()));

@@ -654,6 +654,8 @@ public class BFRecipeProvider extends FabricRecipeProvider {
 
         twoByTwoPacker(exporter, RecipeCategory.BUILDING_BLOCKS, BFBlocks.WALNUT_MULCH_BLOCK.get(), BFBlocks.WALNUT_MULCH.get());
 
+        nineBlockStorageRecipesRecipesWithCustomUnpacking(exporter, RecipeCategory.MISC, BFItems.PLANT_MEAL.get(), RecipeCategory.BUILDING_BLOCKS, BFBlocks.PLANT_MEAL_BLOCK.get(), "plant_meal_from_block", "plant_meal");
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, BFBlocks.PALM_MULCH.get(), 4)
                 .group("coconut_mulch")
                 .requires(BFBlocks.PALM_MULCH_BLOCK.get())

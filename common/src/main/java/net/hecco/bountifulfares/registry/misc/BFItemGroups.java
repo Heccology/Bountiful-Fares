@@ -346,6 +346,8 @@ public class BFItemGroups {
                         entries.accept(BFBlocks.GRISTMILL.get());
                         entries.accept(BFItems.FLOUR.get());
                         entries.accept(BFBlocks.FLOUR_BLOCK.get());
+                        entries.accept(BFItems.PLANT_MEAL.get());
+                        entries.accept(BFBlocks.PLANT_MEAL_BLOCK.get());
                         entries.accept(BFItems.CUP.get());
                         entries.accept(BFItems.WATER_CUP.get());
                         entries.accept(BFItems.GREEN_TEA_CUP.get());

@@ -265,6 +265,7 @@ public class BFRegistries {
     public static Object2FloatMap<ItemLike> registerModCompostables() {
         Object2FloatMap<ItemLike> compostables = new Object2FloatOpenHashMap();
         compostables.put(BFItems.PLANT_MEAL.get(), 0.9f);
+        compostables.put(BFBlocks.PLANT_MEAL_BLOCK.get().asItem(), 1f);
         compostables.put(BFBlocks.APPLE_LEAVES.get().asItem(), 0.3f);
         compostables.put(BFBlocks.FLOWERING_APPLE_LEAVES.get().asItem(), 0.5f);
         compostables.put(BFBlocks.APPLE_SAPLING.get().asItem(), 0.85f);
@@ -420,6 +421,7 @@ public class BFRegistries {
         NLServices.REGISTRY.setFlammable(BFBlocks.WALNUT_MULCH_BLOCK.get(), 20, 30);
         NLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH.get(), 60, 30);
         NLServices.REGISTRY.setFlammable(BFBlocks.PALM_MULCH_BLOCK.get(), 20, 30);
+        NLServices.REGISTRY.setFlammable(BFBlocks.PLANT_MEAL_BLOCK.get(), 60, 50);
         NLServices.REGISTRY.setFlammable(BFBlocks.FLOUR_BLOCK.get(), 10, 5);
         for (Supplier<Block> block : BFBlocks.TRELLISES.values()) {
             if (!nonFlammableTrellises.contains(BuiltInRegistries.BLOCK.getKey(block.get()).getPath())) {
