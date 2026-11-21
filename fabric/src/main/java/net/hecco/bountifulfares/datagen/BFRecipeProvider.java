@@ -635,6 +635,13 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(BFItems.TEA_BERRIES.get()), has(BFItems.TEA_BERRIES.get()))
                 .save(exporter);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.DIRT, 2)
+                .requires(Items.DIRT)
+                .requires(BFItems.PLANT_MEAL.get(), 2)
+                .unlockedBy(getHasName(BFItems.PLANT_MEAL.get()), has(BFItems.PLANT_MEAL.get()))
+                .save(exporter, "dirt_from_plant_meal");
+        ;
+
         woodFromLogs(exporter, BFBlocks.APPLE_WOOD.get(), BFBlocks.APPLE_LOG.get());
         woodFromLogs(exporter, BFBlocks.STRIPPED_APPLE_WOOD.get(), BFBlocks.STRIPPED_APPLE_LOG.get());
         woodFromLogs(exporter, BFBlocks.GOLDEN_APPLE_WOOD.get(), BFBlocks.GOLDEN_APPLE_LOG.get());

@@ -6,6 +6,7 @@ import net.hecco.bountifulfares.registry.tags.BFBlockTags;
 import net.hecco.nexuslib.platform.NLServices;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,11 +27,13 @@ public abstract class AbstractBlockStateMixin {
     @Inject(method = "getMapColor", at = @At(value = "HEAD"), cancellable = true)
     private void bountifulfares$getMapColor(BlockGetter world, BlockPos pos, CallbackInfoReturnable<MapColor> cir) {
         if (!NLServices.PLATFORM.isModLoaded("antique_atlas") && !NLServices.PLATFORM.isModLoaded("surveyor")) {
-            BlockState state = world.getBlockState(pos);
-            if (state.is(BFBlockTags.DYEABLE_CERAMIC_BLOCKS) && this.mapColor != MapColor.NONE) {
-                BlockEntity blockEntity = world.getBlockEntity(pos);
-                if (blockEntity instanceof DyeableCeramicBlockEntity) {
-                    cir.setReturnValue(bountifulfares$findNearestMapColor(Integer.parseInt(String.format("%06X", DyeableBlockEntity.getColor(world, pos)).substring(0, 6), 16)));
+            if (world instanceof LevelReader level && level.hasChunkAt(pos)) {
+                BlockState state = world.getBlockState(pos);
+                if (state.is(BFBlockTags.DYEABLE_CERAMIC_BLOCKS) && this.mapColor != MapColor.NONE) {
+                    BlockEntity blockEntity = world.getBlockEntity(pos);
+                    if (blockEntity instanceof DyeableCeramicBlockEntity) {
+                        cir.setReturnValue(bountifulfares$findNearestMapColor(Integer.parseInt(String.format("%06X", DyeableBlockEntity.getColor(world, pos)).substring(0, 6), 16)));
+                    }
                 }
             }
         }

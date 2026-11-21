@@ -35,7 +35,7 @@ import java.util.function.Supplier;
 import static net.hecco.bountifulfares.BountifulFares.NATURES_SPIRIT_MOD_ID;
 
 public class NaturesSpiritIntegration implements BFIntegration, HasWoodTypes {
-    private static final List<String> WOOD_TYPES = new ArrayList<>(List.of("aspen", "cedar", "coconut", "cypress", "fir", "ghaf", "joshua", "larch", "mahogany", "maple", "olive", "palo_verde", "sugi", "willow", "wisteria"));
+    private static final List<String> WOOD_TYPES = new ArrayList<>(List.of("aspen", "cedar", "coconut", "cypress", "fir", "ghaf", "joshua", "larch", "mahogany", "maple", "olive", "palo_verde", "redwood", "saxaul", "sugi", "willow", "wisteria"));
 
     @Override
     public List<String> modIds() {
