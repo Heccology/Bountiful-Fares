@@ -1,8 +1,7 @@
-package net.hecco.bountifulfares.mixin.render;
+package net.hecco.bountifulfares.mixin.misc;
 
 import net.hecco.bountifulfares.definition.block.custom.TrellisBlock;
 import net.hecco.bountifulfares.registry.content.BFBlockEntities;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
