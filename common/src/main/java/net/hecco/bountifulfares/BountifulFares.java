@@ -69,8 +69,6 @@ public class BountifulFares {
 		BFItemGroups.registerItemGroups();
 		BFRegistries.registerMiscRegistries();
 		BFCriteriaTriggers.registerCriteriaTriggers();
-		//TODO: Fix c2s networking on fabric
-		//TODO: Add custom HarvestTrellis goal for farmer villagers
 	}
 
 	//appledog - Yirmiri
