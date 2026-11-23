@@ -392,6 +392,7 @@ public class BFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(BFBlocks.CERAMIC_BUTTON.get())
                 .add(BFBlocks.CERAMIC_LEVER.get())
                 .add(BFBlocks.CERAMIC_DISH.get())
+                .add(BFBlocks.CERAMIC_FLOWER_POT.get())
                 .add(BFBlocks.CERAMIC_CHEST.get())
                 .add(BFBlocks.SOLID_CERAMIC.get())
         ;

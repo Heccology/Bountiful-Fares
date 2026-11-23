@@ -35,6 +35,11 @@ public class TrellisBlockEntity extends BlockEntity {
         }
     }
 
+    @Override
+    public boolean isValidBlockState(BlockState state) {
+        return state.getBlock() instanceof TrellisBlock;
+    }
+
     public boolean canPlantOn() {
         return plant == ItemStack.EMPTY;
     }

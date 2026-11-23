@@ -18,6 +18,10 @@ public class BFBlockEntities {
             () -> NLServices.REGISTRY.createBlockEntity(CeramicDishBlockEntity::new, CERAMIC_DISH)
     );
 
+    public static final Supplier<BlockEntityType<CeramicFlowerPotBlockEntity>> CERAMIC_FLOWER_POT_BLOCK_ENTITY = NLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "ceramic_flower_pot_block_entity",
+            () -> NLServices.REGISTRY.createBlockEntity(CeramicFlowerPotBlockEntity::new, CERAMIC_FLOWER_POT)
+    );
+
     public static final Supplier<BlockEntityType<CeramicChestBlockEntity>> CERAMIC_CHEST_BLOCK_ENTITY = NLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "ceramic_chest_block_entity",
             () -> NLServices.REGISTRY.createBlockEntity(CeramicChestBlockEntity::new, CERAMIC_CHEST)
     );
@@ -68,45 +72,7 @@ public class BFBlockEntities {
 
     public static final Supplier<BlockEntityType<TrellisBlockEntity>> TRELLIS_BLOCK_ENTITY = NLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "trellis_block_entity",
             () -> NLServices.REGISTRY.createBlockEntity(TrellisBlockEntity::new,
-                    TRELLISES.get("oak"),
-                    TRELLISES.get("spruce"),
-                    TRELLISES.get("birch"),
-                    TRELLISES.get("jungle"),
-                    TRELLISES.get("acacia"),
-                    TRELLISES.get("dark_oak"),
-                    TRELLISES.get("mangrove"),
-                    TRELLISES.get("cherry"),
-                    TRELLISES.get("bamboo"),
-                    TRELLISES.get("walnut"),
-                    TRELLISES.get("hoary"),
-                    TRELLISES.get("crimson"),
-                    TRELLISES.get("warped"),
-                    TRELLISES.get("natures_spirit_aspen"),
-                    TRELLISES.get("natures_spirit_cedar"),
-                    TRELLISES.get("natures_spirit_coconut"),
-                    TRELLISES.get("natures_spirit_cypress"),
-                    TRELLISES.get("natures_spirit_fir"),
-                    TRELLISES.get("natures_spirit_ghaf"),
-                    TRELLISES.get("natures_spirit_joshua"),
-                    TRELLISES.get("natures_spirit_larch"),
-                    TRELLISES.get("natures_spirit_mahogany"),
-                    TRELLISES.get("natures_spirit_maple"),
-                    TRELLISES.get("natures_spirit_olive"),
-                    TRELLISES.get("natures_spirit_palo_verde"),
-                    TRELLISES.get("natures_spirit_redwood"),
-                    TRELLISES.get("natures_spirit_saxaul"),
-                    TRELLISES.get("natures_spirit_sugi"),
-                    TRELLISES.get("natures_spirit_willow"),
-                    TRELLISES.get("natures_spirit_wisteria"),
-                    TRELLISES.get("nomansland_pine"),
-                    TRELLISES.get("nomansland_maple"),
-                    TRELLISES.get("nomansland_walnut"),
-                    TRELLISES.get("nomansland_willow"),
-                    TRELLISES.get("frontiers_eboncork"),
-                    TRELLISES.get("frontiers_blighted_birch"),
-                    TRELLISES.get("arts_and_crafts_cork"),
-                    TRELLISES.get("netherexp_claret"),
-                    TRELLISES.get("dungeonsdelight_wormwood")
+                    TRELLISES.get("oak")
             )
     );
 

@@ -42,6 +42,7 @@ public class FabricBountifulFaresClient implements ClientModInitializer {
         BlockEntityRenderers.register(BFBlockEntities.TRELLIS_BLOCK_ENTITY.get(), TrellisRenderer::new);
         BlockEntityRenderers.register(BFBlockEntities.COIR_BED_BLOCK_ENTITY.get(), CoirBedRenderer::new);
         BlockEntityRenderers.register(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), CeramicDishRenderer::new);
+        BlockEntityRenderers.register(BFBlockEntities.CERAMIC_FLOWER_POT_BLOCK_ENTITY.get(), CeramicFlowerPotRenderer::new);
         BlockEntityRenderers.register(BFBlockEntities.CERAMIC_CHEST_BLOCK_ENTITY.get(), CeramicChestRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(BFModelLayers.TRELLIS_DEFAULT, TrellisBlockEntityModel::createDefaultLayer);
         EntityModelLayerRegistry.registerModelLayer(BFModelLayers.TRELLIS_INVERTED, TrellisBlockEntityModel::createInvertedLayer);

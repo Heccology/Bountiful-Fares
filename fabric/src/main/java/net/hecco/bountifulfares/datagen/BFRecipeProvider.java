@@ -170,6 +170,13 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .unlockedBy(getHasName(BFItems.CERAMIC_TILE.get()), has(BFItems.CERAMIC_TILE.get()))
                 .save(exporter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, BFBlocks.CERAMIC_FLOWER_POT.get())
+                .pattern("# #")
+                .pattern(" # ")
+                .define('#', BFItems.CERAMIC_TILE.get())
+                .unlockedBy(getHasName(BFItems.CERAMIC_TILE.get()), has(BFItems.CERAMIC_TILE.get()))
+                .save(exporter);
+
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, BFBlocks.CERAMIC_LEVER.get())
                 .pattern(" S ")
                 .pattern("###")
@@ -1215,6 +1222,7 @@ public class BFRecipeProvider extends FabricRecipeProvider {
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_PRESSURE_PLATE.get());
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_BUTTON.get());
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_DISH.get());
+        offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_FLOWER_POT.get());
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_DOOR.get());
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_TRAPDOOR.get());
         offerCeramicUndyingRecipe(exporter, BFBlocks.CERAMIC_LEVER.get());

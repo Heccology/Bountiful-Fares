@@ -295,6 +295,7 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFBlocks.CERAMIC_PRESSURE_PLATE.get().asItem())
                 .add(BFBlocks.CERAMIC_LEVER.get().asItem())
                 .add(BFBlocks.CERAMIC_DISH.get().asItem())
+                .add(BFBlocks.CERAMIC_FLOWER_POT.get().asItem())
                 .add(BFBlocks.CERAMIC_CHEST.get().asItem())
                 .add(BFBlocks.SOLID_CERAMIC.get().asItem())
                 .add(BFItems.ARTISAN_BRUSH.get().asItem())
@@ -385,6 +386,7 @@ public class BFItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(BFBlocks.CERAMIC_BUTTON.get().asItem())
                 .add(BFBlocks.CERAMIC_LEVER.get().asItem())
                 .add(BFBlocks.CERAMIC_DISH.get().asItem())
+                .add(BFBlocks.CERAMIC_FLOWER_POT.get().asItem())
                 .add(BFBlocks.CERAMIC_CHEST.get().asItem())
         ;
         getOrCreateTagBuilder(BFItemTags.FELSIC_STONES)

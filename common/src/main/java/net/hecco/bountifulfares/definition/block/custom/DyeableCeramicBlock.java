@@ -1,10 +1,7 @@
 package net.hecco.bountifulfares.definition.block.custom;
 
 import net.hecco.bountifulfares.BountifulFares;
-import net.hecco.bountifulfares.definition.block.entity.CeramicChestBlockEntity;
-import net.hecco.bountifulfares.definition.block.entity.CeramicDishBlockEntity;
-import net.hecco.bountifulfares.definition.block.entity.DyeableBlockEntity;
-import net.hecco.bountifulfares.definition.block.entity.DyeableCeramicBlockEntity;
+import net.hecco.bountifulfares.definition.block.entity.*;
 import net.hecco.bountifulfares.definition.compat.CompatUtil;
 import net.hecco.bountifulfares.definition.networking.payload.CeramicBlockColorPayload;
 import net.hecco.bountifulfares.definition.networking.payload.CeramicDishEmptyPayload;
@@ -234,6 +231,68 @@ if (color.isPresent()) {
                     if (newDish != null)
                     {
                         newDish.insertItem(stackEntity);
+                    }
+
+                    return ItemInteractionResult.SUCCESS;
+                }
+            }
+        }
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
+    public static ItemInteractionResult onUseForFlowerPot(ItemStack stack, BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, Block block, CeramicFlowerPotBlockEntity dish) {
+        ItemStack stackEntity = dish.getPlant().copy();
+        if (stack.is(Items.WET_SPONGE) && !player.isShiftKeyDown()) {
+            dish.setPlant(ItemStack.EMPTY);
+            world.removeBlock(pos, false);
+            world.setBlock(pos, block.withPropertiesOf(state), 2);
+
+            CeramicFlowerPotBlockEntity newDish = (CeramicFlowerPotBlockEntity) world.getBlockEntity(pos);
+            if (newDish != null)
+            {
+                newDish.setPlant(stackEntity);
+            }
+
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.SPONGE_ABSORB, SoundSource.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+            return ItemInteractionResult.SUCCESS;
+        }
+        if (stack.is(BFItems.ARTISAN_BRUSH.get()) && !player.isShiftKeyDown() && stack.get(DataComponents.DYED_COLOR) != null) {
+            int brushColor = stack.getComponents().get(DataComponents.DYED_COLOR).rgb();
+            dish.setPlant(ItemStack.EMPTY);
+            world.removeBlock(pos, false);
+            world.setBlock(pos, block.withPropertiesOf(state), 2);
+            world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.DYE_USE, SoundSource.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+            if (world.getBlockEntity(pos) instanceof CeramicFlowerPotBlockEntity ceramicFlowerPotBlockEntity) {
+                ceramicFlowerPotBlockEntity.color = brushColor;
+                ceramicFlowerPotBlockEntity.setChanged();
+            }
+
+            CeramicFlowerPotBlockEntity newDish = (CeramicFlowerPotBlockEntity) world.getBlockEntity(pos);
+            if (newDish != null)
+            {
+                newDish.setPlant(stackEntity);
+            }
+
+            return ItemInteractionResult.SUCCESS;
+        }
+        if (NLServices.PLATFORM.isModLoaded(BountifulFares.ARTS_AND_CRAFTS_MOD_ID)) {
+            Item item = stack.getItem();
+            if (CompatUtil.isItemPaintbrush(item)) {
+                int brushColor = CompatUtil.getIntColorFromPaintbrush(item);
+                if (brushColor != 1) {
+                    dish.setPlant(ItemStack.EMPTY);
+                    world.removeBlock(pos, false);
+                    world.setBlock(pos, block.withPropertiesOf(state), 2);
+                    world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.DYE_USE, SoundSource.BLOCKS, 1.0F, 0.8F + (world.random.nextFloat() / 3));
+                    if (world.getBlockEntity(pos) instanceof CeramicFlowerPotBlockEntity ceramicFlowerPotBlockEntity) {
+                        ceramicFlowerPotBlockEntity.color = brushColor;
+                        ceramicFlowerPotBlockEntity.setChanged();
+                    }
+
+                    CeramicFlowerPotBlockEntity newDish = (CeramicFlowerPotBlockEntity) world.getBlockEntity(pos);
+                    if (newDish != null)
+                    {
+                        newDish.setPlant(stackEntity);
                     }
 
                     return ItemInteractionResult.SUCCESS;

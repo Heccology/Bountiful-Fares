@@ -63,6 +63,7 @@ public class BountifulFaresClient {
         registerCeramicBlockColor(BFBlocks.CERAMIC_DOOR.get());
         registerCeramicBlockColor(BFBlocks.CERAMIC_TRAPDOOR.get());
         registerCeramicBlockColor(BFBlocks.CERAMIC_DISH.get());
+        registerCeramicBlockColor(BFBlocks.CERAMIC_FLOWER_POT.get());
         registerCeramicBlockColor(BFBlocks.CERAMIC_CHEST.get());
         registerCeramicBlockColor(BFBlocks.SOLID_CERAMIC.get());
         itemColors.add(new Pair<>((stack, tintIndex) -> {
@@ -184,6 +185,7 @@ public class BountifulFaresClient {
         NLServices.client().setBlockRenderType(BFBlocks.FERMENTATION_VESSEL.get(), RenderType.cutout());
         NLServices.client().setBlockRenderType(BFBlocks.FELDSPAR_LANTERN.get(), RenderType.cutout());
         NLServices.client().setBlockRenderType(BFBlocks.TINGED_GLASS.get(), RenderType.translucent());
+        NLServices.client().setBlockRenderType(BFBlocks.CERAMIC_FLOWER_POT.get(), RenderType.cutout());
         NLServices.client().setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_TILES.get(), RenderType.cutout());
         NLServices.client().setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_TILE_STAIRS.get(), RenderType.cutout());
         NLServices.client().setBlockRenderType(BFBlocks.CHECKERED_CERAMIC_TILE_SLAB.get(), RenderType.cutout());

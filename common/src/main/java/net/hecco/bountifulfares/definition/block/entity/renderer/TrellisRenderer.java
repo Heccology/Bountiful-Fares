@@ -30,9 +30,10 @@ public class TrellisRenderer implements BlockEntityRenderer<TrellisBlockEntity> 
         this.invertedModel = invertedLayer.getChild("vines");
     }
 
+
+
     @Override
     public void render(TrellisBlockEntity entity, float v, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int i1) {
-
         BlockState state = entity.getBlockState();
 
         Direction direction = state.hasProperty(BlockStateProperties.HORIZONTAL_FACING)

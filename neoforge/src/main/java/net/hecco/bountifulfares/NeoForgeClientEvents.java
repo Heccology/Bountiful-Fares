@@ -73,6 +73,7 @@ public class NeoForgeClientEvents {
         event.registerBlockEntityRenderer(BFBlockEntities.TRELLIS_BLOCK_ENTITY.get(), TrellisRenderer::new);
         event.registerBlockEntityRenderer(BFBlockEntities.COIR_BED_BLOCK_ENTITY.get(), CoirBedRenderer::new);
         event.registerBlockEntityRenderer(BFBlockEntities.CERAMIC_DISH_BLOCK_ENTITY.get(), CeramicDishRenderer::new);
+        event.registerBlockEntityRenderer(BFBlockEntities.CERAMIC_FLOWER_POT_BLOCK_ENTITY.get(), CeramicFlowerPotRenderer::new);
         event.registerBlockEntityRenderer(BFBlockEntities.CERAMIC_CHEST_BLOCK_ENTITY.get(), CeramicChestRenderer::new);
     }
 
