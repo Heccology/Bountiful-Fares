@@ -71,9 +71,7 @@ public class BFBlockEntities {
     );
 
     public static final Supplier<BlockEntityType<TrellisBlockEntity>> TRELLIS_BLOCK_ENTITY = NLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "trellis_block_entity",
-            () -> NLServices.REGISTRY.createBlockEntity(TrellisBlockEntity::new,
-                    TRELLISES.get("oak")
-            )
+            () -> NLServices.REGISTRY.createBlockEntity(TrellisBlockEntity::new, TRELLISES.get("oak") /* Not necessary to register more here because mixin moment (see mixin.misc.BlockEntityTypeMixin)*/)
     );
 
     public static final Supplier<BlockEntityType<CoirBedBlockEntity>> COIR_BED_BLOCK_ENTITY = NLServices.REGISTRY.registerBlockEntityType(BountifulFares.MOD_ID, "coir_bed_block_entity",
