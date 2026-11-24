@@ -935,6 +935,12 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .secondaryGroup(plantMeal)
                 .unlockedBy(getHasName(Items.SWEET_BERRIES), has(Items.SWEET_BERRIES))
                 .save(exporter);
+        MillingRecipeBuilder.create(Items.MELON_SLICE, Items.MELON_SEEDS, 1, GristmillBookCategory.MATERIALS)
+                .group("melon_seeds")
+                .secondaryResult(BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)
+                .secondaryGroup(plantMeal)
+                .unlockedBy(getHasName(Items.MELON_SLICE), has(Items.MELON_SLICE))
+                .save(exporter);
         MillingRecipeBuilder.create(Items.WHEAT, BFItems.FLOUR.get(), 2, GristmillBookCategory.MATERIALS)
                 .group("flour")
                 .secondaryResult(BFItems.PLANT_MEAL.get(), 1, GristmillBookCategory.MATERIALS)

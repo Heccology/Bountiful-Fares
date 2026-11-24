@@ -1,0 +1,17 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:melon_slice"
+  },
+  "primary": {
+    "count": 1,
+    "id": "minecraft:melon_seeds"
+  },
+  "primary_category": "materials",
+  "primary_group": "melon_seeds",
+  "secondary": {
+    "count": 1,
+    "id": "bountifulfares:plant_meal"
+  },
+  "secondary_group": "plant_meal"
+}
