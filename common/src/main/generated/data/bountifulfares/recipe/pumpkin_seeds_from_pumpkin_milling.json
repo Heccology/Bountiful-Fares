@@ -1,0 +1,17 @@
+{
+  "type": "bountifulfares:milling",
+  "ingredient": {
+    "item": "minecraft:pumpkin"
+  },
+  "primary": {
+    "count": 4,
+    "id": "minecraft:pumpkin_seeds"
+  },
+  "primary_category": "materials",
+  "primary_group": "pumpkin_seeds",
+  "secondary": {
+    "count": 2,
+    "id": "bountifulfares:plant_meal"
+  },
+  "secondary_group": "plant_meal"
+}

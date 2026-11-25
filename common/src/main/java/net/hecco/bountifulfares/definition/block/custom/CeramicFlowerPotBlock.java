@@ -5,10 +5,12 @@ import net.hecco.bountifulfares.BountifulFares;
 import net.hecco.bountifulfares.definition.block.entity.CeramicDishBlockEntity;
 import net.hecco.bountifulfares.definition.block.entity.CeramicFlowerPotBlockEntity;
 import net.hecco.bountifulfares.registry.content.BFBlocks;
+import net.hecco.bountifulfares.registry.content.BFItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -50,6 +52,17 @@ public class CeramicFlowerPotBlock extends BaseEntityBlock {
 
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return Shapes.join(Block.box(5, 0, 5, 11, 6, 11), Block.box(4, 6, 4, 12, 8, 12), BooleanOp.OR);
+    }
+
+    @Override
+    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
+        super.animateTick(state, level, pos, random);
+
+        BlockEntity entity = level.getBlockEntity(pos);
+        if (entity instanceof CeramicFlowerPotBlockEntity pot && pot.getPlant().getItem() instanceof BlockItem bli) {
+            Block bl1 = POTTED_PLANTS.get(bli.getBlock());
+            if (bl1 != null) bl1.animateTick(state, level, pos, random);
+        }
     }
 
     public static void getAllPottedPlants() {
