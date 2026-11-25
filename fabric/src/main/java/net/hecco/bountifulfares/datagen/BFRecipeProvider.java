@@ -923,10 +923,6 @@ public class BFRecipeProvider extends FabricRecipeProvider {
                 .group("gravel")
                 .unlockedBy(getHasName(Items.COBBLESTONE), has(Items.COBBLESTONE))
                 .save(exporter);
-        MillingRecipeBuilder.create(Items.GRAVEL, Items.SAND, 1, GristmillBookCategory.MINERALS)
-                .group("sand")
-                .unlockedBy(getHasName(Items.GRAVEL), has(Items.GRAVEL))
-                .save(exporter);
 
         // Milling recipes 2 items
         MillingRecipeBuilder.create(Items.SWEET_BERRIES, BFItems.SWEET_BERRY_PIPS.get(), 1, GristmillBookCategory.MATERIALS)
